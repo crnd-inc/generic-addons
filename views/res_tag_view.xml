@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_res_tag_search" model="ir.ui.view">
+            <field name="name">res.tag.search</field>
+            <field name="model">res.tag</field>
+            <field name="arch" type="xml">
+                <search string="Tag Search">
+                    <field name="model_id"/>
+                    <field name="name"/>
+                    <field name="code"/>
+
+                    <group expand="0" string="Group By...">
+                        <filter string="Status" domain="[]" context="{'group_by':'model_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="view_res_tag_tree" model="ir.ui.view">
+            <field name="name">res.tag.tree</field>
+            <field name="model">res.tag</field>
+            <field name="arch" type="xml">
+                <tree string="Tags" editable="bottom">
+                    <field name="model_id" widget="selection"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="comment"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_res_tags_view" model="ir.actions.act_window">
+            <field name="name">Tags</field>
+            <field name="res_model">res.tag</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_res_tag_tree"/>
+        </record>
+
+        <menuitem action="action_res_tags_view" id="menu_action_res_tags_view"
+                  parent="base.menu_config"/>
+    </data>
+</openerp>
+

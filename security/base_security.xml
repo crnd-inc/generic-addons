@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="0">
+
+    <!--
+         Users Groups
+    -->
+        <!--<record model="res.groups" id="group_logistic_user">-->
+            <!--<field name="name">Tag User</field>-->
+        <!--</record>-->
+
+        <!--<record model="res.groups" id="group_logistic_manager">-->
+            <!--<field name="name">Tag Manager</field>-->
+        <!--</record>-->
+    </data>
+</openerp>
+
