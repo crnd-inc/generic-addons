@@ -37,6 +37,13 @@ class ResTag(orm.Model):
 
         return False
 
+    def _get_objects_count(self, cr, uid, ids, field_name, arg, context=None):
+        res = {}.fromkeys(ids, 0)
+        for tag in self.browse(cr, uid, ids, context=context):
+            rel_obj = self.pool.get(tag.model_id.model)
+            res[tag.id] = rel_obj.search(cr, uid, [('tag_ids.id', '=', tag.id)], count=1, context=context)
+        return res
+
     _columns = {
         "model_id": fields.many2one("res.tag.model", "Model", required=True,
                                     select=True, help="Specify model for which this tag is available"),
@@ -46,7 +53,11 @@ class ResTag(orm.Model):
                             help="May be used for special tags which have programming meaning"),
         "comment": fields.text("Comment", help="Describe what this tag means"),
 
-        "active": fields.boolean("Active"),
+        "active": fields.boolean("Active", select=True),
+
+        "objects_count": fields.function(lambda self, *a, **k: self._get_objects_count(*a, **k),
+                                         string="Objects", type='integer', store=False,
+                                         help="How many objects contains this tag"),
     }
 
     _defaults = {

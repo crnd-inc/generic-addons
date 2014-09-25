@@ -1,6 +1,6 @@
 {
     "name": "Tags",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "JBM",
     "website": "",
     "summary": "Tags",

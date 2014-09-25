@@ -12,7 +12,7 @@
                     <field name="code"/>
 
                     <group expand="0" string="Group By...">
-                        <filter string="Status" domain="[]" context="{'group_by':'model_id'}"/>
+                        <filter string="Model" domain="[]" context="{'group_by':'model_id'}"/>
                     </group>
 
                 </search>
@@ -23,12 +23,14 @@
             <field name="name">res.tag.tree</field>
             <field name="model">res.tag</field>
             <field name="arch" type="xml">
-                <tree string="Tags" editable="bottom">
+                <tree string="Tags" editable="bottom"
+                      colors="grey: objects_count == 0;">
                     <field name="model_id" widget="selection"/>
                     <field name="name"/>
                     <field name="code"/>
                     <field name="comment"/>
                     <field name="active"/>
+                    <field name="objects_count"/>
                     <button name="action_show_objects" type="object" string="Show Objects" icon="gtk-find"/>
                 </tree>
             </field>
