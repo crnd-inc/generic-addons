@@ -1,4 +1,5 @@
 from openerp.osv import orm, fields
+from openerp.tools.translate import _
 
 
 class ResTagModel(orm.Model):
@@ -71,6 +72,19 @@ class ResTag(orm.Model):
         if name is not None:
             tag_domain.append(('name', '=', name))
         return self.search(cr, uid, tag_domain, context=context)
+
+    def action_show_objects(self, cr, uid, ids, context=None):
+        assert len(ids) == 1, "Can be applied only to one tag at time"
+        tag = self.browse(cr, uid, ids[0], context=context)
+        return {
+            'name': _('Objects related to tag %s') % tag.name,
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': tag.model_id.model,
+            'type': 'ir.actions.act_window',
+            'context': context,
+            'domain': [('tag_ids.id', '=', tag.id)],
+        }
 
 ResTag()
 

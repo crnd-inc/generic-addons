@@ -29,6 +29,7 @@
                     <field name="code"/>
                     <field name="comment"/>
                     <field name="active"/>
+                    <button name="action_show_objects" type="object" string="Show Objects" icon="gtk-find"/>
                 </tree>
             </field>
         </record>
