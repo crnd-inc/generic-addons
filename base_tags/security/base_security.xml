@@ -5,13 +5,23 @@
     <!--
          Users Groups
     -->
-        <!--<record model="res.groups" id="group_logistic_user">-->
-            <!--<field name="name">Tag User</field>-->
-        <!--</record>-->
+        <record model="res.groups" id="group_tags_user">
+            <field name="name">Tag User</field>
+        </record>
 
-        <!--<record model="res.groups" id="group_logistic_manager">-->
-            <!--<field name="name">Tag Manager</field>-->
-        <!--</record>-->
+        <record model="res.groups" id="group_tags_user_restricted">
+            <field name="name">Tag User (restricted)</field>
+        </record>
+
+        <record id="restricted_tags_rule" model="ir.rule">
+            <field name="name">Restricted tags</field>
+            <field name="model_id" ref="base_tags.model_res_tag"/>
+            <field name="domain_force">[('group_ids.users.id','=',uid)]</field>
+            <field name="groups" eval="[(4, ref('group_tags_user_restricted'))]"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
     </data>
 </openerp>
 

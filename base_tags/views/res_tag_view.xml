@@ -30,6 +30,7 @@
                     <field name="code"/>
                     <field name="comment"/>
                     <field name="active"/>
+                    <field name="group_ids" widget="many2many_tags"/>
                     <field name="objects_count"/>
                     <button name="action_show_objects" type="object" string="Show Objects" icon="gtk-find"/>
                 </tree>

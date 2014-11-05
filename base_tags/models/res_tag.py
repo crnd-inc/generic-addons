@@ -58,6 +58,7 @@ class ResTag(orm.Model):
         "objects_count": fields.function(lambda self, *a, **k: self._get_objects_count(*a, **k),
                                          string="Objects", type='integer', store=False,
                                          help="How many objects contains this tag"),
+        "group_ids": fields.many2many('res.groups', string='Groups'),
     }
 
     _defaults = {
