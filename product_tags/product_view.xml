@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="res.tag.model" id="res_tag_model_product_product">
+            <field name="name">Product</field>
+            <field name="model">product.product</field>
+        </record>
+
+        <record id="product_search_form_view" model="ir.ui.view">
+            <field name="name">product.search.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="categ_id" position="after">
+                        <field name="tag_ids" string="Tag"
+                            filter_domain="['|',('tag_ids.name','ilike',self),('tag_ids.code','ilike',self)]"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="product_product_tree_view" model="ir.ui.view">
+            <field name="name">product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="state" position="after">
+                        <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_product_tag_form" model="ir.ui.view">
+            <field name="name">product.tag.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <div name="options" position="before">
+                        <field name="tag_ids"
+                               widget="many2many_tags"
+                               placeholder="Tags..."
+                               context="{'default_model': 'product.product'}"/>
+                    </div>
+                </data>
+            </field>
+        </record>
+
+        <!-- Product Kanban View  -->
+        <record model="ir.ui.view" id="product_kanban_tag_view">
+            <field name="name">Product Kanban tag</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_kanban_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <div name="tags" position="before">
+                        <field name="tag_ids"
+                               widget="many2many_tags"
+                               placeholder="Tags..."
+                               context="{'default_model': 'product.product'}"/>
+                    </div>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>
