@@ -108,10 +108,74 @@ class ResTagMixin(orm.AbstractModel):
     _name = "res.tag.mixin"
     _description = "Adds tag_ids field to object"
 
+    # Mail thread integration field. if set to True then tag add / remove
+    # actions will be displayed in chatter
+    _track_tags = False
+
     _columns = {
         'tag_ids': fields.many2many('res.tag', string="Tags", select=True,
                                     domain=lambda self: [('model_id.model', '=', self._name)]),
     }
+
+    def _log_tag_changes(self, cr, uid, ids, tags_val, context=None):
+        """ Log tag related changes
+        """
+        if self._track_tags and hasattr(self, '_track'):
+            for obj_id in ids:
+                message = ""
+                for act, arg1, arg2 in tags_val:
+                    msg = ""
+                    if act == 0:   # create
+                        msg = _("<span>Tag <b>%s</b> created</span>") % arg2['name']
+                    elif act == 1:   # update
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
+                        msg = _("<span>Tag <b>%s</b> modified</span>") % tag.name
+                    elif act == 2:   # remove
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
+                        msg = _("<span>Tag <b>%s</b> deleted</span>") % tag.name
+                    elif act == 3:   # unlink
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
+                        msg = _("<span>Tag <b>%s</b> removed</span>") % tag.name
+                    elif act == 4:   # Link
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
+                        msg = _("<span>Tag <b>%s</b> added</span>") % tag.name
+                    elif act == 5:   # unlink all
+                        msg = _("<span>All tags removed</span>") % tag.name
+                    elif act == 6:   # set s list of links
+                        # When edition through the form, this action triggered
+                        # in most cases
+                        old_tags = set(self.browse(cr, uid, obj_id, context=context).tag_ids)
+                        new_tags = set(self.pool.get('res.tag').browse(cr, uid, arg2, context=context))
+                        tags_added = new_tags - old_tags
+                        tags_removed = old_tags - new_tags
+                        msg_tmpl = _("<div><span>Tags changed:</span<ul>%s</ul></div>")
+
+                        msg_body = ""
+                        if tags_added:
+                            msg_body += _("<li class='oe_tags'><b>Tags added</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name for tag in tags_added))
+                        if tags_removed:
+                            msg_body += _("<li class='oe_tags'><b>Tags removed</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name for tag in tags_removed))
+                        if tags_added or tags_removed:
+                            msg_body += _("<hr/><li class='oe_tags'><b>Tags resulting</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name for tag in new_tags))
+
+                        if msg_body:
+                            msg = msg_tmpl % msg_body
+
+                    message += msg
+
+                if message:
+                    self.message_post(cr, uid, obj_id, message, context=context)
+
+    def create(self, cr, uid, vals, context=None):
+        obj_id = super(ResTagMixin, self).create(cr, uid, vals, context=context)
+        if vals.get('tag_ids', False):
+            self._log_tag_changes(cr, uid, [obj_id], vals['tag_ids'], context=context)
+        return obj_id
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if vals.get('tag_ids', False):
+            self._log_tag_changes(cr, uid, ids, vals['tag_ids'], context=context)
+        return super(ResTagMixin, self).write(cr, uid, ids, vals, context=context)
 
     def add_tag(self, cr, uid, ids, code=None, name=None, create=False, context=None):
         """ Adds tag new tag to object.
