@@ -123,25 +123,29 @@ class ResTagMixin(orm.AbstractModel):
         if self._track_tags and hasattr(self, '_track'):
             for obj_id in ids:
                 message = ""
-                for act, arg1, arg2 in tags_val:
+                for args in tags_val:
+                    act, arg = args[0], args[1:]
                     msg = ""
                     if act == 0:   # create
+                        arg1, arg2 = arg
                         msg = _("<span>Tag <b>%s</b> created</span>") % arg2['name']
                     elif act == 1:   # update
+                        arg1, arg2 = arg
                         tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
                         msg = _("<span>Tag <b>%s</b> modified</span>") % tag.name
                     elif act == 2:   # remove
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg, context=context)
                         msg = _("<span>Tag <b>%s</b> deleted</span>") % tag.name
                     elif act == 3:   # unlink
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg, context=context)
                         msg = _("<span>Tag <b>%s</b> removed</span>") % tag.name
                     elif act == 4:   # Link
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg, context=context)
                         msg = _("<span>Tag <b>%s</b> added</span>") % tag.name
                     elif act == 5:   # unlink all
                         msg = _("<span>All tags removed</span>") % tag.name
                     elif act == 6:   # set s list of links
+                        arg1, arg2 = arg
                         # When edition through the form, this action triggered
                         # in most cases
                         old_tags = set(self.browse(cr, uid, obj_id, context=context).tag_ids)
