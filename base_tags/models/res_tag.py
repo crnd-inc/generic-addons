@@ -134,13 +134,13 @@ class ResTagMixin(orm.AbstractModel):
                         tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
                         msg = _("<span>Tag <b>%s</b> modified</span>") % tag.name
                     elif act == 2:   # remove
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg, context=context)
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg[0], context=context)
                         msg = _("<span>Tag <b>%s</b> deleted</span>") % tag.name
                     elif act == 3:   # unlink
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg, context=context)
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg[0], context=context)
                         msg = _("<span>Tag <b>%s</b> removed</span>") % tag.name
                     elif act == 4:   # Link
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg, context=context)
+                        tag = self.pool.get('res.tag').browse(cr, uid, arg[0], context=context)
                         msg = _("<span>Tag <b>%s</b> added</span>") % tag.name
                     elif act == 5:   # unlink all
                         msg = _("<span>All tags removed</span>") % tag.name
