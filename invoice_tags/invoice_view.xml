@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="res.tag.model" id="res_tag_model_account_invoice">
+            <field name="name">Invoice</field>
+            <field name="model">account.invoice</field>
+        </record>
+
+        <record id="invoice_search_form_view" model="ir.ui.view">
+            <field name="name">account.invoice.search.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="period_id" position="after">
+                        <field name="tag_ids" string="Tag"
+                            filter_domain="['|',('tag_ids.name','ilike',self),('tag_ids.code','ilike',self)]"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="account_invoice_tree_view" model="ir.ui.view">
+            <field name="name">account.invoice.tags.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="state" position="after">
+                        <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_tag_form_supplier" model="ir.ui.view">
+            <field name="name">account.invoice.tag.form.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form//sheet[@string='Supplier Invoice']/div/h1" position="after">
+                        <field name="tag_ids"
+                               widget="many2many_tags"
+                               placeholder="Tags..."
+                               context="{'default_model': 'account.invoice'}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_tag_form_customer" model="ir.ui.view">
+            <field name="name">account.invoice.tag.form.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form//sheet[@string='Invoice']/h1" position="after">
+                        <field name="tag_ids"
+                               widget="many2many_tags"
+                               placeholder="Tags..."
+                               context="{'default_model': 'account.invoice'}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

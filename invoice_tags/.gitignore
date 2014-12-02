@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+*.idea/
+*~
+*.swo
+*.pyo
+.ropeproject/
