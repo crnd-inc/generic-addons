@@ -143,7 +143,7 @@ class ResTagMixin(orm.AbstractModel):
                         tag = self.pool.get('res.tag').browse(cr, uid, arg[0], context=context)
                         msg = _("<span>Tag <b>%s</b> added</span>") % tag.name
                     elif act == 5:   # unlink all
-                        msg = _("<span>All tags removed</span>") % tag.name
+                        msg = _("<span>All tags removed</span>")
                     elif act == 6:   # set s list of links
                         arg1, arg2 = arg
                         # When edition through the form, this action triggered
@@ -152,7 +152,7 @@ class ResTagMixin(orm.AbstractModel):
                         new_tags = set(self.pool.get('res.tag').browse(cr, uid, arg2, context=context))
                         tags_added = new_tags - old_tags
                         tags_removed = old_tags - new_tags
-                        msg_tmpl = _("<div><span>Tags changed:</span<ul>%s</ul></div>")
+                        msg_tmpl = _("<div><span>Tags changed:</span><ul>%s</ul></div>")
 
                         msg_body = ""
                         if tags_added:
