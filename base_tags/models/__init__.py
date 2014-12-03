@@ -1,1 +1,1 @@
-import base_tags.models.res_tag
+import res_tag
