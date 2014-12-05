@@ -32,7 +32,7 @@
             <field name="arch" type="xml">
                 <tree string="Tags" editable="bottom"
                       colors="grey: objects_count == 0;">
-                    <field name="model_id" widget="selection"/>
+                    <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                     <field name="category_id" domain="[('model_id','=',model_id)]"
                             context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
                     <field name="name"/>
@@ -59,7 +59,7 @@
                             <field name="active"/>
                         </group>
                         <group>
-                            <field name="model_id" widget="selection"/>
+                            <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                             <field name="category_id" domain="[('model_id','=',model_id)]"
                                    context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
                             <field name="group_ids" widget="many2many_tags"/>
@@ -116,6 +116,7 @@
                     <field name="name"/>
                     <field name="code"/>
                     <field name="comment"/>
+                    <field name="check_xor"/>
                     <field name="active"/>
                     <button name="action_show_tags" type="object" string="Show Tags" icon="gtk-find"/>
                 </tree>
@@ -136,6 +137,7 @@
                         <group>
                             <field name="model_id" widget="selection"/>
                             <field name="active"/>
+                            <field name="check_xor"/>
                         </group>
                     </group>
                     <newline/>

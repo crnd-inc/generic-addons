@@ -74,6 +74,9 @@ class ResTagCategory(orm.Model):
         "active": fields.boolean("Active", select=True),
 
         "tag_ids": fields.one2many("res.tag", "category_id", "Tags"),
+
+        "check_xor": fields.boolean("Check XOR", help="if set to True then enables XOR check on tags been added to object. "
+                                                      "it means that only one tag from category may be added to object at time"),
     }
 
     _defaults = {
@@ -94,13 +97,16 @@ class ResTagCategory(orm.Model):
     def action_show_tags(self, cr, uid, ids, context=None):
         assert len(ids) == 1, "Can be applied only to one category at time"
         category = self.browse(cr, uid, ids[0], context=context)
+        ctx = {} if context is None else context.copy()
+        ctx['default_category_id'] = category.id
+        ctx['default_model_id'] = category.model_id.id
         return {
             'name': _('Tags related to category %s') % category.name,
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'res.tag',
             'type': 'ir.actions.act_window',
-            'context': context,
+            'context': ctx,
             'domain': [('category_id.id', '=', category.id)],
         }
 
@@ -222,10 +228,55 @@ class ResTagMixin(orm.AbstractModel):
     # actions will be displayed in chatter
     _track_tags = False
 
+    def _check_tags_xor(self, cr, uid, ids, context=None):
+        tbl, col1, col2 = self._columns['tag_ids']._sql_names(self)
+        sql_params = {
+            'table': self._table,
+            'tag_rel': tbl,
+            'obj_id_field': col1,
+            'tag_id_field': col2,
+            'obj_ids': ','.join((str(i) for i in ids)),
+        }
+        cr.execute("""
+            SELECT st.id, rtc.id
+            FROM %(table)s             AS st
+            LEFT JOIN %(tag_rel)s      AS trel   ON trel.%(obj_id_field)s = st.id
+            LEFT JOIN res_tag          AS rt     ON trel.%(tag_id_field)s = rt.id
+            LEFT JOIN res_tag_category AS rtc    ON rt.category_id = rtc.id
+            WHERE rtc.check_xor = True
+                AND st.id IN (%(obj_ids)s)
+            GROUP BY st.id, rtc.id
+            HAVING count(rt.id) > 1
+        """ % sql_params)
+        if cr.rowcount > 0:
+            bad_rows = cr.fetchall()
+            # Prepare messsage to display in what objects / categories
+            # validation error occured
+            tag_category_obj = self.pool.get('res.tag.category')
+            message = _("There are more that one tag for tag category for folowing pairs object - category pairs:\n")
+            obj_ids = []
+            categ_ids = []
+            for obj_id, categ_id in bad_rows:
+                message += "\t(%%(obj_%d)s: %%(cat_%d)s\n" % (obj_id, categ_id)
+                obj_ids.append(obj_id)
+                categ_ids.append(categ_id)
+            data = {}
+            data.update({'obj_%d' % oid: name for oid, name in self.name_get(cr, uid, obj_ids, context=context)})
+            data.update({'cat_%d' % cid: name for cid, name in tag_category_obj.name_get(cr, uid, categ_ids, context=context)})
+            raise orm.except_orm(_("ValidateError"), message % data)
+
+        return True
+
     _columns = {
         'tag_ids': fields.many2many('res.tag', string="Tags", select=True,
                                     domain=lambda self: [('model_id.model', '=', self._name)]),
     }
+
+    _constraints = [
+        (lambda s, *a, **k: s._check_tags_xor(*a, **k),
+         "More than one tag of category with 'check_xor' enabled, present in object",
+         ['tag_ids']),
+    ]
 
     def _log_tag_changes(self, cr, uid, ids, tags_val, context=None):
         """ Log tag related changes
