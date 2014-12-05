@@ -18,13 +18,13 @@ class ResTagModel(orm.Model):
 ResTagModel()
 
 
-class ResTag(orm.Model):
-    _name = "res.tag"
-    _description = "Can be used to tag objects"
-
-    _access_log = False
+class ResTagModelMixin(orm.AbstractModel):
+    _name = "res.tag.model.mixin"
+    _description = "Mixin to add res.tag.model relation"
 
     def _get_default_model_id(self, cr, uid, context=None):
+        """ Try to get default model from context and find approriate res.tag.model record ID
+        """
         if context is None:
             context = {}
 
@@ -37,16 +37,34 @@ class ResTag(orm.Model):
 
         return False
 
-    def _get_objects_count(self, cr, uid, ids, field_name, arg, context=None):
-        res = {}.fromkeys(ids, 0)
-        for tag in self.browse(cr, uid, ids, context=context):
-            rel_obj = self.pool.get(tag.model_id.model)
-            res[tag.id] = rel_obj.search(cr, uid, [('tag_ids.id', '=', tag.id)], count=1, context=context)
-        return res
+    _columns = {
+        "model_id": fields.many2one("res.tag.model", "Model", required=True, ondelete='restrict',
+                                    select=True, help="Specify model for which this tag is available"),
+    }
+
+    _defaults = {
+        "model_id": _get_default_model_id,
+    }
+
+ResTagModelMixin()
+
+
+class ResTagCategory(orm.Model):
+    _name = 'res.tag.category'
+    _inherit = ['res.tag.model.mixin']
+    _description = "Category to group tags in"
+
+    _access_log = False
+
+    def _check_model_id(self, cr, uid, ids, context=None):
+        for category in self.browse(cr, uid, ids, context=context):
+            for tag in category.tag_ids:
+                if tag.model_id != category.model_id:
+                    return False
+        return True
 
     _columns = {
-        "model_id": fields.many2one("res.tag.model", "Model", required=True,
-                                    select=True, help="Specify model for which this tag is available"),
+        # model_id field will be added by 'res.tag.model.mixin'
         "name": fields.char("Name", size=64, required=True,
                             translate=True, select=True),
         "code": fields.char("Code", size=32, select=True,
@@ -55,6 +73,93 @@ class ResTag(orm.Model):
 
         "active": fields.boolean("Active", select=True),
 
+        "tag_ids": fields.one2many("res.tag", "category_id", "Tags"),
+    }
+
+    _defaults = {
+        "active": True,
+    }
+
+    _sql_constraints = [
+        ('name_uniq', 'unique(model_id, name)', 'Name of category must be unique'),
+        ('code_uniq', 'unique(model_id, code)', 'Code of category must be unique'),
+    ]
+
+    _constraints = [
+        (_check_model_id,
+         "Model must be same as one used in related tags",
+         ['model_id']),
+    ]
+
+    def action_show_tags(self, cr, uid, ids, context=None):
+        assert len(ids) == 1, "Can be applied only to one category at time"
+        category = self.browse(cr, uid, ids[0], context=context)
+        return {
+            'name': _('Tags related to category %s') % category.name,
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'res.tag',
+            'type': 'ir.actions.act_window',
+            'context': context,
+            'domain': [('category_id.id', '=', category.id)],
+        }
+
+ResTagCategory()
+
+
+class ResTag(orm.Model):
+    _name = "res.tag"
+    _inherit = ['res.tag.model.mixin']
+    _description = "Tag"
+
+    _access_log = False
+
+    _rec_name = 'complete_name'
+    _order = 'complete_name'
+
+    def _get_objects_count(self, cr, uid, ids, field_name, arg, context=None):
+        res = {}.fromkeys(ids, 0)
+        for tag in self.browse(cr, uid, ids, context=context):
+            rel_obj = self.pool.get(tag.model_id.model)
+            res[tag.id] = rel_obj.search(cr, uid, [('tag_ids.id', '=', tag.id)], count=1, context=context)
+        return res
+
+    def _get_complete_name(self, cr, uid, ids, field_name, arg, context=None):
+        res = {}.fromkeys(ids, '')
+        for tag in self.browse(cr, uid, ids, context=context):
+            if tag.category_id:
+                res[tag.id] = "%s / %s" % (tag.category_id.name, tag.name)
+            else:
+                res[tag.id] = tag.name
+        return res
+
+    def _check_category_id(self, cr, uid, ids, context=None):
+        for tag in self.browse(cr, uid, ids, context=context):
+            if tag.category_id and tag.model_id != tag.category_id.model_id:
+                return False
+        return True
+
+    _columns = {
+        # model_id field will be added by 'res.tag.model.mixin'
+        "category_id": fields.many2one('res.tag.category', 'Category', select=True, ondelete='restrict'),
+        "name": fields.char("Name", size=64, required=True,
+                            translate=True, select=True),
+        "code": fields.char("Code", size=32, select=True,
+                            help="May be used for special tags which have programming meaning"),
+        "comment": fields.text("Comment", help="Describe what this tag means"),
+
+        "active": fields.boolean("Active", select=True),
+
+        "complete_name": fields.function(lambda self, *a, **k: self._get_complete_name(*a, **k),
+                                         string="Name", type='char', store={
+                                             'res.tag': (lambda s, c, u, ids, ctx=None: ids, [], 10),
+                                             'res.tag.category': (lambda s, cr, uid, ids, context=None:
+                                                                  s.pool.get('res.tag').search(cr, uid,
+                                                                                               [('category_id', 'in', ids)]),
+                                                                  ['name'],
+                                                                  10),
+                                         },
+                                         help="Full name of tag (including category name"),
         "objects_count": fields.function(lambda self, *a, **k: self._get_objects_count(*a, **k),
                                          string="Objects", type='integer', store=False,
                                          help="How many objects contains this tag"),
@@ -62,13 +167,18 @@ class ResTag(orm.Model):
     }
 
     _defaults = {
-        "model_id": _get_default_model_id,
         "active": True,
     }
 
     _sql_constraints = [
         ('name_uniq', 'unique(model_id, name)', 'Name of tag must be unique'),
         ('code_uniq', 'unique(model_id, code)', 'Code of tag must be unique'),
+    ]
+
+    _constraints = [
+        (_check_category_id,
+         "Category must be binded to same model as tag",
+         ['category_id', 'model_id']),
     ]
 
     def get_tag_ids(self, cr, uid, model, code=None, name=None, context=None):
