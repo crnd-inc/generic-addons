@@ -267,9 +267,35 @@ class ResTagMixin(orm.AbstractModel):
 
         return True
 
+    def _search_no_tag_id(self, cr, uid, obj, name, args, context=None):
+        res = []
+        for arg in args:
+            if isinstance(arg, basestring):  # It should be operator
+                res.append(arg)
+
+            left, op, right = arg
+            if left != 'no_tag_id':
+                res.append(args)
+            elif isinstance(right, (int, long)):
+                with_tag_ids = self.search(cr, uid, [('tag_ids.id', op, right)], context=context)
+            elif isinstance(right, basestring):
+                u = '|' if op != '!=' else '&'
+                with_tag_ids = self.search(cr, uid, [u, ('tag_ids.complete_name', op, right),
+                                                        ('tag_ids.code', op, right)], context=context)
+            else:
+                continue
+
+            res.append(('id', 'not in', with_tag_ids))
+
+        return res
+
     _columns = {
         'tag_ids': fields.many2many('res.tag', string="Tags", select=True,
                                     domain=lambda self: [('model_id.model', '=', self._name)]),
+        'no_tag_id': fields.function(lambda *a, **ka: [], method=True, store=False,
+                                     fnct_search=lambda s, *a, **ka: s._search_no_tag_id(*a, **ka),
+                                     string="No Tag", obj='res.tag', type='many2one', readonly=True,
+                                     domain=lambda self: [('model_id.model', '=', self._name)]),
     }
 
     _constraints = [

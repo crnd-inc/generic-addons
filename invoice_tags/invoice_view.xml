@@ -15,6 +15,7 @@
                     <field name="period_id" position="after">
                         <field name="tag_ids" string="Tag"
                             filter_domain="['|',('tag_ids.name','ilike',self),('tag_ids.code','ilike',self)]"/>
+                        <field name="no_tag_id" string="No Tag"/>
                     </field>
                 </data>
             </field>
