@@ -15,6 +15,7 @@ class ResTagModel(orm.Model):
     _sql_constraints = [
         ('model_uniq', 'unique(model)', 'Model field must be unique'),
     ]
+
 ResTagModel()
 
 
@@ -392,7 +393,9 @@ class ResTagMixin(orm.AbstractModel):
 
             @param code: tag.code field to search for
             @param name: tag.name field to search for
-            @return: True if atleast one tag was added
+            @return: True if specified tags were found (even if they are not present in records passed
+
+            Note: return value is not suitable for checking if something was removed
         """
         tag_obj = self.pool.get('res.tag')
         tag_ids = tag_obj.get_tag_ids(cr, uid, self._name, code=code, name=name, context=context)
@@ -406,7 +409,7 @@ class ResTagMixin(orm.AbstractModel):
         """ Checks if all of supplied objects have tag with specified code and/or name
             Return True if all object ids has specified tags
         """
-        assert bool(code is None) or bool(name is None), "code or name must not be None"
+        assert bool(code is not None) or bool(name is not None), "code or name must not be None"
         tag_domain = [('id', 'in', ids)]
         if code is not None:
             tag_domain.append(('tag_ids.code', '=', code))

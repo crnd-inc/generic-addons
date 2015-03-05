@@ -3,8 +3,20 @@
     <data>
 
         <menuitem id="menu_res_tags_root"
-                  parent="base.menu_custom"
+                  parent=""
+                  groups="base_tags.group_tags_user"
+                  sequence="120"
                   name="Tags"/>
+
+        <menuitem id="menu_res_tags_all"
+                  parent="base_tags.menu_res_tags_root"
+                  sequence="10"
+                  name="All Tags"/>
+
+        <menuitem id="menu_res_tags_configuration_root"
+                  parent="base_tags.menu_res_tags_root"
+                  sequence="220"
+                  name="Tags Configuration"/>
 
         <!-- Tag Views -->
         <record id="view_res_tag_search" model="ir.ui.view">
@@ -86,7 +98,7 @@
         </record>
 
         <menuitem action="action_res_tags_view" id="menu_action_res_tags_view"
-                  parent="menu_res_tags_root" sequence="10"/>
+                  parent="menu_res_tags_all" sequence="10"/>
         <!-- End tag views -->
 
         <!-- Tag category views -->
@@ -156,7 +168,7 @@
         </record>
 
         <menuitem action="action_res_tag_caegories_view" id="menu_action_res_tag_categories_view"
-                  parent="menu_res_tags_root" sequence="20"/>
+                  parent="menu_res_tags_configuration_root" sequence="20"/>
         <!-- end tag categories views -->
 
 
@@ -204,7 +216,7 @@
         </record>
 
         <menuitem action="action_res_tag_models_view" id="menu_action_res_tag_modeles_view"
-                  parent="menu_res_tags_root" sequence="30"/>
+                  parent="menu_res_tags_configuration_root" sequence="30"/>
 
         <!-- end tag categories views -->
     </data>
