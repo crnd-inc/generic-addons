@@ -34,7 +34,7 @@ class TestBasics(TransactionCase):
                                                            'code': 'tc1',
                                                            'model_id': self.test_model_id,
                                                            'category_id': self.test_tag_cat_id_1})
-        self.test_tag_id_1 = self.tag_obj.create(cr, uid, {'name': 'TC2',
+        self.test_tag_id_2 = self.tag_obj.create(cr, uid, {'name': 'TC2',
                                                            'code': 'tc2',
                                                            'model_id': self.test_model_id,
                                                            'category_id': self.test_tag_cat_id_1})

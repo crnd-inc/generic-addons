@@ -16,8 +16,6 @@ class ResTagModel(orm.Model):
         ('model_uniq', 'unique(model)', 'Model field must be unique'),
     ]
 
-ResTagModel()
-
 
 class ResTagModelMixin(orm.AbstractModel):
     _name = "res.tag.model.mixin"
@@ -46,8 +44,6 @@ class ResTagModelMixin(orm.AbstractModel):
     _defaults = {
         "model_id": _get_default_model_id,
     }
-
-ResTagModelMixin()
 
 
 class ResTagCategory(orm.Model):
@@ -110,8 +106,6 @@ class ResTagCategory(orm.Model):
             'context': ctx,
             'domain': [('category_id.id', '=', category.id)],
         }
-
-ResTagCategory()
 
 
 class ResTag(orm.Model):
@@ -214,8 +208,6 @@ class ResTag(orm.Model):
             'context': context,
             'domain': [('tag_ids.id', '=', tag.id)],
         }
-
-ResTag()
 
 
 class ResTagMixin(orm.AbstractModel):
@@ -418,5 +410,3 @@ class ResTagMixin(orm.AbstractModel):
 
         count = self.search(cr, uid, tag_domain, count=1)
         return bool(count == len(ids))
-
-ResTagMixin()
