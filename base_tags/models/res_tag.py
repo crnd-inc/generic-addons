@@ -275,6 +275,8 @@ class ResTagMixin(orm.AbstractModel):
                 u = '|' if op != '!=' else '&'
                 with_tag_ids = self.search(cr, uid, [u, ('tag_ids.complete_name', op, right),
                                                         ('tag_ids.code', op, right)], context=context)
+            elif isinstance(right, (list, tuple)) and op in ('in', 'not in'):
+                with_tag_ids = self.search(cr, uid, [('tag_ids', op, right)], context=context)
             else:
                 continue
 
@@ -407,6 +409,20 @@ class ResTagMixin(orm.AbstractModel):
             tag_domain.append(('tag_ids.code', '=', code))
         if name is not None:
             tag_domain.append(('tag_ids.name', '=', name))
+
+        count = self.search(cr, uid, tag_domain, count=1)
+        return bool(count == len(ids))
+
+    def check_tag_category(self, cr, uid, ids, code=None, name=None, context=None):
+        """ Checks if all of supplied objects have tag with specified category code and/or category name
+            Return True if all object ids has specified tag category
+        """
+        assert bool(code is not None) or bool(name is not None), "code or name must not be None"
+        tag_domain = [('id', 'in', ids)]
+        if code is not None:
+            tag_domain.append(('tag_ids.category_id.code', '=', code))
+        if name is not None:
+            tag_domain.append(('tag_ids.category_id.name', '=', name))
 
         count = self.search(cr, uid, tag_domain, count=1)
         return bool(count == len(ids))
