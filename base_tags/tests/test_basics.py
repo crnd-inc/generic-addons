@@ -1,8 +1,6 @@
 from openerp.tests.common import TransactionCase
 from openerp.tools.misc import mute_logger
-from openerp.tools.translate import _
 from openerp.osv.orm import except_orm
-from psycopg2 import IntegrityError
 
 
 class TestBasics(TransactionCase):
@@ -21,7 +19,7 @@ class TestBasics(TransactionCase):
 
         # Make test model taggable
         self.test_model_id = self.tag_model_obj.create(cr, uid, {'name': 'Test Model',
-                                            'model': 'res.tag.test.model'})
+                                                                 'model': 'res.tag.test.model'})
 
         # Create two records of test model
         self.test_1_id = self.test_obj.create(cr, uid, {'name': 'Test 1'})
@@ -39,6 +37,16 @@ class TestBasics(TransactionCase):
                                                            'code': 'tc2',
                                                            'model_id': self.test_model_id,
                                                            'category_id': self.test_tag_cat_id_1})
+        self.test_tag_id_3 = self.tag_obj.create(cr, uid, {'name': 'TC3',
+                                                           'code': 'tc3',
+                                                           'model_id': self.test_model_id,
+                                                           'category_id': False})
+
+    def test_05_tags_count(self):
+        model_tags_count = self.tag_model_obj.browse(self.cr, self.uid, self.test_model_id).tags_count
+        self.assertEqual(model_tags_count, 3, "Wrong tags_count for model")
+        category_tags_count = self.tag_category_obj.browse(self.cr, self.uid, self.test_tag_cat_id_1).tags_count
+        self.assertEqual(category_tags_count, 2, "Wrong tags_count for model")
 
     def test_10_add_tag(self):
         """ Test that .add_tag method works fine

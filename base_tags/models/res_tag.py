@@ -8,9 +8,19 @@ class ResTagModel(orm.Model):
 
     _access_log = False
 
+    def _get_tags_count(self, cr, uid, ids, field_name, arg, context=None):
+        tag_obj = self.pool.get('res.tag')
+        res = {}.fromkeys(ids, 0)
+        for model_id in ids:
+            res[model_id] = tag_obj.search(cr, uid, [('model_id.id', '=', model_id)], count=1, context=context)
+        return res
+
     _columns = {
         "name": fields.char("Name", size=64, required=True, select=True, translate=True),
         "model": fields.char("Model", size=32, required=True, select=True),
+        "tags_count": fields.function(lambda self, *a, **k: self._get_tags_count(*a, **k),
+                                      string="Tags", type='integer', store=False,
+                                      help="How many tags related to this model exists"),
     }
 
     _sql_constraints = [
@@ -58,7 +68,7 @@ class ResTagModelMixin(orm.AbstractModel):
     }
 
     _defaults = {
-        "model_id": _get_default_model_id,
+        "model_id": lambda s, *a, **k: s._get_default_model_id(*a, **k),
     }
 
 
@@ -76,6 +86,13 @@ class ResTagCategory(orm.Model):
                     return False
         return True
 
+    def _get_tags_count(self, cr, uid, ids, field_name, arg, context=None):
+        tag_obj = self.pool.get('res.tag')
+        res = {}.fromkeys(ids, 0)
+        for category_id in ids:
+            res[category_id] = tag_obj.search(cr, uid, [('category_id.id', '=', category_id)], count=1, context=context)
+        return res
+
     _columns = {
         # model_id field will be added by 'res.tag.model.mixin'
         "name": fields.char("Name", size=64, required=True,
@@ -90,6 +107,9 @@ class ResTagCategory(orm.Model):
 
         "check_xor": fields.boolean("Check XOR", help="if set to True then enables XOR check on tags been added to object. "
                                                       "it means that only one tag from category may be added to object at time"),
+        "tags_count": fields.function(lambda self, *a, **k: self._get_tags_count(*a, **k),
+                                      string="Tags", type='integer', store=False,
+                                      help="How many tags related to this catgory exists"),
     }
 
     _defaults = {

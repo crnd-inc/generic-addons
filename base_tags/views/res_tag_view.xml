@@ -123,13 +123,15 @@
             <field name="name">res.tag.category.tree</field>
             <field name="model">res.tag.category</field>
             <field name="arch" type="xml">
-                <tree string="Tag Categories" editable="bottom">
+                <tree string="Tag Categories" editable="bottom"
+                      colors="grey: tags_count == 0">
                     <field name="model_id" widget="selection"/>
                     <field name="name"/>
                     <field name="code"/>
                     <field name="comment"/>
                     <field name="check_xor"/>
                     <field name="active"/>
+                    <field name="tags_count"/>
                     <button name="action_show_tags" type="object" string="Show Tags" icon="gtk-find"/>
                 </tree>
             </field>
@@ -188,9 +190,11 @@
             <field name="name">res.tag.model.tree</field>
             <field name="model">res.tag.model</field>
             <field name="arch" type="xml">
-                <tree string="Tag models">
+                <tree string="Tag models"
+                      colors="grey: tags_count == 0;">
                     <field name="name"/>
                     <field name="model"/>
+                    <field name="tags_count"/>
                     <button name="action_show_tags" type="object" string="Show Tags" icon="gtk-find"/>
                 </tree>
             </field>
