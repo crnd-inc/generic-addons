@@ -29,6 +29,7 @@ class TestBasics(TransactionCase):
 
         # Create test tag category and tags
         self.test_tag_cat_id_1 = self.tag_category_obj.create(cr, uid, {'name': 'Tag Categ 1',
+                                                                        'code': 'tag_cat_1',
                                                                         'model_id': self.test_model_id})
         self.test_tag_id_1 = self.tag_obj.create(cr, uid, {'name': 'TC1',
                                                            'code': 'tc1',
@@ -148,7 +149,21 @@ class TestBasics(TransactionCase):
         self.assertEqual(len(test1.tag_ids), 0)
         self.assertEqual(len(test2.tag_ids), 1)
 
-    def test_40_category_xor(self):
+    def test_40_check_tag_category(self):
+        """ Test if check tag category method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        self.test_obj.add_tag(cr, uid, [self.test_1_id], code='tc1')
+        self.test_obj.add_tag(cr, uid, [self.test_2_id], name='Test Tag1', code='Testtag1', create=True)
+
+        res = self.test_obj.check_tag_category(cr, uid, [self.test_1_id], code='tag_cat_1')
+        self.assertEqual(res, True)
+
+        res = self.test_obj.check_tag_category(cr, uid, [self.test_2_id], code='tag_cat_1')
+        self.assertEqual(res, False)
+
+    def test_50_category_xor(self):
         """ Check that tag category xor logic works fine
         """
         cr, uid = self.cr, self.uid

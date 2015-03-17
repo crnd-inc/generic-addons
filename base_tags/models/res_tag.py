@@ -7,6 +7,7 @@ class ResTagModel(orm.Model):
     _description = "Contains list of models available for tagging"
 
     _access_log = False
+
     _columns = {
         "name": fields.char("Name", size=64, required=True, select=True, translate=True),
         "model": fields.char("Model", size=32, required=True, select=True),
@@ -15,6 +16,21 @@ class ResTagModel(orm.Model):
     _sql_constraints = [
         ('model_uniq', 'unique(model)', 'Model field must be unique'),
     ]
+
+    def action_show_tags(self, cr, uid, ids, context=None):
+        assert len(ids) == 1, "Can be applied only to one tag at time"
+        model = self.browse(cr, uid, ids[0], context=context)
+        ctx = {} if context is None else context.copy()
+        ctx['default_model_id'] = model.id
+        return {
+            'name': _('Tags related to model %s') % model.name,
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'res.tag',
+            'type': 'ir.actions.act_window',
+            'context': ctx,
+            'domain': [('model_id.id', '=', model.id)],
+        }
 
 
 class ResTagModelMixin(orm.AbstractModel):
