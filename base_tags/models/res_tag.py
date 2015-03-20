@@ -323,7 +323,8 @@ class ResTagMixin(orm.AbstractModel):
     _columns = {
         'tag_ids': fields.many2many('res.tag', string="Tags", select=True,
                                     domain=lambda self: [('model_id.model', '=', self._name)]),
-        'no_tag_id': fields.function(lambda *a, **ka: [], method=True, store=False,
+        'no_tag_id': fields.function(lambda self, cr, uid, ids, fnames, args, context=None: {}.fromkeys(ids, False),
+                                     method=True, store=False,
                                      fnct_search=lambda s, *a, **ka: s._search_no_tag_id(*a, **ka),
                                      string="No Tag", obj='res.tag', type='many2one', readonly=True,
                                      domain=lambda self: [('model_id.model', '=', self._name)]),
