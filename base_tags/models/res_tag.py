@@ -350,17 +350,17 @@ class ResTagMixin(orm.AbstractModel):
                         msg = _("<span>Tag <b>%s</b> created</span>") % arg2['name']
                     elif act == 1:   # update
                         arg1, arg2 = arg
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg1, context=context)
-                        msg = _("<span>Tag <b>%s</b> modified</span>") % tag.name
+                        tag = self.pool.get('res.tag').name_get(cr, uid, arg1, context=context)[0][1]
+                        msg = _("<span>Tag <b>%s</b> modified</span>") % tag
                     elif act == 2:   # remove
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg[0], context=context)
-                        msg = _("<span>Tag <b>%s</b> deleted</span>") % tag.name
+                        tag = self.pool.get('res.tag').name_get(cr, uid, arg[0], context=context)[0][1]
+                        msg = _("<span>Tag <b>%s</b> deleted</span>") % tag
                     elif act == 3:   # unlink
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg[0], context=context)
-                        msg = _("<span>Tag <b>%s</b> removed</span>") % tag.name
+                        tag = self.pool.get('res.tag').name_get(cr, uid, arg[0], context=context)[0][1]
+                        msg = _("<span>Tag <b>%s</b> removed</span>") % tag
                     elif act == 4:   # Link
-                        tag = self.pool.get('res.tag').browse(cr, uid, arg[0], context=context)
-                        msg = _("<span>Tag <b>%s</b> added</span>") % tag.name
+                        tag = self.pool.get('res.tag').name_get(cr, uid, arg[0], context=context)[0][1]
+                        msg = _("<span>Tag <b>%s</b> added</span>") % tag
                     elif act == 5:   # unlink all
                         msg = _("<span>All tags removed</span>")
                     elif act == 6:   # set s list of links
@@ -375,11 +375,11 @@ class ResTagMixin(orm.AbstractModel):
 
                         msg_body = ""
                         if tags_added:
-                            msg_body += _("<li class='oe_tags'><b>Tags added</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name for tag in tags_added))
+                            msg_body += _("<li class='oe_tags'><b>Tags added</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name_get()[0][1] for tag in tags_added))
                         if tags_removed:
-                            msg_body += _("<li class='oe_tags'><b>Tags removed</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name for tag in tags_removed))
+                            msg_body += _("<li class='oe_tags'><b>Tags removed</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name_get()[0][1] for tag in tags_removed))
                         if tags_added or tags_removed:
-                            msg_body += _("<hr/><li class='oe_tags'><b>Tags resulting</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name for tag in new_tags))
+                            msg_body += _("<hr/><li class='oe_tags'><b>Tags resulting</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name_get()[0][1] for tag in new_tags))
 
                         if msg_body:
                             msg = msg_tmpl % msg_body
