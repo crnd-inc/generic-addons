@@ -13,7 +13,7 @@
     """,
     "init_xml": [
     ],
-    "update_xml": [
+    "data": [
         'invoice_view.xml',
     ],
     "installable": True,

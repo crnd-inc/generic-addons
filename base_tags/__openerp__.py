@@ -15,7 +15,7 @@
     """,
     "init_xml": [
     ],
-    "update_xml": [
+    "data": [
         'security/base_security.xml',
         'security/ir.model.access.csv',
         'views/res_tag_view.xml',

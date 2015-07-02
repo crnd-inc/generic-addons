@@ -13,7 +13,7 @@
     """,
     "init_xml": [
     ],
-    "update_xml": [
+    "data": [
         'product_view.xml',
     ],
     "installable": True,
