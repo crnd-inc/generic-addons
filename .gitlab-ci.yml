@@ -1,0 +1,47 @@
+image: 10.100.98.41:5000/maao-docker/maao-simple:maao-9.0
+
+variables:
+    POSTGRES_USER: odoo
+    POSTGRES_PASSWORD: odoo
+
+    ODOO_DB_HOST: 10.100.98.41-maao-docker-maao-ci-postgres
+    ODOO_DB_USER: odoo
+    ODOO_DB_PASSWORD: odoo
+    ODOO_ADMIN_PASS: admin
+
+    PIP_CACHE_DIR: ".hidden-pip-cache"
+
+cache:
+    paths:
+        - ".hidden-pip-cache"
+
+
+before_script:
+    - pwd
+    - whoami
+    - python --version
+    - odoo-helper --version
+    - jshint --version
+    - cat /opt/odoo/conf/odoo.conf
+
+flake8:
+    script:
+        - odoo-helper test flake8 .
+
+pylint:
+    script:
+        - odoo-helper test pylint --disable=api-one-deprecated .
+
+tests:
+    services:
+        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
+
+    before_script:
+        - odoo-helper link .
+    script:
+        - odoo-helper --use-unbuffer test --coverage --create-test-db -d .
+        - odoo-helper exec coverage report --fail-under=70
+        - odoo-helper exec coverage html -d html-coverage
+    artifacts:
+        paths:
+            - html-coverage

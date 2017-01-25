@@ -1,0 +1,10 @@
+*.pyc
+*.swp
+*.idea/
+*~
+*.swo
+*.swn
+*.pyo
+.ropeproject/
+.coverage
+htmlcov
