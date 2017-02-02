@@ -1,0 +1,276 @@
+2017-02-02 15:45:15,896 14451 INFO None openerp.service.db: Create database `0fP0tRnwUlBW4m57pIz7qDEl`.
+2017-02-02 15:45:27,379 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading 1 modules...
+2017-02-02 15:45:29,021 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module base: creating or updating database tables
+2017-02-02 15:45:32,836 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: Computing parent left and right for table ir_ui_menu...
+2017-02-02 15:45:55,575 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: Computing parent left and right for table res_partner_category...
+2017-02-02 15:46:02,608 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'model_data_id'
+2017-02-02 15:46:02,609 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'report_file'
+2017-02-02 15:46:02,610 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'crud_model_name'
+2017-02-02 15:46:02,610 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'wkf_model_name'
+2017-02-02 15:46:02,611 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'res_name'
+2017-02-02 15:46:02,611 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'global'
+2017-02-02 15:46:02,612 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'menus_by_module'
+2017-02-02 15:46:02,830 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'reports_by_module'
+2017-02-02 15:46:02,987 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'views_by_module'
+2017-02-02 15:46:03,088 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'display_name'
+2017-02-02 15:46:03,091 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'commercial_partner_id'
+2017-02-02 15:46:03,093 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'logo_web'
+2017-02-02 15:46:03,097 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'email'
+2017-02-02 15:46:03,097 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'phone'
+2017-02-02 15:46:03,097 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: storing computed values of fields.function 'share'
+2017-02-02 15:46:03,100 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: Storing computed values of res.partner.bank fields sanitized_acc_number
+2017-02-02 15:46:03,119 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/base_data.xml
+2017-02-02 15:46:03,915 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_currency_data.xml
+2017-02-02 15:46:04,740 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_country_data.xml
+2017-02-02 15:46:09,745 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/security/base_security.xml
+2017-02-02 15:46:10,057 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/base_menu.xml
+2017-02-02 15:46:10,382 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_config.xml
+2017-02-02 15:46:10,470 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res.country.state.csv
+2017-02-02 15:46:10,780 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_actions.xml
+2017-02-02 15:46:11,485 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_config_parameter_view.xml
+2017-02-02 15:46:11,710 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_cron_view.xml
+2017-02-02 15:46:11,868 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_filters.xml
+2017-02-02 15:46:12,002 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_mail_server_view.xml
+2017-02-02 15:46:12,188 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_model_view.xml
+2017-02-02 15:46:12,997 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_attachment_view.xml
+2017-02-02 15:46:13,179 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_rule_view.xml
+2017-02-02 15:46:13,332 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_sequence_view.xml
+2017-02-02 15:46:13,499 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_translation_view.xml
+2017-02-02 15:46:13,633 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_ui_menu_view.xml
+2017-02-02 15:46:13,761 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_ui_view_view.xml
+2017-02-02 15:46:14,036 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_values_view.xml
+2017-02-02 15:46:14,274 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_autovacuum.xml
+2017-02-02 15:46:14,289 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_model_report.xml
+2017-02-02 15:46:14,329 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/report_ir_model.xml
+2017-02-02 15:46:14,376 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_logging_view.xml
+2017-02-02 15:46:14,531 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/ir/ir_qweb.xml
+2017-02-02 15:46:14,571 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/workflow/workflow_view.xml
+2017-02-02 15:46:15,489 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/module_view.xml
+2017-02-02 15:46:15,941 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/module_data.xml
+2017-02-02 15:46:16,386 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/module_report.xml
+2017-02-02 15:46:16,409 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/report/report_ir_module_reference.xml
+2017-02-02 15:46:16,440 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_module_update_view.xml
+2017-02-02 15:46:16,524 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_language_install_view.xml
+2017-02-02 15:46:16,585 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_import_language_view.xml
+2017-02-02 15:46:16,643 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_module_upgrade_view.xml
+2017-02-02 15:46:16,740 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_module_configuration_view.xml
+2017-02-02 15:46:16,770 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_export_language_view.xml
+2017-02-02 15:46:16,832 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_update_translations_view.xml
+2017-02-02 15:46:16,891 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/module/wizard/base_module_immediate_install.xml
+2017-02-02 15:46:16,919 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_company_view.xml
+2017-02-02 15:46:17,106 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_request_view.xml
+2017-02-02 15:46:17,230 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_lang_view.xml
+2017-02-02 15:46:17,364 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_partner_view.xml
+2017-02-02 15:46:17,981 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_bank_view.xml
+2017-02-02 15:46:18,232 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_country_view.xml
+2017-02-02 15:46:18,547 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_currency_view.xml
+2017-02-02 15:46:18,767 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_users_view.xml
+2017-02-02 15:46:19,487 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_partner_data.xml
+2017-02-02 15:46:19,535 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/ir_property_view.xml
+2017-02-02 15:46:19,661 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_security.xml
+2017-02-02 15:46:19,707 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/security/ir.model.access.csv
+2017-02-02 15:46:21,944 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/base_demo.xml
+2017-02-02 15:46:22,277 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_currency_demo.xml
+2017-02-02 15:46:23,144 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_bank_demo.xml
+2017-02-02 15:46:23,174 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_partner_demo.xml
+2017-02-02 15:46:24,215 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_partner_demo.yml
+2017-02-02 15:46:27,380 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base/res/res_partner_image_demo.xml
+2017-02-02 15:46:29,508 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.base.ir.ir_translation: module base: loading base translation file en for language en_US
+2017-02-02 15:46:29,508 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.tools.translate: loading /home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/i18n/en.po
+2017-02-02 15:46:31,583 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: 1 modules loaded in 64.20s, 0 queries
+2017-02-02 15:46:31,628 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: updating modules list
+2017-02-02 15:46:32,478 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading 14 modules...
+2017-02-02 15:46:32,810 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module auth_crypt: creating or updating database tables
+2017-02-02 15:46:32,901 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.auth_crypt.auth_crypt: Hashing passwords, may be slow for databases with many users...
+2017-02-02 15:46:34,414 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web: creating or updating database tables
+2017-02-02 15:46:34,417 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web/views/webclient_templates.xml
+2017-02-02 15:46:35,481 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module base_import: creating or updating database tables
+2017-02-02 15:46:46,016 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base_import/security/ir.model.access.csv
+2017-02-02 15:46:46,381 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading base_import/views/base_import.xml
+2017-02-02 15:46:46,981 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf
+2017-02-02 15:46:48,431 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module report: creating or updating database tables
+2017-02-02 15:46:50,107 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading report/views/layouts.xml
+2017-02-02 15:46:50,446 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading report/views/views.xml
+2017-02-02 15:46:50,840 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading report/data/report_paperformat.xml
+2017-02-02 15:46:50,918 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading report/security/ir.model.access.csv
+2017-02-02 15:46:51,010 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading report/views/report.xml
+2017-02-02 15:46:51,410 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_calendar: creating or updating database tables
+2017-02-02 15:46:51,414 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_calendar/views/web_calendar.xml
+2017-02-02 15:46:51,895 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_diagram: creating or updating database tables
+2017-02-02 15:46:51,899 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_diagram/views/web_diagram.xml
+2017-02-02 15:46:52,955 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_editor: creating or updating database tables
+2017-02-02 15:46:54,952 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_editor/security/ir.model.access.csv
+2017-02-02 15:46:55,159 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_editor/views/editor.xml
+2017-02-02 15:46:55,365 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_editor/views/iframe.xml
+2017-02-02 15:46:55,462 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_editor/views/snippets.xml
+2017-02-02 15:46:55,791 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_kanban: creating or updating database tables
+2017-02-02 15:46:55,794 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_kanban/views/web_kanban.xml
+2017-02-02 15:46:56,217 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_planner: creating or updating database tables
+2017-02-02 15:46:57,943 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_planner/security/ir.model.access.csv
+2017-02-02 15:46:58,095 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_planner/security/web_planner_security.xml
+2017-02-02 15:46:58,148 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_planner/views/web_planner_templates.xml
+2017-02-02 15:46:58,419 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_planner/views/web_planner_views.xml
+2017-02-02 15:46:58,541 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.base.ir.ir_translation: module web_planner: loading translation file (en_US) for language en_US
+2017-02-02 15:46:58,542 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.tools.translate: loading /home/trofimchuk/progects/odoo_9/odoo/addons/web_planner/i18n/en_US.po
+2017-02-02 15:46:59,415 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_tip: creating or updating database tables
+2017-02-02 15:47:00,548 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_tip/security/ir.model.access.csv
+2017-02-02 15:47:00,621 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_tip/views/tip.xml
+2017-02-02 15:47:00,710 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_tip/web_tip_view.xml
+2017-02-02 15:47:00,838 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_tip/web_tip_data.xml
+2017-02-02 15:47:01,199 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_view_editor: creating or updating database tables
+2017-02-02 15:47:01,204 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_view_editor/views/web_view_editor.xml
+2017-02-02 15:47:01,852 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_kanban_gauge: creating or updating database tables
+2017-02-02 15:47:01,858 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_kanban_gauge/views/web_kanban_gauge.xml
+2017-02-02 15:47:03,032 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module web_settings_dashboard: creating or updating database tables
+2017-02-02 15:47:03,132 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.auth_crypt.auth_crypt: Hashing passwords, may be slow for databases with many users...
+2017-02-02 15:47:03,221 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_settings_dashboard/views/dashboard_views.xml
+2017-02-02 15:47:03,310 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading web_settings_dashboard/views/dashboard_templates.xml
+2017-02-02 15:47:03,575 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: 14 modules loaded in 31.10s, 0 queries
+2017-02-02 15:47:03,842 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: Modules loaded.
+2017-02-02 15:47:03,843 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: Computing parent left and right for table ir_ui_menu...
+2017-02-02 15:47:03,874 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.models: Computing parent left and right for table res_partner_category...
+2017-02-02 15:47:03,978 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.base.ir.ir_translation: module base: loading base translation file en for language en_US
+2017-02-02 15:47:03,978 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.tools.translate: loading /home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/i18n/en.po
+2017-02-02 15:47:04,200 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.base.ir.ir_translation: module web_planner: loading translation file (en_US) for language en_US
+2017-02-02 15:47:04,200 14451 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.tools.translate: loading /home/trofimchuk/progects/odoo_9/odoo/addons/web_planner/i18n/en_US.po
+2017-02-02 15:47:04,710 14451 INFO ? openerp.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 1 connections to 'dbname=0fP0tRnwUlBW4m57pIz7qDEl user=odoo password=xxxx host=localhost'
+2017-02-02 15:48:20,401 14653 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.type has no access rules, consider adding one. E.g. access_request_type,access_request_type,model_request_type,,1,0,0,0
+2017-02-02 15:48:20,401 14653 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.category has no access rules, consider adding one. E.g. access_request_category,access_request_category,model_request_category,,1,0,0,0
+2017-02-02 15:48:20,401 14653 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.stage has no access rules, consider adding one. E.g. access_request_stage,access_request_stage,model_request_stage,,1,0,0,0
+2017-02-02 15:48:20,401 14653 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.stage.route has no access rules, consider adding one. E.g. access_request_stage_route,access_request_stage_route,model_request_stage_route,,1,0,0,0
+2017-02-02 15:48:20,401 14653 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.field has no access rules, consider adding one. E.g. access_request_field,access_request_field,model_request_field,,1,0,0,0
+2017-02-02 15:48:20,402 14653 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.value has no access rules, consider adding one. E.g. access_request_value,access_request_value,model_request_value,,1,0,0,0
+2017-02-02 15:48:24,866 14718 INFO ? openerp: OpenERP version 9.0c
+2017-02-02 15:48:24,866 14718 INFO ? openerp: addons paths: ['/home/trofimchuk/progects/odoo_9/data_dir/addons/9.0', u'/home/trofimchuk/progects/odoo_9/odoo/openerp/addons', u'/home/trofimchuk/progects/odoo_9/odoo/addons', u'/home/trofimchuk/progects/odoo_9/custom_addons']
+2017-02-02 15:48:24,867 14718 INFO ? openerp: database: odoo@localhost:default
+2017-02-02 15:48:25,306 14718 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8269
+2017-02-02 15:48:25,344 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading 1 modules...
+2017-02-02 15:48:25,356 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: 1 modules loaded in 0.01s, 0 queries
+2017-02-02 15:48:36,284 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading 23 modules...
+2017-02-02 15:48:36,419 14718 INFO ? openerp.addons.bus.models.bus: Bus.loop listen imbus on db postgres
+2017-02-02 15:48:37,065 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf
+2017-02-02 15:48:37,671 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: module generic_request: creating or updating database tables
+2017-02-02 15:48:37,932 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading generic_request/views/request_views.xml
+2017-02-02 15:48:38,425 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: loading generic_request/demo/request_demo.xml
+2017-02-02 15:48:38,624 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: openerp.addons.generic_request.tests.test_request running tests.
+2017-02-02 15:48:38,625 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: test_10_category_name_uniq (openerp.addons.generic_request.tests.test_request.TestRequest)
+2017-02-02 15:48:38,714 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: ERROR
+2017-02-02 15:48:38,716 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: ======================================================================
+2017-02-02 15:48:38,716 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: ERROR: test_10_category_name_uniq (openerp.addons.generic_request.tests.test_request.TestRequest)
+2017-02-02 15:48:38,716 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: Traceback (most recent call last):
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/custom_addons/generic_request/tests/test_request.py", line 15, in test_10_category_name_uniq
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     demo_categ1 = self.env.ref('request_category_00')
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 792, in ref
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     return self['ir.model.data'].xmlid_to_object(xml_id, raise_if_not_found=raise_if_not_found)
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 248, in wrapper
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     return new_api(self, *args, **kwargs)
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 490, in new_api
+2017-02-02 15:48:38,717 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     result = method(self._model, cr, uid, *args, **old_kwargs)
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 997, in xmlid_to_object
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     t = self.xmlid_to_res_model_res_id(cr, uid, xmlid, raise_if_not_found)
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 250, in wrapper
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     return old_api(self, *args, **kwargs)
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 983, in xmlid_to_res_model_res_id
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     return self.xmlid_lookup(cr, uid, xmlid)[1:3]
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 250, in wrapper
+2017-02-02 15:48:38,718 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     return old_api(self, *args, **kwargs)
+2017-02-02 15:48:38,719 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "<decorator-gen-3>", line 2, in xmlid_lookup
+2017-02-02 15:48:38,719 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/tools/cache.py", line 85, in lookup
+2017-02-02 15:48:38,719 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     value = d[key] = self.method(*args, **kwargs)
+2017-02-02 15:48:38,719 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 970, in xmlid_lookup
+2017-02-02 15:48:38,719 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: `     module, name = xmlid.split('.', 1)
+2017-02-02 15:48:38,719 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: ` ValueError: need more than 1 value to unpack
+2017-02-02 15:48:38,719 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: Ran 1 test in 0.091s
+2017-02-02 15:48:38,720 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request: FAILED
+2017-02-02 15:48:38,720 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.addons.generic_request.tests.test_request:  (errors=1)
+2017-02-02 15:48:38,720 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.module: Module generic_request: 0 failures, 1 errors
+2017-02-02 15:48:38,794 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: 23 modules loaded in 2.51s, 0 queries
+2017-02-02 15:48:38,922 14718 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.type has no access rules, consider adding one. E.g. access_request_type,access_request_type,model_request_type,,1,0,0,0
+2017-02-02 15:48:38,922 14718 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.category has no access rules, consider adding one. E.g. access_request_category,access_request_category,model_request_category,,1,0,0,0
+2017-02-02 15:48:38,922 14718 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.stage has no access rules, consider adding one. E.g. access_request_stage,access_request_stage,model_request_stage,,1,0,0,0
+2017-02-02 15:48:38,923 14718 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.stage.route has no access rules, consider adding one. E.g. access_request_stage_route,access_request_stage_route,model_request_stage_route,,1,0,0,0
+2017-02-02 15:48:38,923 14718 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.field has no access rules, consider adding one. E.g. access_request_field,access_request_field,model_request_field,,1,0,0,0
+2017-02-02 15:48:38,923 14718 WARNING 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: The model request.value has no access rules, consider adding one. E.g. access_request_value,access_request_value,model_request_value,,1,0,0,0
+2017-02-02 15:48:39,119 14718 ERROR 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: At least one test failed when loading the modules.
+2017-02-02 15:48:39,120 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.modules.loading: All post-tested in 0.00s, 0 queries
+2017-02-02 15:48:39,121 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.service.server: Initiating shutdown
+2017-02-02 15:48:39,122 14718 INFO 0fP0tRnwUlBW4m57pIz7qDEl openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2017-02-02 15:48:40,355 14746 INFO None openerp.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 0 connections 
+2017-02-02 15:48:41,096 14746 INFO None openerp.service.db: DROP DB: 0fP0tRnwUlBW4m57pIz7qDEl
+2017-02-02 15:57:13,146 14911 WARNING odoo-odoo-test openerp.modules.loading: invalid module names, ignored: generic_request
+2017-02-02 15:57:15,216 14944 INFO ? openerp: OpenERP version 9.0c
+2017-02-02 15:57:15,216 14944 INFO ? openerp: addons paths: ['/home/trofimchuk/progects/odoo_9/data_dir/addons/9.0', u'/home/trofimchuk/progects/odoo_9/odoo/openerp/addons', u'/home/trofimchuk/progects/odoo_9/odoo/addons', u'/home/trofimchuk/progects/odoo_9/custom_addons']
+2017-02-02 15:57:15,216 14944 INFO ? openerp: database: odoo@localhost:default
+2017-02-02 15:57:15,364 14944 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8269
+2017-02-02 15:57:15,377 14944 INFO odoo-odoo-test openerp.modules.loading: loading 1 modules...
+2017-02-02 15:57:15,389 14944 INFO odoo-odoo-test openerp.modules.loading: 1 modules loaded in 0.01s, 0 queries
+2017-02-02 15:57:15,602 14944 WARNING odoo-odoo-test openerp.modules.loading: invalid module names, ignored: generic_request
+2017-02-02 15:57:15,618 14944 INFO odoo-odoo-test openerp.modules.loading: loading 24 modules...
+2017-02-02 15:57:15,673 14944 INFO ? openerp.addons.bus.models.bus: Bus.loop listen imbus on db postgres
+2017-02-02 15:57:15,725 14944 INFO odoo-odoo-test openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf
+2017-02-02 15:57:15,855 14944 INFO odoo-odoo-test openerp.modules.loading: 24 modules loaded in 0.24s, 0 queries
+2017-02-02 15:57:16,202 14944 INFO odoo-odoo-test openerp.modules.loading: Modules loaded.
+2017-02-02 15:57:16,204 14944 INFO odoo-odoo-test openerp.modules.loading: All post-tested in 0.00s, 0 queries
+2017-02-02 15:57:16,205 14944 INFO odoo-odoo-test openerp.service.server: Initiating shutdown
+2017-02-02 15:57:16,205 14944 INFO odoo-odoo-test openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2017-02-02 15:59:28,504 15132 WARNING odoo-odoo-test openerp.modules.loading: The model request.field has no access rules, consider adding one. E.g. access_request_field,access_request_field,model_request_field,,1,0,0,0
+2017-02-02 15:59:28,504 15132 WARNING odoo-odoo-test openerp.modules.loading: The model request.value has no access rules, consider adding one. E.g. access_request_value,access_request_value,model_request_value,,1,0,0,0
+2017-02-02 15:59:28,504 15132 WARNING odoo-odoo-test openerp.modules.loading: The model request.type has no access rules, consider adding one. E.g. access_request_type,access_request_type,model_request_type,,1,0,0,0
+2017-02-02 15:59:28,504 15132 WARNING odoo-odoo-test openerp.modules.loading: The model request.category has no access rules, consider adding one. E.g. access_request_category,access_request_category,model_request_category,,1,0,0,0
+2017-02-02 15:59:28,504 15132 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage has no access rules, consider adding one. E.g. access_request_stage,access_request_stage,model_request_stage,,1,0,0,0
+2017-02-02 15:59:28,504 15132 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage.route has no access rules, consider adding one. E.g. access_request_stage_route,access_request_stage_route,model_request_stage_route,,1,0,0,0
+2017-02-02 15:59:29,808 15167 INFO ? openerp: OpenERP version 9.0c
+2017-02-02 15:59:29,809 15167 INFO ? openerp: addons paths: ['/home/trofimchuk/progects/odoo_9/data_dir/addons/9.0', u'/home/trofimchuk/progects/odoo_9/odoo/openerp/addons', u'/home/trofimchuk/progects/odoo_9/odoo/addons', u'/home/trofimchuk/progects/odoo_9/custom_addons']
+2017-02-02 15:59:29,809 15167 INFO ? openerp: database: odoo@localhost:default
+2017-02-02 15:59:29,945 15167 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8269
+2017-02-02 15:59:29,956 15167 INFO odoo-odoo-test openerp.modules.loading: loading 1 modules...
+2017-02-02 15:59:29,967 15167 INFO odoo-odoo-test openerp.modules.loading: 1 modules loaded in 0.01s, 0 queries
+2017-02-02 15:59:31,409 15167 INFO odoo-odoo-test openerp.modules.loading: loading 25 modules...
+2017-02-02 15:59:31,432 15167 INFO ? openerp.addons.bus.models.bus: Bus.loop listen imbus on db postgres
+2017-02-02 15:59:31,479 15167 INFO odoo-odoo-test openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf
+2017-02-02 15:59:31,768 15167 INFO odoo-odoo-test openerp.modules.module: module generic_request: creating or updating database tables
+2017-02-02 15:59:32,127 15167 INFO odoo-odoo-test openerp.modules.loading: loading generic_request/views/request_views.xml
+2017-02-02 15:59:32,633 15167 INFO odoo-odoo-test openerp.modules.loading: loading generic_request/demo/request_demo.xml
+2017-02-02 15:59:32,805 15167 INFO odoo-odoo-test openerp.modules.module: openerp.addons.generic_request.tests.test_request running tests.
+2017-02-02 15:59:32,806 15167 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request: test_10_category_name_uniq (openerp.addons.generic_request.tests.test_request.TestRequest)
+2017-02-02 15:59:32,814 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: ERROR
+2017-02-02 15:59:32,815 15167 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request: ======================================================================
+2017-02-02 15:59:32,815 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: ERROR: test_10_category_name_uniq (openerp.addons.generic_request.tests.test_request.TestRequest)
+2017-02-02 15:59:32,815 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: Traceback (most recent call last):
+2017-02-02 15:59:32,815 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/custom_addons/generic_request/tests/test_request.py", line 15, in test_10_category_name_uniq
+2017-02-02 15:59:32,815 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     demo_categ1 = self.env.ref('request_category_00')
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 792, in ref
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return self['ir.model.data'].xmlid_to_object(xml_id, raise_if_not_found=raise_if_not_found)
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 248, in wrapper
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return new_api(self, *args, **kwargs)
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 490, in new_api
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     result = method(self._model, cr, uid, *args, **old_kwargs)
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 997, in xmlid_to_object
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     t = self.xmlid_to_res_model_res_id(cr, uid, xmlid, raise_if_not_found)
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 250, in wrapper
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return old_api(self, *args, **kwargs)
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 983, in xmlid_to_res_model_res_id
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return self.xmlid_lookup(cr, uid, xmlid)[1:3]
+2017-02-02 15:59:32,816 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 250, in wrapper
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return old_api(self, *args, **kwargs)
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "<decorator-gen-3>", line 2, in xmlid_lookup
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/tools/cache.py", line 85, in lookup
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     value = d[key] = self.method(*args, **kwargs)
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 970, in xmlid_lookup
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     module, name = xmlid.split('.', 1)
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: ` ValueError: need more than 1 value to unpack
+2017-02-02 15:59:32,817 15167 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request: Ran 1 test in 0.010s
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: FAILED
+2017-02-02 15:59:32,817 15167 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request:  (errors=1)
+2017-02-02 15:59:32,817 15167 ERROR odoo-odoo-test openerp.modules.module: Module generic_request: 0 failures, 1 errors
+2017-02-02 15:59:32,852 15167 INFO odoo-odoo-test openerp.modules.loading: 25 modules loaded in 1.44s, 0 queries
+2017-02-02 15:59:32,937 15167 WARNING odoo-odoo-test openerp.modules.loading: The model request.type has no access rules, consider adding one. E.g. access_request_type,access_request_type,model_request_type,,1,0,0,0
+2017-02-02 15:59:32,937 15167 WARNING odoo-odoo-test openerp.modules.loading: The model request.category has no access rules, consider adding one. E.g. access_request_category,access_request_category,model_request_category,,1,0,0,0
+2017-02-02 15:59:32,937 15167 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage has no access rules, consider adding one. E.g. access_request_stage,access_request_stage,model_request_stage,,1,0,0,0
+2017-02-02 15:59:32,937 15167 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage.route has no access rules, consider adding one. E.g. access_request_stage_route,access_request_stage_route,model_request_stage_route,,1,0,0,0
+2017-02-02 15:59:32,937 15167 WARNING odoo-odoo-test openerp.modules.loading: The model request.field has no access rules, consider adding one. E.g. access_request_field,access_request_field,model_request_field,,1,0,0,0
+2017-02-02 15:59:32,937 15167 WARNING odoo-odoo-test openerp.modules.loading: The model request.value has no access rules, consider adding one. E.g. access_request_value,access_request_value,model_request_value,,1,0,0,0
+2017-02-02 15:59:33,140 15167 ERROR odoo-odoo-test openerp.modules.loading: At least one test failed when loading the modules.
+2017-02-02 15:59:33,142 15167 INFO odoo-odoo-test openerp.modules.loading: All post-tested in 0.00s, 0 queries
+2017-02-02 15:59:33,143 15167 INFO odoo-odoo-test openerp.service.server: Initiating shutdown
+2017-02-02 15:59:33,143 15167 INFO odoo-odoo-test openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
