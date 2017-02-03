@@ -274,3 +274,64 @@
 2017-02-02 15:59:33,142 15167 INFO odoo-odoo-test openerp.modules.loading: All post-tested in 0.00s, 0 queries
 2017-02-02 15:59:33,143 15167 INFO odoo-odoo-test openerp.service.server: Initiating shutdown
 2017-02-02 15:59:33,143 15167 INFO odoo-odoo-test openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2017-02-03 08:30:31,661 12847 WARNING odoo-odoo-test openerp.modules.loading: The model request.type has no access rules, consider adding one. E.g. access_request_type,access_request_type,model_request_type,,1,0,0,0
+2017-02-03 08:30:31,695 12847 WARNING odoo-odoo-test openerp.modules.loading: The model request.category has no access rules, consider adding one. E.g. access_request_category,access_request_category,model_request_category,,1,0,0,0
+2017-02-03 08:30:31,696 12847 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage has no access rules, consider adding one. E.g. access_request_stage,access_request_stage,model_request_stage,,1,0,0,0
+2017-02-03 08:30:31,696 12847 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage.route has no access rules, consider adding one. E.g. access_request_stage_route,access_request_stage_route,model_request_stage_route,,1,0,0,0
+2017-02-03 08:30:31,696 12847 WARNING odoo-odoo-test openerp.modules.loading: The model request.field has no access rules, consider adding one. E.g. access_request_field,access_request_field,model_request_field,,1,0,0,0
+2017-02-03 08:30:31,696 12847 WARNING odoo-odoo-test openerp.modules.loading: The model request.value has no access rules, consider adding one. E.g. access_request_value,access_request_value,model_request_value,,1,0,0,0
+2017-02-03 08:30:33,044 12884 INFO ? openerp: OpenERP version 9.0c
+2017-02-03 08:30:33,044 12884 INFO ? openerp: addons paths: ['/home/trofimchuk/progects/odoo_9/data_dir/addons/9.0', u'/home/trofimchuk/progects/odoo_9/odoo/openerp/addons', u'/home/trofimchuk/progects/odoo_9/odoo/addons', u'/home/trofimchuk/progects/odoo_9/custom_addons']
+2017-02-03 08:30:33,045 12884 INFO ? openerp: database: odoo@localhost:default
+2017-02-03 08:30:33,181 12884 INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8269
+2017-02-03 08:30:33,193 12884 INFO odoo-odoo-test openerp.modules.loading: loading 1 modules...
+2017-02-03 08:30:33,204 12884 INFO odoo-odoo-test openerp.modules.loading: 1 modules loaded in 0.01s, 0 queries
+2017-02-03 08:30:40,482 12884 INFO odoo-odoo-test openerp.modules.loading: loading 25 modules...
+2017-02-03 08:30:40,529 12884 INFO ? openerp.addons.bus.models.bus: Bus.loop listen imbus on db postgres
+2017-02-03 08:30:40,582 12884 INFO odoo-odoo-test openerp.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf
+2017-02-03 08:30:40,874 12884 INFO odoo-odoo-test openerp.modules.module: module generic_request: creating or updating database tables
+2017-02-03 08:30:41,075 12884 INFO odoo-odoo-test openerp.modules.loading: loading generic_request/views/request_views.xml
+2017-02-03 08:30:41,597 12884 INFO odoo-odoo-test openerp.modules.loading: loading generic_request/demo/request_demo.xml
+2017-02-03 08:30:41,825 12884 INFO odoo-odoo-test openerp.modules.module: openerp.addons.generic_request.tests.test_request running tests.
+2017-02-03 08:30:41,827 12884 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request: test_10_category_name_uniq (openerp.addons.generic_request.tests.test_request.TestRequest)
+2017-02-03 08:30:41,879 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: ERROR
+2017-02-03 08:30:41,880 12884 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request: ======================================================================
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: ERROR: test_10_category_name_uniq (openerp.addons.generic_request.tests.test_request.TestRequest)
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: Traceback (most recent call last):
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/custom_addons/generic_request/tests/test_request.py", line 15, in test_10_category_name_uniq
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     demo_categ1 = self.env.ref('request_category_00')
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 792, in ref
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return self['ir.model.data'].xmlid_to_object(xml_id, raise_if_not_found=raise_if_not_found)
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 248, in wrapper
+2017-02-03 08:30:41,881 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return new_api(self, *args, **kwargs)
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 490, in new_api
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     result = method(self._model, cr, uid, *args, **old_kwargs)
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 997, in xmlid_to_object
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     t = self.xmlid_to_res_model_res_id(cr, uid, xmlid, raise_if_not_found)
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 250, in wrapper
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return old_api(self, *args, **kwargs)
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 983, in xmlid_to_res_model_res_id
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return self.xmlid_lookup(cr, uid, xmlid)[1:3]
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/api.py", line 250, in wrapper
+2017-02-03 08:30:41,882 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     return old_api(self, *args, **kwargs)
+2017-02-03 08:30:41,883 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "<decorator-gen-3>", line 2, in xmlid_lookup
+2017-02-03 08:30:41,883 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/tools/cache.py", line 85, in lookup
+2017-02-03 08:30:41,883 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     value = d[key] = self.method(*args, **kwargs)
+2017-02-03 08:30:41,883 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `   File "/home/trofimchuk/progects/odoo_9/odoo/openerp/addons/base/ir/ir_model.py", line 970, in xmlid_lookup
+2017-02-03 08:30:41,883 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: `     module, name = xmlid.split('.', 1)
+2017-02-03 08:30:41,883 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: ` ValueError: need more than 1 value to unpack
+2017-02-03 08:30:41,883 12884 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request: Ran 1 test in 0.055s
+2017-02-03 08:30:41,883 12884 ERROR odoo-odoo-test openerp.addons.generic_request.tests.test_request: FAILED
+2017-02-03 08:30:41,883 12884 INFO odoo-odoo-test openerp.addons.generic_request.tests.test_request:  (errors=1)
+2017-02-03 08:30:41,884 12884 ERROR odoo-odoo-test openerp.modules.module: Module generic_request: 0 failures, 1 errors
+2017-02-03 08:30:41,950 12884 INFO odoo-odoo-test openerp.modules.loading: 25 modules loaded in 1.47s, 0 queries
+2017-02-03 08:30:42,041 12884 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage.route has no access rules, consider adding one. E.g. access_request_stage_route,access_request_stage_route,model_request_stage_route,,1,0,0,0
+2017-02-03 08:30:42,041 12884 WARNING odoo-odoo-test openerp.modules.loading: The model request.field has no access rules, consider adding one. E.g. access_request_field,access_request_field,model_request_field,,1,0,0,0
+2017-02-03 08:30:42,041 12884 WARNING odoo-odoo-test openerp.modules.loading: The model request.value has no access rules, consider adding one. E.g. access_request_value,access_request_value,model_request_value,,1,0,0,0
+2017-02-03 08:30:42,041 12884 WARNING odoo-odoo-test openerp.modules.loading: The model request.type has no access rules, consider adding one. E.g. access_request_type,access_request_type,model_request_type,,1,0,0,0
+2017-02-03 08:30:42,041 12884 WARNING odoo-odoo-test openerp.modules.loading: The model request.category has no access rules, consider adding one. E.g. access_request_category,access_request_category,model_request_category,,1,0,0,0
+2017-02-03 08:30:42,041 12884 WARNING odoo-odoo-test openerp.modules.loading: The model request.stage has no access rules, consider adding one. E.g. access_request_stage,access_request_stage,model_request_stage,,1,0,0,0
+2017-02-03 08:30:42,257 12884 ERROR odoo-odoo-test openerp.modules.loading: At least one test failed when loading the modules.
+2017-02-03 08:30:42,259 12884 INFO odoo-odoo-test openerp.modules.loading: All post-tested in 0.00s, 0 queries
+2017-02-03 08:30:42,260 12884 INFO odoo-odoo-test openerp.service.server: Initiating shutdown
+2017-02-03 08:30:42,260 12884 INFO odoo-odoo-test openerp.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
