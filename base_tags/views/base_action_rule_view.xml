@@ -8,10 +8,12 @@
             <field name="model">base.action.rule</field>
             <field name="inherit_id" ref="base_action_rule.view_base_action_rule_form"/>
             <field name="arch" type="xml">
-                <field name="act_followers" position="after">
+                <field name="act_user_id" position="after">
                     <field name="act_add_tag_ids" widget="many2many_tags"
                            context="{'default_model': model}"
                            domain="[('model_id.model', '=', model)]"/>
+                </field>
+                <field name="act_followers" position="after">
                     <field name="act_remove_tag_ids" widget="many2many_tags"
                            context="{'default_model': model}"
                            domain="[('model_id.model', '=', model)]"/>
