@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+    <template id="portal_my_home_menu_request"
+              name="Portal request : Request"
+              inherit_id="website_portal_v10.portal_layout"
+              priority="20">
+        <xpath expr="//ul[contains(@class,'o_portal_submenu')]"
+               position="inside">
+            <li>
+                <a href="/my/requests">Requests</a>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_request" name="My request">
+      <t t-call="website_portal_v10.portal_layout">
+        <h3 class="page-header">Your request</h3>
+        <t t-if="not request">
+            <p>There are currently no requests in the your account.</p>
+        </t>
+        <t t-if="request">
+            <table class="table table-hover o_my_status_table">
+                <thead>
+                  <tr class="active">
+                    <th>Request #</th>
+                    <th>Type Name</th>
+                    <th>Stage</th>
+                  </tr>
+                </thead>
+            <t t-foreach="requests" t-as="req">
+                    <tr>
+                    <td>
+                        <a t-attf-href="/my/requests/{{req.id}}?{{keep_query()}}"><t t-esc="req.name"/></a>
+                    </td>
+                        <td><span t-field="req.type_id.name"/></td>
+                        <td><span t-field="req.stage_id.name"/></td>
+                    </tr>
+            </t>
+            </table>
+        </t>
+      </t>
+    </template>
+
+    <template id="portal_request" name="Request">
+      <t t-call="website_portal_v10.portal_layout">
+        <div class="row">
+            <div class="col-xs-10">
+              <h1>Request: <span t-field="reques.name"/></h1>
+            </div>
+            <div class="col-xs-2">
+              <h2><span class="label label-default" t-field="reques.stage_id.name"/></h2>
+            </div>
+            <div class="col-xs-12">
+              <h3><span t-field="reques.type_id.name"/></h3>
+            </div>
+            <div class="col-xs-8">
+                <h4><span t-field="reques.request_text"/></h4>
+            </div>
+            <div class="col-xs-4">
+	            <table class="table table-hover">
+	                <thead>
+	                  <tr class="active">
+	                    <th>Request Field</th>
+	                    <th>Value (str)</th>
+	                    <th>Value (int)</th>
+	                  </tr>
+	                </thead>
+	                    <td><span t-field="reques.value_ids.request_field_id.name"/></td>
+	                    <td><span t-field="reques.value_ids.value_str"/></td>
+	                    <td><span t-field="reques.value_ids.value_int"/></td>
+	            </table>
+           </div>
+        </div>
+              
+            <t t-call="website_mail.message_thread">
+              <t t-set="object" t-value="reques"/>
+              <t t-set="chatter_mode" t-value="'json'"/>
+            </t>
+      </t>
+    </template>
+
+    <template id="portal_my_home_sale" name="Portal My Home : sales entries"
+              inherit_id="website_portal_v10.portal_my_home" priority="25">
+        <xpath expr="//div[contains(@class,'o_my_home_content')]" position="inside">
+            <h3 class="page-header">
+                <a href="/my/requests">Your Request
+                    <small class="ml8">
+                        <t t-if="request_count">
+                            <span class='badge'><t t-esc="request_count"/></span>
+                        </t>
+                        <t t-if="not request_count">
+                            There are currently no quotes for your account.
+                        </t>
+                    </small>
+                </a>
+            </h3>
+        </xpath>
+    </template>
+
+</odoo>
