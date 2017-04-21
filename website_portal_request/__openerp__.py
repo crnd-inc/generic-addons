@@ -10,7 +10,7 @@
     "author": "Management and Accounting Online",
     "license": "LGPL-3",
     'version': '9.0.1.0.0',
-    'depends': [  
+    'depends': [
         'website_portal_v10',
         'website_mail',
     ],
