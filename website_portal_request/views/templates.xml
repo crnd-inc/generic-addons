@@ -51,7 +51,7 @@
               <h1>Request: <span t-field="reques.name"/></h1>
             </div>
             <div class="col-xs-2">
-              <h2><span class="label label-default" t-field="reques.stage_id.name"/></h2>
+              <h2><span class="label label-primary" t-field="reques.stage_id.name"/></h2>
             </div>
             <div class="col-xs-12">
               <h3><span t-field="reques.type_id.name"/></h3>
