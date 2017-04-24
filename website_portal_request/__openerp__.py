@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2015-2016 Odoo S.A.
-# © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
-    'name': 'Website Portal for Request (Backported From v10)',
+    'name': 'Website Portal for Request',
     'category': 'Website',
-    'summary': 'Add your sales document in the frontend portal (sales order, '
-               'quotations, invoices)',
+    'summary': 'Generic request management',
     "author": "Management and Accounting Online",
     "license": "LGPL-3",
     'version': '9.0.1.0.0',
@@ -18,5 +14,5 @@
         'views/templates.xml',
     ],
     'installable': True,
-    'auto_install': True,
+    'auto_install': False,
 }

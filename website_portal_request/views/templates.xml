@@ -82,7 +82,7 @@
       </t>
     </template>
 
-    <template id="portal_my_home_sale" name="Portal My Home : sales entries"
+    <template id="portal_my_home_request" name="Portal My Home Request"
               inherit_id="website_portal_v10.portal_my_home" priority="25">
         <xpath expr="//div[contains(@class,'o_my_home_content')]" position="inside">
             <h3 class="page-header">
