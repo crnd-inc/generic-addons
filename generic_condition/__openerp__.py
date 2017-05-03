@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+{
+    "name": "Generic Condition",
+    "version": "9.0.0.0.1",
+    "author": "Management and Accounting Online",
+    "website": "https://maao.com.ua",
+    "license": "Other proprietary",
+    "summary": "Generic Conditions",
+    'category': 'Added functionality',
+    'description': """
+        This addon implements generic programmable conditions,
+        that allows to program some logic by non-programmers
+    """,
+    'depends': [
+        'base',
+        # 'base_tags',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/generic_condition_view.xml',
+        'wizard/test_condition_view.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+}
+
