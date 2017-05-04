@@ -2,7 +2,7 @@ from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.tools import (DEFAULT_SERVER_DATETIME_FORMAT,
                             DEFAULT_SERVER_DATE_FORMAT)
-from openerp.exceptions import ValidationError
+from openerp.exceptions import ValidationError, UserError
 import datetime
 from dateutil.relativedelta import relativedelta
 
@@ -84,6 +84,7 @@ class GenericCondition(models.Model):
                         _('Wrong Related Field / Based on combination'))
         return True
 
+    color = fields.Integer('Color')
     name = fields.Char('Name', required=True, index=True)
     type = fields.Selection('_get_selection_type', default='filter',
         string='Type', index=True, required=True)
@@ -94,9 +95,9 @@ class GenericCondition(models.Model):
         string='Based on')
     sequence = fields.Integer('Sequence', index=True, default=10)
     active = fields.Boolean('Active', index=True, default=True)
-    invert = fields.Boolean('Invert')
+    invert = fields.Boolean('Invert (Not)')
     enable_caching = fields.Boolean(
-        'Enable caching',
+        'Enable caching', default=True,
         help='If set, then condition result for a specific object will be '
                 'cached during one condition chain call. '
                 'This may speed_up condition processing.')
@@ -254,11 +255,20 @@ class GenericCondition(models.Model):
 
     # signature check_<type> where type is condition type
     def check_condition(self, obj, cache=None):
+        if not self.condition_condition_id:
+            raise UserError(_(
+                "Condition config error. Condition type is 'condition' but "
+                "condition_id is not set"))
         return self.condition_condition_id.check(obj, cache=cache)
 
     # signature check_<type> where type is condition type
     def check_condition_group(self, obj, cache=None):
-        self.condition_condition_ids.check(
+        if not self.condition_condition_ids:
+            raise UserError(_(
+                "Condition config error. Condition type is 'condition group' "
+                "but condition_condition_ids are empty!"))
+
+        return self.condition_condition_ids.check(
             obj, operator=self.condition_condition_ids_operator, cache=cache)
 
     # signature check_<type> where type is condition type
