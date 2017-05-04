@@ -11,14 +11,12 @@ class TestGenericCondition(models.TransientModel):
 
     condition_id = fields.Many2one(
         'generic.condition', 'Condition', required=True, ondelete='cascade')
-    res_id = fields.Integer('Object ID',
-                                help='ID of object to test condition on')
+    res_id = fields.Integer(
+        'Object ID', help='ID of object to test condition on')
     result = fields.Text('Result', readonly=True)
 
     @api.multi
     def process(self):
-        Condition = self.env['generic.condition']
-
         result_map = {
             True: _('Ok'),
             False: _('Fail'),
@@ -31,7 +29,7 @@ class TestGenericCondition(models.TransientModel):
             if not TestModel.search([('id', '=', wiz.res_id)]):
                 wiz.write({
                     'result': ('Object (model: %s; id: %s) not found'
-                               '' %(wiz.model_id.model, wiz.res_id)),
+                               '' % (wiz.model_id.model, wiz.res_id)),
                 })
             else:
                 test_obj = TestModel.browse(wiz.res_id)

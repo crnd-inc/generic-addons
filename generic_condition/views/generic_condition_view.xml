@@ -1,189 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-        <menuitem id="menu_generic_condition_root" name="Generic Conditions"
-            parent="base.menu_custom" />
+<odoo>
+    <menuitem id="menu_generic_condition_root" name="Generic Conditions"
+        parent="base.menu_custom" />
 
-        <!-- Generic Condition Views -->
-        <record id="generic_condition_search_view" model="ir.ui.view">
-            <field name="name">generic.condition.search</field>
-            <field name="model">generic.condition</field>
-            <field name="arch" type="xml">
-                <search string="Condition search">
-                    <field name="name"/>
-                    <field name="model_id"/>
+    <!-- Generic Condition Views -->
+    <record id="generic_condition_search_view" model="ir.ui.view">
+        <field name="name">generic.condition.search</field>
+        <field name="model">generic.condition</field>
+        <field name="arch" type="xml">
+            <search string="Condition search">
+                <field name="name"/>
+                <field name="model_id"/>
 
-                    <separator/>
-                    <filter name="type_eval"
-                            domain="[('type', '=', 'eval')]"
-                            string="Expression"/>
-                    <filter name="type_filter"
-                            domain="[('type', '=', 'filter')]"
-                            string="Filter"/>
-                    <!--<filter name="type_tags"-->
-                            <!--domain="[('type', '=', 'tags')]"-->
-                            <!--string="Tags"/>-->
-                    <filter name="type_condition"
-                            domain="[('type', '=', 'condition')]"
-                            string="Condition"/>
-                    <filter name="type_related_conditions"
-                            domain="[('type', '=', 'related_conditions')]"
-                            string="Related conditions"/>
-                    <filter name="type_date_diff"
-                            domain="[('type', '=', 'date_diff')]"
-                            string="Date difference"/>
-                    <filter name="type_condition_group"
-                            domain="[('type', '=', 'condition_group')]"
-                            string="Condition group"/>
-                    <separator/>
+                <separator/>
+                <filter name="type_eval"
+                        domain="[('type', '=', 'eval')]"
+                        string="Expression"/>
+                <filter name="type_filter"
+                        domain="[('type', '=', 'filter')]"
+                        string="Filter"/>
+                <!--<filter name="type_tags"-->
+                        <!--domain="[('type', '=', 'tags')]"-->
+                        <!--string="Tags"/>-->
+                <filter name="type_condition"
+                        domain="[('type', '=', 'condition')]"
+                        string="Condition"/>
+                <filter name="type_related_conditions"
+                        domain="[('type', '=', 'related_conditions')]"
+                        string="Related conditions"/>
+                <filter name="type_date_diff"
+                        domain="[('type', '=', 'date_diff')]"
+                        string="Date difference"/>
+                <filter name="type_condition_group"
+                        domain="[('type', '=', 'condition_group')]"
+                        string="Condition group"/>
+                <separator/>
 
-                    <group expand="0" string="Group by...">
-                    <filter string='Type'
-                            domain="[]"
-                            context="{'group_by' : 'type'}"/>
-                    <filter string='Based on'
-                            domain="[]"
-                            context="{'group_by' : 'model_id'}"/>
-                    </group>
+                <group expand="0" string="Group by...">
+                <filter string='Type'
+                        domain="[]"
+                        context="{'group_by' : 'type'}"/>
+                <filter string='Based on'
+                        domain="[]"
+                        context="{'group_by' : 'model_id'}"/>
+                </group>
 
-                </search>
-            </field>
-        </record>
+            </search>
+        </field>
+    </record>
 
-        <record id="generic_condition_tree_view" model="ir.ui.view">
-            <field name="name">generic.condition.tree</field>
-            <field name="model">generic.condition</field>
-            <field name="arch" type="xml">
-                <tree string="Conditions">
-                    <field name="name"/>
+    <record id="generic_condition_tree_view" model="ir.ui.view">
+        <field name="name">generic.condition.tree</field>
+        <field name="model">generic.condition</field>
+        <field name="arch" type="xml">
+            <tree string="Conditions">
+                <field name="name"/>
+                <field name="sequence" invisible="1"/>
+                <field name="type"/>
+                <field name="model_id"/>
+                <field name="enable_caching"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_condition_form_view" model="ir.ui.view">
+        <field name="name">generic.condition.form</field>
+        <field name="model">generic.condition</field>
+        <field name="arch" type="xml">
+            <form string="Condition">
+                <sheet>
                     <field name="sequence" invisible="1"/>
-                    <field name="type"/>
-                    <field name="model_id"/>
-                    <field name="enable_caching"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="generic_condition_form_view" model="ir.ui.view">
-            <field name="name">generic.condition.form</field>
-            <field name="model">generic.condition</field>
-            <field name="arch" type="xml">
-                <form string="Condition">
-                    <sheet>
-                        <field name="sequence" invisible="1"/>
-                        <div class="oe_button_box" name="button_box">
-                            <button name="toggle_active" type="object"
-                                    class="oe_stat_button" icon="fa-archive">
-                                <field name="active" widget="boolean_button"
-                                    options='{"terminology": "archive"}'/>
-                            </button>
-                        </div>
-                        <div class="oe_title">
-                            <h1>
-                                <field name="name"/>
-                            </h1>
-                        </div>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
                         <group>
-                            <group>
-                                <field name="type"/>
-                                <field name="model_id"/>
-                                <field name="based_on" invisible="1"/>
-                            </group>
-                            <group>
-                                <field name="enable_caching"/>
-                            </group>
+                            <field name="type"/>
+                            <field name="model_id"/>
+                            <field name="based_on" invisible="1"/>
                         </group>
-                        <group string="Condition" colspan="4">
-                            <group colspan="4">
-                                <field name="invert"/>
-                                <field name="condition_filter_id"
-                                    domain="[('model_id','=',based_on)]"
-                                    context="{'default_model_id': based_on}"
-                                    attrs="{'required': [('type','=','filter')], 'invisible': [('type', '!=', 'filter')]}"/>
-                                <!--<field name="condition_tag_ids"-->
-                                    <!--attrs="{'required': [('type','=','tags')], 'invisible': [('type', '!=', 'tags')]}"-->
-                                    <!--widget="many2many_tags"-->
-                                    <!--context="{'default_model_id': model_id}"-->
-                                    <!--domain="[('model_id', '=', model_id)]"/>-->
-                                <field name="condition_condition_id"
-                                    attrs="{'required': [('type','=','condition')], 'invisible': [('type', '!=', 'condition')]}"
-                                    context="{'default_model_id': model_id}"
-                                    domain="[('model_id','=',model_id)]"/>
-                                <field name="condition_eval"
-                                    widget="code" ace-mode="python"
-                                    attrs="{'required': [('type','=','eval')], 'invisible': [('type', '!=', 'eval')]}"/>
-
-
-                                <!-- Condition group -->
-                                <field name="condition_condition_ids_operator"
-                                    attrs="{'required': [('type','=','condition_group')], 'invisible': [('type', '!=', 'condition_group')]}"/>
-                                <field name="condition_condition_ids"
-                                    attrs="{'required': [('type','=','condition_group')], 'invisible': [('type', '!=', 'condition_group')]}"
-                                    context="{'default_model_id': model_id}"
-                                    domain="[('model_id','=',model_id)]"
-                                    widget="many2many_tags"
-                                    options="{'no_quick_create': true}"/>
-
-                                <!-- related conditions -->
-                                <field name="condition_rel_field_id_model_id" invisible="1"/>
-                                <field name="condition_rel_field_id"
-                                    attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"
-                                    context="{'default_model_id': model_id}"
-                                    domain="[('model_id','=',model_id),('ttype', 'in', ('many2many', 'one2many', 'many2one'))]"/>
-                                <separator colspan="2"/>
-                                <field name="condition_rel_filter_conditions_operator"
-                                    attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"/>
-                                <field name="condition_rel_filter_conditions"
-                                    attrs="{'invisible': [('type', '!=', 'related_conditions')]}"
-                                    context="{'default_model_id': condition_rel_field_id_model_id}"
-                                    domain="[('model_id','=',condition_rel_field_id_model_id)]"
-                                    widget="many2many_tags"
-                                    options="{'no_quick_create': true}"/>
-                                <separator colspan="2"/>
-                                <field name="condition_rel_conditions_operator"
-                                    attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"/>
-                                <field name="condition_rel_conditions"
-                                    attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"
-                                    context="{'default_model_id': condition_rel_field_id_model_id}"
-                                    domain="[('model_id','=',condition_rel_field_id_model_id)]"
-                                    widget="many2many_tags"
-                                    options="{'no_quick_create': true}"/>
-
-                                <!-- date-diff -->
-                                <field name="condition_date_diff_date_field_start" colspan="2" class="oe_inline"
-                                    attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"
-                                    context="{'default_model_id': model_id}"
-                                    domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"/>
-                                <field name="condition_date_diff_date_field_end" colspan="2" class="oe_inline"
-                                    attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"
-                                    context="{'default_model_id': model_id}"
-                                    domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"/>
-                                <field name="condition_date_diff_operator" colspan="2" class="oe_inline"
-                                    attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"/>
-                                <field name="condition_date_diff_value" colspan="2" class="oe_inline"
-                                    attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"/>
-                                <field name="condition_date_diff_uom" colspan="2" class="oe_inline"
-                                    attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"/>
-                                
-                            </group>
+                        <group>
+                            <field name="enable_caching"/>
                         </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+                    </group>
+                    <group string="Condition" colspan="4">
+                        <group colspan="4">
+                            <field name="invert"/>
+                            <field name="condition_filter_id"
+                                domain="[('model_id','=',based_on)]"
+                                context="{'default_model_id': based_on}"
+                                attrs="{'required': [('type','=','filter')], 'invisible': [('type', '!=', 'filter')]}"/>
+                            <!--<field name="condition_tag_ids"-->
+                                <!--attrs="{'required': [('type','=','tags')], 'invisible': [('type', '!=', 'tags')]}"-->
+                                <!--widget="many2many_tags"-->
+                                <!--context="{'default_model_id': model_id}"-->
+                                <!--domain="[('model_id', '=', model_id)]"/>-->
+                            <field name="condition_condition_id"
+                                attrs="{'required': [('type','=','condition')], 'invisible': [('type', '!=', 'condition')]}"
+                                context="{'default_model_id': model_id}"
+                                domain="[('model_id','=',model_id)]"/>
+                            <field name="condition_eval"
+                                widget="code" ace-mode="python"
+                                attrs="{'required': [('type','=','eval')], 'invisible': [('type', '!=', 'eval')]}"/>
 
-        <record id="generic_condition_action" model="ir.actions.act_window">
-            <field name="name">Generic Conditions</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">generic.condition</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
 
-        <!--menus -->
-        <menuitem id="menu_generic_condition"
-                  name="Generic Conditions"
-                  parent="menu_generic_condition_root" sequence="60"
-                  action="generic_condition_action"/>
-    </data>
-</openerp>
+                            <!-- Condition group -->
+                            <field name="condition_condition_ids_operator"
+                                attrs="{'required': [('type','=','condition_group')], 'invisible': [('type', '!=', 'condition_group')]}"/>
+                            <field name="condition_condition_ids"
+                                attrs="{'required': [('type','=','condition_group')], 'invisible': [('type', '!=', 'condition_group')]}"
+                                context="{'default_model_id': model_id}"
+                                domain="[('model_id','=',model_id)]"
+                                widget="many2many_tags"
+                                options="{'no_quick_create': true}"/>
+
+                            <!-- related conditions -->
+                            <field name="condition_rel_field_id_model_id" invisible="1"/>
+                            <field name="condition_rel_field_id"
+                                attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"
+                                context="{'default_model_id': model_id}"
+                                domain="[('model_id','=',model_id),('ttype', 'in', ('many2many', 'one2many', 'many2one'))]"/>
+                            <field name="condition_rel_record_operator"
+                                attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"/>
+                            <separator colspan="2"/>
+                            <field name="condition_rel_filter_conditions_operator"
+                                attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"/>
+                            <field name="condition_rel_filter_conditions"
+                                attrs="{'invisible': [('type', '!=', 'related_conditions')]}"
+                                context="{'default_model_id': condition_rel_field_id_model_id}"
+                                domain="[('model_id','=',condition_rel_field_id_model_id)]"
+                                widget="many2many_tags"
+                                options="{'no_quick_create': true}"/>
+                            <separator colspan="2"/>
+                            <field name="condition_rel_conditions_operator"
+                                attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"/>
+                            <field name="condition_rel_conditions"
+                                attrs="{'required': [('type','=','related_conditions')], 'invisible': [('type', '!=', 'related_conditions')]}"
+                                context="{'default_model_id': condition_rel_field_id_model_id}"
+                                domain="[('model_id','=',condition_rel_field_id_model_id)]"
+                                widget="many2many_tags"
+                                options="{'no_quick_create': true}"/>
+
+                            <!-- date-diff -->
+                            <field name="condition_date_diff_date_field_start" colspan="2" class="oe_inline"
+                                attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"
+                                context="{'default_model_id': model_id}"
+                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"/>
+                            <field name="condition_date_diff_date_field_end" colspan="2" class="oe_inline"
+                                attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"
+                                context="{'default_model_id': model_id}"
+                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"/>
+                            <field name="condition_date_diff_operator" colspan="2" class="oe_inline"
+                                attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"/>
+                            <field name="condition_date_diff_value" colspan="2" class="oe_inline"
+                                attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"/>
+                            <field name="condition_date_diff_uom" colspan="2" class="oe_inline"
+                                attrs="{'required': [('type','=','date_diff')], 'invisible': [('type', '!=', 'date_diff')]}"/>
+                            
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_condition_action" model="ir.actions.act_window">
+        <field name="name">Generic Conditions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.condition</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--menus -->
+    <menuitem id="menu_generic_condition"
+                name="Generic Conditions"
+                parent="menu_generic_condition_root" sequence="60"
+                action="generic_condition_action"/>
+</odoo>

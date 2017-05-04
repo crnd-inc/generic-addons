@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.tools import (DEFAULT_SERVER_DATETIME_FORMAT,
-                            DEFAULT_SERVER_DATE_FORMAT)
+                           DEFAULT_SERVER_DATE_FORMAT)
 from openerp.exceptions import ValidationError, UserError
 import datetime
 from dateutil.relativedelta import relativedelta
@@ -10,24 +11,6 @@ import traceback
 
 import logging
 _logger = logging.getLogger(__name__)
-
-
-def time_it(func):
-    """ Log time consumed by function call
-    """
-    import time
-    import functools
-
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        t1 = time.time()
-        res = func(*args, **kwargs)
-        _logger.info("Function %s calculated in time: %.3f seconds",
-                     func.__name__, time.time() - t1)
-        return res
-
-    return wrapper
-
 
 
 class GenericCondition(models.Model):
@@ -73,6 +56,12 @@ class GenericCondition(models.Model):
             ('and',  _('AND')),
         ]
 
+    def _get_selection_condition_rel_record_operator(self):
+        return [
+            ('match', _('Match')),
+            ('contains', _('Contains')),
+        ]
+
     @api.constrains('condition_rel_field_id', 'model_id')
     def _check_condition_rel_field_id(self):
         for cond in self:
@@ -86,7 +75,8 @@ class GenericCondition(models.Model):
 
     color = fields.Integer('Color')
     name = fields.Char('Name', required=True, index=True)
-    type = fields.Selection('_get_selection_type', default='filter',
+    type = fields.Selection(
+        '_get_selection_type', default='filter',
         string='Type', index=True, required=True)
     model_id = fields.Many2one(
         'ir.model', 'Based on model', required=True, index=True)
@@ -99,23 +89,25 @@ class GenericCondition(models.Model):
     enable_caching = fields.Boolean(
         'Enable caching', default=True,
         help='If set, then condition result for a specific object will be '
-                'cached during one condition chain call. '
-                'This may speed_up condition processing.')
+             'cached during one condition chain call. '
+             'This may speed_up condition processing.')
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
         help="Python expression. 'obj' are present in context.")
     # condition_tag_ids = fields.Many2many(
-        # 'res.tag', 'generic_condition_tags_rel',
-        # 'cond_id', 'tag_id', string='Condition (tags)', auto_join=True,
-        # help='There must be at least one of specified tag present in repair')
+    #    'res.tag', 'generic_condition_tags_rel',
+    #    'cond_id', 'tag_id', string='Condition (tags)', auto_join=True,
+    #    help='There must be at least one of specified tag present in repair')
     condition_filter_id = fields.Many2one(
         'ir.filters', string='Condition (filter)', auto_join=True,
         ondelete='restrict', track_visibility='onchange',
-        help="If present, this condition must be satisfied to apply this rule.")
+        help="If present, this condition must be satisfied to apply "
+             "this rule.")
     condition_condition_id = fields.Many2one(
         'generic.condition', 'Condition (condition)',
         ondelete='restrict', track_visibility='onchange', auto_join=True,
-        help='Link to another condition. Usualy used to get inversed condition')
+        help='Link to another condition. Usualy used to get '
+             'inversed condition')
 
     condition_condition_ids = fields.Many2many(
         'generic.condition',
@@ -125,16 +117,24 @@ class GenericCondition(models.Model):
         track_visibility='onchange', auto_join=True,
         help='Links to another conditions')
     condition_condition_ids_operator = fields.Selection(
-        '_get_selection_condition_condition_ids_operator',
+        '_get_selection_condition_condition_ids_operator', default='and',
         string='Group operator', track_visibility='onchange')
 
     # Related conditions
     condition_rel_field_id = fields.Many2one(
-        'ir.model.fields', 'Related Field', ondelete='restrict', auto_join=True,
+        'ir.model.fields', 'Related Field',
+        ondelete='restrict', auto_join=True,
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
-    condition_rel_field_id_model_id = fields.Many2one('ir.model',
-        compute='_compute_condition_rel_field_id_model_id',
+    condition_rel_field_id_model_id = fields.Many2one(
+        'ir.model', compute='_compute_condition_rel_field_id_model_id',
         string='Related field relation', readonly=True)
+    condition_rel_record_operator = fields.Selection(
+        '_get_selection_condition_rel_record_operator',
+        'Related record operator', default='match',
+        help='Choose way related record will be chacked:\n'
+             '- Match: return True if all filtered records match condition.\n'
+             '- Contains: return True if at least one of filtered records '
+             'match \'check\' conditions')
     condition_rel_filter_conditions = fields.Many2many(
         'generic.condition',
         'generic_condition_filter_conds',
@@ -146,7 +146,7 @@ class GenericCondition(models.Model):
              "If this conditions evaluates to False for some object, "
              "that this object will not be checked")
     condition_rel_filter_conditions_operator = fields.Selection(
-        '_get_selection_condition_condition_ids_operator',
+        '_get_selection_condition_condition_ids_operator', default='and',
         string='Group filter conditions operator', track_visibility='onchange')
     condition_rel_conditions = fields.Many2many(
         'generic.condition',
@@ -154,11 +154,13 @@ class GenericCondition(models.Model):
         'parent_id', 'child_id', ondelete='restrict', auto_join=True,
         string='Related check conditions',
         help="Used together with Related Field"
-             "These conditions will be used to check objects that passed filter conditions."
+             "These conditions will be used to check objects "
+             "that passed filter conditions."
              "And result of these related conditions will be used as result")
     condition_rel_conditions_operator = fields.Selection(
-        '_get_selection_condition_condition_ids_operator',
-        string='Group related conditions operator', track_visibility='onchange')
+        '_get_selection_condition_condition_ids_operator', default='and',
+        string='Group related conditions operator',
+        track_visibility='onchange')
 
     # Data difference fields
     condition_date_diff_date_field_start = fields.Many2one(
@@ -175,7 +177,6 @@ class GenericCondition(models.Model):
         string='Date diff UoM')
     condition_date_diff_value = fields.Integer('Date diff value')
 
-
     @api.model
     def default_get(self, fields):
         """ If there is no default model id but default based on, then
@@ -183,10 +184,11 @@ class GenericCondition(models.Model):
         """
         if not self.env.context.get('default_model_id') and \
                 self.env.context.get('default_based_on'):
+            based_on = self.env.context['default_based_on']
             model_id = self.env['ir.model'].search(
-                [('model', '=', context['default_based_on'])], limit=1)
+                [('model', '=', based_on)], limit=1)
             if model_id:
-                xself = self.env.with_context(model_id=model_id.id)
+                xself = self.with_context(default_model_id=model_id.id)
                 return super(GenericCondition, xself).default_get(fields)
         return super(GenericCondition, self).default_get(fields)
 
@@ -202,14 +204,6 @@ class GenericCondition(models.Model):
                 rel_model_id = self.env['ir.model'].search(
                     [('model', '=', field.relation)], limit=1)
                 cond.condition_rel_field_id_model_id = rel_model_id
-
-    # def onchange_model_id(self, cr, uid, ids, model_id, context=None):
-        # based_on = {'based_on': False}
-        # if model_id:
-            # model = self.pool.get('ir.model').browse(
-                # cr, uid, model_id, context=context)
-            # based_on.update({'based_on': model.model})
-        # return {'value': based_on}
 
     # signature check_<type> where type is condition type
     def check_filter(self, obj, cache=None):
@@ -230,12 +224,9 @@ class GenericCondition(models.Model):
             res = bool(eval(self.condition_eval, dict(self.env.context)))
         except:
             condition_name = self.name_get()[0][1]
-            if obj:
-                obj_name = "%s [id:%s] (%s)" % (self.model_id.model,
-                                                obj.id,
-                                                obj.name_get()[0][1])
-            else:
-                obj_name = False
+            obj_name = "%s [id:%s] (%s)" % (self.model_id.model,
+                                            obj.id,
+                                            obj.name_get()[0][1])
             _logger.error(
                 "Error was cauht when checking condition %s on document %s. "
                 "condition expression:\n%s\n", condition_name, obj_name,
@@ -248,26 +239,17 @@ class GenericCondition(models.Model):
 
     # signature check_<type> where type is condition type
     # def check_tags(self, obj, cache=None):
-        # condition_tags = [t.id for t in condition.condition_tag_ids]
-        # return any((1
-                    # for tag in obj.tag_ids
-                    # if tag.id in condition_tags))
+    #    condition_tags = [t.id for t in condition.condition_tag_ids]
+    #    return any((1
+    #                for tag in obj.tag_ids
+    #                if tag.id in condition_tags))
 
     # signature check_<type> where type is condition type
     def check_condition(self, obj, cache=None):
-        if not self.condition_condition_id:
-            raise UserError(_(
-                "Condition config error. Condition type is 'condition' but "
-                "condition_id is not set"))
         return self.condition_condition_id.check(obj, cache=cache)
 
     # signature check_<type> where type is condition type
     def check_condition_group(self, obj, cache=None):
-        if not self.condition_condition_ids:
-            raise UserError(_(
-                "Condition config error. Condition type is 'condition group' "
-                "but condition_condition_ids are empty!"))
-
         return self.condition_condition_ids.check(
             obj, operator=self.condition_condition_ids_operator, cache=cache)
 
@@ -295,16 +277,46 @@ class GenericCondition(models.Model):
         if not operator:
             operator = 'and'
 
+        matched = False
         for rel_rec in related:
-            # if rel_rec passes filter and fails check return False
-            if (self.condition_rel_filter_conditions.check(
-                    rel_rec, operator=filter_operator, cache=cache)
-                and not self.condition_rel_conditions.check(
-                    rel_rec, operator=operator, cache=cache)):
-                       return False
+            # Skip record that does not match filter conditions
+            if (self.condition_rel_filter_conditions and
+                    not self.condition_rel_filter_conditions.check(
+                        rel_rec, operator=filter_operator, cache=cache)):
+                continue
 
+            # check if record match 'check' conditions
+            if not self.condition_rel_conditions.check(
+                    rel_rec, operator=operator, cache=cache):
+                # If 'rel record operator' is 'match' we could just return
+                # False, because it requires all record to match 'check'
+                # conditions and we have found first record that does not match
+                if self.condition_rel_record_operator == 'match':
+                    return False
 
-        return True
+            else:  # check returned True
+                if self.condition_rel_record_operator == 'contains':
+                    # If check conditions passed for this record and
+                    # 'rel record operator is 'contains', we can
+                    # return True, because we have found first record
+                    # that match 'check' conditions. all other recors don't
+                    # matter
+                    return True
+                elif self.condition_rel_record_operator == 'match':
+                    # mark that atleast one record matched. This is used by
+                    # 'match' rel_record_operator. if all records match 'check'
+                    # conditions, then we shoudl know about it after this loop
+                    matched = True
+
+        if self.condition_rel_record_operator == 'match' and matched:
+            # All records match 'check' conditions
+            return True
+
+        # Here we return False, because for 'contains' operator,
+        # we have no found any record that match 'check' conditions,
+        # and for 'match' operator, we have nothing to check (all records
+        # filtered by 'filter' conditions).
+        return False
 
     # signature check_<type> where type is condition type
     def check_date_diff(self, obj, cache=None):
@@ -349,7 +361,7 @@ class GenericCondition(models.Model):
 
         # used for operators '==' and '!='
         uom_map = {
-            'hours': lambda d1, d2, dt: (d1 - d2).total_seconds() / 60.0 / 60.0,
+            'hours': lambda d1, d2, dt: (d1 - d2).total_seconds() / 60.0 / 60.0,  # noqa
             'days': lambda d1, d2, dt: (d1 - d2).days,
             'weeks': lambda d1, d2, dt: uom_map['days'](d1, d2, dt) / 7.0,
             'months': lambda d1, d2, dt: dt.months + dt.years * 12,
@@ -431,6 +443,9 @@ class GenericCondition(models.Model):
                              default: 'and'
         """
         assert operator in ('and', 'or'), "Operator must be in ('and', 'or')"
+
+        if not obj:
+            raise UserError(_("Cannot check conditions for empty recordset"))
 
         cache = {} if cache is None else cache
 
