@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from openerp.tools.translate import _
+from openerp.tools.safe_eval import safe_eval as eval
 from openerp.tools import (DEFAULT_SERVER_DATETIME_FORMAT,
                            DEFAULT_SERVER_DATE_FORMAT)
 from openerp.exceptions import ValidationError, UserError
@@ -73,21 +74,20 @@ class GenericCondition(models.Model):
                         _('Wrong Related Field / Based on combination'))
         return True
 
-    color = fields.Integer('Color')
-    name = fields.Char('Name', required=True, index=True)
+    color = fields.Integer()
+    name = fields.Char(required=True, index=True)
     type = fields.Selection(
         '_get_selection_type', default='filter',
-        string='Type', index=True, required=True)
+        index=True, required=True)
     model_id = fields.Many2one(
         'ir.model', 'Based on model', required=True, index=True)
     based_on = fields.Char(
-        related='model_id.model', readonly=True, index=True, store=True,
-        string='Based on')
-    sequence = fields.Integer('Sequence', index=True, default=10)
-    active = fields.Boolean('Active', index=True, default=True)
+        related='model_id.model', readonly=True, index=True, store=True)
+    sequence = fields.Integer(index=True, default=10)
+    active = fields.Boolean(index=True, default=True)
     invert = fields.Boolean('Invert (Not)')
     enable_caching = fields.Boolean(
-        'Enable caching', default=True,
+        default=True,
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
              'This may speed_up condition processing.')

@@ -7,10 +7,6 @@
     "license": "Other proprietary",
     "summary": "Generic Conditions",
     'category': 'Added functionality',
-    'description': """
-        This addon implements generic programmable conditions,
-        that allows to program some logic by non-programmers
-    """,
     'depends': [
         'base',
         # 'base_tags',

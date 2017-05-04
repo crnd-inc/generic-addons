@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.tools import ustr
@@ -13,7 +14,7 @@ class TestGenericCondition(models.TransientModel):
         'generic.condition', 'Condition', required=True, ondelete='cascade')
     res_id = fields.Integer(
         'Object ID', help='ID of object to test condition on')
-    result = fields.Text('Result', readonly=True)
+    result = fields.Text(readonly=True)
 
     @api.multi
     def process(self):
