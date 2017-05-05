@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp.tools.misc import mute_logger
 from openerp.tests.common import TransactionCase
+from openerp.tools.translate import _
 from openerp.exceptions import ValidationError
 
 
@@ -96,3 +97,22 @@ class TestCondition(TransactionCase):
         self.assertTrue(condition.check(self.partner_z_corp))
         self.assertFalse(condition.check(self.partner_sx_corp))
         self.assertFalse(condition.check(self.partner_demo))
+
+    def test_40_test_condition_wizard(self):
+        Wizard = self.env['generic.condition.test_condition']
+
+        condition = self.condition_partner_has_only_contacts
+
+        wiz = Wizard.create({'condition_id': condition.id})
+
+        wiz.write({'res_id': self.partner_z_corp.id})
+        wiz.process()
+        self.assertEqual(wiz.result, _('Ok'))
+
+        wiz.write({'res_id': self.partner_sx_corp.id})
+        wiz.process()
+        self.assertEqual(wiz.result, _('Fail'))
+
+        wiz.write({'res_id': -42})  # ID that are not present in table
+        with self.assertRaises(ValidationError):
+            wiz.process()

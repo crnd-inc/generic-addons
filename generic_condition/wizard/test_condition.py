@@ -2,6 +2,7 @@
 from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.tools import ustr
+from openerp.exceptions import ValidationError
 
 import logging
 logger = logging.getLogger(__name__)
@@ -28,10 +29,9 @@ class TestGenericCondition(models.TransientModel):
             TestModel = self.env[wiz.condition_id.model_id.model]
 
             if not TestModel.search([('id', '=', wiz.res_id)]):
-                wiz.write({
-                    'result': ('Object (model: %s; id: %s) not found'
-                               '' % (wiz.model_id.model, wiz.res_id)),
-                })
+                raise ValidationError(
+                    _('Object (model: %s; id: %s) not found'
+                      '') % (wiz.condition_id.model_id.model, wiz.res_id))
             else:
                 test_obj = TestModel.browse(wiz.res_id)
                 result = wiz.condition_id.check(test_obj)

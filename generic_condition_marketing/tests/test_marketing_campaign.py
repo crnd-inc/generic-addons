@@ -17,8 +17,6 @@ class TestMarketingCampaign(TransactionCase):
             'generic_condition_marketing.marketing_campaign_activity_0')
         self.activity_1 = self.env.ref(
             'generic_condition_marketing.marketing_campaign_activity_1')
-        self.activity_2 = self.env.ref(
-            'generic_condition_marketing.marketing_campaign_activity_2')
 
     def test_00_campaign(self):
         # In order to test process of compaign, I start compaign.
