@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp.tools.misc import mute_logger
 from openerp.tests.common import TransactionCase
-from openerp.exceptions import ValidationError
 
 
 class TestConditionDateDiff(TransactionCase):
@@ -27,7 +25,7 @@ class TestConditionDateDiff(TransactionCase):
             "name": 'Date diff test',
             "model_id": self.test_model.id,
             "type": 'date_diff',
-            "condition_date_diff_date_field_start": self.test_field_start_date.id,
+            "condition_date_diff_date_field_start": self.test_field_start_date.id,  # noqa
             "condition_date_diff_date_field_end": self.test_field_end_date.id,
             "condition_date_diff_operator": '=',
             "condition_date_diff_uom": 'days',
