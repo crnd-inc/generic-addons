@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_generic_condition_any", "generic_condition any","model_generic_condition",,1,0,0,0
+"access_generic_condition_admin", "generic_condition admin","model_generic_condition","base.group_system",1,1,1,1

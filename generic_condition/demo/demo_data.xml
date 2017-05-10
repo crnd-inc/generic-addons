@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="demo_partner_sx_corp" model="res.partner">
+        <field name="name">SX Corp</field>
+        <field name="city">Kyiv</field>
+        <field name="country_id" ref="base.ua"/>
+    </record>
+
+    <record id="demo_partner_z_corp" model="res.partner">
+        <field name="name">Z Corp</field>
+        <field name="city">Kyiv</field>
+        <field name="country_id" ref="base.ua"/>
+    </record>
+
+    <record id="demo_partner_z_corp_contact_red" model="res.partner">
+        <field name="parent_id" ref="generic_condition.demo_partner_z_corp"/>
+        <field name="name">Red</field>
+        <field name="type">contact</field>
+    </record>
+
+    <record id="demo_partner_z_corp_contact_green" model="res.partner">
+        <field name="parent_id" ref="generic_condition.demo_partner_z_corp"/>
+        <field name="name">Green</field>
+        <field name="type">contact</field>
+    </record>
+
+    <record id="demo_partner_sx_corp_contact_blue" model="res.partner">
+        <field name="parent_id" ref="generic_condition.demo_partner_sx_corp"/>
+        <field name="name">Blue</field>
+        <field name="type">contact</field>
+    </record>
+
+    <record id="demo_partner_sx_corp_contact_green" model="res.partner">
+        <field name="parent_id" ref="generic_condition.demo_partner_sx_corp"/>
+        <field name="name">Green</field>
+        <field name="type">delivery</field>
+    </record>
+
+    <record id="demo_filter_partner_city_kyiv" model="ir.filters">
+        <field name="name">City: Kyiv</field>
+        <field name="model_id">res.partner</field>
+        <field name="user_id" eval="False"/>
+        <field name="domain">[('city', '=', 'Kyiv')]</field>
+    </record>
+
+    <record id="demo_condition_eval_error" model="generic.condition">
+        <field name="name">eval with error</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">
+            0 + "123"  # throws TypeError
+        </field>
+    </record>
+
+    <record id="demo_condition_partner_sx_corp" model="generic.condition">
+        <field name="name">eval [name: SX Corp]</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">obj.name == "SX Corp"</field>
+    </record>
+
+    <record id="demo_condition_partner_not_sx_corp" model="generic.condition">
+        <field name="name">not [name: SX Corp]</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">condition</field>
+        <field name="invert" eval="True"/>
+        <field name="condition_condition_id" ref="demo_condition_partner_sx_corp"/>
+    </record>
+
+    <record id="demo_condition_partner_city_kyiv" model="generic.condition">
+        <field name="name">city: Kyiv</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">filter</field>
+        <field name="condition_filter_id" ref="demo_filter_partner_city_kyiv"/>
+    </record>
+
+    <record id="demo_condition_partner_not_sx_corp_but_kyiv" model="generic.condition">
+        <field name="name">city: Kyiv</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">condition_group</field>
+        <field name="condition_condition_ids"
+               eval="[(6, 0, [ref('generic_condition.demo_condition_partner_not_sx_corp'), ref('generic_condition.demo_condition_partner_city_kyiv')])]"/>
+    </record>
+
+    <record id="demo_condition_partner_contact" model="generic.condition">
+        <field name="name">eval [type: contact]</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">obj.type == "contact"</field>
+    </record>
+
+    <record id="demo_condition_partner_green" model="generic.condition">
+        <field name="name">eval [name: Green]</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">obj.name == "Green"</field>
+    </record>
+
+    <record id="demo_condition_partner_blue" model="generic.condition">
+        <field name="name">eval [name: Blue]</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">obj.name == "Blue"</field>
+    </record>
+
+    <record id="demo_condition_partner_has_contact_green" model="generic.condition">
+        <field name="name">Has contact 'Green'</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">related_conditions</field>
+        <field name="condition_rel_field_id" ref="base.field_res_partner_child_ids"/>
+
+        <!-- Find records that satisfy all following conditions (all partner contacts)-->
+        <field name="condition_rel_filter_conditions_operator">and</field>
+        <field name="condition_rel_filter_conditions"
+               eval="[(6, 0, [ref('generic_condition.demo_condition_partner_contact')])]"/>
+
+        <!-- Ensure that at least one of following conditions have name Green -->
+        <field name="condition_rel_record_operator">contains</field>
+        <field name="condition_rel_conditions_operator">and</field>
+        <field name="condition_rel_conditions"
+               eval="[(6, 0, [ref('generic_condition.demo_condition_partner_green')])]"/>
+    </record>
+
+    <record id="demo_condition_partner_has_only_contacts" model="generic.condition">
+        <field name="name">Has obly contacts</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">related_conditions</field>
+        <field name="condition_rel_field_id" ref="base.field_res_partner_child_ids"/>
+
+        <field name="condition_rel_record_operator">match</field>
+        <field name="condition_rel_conditions_operator">and</field>
+        <field name="condition_rel_conditions"
+               eval="[(6, 0, [ref('generic_condition.demo_condition_partner_contact')])]"/>
+    </record>
+        
+        
+</odoo>

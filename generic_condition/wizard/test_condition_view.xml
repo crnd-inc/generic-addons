@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_condition_test_wizard_form" model="ir.ui.view">
+        <field name="name">generic.condition.test_condition.form</field>
+        <field name="model">generic.condition.test_condition</field>
+        <field name="arch" type="xml">
+            <form string="Test Condition">
+                <field name="condition_id"/>
+                <field name="res_id"/>
+                <newline/>
+                <field name="result" attrs="{'invisible': [('result', '=', False)]}"/>
+                <newline/>
+                <button icon="gtk-ok" name="process" string="Process" type="object"/>
+                <button icon="gtk-cancel" special="cancel" string="_Cancel"/>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+        context="{'default_condition_id': active_id}"
+        id="action_generic_condition_test_wizard_view"
+        name="Test Conditon"
+        res_model="generic.condition.test_condition"
+        src_model="generic.condition"
+        view_type="form"
+        view_mode="form"
+        target="new"/>
+</odoo>
+
+
+
