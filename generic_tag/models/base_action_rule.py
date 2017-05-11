@@ -1,29 +1,35 @@
-from openerp.osv import orm, fields
+from openerp import models, fields, api
 from openerp.tools.translate import _
 
 
-class BaseActionRule(orm.Model):
+class BaseActionRule(models.Model):
     _inherit = 'base.action.rule'
 
-    _columns = {
-        'act_add_tag_ids': fields.many2many('res.tag', 'base_action_rule_add_tag_ids_rel', 'rule_id', 'tag_id',
+    act_add_tag_ids = fields.Many2many('res.tag', 'base_action_rule_add_tag_ids_rel', 'rule_id', 'tag_id',
                                             string="Add Tags", select=True,
-                                            help="Specify tags to be added to object this rule is applied to"),
-        'act_remove_tag_ids': fields.many2many('res.tag', 'base_action_rule_remove_tag_ids_rel', 'rule_id', 'tag_id',
+                                            help="Specify tags to be added to object this rule is applied to")
+    act_remove_tag_ids = fields.Many2many('res.tag', 'base_action_rule_remove_tag_ids_rel', 'rule_id', 'tag_id',
                                                string="Remove Tags", select=True,
-                                               help="Specify tags to be removed from object this rule is applied to"),
-    }
+                                               help="Specify tags to be removed from object this rule is applied to")
 
     # Overridden to add tag related logic
-    def _process(self, cr, uid, action, record_ids, context=None):
+    @api.multi
+    def _process(self, records):
         """ process the given action on the records """
-        super(BaseActionRule, self)._process(cr, uid, action, record_ids, context=context)
+        action_done = self._context['__action_done']
+        records -= action_done.setdefault(self, records.browse())
+        if not records:
+            return
 
-        model = self.pool.get(action.model_id.model)
-        if action.act_add_tag_ids and model.fields_get(cr, uid, ['tag_ids']).get('tag_ids', False):
-            tag_ids_val = [(4, int(t)) for t in action.act_add_tag_ids]
-            model.write(cr, uid, record_ids, {'tag_ids': tag_ids_val}, context=context)
+        model = self.env[self.model_id.model]
+        if self.act_add_tag_ids and model.fields_get(['tag_ids']).get('tag_ids', False):
+            action_done[self] |= records
+            tag_ids_val = [(4, int(t)) for t in self.act_add_tag_ids]
+            records.write({'tag_ids': tag_ids_val})
 
-        if action.act_remove_tag_ids and model.fields_get(cr, uid, ['tag_ids']).get('tag_ids', False):
-            tag_ids_val = [(3, int(t)) for t in action.act_remove_tag_ids]
-            model.write(cr, uid, record_ids, {'tag_ids': tag_ids_val}, context=context)
+        if self.act_remove_tag_ids and model.fields_get(['tag_ids']).get('tag_ids', False):
+            action_done[self] |= records
+            tag_ids_val = [(3, int(t)) for t in self.act_remove_tag_ids]
+            records.write({'tag_ids': tag_ids_val})
+
+        super(BaseActionRule, self)._process(records)

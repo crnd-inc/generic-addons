@@ -1,19 +1,21 @@
 from openerp.tools import config
 
+import logging
+_logger = logging.getLogger(__name__)
+
 # This model is required only for tests.
 if config.get('test_enable', False):
-    from openerp.osv import orm, fields
+    from openerp import models, fields
+    _logger.info("Create test model")
 
-    class TestModel(orm.Model):
+    class TestModel(models.Model):
         _name = 'res.tag.test.model'
         _inherit = [
             'res.tag.mixin'
         ]
 
-        _columns = {
-            'name': fields.char('Name'),
-            'test_field': fields.char('test_field'),
-        }
+        name = fields.Char('Name')
+        test_field = fields.Char('test_field')
 
 
 

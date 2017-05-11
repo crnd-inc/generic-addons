@@ -1,27 +1,29 @@
-from openerp.osv import orm, fields
+from openerp import models, fields, api
 from openerp.tools.translate import _
 
+import logging
+_logger = logging.getLogger(__name__)
 
-class ResTagModel(orm.Model):
+
+class ResTagModel(models.Model):
     _name = "res.tag.model"
     _description = "Contains list of models available for tagging"
 
     _access_log = False
 
-    def _get_tags_count(self, cr, uid, ids, field_name, arg, context=None):
-        tag_obj = self.pool.get('res.tag')
-        res = {}.fromkeys(ids, 0)
-        for model_id in ids:
-            res[model_id] = tag_obj.search(cr, uid, [('model_id.id', '=', model_id)], count=1, context=context)
-        return res
+    @api.multi
+    #@api.depends('model_id')
+    def _compute_tags_count(self):
+        for model in self:
+            model.tags_count = self.env['res.tag'].search_count([('model_id', '=', model.id)])
 
-    _columns = {
-        "name": fields.char("Name", size=64, required=True, select=True, translate=True),
-        "model": fields.char("Model", size=32, required=True, select=True),
-        "tags_count": fields.function(lambda self, *a, **k: self._get_tags_count(*a, **k),
-                                      string="Tags", type='integer', store=False,
-                                      help="How many tags related to this model exists"),
-    }
+    
+    name = fields.Char("Name", size=64, required=True, select=True, translate=True)
+    model = fields.Char("Model", size=32, required=True, select=True)
+    tags_count = fields.Integer(string="Tags", compute="_compute_tags_count", store=False, readonly=True,
+                                      track_visibility='always',
+                                      help="How many tags related to this model exists")
+    
 
     _sql_constraints = [
         ('model_uniq', 'unique(model)', 'Model field must be unique'),
@@ -43,7 +45,7 @@ class ResTagModel(orm.Model):
         }
 
 
-class ResTagModelMixin(orm.AbstractModel):
+class ResTagModelMixin(models.AbstractModel):
     _name = "res.tag.model.mixin"
     _description = "Mixin to add res.tag.model relation"
 
@@ -62,17 +64,17 @@ class ResTagModelMixin(orm.AbstractModel):
 
         return False
 
-    _columns = {
-        "model_id": fields.many2one("res.tag.model", "Model", required=True, ondelete='restrict',
-                                    select=True, help="Specify model for which this tag is available"),
-    }
+
+    model_id = fields.Many2one("res.tag.model", "Model", required=True, ondelete='restrict',
+                                    select=True, help="Specify model for which this tag is available")
+
 
     _defaults = {
         "model_id": lambda s, *a, **k: s._get_default_model_id(*a, **k),
     }
 
 
-class ResTagCategory(orm.Model):
+class ResTagCategory(models.Model):
     _name = 'res.tag.category'
     _inherit = ['res.tag.model.mixin']
     _description = "Category to group tags in"
@@ -86,31 +88,39 @@ class ResTagCategory(orm.Model):
                     return False
         return True
 
-    def _get_tags_count(self, cr, uid, ids, field_name, arg, context=None):
-        tag_obj = self.pool.get('res.tag')
-        res = {}.fromkeys(ids, 0)
-        for category_id in ids:
-            res[category_id] = tag_obj.search(cr, uid, [('category_id.id', '=', category_id)], count=1, context=context)
-        return res
+    @api.multi
+    @api.depends('tag_ids')
+    def _compute_tags_count(self):
+        for line in self:
+            line.tags_count = len(line.tag_ids)
 
-    _columns = {
+        # tag_obj = self.tag_ids.category_id
+        # tags_count = len(tag_obj)
+        # res = {}.fromkeys(ids, 0)
+        # for category_id in self.:
+        #     res[category_id] = tag_obj.search(cr, uid[('category_id.id', '=', category_id)], count=1, context=context)
+        # _logger.info("CREATE. RES:CREATE. RES:CREATE. RES:CREATE. RES:CREATE. RES:CREATE. RES: %s", res)
+        # _logger.info("CREATE. TAGOBJ:CREATE. TAGOBJ:CREATE. TAGOBJ:CREATE. TAGOBJ: %s", tag_obj)
+        # return res
+
+
         # model_id field will be added by 'res.tag.model.mixin'
-        "name": fields.char("Name", size=64, required=True,
-                            translate=True, select=True),
-        "code": fields.char("Code", size=32, select=True,
-                            help="May be used for special tags which have programming meaning"),
-        "comment": fields.text("Comment", help="Describe what this tag means"),
+    name = fields.Char("Name", size=64, required=True,
+                            translate=True, select=True)
+    code = fields.Char("Code", size=32, select=True,
+                            help="May be used for special tags which have programming meaning")
+    comment = fields.Text("Comment", help="Describe what this tag means")
 
-        "active": fields.boolean("Active", select=True),
+    active = fields.Boolean("Active", select=True)
 
-        "tag_ids": fields.one2many("res.tag", "category_id", "Tags"),
+    tag_ids = fields.One2many("res.tag", "category_id", "Tags")
 
-        "check_xor": fields.boolean("Check XOR", help="if set to True then enables XOR check on tags been added to object. "
-                                                      "it means that only one tag from category may be added to object at time"),
-        "tags_count": fields.function(lambda self, *a, **k: self._get_tags_count(*a, **k),
-                                      string="Tags", type='integer', store=False,
-                                      help="How many tags related to this catgory exists"),
-    }
+    check_xor = fields.Boolean("Check XOR", help="if set to True then enables XOR check on tags been added to object. "
+                                                      "it means that only one tag from category may be added to object at time")
+    tags_count = fields.Float(string="Tags", compute="_compute_tags_count", store=True, readonly=True,
+                                      track_visibility='always',
+                                      help="How many tags related to this catgory exists")
+
 
     _defaults = {
         "active": True,
@@ -144,31 +154,38 @@ class ResTagCategory(orm.Model):
         }
 
 
-class ResTag(orm.Model):
+class ResTag(models.Model):
     _name = "res.tag"
     _inherit = ['res.tag.model.mixin']
     _description = "Tag"
 
     _access_log = False
 
-    _rec_name = 'complete_name'
-    _order = 'complete_name'
+    # _rec_name = 'complete_name'
+    # _order = 'complete_name'
 
-    def _get_objects_count(self, cr, uid, ids, field_name, arg, context=None):
-        res = {}.fromkeys(ids, 0)
-        for tag in self.browse(cr, uid, ids, context=context):
-            rel_obj = self.pool.get(tag.model_id.model)
-            res[tag.id] = rel_obj.search(cr, uid, [('tag_ids.id', '=', tag.id)], count=1, context=context)
-        return res
+    @api.multi
+    def _compute_objects_count(self):
+        for tag in self:
+            tag.objects_count = self.env[tag.model_id.model].search_count([('tag_ids.id', '=', tag.id)])
 
-    def _get_complete_name(self, cr, uid, ids, field_name, arg, context=None):
-        res = {}.fromkeys(ids, '')
-        for tag in self.browse(cr, uid, ids, context=context):
+
+    @api.multi
+    def _compute_complete_name(self):
+        for tag in self:
             if tag.category_id:
-                res[tag.id] = "%s / %s" % (tag.category_id.name, tag.name)
+                self[tag.id] = "%s / %s" % (tag.category_id.name, tag.name)
             else:
-                res[tag.id] = tag.name
-        return res
+                self[tag.id] = tag.name
+
+
+        # res = {}.fromkeys(ids, '')
+        # for tag in self.browse(cr, uid, ids, context=context):
+        #     if tag.category_id:
+        #         res[tag.id] = "%s / %s" % (tag.category_id.name, tag.name)
+        #     else:
+        #         res[tag.id] = tag.name
+        # return res
 
     def _check_category_id(self, cr, uid, ids, context=None):
         for tag in self.browse(cr, uid, ids, context=context):
@@ -176,32 +193,34 @@ class ResTag(orm.Model):
                 return False
         return True
 
-    _columns = {
         # model_id field will be added by 'res.tag.model.mixin'
-        "category_id": fields.many2one('res.tag.category', 'Category', select=True, ondelete='restrict'),
-        "name": fields.char("Name", size=64, required=True,
-                            translate=True, select=True),
-        "code": fields.char("Code", size=32, select=True,
-                            help="May be used for special tags which have programming meaning"),
-        "comment": fields.text("Comment", help="Describe what this tag means"),
+    category_id = fields.Many2one('res.tag.category', 'Category', select=True, ondelete='restrict')
+    name = fields.Char("Name", size=64, required=True,
+                            translate=True, select=True)
+    code = fields.Char("Code", size=32, select=True,
+                            help="May be used for special tags which have programming meaning")
+    comment = fields.Text("Comment", help="Describe what this tag means")
 
-        "active": fields.boolean("Active", select=True),
+    active = fields.Boolean("Active", select=True)
 
-        "complete_name": fields.function(lambda self, *a, **k: self._get_complete_name(*a, **k),
-                                         string="Name", type='char', store={
-                                             'res.tag': (lambda s, c, u, ids, ctx=None: ids, [], 10),
-                                             'res.tag.category': (lambda s, cr, uid, ids, context=None:
-                                                                  s.pool.get('res.tag').search(cr, uid,
-                                                                                               [('category_id', 'in', ids)]),
-                                                                  ['name'],
-                                                                  10),
-                                         },
-                                         help="Full name of tag (including category name"),
-        "objects_count": fields.function(lambda self, *a, **k: self._get_objects_count(*a, **k),
-                                         string="Objects", type='integer', store=False,
-                                         help="How many objects contains this tag"),
-        "group_ids": fields.many2many('res.groups', string='Groups'),
-    }
+    complete_name = fields.Float(string="Tags", compute="_compute_complete_name", store=True, readonly=True,
+                                      track_visibility='always',
+                                      help="Full name of tag (including category name")
+
+    # complete_name = fields.Function(lambda self, *a, **k: self._get_complete_name(*a, **k),
+    #                                      string="Name", type='Char', store={
+    #                                          'res.tag': (lambda s, c, u, ids, ctx=None: ids, [], 10),
+    #                                          'res.tag.category': (lambda s, cr, uid, ids, context=None:
+    #                                                               s.pool.get('res.tag').search(cr, uid,
+    #                                                                                            [('category_id', 'in', ids)]),
+    #                                                               ['name'],
+    #                                                               10)
+    #                                      },
+    #                                      help="Full name of tag (including category name"),
+    objects_count = fields.Float(string="Tags", compute="_compute_objects_count", store=True, readonly=True,
+                                      track_visibility='always',
+                                      help="How many objects contains this tag")
+    group_ids = fields.Many2many('res.groups', string='Groups')
 
     _defaults = {
         "active": True,
@@ -246,7 +265,7 @@ class ResTag(orm.Model):
         }
 
 
-class ResTagMixin(orm.AbstractModel):
+class ResTagMixin(models.AbstractModel):
     """ Mixin to be used to add tag support to any model by inheriting from it like:
             _inherit=["res.tag.mixin"]
     """
@@ -296,109 +315,43 @@ class ResTagMixin(orm.AbstractModel):
 
         return True
 
-    def _search_no_tag_id(self, cr, uid, obj, name, args, context=None):
-        res = []
-        for arg in args:
-            if isinstance(arg, basestring):  # It should be operator
-                res.append(arg)
+    # def _search_no_tag_id(self, cr, uid, obj, name, args, context=None):
+    #     res = []
+    #     for arg in args:
+    #         if isinstance(arg, basestring):  # It should be operator
+    #             res.append(arg)
 
-            left, op, right = arg
-            if left != 'no_tag_id':
-                res.append(args)
-            elif isinstance(right, (int, long)):
-                with_tag_ids = self.search(cr, uid, [('tag_ids.id', op, right)], context=context)
-            elif isinstance(right, basestring):
-                u = '|' if op != '!=' else '&'
-                with_tag_ids = self.search(cr, uid, [u, ('tag_ids.complete_name', op, right),
-                                                        ('tag_ids.code', op, right)], context=context)
-            elif isinstance(right, (list, tuple)) and op in ('in', 'not in'):
-                with_tag_ids = self.search(cr, uid, [('tag_ids', op, right)], context=context)
-            else:
-                continue
+    #         left, op, right = arg
+    #         if left != 'no_tag_id':
+    #             res.append(args)
+    #         elif isinstance(right, (int, long)):
+    #             with_tag_ids = self.search(cr, uid, [('tag_ids.id', op, right)], context=context)
+    #         elif isinstance(right, basestring):
+    #             u = '|' if op != '!=' else '&'
+    #             with_tag_ids = self.search(cr, uid, [u, ('tag_ids.complete_name', op, right),
+    #                                                     ('tag_ids.code', op, right)], context=context)
+    #         elif isinstance(right, (list, tuple)) and op in ('in', 'not in'):
+    #             with_tag_ids = self.search(cr, uid, [('tag_ids', op, right)], context=context)
+    #         else:
+    #             continue
 
-            res.append(('id', 'not in', with_tag_ids))
+    #         res.append(('id', 'not in', with_tag_ids))
 
-        return res
+    #     return res
 
-    _columns = {
-        'tag_ids': fields.many2many('res.tag', string="Tags", select=True,
-                                    domain=lambda self: [('model_id.model', '=', self._name)]),
-        'no_tag_id': fields.function(lambda self, cr, uid, ids, fnames, args, context=None: {}.fromkeys(ids, False),
-                                     method=True, store=False,
-                                     fnct_search=lambda s, *a, **ka: s._search_no_tag_id(*a, **ka),
-                                     string="No Tag", obj='res.tag', type='many2one', readonly=True,
-                                     domain=lambda self: [('model_id.model', '=', self._name)]),
-    }
+    tag_ids = fields.Many2many('res.tag', string="Tags", select=True,
+                                    domain=lambda self: [('model_id.model', '=', self._name)])
+    # no_tag_id = fields.Function(lambda self, cr, uid, ids, fnames, args, context=None: {}.fromkeys(ids, False),
+    #                                  method=True, store=False,
+    #                                  fnct_search=lambda s, *a, **ka: s._search_no_tag_id(*a, **ka),
+    #                                  string="No Tag", obj='res.tag', type='Many2one', readonly=True,
+    #                                  domain=lambda self: [('model_id.model', '=', self._name)])
 
     _constraints = [
         (lambda s, *a, **k: s._check_tags_xor(*a, **k),
          "More than one tag of category with 'check_xor' enabled, present in object",
          ['tag_ids']),
     ]
-
-    def _log_tag_changes(self, cr, uid, ids, tags_val, context=None):
-        """ Log tag related changes
-        """
-        if self._track_tags and hasattr(self, '_track'):
-            for obj_id in ids:
-                message = ""
-                for args in tags_val:
-                    act, arg = args[0], args[1:]
-                    msg = ""
-                    if act == 0:   # create
-                        arg1, arg2 = arg
-                        msg = _("<span>Tag <b>%s</b> created</span>") % arg2['name']
-                    elif act == 1:   # update
-                        arg1, arg2 = arg
-                        tag = self.pool.get('res.tag').name_get(cr, uid, arg1, context=context)[0][1]
-                        msg = _("<span>Tag <b>%s</b> modified</span>") % tag
-                    elif act == 2:   # remove
-                        tag = self.pool.get('res.tag').name_get(cr, uid, arg[0], context=context)[0][1]
-                        msg = _("<span>Tag <b>%s</b> deleted</span>") % tag
-                    elif act == 3:   # unlink
-                        tag = self.pool.get('res.tag').name_get(cr, uid, arg[0], context=context)[0][1]
-                        msg = _("<span>Tag <b>%s</b> removed</span>") % tag
-                    elif act == 4:   # Link
-                        tag = self.pool.get('res.tag').name_get(cr, uid, arg[0], context=context)[0][1]
-                        msg = _("<span>Tag <b>%s</b> added</span>") % tag
-                    elif act == 5:   # unlink all
-                        msg = _("<span>All tags removed</span>")
-                    elif act == 6:   # set s list of links
-                        arg1, arg2 = arg
-                        # When edition through the form, this action triggered
-                        # in most cases
-                        old_tags = set(self.browse(cr, uid, obj_id, context=context).tag_ids)
-                        new_tags = set(self.pool.get('res.tag').browse(cr, uid, arg2, context=context))
-                        tags_added = new_tags - old_tags
-                        tags_removed = old_tags - new_tags
-                        msg_tmpl = _("<div><span>Tags changed:</span><ul>%s</ul></div>")
-
-                        msg_body = ""
-                        if tags_added:
-                            msg_body += _("<li class='oe_tags'><b>Tags added</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name_get()[0][1] for tag in tags_added))
-                        if tags_removed:
-                            msg_body += _("<li class='oe_tags'><b>Tags removed</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name_get()[0][1] for tag in tags_removed))
-                        if tags_added or tags_removed:
-                            msg_body += _("<hr/><li class='oe_tags'><b>Tags resulting</b>: <span>%s</span></li>") % u''.join(('<span class="oe_tag">%s</span>' % tag.name_get()[0][1] for tag in new_tags))
-
-                        if msg_body:
-                            msg = msg_tmpl % msg_body
-
-                    message += msg
-
-                if message:
-                    self.message_post(cr, uid, obj_id, message, context=context)
-
-    def create(self, cr, uid, vals, context=None):
-        obj_id = super(ResTagMixin, self).create(cr, uid, vals, context=context)
-        if vals.get('tag_ids', False):
-            self._log_tag_changes(cr, uid, [obj_id], vals['tag_ids'], context=context)
-        return obj_id
-
-    def write(self, cr, uid, ids, vals, context=None):
-        if vals.get('tag_ids', False):
-            self._log_tag_changes(cr, uid, ids, vals['tag_ids'], context=context)
-        return super(ResTagMixin, self).write(cr, uid, ids, vals, context=context)
 
     def add_tag(self, cr, uid, ids, code=None, name=None, create=False, context=None):
         """ Adds tag new tag to object.

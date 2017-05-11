@@ -54,6 +54,7 @@ class base_action_rule_test(common.TransactionCase):
             #'filter_pre_id': filter_pre_id,
             'filter_id': self.filter_add_id,
             'act_add_tag_ids': [(4, self.test_tag_id_1)],
+            'kind': 'on_create_or_write',
         })
         self.action_rule_id_2 = self.action_rule_obj.create(cr, uid, {
             'name': "Rule auto remove tag",
@@ -62,7 +63,9 @@ class base_action_rule_test(common.TransactionCase):
             #'filter_pre_id': filter_pre_id,
             'filter_id': self.filter_rem_id,
             'act_remove_tag_ids': [(4, self.test_tag_id_1)],
+            'kind': 'on_create_or_write',
         })
+        self.action_rule_obj._register_hook(cr)
 
     def test_10_rules_created_right(self):
         """ Test that rules were created correctly
@@ -72,9 +75,11 @@ class base_action_rule_test(common.TransactionCase):
         rule2 = self.action_rule_obj.browse(cr, uid, self.action_rule_id_2)
 
         self.assertEquals(rule1.act_add_tag_ids[0].id, self.test_tag_id_1)
-        self.assertEquals(rule1.act_remove_tag_ids, [])
-        self.assertEquals(rule2.act_add_tag_ids, [])
+        self.assertEquals(len(rule1.act_remove_tag_ids), 0)
+        self.assertEquals(len(rule2.act_add_tag_ids), 0)
         self.assertEquals(rule2.act_remove_tag_ids[0].id, self.test_tag_id_1)
+        self.assertEquals(rule1.model_id.model, 'res.tag.test.model')
+        self.assertEquals(rule2.model_id.model, 'res.tag.test.model')
 
     def test_20_test_rule_actions(self):
         """ Test that rule_actions work fine

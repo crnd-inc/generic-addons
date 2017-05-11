@@ -18,7 +18,7 @@
 
         <record id="restricted_tags_rule" model="ir.rule">
             <field name="name">Restricted tags</field>
-            <field name="model_id" ref="base_tags.model_res_tag"/>
+            <field name="model_id" ref="generic_tag.model_res_tag"/>
             <field name="domain_force">['|', ('group_ids','=',False),('group_ids.users.id','=',user.id)]</field>
             <field name="groups" eval="[(4, ref('group_tags_user_restricted'))]"/>
             <field name="perm_create" eval="False"/>
@@ -35,7 +35,7 @@
 
         <record id="restricted_tags_rule" model="ir.rule">
             <field name="name">Restricted tags (x2)</field>
-            <field name="model_id" ref="base_tags.model_res_tag"/>
+            <field name="model_id" ref="generic_tag.model_res_tag"/>
             <field name="domain_force">[('group_ids.users.id','=',user.id)]</field>
             <field name="groups" eval="[(4, ref('group_tags_user_restricted_x2'))]"/>
             <field name="perm_create" eval="False"/>
