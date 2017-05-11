@@ -2,11 +2,11 @@
 from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.tools.safe_eval import safe_eval as eval
-from openerp.tools import (DEFAULT_SERVER_DATETIME_FORMAT,
-                           DEFAULT_SERVER_DATE_FORMAT)
 from openerp.exceptions import ValidationError, UserError
 import datetime
 from dateutil.relativedelta import relativedelta
+
+from ..utils import str_to_datetime
 
 import traceback
 
@@ -49,6 +49,14 @@ class GenericCondition(models.Model):
             ('>=', '>='),
             ('<=', '<='),
             ('!=', '!='),
+        ]
+
+    def _get_selection_date_diff_date_type(self):
+        return [
+            ('now', _('Current date')),
+            ('field', _('Field')),
+            ('date', _('Date')),
+            ('datetime', _('Datetime')),
         ]
 
     def _get_selection_condition_condition_ids_operator(self):
@@ -162,13 +170,31 @@ class GenericCondition(models.Model):
         string='Group related conditions operator',
         track_visibility='onchange')
 
-    # Data difference fields
-    condition_date_diff_date_field_start = fields.Many2one(
+    # Date difference fields: start date
+    condition_date_diff_date_start_type = fields.Selection(
+        '_get_selection_date_diff_date_type',
+        string='Date start type', default='now')
+    condition_date_diff_date_start_field = fields.Many2one(
         'ir.model.fields', 'Date start field', ondelete='restrict',
         domain=[('ttype', 'in', ('date', 'datetime'))])
-    condition_date_diff_date_field_end = fields.Many2one(
+    condition_date_diff_date_start_date = fields.Date(
+        'Date start', default=fields.Date.today)
+    condition_date_diff_date_start_datetime = fields.Datetime(
+        'Date start', default=fields.Datetime.now)
+
+    # Date difference fields: end date
+    condition_date_diff_date_end_type = fields.Selection(
+        '_get_selection_date_diff_date_type',
+        string='Date end type', default='now')
+    condition_date_diff_date_end_field = fields.Many2one(
         'ir.model.fields', 'Date end field', ondelete='restrict',
         domain=[('ttype', 'in', ('date', 'datetime'))])
+    condition_date_diff_date_end_date = fields.Date(
+        'Date end', default=fields.Date.today)
+    condition_date_diff_date_end_datetime = fields.Datetime(
+        'Date end', default=fields.Datetime.now)
+
+    # Date difference fields: check rules
     condition_date_diff_operator = fields.Selection(
         '_get_selection_date_diff_operator',
         string='Date diff operator')
@@ -176,6 +202,10 @@ class GenericCondition(models.Model):
         '_get_selection_date_diff_uom',
         string='Date diff UoM')
     condition_date_diff_value = fields.Integer('Date diff value')
+    condition_date_diff_absolute = fields.Boolean(
+        'Absolute', default=False,
+        help='If checked, then absolute date difference will be checked. '
+             '(date difference will be positive always)')
 
     @api.model
     def default_get(self, fields):
@@ -318,38 +348,46 @@ class GenericCondition(models.Model):
         # filtered by 'filter' conditions).
         return False
 
+    def helper_date_diff_get_date(self, date_type, obj):
+        """ Get date value of specified type for specified object
+
+            :param str date_type: type of date to get value for.
+                                  Possible values:
+                                      - 'start'
+                                      - 'end'
+            :param Recordset obj: object to get date from
+        """
+        assert date_type in ('start', 'end'), ("Date type not in (start,stop)")
+
+        date_source = self['condition_date_diff_date_%s_type' % date_type]
+
+        if date_source == 'now':
+            return datetime.datetime.now()
+        elif date_source == 'date':
+            date = self['condition_date_diff_date_%s_date' % date_type]
+            return str_to_datetime('date', date)
+        elif date_source == 'datetime':
+            date = self['condition_date_diff_date_%s_datetime' % date_type]
+            return str_to_datetime('datetime', date)
+        elif date_source == 'field':
+            field = self['condition_date_diff_date_%s_field' % date_type]
+            return str_to_datetime(field.ttype, obj[field.name])
+
     # signature check_<type> where type is condition type
     def check_date_diff(self, obj, cache=None):
         """ Check date diff
 
             If at least one of dates not set, than return False
         """
-        def to_datetime(field, value):
-            if field.ttype == 'datetime':
-                return datetime.datetime.strptime(
-                    value, DEFAULT_SERVER_DATETIME_FORMAT)
-            elif field.ttype == 'date':
-                return datetime.datetime.strptime(
-                    value, DEFAULT_SERVER_DATE_FORMAT)
-
-        date_start_field = self.condition_date_diff_date_field_start
-        date_end_field = self.condition_date_diff_date_field_end
-
-        # get data from object
-        date_start = obj[date_start_field.name]
-        date_end = obj[date_end_field.name]
+        date_start = self.helper_date_diff_get_date('start', obj)
+        date_end = self.helper_date_diff_get_date('end', obj)
 
         # if at leas one field not set, fail
         if not date_start or not date_end:
             return False
 
-        # Convert field data to datetime
-        date_start = to_datetime(date_start_field, date_start)
-        date_end = to_datetime(date_end_field, date_end)
-
         # if dates not in correct order then swap them
-        # TODO: check box 'absolute diff'
-        if date_end < date_start:
+        if self.condition_date_diff_absolute and date_end < date_start:
             date_start, date_end = date_end, date_start
 
         # delta betwen two dates
