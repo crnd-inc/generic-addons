@@ -9,7 +9,6 @@ except ImportError:
         "freezegun not installed. Tests will not work!")
 
 
-
 class TestConditionDateDiff(TransactionCase):
     """ This test case requires creation of separate model with at least
         two date / datetime fields, so it is implemented as separate test case
