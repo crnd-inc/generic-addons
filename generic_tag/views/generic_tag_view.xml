@@ -2,26 +2,26 @@
 <openerp>
     <data>
 
-        <menuitem id="menu_res_tags_root"
+        <menuitem id="menu_generic_tags_root"
                   parent=""
                   groups="generic_tag.group_tags_user"
                   sequence="120"
                   name="Tags"/>
 
-        <menuitem id="menu_res_tags_all"
-                  parent="generic_tag.menu_res_tags_root"
+        <menuitem id="menu_generic_tags_all"
+                  parent="generic_tag.menu_generic_tags_root"
                   sequence="10"
                   name="All Tags"/>
 
-        <menuitem id="menu_res_tags_configuration_root"
-                  parent="generic_tag.menu_res_tags_root"
+        <menuitem id="menu_generic_tags_configuration_root"
+                  parent="generic_tag.menu_generic_tags_root"
                   sequence="220"
                   name="Tags Configuration"/>
 
         <!-- Tag Views -->
-        <record id="view_res_tag_search" model="ir.ui.view">
-            <field name="name">res.tag.search</field>
-            <field name="model">res.tag</field>
+        <record id="view_generic_tag_search" model="ir.ui.view">
+            <field name="name">generic.tag.search</field>
+            <field name="model">generic.tag</field>
             <field name="arch" type="xml">
                 <search string="Tag Search">
                     <field name="model_id"/>
@@ -38,9 +38,9 @@
             </field>
         </record>
 
-        <record id="view_res_tag_tree" model="ir.ui.view">
-            <field name="name">res.tag.tree</field>
-            <field name="model">res.tag</field>
+        <record id="view_generic_tag_tree" model="ir.ui.view">
+            <field name="name">generic.tag.tree</field>
+            <field name="model">generic.tag</field>
             <field name="arch" type="xml">
                 <tree string="Tags" editable="bottom"
                       colors="grey: objects_count == 0;">
@@ -58,9 +58,9 @@
             </field>
         </record>
 
-        <record id="view_res_tag_form" model="ir.ui.view">
-            <field name="name">res.tag.form</field>
-            <field name="model">res.tag</field>
+        <record id="view_generic_tag_form" model="ir.ui.view">
+            <field name="name">generic.tag.form</field>
+            <field name="model">generic.tag</field>
             <field name="arch" type="xml">
                 <form string="Tag">
                     <group>
@@ -88,23 +88,23 @@
             </field>
         </record>
 
-        <record id="action_res_tags_view" model="ir.actions.act_window">
+        <record id="action_generic_tags_view" model="ir.actions.act_window">
             <field name="name">Tags</field>
-            <field name="res_model">res.tag</field>
+            <field name="res_model">generic.tag</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_res_tag_tree"/>
+            <field name="view_id" ref="view_generic_tag_tree"/>
         </record>
 
-        <menuitem action="action_res_tags_view" id="menu_action_res_tags_view"
-                  parent="menu_res_tags_all" sequence="10"/>
+        <menuitem action="action_generic_tags_view" id="menu_action_generic_tags_view"
+                  parent="menu_generic_tags_all" sequence="10"/>
         <!-- End tag views -->
 
         <!-- Tag category views -->
-        <record id="view_res_tag_category_search" model="ir.ui.view">
-            <field name="name">res.tag.category.search</field>
-            <field name="model">res.tag.category</field>
+        <record id="view_generic_tag_category_search" model="ir.ui.view">
+            <field name="name">generic.tag.category.search</field>
+            <field name="model">generic.tag.category</field>
             <field name="arch" type="xml">
                 <search string="Tag Category Search">
                     <field name="model_id"/>
@@ -119,9 +119,9 @@
             </field>
         </record>
 
-        <record id="view_res_tag_category_tree" model="ir.ui.view">
-            <field name="name">res.tag.category.tree</field>
-            <field name="model">res.tag.category</field>
+        <record id="view_generic_tag_category_tree" model="ir.ui.view">
+            <field name="name">generic.tag.category.tree</field>
+            <field name="model">generic.tag.category</field>
             <field name="arch" type="xml">
                 <tree string="Tag Categories" editable="bottom"
                       colors="grey: tags_count == 0">
@@ -137,9 +137,9 @@
             </field>
         </record>
 
-        <record id="view_res_tag_category_form" model="ir.ui.view">
-            <field name="name">res.tag.category.form</field>
-            <field name="model">res.tag.category</field>
+        <record id="view_generic_tag_category_form" model="ir.ui.view">
+            <field name="name">generic.tag.category.form</field>
+            <field name="model">generic.tag.category</field>
             <field name="arch" type="xml">
                 <form string="Tag Category">
                     <group>
@@ -160,24 +160,24 @@
             </field>
         </record>
 
-        <record id="action_res_tag_caegories_view" model="ir.actions.act_window">
+        <record id="action_generic_tag_caegories_view" model="ir.actions.act_window">
             <field name="name">Tag Categories</field>
-            <field name="res_model">res.tag.category</field>
+            <field name="res_model">generic.tag.category</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_res_tag_category_tree"/>
+            <field name="view_id" ref="view_generic_tag_category_tree"/>
         </record>
 
-        <menuitem action="action_res_tag_caegories_view" id="menu_action_res_tag_categories_view"
-                  parent="menu_res_tags_configuration_root" sequence="20"/>
+        <menuitem action="action_generic_tag_caegories_view" id="menu_action_generic_tag_categories_view"
+                  parent="menu_generic_tags_configuration_root" sequence="20"/>
         <!-- end tag categories views -->
 
 
         <!-- Tag model views -->
-        <record id="view_res_tag_model_search" model="ir.ui.view">
-            <field name="name">res.tag.model.search</field>
-            <field name="model">res.tag.model</field>
+        <record id="view_generic_tag_model_search" model="ir.ui.view">
+            <field name="name">generic.tag.model.search</field>
+            <field name="model">generic.tag.model</field>
             <field name="arch" type="xml">
                 <search string="Tag model Search">
                     <field name="name"/>
@@ -186,9 +186,9 @@
             </field>
         </record>
 
-        <record id="view_res_tag_model_tree" model="ir.ui.view">
-            <field name="name">res.tag.model.tree</field>
-            <field name="model">res.tag.model</field>
+        <record id="view_generic_tag_model_tree" model="ir.ui.view">
+            <field name="name">generic.tag.model.tree</field>
+            <field name="model">generic.tag.model</field>
             <field name="arch" type="xml">
                 <tree string="Tag models"
                       colors="grey: tags_count == 0;">
@@ -200,9 +200,9 @@
             </field>
         </record>
 
-        <record id="view_res_tag_model_form" model="ir.ui.view">
-            <field name="name">res.tag.model.form</field>
-            <field name="model">res.tag.model</field>
+        <record id="view_generic_tag_model_form" model="ir.ui.view">
+            <field name="name">generic.tag.model.form</field>
+            <field name="model">generic.tag.model</field>
             <field name="arch" type="xml">
                 <form string="Tag model">
                     <field name="name"/>
@@ -212,17 +212,17 @@
             </field>
         </record>
 
-        <record id="action_res_tag_models_view" model="ir.actions.act_window">
+        <record id="action_generic_tag_models_view" model="ir.actions.act_window">
             <field name="name">Tag models</field>
-            <field name="res_model">res.tag.model</field>
+            <field name="res_model">generic.tag.model</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_res_tag_model_tree"/>
+            <field name="view_id" ref="view_generic_tag_model_tree"/>
         </record>
 
-        <menuitem action="action_res_tag_models_view" id="menu_action_res_tag_modeles_view"
-                  parent="menu_res_tags_configuration_root" sequence="30"/>
+        <menuitem action="action_generic_tag_models_view" id="menu_action_generic_tag_modeles_view"
+                  parent="menu_generic_tags_configuration_root" sequence="30"/>
 
         <!-- end tag categories views -->
     </data>

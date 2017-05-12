@@ -8,15 +8,15 @@ class base_action_rule_test(common.TransactionCase):
         """*****setUp*****"""
         super(base_action_rule_test, self).setUp()
         cr, uid = self.cr, self.uid
-        self.tag_obj = self.registry('res.tag')
-        self.tag_model_obj = self.registry('res.tag.model')
-        self.tag_category_obj = self.registry('res.tag.category')
-        self.test_obj = self.registry('res.tag.test.model')
+        self.tag_obj = self.registry('generic.tag')
+        self.tag_model_obj = self.registry('generic.tag.model')
+        self.tag_category_obj = self.registry('generic.tag.category')
+        self.test_obj = self.registry('generic.tag.test.model')
         self.action_rule_obj = self.registry('base.action.rule')
 
         # Make test model taggable
         self.test_model_id = self.tag_model_obj.create(cr, uid, {'name': 'Test Model',
-                                                                 'model': 'res.tag.test.model'})
+                                                                 'model': 'generic.tag.test.model'})
 
         # Create two records of test model
         self.test_1_id = self.test_obj.create(cr, uid, {'name': 'Test 1'})
@@ -38,18 +38,18 @@ class base_action_rule_test(common.TransactionCase):
         self.filter_add_id = self.registry('ir.filters').create(cr, uid, {
             'name': "Test model test field = 'add'",
             'is_default': False,
-            'model_id': 'res.tag.test.model',
+            'model_id': 'generic.tag.test.model',
             'domain': "[('test_field','=','add')]",
         })
         self.filter_rem_id = self.registry('ir.filters').create(cr, uid, {
             'name': "Test model test field = 'remove'",
             'is_default': False,
-            'model_id': 'res.tag.test.model',
+            'model_id': 'generic.tag.test.model',
             'domain': "[('test_field','=','remove')]",
         })
         self.action_rule_id_1 = self.action_rule_obj.create(cr, uid, {
             'name': "Rule auto add tag",
-            'model_id': self.registry('ir.model').search(cr, uid, [('model', '=', 'res.tag.test.model')])[0],
+            'model_id': self.registry('ir.model').search(cr, uid, [('model', '=', 'generic.tag.test.model')])[0],
             'active': 1,
             #'filter_pre_id': filter_pre_id,
             'filter_id': self.filter_add_id,
@@ -58,7 +58,7 @@ class base_action_rule_test(common.TransactionCase):
         })
         self.action_rule_id_2 = self.action_rule_obj.create(cr, uid, {
             'name': "Rule auto remove tag",
-            'model_id': self.registry('ir.model').search(cr, uid, [('model', '=', 'res.tag.test.model')])[0],
+            'model_id': self.registry('ir.model').search(cr, uid, [('model', '=', 'generic.tag.test.model')])[0],
             'active': 1,
             #'filter_pre_id': filter_pre_id,
             'filter_id': self.filter_rem_id,
@@ -78,8 +78,8 @@ class base_action_rule_test(common.TransactionCase):
         self.assertEquals(len(rule1.act_remove_tag_ids), 0)
         self.assertEquals(len(rule2.act_add_tag_ids), 0)
         self.assertEquals(rule2.act_remove_tag_ids[0].id, self.test_tag_id_1)
-        self.assertEquals(rule1.model_id.model, 'res.tag.test.model')
-        self.assertEquals(rule2.model_id.model, 'res.tag.test.model')
+        self.assertEquals(rule1.model_id.model, 'generic.tag.test.model')
+        self.assertEquals(rule2.model_id.model, 'generic.tag.test.model')
 
     def test_20_test_rule_actions(self):
         """ Test that rule_actions work fine

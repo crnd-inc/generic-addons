@@ -5,10 +5,10 @@ from openerp.tools.translate import _
 class BaseActionRule(models.Model):
     _inherit = 'base.action.rule'
 
-    act_add_tag_ids = fields.Many2many('res.tag', 'base_action_rule_add_tag_ids_rel', 'rule_id', 'tag_id',
+    act_add_tag_ids = fields.Many2many('generic.tag', 'base_action_rule_add_tag_ids_rel', 'rule_id', 'tag_id',
                                             string="Add Tags", select=True,
                                             help="Specify tags to be added to object this rule is applied to")
-    act_remove_tag_ids = fields.Many2many('res.tag', 'base_action_rule_remove_tag_ids_rel', 'rule_id', 'tag_id',
+    act_remove_tag_ids = fields.Many2many('generic.tag', 'base_action_rule_remove_tag_ids_rel', 'rule_id', 'tag_id',
                                                string="Remove Tags", select=True,
                                                help="Specify tags to be removed from object this rule is applied to")
 

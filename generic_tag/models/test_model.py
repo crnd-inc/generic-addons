@@ -9,9 +9,9 @@ if config.get('test_enable', False):
     _logger.info("Create test model")
 
     class TestModel(models.Model):
-        _name = 'res.tag.test.model'
+        _name = 'generic.tag.test.model'
         _inherit = [
-            'res.tag.mixin'
+            'generic.tag.mixin'
         ]
 
         name = fields.Char('Name')

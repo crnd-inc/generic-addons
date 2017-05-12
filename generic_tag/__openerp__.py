@@ -18,7 +18,7 @@
     "data": [
         'security/base_security.xml',
         'security/ir.model.access.csv',
-        'views/res_tag_view.xml',
+        'views/generic_tag_view.xml',
         'views/base_action_rule_view.xml',
     ],
     "installable": True,

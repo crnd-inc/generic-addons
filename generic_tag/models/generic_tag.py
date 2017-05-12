@@ -5,8 +5,8 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class ResTagModel(models.Model):
-    _name = "res.tag.model"
+class GenericTagModel(models.Model):
+    _name = "generic.tag.model"
     _description = "Contains list of models available for tagging"
 
     _access_log = False
@@ -15,7 +15,7 @@ class ResTagModel(models.Model):
     #@api.depends('model_id')
     def _compute_tags_count(self):
         for model in self:
-            model.tags_count = self.env['res.tag'].search_count([('model_id', '=', model.id)])
+            model.tags_count = self.env['generic.tag'].search_count([('model_id', '=', model.id)])
 
     
     name = fields.Char("Name", size=64, required=True, select=True, translate=True)
@@ -38,26 +38,26 @@ class ResTagModel(models.Model):
             'name': _('Tags related to model %s') % model.name,
             'view_type': 'form',
             'view_mode': 'tree,form',
-            'res_model': 'res.tag',
+            'generic_model': 'generic.tag',
             'type': 'ir.actions.act_window',
             'context': ctx,
             'domain': [('model_id.id', '=', model.id)],
         }
 
 
-class ResTagModelMixin(models.AbstractModel):
-    _name = "res.tag.model.mixin"
-    _description = "Mixin to add res.tag.model relation"
+class GenericTagModelMixin(models.AbstractModel):
+    _name = "generic.tag.model.mixin"
+    _description = "Mixin to add generic.tag.model relation"
 
     def _get_default_model_id(self, cr, uid, context=None):
-        """ Try to get default model from context and find approriate res.tag.model record ID
+        """ Try to get default model from context and find approriate generic.tag.model record ID
         """
         if context is None:
             context = {}
 
         default_model = context.get('default_model', False)
         if default_model:
-            tag_model_obj = self.pool.get('res.tag.model')
+            tag_model_obj = self.pool.get('generic.tag.model')
             model_ids = tag_model_obj.search(cr, uid, [('model', '=', default_model)], limit=1, context=context)
             if model_ids:
                 return model_ids[0]
@@ -65,7 +65,7 @@ class ResTagModelMixin(models.AbstractModel):
         return False
 
 
-    model_id = fields.Many2one("res.tag.model", "Model", required=True, ondelete='restrict',
+    model_id = fields.Many2one("generic.tag.model", "Model", required=True, ondelete='restrict',
                                     select=True, help="Specify model for which this tag is available")
 
 
@@ -74,9 +74,9 @@ class ResTagModelMixin(models.AbstractModel):
     }
 
 
-class ResTagCategory(models.Model):
-    _name = 'res.tag.category'
-    _inherit = ['res.tag.model.mixin']
+class GenericTagCategory(models.Model):
+    _name = 'generic.tag.category'
+    _inherit = ['generic.tag.model.mixin']
     _description = "Category to group tags in"
 
     _access_log = False
@@ -104,7 +104,7 @@ class ResTagCategory(models.Model):
         # return res
 
 
-        # model_id field will be added by 'res.tag.model.mixin'
+        # model_id field will be added by 'generic.tag.model.mixin'
     name = fields.Char("Name", size=64, required=True,
                             translate=True, select=True)
     code = fields.Char("Code", size=32, select=True,
@@ -113,7 +113,7 @@ class ResTagCategory(models.Model):
 
     active = fields.Boolean("Active", select=True)
 
-    tag_ids = fields.One2many("res.tag", "category_id", "Tags")
+    tag_ids = fields.One2many("generic.tag", "category_id", "Tags")
 
     check_xor = fields.Boolean("Check XOR", help="if set to True then enables XOR check on tags been added to object. "
                                                       "it means that only one tag from category may be added to object at time")
@@ -147,16 +147,16 @@ class ResTagCategory(models.Model):
             'name': _('Tags related to category %s') % category.name,
             'view_type': 'form',
             'view_mode': 'tree,form',
-            'res_model': 'res.tag',
+            'generic_model': 'generic.tag',
             'type': 'ir.actions.act_window',
             'context': ctx,
             'domain': [('category_id.id', '=', category.id)],
         }
 
 
-class ResTag(models.Model):
-    _name = "res.tag"
-    _inherit = ['res.tag.model.mixin']
+class GenericTag(models.Model):
+    _name = "generic.tag"
+    _inherit = ['generic.tag.model.mixin']
     _description = "Tag"
 
     _access_log = False
@@ -194,8 +194,8 @@ class ResTag(models.Model):
                 return False
         return True
 
-        # model_id field will be added by 'res.tag.model.mixin'
-    category_id = fields.Many2one('res.tag.category', 'Category', select=True, ondelete='restrict')
+        # model_id field will be added by 'generic.tag.model.mixin'
+    category_id = fields.Many2one('generic.tag.category', 'Category', select=True, ondelete='restrict')
     name = fields.Char("Name", size=64, required=True,
                             translate=True, select=True)
     code = fields.Char("Code", size=32, select=True,
@@ -210,9 +210,9 @@ class ResTag(models.Model):
 
     # complete_name = fields.Function(lambda self, *a, **k: self._get_complete_name(*a, **k),
     #                                      string="Name", type='Char', store={
-    #                                          'res.tag': (lambda s, c, u, ids, ctx=None: ids, [], 10),
-    #                                          'res.tag.category': (lambda s, cr, uid, ids, context=None:
-    #                                                               s.pool.get('res.tag').search(cr, uid,
+    #                                          'generic.tag': (lambda s, c, u, ids, ctx=None: ids, [], 10),
+    #                                          'generic.tag.category': (lambda s, cr, uid, ids, context=None:
+    #                                                               s.pool.get('generic.tag').search(cr, uid,
     #                                                                                            [('category_id', 'in', ids)]),
     #                                                               ['name'],
     #                                                               10)
@@ -260,18 +260,18 @@ class ResTag(models.Model):
             'name': _('Objects related to tag %s') % tag.name,
             'view_type': 'form',
             'view_mode': 'tree,form',
-            'res_model': tag.model_id.model,
+            'generic_model': tag.model_id.model,
             'type': 'ir.actions.act_window',
             'context': context,
             'domain': [('tag_ids.id', '=', tag.id)],
         }
 
 
-class ResTagMixin(models.AbstractModel):
+class GenericTagMixin(models.AbstractModel):
     """ Mixin to be used to add tag support to any model by inheriting from it like:
-            _inherit=["res.tag.mixin"]
+            _inherit=["generic.tag.mixin"]
     """
-    _name = "res.tag.mixin"
+    _name = "generic.tag.mixin"
     _description = "Adds tag_ids field to object"
 
     # Mail thread integration field. if set to True then tag add / remove
@@ -291,8 +291,8 @@ class ResTagMixin(models.AbstractModel):
             SELECT st.id, rtc.id
             FROM %(table)s             AS st
             LEFT JOIN %(tag_rel)s      AS trel   ON trel.%(obj_id_field)s = st.id
-            LEFT JOIN res_tag          AS rt     ON trel.%(tag_id_field)s = rt.id
-            LEFT JOIN res_tag_category AS rtc    ON rt.category_id = rtc.id
+            LEFT JOIN generic_tag          AS rt     ON trel.%(tag_id_field)s = rt.id
+            LEFT JOIN generic_tag_category AS rtc    ON rt.category_id = rtc.id
             WHERE rtc.check_xor = True
                 AND st.id IN (%(obj_ids)s)
             GROUP BY st.id, rtc.id
@@ -302,7 +302,7 @@ class ResTagMixin(models.AbstractModel):
             bad_rows = cr.fetchall()
             # Prepare messsage to display in what objects / categories
             # validation error occured
-            tag_category_obj = self.pool.get('res.tag.category')
+            tag_category_obj = self.pool.get('generic.tag.category')
             message = _("There are more that one tag for tag category for folowing pairs object - category pairs:\n")
             obj_ids = []
             categ_ids = []
@@ -341,12 +341,12 @@ class ResTagMixin(models.AbstractModel):
 
     #     return res
 
-    tag_ids = fields.Many2many('res.tag', string="Tags", select=True,
+    tag_ids = fields.Many2many('generic.tag', string="Tags", select=True,
                                     domain=lambda self: [('model_id.model', '=', self._name)])
     # no_tag_id = fields.Function(lambda self, cr, uid, ids, fnames, args, context=None: {}.fromkeys(ids, False),
     #                                  method=True, store=False,
     #                                  fnct_search=lambda s, *a, **ka: s._search_no_tag_id(*a, **ka),
-    #                                  string="No Tag", obj='res.tag', type='Many2one', readonly=True,
+    #                                  string="No Tag", obj='generic.tag', type='Many2one', readonly=True,
     #                                  domain=lambda self: [('model_id.model', '=', self._name)])
 
     _constraints = [
@@ -363,10 +363,10 @@ class ResTagMixin(models.AbstractModel):
             @param create: if True then create tag if not found
             @return: True if at least one tag was added
         """
-        tag_obj = self.pool.get('res.tag')
+        tag_obj = self.pool.get('generic.tag')
         tag_ids = tag_obj.get_tag_ids(cr, uid, self._name, code=code, name=name, context=context)
         if not tag_ids and create:
-            model_id = self.pool.get('res.tag.model').search(cr, uid, [('model', '=', self._name)])[0]
+            model_id = self.pool.get('generic.tag.model').search(cr, uid, [('model', '=', self._name)])[0]
             tag_ids = [tag_obj.create(cr, uid, {'name': name, 'code': code, 'model_id': model_id}, context=context)]
 
         if tag_ids:
@@ -383,7 +383,7 @@ class ResTagMixin(models.AbstractModel):
 
             Note: return value is not suitable for checking if something was removed
         """
-        tag_obj = self.pool.get('res.tag')
+        tag_obj = self.pool.get('generic.tag')
         tag_ids = tag_obj.get_tag_ids(cr, uid, self._name, code=code, name=name, context=context)
 
         if tag_ids:

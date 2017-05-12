@@ -12,14 +12,14 @@ class TestBasics(TransactionCase):
 
         cr, uid = self.cr, self.uid
 
-        self.tag_obj = self.registry('res.tag')
-        self.tag_model_obj = self.registry('res.tag.model')
-        self.tag_category_obj = self.registry('res.tag.category')
-        self.test_obj = self.registry('res.tag.test.model')
+        self.tag_obj = self.registry('generic.tag')
+        self.tag_model_obj = self.registry('generic.tag.model')
+        self.tag_category_obj = self.registry('generic.tag.category')
+        self.test_obj = self.registry('generic.tag.test.model')
 
         # Make test model taggable
         self.test_model_id = self.tag_model_obj.create(cr, uid, {'name': 'Test Model',
-                                                                 'model': 'res.tag.test.model'})
+                                                                 'model': 'generic.tag.test.model'})
 
         # Create two records of test model
         self.test_1_id = self.test_obj.create(cr, uid, {'name': 'Test 1'})
