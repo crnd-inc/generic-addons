@@ -222,6 +222,7 @@ class ResTag(models.Model):
                                       track_visibility='always',
                                       help="How many objects contains this tag")
     group_ids = fields.Many2many('res.groups', string='Groups')
+    color = fields.Integer("Color")
 
     _defaults = {
         "active": True,
