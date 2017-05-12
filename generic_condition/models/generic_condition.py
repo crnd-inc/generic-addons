@@ -516,10 +516,10 @@ class GenericCondition(models.Model):
         # unescape regular expression, if choosen 'use regex' option,
         # otherwise do 're.escape' for it
         if self.condition_simple_field_string_operator_regex:
-            reference_value = reference_value.decode('string-escape')
+            reference_value = reference_value
         else:
             reference_value = re.escape(
-                reference_value.decode('string-escape'))
+                reference_value)
 
         # Do everything via regex
         if obj_value and operator == '=':

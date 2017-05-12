@@ -6,7 +6,9 @@
         <field name="arch" type="xml">
             <form string="Test Condition">
                 <field name="condition_id"/>
-                <field name="res_id"/>
+                <field name="res_model" invisible="0"/>
+                <field name="res_id"
+                       widget="polymorphic" polymorphic="res_model"/>
                 <newline/>
                 <field name="result" attrs="{'invisible': [('result', '=', False)]}"/>
                 <newline/>
