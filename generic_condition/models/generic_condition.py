@@ -8,6 +8,7 @@ from dateutil.relativedelta import relativedelta
 
 from ..utils import str_to_datetime
 
+import re
 import traceback
 
 import logging
@@ -30,6 +31,7 @@ class GenericCondition(models.Model):
             ('related_conditions', _('Related conditions')),
             ('date_diff', _('Date difference')),
             ('condition_group', _('Condition group')),
+            ('simple_field', _('Simple field')),
         ]
 
     def _get_selection_date_diff_uom(self):
@@ -49,6 +51,26 @@ class GenericCondition(models.Model):
             ('>=', '>='),
             ('<=', '<='),
             ('!=', '!='),
+        ]
+
+    def _get_selection_simple_field_number_operator(self):
+        return [
+            ('=', '='),
+            ('>', '>'),
+            ('<', '<'),
+            ('>=', '>='),
+            ('<=', '<='),
+            ('!=', '!='),
+        ]
+
+    def _get_selection_simple_field_string_operator(self):
+        return [
+            ('=', '='),
+            ('!=', '!='),
+            ('set', _('Set')),
+            ('not set', _('Not set')),
+            ('regex', _('RegEx')),
+            ('contains', _('Contains')),
         ]
 
     def _get_selection_date_diff_date_type(self):
@@ -206,6 +228,26 @@ class GenericCondition(models.Model):
         'Absolute', default=False,
         help='If checked, then absolute date difference will be checked. '
              '(date difference will be positive always)')
+
+    # Simple field conditions
+    condition_simple_field_field = fields.Many2one(
+        'ir.model.fields', 'Check field', ondelete='restrict',
+        domain=[('ttype', 'in', ('boolean', 'char', 'float',
+                                 'integer', 'selection'))])
+    condition_simple_field_type = fields.Selection(
+        related='condition_simple_field_field.ttype', string='Field type')
+    condition_simple_field_value_boolean = fields.Selection(
+        [('true', 'True'), ('false', 'False')], 'Value')
+    condition_simple_field_value_char = fields.Char('Value')
+    condition_simple_field_value_float = fields.Float('Value')
+    condition_simple_field_value_integer = fields.Integer('Value')
+    condition_simple_field_number_operator = fields.Selection(
+        '_get_selection_simple_field_number_operator', 'Operator')
+    condition_simple_field_string_operator = fields.Selection(
+        '_get_selection_simple_field_string_operator', 'Operator')
+    condition_simple_field_string_operator_icase = fields.Boolean(
+        'Case insensitive')
+
 
     @api.model
     def default_get(self, fields):
@@ -434,6 +476,91 @@ class GenericCondition(models.Model):
             raise ValidationError(
                 _("Unsupported operator '%s' for condition '%s'"
                   "") % (operator, self.name))
+
+    def helper_check_simple_field_number(self, obj_value):
+        operator_map = {
+            '=': lambda a, b: a == b,
+            '>': lambda a, b: a > b,
+            '<': lambda a, b: a < b,
+            '>=': lambda a, b: a >= b,
+            '<=': lambda a, b: a <= b,
+            '!=': lambda a, b: a != b,
+        }
+
+        operator = self.condition_simple_field_number_operator
+
+        if self.condition_simple_field_type == 'float':
+            reference_value = self.condition_simple_field_value_float
+        elif self.condition_simple_field_type == 'integer':
+            reference_value = self.condition_simple_field_value_integer
+
+        return operator_map[operator](obj_value, reference_value)
+
+    def helper_check_simple_field_string(self, obj_value):
+        operator = self.condition_simple_field_string_operator
+        reference_value = self.condition_simple_field_value_char
+
+        # Simple operators
+        if operator == 'set':
+            return bool(obj_value)
+        elif operator == 'not set':
+            return not bool(obj_value)
+
+        # Compute regex flags
+        re_flags = re.UNICODE
+        if self.condition_simple_field_string_operator_icase:
+            re_flags |= re.IGNORECASE
+
+        # Do everything via regex
+        if obj_value and operator == 'regex':
+            return bool(
+                re.match(
+                    reference_value.decode('string-escape'),
+                    obj_value,
+                    re_flags))
+        elif obj_value and operator == '=':
+            return bool(
+                re.match(
+                    re.escape(reference_value),
+                    obj_value,
+                    re_flags))
+        elif operator == '!=':
+            return not bool(
+                re.match(
+                    re.escape(reference_value),
+                    obj_value,
+                    re_flags))
+        elif operator == 'contains':
+            return bool(
+                re.search(
+                    re.escape(reference_value),
+                    obj_value,
+                    re_flags))
+        return False
+
+
+    def helper_check_simple_field_boolean(self, obj_value):
+        reference_value = self.condition_simple_field_value_boolean
+        if reference_value == 'true' and obj_value:
+            return True
+        if reference_value == 'false' and not obj_value:
+            return True
+        return False
+
+    # signature check_<type> where type is condition type
+    def check_simple_field(self, obj, cache=None):
+        """ Check value of simple field of object
+        """
+        field = self.condition_simple_field_field
+        value = obj[field.name]
+
+        if field.ttype in ('integer', 'float'):
+            return self.helper_check_simple_field_number(value)
+        elif field.ttype == 'char':
+            return self.helper_check_simple_field_string(value)
+        elif field.ttype == 'boolean':
+            return self.helper_check_simple_field_boolean(value)
+        raise NotImplemented()
 
     def _check(self, obj, cache=None):
         """ Checks one condition for a specific object
