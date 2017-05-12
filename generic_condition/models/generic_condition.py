@@ -69,7 +69,6 @@ class GenericCondition(models.Model):
             ('!=', '!='),
             ('set', _('Set')),
             ('not set', _('Not set')),
-            ('regex', _('RegEx')),
             ('contains', _('Contains')),
         ]
 
@@ -235,7 +234,8 @@ class GenericCondition(models.Model):
         domain=[('ttype', 'in', ('boolean', 'char', 'float',
                                  'integer', 'selection'))])
     condition_simple_field_type = fields.Selection(
-        related='condition_simple_field_field.ttype', string='Field type')
+        related='condition_simple_field_field.ttype',
+        string='Field type', readonly=True)
     condition_simple_field_value_boolean = fields.Selection(
         [('true', 'True'), ('false', 'False')], 'Value')
     condition_simple_field_value_char = fields.Char('Value')
@@ -247,6 +247,8 @@ class GenericCondition(models.Model):
         '_get_selection_simple_field_string_operator', 'Operator')
     condition_simple_field_string_operator_icase = fields.Boolean(
         'Case insensitive')
+    condition_simple_field_string_operator_regex = fields.Boolean(
+        'Regular expression')
 
 
     @api.model
@@ -511,29 +513,31 @@ class GenericCondition(models.Model):
         if self.condition_simple_field_string_operator_icase:
             re_flags |= re.IGNORECASE
 
+        # unescape regular expression, if choosen 'use regex' option,
+        # otherwise do 're.escape' for it
+        if self.condition_simple_field_string_operator_regex:
+            reference_value = reference_value.decode('string-escape')
+        else:
+            reference_value = re.escape(
+                reference_value.decode('string-escape'))
+
         # Do everything via regex
-        if obj_value and operator == 'regex':
+        if obj_value and operator == '=':
             return bool(
                 re.match(
-                    reference_value.decode('string-escape'),
-                    obj_value,
-                    re_flags))
-        elif obj_value and operator == '=':
-            return bool(
-                re.match(
-                    re.escape(reference_value),
+                    reference_value,
                     obj_value,
                     re_flags))
         elif operator == '!=':
             return not bool(
                 re.match(
-                    re.escape(reference_value),
+                    reference_value,
                     obj_value,
                     re_flags))
         elif operator == 'contains':
             return bool(
                 re.search(
-                    re.escape(reference_value),
+                    reference_value,
                     obj_value,
                     re_flags))
         return False
