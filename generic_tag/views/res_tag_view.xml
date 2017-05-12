@@ -65,7 +65,7 @@
                 <form string="Tag">
                     <group>
                         <group>
-                            <field name="complete_name" string="Complete name"/>
+                            <field name="display_name" string="Display name"/>
                         </group>
                         <group>
                             <field name="active"/>

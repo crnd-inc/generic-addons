@@ -42,6 +42,26 @@ class TestBasics(TransactionCase):
                                                            'model_id': self.test_model_id,
                                                            'category_id': False})
 
+    def test_60_name_tag(self):
+        """ Test that .name_category_tag method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        test_tag_1 = self.tag_obj.browse(cr, uid, self.test_tag_id_1)
+        self.assertEqual(test_tag_1.display_name, 'Tag Categ 1 / TC1')
+
+    def test_70_object(self):
+        """ Test that .name_category_tag method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        res = self.test_obj.add_tag(cr, uid, [self.test_1_id, self.test_2_id],
+                                    name='Tag 3', code='Tag_3', create=True)
+        tag_ids = self.tag_obj.search(cr, uid, [('code', '=', 'Tag_3')])
+        self.assertEqual(len(tag_ids), 1)
+        tag = self.tag_obj.browse(cr, uid, tag_ids[0])
+        self.assertEqual(tag.objects_count, 2)
+
     def test_05_tags_count(self):
         model_tags_count = self.tag_model_obj.browse(self.cr, self.uid, self.test_model_id).tags_count
         self.assertEqual(model_tags_count, 3, "Wrong tags_count for model")
@@ -57,7 +77,7 @@ class TestBasics(TransactionCase):
         res = self.test_obj.add_tag(cr, uid, self.test_1_id, name='Tag 1', code='Tag_1')
         test1 = self.test_obj.browse(cr, uid, self.test_1_id)
         self.assertEqual(res, False, "No tags must be added here")
-        self.assertEqual(len(test1.tag_ids), 0, "There must be no tags added. (tag with such name does not exists")
+        self.assertEqual(len(test1.tag_ids), 0, "There must be no tags added. (tag with such name does not exists)")
 
         # Test simple add with create
         res = self.test_obj.add_tag(cr, uid, self.test_1_id, name='Tag 1', code='Tag_1', create=True)
@@ -203,3 +223,4 @@ class TestBasics(TransactionCase):
         self.test_obj.add_tag(cr, uid, [self.test_1_id, self.test_2_id], code='tc1')
         with self.assertRaises(except_orm):
             self.test_obj.add_tag(cr, uid, [self.test_1_id, self.test_2_id], code='tc2')
+

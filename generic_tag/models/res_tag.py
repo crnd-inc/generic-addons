@@ -161,8 +161,8 @@ class ResTag(models.Model):
 
     _access_log = False
 
-    # _rec_name = 'complete_name'
-    # _order = 'complete_name'
+    _rec_name = 'display_name'
+    _order = 'display_name'
 
     @api.multi
     def _compute_objects_count(self):
@@ -171,12 +171,13 @@ class ResTag(models.Model):
 
 
     @api.multi
-    def _compute_complete_name(self):
+    @api.depends('category_id', 'name')
+    def _compute_display_name(self):
         for tag in self:
             if tag.category_id:
-                self[tag.id] = "%s / %s" % (tag.category_id.name, tag.name)
+                tag.display_name = "%s / %s" % (tag.category_id.name, tag.name)
             else:
-                self[tag.id] = tag.name
+                tag.display_name = tag.name
 
 
         # res = {}.fromkeys(ids, '')
@@ -203,7 +204,7 @@ class ResTag(models.Model):
 
     active = fields.Boolean("Active", select=True)
 
-    complete_name = fields.Float(string="Tags", compute="_compute_complete_name", store=True, readonly=True,
+    display_name = fields.Char(string="Tags", compute="_compute_display_name", store=True, readonly=True,
                                       track_visibility='always',
                                       help="Full name of tag (including category name")
 
@@ -217,7 +218,7 @@ class ResTag(models.Model):
     #                                                               10)
     #                                      },
     #                                      help="Full name of tag (including category name"),
-    objects_count = fields.Float(string="Tags", compute="_compute_objects_count", store=True, readonly=True,
+    objects_count = fields.Integer(string="Tags", compute="_compute_objects_count", store=False, readonly=True,
                                       track_visibility='always',
                                       help="How many objects contains this tag")
     group_ids = fields.Many2many('res.groups', string='Groups')
