@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Email tempalte -->
+    <record id="email_template_1" model="mail.template">
+        <field name="name">welcome new partner</field>
+        <field name="email_from">maao@maao.com.ua</field>
+        <field name="subject">Welcome to the MaAO Partner Channel!</field>
+        <field name="email_to">${(object.email or '')|safe}</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="body_html">Hello, you will receive your welcome pack via email shortly.</field>
+    </record>
+    <record id="email_template_2" model="mail.template">
+        <field name="name">congrats silver partner</field>
+        <field name="email_from">maao@maao.com.ua</field>
+        <field name="subject">Congratulations! You are now a Silver Partner!</field>
+        <field name="email_to">${(object.email or '')|safe}</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="body_html">Hi, we are delighted to welcome you among our Silver Partners as of today!</field>
+    </record>
+
+    <!-- Campaign -->
+    <record id="marketing_campaign_maao_partner_channel" model="marketing.campaign">
+        <field name="name">MaAO Partner Channel</field>
+        <field name="object_id" ref="base.model_res_partner"/>
+        <field name="mode">active</field>
+    </record>
+
+    <!-- Activity -->
+    <record id="condition_partner_credit_limit_less_than_10000" model="generic.condition">
+        <field name="name">Credit limit less than 10000</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">obj.credit_limit &lt; 10000</field>
+    </record>
+    <record id="marketing_campaign_activity_0" model="marketing.campaign.activity">
+        <field name="name">New Partner</field>
+        <field name="campaign_id" ref="marketing_campaign_maao_partner_channel"/>
+        <field name="email_template_id" ref="email_template_1"/>
+        <field name="condition_ids" eval="[(6, 0, [ref('generic_condition_marketing.condition_partner_credit_limit_less_than_10000')])]"/>
+        <field name="condition">True</field>
+        <!--<field name="condition">object.credit_limit &lt; 10000</field>-->
+        <field name="keep_if_condition_not_met">True</field>
+        <field eval="1" name="start"/>
+    </record>
+    <record id="condition_partner_credit_limit_greater_than_10000" model="generic.condition">
+        <field name="name">Credit limit greater than 10000</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">obj.credit_limit &gt; 10000</field>
+    </record>
+    <record id="condition_partner_credit_limit_less_than_50000" model="generic.condition">
+        <field name="name">Credit limit less than 50000</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">eval</field>
+        <field name="condition_eval">obj.credit_limit &lt; 50000</field>
+    </record>
+    <record id="marketing_campaign_activity_1" model="marketing.campaign.activity">
+        <field name="name">Silver Partner</field>
+        <field name="campaign_id" ref="marketing_campaign_maao_partner_channel"/>
+        <field name="condition_ids" eval="[(6, 0, [ref('generic_condition_marketing.condition_partner_credit_limit_greater_than_10000'),ref('generic_condition_marketing.condition_partner_credit_limit_less_than_50000')])]"/>
+        <field name="condition">True</field>
+        <!--<field name="condition">object.credit_limit &gt;= 10000 and object.credit_limit &lt; 50000</field>-->
+        <field name="keep_if_condition_not_met">True</field>
+        <field name="email_template_id" ref="email_template_2"/>
+    </record>
+
+
+    <!-- Transition -->
+    <record id="marketing_campaign_transition_0" model="marketing.campaign.transition">
+        <field name="activity_from_id" ref="marketing_campaign_activity_0"/>
+        <field name="activity_to_id" ref="marketing_campaign_activity_1"/>
+    </record>
+
+    <!-- Segment -->
+    <record id="filter0" model="ir.filters">
+        <field name="name">Partners (C)</field>
+        <field name="domain">[('name','like','Agrolait')]</field>
+        <field name="model_id">res.partner</field>
+        <field name="user_id" eval="False"/>
+    </record>
+    <record id="marketing_campaign_segment0" model="marketing.campaign.segment">
+        <field eval="time.strftime('%Y-%m-%d %H:%M:%S')" name="date_run"/>
+        <field name="name">MaAO Partner</field>
+        <field name="sync_mode">create_date</field>
+        <field name="ir_filter_id" ref="filter0"/>
+        <field name="campaign_id" ref="marketing_campaign_maao_partner_channel"/>
+    </record>
+
+</odoo>
+

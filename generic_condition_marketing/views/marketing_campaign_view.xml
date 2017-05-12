@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_marketing_campaign_diagram_generic_condition" model="ir.ui.view">
+        <field name="name">marketing.campaign.diagram.generic.condition</field>
+        <field name="model">marketing.campaign</field>
+        <field name="inherit_id" ref="marketing_campaign.view_marketing_campaign_diagram"/>
+        <field name="arch" type="xml">
+            <xpath expr="//diagram/node[@object='marketing.campaign.activity']/field[@name='condition']"
+                   position="before">
+                <field name="condition_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_marketing_campaign_activity_generic_condition_form">
+        <field name="name">marketing.campaign.activity.generic.condition.form</field>
+        <field name="model">marketing.campaign.activity</field>
+        <field name="inherit_id" ref="marketing_campaign.view_marketing_campaign_activity_form"/>
+        <field name="arch" type="xml">
+            <field name="condition" position="before">
+                <field name="condition_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_marketing_campaign_activity_generic_condition_tree">
+        <field name="name">marketing.campaign.activity.generic.condition.tree</field>
+        <field name="model">marketing.campaign.activity</field>
+        <field name="inherit_id" ref="marketing_campaign.view_marketing_campaign_activity_tree"/>
+        <field name="arch" type="xml">
+            <field name="condition" position="before">
+                <field name="condition_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
