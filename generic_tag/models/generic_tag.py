@@ -239,7 +239,9 @@ class GenericTag(models.Model):
          ['category_id', 'model_id']),
     ]
 
-    def get_tag_ids(self, cr, uid, model, code=None, name=None, context=None):
+    @api.model
+    @api.returns('self')
+    def get_tag_ids(self, model, code=None, name=None):
         """ Returns list of IDs of tags for specified model name by (code, name) pair
 
             @param model: string that represents model name like 'res.partner'
@@ -251,7 +253,7 @@ class GenericTag(models.Model):
             tag_domain.append(('code', '=', code))
         if name is not None:
             tag_domain.append(('name', '=', name))
-        return self.search(cr, uid, tag_domain, context=context)
+        return self.search(tag_domain)
 
     @api.multi
     def action_show_objects(self):
@@ -354,8 +356,8 @@ class GenericTagMixin(models.AbstractModel):
          "More than one tag of category with 'check_xor' enabled, present in object",
          ['tag_ids']),
     ]
-
-    def add_tag(self, cr, uid, ids, code=None, name=None, create=False, context=None):
+    @api.multi
+    def add_tag(self, code=None, name=None, create=False):
         """ Adds tag new tag to object.
 
             @param code: tag.code field to search for
@@ -363,18 +365,20 @@ class GenericTagMixin(models.AbstractModel):
             @param create: if True then create tag if not found
             @return: True if at least one tag was added
         """
-        tag_obj = self.pool.get('generic.tag')
-        tag_ids = tag_obj.get_tag_ids(cr, uid, self._name, code=code, name=name, context=context)
-        if not tag_ids and create:
-            model_id = self.pool.get('generic.tag.model').search(cr, uid, [('model', '=', self._name)])[0]
-            tag_ids = [tag_obj.create(cr, uid, {'name': name, 'code': code, 'model_id': model_id}, context=context)]
+        tag_obj = self.env['generic.tag']
+        tags = tag_obj.get_tag_ids(self._name, code=code, name=name)
+        if not tags and create:
+            model = self.env['generic.tag.model'].search([('model', '=', self._name)])[0]
+            tags = tag_obj.create({'name': name, 'code': code, 'model_id': model.id})
 
-        if tag_ids:
-            self.write(cr, uid, ids, {'tag_ids': [(4, tid) for tid in tag_ids]}, context=context)
+        if tags:
+            self.write({'tag_ids': [(4, t.id) for t in tags]})
+            return True
 
-        return bool(tag_ids)
+        return False
 
-    def remove_tag(self, cr, uid, ids, code=None, name=None, context=None):
+    @api.multi
+    def remove_tag(self, code=None, name=None):
         """ Removes tags specified by code/name from specified cargoes
 
             @param code: tag.code field to search for
@@ -383,38 +387,42 @@ class GenericTagMixin(models.AbstractModel):
 
             Note: return value is not suitable for checking if something was removed
         """
-        tag_obj = self.pool.get('generic.tag')
-        tag_ids = tag_obj.get_tag_ids(cr, uid, self._name, code=code, name=name, context=context)
+        tag_obj = self.env['generic.tag']
+        tags = tag_obj.get_tag_ids(self._name, code=code, name=name)
 
-        if tag_ids:
-            self.write(cr, uid, ids, {'tag_ids': [(3, tid) for tid in tag_ids]}, context=context)
+        if tags:
+            self.write({'tag_ids': [(3, t.id) for t in tags]})
 
-        return bool(tag_ids)
+            return True
 
-    def check_tag(self, cr, uid, ids, code=None, name=None, context=None):
+        return False
+
+    @api.multi
+    def check_tag(self, code=None, name=None):
         """ Checks if all of supplied objects have tag with specified code and/or name
             Return True if all object ids has specified tags
         """
         assert bool(code is not None) or bool(name is not None), "code or name must not be None"
-        tag_domain = [('id', 'in', ids)]
+        tag_domain = [('id', 'in', self.ids)]
         if code is not None:
             tag_domain.append(('tag_ids.code', '=', code))
         if name is not None:
             tag_domain.append(('tag_ids.name', '=', name))
 
-        count = self.search(cr, uid, tag_domain, count=1)
-        return bool(count == len(ids))
+        count = self.search_count(tag_domain)
+        return bool(count == len(self.ids))
 
-    def check_tag_category(self, cr, uid, ids, code=None, name=None, context=None):
+    @api.multi
+    def check_tag_category(self, code=None, name=None):
         """ Checks if all of supplied objects have tag with specified category code and/or category name
             Return True if all object ids has specified tag category
         """
         assert bool(code is not None) or bool(name is not None), "code or name must not be None"
-        tag_domain = [('id', 'in', ids)]
+        tag_domain = [('id', 'in', self.ids)]
         if code is not None:
             tag_domain.append(('tag_ids.category_id.code', '=', code))
         if name is not None:
             tag_domain.append(('tag_ids.category_id.name', '=', name))
 
-        count = self.search(cr, uid, tag_domain, count=1)
-        return bool(count == len(ids))
+        count = self.search_count(tag_domain)
+        return bool(count == len(self.ids))
