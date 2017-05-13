@@ -253,17 +253,17 @@ class GenericTag(models.Model):
             tag_domain.append(('name', '=', name))
         return self.search(cr, uid, tag_domain, context=context)
 
-    def action_show_objects(self, cr, uid, ids, context=None):
-        assert len(ids) == 1, "Can be applied only to one tag at time"
-        tag = self.browse(cr, uid, ids[0], context=context)
+    @api.multi
+    def action_show_objects(self):
+        self.ensure_one()
         return {
-            'name': _('Objects related to tag %s') % tag.name,
+            'name': _('Objects related to tag %s') % self.name,
             'view_type': 'form',
             'view_mode': 'tree,form',
-            'generic_model': tag.model_id.model,
+            'res_model': self.model_id.model,
             'type': 'ir.actions.act_window',
-            'context': context,
-            'domain': [('tag_ids.id', '=', tag.id)],
+            'context': self.env.context,
+            'domain': [('tag_ids.id', '=', self.id)],
         }
 
 

@@ -1,4 +1,3 @@
-from openerp import SUPERUSER_ID
 from openerp.tests import common
 
 
@@ -15,24 +14,32 @@ class base_action_rule_test(common.TransactionCase):
         self.action_rule_obj = self.registry('base.action.rule')
 
         # Make test model taggable
-        self.test_model_id = self.tag_model_obj.create(cr, uid, {'name': 'Test Model',
-                                                                 'model': 'generic.tag.test.model'})
+        self.test_model_id = self.tag_model_obj.create(cr, uid, {
+            'name': 'Test Model',
+            'model': 'generic.tag.test.model'
+        })
 
         # Create two records of test model
         self.test_1_id = self.test_obj.create(cr, uid, {'name': 'Test 1'})
         self.test_2_id = self.test_obj.create(cr, uid, {'name': 'Test 2'})
 
         # Create test tag category and tags
-        self.test_tag_cat_id_1 = self.tag_category_obj.create(cr, uid, {'name': 'Tag Categ 1',
-                                                                        'model_id': self.test_model_id})
-        self.test_tag_id_1 = self.tag_obj.create(cr, uid, {'name': 'TC1',
-                                                           'code': 'tc1',
-                                                           'model_id': self.test_model_id,
-                                                           'category_id': self.test_tag_cat_id_1})
-        self.test_tag_id_2 = self.tag_obj.create(cr, uid, {'name': 'TC2',
-                                                           'code': 'tc2',
-                                                           'model_id': self.test_model_id,
-                                                           'category_id': self.test_tag_cat_id_1})
+        self.test_tag_cat_id_1 = self.tag_category_obj.create(cr, uid, {
+            'name': 'Tag Categ 1',
+            'model_id': self.test_model_id
+        })
+        self.test_tag_id_1 = self.tag_obj.create(cr, uid, {
+            'name': 'TC1',
+            'code': 'tc1',
+            'model_id': self.test_model_id,
+            'category_id': self.test_tag_cat_id_1
+        })
+        self.test_tag_id_2 = self.tag_obj.create(cr, uid, {
+            'name': 'TC2',
+            'code': 'tc2',
+            'model_id': self.test_model_id,
+            'category_id': self.test_tag_cat_id_1
+        })
 
         # Basic action rules config
         self.filter_add_id = self.registry('ir.filters').create(cr, uid, {
@@ -49,18 +56,22 @@ class base_action_rule_test(common.TransactionCase):
         })
         self.action_rule_id_1 = self.action_rule_obj.create(cr, uid, {
             'name': "Rule auto add tag",
-            'model_id': self.registry('ir.model').search(cr, uid, [('model', '=', 'generic.tag.test.model')])[0],
+            'model_id': self.registry('ir.model').search(cr, uid, [(
+                'model', '=', 'generic.tag.test.model'
+                )])[0],
             'active': 1,
-            #'filter_pre_id': filter_pre_id,
+            #  'filter_pre_id': filter_pre_id,
             'filter_id': self.filter_add_id,
             'act_add_tag_ids': [(4, self.test_tag_id_1)],
             'kind': 'on_create_or_write',
         })
         self.action_rule_id_2 = self.action_rule_obj.create(cr, uid, {
             'name': "Rule auto remove tag",
-            'model_id': self.registry('ir.model').search(cr, uid, [('model', '=', 'generic.tag.test.model')])[0],
+            'model_id': self.registry('ir.model').search(cr, uid, [(
+                'model', '=', 'generic.tag.test.model'
+                )])[0],
             'active': 1,
-            #'filter_pre_id': filter_pre_id,
+            #  'filter_pre_id': filter_pre_id,
             'filter_id': self.filter_rem_id,
             'act_remove_tag_ids': [(4, self.test_tag_id_1)],
             'kind': 'on_create_or_write',

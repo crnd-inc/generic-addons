@@ -1,5 +1,4 @@
 from openerp.tests.common import TransactionCase
-from openerp.tools.misc import mute_logger
 from openerp.osv.orm import except_orm
 
 
