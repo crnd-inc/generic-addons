@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from openerp.tools import config
 
 import logging

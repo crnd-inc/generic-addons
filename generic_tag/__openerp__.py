@@ -1,20 +1,22 @@
+# -*- coding: utf-8 -*-
 {
-    "name": "Tags",
-    "version": "0.0.3",
-    "author": "JBM",
-    "website": "",
-    "summary": "Tags",
-    'category': 'Hidden/Dependency',
+    'name': "Generic Tag",
+
+    'summary': """
+        Generic tag management.
+    """,
+
+    'author': "Management and Accounting Online",
+    'website': "https://maao.com.ua",
+
+    'category': 'Uncategorized',
+    'version': '9.0.0.1.0',
+
     "depends": [
         "base",
         "base_action_rule",
     ],
-    "description": """
-        Provides generic tags logic and basic views.
-        Integration with other modules should be implemented as sparate modules
-    """,
-    "init_xml": [
-    ],
+
     "data": [
         'security/base_security.xml',
         'security/ir.model.access.csv',
@@ -23,6 +25,7 @@
     ],
     "installable": True,
     "active": True,
+    'license': 'Other proprietary',
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

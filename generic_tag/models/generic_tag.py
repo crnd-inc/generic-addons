@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from openerp import models, fields, api
 from openerp.tools.translate import _
 
@@ -18,8 +20,8 @@ class GenericTagModel(models.Model):
             model.tags_count = self.env['generic.tag'].search_count([('model_id', '=', model.id)])
 
     
-    name = fields.Char("Name", size=64, required=True, select=True, translate=True)
-    model = fields.Char("Model", size=32, required=True, select=True)
+    name = fields.Char(size=64, required=True, translate=True)
+    model = fields.Char(size=32, required=True)
     tags_count = fields.Integer(string="Tags", compute="_compute_tags_count", store=False, readonly=True,
                                       track_visibility='always',
                                       help="How many tags related to this model exists")
@@ -49,29 +51,28 @@ class GenericTagModelMixin(models.AbstractModel):
     _name = "generic.tag.model.mixin"
     _description = "Mixin to add generic.tag.model relation"
 
-    def _get_default_model_id(self, cr, uid, context=None):
+    @api.model
+    def _get_default_model_id(self):
         """ Try to get default model from context and find approriate generic.tag.model record ID
         """
-        if context is None:
-            context = {}
 
-        default_model = context.get('default_model', False)
+        default_model = self.env.context.get('default_model', False)
+        tag_model_obj = self.env['generic.tag.model']
         if default_model:
-            tag_model_obj = self.pool.get('generic.tag.model')
-            model_ids = tag_model_obj.search(cr, uid, [('model', '=', default_model)], limit=1, context=context)
-            if model_ids:
-                return model_ids[0]
+            
+            return tag_model_obj.search([('model', '=', default_model)], limit=1)
 
-        return False
+        return tag_model_obj.browse()
+
+    model_id = fields.Many2one(
+        "generic.tag.model", "Model", required=True, ondelete='restrict',
+        default=_get_default_model_id,
+        help="Specify model for which this tag is available")
 
 
-    model_id = fields.Many2one("generic.tag.model", "Model", required=True, ondelete='restrict',
-                                    select=True, help="Specify model for which this tag is available")
-
-
-    _defaults = {
-        "model_id": lambda s, *a, **k: s._get_default_model_id(*a, **k),
-    }
+    # _defaults = {
+    #     "model_id": lambda s, *a, **k: s._get_default_model_id(*a, **k),
+    # }
 
 
 class GenericTagCategory(models.Model):

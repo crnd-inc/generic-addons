@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from openerp.tests.common import TransactionCase
 from openerp.osv.orm import except_orm
 
@@ -17,29 +19,39 @@ class TestBasics(TransactionCase):
         self.test_obj = self.registry('generic.tag.test.model')
 
         # Make test model taggable
-        self.test_model_id = self.tag_model_obj.create(cr, uid, {'name': 'Test Model',
-                                                                 'model': 'generic.tag.test.model'})
+        self.test_model_id = self.tag_model_obj.create(cr, uid, {
+            'name': 'Test Model',
+            'model': 'generic.tag.test.model'
+        })
 
         # Create two records of test model
         self.test_1_id = self.test_obj.create(cr, uid, {'name': 'Test 1'})
         self.test_2_id = self.test_obj.create(cr, uid, {'name': 'Test 2'})
 
         # Create test tag category and tags
-        self.test_tag_cat_id_1 = self.tag_category_obj.create(cr, uid, {'name': 'Tag Categ 1',
-                                                                        'code': 'tag_cat_1',
-                                                                        'model_id': self.test_model_id})
-        self.test_tag_id_1 = self.tag_obj.create(cr, uid, {'name': 'TC1',
-                                                           'code': 'tc1',
-                                                           'model_id': self.test_model_id,
-                                                           'category_id': self.test_tag_cat_id_1})
-        self.test_tag_id_2 = self.tag_obj.create(cr, uid, {'name': 'TC2',
-                                                           'code': 'tc2',
-                                                           'model_id': self.test_model_id,
-                                                           'category_id': self.test_tag_cat_id_1})
-        self.test_tag_id_3 = self.tag_obj.create(cr, uid, {'name': 'TC3',
-                                                           'code': 'tc3',
-                                                           'model_id': self.test_model_id,
-                                                           'category_id': False})
+        self.test_tag_cat_id_1 = self.tag_category_obj.create(cr, uid, {
+            'name': 'Tag Categ 1',
+            'code': 'tag_cat_1',
+            'model_id': self.test_model_id
+        })
+        self.test_tag_id_1 = self.tag_obj.create(cr, uid, {
+            'name': 'TC1',
+            'code': 'tc1',
+            'model_id': self.test_model_id,
+            'category_id': self.test_tag_cat_id_1
+        })
+        self.test_tag_id_2 = self.tag_obj.create(cr, uid, {
+            'name': 'TC2',
+            'code': 'tc2',
+            'model_id': self.test_model_id,
+            'category_id': self.test_tag_cat_id_1
+        })
+        self.test_tag_id_3 = self.tag_obj.create(cr, uid, {
+            'name': 'TC3',
+            'code': 'tc3',
+            'model_id': self.test_model_id,
+            'category_id': False
+        })
 
     def test_60_name_tag(self):
         """ Test that .name_category_tag method works fine

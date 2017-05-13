@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<openerp>
+<odoo>
     <data noupdate="0">
 
     <!--
@@ -33,7 +33,7 @@
             <field name="comment">Users of this group will see all tags that have related groups and user belogs to one of related tag groups</field>
         </record>
 
-        <record id="restricted_tags_rule" model="ir.rule">
+        <record id="restricted_tags_rule_x2" model="ir.rule">
             <field name="name">Restricted tags (x2)</field>
             <field name="model_id" ref="generic_tag.model_generic_tag"/>
             <field name="domain_force">[('group_ids.users.id','=',user.id)]</field>
@@ -43,5 +43,5 @@
             <field name="perm_write" eval="False"/>
         </record>
     </data>
-</openerp>
+</odoo>
 

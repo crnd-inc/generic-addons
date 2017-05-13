@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
 
         <menuitem id="menu_generic_tags_root"
@@ -226,5 +226,5 @@
 
         <!-- end tag categories views -->
     </data>
-</openerp>
+</odoo>
 
