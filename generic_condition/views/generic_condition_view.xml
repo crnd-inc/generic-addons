@@ -301,11 +301,11 @@
                                    class="oe_form_group">
                                 <tr class="oe_form_group_row">
                                     <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none;">
+                                        style="border: none; width: 1%">
                                         <label string="Field"/>
                                     </td>
                                     <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none; text-align:center">
+                                        style="border: none; width: 1%">
                                         <label string="Operator"/>
                                     </td>
                                     <td class="oe_form_group_cell oe_form_group_cell_label"
@@ -321,18 +321,17 @@
                                                domain="[('model_id','=',model_id), ('ttype', 'in', ('boolean', 'char', 'float', 'integer', 'selection'))]"
                                                attrs="{'required': [('type','=','simple_field')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell"
-                                        style="text-align:center;">
+                                    <td class="oe_form_group_cell">
                                         <field name="condition_simple_field_number_operator"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('float', 'integer'))], 'invisible': [('condition_simple_field_type', 'not in', ('float', 'integer'))]}"/>
                                         <field name="condition_simple_field_string_operator"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'char')], 'invisible': [('condition_simple_field_type', '!=', 'char')]}"/>
-                                        <span class="oe_form_field" style="text-align: left"
+                                        <span class="oe_form_field"
                                               attrs="{'invisible': ['|', ('condition_simple_field_type', '!=', 'char'),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
                                             <field name="condition_simple_field_string_operator_icase"/>
                                             <label for="condition_simple_field_string_operator_icase"/>
                                         </span>
-                                        <span class="oe_form_field" style="text-align: left"
+                                        <span class="oe_form_field"
                                               attrs="{'invisible': ['|', ('condition_simple_field_type', '!=', 'char'),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
                                             <field name="condition_simple_field_string_operator_regex"/>
                                             <label for="condition_simple_field_string_operator_regex"/>
@@ -347,6 +346,10 @@
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'integer')], 'invisible': [('condition_simple_field_type', '!=', 'integer')]}"/>
                                         <field name="condition_simple_field_value_float"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'float')], 'invisible': [('condition_simple_field_type', '!=', 'float')]}"/>
+                                        <field name="condition_simple_field_value_selection"
+                                               widget="fake_selection"
+                                               selection_field="condition_simple_field_field"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'selection')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'selection'), ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}"/>
                                     </td>
                                 </tr>
                             </table>

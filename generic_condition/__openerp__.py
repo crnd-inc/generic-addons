@@ -17,6 +17,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/generic_condition_view.xml',
+        'views/assets.xml',
         'wizard/test_condition_view.xml',
     ],
     'installable': True,

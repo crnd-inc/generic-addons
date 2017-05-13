@@ -26,7 +26,6 @@ class GenericCondition(models.Model):
         return [
             ('eval', _('Expression')),
             ('filter', _('Filter')),
-            # ('tags', _('Tags')),
             ('condition', _('Condition')),
             ('related_conditions', _('Related conditions')),
             ('date_diff', _('Date difference')),
@@ -123,10 +122,6 @@ class GenericCondition(models.Model):
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
         help="Python expression. 'obj' are present in context.")
-    # condition_tag_ids = fields.Many2many(
-    #    'res.tag', 'generic_condition_tags_rel',
-    #    'cond_id', 'tag_id', string='Condition (tags)', auto_join=True,
-    #    help='There must be at least one of specified tag present in repair')
     condition_filter_id = fields.Many2one(
         'ir.filters', string='Condition (filter)', auto_join=True,
         ondelete='restrict', track_visibility='onchange',
@@ -241,6 +236,7 @@ class GenericCondition(models.Model):
     condition_simple_field_value_char = fields.Char('Value')
     condition_simple_field_value_float = fields.Float('Value')
     condition_simple_field_value_integer = fields.Integer('Value')
+    condition_simple_field_value_selection = fields.Char('Value')
     condition_simple_field_number_operator = fields.Selection(
         '_get_selection_simple_field_number_operator', 'Operator')
     condition_simple_field_string_operator = fields.Selection(
@@ -310,13 +306,6 @@ class GenericCondition(models.Model):
                   "Notify administrator to fix it.\n\n---\n"
                   "%s") % (condition_name, obj_name, traceback.format_exc()))
         return res
-
-    # signature check_<type> where type is condition type
-    # def check_tags(self, obj, cache=None):
-    #    condition_tags = [t.id for t in condition.condition_tag_ids]
-    #    return any((1
-    #                for tag in obj.tag_ids
-    #                if tag.id in condition_tags))
 
     # signature check_<type> where type is condition type
     def check_condition(self, obj, cache=None):
@@ -528,13 +517,16 @@ class GenericCondition(models.Model):
                     reference_value,
                     obj_value,
                     re_flags))
-        elif operator == '!=':
+        elif obj_value and operator == '!=':
             return not bool(
                 re.match(
                     reference_value,
                     obj_value,
                     re_flags))
-        elif operator == 'contains':
+        elif not obj_value and operator == '!=':
+            # False != reference_value
+            return True
+        elif obj_value and operator == 'contains':
             return bool(
                 re.search(
                     reference_value,
@@ -551,6 +543,10 @@ class GenericCondition(models.Model):
             return True
         return False
 
+    def helper_check_simple_field_selection(self, obj_value):
+        reference_value = self.condition_simple_field_value_selection
+        return obj_value == reference_value
+
     # signature check_<type> where type is condition type
     def check_simple_field(self, obj, cache=None):
         """ Check value of simple field of object
@@ -564,6 +560,8 @@ class GenericCondition(models.Model):
             return self.helper_check_simple_field_string(value)
         elif field.ttype == 'boolean':
             return self.helper_check_simple_field_boolean(value)
+        elif field.ttype == 'selection':
+            return self.helper_check_simple_field_selection(value)
         raise NotImplemented()
 
     def _check(self, obj, cache=None):
