@@ -14,7 +14,6 @@ class TestConditionSimpleFieldNumber(TransactionCase):
         self.test_field_float = self.test_model.field_id.filtered(
             lambda r: r.name == 'test_float')
 
-
         self.Condition = self.env['generic.condition']
         self.condition_data = {
             "name": 'Simple field condition',

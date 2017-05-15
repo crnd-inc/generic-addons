@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from openerp.tests.common import TransactionCase
-from openerp.exceptions import UserError
 
 
 class TestConditionSimpleFieldBoolean(TransactionCase):
@@ -12,7 +11,6 @@ class TestConditionSimpleFieldBoolean(TransactionCase):
 
         self.test_field_bool = self.test_model.field_id.filtered(
             lambda r: r.name == 'test_bool')
-
 
         self.Condition = self.env['generic.condition']
         self.condition_data = {

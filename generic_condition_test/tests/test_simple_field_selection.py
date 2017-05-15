@@ -9,9 +9,6 @@ class TestConditionSimpleFieldSelection(TransactionCase):
             [('model', '=', 'test.generic.condition.date.diff')])
         self.TestModel = self.env[self.test_model.model]
 
-        # self.test_field_char = self.test_model.field_id.filtered(
-            # lambda r: r.name == 'test_char')
-
         self.test_field_selection = self.test_model.field_id.filtered(
             lambda r: r.name == 'test_selection')
 
@@ -44,7 +41,6 @@ class TestConditionSimpleFieldSelection(TransactionCase):
         })
         return condition.check(self._create_record(test_selection=val1))
 
-
     def test_10_simple_field_selection(self):
         self.assertTrue(self._check_selection_condition('val1', 'val1', '='))
         self.assertFalse(self._check_selection_condition('val1', 'val2', '='))
@@ -55,5 +51,7 @@ class TestConditionSimpleFieldSelection(TransactionCase):
         self.assertTrue(self._check_selection_condition('val1', False, 'set'))
         self.assertFalse(self._check_selection_condition(False, False, 'set'))
 
-        self.assertTrue(self._check_selection_condition(False, False, 'not set'))
-        self.assertFalse(self._check_selection_condition('val2', False, 'not set'))
+        self.assertTrue(
+            self._check_selection_condition(False, False, 'not set'))
+        self.assertFalse(
+            self._check_selection_condition('val2', False, 'not set'))

@@ -494,6 +494,8 @@ class GenericCondition(models.Model):
 
     def helper_check_simple_field_string(self, obj_value):
         operator = self.condition_simple_field_string_operator
+        is_regex = self.condition_simple_field_string_operator_regex
+        is_icase = self.condition_simple_field_string_operator_icase
         reference_value = self.condition_simple_field_value_char
 
         # Simple operators
@@ -504,14 +506,13 @@ class GenericCondition(models.Model):
 
         # Compute regex flags
         re_flags = re.UNICODE
-        if self.condition_simple_field_string_operator_icase:
+        if is_icase:
             re_flags |= re.IGNORECASE
 
-        # unescape regular expression, if choosen 'use regex' option,
-        # otherwise do 're.escape' for it
-        if self.condition_simple_field_string_operator_regex:
-            reference_value = reference_value
-        else:
+        # if not regex, do re.escape
+        if not is_regex and operator in ('=', '!='):
+            reference_value = u'^%s$' % re.escape(reference_value)
+        elif not is_regex and operator == 'contains':
             reference_value = re.escape(
                 reference_value)
 
