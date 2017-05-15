@@ -9,3 +9,10 @@ class TestConditionDateDiff(models.Model):
     date_end = fields.Datetime()
 
     date_test = fields.Date()
+
+    test_char = fields.Char()
+    test_int = fields.Integer()
+    test_float = fields.Float()
+    test_selection = fields.Selection([('val1', 'Value 1'),
+                                       ('val2', 'Value 2')])
+    test_bool = fields.Boolean()

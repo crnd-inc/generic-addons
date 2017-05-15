@@ -13,6 +13,10 @@ class TestGenericCondition(models.TransientModel):
 
     condition_id = fields.Many2one(
         'generic.condition', 'Condition', required=True, ondelete='cascade')
+    res_model = fields.Char(
+        string='Object Model',
+        related='condition_id.model_id.model',
+        readonly=True)
     res_id = fields.Integer(
         'Object ID', help='ID of object to test condition on')
     result = fields.Text(readonly=True)
