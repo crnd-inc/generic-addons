@@ -16,17 +16,5 @@ if config.get('test_enable', False):
             'generic.tag.mixin'
         ]
 
-        name = fields.Char('Name')
+        name = fields.Char()
         test_field = fields.Char('test_field')
-
-
-
-
-
-
-
-
-
-
-
-
