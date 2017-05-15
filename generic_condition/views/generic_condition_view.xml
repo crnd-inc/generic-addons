@@ -316,12 +316,14 @@
                                 </tr>
                                 <tr class="oe_form_group_row">
                                     <td class="oe_form_group_cell">
-                                        <field name="condition_simple_field_field"
+                                        <field name="condition_simple_field_field_id"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id), ('ttype', 'in', ('boolean', 'char', 'float', 'integer', 'selection'))]"
                                                attrs="{'required': [('type','=','simple_field')]}"/>
                                     </td>
                                     <td class="oe_form_group_cell">
+                                        <field name="condition_simple_field_selection_operator"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'selection')], 'invisible': [('condition_simple_field_type', '!=', 'selection')]}"/>
                                         <field name="condition_simple_field_number_operator"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('float', 'integer'))], 'invisible': [('condition_simple_field_type', 'not in', ('float', 'integer'))]}"/>
                                         <field name="condition_simple_field_string_operator"
@@ -348,8 +350,8 @@
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'float')], 'invisible': [('condition_simple_field_type', '!=', 'float')]}"/>
                                         <field name="condition_simple_field_value_selection"
                                                widget="fake_selection"
-                                               selection_field="condition_simple_field_field"
-                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'selection')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'selection'), ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}"/>
+                                               selection_field="condition_simple_field_field_id"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'selection')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'selection'), ('condition_simple_field_selection_operator', 'in', ('set', 'not set'))]}"/>
                                     </td>
                                 </tr>
                             </table>

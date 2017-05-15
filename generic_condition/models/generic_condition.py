@@ -71,6 +71,14 @@ class GenericCondition(models.Model):
             ('contains', _('Contains')),
         ]
 
+    def _get_selection_simple_field_selection_operator(self):
+        return [
+            ('=', '='),
+            ('!=', '!='),
+            ('set', _('Set')),
+            ('not set', _('Not set')),
+        ]
+
     def _get_selection_date_diff_date_type(self):
         return [
             ('now', _('Current date')),
@@ -224,12 +232,12 @@ class GenericCondition(models.Model):
              '(date difference will be positive always)')
 
     # Simple field conditions
-    condition_simple_field_field = fields.Many2one(
+    condition_simple_field_field_id = fields.Many2one(
         'ir.model.fields', 'Check field', ondelete='restrict',
         domain=[('ttype', 'in', ('boolean', 'char', 'float',
                                  'integer', 'selection'))])
     condition_simple_field_type = fields.Selection(
-        related='condition_simple_field_field.ttype',
+        related='condition_simple_field_field_id.ttype',
         string='Field type', readonly=True)
     condition_simple_field_value_boolean = fields.Selection(
         [('true', 'True'), ('false', 'False')], 'Value')
@@ -237,6 +245,8 @@ class GenericCondition(models.Model):
     condition_simple_field_value_float = fields.Float('Value')
     condition_simple_field_value_integer = fields.Integer('Value')
     condition_simple_field_value_selection = fields.Char('Value')
+    condition_simple_field_selection_operator = fields.Selection(
+        '_get_selection_simple_field_selection_operator', 'Operator')
     condition_simple_field_number_operator = fields.Selection(
         '_get_selection_simple_field_number_operator', 'Operator')
     condition_simple_field_string_operator = fields.Selection(
@@ -245,7 +255,6 @@ class GenericCondition(models.Model):
         'Case insensitive')
     condition_simple_field_string_operator_regex = fields.Boolean(
         'Regular expression')
-
 
     @api.model
     def default_get(self, fields):
@@ -463,10 +472,6 @@ class GenericCondition(models.Model):
             #     equal to
             #     date_start + 2 year >= date_end
             return date_start + relativedelta(**{uom: value}) >= date_end
-        else:
-            raise ValidationError(
-                _("Unsupported operator '%s' for condition '%s'"
-                  "") % (operator, self.name))
 
     def helper_check_simple_field_number(self, obj_value):
         operator_map = {
@@ -534,7 +539,6 @@ class GenericCondition(models.Model):
                     re_flags))
         return False
 
-
     def helper_check_simple_field_boolean(self, obj_value):
         reference_value = self.condition_simple_field_value_boolean
         if reference_value == 'true' and obj_value:
@@ -544,14 +548,24 @@ class GenericCondition(models.Model):
         return False
 
     def helper_check_simple_field_selection(self, obj_value):
+        operator = self.condition_simple_field_selection_operator
         reference_value = self.condition_simple_field_value_selection
-        return obj_value == reference_value
+
+        # Simple operators
+        if operator == 'set':
+            return bool(obj_value)
+        elif operator == 'not set':
+            return not bool(obj_value)
+        elif operator == '=':
+            return obj_value == reference_value
+        elif operator == '!=':
+            return obj_value != reference_value
 
     # signature check_<type> where type is condition type
     def check_simple_field(self, obj, cache=None):
         """ Check value of simple field of object
         """
-        field = self.condition_simple_field_field
+        field = self.condition_simple_field_field_id
         value = obj[field.name]
 
         if field.ttype in ('integer', 'float'):
