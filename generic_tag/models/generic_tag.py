@@ -101,7 +101,7 @@ class GenericTagCategory(models.Model):
         "tags which have programming meaning")
     comment = fields.Text(help="Describe what this tag means")
 
-    active = fields.Boolean(string="Active", default=True)
+    active = fields.Boolean(default=True)
 
     tag_ids = fields.One2many("generic.tag", "category_id", "Tags")
 
@@ -185,7 +185,7 @@ class GenericTag(models.Model):
         "tags which have programming meaning")
     comment = fields.Text(help="Describe what this tag means")
 
-    active = fields.Boolean(string="Active", default=True)
+    active = fields.Boolean(default=True)
 
     display_name = fields.Char(
         string="Tags", compute="_compute_display_name",
@@ -287,7 +287,8 @@ class GenericTagMixin(models.AbstractModel):
             data.update({'cat_%d' % cid: name for cid,
                         name in tag_category_obj.name_get(
                             cr, uid, categ_ids, context=context)})
-            raise ValidationError("ValidateError")
+            raise ValidationError(
+                u"ValidateError")
             # raise orm.except_orm(_("ValidateError"), message % data)
 
         return True

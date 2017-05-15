@@ -53,27 +53,6 @@ class TestBasics(TransactionCase):
             'category_id': False
         })
 
-    def test_60_name_tag(self):
-        """ Test that .name_category_tag method works fine
-        """
-        cr, uid = self.cr, self.uid
-
-        test_tag_1 = self.tag_obj.browse(cr, uid, self.test_tag_id_1)
-        self.assertEqual(test_tag_1.display_name, 'Tag Categ 1 / TC1')
-
-    def test_70_object(self):
-        """ Test that .name_category_tag method works fine
-        """
-        cr, uid = self.cr, self.uid
-
-        self.test_obj.add_tag(
-            cr, uid, [self.test_1_id, self.test_2_id],
-            name='Tag 3', code='Tag_3', create=True)
-        tag_ids = self.tag_obj.search(cr, uid, [('code', '=', 'Tag_3')])
-        self.assertEqual(len(tag_ids), 1)
-        tag = self.tag_obj.browse(cr, uid, tag_ids[0])
-        self.assertEqual(tag.objects_count, 2)
-
     def test_05_tags_count(self):
         model_tags_count = self.tag_model_obj.browse(
             self.cr, self.uid, self.test_model_id).tags_count
@@ -275,3 +254,24 @@ class TestBasics(TransactionCase):
         with self.assertRaises(except_orm):
             self.test_obj.add_tag(
                 cr, uid, [self.test_1_id, self.test_2_id], code='tc2')
+
+    def test_60_name_tag(self):
+        """ Test that .name_category_tag method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        test_tag_1 = self.tag_obj.browse(cr, uid, self.test_tag_id_1)
+        self.assertEqual(test_tag_1.display_name, 'Tag Categ 1 / TC1')
+
+    def test_70_object(self):
+        """ Test that .name_category_tag method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        self.test_obj.add_tag(
+            cr, uid, [self.test_1_id, self.test_2_id],
+            name='Tag 3', code='Tag_3', create=True)
+        tag_ids = self.tag_obj.search(cr, uid, [('code', '=', 'Tag_3')])
+        self.assertEqual(len(tag_ids), 1)
+        tag = self.tag_obj.browse(cr, uid, tag_ids[0])
+        self.assertEqual(tag.objects_count, 2)

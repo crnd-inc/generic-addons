@@ -3,11 +3,11 @@
 from openerp.tests import common
 
 
-class base_action_rule_test(common.TransactionCase):
+class BaseActionRuleTest(common.TransactionCase):
 
     def setUp(self):
         """*****setUp*****"""
-        super(base_action_rule_test, self).setUp()
+        super(BaseActionRuleTest, self).setUp()
         cr, uid = self.cr, self.uid
         self.tag_obj = self.registry('generic.tag')
         self.tag_model_obj = self.registry('generic.tag.model')
