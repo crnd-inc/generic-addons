@@ -31,6 +31,7 @@ class GenericCondition(models.Model):
             ('date_diff', _('Date difference')),
             ('condition_group', _('Condition group')),
             ('simple_field', _('Simple field')),
+            ('related_field', _('Related field')),
         ]
 
     def _get_selection_date_diff_uom(self):
@@ -77,6 +78,13 @@ class GenericCondition(models.Model):
             ('!=', '!='),
             ('set', _('Set')),
             ('not set', _('Not set')),
+        ]
+
+    def _get_selection_related_field_operator(self):
+        return [
+            ('set', _('Set')),
+            ('not set', _('Not set')),
+            ('contains', _('Contains')),
         ]
 
     def _get_selection_date_diff_date_type(self):
@@ -255,6 +263,18 @@ class GenericCondition(models.Model):
         'Case insensitive')
     condition_simple_field_string_operator_regex = fields.Boolean(
         'Regular expression')
+
+    # Related field conditions
+    condition_related_field_field_id = fields.Many2one(
+        'ir.model.fields', 'Check field', ondelete='restrict',
+        domain=[('ttype', 'in', ('many2one', 'many2many'))])
+    condition_related_field_model = fields.Char(
+        string='Related Model',
+        related='condition_related_field_field_id.relation',
+        readonly=True)
+    condition_related_field_operator = fields.Selection(
+        '_get_selection_related_field_operator', 'Operator')
+    condition_related_field_value_id = fields.Integer('Value')
 
     @api.model
     def default_get(self, fields):
@@ -578,6 +598,23 @@ class GenericCondition(models.Model):
         elif field.ttype == 'selection':
             return self.helper_check_simple_field_selection(value)
         raise NotImplemented()
+
+    # signature check_<type> where type is condition type
+    def check_related_field(self, obj, cache=None):
+        operator = self.condition_related_field_operator
+        field = self.condition_related_field_field_id
+        obj_value = obj[field.name]
+
+        # Simple operators
+        if operator == 'set':
+            return bool(obj_value)
+        elif operator == 'not set':
+            return not bool(obj_value)
+        elif obj_value and operator == 'contains':
+            reference_value_id = self.condition_related_field_value_id
+            return reference_value_id in obj_value.ids
+
+        return False
 
     def _check(self, obj, cache=None):
         """ Checks one condition for a specific object
