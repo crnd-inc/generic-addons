@@ -356,6 +356,48 @@
                                 </tr>
                             </table>
                         </group>
+                        <!-- 'Related field' condition data -->
+                        <group colspan="4" col="4"
+                               name="group_condition_related_field"
+                               attrs="{'invisible': [('type', '!=', 'related_field')]}">
+                            <span><field name="condition_related_field_model"
+                                         invisible="1"/></span>
+                            <table colspan="4"
+                                   class="oe_form_group">
+                                <tr class="oe_form_group_row">
+                                    <td class="oe_form_group_cell oe_form_group_cell_label"
+                                        style="border: none; width: 1%">
+                                        <label string="Field"/>
+                                    </td>
+                                    <td class="oe_form_group_cell oe_form_group_cell_label"
+                                        style="border: none; width: 1%">
+                                        <label string="Operator"/>
+                                    </td>
+                                    <td class="oe_form_group_cell oe_form_group_cell_label"
+                                        style="border: none;">
+                                        <label string="Value"
+                                               attrs="{'invisible': [('condition_related_field_operator', 'in', ('set', 'not set'))]}"/>
+                                    </td>
+                                </tr>
+                                <tr class="oe_form_group_row">
+                                    <td class="oe_form_group_cell">
+                                        <field name="condition_related_field_field_id"
+                                               context="{'default_model_id': model_id}"
+                                               domain="[('model_id','=',model_id), ('ttype', 'in', ('many2one', 'many2many'))]"
+                                               attrs="{'required': [('type','=','related_field')]}"/>
+                                    </td>
+                                    <td class="oe_form_group_cell">
+                                        <field name="condition_related_field_operator"
+                                               attrs="{'required': [('type','=','related_field')]}"/>
+                                    </td>
+                                    <td class="oe_form_group_cell">
+                                        <field name="condition_related_field_value_id"
+                                               widget="polymorphic" polymorphic="condition_related_field_model"
+                                               attrs="{'required': [('type','=','related_field'), ('condition_related_field_operator', '=', 'contains')], 'invisible': [('condition_related_field_operator', 'in', ('set', 'not set'))]}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </group>
                     </group>
                 </sheet>
             </form>
