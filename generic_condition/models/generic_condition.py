@@ -157,7 +157,8 @@ class GenericCondition(models.Model):
         help='Check set of other conditions')
     condition_condition_ids_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
-        string='Condition (condition group): operator', track_visibility='onchange')
+        string='Condition (condition group): operator',
+        track_visibility='onchange')
 
     # Related conditions
     condition_rel_field_id = fields.Many2one(
@@ -186,7 +187,8 @@ class GenericCondition(models.Model):
              "that this object will not be checked")
     condition_rel_filter_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
-        string='Related filter conditions operator', track_visibility='onchange')
+        string='Related filter conditions operator',
+        track_visibility='onchange')
     condition_rel_conditions = fields.Many2many(
         'generic.condition',
         'generic_condition_check_conds',
