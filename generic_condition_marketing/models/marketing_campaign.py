@@ -8,7 +8,7 @@ class MarketingCampaignActivity(models.Model):
     condition_ids = fields.Many2many(
         'generic.condition', string='Conditions',
         help="Specify generic conditions to decide whether the activity "
-             "can be executed. This is similar to 'Condition field' but uses "
+             "can be executed. This is similar to 'Condition' field but uses "
              "Generic Conditions instead. These conditions are checked before "
              "'Condition' field is checked. In most cases, if you plan to "
              "use 'Generic Conditions' here, set 'Condition' field to 'True'")

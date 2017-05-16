@@ -134,15 +134,14 @@ class GenericCondition(models.Model):
         default=True,
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
-             'This may speed_up condition processing.')
+             'This may speed up condition processing.')
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
         help="Python expression. 'obj' are present in context.")
     condition_filter_id = fields.Many2one(
         'ir.filters', string='Condition (filter)', auto_join=True,
         ondelete='restrict', track_visibility='onchange',
-        help="If present, this condition must be satisfied to apply "
-             "this rule.")
+        help="User filter to be applied by this condition.")
     condition_condition_id = fields.Many2one(
         'generic.condition', 'Condition (condition)',
         ondelete='restrict', track_visibility='onchange', auto_join=True,
@@ -155,10 +154,10 @@ class GenericCondition(models.Model):
         'parent_condition_id', 'sub_condition_id',
         string='Condition (condition group)',
         track_visibility='onchange', auto_join=True,
-        help='Links to another conditions')
+        help='Check set of other conditions')
     condition_condition_ids_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
-        string='Group operator', track_visibility='onchange')
+        string='Condition (condition group): operator', track_visibility='onchange')
 
     # Related conditions
     condition_rel_field_id = fields.Many2one(
@@ -171,7 +170,7 @@ class GenericCondition(models.Model):
     condition_rel_record_operator = fields.Selection(
         '_get_selection_condition_rel_record_operator',
         'Related record operator', default='match',
-        help='Choose way related record will be chacked:\n'
+        help='Choose way related record will be checked:\n'
              '- Match: return True if all filtered records match condition.\n'
              '- Contains: return True if at least one of filtered records '
              'match \'check\' conditions')
@@ -187,7 +186,7 @@ class GenericCondition(models.Model):
              "that this object will not be checked")
     condition_rel_filter_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
-        string='Group filter conditions operator', track_visibility='onchange')
+        string='Related filter conditions operator', track_visibility='onchange')
     condition_rel_conditions = fields.Many2many(
         'generic.condition',
         'generic_condition_check_conds',
@@ -199,7 +198,7 @@ class GenericCondition(models.Model):
              "And result of these related conditions will be used as result")
     condition_rel_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
-        string='Group related conditions operator',
+        string='Related check conditions operator',
         track_visibility='onchange')
 
     # Date difference fields: start date
@@ -232,7 +231,8 @@ class GenericCondition(models.Model):
         string='Date diff operator')
     condition_date_diff_uom = fields.Selection(
         '_get_selection_date_diff_uom',
-        string='Date diff UoM')
+        string='Date diff UoM',
+        help='Choose Unit of Measurement for date diff here')
     condition_date_diff_value = fields.Integer('Date diff value')
     condition_date_diff_absolute = fields.Boolean(
         'Absolute', default=False,
@@ -271,6 +271,7 @@ class GenericCondition(models.Model):
     condition_related_field_model = fields.Char(
         string='Related Model',
         related='condition_related_field_field_id.relation',
+        help="Technical name of related field's model",
         readonly=True)
     condition_related_field_operator = fields.Selection(
         '_get_selection_related_field_operator', 'Operator')
