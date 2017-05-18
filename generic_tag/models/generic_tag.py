@@ -33,19 +33,19 @@ class GenericTagModel(models.Model):
         ('model_uniq', 'unique(model)', 'Model field must be unique'),
     ]
 
-    def action_show_tags(self, cr, uid, ids, context=None):
-        assert len(ids) == 1, "Can be applied only to one tag at time"
-        model = self.browse(cr, uid, ids[0], context=context)
-        ctx = {} if context is None else context.copy()
-        ctx['default_model_id'] = model.id
+    @api.multi
+    def action_show_tags(self):
+        self.ensure_one()
+        ctx = dict(self.env.context,
+                   default_model_id=self.id)
         return {
-            'name': _('Tags related to model %s') % model.name,
+            'name': _('Tags related to model %s') % self.name,
             'view_type': 'form',
             'view_mode': 'tree,form',
-            'generic_model': 'generic.tag',
+            'res_model': 'generic.tag',
             'type': 'ir.actions.act_window',
             'context': ctx,
-            'domain': [('model_id.id', '=', model.id)],
+            'domain': [('model_id.id', '=', self.id)],
         }
 
 
@@ -81,12 +81,13 @@ class GenericTagCategory(models.Model):
 
     _access_log = False
 
-    def _check_model_id(self, cr, uid, ids, context=None):
-        for category in self.browse(cr, uid, ids, context=context):
+    @api.constrains('model_id')
+    def _check_model_id(self):
+        for category in self.browse():
             for tag in category.tag_ids:
                 if tag.model_id != category.model_id:
-                    return False
-        return True
+                    raise ValidationError(
+                        u"Model must be same as one used in related tags")
 
     @api.multi
     @api.depends('tag_ids')
@@ -121,26 +122,26 @@ class GenericTagCategory(models.Model):
          'Code of category must be unique'),
     ]
 
-    _constraints = [
-        (_check_model_id,
-         "Model must be same as one used in related tags",
-         ['model_id']),
-    ]
+    # _constraints = [
+    #     (_check_model_id,
+    #      "Model must be same as one used in related tags",
+    #      ['model_id']),
+    # ]
 
-    def action_show_tags(self, cr, uid, ids, context=None):
-        assert len(ids) == 1, "Can be applied only to one category at time"
-        category = self.browse(cr, uid, ids[0], context=context)
-        ctx = {} if context is None else context.copy()
-        ctx['default_category_id'] = category.id
-        ctx['default_model_id'] = category.model_id.id
+    @api.multi
+    def action_show_tags(self):
+        self.ensure_one()
+        ctx = dict(self.env.context,
+                   default_model_id=self.model_id.id,
+                   default_category_id=self.id)
         return {
-            'name': _('Tags related to category %s') % category.name,
+            'name': _('Tags related to category %s') % self.name,
             'view_type': 'form',
             'view_mode': 'tree,form',
-            'generic_model': 'generic.tag',
+            'res_model': 'generic.tag',
             'type': 'ir.actions.act_window',
             'context': ctx,
-            'domain': [('category_id.id', '=', category.id)],
+            'domain': [('category_id.id', '=', self.id)],
         }
 
 

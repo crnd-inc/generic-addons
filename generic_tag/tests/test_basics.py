@@ -53,6 +53,30 @@ class TestBasics(TransactionCase):
             'category_id': False
         })
 
+
+    def test_90_action_show_tags_category(self):
+        """ Test that action_show_tags_category method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        res = self.tag_category_obj.action_show_tags(
+            cr, uid, [self.test_tag_cat_id_1])
+        self.assertEqual(res['res_model'], 'generic.tag')
+        self.assertEqual(res['domain'], [('category_id.id', '=', self.test_tag_cat_id_1)])
+
+    def test_80_action_show_tags(self):
+        """ Test that action_show_tags method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        res = self.tag_model_obj.action_show_tags(
+            cr, uid, [self.test_model_id])
+        self.assertEqual(res['res_model'], 'generic.tag')
+        self.assertEqual(res['domain'], [('model_id.id', '=', self.test_model_id)])
+
+        # model_tags = self.tag_model_obj.browse(self.cr, self.uid, self.test_tag_cat_id_1)
+        # self.assertEqual(model_tags.action_show_tags[0].name, 'Tag Categ 1', "Wrong Wrong Wrong Wrong Wrong")
+
     def test_05_tags_count(self):
         model_tags_count = self.tag_model_obj.browse(
             self.cr, self.uid, self.test_model_id).tags_count
@@ -275,3 +299,4 @@ class TestBasics(TransactionCase):
         self.assertEqual(len(tag_ids), 1)
         tag = self.tag_obj.browse(cr, uid, tag_ids[0])
         self.assertEqual(tag.objects_count, 2)
+
