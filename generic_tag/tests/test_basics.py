@@ -2,6 +2,8 @@
 
 from openerp.tests.common import TransactionCase
 from openerp.osv.orm import except_orm
+import logging
+_logger = logging.getLogger(__name__)
 
 
 class TestBasics(TransactionCase):
@@ -52,6 +54,47 @@ class TestBasics(TransactionCase):
             'model_id': self.test_model_id,
             'category_id': False
         })
+
+
+    def test_95_search_no_tag_id(self):
+        """ Test that _search_no_tag_id method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        self.test_obj.add_tag(
+            cr, uid, self.test_1_id, code='tc3')
+
+        test1 = self.test_obj.browse(cr, uid, self.test_1_id)
+        test2 = self.test_obj.browse(cr, uid, self.test_2_id)
+        _logger.info("DEBUG ZX:\n\t%s\n\t%s",
+                      ', '.join(tag.code for tag in test1.tag_ids),
+                      ', '.join(tag.code for tag in test2.tag_ids),
+                      )
+#        self.assertEqual(test1.tag_ids[0].name, 'Tag 1')
+#        self.assertEqual(test1.tag_ids[0].code, 'Tag_1')
+
+
+        # normal search
+        res = self.test_obj.search(
+            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
+                      ('no_tag_id.code', '=', 'tc3')])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_2_id)
+
+        # search by string
+        res = self.test_obj.search(
+            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
+                      ('no_tag_id', '=', 'tc3')])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_2_id)
+
+        # search by int
+        res = self.test_obj.search(
+            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
+                      ('no_tag_id', '=', self.test_tag_id_3)])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_2_id)
+
 
 
     def test_90_action_show_tags_category(self):

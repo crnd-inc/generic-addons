@@ -294,43 +294,42 @@ class GenericTagMixin(models.AbstractModel):
 
         return True
 
-    # def _search_no_tag_id(self, cr, uid, obj, name, args, context=None):
-    #     res = []
-    #     for arg in args:
-    #         if isinstance(arg, basestring):  # It should be operator
-    #             res.append(arg)
+    @api.multi
+    def _search_no_tag_id(self, operator, value):
+        res = []
 
-    #         left, op, right = arg
-    #         if left != 'no_tag_id':
-    #             res.append(args)
-    #         elif isinstance(right, (int, long)):
-    #             with_tag_ids = self.search(
-    #                 cr, uid, [('tag_ids.id', op, right)], context=context)
-    #         elif isinstance(right, basestring):
-    #             u = '|' if op != '!=' else '&'
-    #             with_tag_ids = self.search(
-    #                 cr, uid, [u, ('tag_ids.complete_name', op, right),
-    #                 ('tag_ids.code', op, right)], context=context)
-    #         elif isinstance(right, (list, tuple)) and op in ('in', 'not in'):
-    #             with_tag_ids = self.search(
-    #                 cr, uid, [('tag_ids', op, right)], context=context)
-    #         else:
-    #             continue
+        _logger.info("DBG SEARCH ARG: %s, %s", operator, value)
+        if isinstance(value, (int, long)):
+            with_tag_ids = self.search(
+                [('tag_ids.id', operator, value)])
+        elif isinstance(value, basestring):
+            u = '|' if operator != '!=' else '&'
+            with_tag_ids = self.search(
+                [u, ('tag_ids.display_name', operator, value),
+                ('tag_ids.code', operator, value)])
+        elif isinstance(value, (list, tuple)) and operator in ('in', 'not in'):
+            with_tag_ids = self.search(
+                [('tag_ids', operator, value)])
 
-    #         res.append(('id', 'not in', with_tag_ids))
+        res.append(
+            ('id', 'not in', with_tag_ids.mapped('id'))
+        )
 
-    #     return res
+        return res
+
+    @api.multi
+    def _compute_no_tag_id(self):
+        for res in self:
+            res.no_tag_id = False
+
 
     tag_ids = fields.Many2many(
         'generic.tag', string="Tags",
         domain=lambda self: [('model_id.model', '=', self._name)])
-    # no_tag_id = fields.Function(
-    #     lambda self, cr, uid, ids, fnames, args,
-    #     context=None: {}.fromkeys(ids, False),
-    #     method=True, store=False,
-    #     fnct_search=lambda s, *a, **ka: s._search_no_tag_id(*a, **ka),
-    #     string="No Tag", obj='generic.tag', type='Many2one', readonly=True,
-    #     domain=lambda self: [('model_id.model', '=', self._name)])
+    no_tag_id = fields.Many2one(
+        'generic.tag', string="No Tag", compute="_compute_no_tag_id",
+        search='_search_no_tag_id', store=False, readonly=True, track_visibility='always',
+        domain=lambda self: [('model_id.model', '=', self._name)])
 
     _constraints = [
         (lambda s, *a, **k: s._check_tags_xor(*a, **k),
