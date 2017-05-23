@@ -56,89 +56,6 @@ class TestBasics(TransactionCase):
             'category_id': False
         })
 
-    def test_96_search_no_tag_id(self):
-        """ Test that _get_default_model_id method works fine
-        """
-        cr, uid = self.cr, self.uid
-
-        tag_id = self.tag_obj.create(cr, uid, {
-            'name': 'Test',
-            'code': 'test',
-        }, context={'default_model': 'generic.tag.test.model'})
-        tag = self.tag_obj.browse(cr, uid, tag_id)
-        self.assertEqual(tag.model_id.model, 'generic.tag.test.model')
-        self.assertEqual(tag.model_id.id, self.test_model_id)
-
-        with self.assertRaises(IntegrityError):
-            tag_id2 = self.tag_obj.create(cr, uid, {
-                'name': 'Test 2',
-                'code': 'test_2',
-            }, context={'default_model': False})
-            tag2 = self.tag_obj.browse(cr, uid, tag_id2)
-            self.assertEqual(tag2.model_id.model, 'generic.tag.test.model')
-
-    def test_95_search_no_tag_id(self):
-        """ Test that _search_no_tag_id method works fine
-        """
-        cr, uid = self.cr, self.uid
-
-        self.test_obj.add_tag(
-            cr, uid, self.test_1_id, code='tc3')
-
-        # normal search
-        res = self.test_obj.search(
-            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
-                      ('no_tag_id.code', '=', 'tc3')])
-        self.assertEqual(len(res), 1)
-        self.assertEqual(res[0], self.test_2_id)
-
-        # search by string
-        res = self.test_obj.search(
-            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
-                      ('no_tag_id', '=', 'tc3')])
-        self.assertEqual(len(res), 1)
-        self.assertEqual(res[0], self.test_2_id)
-
-        # search by int
-        res = self.test_obj.search(
-            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
-                      ('no_tag_id', '=', self.test_tag_id_3)])
-        self.assertEqual(len(res), 1)
-        self.assertEqual(res[0], self.test_2_id)
-
-    def test_91_action_show_objects(self):
-        """ Test that action_show_objects method works fine
-        """
-        cr, uid = self.cr, self.uid
-
-        res = self.tag_obj.action_show_objects(
-            cr, uid, [self.test_tag_id_1])
-        self.assertEqual(res['res_model'], 'generic.tag.test.model')
-        self.assertEqual(res['domain'], [(
-            'tag_ids.id', '=', self.test_tag_id_1)])
-
-    def test_90_action_show_tags_category(self):
-        """ Test that action_show_tags_category method works fine
-        """
-        cr, uid = self.cr, self.uid
-
-        res = self.tag_category_obj.action_show_tags(
-            cr, uid, [self.test_tag_cat_id_1])
-        self.assertEqual(res['res_model'], 'generic.tag')
-        self.assertEqual(res['domain'], [(
-            'category_id.id', '=', self.test_tag_cat_id_1)])
-
-    def test_80_action_show_tags(self):
-        """ Test that action_show_tags method works fine
-        """
-        cr, uid = self.cr, self.uid
-
-        res = self.tag_model_obj.action_show_tags(
-            cr, uid, [self.test_model_id])
-        self.assertEqual(res['res_model'], 'generic.tag')
-        self.assertEqual(res['domain'], [(
-            'model_id.id', '=', self.test_model_id)])
-
     def test_05_tags_count(self):
         model_tags_count = self.tag_model_obj.browse(
             self.cr, self.uid, self.test_model_id).tags_count
@@ -288,18 +205,27 @@ class TestBasics(TransactionCase):
         cr, uid = self.cr, self.uid
 
         self.test_obj.add_tag(
-            cr, uid, [self.test_1_id], code='tc1')
+            cr, uid, [self.test_1_id], name='TC1',
+            code='tc1')
         self.test_obj.add_tag(
             cr, uid, [self.test_2_id], name='Test Tag1',
             code='Testtag1', create=True)
 
         res = self.test_obj.check_tag_category(
             cr, uid, [self.test_1_id], code='tag_cat_1')
-        self.assertEqual(res, True)
+        self.assertTrue(res)
 
         res = self.test_obj.check_tag_category(
             cr, uid, [self.test_2_id], code='tag_cat_1')
         self.assertEqual(res, False)
+
+        res = self.test_obj.check_tag_category(
+            cr, uid, [self.test_2_id], name='Tag Categ 1')
+        self.assertEqual(res, False)
+
+        res = self.test_obj.check_tag_category(
+            cr, uid, [self.test_1_id], name='Tag Categ 1')
+        self.assertEqual(res, True)
 
     def test_50_category_xor(self):
         """ Check that tag category xor logic works fine
@@ -361,3 +287,84 @@ class TestBasics(TransactionCase):
         self.assertEqual(len(tag_ids), 1)
         tag = self.tag_obj.browse(cr, uid, tag_ids[0])
         self.assertEqual(tag.objects_count, 2)
+
+    def test_80_action_show_tags(self):
+        """ Test that action_show_tags method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        res = self.tag_model_obj.action_show_tags(
+            cr, uid, [self.test_model_id])
+        self.assertEqual(res['res_model'], 'generic.tag')
+        self.assertEqual(res['domain'], [(
+            'model_id.id', '=', self.test_model_id)])
+
+    def test_90_action_show_tags_category(self):
+        """ Test that action_show_tags_category method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        res = self.tag_category_obj.action_show_tags(
+            cr, uid, [self.test_tag_cat_id_1])
+        self.assertEqual(res['res_model'], 'generic.tag')
+        self.assertEqual(res['domain'], [(
+            'category_id.id', '=', self.test_tag_cat_id_1)])
+
+    def test_91_action_show_objects(self):
+        """ Test that action_show_objects method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        res = self.tag_obj.action_show_objects(
+            cr, uid, [self.test_tag_id_1])
+        self.assertEqual(res['res_model'], 'generic.tag.test.model')
+        self.assertEqual(res['domain'], [(
+            'tag_ids.id', '=', self.test_tag_id_1)])
+
+    def test_95_search_no_tag_id(self):
+        """ Test that _search_no_tag_id method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        self.test_obj.add_tag(
+            cr, uid, self.test_1_id, code='tc3')
+
+        # normal search
+        res = self.test_obj.search(
+            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
+                      ('no_tag_id.code', '=', 'tc3')])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_2_id)
+
+        # search by string
+        res = self.test_obj.search(
+            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
+                      ('no_tag_id', '=', 'tc3')])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_2_id)
+
+        # search by int
+        res = self.test_obj.search(
+            cr, uid, [('id', 'in', (self.test_1_id, self.test_2_id)),
+                      ('no_tag_id', '=', self.test_tag_id_3)])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_2_id)
+
+    def test_96_search_no_tag_id(self):
+        """ Test that _get_default_model_id method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        tag_id = self.tag_obj.create(cr, uid, {
+            'name': 'Test',
+            'code': 'test',
+        }, context={'default_model': 'generic.tag.test.model'})
+        tag = self.tag_obj.browse(cr, uid, tag_id)
+        self.assertEqual(tag.model_id.model, 'generic.tag.test.model')
+        self.assertEqual(tag.model_id.id, self.test_model_id)
+
+        with self.assertRaises(IntegrityError):
+            self.tag_obj.create(cr, uid, {
+                'name': 'Test 2',
+                'code': 'test_2',
+            }, context={'default_model': False})
