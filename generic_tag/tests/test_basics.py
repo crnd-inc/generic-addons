@@ -2,6 +2,7 @@
 
 from openerp.tests.common import TransactionCase
 from openerp.osv.orm import except_orm
+from psycopg2 import IntegrityError
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -55,6 +56,26 @@ class TestBasics(TransactionCase):
             'category_id': False
         })
 
+    def test_96_search_no_tag_id(self):
+        """ Test that _get_default_model_id method works fine
+        """
+        cr, uid = self.cr, self.uid
+
+        tag_id = self.tag_obj.create(cr, uid, {
+            'name': 'Test',
+            'code': 'test',
+        }, context={'default_model': 'generic.tag.test.model'})
+        tag = self.tag_obj.browse(cr, uid, tag_id)
+        self.assertEqual(tag.model_id.model, 'generic.tag.test.model')
+        self.assertEqual(tag.model_id.id, self.test_model_id)
+
+        with self.assertRaises(IntegrityError):
+            tag_id2 = self.tag_obj.create(cr, uid, {
+                'name': 'Test 2',
+                'code': 'test_2',
+            }, context={'default_model': False})
+            tag2 = self.tag_obj.browse(cr, uid, tag_id2)
+            self.assertEqual(tag2.model_id.model, 'generic.tag.test.model')
 
     def test_95_search_no_tag_id(self):
         """ Test that _search_no_tag_id method works fine
@@ -63,16 +84,6 @@ class TestBasics(TransactionCase):
 
         self.test_obj.add_tag(
             cr, uid, self.test_1_id, code='tc3')
-
-        test1 = self.test_obj.browse(cr, uid, self.test_1_id)
-        test2 = self.test_obj.browse(cr, uid, self.test_2_id)
-        _logger.info("DEBUG ZX:\n\t%s\n\t%s",
-                      ', '.join(tag.code for tag in test1.tag_ids),
-                      ', '.join(tag.code for tag in test2.tag_ids),
-                      )
-#        self.assertEqual(test1.tag_ids[0].name, 'Tag 1')
-#        self.assertEqual(test1.tag_ids[0].code, 'Tag_1')
-
 
         # normal search
         res = self.test_obj.search(
@@ -95,7 +106,16 @@ class TestBasics(TransactionCase):
         self.assertEqual(len(res), 1)
         self.assertEqual(res[0], self.test_2_id)
 
+    def test_91_action_show_objects(self):
+        """ Test that action_show_objects method works fine
+        """
+        cr, uid = self.cr, self.uid
 
+        res = self.tag_obj.action_show_objects(
+            cr, uid, [self.test_tag_id_1])
+        self.assertEqual(res['res_model'], 'generic.tag.test.model')
+        self.assertEqual(res['domain'], [(
+            'tag_ids.id', '=', self.test_tag_id_1)])
 
     def test_90_action_show_tags_category(self):
         """ Test that action_show_tags_category method works fine
@@ -105,7 +125,8 @@ class TestBasics(TransactionCase):
         res = self.tag_category_obj.action_show_tags(
             cr, uid, [self.test_tag_cat_id_1])
         self.assertEqual(res['res_model'], 'generic.tag')
-        self.assertEqual(res['domain'], [('category_id.id', '=', self.test_tag_cat_id_1)])
+        self.assertEqual(res['domain'], [(
+            'category_id.id', '=', self.test_tag_cat_id_1)])
 
     def test_80_action_show_tags(self):
         """ Test that action_show_tags method works fine
@@ -115,10 +136,8 @@ class TestBasics(TransactionCase):
         res = self.tag_model_obj.action_show_tags(
             cr, uid, [self.test_model_id])
         self.assertEqual(res['res_model'], 'generic.tag')
-        self.assertEqual(res['domain'], [('model_id.id', '=', self.test_model_id)])
-
-        # model_tags = self.tag_model_obj.browse(self.cr, self.uid, self.test_tag_cat_id_1)
-        # self.assertEqual(model_tags.action_show_tags[0].name, 'Tag Categ 1', "Wrong Wrong Wrong Wrong Wrong")
+        self.assertEqual(res['domain'], [(
+            'model_id.id', '=', self.test_model_id)])
 
     def test_05_tags_count(self):
         model_tags_count = self.tag_model_obj.browse(
@@ -342,4 +361,3 @@ class TestBasics(TransactionCase):
         self.assertEqual(len(tag_ids), 1)
         tag = self.tag_obj.browse(cr, uid, tag_ids[0])
         self.assertEqual(tag.objects_count, 2)
-

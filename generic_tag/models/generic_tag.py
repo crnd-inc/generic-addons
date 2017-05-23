@@ -83,7 +83,7 @@ class GenericTagCategory(models.Model):
 
     @api.constrains('model_id')
     def _check_model_id(self):
-        for category in self.browse():
+        for category in self:
             for tag in category.tag_ids:
                 if tag.model_id != category.model_id:
                     raise ValidationError(
@@ -172,7 +172,7 @@ class GenericTag(models.Model):
 
     @api.constrains('category_id', 'model_id')
     def _check_category_id(self):
-        for tag in self.browse():
+        for tag in self:
             if tag.category_id and tag.model_id != tag.category_id.model_id:
                 raise ValidationError(
                     u"Category must be binded to same model as tag")
@@ -288,9 +288,20 @@ class GenericTagMixin(models.AbstractModel):
             data.update({'cat_%d' % cid: name for cid,
                         name in tag_category_obj.name_get(
                             cr, uid, categ_ids, context=context)})
-            raise ValidationError(
-                u"ValidateError")
-            # raise orm.except_orm(_("ValidateError"), message % data)
+
+            # message here is string like:
+            # """
+            # There are more that one tag for tag category for
+            # folowing pairs object - category pairs:\n
+            # \t(%(obj_42)s: %(cat_78)s\n
+            # """
+            #
+            # And data dict looks like:
+            # {
+            #      'obj_42': 'tagged object',
+            #      'cat_78': 'tag category',
+            # }
+            raise ValidationError(message % data)
 
         return True
 
@@ -305,8 +316,8 @@ class GenericTagMixin(models.AbstractModel):
         elif isinstance(value, basestring):
             u = '|' if operator != '!=' else '&'
             with_tag_ids = self.search(
-                [u, ('tag_ids.display_name', operator, value),
-                ('tag_ids.code', operator, value)])
+                [u, ('tag_ids.display_name', operator, value), (
+                    'tag_ids.code', operator, value)])
         elif isinstance(value, (list, tuple)) and operator in ('in', 'not in'):
             with_tag_ids = self.search(
                 [('tag_ids', operator, value)])
@@ -322,13 +333,13 @@ class GenericTagMixin(models.AbstractModel):
         for res in self:
             res.no_tag_id = False
 
-
     tag_ids = fields.Many2many(
         'generic.tag', string="Tags",
         domain=lambda self: [('model_id.model', '=', self._name)])
     no_tag_id = fields.Many2one(
         'generic.tag', string="No Tag", compute="_compute_no_tag_id",
-        search='_search_no_tag_id', store=False, readonly=True, track_visibility='always',
+        search='_search_no_tag_id', store=False,
+        readonly=True, track_visibility='always',
         domain=lambda self: [('model_id.model', '=', self._name)])
 
     _constraints = [
