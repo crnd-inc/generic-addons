@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_condition_marketing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_condition_marketing
+#: model:ir.model,name:generic_condition_marketing.model_marketing_campaign_activity
+msgid "Campaign Activity"
+msgstr "Campaign Activity"
+
+#. module: generic_condition_marketing
+#: model:ir.model,name:generic_condition_marketing.model_marketing_campaign_workitem
+msgid "Campaign Workitem"
+msgstr "Campaign Workitem"
+
+#. module: generic_condition_marketing
+#: model:ir.model.fields,field_description:generic_condition_marketing.field_marketing_campaign_activity_condition_ids
+msgid "Conditions"
+msgstr "Умови"
+
+#. module: generic_condition_marketing
+#: model:mail.template,subject:generic_condition_marketing.email_template_2
+msgid "Congratulations! You are now a Silver Partner!"
+msgstr "Вітаємо! Тепер ви Срібний Партнер!"
+
+#. module: generic_condition_marketing
+#: model:mail.template,body_html:generic_condition_marketing.email_template_1
+msgid "Hello, you will receive your welcome pack via email shortly."
+msgstr "Вітаємо, найближчим часом на вашу електронну адресу надійде ваш вітальний пакет."
+
+#. module: generic_condition_marketing
+#: model:mail.template,body_html:generic_condition_marketing.email_template_2
+msgid "Hi, we are delighted to welcome you among our Silver Partners as of today!"
+msgstr "Вітаємо, Ми раді вітати Вас серед наших срібних партнерів!"
+
+#. module: generic_condition_marketing
+#: model:ir.filters,name:generic_condition_marketing.filter0
+msgid "Partners (C)"
+msgstr "Партнери (C)"
+
+#. module: generic_condition_marketing
+#: model:ir.model.fields,help:generic_condition_marketing.field_marketing_campaign_activity_condition_ids
+msgid "Specify generic conditions to decide whether the activity can be executed. This is similar to 'Condition' field but uses Generic Conditions instead. These conditions are checked before 'Condition' field is checked. In most cases, if you plan to use 'Generic Conditions' here, set 'Condition' field to 'True'"
+msgstr "Вкажіть універсальні умови для визначення чи повинна дана активність бути виконаною. Це схоже до поля 'Умова', але використовує 'Універсальні Умови'. Ці умови перевіряються перед тим як буде перевірена умова з поля 'Умова'. В більшосту випадків якщо плануєте використовувати 'Універсальні Умови' тут, встановіть в поле 'Умова' значення 'True'"
+
+#. module: generic_condition_marketing
+#: model:mail.template,subject:generic_condition_marketing.email_template_1
+msgid "Welcome to the MaAO Partner Channel!"
+msgstr "Ласкаво просимо на канал партнерів 'Управління та облік он-лайн'!"
+
