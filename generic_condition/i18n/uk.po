@@ -114,7 +114,7 @@ msgstr "Умова (група умов)"
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_condition_ids_operator
 msgid "Condition (condition group): operator"
-msgstr "Condition (condition group): operator"
+msgstr "Умова (група умов): оператор"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_condition_id
@@ -492,23 +492,23 @@ msgstr "Зв'язане поле"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_rel_field_id_model_id
-msgid "Related field relation"
-msgstr "Related field relation"
+msgid "Related field: model"
+msgstr "Зв'язане поле: зв'язок"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_rel_filter_conditions
 msgid "Related filter conditions"
-msgstr "Related filter conditions"
+msgstr "Умови фільтру пов'язаних записів"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_rel_filter_conditions_operator
 msgid "Related filter conditions operator"
-msgstr "Related filter conditions operator"
+msgstr "Умови фільтру пов'язаних записів: оператор"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_rel_record_operator
 msgid "Related record operator"
-msgstr "Related record operator"
+msgstr "Пов'язані записи: оператор"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition_result

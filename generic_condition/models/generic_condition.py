@@ -167,7 +167,7 @@ class GenericCondition(models.Model):
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
     condition_rel_field_id_model_id = fields.Many2one(
         'ir.model', compute='_compute_condition_rel_field_id_model_id',
-        string='Related field relation', readonly=True)
+        string='Related field: model', readonly=True)
     condition_rel_record_operator = fields.Selection(
         '_get_selection_condition_rel_record_operator',
         'Related record operator', default='match',
