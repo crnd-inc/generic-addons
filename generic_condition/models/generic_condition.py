@@ -654,7 +654,12 @@ class GenericCondition(models.Model):
             This method may be used as hook, by other modules
             to fill evaluation context with extra values
         """
-        return {'obj': obj}
+        return {
+            'obj': obj,
+            'record': obj,
+            'env': self.env,
+            'model': self.env[obj._name],
+        }
 
     @api.multi
     def check(self, obj, operator='and', cache=None):

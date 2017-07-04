@@ -6,10 +6,10 @@
     "website": "https://maao.com.ua",
     "license": "Other proprietary",
     "summary": "Generic Conditions",
-    'category': 'Added functionality',
+    'category': 'Technical Settings',
     'depends': [
         'base',
-        # 'base_tags',
+        'web',
     ],
     'demo': [
         'demo/demo_data.xml',
