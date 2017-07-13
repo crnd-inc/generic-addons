@@ -18,7 +18,7 @@ class TestConditionDateDiff(TransactionCase):
     def setUp(self):
         super(TestConditionDateDiff, self).setUp()
         self.test_model = self.env['ir.model'].search(
-            [('model', '=', 'test.generic.condition.date.diff')])
+            [('model', '=', 'test.generic.condition.test.model')])
         self.TestModel = self.env[self.test_model.model]
         self.test_field_start_date = self.test_model.field_id.filtered(
             lambda r: r.name == 'date_start')

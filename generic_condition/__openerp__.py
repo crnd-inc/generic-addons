@@ -6,10 +6,10 @@
     "website": "https://maao.com.ua",
     "license": "Other proprietary",
     "summary": "Generic Conditions",
-    'category': 'Added functionality',
+    'category': 'Technical Settings',
     'depends': [
         'base',
-        # 'base_tags',
+        'web',
     ],
     'demo': [
         'demo/demo_data.xml',
@@ -17,6 +17,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/generic_condition_view.xml',
+        'views/assets.xml',
         'wizard/test_condition_view.xml',
     ],
     'installable': True,

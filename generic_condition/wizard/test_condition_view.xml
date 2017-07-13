@@ -6,7 +6,9 @@
         <field name="arch" type="xml">
             <form string="Test Condition">
                 <field name="condition_id"/>
-                <field name="res_id"/>
+                <field name="res_model" invisible="0"/>
+                <field name="res_id"
+                       widget="polymorphic" polymorphic="res_model"/>
                 <newline/>
                 <field name="result" attrs="{'invisible': [('result', '=', False)]}"/>
                 <newline/>
@@ -19,7 +21,7 @@
     <act_window
         context="{'default_condition_id': active_id}"
         id="action_generic_condition_test_wizard_view"
-        name="Test Conditon"
+        name="Test Condition"
         res_model="generic.condition.test_condition"
         src_model="generic.condition"
         view_type="form"
