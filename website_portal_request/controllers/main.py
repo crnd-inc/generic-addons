@@ -27,7 +27,6 @@ class WebsiteAccount(WebsiteAccount):
             domain, limit=self._items_per_page, offset=pager['offset'])
         values.update({
             'requests': requests,
-            'page_name': 'req',
             'pager': pager,
             'default_url': '/my/requests',
         })
