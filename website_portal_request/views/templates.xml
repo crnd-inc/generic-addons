@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    
-
     <template id="portal_my_home_menu_request"
               name="Portal request : Request"
               inherit_id="website_portal_v10.portal_layout"
