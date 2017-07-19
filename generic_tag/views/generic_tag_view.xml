@@ -53,7 +53,7 @@
                     <field name="active"/>
                     <field name="group_ids" widget="many2many_tags"/>
                     <field name="objects_count"/>
-                    <button name="action_show_objects" type="object" string="Show Objects" icon="gtk-find"/>
+                    <button name="action_show_objects" type="object" string="Show Objects" icon="fa-search"/>
                 </tree>
             </field>
         </record>
@@ -132,7 +132,7 @@
                     <field name="check_xor"/>
                     <field name="active"/>
                     <field name="tags_count"/>
-                    <button name="action_show_tags" type="object" string="Show Tags" icon="gtk-find"/>
+                    <button name="action_show_tags" type="object" string="Show Tags" icon="fa-search"/>
                 </tree>
             </field>
         </record>
@@ -197,7 +197,7 @@
                     <field name="model"/>
                     <field name="res_model_id"/>
                     <field name="tags_count"/>
-                    <button name="action_show_tags" type="object" string="Show Tags" icon="gtk-find"/>
+                    <button name="action_show_tags" type="object" string="Show Tags" icon="fa-search"/>
                 </tree>
             </field>
         </record>
