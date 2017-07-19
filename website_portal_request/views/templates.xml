@@ -61,16 +61,16 @@
             </div>
             <div class="col-xs-4">
                 <table class="table table-hover">
-                    <thead>
-                      <tr class="active">
-                        <th>Request Field</th>
-                        <th>Value (str)</th>
-                        <th>Value (int)</th>
-                      </tr>
-                    </thead>
-                        <td><span t-field="reques.value_ids.request_field_id.name"/></td>
-                        <td><span t-field="reques.value_ids.value_str"/></td>
-                        <td><span t-field="reques.value_ids.value_int"/></td>
+                    <tr class="active">
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                    <t t-foreach="reques.value_ids" t-as="val">
+                        <tr>
+                            <td><span t-field="val.request_field_id.name"/></td>
+                            <td><span t-field="val.value"/></td>
+                        </tr>
+                    </t>
                 </table>
            </div>
         </div>
