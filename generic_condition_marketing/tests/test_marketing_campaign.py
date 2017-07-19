@@ -20,13 +20,13 @@ class TestMarketingCampaign(TransactionCase):
 
     def test_00_campaign(self):
         # In order to test process of compaign, I start compaign.
-        self.campaign.signal_workflow('state_running_set')
+        self.campaign.state_running_set()
 
         # I check the campaign on Running mode after started.
         self.assertEqual(self.campaign.state, 'running')
 
         # I start this segment after assinged campaign.
-        self.segment.signal_workflow('state_running_set')
+        self.segment.state_running_set()
 
         # I check the segment on Running mode after started.
         self.assertEqual(self.segment.state, 'running')
@@ -36,7 +36,7 @@ class TestMarketingCampaign(TransactionCase):
         self.assertTrue(
             self.segment.date_next_sync,
             'Next Synchronization date is not calculated.')
-        self.segment.synchroniz()
+        self.segment.process_segment()
 
         # I cancel Marketing Workitems.
         workitems = self.MarketingWorkitem.search(

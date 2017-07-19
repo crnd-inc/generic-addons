@@ -36,7 +36,7 @@ class TestCondition(TransactionCase):
 
     def test_00_defaults(self):
         defaults = self.Condition.default_get(
-            self.Condition._all_columns.keys())
+            self.Condition._fields.keys())
 
         condition = self.Condition.new(defaults)
         self.assertTrue(condition.enable_caching)
@@ -46,7 +46,7 @@ class TestCondition(TransactionCase):
     def test_01_defaults_based_on(self):
         defaults = self.Condition.with_context(
             default_based_on='res.partner').default_get(
-                self.Condition._all_columns.keys())
+                self.Condition._fields.keys())
 
         condition = self.Condition.new(defaults)
         self.assertTrue(condition.enable_caching)
@@ -60,7 +60,7 @@ class TestCondition(TransactionCase):
             condition.condition_rel_field_id_model_id.model,
             'res.partner')
 
-    @mute_logger('openerp.addons.generic_condition.models.generic_condition')
+    @mute_logger('odoo.addons.generic_condition.models.generic_condition')
     def test_05_condtion_eval_error(self):
         with self.assertRaises(ValidationError):
             self.condition_eval_error.check(self.partner_sx_corp)

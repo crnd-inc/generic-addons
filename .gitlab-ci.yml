@@ -1,4 +1,4 @@
-image: 10.100.98.41:5000/maao-docker/maao-simple:maao-9.0
+image: 10.100.98.41:5000/maao-docker/maao-simple:10.0-maao
 
 variables:
     POSTGRES_USER: odoo
@@ -40,7 +40,7 @@ tests:
         - odoo-helper link .
     script:
         - odoo-helper --use-unbuffer test --coverage --create-test-db -d .
-        - odoo-helper exec coverage report --fail-under=70
+        - odoo-helper exec coverage report --fail-under=90
         - odoo-helper exec coverage html -d html-coverage
     artifacts:
         paths:

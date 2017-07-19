@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Generic Condition - Marketing",
-    "version": "9.0.0.0.1",
+    "version": "10.0.0.0.1",
     "author": "Management and Accounting Online",
     "website": "https://maao.com.ua",
     "license": "Other proprietary",

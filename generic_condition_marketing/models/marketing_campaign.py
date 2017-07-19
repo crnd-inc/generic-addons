@@ -17,22 +17,21 @@ class MarketingCampaignActivity(models.Model):
 class MarketingCampaignWorkitem(models.Model):
     _inherit = "marketing.campaign.workitem"
 
-    @api.model
-    def _process_one(self, workitem):
-        if workitem.state != 'todo':
+    @api.multi
+    def _process_one(self):
+        if self.state != 'todo':
             return False
 
-        activity = workitem.activity_id
-        Model = self.env[workitem.object_id.model]
-        obj = Model.browse(workitem.res_id)
+        activity = self.activity_id
+        obj = self.env[self.object_id.model].browse(self.res_id)
 
         # If this activity uses generic conditions check them,
         # and if check fails, then unlink workitem or make it canceled!
         if activity.condition_ids and not activity.condition_ids.check(obj):
             if activity.keep_if_condition_not_met:
-                workitem.write({'state': 'cancelled'})
+                self.write({'state': 'cancelled'})
             else:
-                workitem.unlink()
+                self.unlink()
             return
 
-        return super(MarketingCampaignWorkitem, self)._process_one(workitem)
+        return super(MarketingCampaignWorkitem, self)._process_one()

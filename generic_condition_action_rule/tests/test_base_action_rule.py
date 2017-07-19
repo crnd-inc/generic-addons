@@ -21,17 +21,27 @@ class TestBaseActionRuleCondition(TransactionCase):
 
         self.assertEqual(partner.user_id, demo_user)
 
-    def test_action_rule_onchanges(self):
+    def test_action_rule_onchange_kind(self):
         rule = self.env.ref('generic_condition_action_rule.test_rule_on_write')
         self.assertTrue(rule.pre_condition_ids)
         self.assertTrue(rule.post_condition_ids)
         self.assertEqual(rule.kind, 'on_write')
 
-        ores = rule.onchange_kind(kind='on_create')
+        rule.kind = 'on_create'
 
-        self.assertEqual(ores['value']['pre_condition_ids'], [(5, 0)])
+        rule.onchange_kind()
 
-        ores = rule.onchange_model_id(
-            model_id=self.env.ref('base.model_res_country').id)
-        self.assertEqual(ores['value']['pre_condition_ids'], [(5, 0)])
-        self.assertEqual(ores['value']['post_condition_ids'], [(5, 0)])
+        self.assertFalse(rule.pre_condition_ids)
+
+    def test_action_rule_onchange_model_id(self):
+        rule = self.env.ref('generic_condition_action_rule.test_rule_on_write')
+        self.assertTrue(rule.pre_condition_ids)
+        self.assertTrue(rule.post_condition_ids)
+        self.assertEqual(rule.kind, 'on_write')
+
+        rule.model_id = self.env.ref('base.model_res_country')
+
+        rule.onchange_model_id()
+
+        self.assertFalse(rule.pre_condition_ids)
+        self.assertFalse(rule.post_condition_ids)
