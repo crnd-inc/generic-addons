@@ -2,11 +2,18 @@
 <odoo>
     <data noupdate="0">
 
+        <record model="ir.module.category" id="module_category_tag">
+            <field name="name">Generic Tags</field>
+            <field name="sequence">100</field>
+            <field name="visible" eval="1" />
+        </record>
+
     <!--
          Users Groups
     -->
         <record model="res.groups" id="group_tags_user">
             <field name="name">Tag User</field>
+            <field name="category_id" ref="module_category_tag"/>
         </record>
 
         <!-- group which will see all tags that are have no related group,
@@ -14,6 +21,7 @@
         <record model="res.groups" id="group_tags_user_restricted">
             <field name="name">Tag User (restricted)</field>
             <field name="comment">Users of this group will see all tags that have no related groups or user belogs to one of related tag groups</field>
+            <field name="category_id" ref="module_category_tag"/>
         </record>
 
         <record id="restricted_tags_rule" model="ir.rule">
@@ -31,6 +39,7 @@
         <record model="res.groups" id="group_tags_user_restricted_x2">
             <field name="name">Tag User (restricted x2)</field>
             <field name="comment">Users of this group will see all tags that have related groups and user belogs to one of related tag groups</field>
+            <field name="category_id" ref="module_category_tag"/>
         </record>
 
         <record id="restricted_tags_rule_x2" model="ir.rule">
