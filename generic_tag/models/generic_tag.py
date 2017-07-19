@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import collections
 
 from openerp import models, fields, api
 from openerp.tools.translate import _
@@ -10,34 +11,30 @@ _logger = logging.getLogger(__name__)
 
 class GenericTagModel(models.Model):
     _name = "generic.tag.model"
-    _description = "Contains list of models available for tagging"
+    _inherits = {'ir.model': 'res_model_id'}
+
+    _description = "Generic Tag Model"
 
     _access_log = False
 
     @api.multi
-    # @api.depends('model_id')
     def _compute_tags_count(self):
         for model in self:
             model.tags_count = self.env['generic.tag'].search_count(
                 [('model_id', '=', model.id)])
 
-    name = fields.Char(size=64, required=True, translate=True)
-    model = fields.Char(size=32, required=True)
-    tags_count = fields.Integer(string="Tags", compute="_compute_tags_count",
-                                store=False, readonly=True,
-                                track_visibility='always',
-                                help="How many tags related to this model"
-                                     "exists")
+    res_model_id = fields.Many2one(
+        'ir.model', 'Model', required=True, index=True, auto_join=True,
+        ondelete='restrict')
 
-    _sql_constraints = [
-        ('model_uniq', 'unique(model)', 'Model field must be unique'),
-    ]
+    tags_count = fields.Integer(
+        string="Tags", compute="_compute_tags_count", store=False,
+        readonly=True, help="How many tags related to this model exists")
 
     @api.multi
     def action_show_tags(self):
         self.ensure_one()
-        ctx = dict(self.env.context,
-                   default_model_id=self.id)
+        ctx = dict(self.env.context, default_model_id=self.id)
         return {
             'name': _('Tags related to model %s') % self.name,
             'view_type': 'form',
@@ -51,22 +48,20 @@ class GenericTagModel(models.Model):
 
 class GenericTagModelMixin(models.AbstractModel):
     _name = "generic.tag.model.mixin"
-    _description = "Mixin to add generic.tag.model relation"
 
     @api.model
     def _get_default_model_id(self):
         """ Try to get default model from context and find
-            approriate generic.tag.model record ID
+            approriate generic.tag.model record
         """
-
+        GenericTagModel = self.env['generic.tag.model']
         default_model = self.env.context.get('default_model', False)
-        tag_model_obj = self.env['generic.tag.model']
-        if default_model:
 
-            return tag_model_obj.search(
+        if default_model:
+            return GenericTagModel.search(
                 [('model', '=', default_model)], limit=1)
 
-        return tag_model_obj.browse()
+        return GenericTagModel.browse()
 
     model_id = fields.Many2one(
         "generic.tag.model", "Model", required=True, ondelete='restrict',
@@ -77,17 +72,9 @@ class GenericTagModelMixin(models.AbstractModel):
 class GenericTagCategory(models.Model):
     _name = 'generic.tag.category'
     _inherit = ['generic.tag.model.mixin']
-    _description = "Category to group tags in"
+    _description = "Generic Tag Category"
 
     _access_log = False
-
-    @api.constrains('model_id')
-    def _check_model_id(self):
-        for category in self:
-            for tag in category.tag_ids:
-                if tag.model_id != category.model_id:
-                    raise ValidationError(
-                        u"Model must be same as one used in related tags")
 
     @api.multi
     @api.depends('tag_ids')
@@ -96,25 +83,29 @@ class GenericTagCategory(models.Model):
             line.tags_count = len(line.tag_ids)
 
         # model_id field will be added by 'generic.tag.model.mixin'
-    name = fields.Char(size=64, required=True, translate=True)
+    name = fields.Char(required=True, translate=True, index=True)
     code = fields.Char(
-        size=32, help="May be used for special"
-        "tags which have programming meaning")
-    comment = fields.Text(help="Describe what this tag means")
+        index=True, help="May be used for special"
+                         "tags which have programmed bechavior")
 
-    active = fields.Boolean(default=True)
+    comment = fields.Text(help="Describe what this tag category is for")
 
-    tag_ids = fields.One2many("generic.tag", "category_id", "Tags")
+    active = fields.Boolean(index=True, default=True)
+
+    tag_ids = fields.One2many(
+        "generic.tag", "category_id", "Tags", readonly=True)
 
     check_xor = fields.Boolean(
-        "Check XOR", help="if set to True then enables"
-        "XOR check on tags been added to object. "
-        "it means that only one tag from category "
-        "may be added to object at time")
+        "Check XOR",
+        help="if set to True then only one tag from this category "
+             "may be present on a single object. "
+             "On attempt to add second tag from this category to object, "
+             "error will be raised")
     tags_count = fields.Float(
         string="Tags", compute="_compute_tags_count", store=True,
         readonly=True, track_visibility='always',
-        help="How many tags related to this catgory exists")
+        help="How many tags related to this catgory")
+
     _sql_constraints = [
         ('name_uniq', 'unique(model_id, name)',
          'Name of category must be unique'),
@@ -122,11 +113,14 @@ class GenericTagCategory(models.Model):
          'Code of category must be unique'),
     ]
 
-    # _constraints = [
-    #     (_check_model_id,
-    #      "Model must be same as one used in related tags",
-    #      ['model_id']),
-    # ]
+    @api.constrains('model_id')
+    def _check_model_id(self):
+        for category in self:
+            tag_model = category.tag_ids.mapped('model_id')
+            if tag_model and (len(tag_model) != 1 or
+                              tag_model != category.model_id):
+                raise ValidationError(
+                    u"Model must be same as one used in related tags")
 
     @api.multi
     def action_show_tags(self):
@@ -148,12 +142,12 @@ class GenericTagCategory(models.Model):
 class GenericTag(models.Model):
     _name = "generic.tag"
     _inherit = ['generic.tag.model.mixin']
-    _description = "Tag"
+    _description = "Generic Tag"
 
     _access_log = False
 
-    _rec_name = 'display_name'
-    _order = 'display_name'
+    _rec_name = 'complete_name'
+    _order = 'complete_name'
 
     @api.multi
     def _compute_objects_count(self):
@@ -162,35 +156,36 @@ class GenericTag(models.Model):
                                         [('tag_ids.id', '=', tag.id)])
 
     @api.multi
-    @api.depends('category_id', 'name')
-    def _compute_display_name(self):
+    @api.depends('category_id.name', 'name')
+    def _compute_complete_name(self):
         for tag in self:
             if tag.category_id:
-                tag.display_name = "%s / %s" % (tag.category_id.name, tag.name)
+                tag.complete_name = "%s / %s" % (tag.category_id.name,
+                                                 tag.name)
             else:
-                tag.display_name = tag.name
+                tag.complete_name = tag.name
 
     @api.constrains('category_id', 'model_id')
-    def _check_category_id(self):
+    def _check_category_model(self):
         for tag in self:
             if tag.category_id and tag.model_id != tag.category_id.model_id:
                 raise ValidationError(
                     u"Category must be binded to same model as tag")
 
-        # model_id field will be added by 'generic.tag.model.mixin'
     category_id = fields.Many2one(
-        'generic.tag.category', 'Category', ondelete='restrict')
-    name = fields.Char(size=64, required=True, translate=True)
+        'generic.tag.category', 'Category',
+        index=True, ondelete='restrict')
+    name = fields.Char(required=True, translate=True, index=True)
     code = fields.Char(
-        size=32, help="May be used for special"
-        "tags which have programming meaning")
+        index=True, help="May be used for special"
+                         "tags which have programmed bechavior")
     comment = fields.Text(help="Describe what this tag means")
 
-    active = fields.Boolean(default=True)
+    active = fields.Boolean(default=True, index=True)
 
-    display_name = fields.Char(
-        string="Tags", compute="_compute_display_name",
-        store=True, readonly=True, track_visibility='always',
+    complete_name = fields.Char(
+        string="Name", compute="_compute_complete_name",
+        store=True, readonly=True,
         help="Full name of tag (including category name")
 
     objects_count = fields.Integer(
@@ -207,11 +202,8 @@ class GenericTag(models.Model):
 
     @api.model
     @api.returns('self')
-    def get_tag_ids(self, model, code=None, name=None):
-        """ Returns list of IDs of tags for specified model name by (code, name) pair
-
-            @param model: string that represents model name like 'res.partner'
-            @return: list of IDs of res.tag objects
+    def get_tags(self, model, code=None, name=None):
+        """ Search for tags by model, code, name
         """
         assert bool(code) or bool(name), (
             "code or name must not be None! (code=%s;name=%s)"
@@ -243,81 +235,43 @@ class GenericTagMixin(models.AbstractModel):
             _inherit=["generic.tag.mixin"]
     """
     _name = "generic.tag.mixin"
-    _description = "Adds tag_ids field to object"
 
-    # Mail thread integration field. if set to True then tag add / remove
-    # actions will be displayed in chatter
-    _track_tags = False
+    @api.constrains('tag_ids')
+    def _check_tags_xor(self):
+        for record in self:
+            categ_counter = collections.defaultdict(
+                self.env['generic.tag'].browse)
+            for tag in record.tag_ids:
+                if tag.category_id.check_xor:
+                    categ_counter[tag.category_id] |= tag
 
-    def _check_tags_xor(self, cr, uid, ids, context=None):
-        tbl, col1, col2 = self._columns['tag_ids']._sql_names(self)
-        sql_params = {
-            'table': self._table,
-            'tag_rel': tbl,
-            'obj_id_field': col1,
-            'tag_id_field': col2,
-            'obj_ids': ','.join((str(i) for i in ids)),
-        }
-        cr.execute("""
-            SELECT st.id, rtc.id
-            FROM %(table)s                 AS st
-            LEFT JOIN %(tag_rel)s          AS trel   ON trel.%(obj_id_field)s = st.id
-            LEFT JOIN generic_tag          AS rt     ON trel.%(tag_id_field)s = rt.id
-            LEFT JOIN generic_tag_category AS rtc    ON rt.category_id = rtc.id
-            WHERE rtc.check_xor = True
-                AND st.id IN (%(obj_ids)s)
-            GROUP BY st.id, rtc.id
-            HAVING count(rt.id) > 1
-        """ % sql_params)   # noqa
-        if cr.rowcount > 0:
-            bad_rows = cr.fetchall()
-            # Prepare messsage to display in what objects / categories
-            # validation error occured
-            tag_category_obj = self.pool.get('generic.tag.category')
-            message = _("There are more that one tag for tag category for"
-                        "folowing pairs object - category pairs:\n")
-            obj_ids = []
-            categ_ids = []
-            for obj_id, categ_id in bad_rows:
-                message += "\t(%%(obj_%d)s: %%(cat_%d)s\n" % (obj_id, categ_id)
-                obj_ids.append(obj_id)
-                categ_ids.append(categ_id)
-            data = {}
-            data.update({'obj_%d' % oid: name for oid, name in self.name_get(
-                cr, uid, obj_ids, context=context)})
-            data.update({'cat_%d' % cid: name for cid,
-                        name in tag_category_obj.name_get(
-                            cr, uid, categ_ids, context=context)})
+            bad_tags = []
+            for category, tags in categ_counter.items():
+                if len(tags) > 1:
+                    bad_tags.append(
+                        (category, tags)
+                    )
+            if bad_tags:
+                msg_detail = ', '.join(
+                    ('[%s - %s]' % (cat.name, ', '.join(tags.mapped('name')))
+                     for cat, tags in bad_tags)
+                )
+                raise ValidationError(
+                    _("Following (category - tags) pairs, "
+                      "break category XOR restriction:\n%s"
+                      "") % msg_detail)
 
-            # message here is string like:
-            # """
-            # There are more that one tag for tag category for
-            # folowing pairs object - category pairs:\n
-            # \t(%(obj_42)s: %(cat_78)s\n
-            # """
-            #
-            # And data dict looks like:
-            # {
-            #      'obj_42': 'tagged object',
-            #      'cat_78': 'tag category',
-            # }
-            raise ValidationError(message % data)
-
-        return True
-
-    @api.multi
     def _search_no_tag_id(self, operator, value):
         res = []
 
-        _logger.info("DBG SEARCH ARG: %s, %s", operator, value)
         if isinstance(value, (int, long)):
             with_tag_ids = self.search(
                 [('tag_ids.id', operator, value)])
         elif isinstance(value, basestring):
             u = '|' if operator != '!=' else '&'
             with_tag_ids = self.search(
-                [u, ('tag_ids.display_name', operator, value), (
-                    'tag_ids.code', operator, value)])
+                [u, ('tag_ids.complete_name', operator, value),
+                    ('tag_ids.code', operator, value)])
         elif isinstance(value, (list, tuple)) and operator in ('in', 'not in'):
             with_tag_ids = self.search(
                 [('tag_ids', operator, value)])
@@ -328,7 +282,6 @@ class GenericTagMixin(models.AbstractModel):
 
         return res
 
-    @api.multi
     def _compute_no_tag_id(self):
         for res in self:
             res.no_tag_id = False
@@ -342,13 +295,6 @@ class GenericTagMixin(models.AbstractModel):
         readonly=True, track_visibility='always',
         domain=lambda self: [('model_id.model', '=', self._name)])
 
-    _constraints = [
-        (lambda s, *a, **k: s._check_tags_xor(*a, **k),
-         "More than one tag of category with 'check_xor'"
-         "enabled, present in object",
-         ['tag_ids']),
-    ]
-
     @api.multi
     def add_tag(self, code=None, name=None, create=False):
         """ Adds tag new tag to object.
@@ -356,48 +302,38 @@ class GenericTagMixin(models.AbstractModel):
             @param code: tag.code field to search for
             @param name: tag.name field to search for
             @param create: if True then create tag if not found
-            @return: True if at least one tag was added
         """
-        tag_obj = self.env['generic.tag']
-        tags = tag_obj.get_tag_ids(self._name, code=code, name=name)
+        GenericTag = self.env['generic.tag']
+        tags = GenericTag.get_tags(self._name, code=code, name=name)
+
         if not tags and create:
             model = self.env['generic.tag.model'].search(
                 [('model', '=', self._name)])[0]
-            tags = tag_obj.create(
-                {'name': name, 'code': code, 'model_id': model.id})
+            tags = GenericTag.create({
+                'name': name,
+                'code': code,
+                'model_id': model.id,
+            })
 
         if tags:
             self.write({'tag_ids': [(4, t.id) for t in tags]})
-            return True
-
-        return False
 
     @api.multi
     def remove_tag(self, code=None, name=None):
-        """ Removes tags specified by code/name from specified cargoes
+        """ Removes tags specified by code/name
 
             @param code: tag.code field to search for
             @param name: tag.name field to search for
-            @return: True if specified tags were found
-             (even if they are not present in records passed
-
-            Note: return value is not suitable for checking
-             if something was removed
         """
-        tag_obj = self.env['generic.tag']
-        tags = tag_obj.get_tag_ids(self._name, code=code, name=name)
+        GenericTag = self.env['generic.tag']
+        tags = GenericTag.get_tags(self._name, code=code, name=name)
 
         if tags:
             self.write({'tag_ids': [(3, t.id) for t in tags]})
 
-            return True
-
-        return False
-
     @api.multi
     def check_tag(self, code=None, name=None):
-        """ Checks if all of supplied objects have tag with specified code and/or name
-            Return True if all object ids has specified tags
+        """ Check if self have tag with specified code / name
         """
         assert bool(code is not None) or bool(name is not None), (
             "code or name must not be None")
@@ -408,21 +344,20 @@ class GenericTagMixin(models.AbstractModel):
             tag_domain.append(('tag_ids.name', '=', name))
 
         count = self.search_count(tag_domain)
-        return bool(count == len(self.ids))
+        return bool(count == len(self))
 
     @api.multi
     def check_tag_category(self, code=None, name=None):
-        """ Checks if all of supplied objects have tag with specified
+        """ Checks if self have tag with specified
             category code and/or category name
-            Return True if all object ids has specified tag category
         """
         assert bool(code is not None) or bool(name is not None), (
             "code or name must not be None")
-        tag_domain = [('id', 'in', self.ids)]
+        categ_domain = [('id', 'in', self.ids)]
         if code is not None:
-            tag_domain.append(('tag_ids.category_id.code', '=', code))
+            categ_domain.append(('tag_ids.category_id.code', '=', code))
         if name is not None:
-            tag_domain.append(('tag_ids.category_id.name', '=', name))
+            categ_domain.append(('tag_ids.category_id.name', '=', name))
 
-        count = self.search_count(tag_domain)
-        return bool(count == len(self.ids))
+        count = self.search_count(categ_domain)
+        return bool(count == len(self))

@@ -182,6 +182,7 @@
                 <search string="Tag model Search">
                     <field name="name"/>
                     <field name="model"/>
+                    <field name="res_model_id"/>
                 </search>
             </field>
         </record>
@@ -194,6 +195,7 @@
                       colors="grey: tags_count == 0;">
                     <field name="name"/>
                     <field name="model"/>
+                    <field name="res_model_id"/>
                     <field name="tags_count"/>
                     <button name="action_show_tags" type="object" string="Show Tags" icon="gtk-find"/>
                 </tree>
@@ -205,8 +207,7 @@
             <field name="model">generic.tag.model</field>
             <field name="arch" type="xml">
                 <form string="Tag model">
-                    <field name="name"/>
-                    <field name="model"/>
+                    <field name="res_model_id" options="{'create': false, 'edit': false, 'create_edit': false}"/>
                     <button name="action_show_tags" type="object" string="Show Tags" class="oe_link"/>
                 </form>
             </field>
