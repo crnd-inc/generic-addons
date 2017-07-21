@@ -40,8 +40,7 @@
         <field name="name">generic.tag.tree</field>
         <field name="model">generic.tag</field>
         <field name="arch" type="xml">
-            <tree string="Tags" editable="bottom"
-                    colors="grey: objects_count == 0;">
+            <tree string="Tags" colors="grey: objects_count == 0;">
                 <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                 <field name="category_id" domain="[('model_id','=',model_id)]"
                         context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
@@ -61,27 +60,38 @@
         <field name="model">generic.tag</field>
         <field name="arch" type="xml">
             <form string="Tag">
-                <group>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_show_objects"
+                                type="object" string="Objects" icon="fa-bars"
+                                class="oe_stat_button">
+                            <field name="objects_count"/>
+                        </button>
+                        <button name="toggle_active" type="object" groups="base.group_user"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1 class="o_row">
+                            <field name="complete_name"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="display_name" string="Display name"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
+                            <field name="category_id" domain="[('model_id','=',model_id)]"
+                                   context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
+                            <field name="group_ids" widget="many2many_tags"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="active"/>
-                    </group>
-                    <group>
-                        <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
-                        <field name="category_id" domain="[('model_id','=',model_id)]"
-                                context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
-                        <field name="group_ids" widget="many2many_tags"/>
-                    </group>
-                    <group>
-                        <field name="name"/>
-                        <field name="code"/>
-                        <field name="comment"/>
-                    </group>
-                </group>
-                <newline/>
-                <button name="action_show_objects" type="object" string="Show Objects" class="oe_link"/>
+                    <field name="comment" placeholder="Comment..."/>
+                </sheet>
             </form>
         </field>
     </record>
@@ -121,8 +131,7 @@
         <field name="name">generic.tag.category.tree</field>
         <field name="model">generic.tag.category</field>
         <field name="arch" type="xml">
-            <tree string="Tag Categories" editable="bottom"
-                    colors="grey: tags_count == 0">
+            <tree string="Tag Categories" colors="grey: tags_count == 0">
                 <field name="model_id" widget="selection"/>
                 <field name="name"/>
                 <field name="code"/>
@@ -130,7 +139,8 @@
                 <field name="check_xor"/>
                 <field name="active"/>
                 <field name="tags_count"/>
-                <button name="action_show_tags" type="object" string="Show Tags" icon="fa-search"/>
+                <button name="action_show_tags" type="object"
+                        string="Show Tags" icon="fa-search"/>
             </tree>
         </field>
     </record>
@@ -140,20 +150,36 @@
         <field name="model">generic.tag.category</field>
         <field name="arch" type="xml">
             <form string="Tag Category">
-                <group>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_show_tags"
+                                type="object" string="Tags" icon="fa-bars"
+                                class="oe_stat_button">
+                            <field name="tags_count"/>
+                        </button>
+                        <button name="toggle_active" type="object" groups="base.group_user"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <label for="name" class="oe_edit_only"/>
+                            <field name="name" placeholder="Category name"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name"/>
-                        <field name="code"/>
-                        <field name="comment"/>
-                    </group>
-                    <group>
+						<field name="code" placeholder="Category code"/>
                         <field name="model_id" widget="selection"/>
-                        <field name="active"/>
                         <field name="check_xor"/>
                     </group>
+                    <field name="comment" placeholder="Comment..."/>
+                </sheet>
+                <group>
+                    <group>
+                    </group>
                 </group>
-                <newline/>
-                <button name="action_show_tags" type="object" string="Show Tags" class="oe_link"/>
             </form>
         </field>
     </record>
@@ -205,8 +231,23 @@
         <field name="model">generic.tag.model</field>
         <field name="arch" type="xml">
             <form string="Tag model">
-                <field name="res_model_id" options="{'create': false, 'edit': false, 'create_edit': false}"/>
-                <button name="action_show_tags" type="object" string="Show Tags" class="oe_link"/>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_show_tags"
+                                type="object" string="Tags" icon="fa-bars"
+                                class="oe_stat_button">
+                            <field name="tags_count"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="res_model_id" options="{'create': false, 'edit': false, 'create_edit': false}"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -221,8 +262,7 @@
     </record>
 
     <menuitem action="action_generic_tag_models_view" id="menu_action_generic_tag_modeles_view"
-                parent="menu_generic_tags_configuration_root" sequence="30"/>
-
+              parent="menu_generic_tags_configuration_root" sequence="30"/>
     <!-- end tag categories views -->
 </odoo>
 
