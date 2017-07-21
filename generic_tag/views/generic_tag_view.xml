@@ -170,7 +170,7 @@
                         </h1>
                     </div>
                     <group>
-						<field name="code" placeholder="Category code"/>
+                        <field name="code" placeholder="Category code"/>
                         <field name="model_id" widget="selection"/>
                         <field name="check_xor"/>
                     </group>
@@ -245,7 +245,8 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="res_model_id" options="{'create': false, 'edit': false, 'create_edit': false}"/>
+                        <field name="res_model_id"
+                               options="{'no_create': True, 'no_create_edit': True}"/>
                     </group>
                 </sheet>
             </form>
