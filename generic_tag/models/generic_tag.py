@@ -107,6 +107,8 @@ class GenericTagCategory(models.Model):
         readonly=True, track_visibility='always',
         help="How many tags related to this catgory")
 
+    color = fields.Integer()
+
     _sql_constraints = [
         ('name_uniq', 'unique(model_id, name)',
          'Name of category must be unique'),
@@ -197,8 +199,12 @@ class GenericTag(models.Model):
     color = fields.Integer()
 
     _sql_constraints = [
-        ('name_uniq', 'unique(model_id, name)', 'Name of tag must be unique'),
-        ('code_uniq', 'unique(model_id, code)', 'Code of tag must be unique'),
+        ('name_uniq',
+         'unique(model_id, category_id, name)',
+         'Name of tag must be unique for category'),
+        ('code_uniq',
+         'unique(model_id, code)',
+         'Code of tag must be unique'),
     ]
 
     @api.multi
