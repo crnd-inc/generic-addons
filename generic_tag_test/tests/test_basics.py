@@ -24,7 +24,7 @@ class TestBasics(TransactionCase):
         self.test_tag_3 = self.env.ref('generic_tag_test.test_tag_3')
 
     def test_05_tags_count(self):
-        self.assertEqual(self.test_model.tags_count, 3,
+        self.assertEqual(self.test_model.tags_count, 4,
                          "Wrong tags_count for model")
         self.assertEqual(self.test_tag_cat_1.tags_count, 2,
                          "Wrong tags_count for model")

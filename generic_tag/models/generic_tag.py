@@ -4,6 +4,7 @@ import collections
 from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.exceptions import ValidationError
+from openerp.osv import expression
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -200,6 +201,32 @@ class GenericTag(models.Model):
         ('code_uniq', 'unique(model_id, code)', 'Code of tag must be unique'),
     ]
 
+    @api.multi
+    def name_get(self):
+        return [(t.id, t.complete_name) for t in self]
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        if not args:
+            args = []
+        if name:
+            domain = [
+                [('name', operator, name)],
+                [('code', operator, name)],
+                [('complete_name', operator, name)]
+            ]
+            if operator in expression.NEGATIVE_TERM_OPERATORS:
+                domain = expression.AND(domain)
+            else:
+                domain = expression.OR(domain)
+
+            domain = expression.AND([domain, args])
+            tags = self.search(domain, limit=limit)
+        else:
+            tags = self.search(args, limit=limit)
+
+        return tags.name_get()
+
     @api.model
     @api.returns('self')
     def get_tags(self, model, code=None, name=None):
@@ -264,6 +291,7 @@ class GenericTagMixin(models.AbstractModel):
     def _search_no_tag_id(self, operator, value):
         res = []
 
+        # TODO: refactor this due to implementation of name_search on tag model
         if isinstance(value, (int, long)):
             with_tag_ids = self.search(
                 [('tag_ids.id', operator, value)])
