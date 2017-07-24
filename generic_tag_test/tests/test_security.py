@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from openerp.tests.common import TransactionCase
-from openerp.exceptions import (ValidationError,
-                                AccessError)
-from psycopg2 import IntegrityError
+from openerp.exceptions import AccessError
 import logging
 _logger = logging.getLogger(__name__)
 

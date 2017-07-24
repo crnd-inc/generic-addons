@@ -120,8 +120,8 @@ class GenericTagCategory(models.Model):
             tag_model = category.tag_ids.mapped('model_id')
             if tag_model and (len(tag_model) != 1 or
                               tag_model != category.model_id):
-                raise ValidationError(
-                    u"Model must be same as one used in related tags")
+                raise ValidationError(_(
+                    u"Model must be same as one used in related tags"))
 
     @api.multi
     def action_show_tags(self):
@@ -170,8 +170,8 @@ class GenericTag(models.Model):
     def _check_category_model(self):
         for tag in self:
             if tag.category_id and tag.model_id != tag.category_id.model_id:
-                raise ValidationError(
-                    u"Category must be binded to same model as tag")
+                raise ValidationError(_(
+                    u"Category must be bound to same model as tag"))
 
     category_id = fields.Many2one(
         'generic.tag.category', 'Category',
@@ -289,26 +289,8 @@ class GenericTagMixin(models.AbstractModel):
                       "") % msg_detail)
 
     def _search_no_tag_id(self, operator, value):
-        res = []
-
-        # TODO: refactor this due to implementation of name_search on tag model
-        if isinstance(value, (int, long)):
-            with_tag_ids = self.search(
-                [('tag_ids.id', operator, value)])
-        elif isinstance(value, basestring):
-            u = '|' if operator != '!=' else '&'
-            with_tag_ids = self.search(
-                [u, ('tag_ids.complete_name', operator, value),
-                    ('tag_ids.code', operator, value)])
-        elif isinstance(value, (list, tuple)) and operator in ('in', 'not in'):
-            with_tag_ids = self.search(
-                [('tag_ids', operator, value)])
-
-        res.append(
-            ('id', 'not in', with_tag_ids.mapped('id'))
-        )
-
-        return res
+        with_tags = self.search([('tag_ids', operator, value)])
+        return [('id', 'not in', with_tags.mapped('id'))]
 
     def _compute_no_tag_id(self):
         for res in self:
