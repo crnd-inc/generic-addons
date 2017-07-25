@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="res.groups" id="group_tags_test_group">
+        <field name="name">Test group for tags</field>
+        <field name="category_id" ref="generic_tag.module_category_tag"/>
+    </record>
+
+</odoo>

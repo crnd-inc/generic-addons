@@ -1,12 +1,8 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_generic_tag_all","generic_tag all","model_generic_tag",,1,1,1,1
+"access_generic_tag_all","generic_tag all","model_generic_tag",,1,0,0,0
 "access_generic_tag_model_all","generic_tag_model all","model_generic_tag_model",,1,0,0,0
-"access_generic_tag_category_all","generic_tag_category all","model_generic_tag_category",,1,1,1,1
+"access_generic_tag_category_all","generic_tag_category all","model_generic_tag_category",,1,0,0,0
 
-"access_generic_tag_restricted","generic_tag restricted","model_generic_tag","generic_tag.group_tags_user_restricted",1,0,0,0
-"access_generic_tag_model_restricted","generic_tag_model restricted","model_generic_tag_model","generic_tag.group_tags_user_restricted",1,0,0,0
-"access_generic_tag_category_restricted","generic_tag_category restricted","model_generic_tag_category","generic_tag.group_tags_user_restricted",1,0,0,0
-
-"access_generic_tag_restricted_x2","generic_tag restricted_x2","model_generic_tag","generic_tag.group_tags_user_restricted_x2",1,0,0,0
-"access_generic_tag_model_restricted_x2","generic_tag_model restricted_x2","model_generic_tag_model","generic_tag.group_tags_user_restricted_x2",1,0,0,0
-"access_generic_tag_category_restricted_x2","generic_tag_category restricted_x2","model_generic_tag_category","generic_tag.group_tags_user_restricted_x2",1,0,0,0
+"access_generic_tag_manager","generic_tag manager","model_generic_tag","generic_tag.group_tags_manager",1,1,1,1
+"access_generic_tag_model_manager","generic_tag_model manager","model_generic_tag_model","generic_tag.group_tags_manager",1,1,1,1
+"access_generic_tag_category_manager","generic_tag_category manager","model_generic_tag_category","generic_tag.group_tags_manager",1,1,1,1
