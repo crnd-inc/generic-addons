@@ -14,6 +14,7 @@
         'security/ir.model.access.csv',
     ],
     'demo': [
+        'demo/res_groups.xml',
         'demo/demo.xml',
     ],
     'installable': True,
