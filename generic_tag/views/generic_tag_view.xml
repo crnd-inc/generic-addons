@@ -48,7 +48,6 @@
                 <field name="code"/>
                 <field name="comment"/>
                 <field name="active"/>
-                <field name="group_ids" widget="many2many_tags"/>
                 <field name="objects_count"/>
                 <button name="action_show_objects" type="object" string="Show Objects" icon="fa-search"/>
             </tree>
@@ -87,7 +86,8 @@
                             <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                             <field name="category_id" domain="[('model_id','=',model_id)]"
                                    context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
-                            <field name="group_ids" widget="many2many_tags"/>
+                            <field name="group_ids" widget="many2many_tags"
+                                   groups="generic_tag.group_tags_manager"/>
                         </group>
                     </group>
                     <field name="comment" placeholder="Comment..."/>
