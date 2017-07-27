@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp import api, fields, models, tools, _
+from openerp import api, models, _
 from openerp.exceptions import ValidationError
 from openerp.osv import expression
 
@@ -14,7 +14,6 @@ class GenericMixinParentNames(models.AbstractModel):
         recursion check constraint
     """
     _name = "generic.mixin.parent.names"
-
 
     # Overridden to add recursion check constraint
     @classmethod
@@ -53,15 +52,19 @@ class GenericMixinParentNames(models.AbstractModel):
             child = parents.pop()
             domain = [('name', operator, child)]
             if parents:
-                names_ids = self.name_search(' / '.join(parents), args=args, operator='ilike', limit=limit)
+                names_ids = self.name_search(' / '.join(parents), args=args,
+                                             operator='ilike', limit=limit)
                 record_ids = [name_id[0] for name_id in names_ids]
                 if operator in expression.NEGATIVE_TERM_OPERATORS:
                     records = self.search([('id', 'not in', record_ids)])
-                    domain = expression.OR([[(self._parent_name, 'in', records.ids)], domain])
+                    domain = expression.OR(
+                        [[(self._parent_name, 'in', records.ids)], domain])
                 else:
-                    domain = expression.AND([[(self._parent_name, 'in', record_ids)], domain])
+                    domain = expression.AND(
+                        [[(self._parent_name, 'in', record_ids)], domain])
                 for i in range(1, len(record_names)):
-                    domain = [[('name', operator, ' / '.join(record_names[-1 - i:]))], domain]
+                    names = ' / '.join(record_names[-1 - i:])
+                    domain = [[('name', operator, names)], domain]
                     if operator in expression.NEGATIVE_TERM_OPERATORS:
                         domain = expression.AND(domain)
                     else:
