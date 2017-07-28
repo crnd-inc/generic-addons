@@ -392,7 +392,7 @@
                                     </td>
                                     <td class="oe_form_group_cell">
                                         <field name="condition_related_field_value_id"
-                                               widget="polymorphic" polymorphic="condition_related_field_model"
+                                               widget="generic_m2o" model_field="condition_related_field_model"
                                                attrs="{'required': [('type','=','related_field'), ('condition_related_field_operator', '=', 'contains')], 'invisible': [('condition_related_field_operator', 'in', ('set', 'not set'))]}"/>
                                     </td>
                                 </tr>

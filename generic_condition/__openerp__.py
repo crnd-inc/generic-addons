@@ -8,8 +8,8 @@
     "summary": "Generic Conditions",
     'category': 'Technical Settings',
     'depends': [
-        'base',
         'web',
+        'generic_m2o',
     ],
     'demo': [
         'demo/demo_data.xml',
