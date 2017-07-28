@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "Generic Tag - Test",
+    "name": "Generic M2O Widget",
     "version": "9.0.0.0.1",
     "author": "Management and Accounting Online",
     "website": "https://maao.com.ua",
     "license": "Other proprietary",
-    "summary": "Generic Tag - Tests (do not install manualy)",
-    'category': 'Technical Settings',
+    "summary": "Generic Many2one widget",
+    'category': 'Web',
     'depends': [
-        'generic_tag',
+        'web',
     ],
     'data': [
-        'security/ir.model.access.csv',
-    ],
-    'demo': [
-        'demo/res_groups.xml',
-        'demo/demo.xml',
+        'web_assets.xml',
     ],
     'installable': True,
     'auto_install': False,

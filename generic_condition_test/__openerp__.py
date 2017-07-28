@@ -6,7 +6,7 @@
     "website": "https://maao.com.ua",
     "license": "Other proprietary",
     "summary": "Generic Conditions - Tests (do not install manualy)",
-    'category': 'Added functionality',
+    'category': 'Technical Settings',
     'depends': [
         'generic_condition',
     ],
