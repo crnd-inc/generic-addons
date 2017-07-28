@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="generic_m2o_web_assets"
+              name="Generic M2O Widget"
+              inherit_id="web.assets_backend">
+        <xpath expr="//script[last()]" position="after">
+            <script src="/generic_m2o/static/src/js/generic_m2o.js"/>
+        </xpath>
+    </template>
+</odoo>
+
