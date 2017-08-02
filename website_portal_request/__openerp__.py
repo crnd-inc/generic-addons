@@ -9,10 +9,11 @@
     'depends': [
         'website_portal',
         'website_mail',
+        'generic_request',
     ],
     'data': [
         'views/templates.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }
