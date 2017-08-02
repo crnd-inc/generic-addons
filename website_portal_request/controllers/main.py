@@ -56,7 +56,7 @@ class WebsiteAccount(website_account):
             [('id', '=', req_id)])
 
         if not reqs:
-            raise reqest.not_found()
+            raise request.not_found()
 
         reqs.check_access_rights('read')
         reqs.check_access_rule('read')

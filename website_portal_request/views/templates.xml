@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <template id="website_request_portal_assets"
+              inherit_id="website.assets_frontend"
+              name="Request Website Assets">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/website_portal_request/static/src/css/request.css'/>
+        </xpath>
+    </template>
+
     <template id="portal_my_home_menu_request"
               name="Portal request : Request"
               inherit_id="website_portal_v10.portal_layout"
@@ -47,20 +55,50 @@
     <template id="portal_my_request" name="My request">
         <t t-call="website_portal_v10.portal_layout">
             <div class="row">
-                <div class="col-xs-10">
+                <div class="col-md-10">
                     <h1><span t-field="req.name"/></h1>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-md-2">
                     <h2><span class="label label-primary" t-field="req.stage_id.name"/></h2>
                 </div>
-                <div class="col-xs-12">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <h3><span t-field="req.type_id.category_id.display_name"/> / 
                         <span t-field="req.type_id.name"/></h3>
                 </div>
-                <div class="col-xs-12">
-                    <span t-field="req.request_text"/>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="request_body"
+                         t-field="req.request_text"/>
                 </div>
             </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-4">
+                    <div><label>Created</label></div>
+                    <div><span t-field="req.date_created"/></div>
+                    <div><span t-field="req.created_by_id"/></div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <t t-if="req.date_assigned">
+                        <div><label>Assigned</label></div>
+                        <div><span t-field="req.date_assigned"/></div>
+                        <div><span t-field="req.user_id"/></div>
+                    </t>
+                </div>
+                <div class="col-md-4 text-right"
+                        attrs="{'invisible': [('date_closed', '=', False)]}">
+                    <t t-if="date_closed">
+                        <div><label>Closed</label></div>
+                        <div><span t-field="req.date_closed"/></div>
+                        <div><span t-field="req.closed_by_id"/></div>
+                    </t>
+                </div>
+            </div>
+            <hr/>
             <t t-call="website_mail.message_thread">
                 <t t-set="object" t-value="req"/>
                 <t t-set="chatter_mode" t-value="'json'"/>
