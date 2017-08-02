@@ -2,7 +2,7 @@
 
 from openerp import http
 from openerp.http import request
-from openerp.addons.website_portal_v10.controllers.main import WebsiteAccount
+from openerp.addons.website_portal_v10.controllers.main import website_account
 
 
 # NOTE: here is name collision with request, so be careful, when use name
@@ -10,7 +10,7 @@ from openerp.addons.website_portal_v10.controllers.main import WebsiteAccount
 # `request.request` records
 
 
-class WebsiteAccount(WebsiteAccount):
+class WebsiteAccount(website_account):
 
     def _prepare_portal_layout_values(self):
         res = super(WebsiteAccount, self)._prepare_portal_layout_values()
@@ -44,7 +44,7 @@ class WebsiteAccount(WebsiteAccount):
             'default_url': '/my/requests',
         })
 
-        return request.website.render(
+        return request.render(
             'website_portal_request.portal_my_requests', values)
 
     @http.route(["/my/requests/<int:req_id>"],
@@ -64,5 +64,5 @@ class WebsiteAccount(WebsiteAccount):
         values.update({
             'req': reqs,
         })
-        return request.website.render(
+        return request.render(
             "website_portal_request.portal_my_request", values)
