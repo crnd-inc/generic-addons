@@ -12,6 +12,7 @@
         'generic_request',
     ],
     'data': [
+        'views/templates_mail_thread.xml',
         'views/templates.xml',
     ],
     'installable': True,

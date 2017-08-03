@@ -6,6 +6,7 @@
               name="Request Website Assets">
         <xpath expr="." position="inside">
             <link rel='stylesheet' href='/website_portal_request/static/src/css/request.css'/>
+            <script type="text/javascript" src="/website_portal_request/static/src/js/request.js"/>
         </xpath>
     </template>
 
@@ -115,9 +116,10 @@
                 </div>
             </div>
             <hr/>
-            <t t-call="website_mail.message_thread">
+            <t t-call="website_portal_request.rich_message_thread">
                 <t t-set="object" t-value="req"/>
                 <t t-set="chatter_mode" t-value="'json'"/>
+                <!--<t t-set="message_thread_use_custom_widget" t-value="True"/>-->
             </t>
         </t>
     </template>
