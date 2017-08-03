@@ -77,24 +77,40 @@
             </div>
             <hr/>
             <div class="row">
-                <div class="col-md-4">
-                    <div><label>Created</label></div>
-                    <div><span t-field="req.date_created"/></div>
-                    <div><span t-field="req.created_by_id"/></div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mb8">
+                    <span t-field="req.created_by_id.image_small"
+                            class="o_not_editable"
+                            t-field-options='{"widget": "image", "class": "pull-left"}'/>
+                    <div class="pull-left">
+                        <label>Created</label>
+                        <div t-field="req.date_created"/>
+                        <div t-field="req.created_by_id"/>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mb8">
                     <t t-if="req.date_assigned">
-                        <div><label>Assigned</label></div>
-                        <div><span t-field="req.date_assigned"/></div>
-                        <div><span t-field="req.user_id"/></div>
+                        <!--<i class="fa fa-arrow-right pull-left mt24 text-primary"/>-->
+                        <span t-field="req.user_id.image_small"
+                              class="o_not_editable"
+                              t-field-options='{"widget": "image", "class": "pull-left"}'/>
+                        <div class="pull-left">
+                            <label>Assigned</label>
+                            <div t-field="req.date_assigned"/>
+                            <div t-field="req.user_id"/>
+                        </div>
                     </t>
                 </div>
-                <div class="col-md-4 text-right"
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mb8"
                         attrs="{'invisible': [('date_closed', '=', False)]}">
                     <t t-if="date_closed">
-                        <div><label>Closed</label></div>
-                        <div><span t-field="req.date_closed"/></div>
-                        <div><span t-field="req.closed_by_id"/></div>
+                        <span t-field="req.closed_by_id.image_small"
+                              class="o_not_editable"
+                              t-field-options='{"widget": "image", "class": "pull-left"}'/>
+                        <div class="pull-left">
+                            <label>Closed</label>
+                            <div t-field="req.date_closed"/>
+                            <div t-field="req.closed_by_id"/>
+                        </div>
                     </t>
                 </div>
             </div>
