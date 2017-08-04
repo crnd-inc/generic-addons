@@ -49,14 +49,14 @@ class WebsiteAccount(website_account):
 
     @http.route(["/my/requests/<int:req_id>"],
                 type='http', auth="user", website=True)
-    def portal_my_request(self, req_id):
+    def portal_my_request(self, req_id, **kw):
         values = self._prepare_portal_layout_values()
 
         reqs = request.env['request.request'].search(
             [('id', '=', req_id)])
 
         if not reqs:
-            raise reqest.not_found()
+            raise request.not_found()
 
         reqs.check_access_rights('read')
         reqs.check_access_rule('read')

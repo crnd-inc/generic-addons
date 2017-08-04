@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <template id="website_request_portal_assets"
+              inherit_id="website.assets_frontend"
+              name="Request Website Assets">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/website_portal_request/static/src/css/request.css'/>
+            <script type="text/javascript" src="/website_portal_request/static/src/js/request.js"/>
+        </xpath>
+    </template>
+
     <template id="portal_my_home_menu_request"
               name="Portal request : Request"
               inherit_id="website_portal.portal_layout"
@@ -47,23 +56,81 @@
     <template id="portal_my_request" name="My request">
         <t t-call="website_portal.portal_layout">
             <div class="row">
-                <div class="col-xs-10">
+                <div class="col-md-10">
                     <h1><span t-field="req.name"/></h1>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-md-2">
                     <h2><span class="label label-primary" t-field="req.stage_id.name"/></h2>
                 </div>
-                <div class="col-xs-12">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <h3><span t-field="req.type_id.category_id.display_name"/> / 
                         <span t-field="req.type_id.name"/></h3>
                 </div>
-                <div class="col-xs-12">
-                    <span t-field="req.request_text"/>
+            </div>
+            <hr/>
+            <t t-if="req.help_html or req.stage_help_html">
+                <div class="row">
+                    <div class="col-md-12" t-if="req.help_html">
+                        <t t-raw="req.help_html"/>
+                    </div>
+                    <div class="col-md-12" t-if="req.stage_help_html">
+                        <t t-raw="req.stage_help_html"/>
+                    </div>
+                </div>
+                <hr/>
+            </t>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="request_body"
+                         t-field="req.request_text"/>
                 </div>
             </div>
-            <t t-call="website_mail.message_thread">
+            <hr/>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mb8">
+                    <span t-field="req.created_by_id.image_small"
+                            class="o_not_editable"
+                            t-field-options='{"widget": "image", "class": "pull-left"}'/>
+                    <div class="pull-left">
+                        <label>Created</label>
+                        <div t-field="req.date_created"/>
+                        <div t-field="req.created_by_id"/>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mb8">
+                    <t t-if="req.date_assigned">
+                        <!--<i class="fa fa-arrow-right pull-left mt24 text-primary"/>-->
+                        <span t-field="req.user_id.image_small"
+                              class="o_not_editable"
+                              t-field-options='{"widget": "image", "class": "pull-left"}'/>
+                        <div class="pull-left">
+                            <label>Assigned</label>
+                            <div t-field="req.date_assigned"/>
+                            <div t-field="req.user_id"/>
+                        </div>
+                    </t>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 mb8"
+                        attrs="{'invisible': [('date_closed', '=', False)]}">
+                    <t t-if="date_closed">
+                        <span t-field="req.closed_by_id.image_small"
+                              class="o_not_editable"
+                              t-field-options='{"widget": "image", "class": "pull-left"}'/>
+                        <div class="pull-left">
+                            <label>Closed</label>
+                            <div t-field="req.date_closed"/>
+                            <div t-field="req.closed_by_id"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+            <hr/>
+            <t t-call="website_portal_request.rich_message_thread">
                 <t t-set="object" t-value="req"/>
                 <t t-set="chatter_mode" t-value="'json'"/>
+                <!--<t t-set="message_thread_use_custom_widget" t-value="True"/>-->
             </t>
         </t>
     </template>
