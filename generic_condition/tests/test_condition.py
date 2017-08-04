@@ -36,7 +36,7 @@ class TestCondition(TransactionCase):
 
     def test_00_defaults(self):
         defaults = self.Condition.default_get(
-            self.Condition._all_columns.keys())
+            self.Condition._fields.keys())
 
         condition = self.Condition.new(defaults)
         self.assertTrue(condition.enable_caching)
@@ -46,7 +46,7 @@ class TestCondition(TransactionCase):
     def test_01_defaults_based_on(self):
         defaults = self.Condition.with_context(
             default_based_on='res.partner').default_get(
-                self.Condition._all_columns.keys())
+                self.Condition._fields.keys())
 
         condition = self.Condition.new(defaults)
         self.assertTrue(condition.enable_caching)

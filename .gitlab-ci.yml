@@ -40,7 +40,7 @@ tests:
         - odoo-helper link .
     script:
         - odoo-helper --use-unbuffer test --coverage --create-test-db -d .
-        - odoo-helper exec coverage report --fail-under=70
+        - odoo-helper exec coverage report --fail-under=90
         - odoo-helper exec coverage html -d html-coverage
     artifacts:
         paths:
