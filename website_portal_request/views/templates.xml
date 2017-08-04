@@ -70,6 +70,17 @@
                 </div>
             </div>
             <hr/>
+            <t t-if="req.help_html or req.stage_help_html">
+                <div class="row">
+                    <div class="col-md-12" t-if="req.help_html">
+                        <t t-raw="req.help_html"/>
+                    </div>
+                    <div class="col-md-12" t-if="req.stage_help_html">
+                        <t t-raw="req.stage_help_html"/>
+                    </div>
+                </div>
+                <hr/>
+            </t>
             <div class="row">
                 <div class="col-md-12">
                     <div id="request_body"
