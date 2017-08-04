@@ -2,47 +2,67 @@
 
 from openerp import http
 from openerp.http import request
-from openerp.addons.website_portal_v10.controllers.main import WebsiteAccount
+from openerp.addons.website_portal.controllers.main import website_account
 
 
-class WebsiteAccount(WebsiteAccount):
+# NOTE: here is name collision with request, so be careful, when use name
+# `request`. To avoid this name collision use names `req` and reqs` for
+# `request.request` records
+
+
+class WebsiteAccount(website_account):
+
+    def _prepare_portal_layout_values(self):
+        res = super(WebsiteAccount, self)._prepare_portal_layout_values()
+        req_count = request.env['request.request'].search_count([])
+
+        res.update({
+            'req_count': req_count,
+        })
+        return res
 
     @http.route(['/my/requests'], type='http',
                 auth="user", website=True)
-    def portal_my_request(self, **kw):
+    def portal_my_requests(self, **kw):
         values = self._prepare_portal_layout_values()
-        Request = request.env['request.request']
         domain = []
         # count for pager
-        request_count = Request.search_count(domain)
+        req_count = request.env['request.request'].search_count(domain)
         # make pager
         pager = request.website.pager(
             url="/my/requests",
-            total=request_count,
+            total=req_count,
             step=self._items_per_page
         )
 
         # search the count to display, according to the pager data
-        requests = Request.search(
+        reqs = request.env['request.request'].search(
             domain, limit=self._items_per_page, offset=pager['offset'])
         values.update({
-            'requests': requests,
+            'reqs': reqs,
             'pager': pager,
             'default_url': '/my/requests',
         })
 
-        return request.website.render(
-            'website_portal_request.portal_my_request', values)
+        return request.render(
+            'website_portal_request.portal_my_requests', values)
 
-    @http.route(["/my/requests/<int:request_id>"], type='http',
-                auth="user", website=True)
-    def portal_my_req(self, request_id):
+    @http.route(["/my/requests/<int:req_id>"],
+                type='http', auth="user", website=True)
+    def portal_my_request(self, req_id, **kw):
         values = self._prepare_portal_layout_values()
-        Request = request.env['request.request']
-        reques = Request.browse(request_id)
-        values.update({
-            'reques': reques,
-        })
 
-        return request.website.render(
-            "website_portal_request.portal_request", values)
+        reqs = request.env['request.request'].search(
+            [('id', '=', req_id)])
+
+        if not reqs:
+            raise request.not_found()
+
+        reqs.check_access_rights('read')
+        reqs.check_access_rule('read')
+
+        values.update({
+            'req': reqs,
+        })
+        return request.render(
+            "website_portal_request.portal_my_request", values)
