@@ -1,6 +1,7 @@
 odoo.define('website_portal_request', function (require) {
 'use strict';
 
+var ajax = require('web.ajax');
 var web_editor_base = require('web_editor.base')
 var mail_thread =require('website_mail.thread');
 
@@ -35,8 +36,25 @@ $('#discussion .o_website_chatter_form textarea[name="message"]').each(function 
     $textarea.summernote({
             height: 100,
             toolbar: toolbar,
-            styleWithSpan: false
+            styleWithSpan: false,
+            onImageUpload: function(images) {
+                $.each(images, function(index, image) {
+                    ajax.post('/website_portal_request/image_upload', {
+                        'upload': image
+                        //'mime_type': image.type,
+                    }).done(function (data) {
+                        data = JSON.parse(data)
+                        if (data['status'] == 'OK') {
+                            var image = $('<img>').attr('src', data['attachment_url']);
+                            $textarea.summernote('insertNode', image[0]);
+                        } else {
+                            alert ("Smthing gone wrong during image upload\n" + data['message']);
+                        }
+                    });
+                });
+            }
     });
+
     $form.on('click', 'button, .a-submit', function () {
         $textarea.val($form.find('.note-editable').code());
     });
