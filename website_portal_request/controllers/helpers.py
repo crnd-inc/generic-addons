@@ -35,7 +35,7 @@ class WebsiteAttachment(Home):
                 if not disable_optimization and image.format in ('PNG',
                                                                  'JPEG'):
                     data = tools.image_save_for_web(image)
-            except IOError, e:
+            except IOError as e:
                 pass
 
             if post_data.get('context', False):
