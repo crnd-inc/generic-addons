@@ -1,4 +1,4 @@
-odoo.define('website_portal_request', function (require) {
+odoo.define('website_portal_request.discussion', function (require) {
 'use strict';
 
 var ajax = require('web.ajax');
