@@ -6,7 +6,8 @@
               name="Request Website Assets">
         <xpath expr="." position="inside">
             <link rel='stylesheet' href='/website_portal_request/static/src/css/request.css'/>
-            <script type="text/javascript" src="/website_portal_request/static/src/js/request.js"/>
+            <script type="text/javascript" src="/website_portal_request/static/src/js/request_discussion.js"/>
+            <script type="text/javascript" src="/website_portal_request/static/src/js/request_new.js"/>
         </xpath>
     </template>
 
@@ -24,7 +25,11 @@
 
     <template id="portal_my_requests" name="My requests">
         <t t-call="website_portal.portal_layout">
-            <h3 class="page-header">Your request</h3>
+            <h3 class="page-header">Your requests
+                <a class="btn btn-success pull-right"
+                   href="/my/requests/new">New</a>
+            </h3>
+            
             <t t-if="not reqs">
                 <p>There are currently no requests in the your account.</p>
             </t>
@@ -70,11 +75,8 @@
                 </div>
             </div>
             <hr/>
-            <t t-if="req.help_html or req.stage_help_html">
+            <t t-if="req.stage_help_html">
                 <div class="row">
-                    <div class="col-md-12" t-if="req.help_html">
-                        <t t-raw="req.help_html"/>
-                    </div>
                     <div class="col-md-12" t-if="req.stage_help_html">
                         <t t-raw="req.stage_help_html"/>
                     </div>
@@ -130,7 +132,6 @@
             <t t-call="website_portal_request.rich_message_thread">
                 <t t-set="object" t-value="req"/>
                 <t t-set="chatter_mode" t-value="'json'"/>
-                <!--<t t-set="message_thread_use_custom_widget" t-value="True"/>-->
             </t>
         </t>
     </template>
@@ -145,12 +146,71 @@
                             <span class='badge'><t t-esc="req_count"/></span>
                         </t>
                         <t t-if="not req_count">
-                            There are currently no requests for your account.
-                            TODO: Create one
+                            There are currently no requests for your account.<br/>
+                            <a href="/my/requests/new">Create one</a>
                         </t>
                     </small>
                 </a>
+                <a class="btn btn-success pull-right"
+                   href="/my/requests/new">New</a>
             </h3>
         </xpath>
+    </template>
+
+    <template id="portal_my_requests_new" name="My request">
+        <t t-call="website_portal.portal_layout">
+            <form id="form_request_create"
+                    class="container-fluid form-horizontal"
+                    action="/"
+                    method="post" role="form">
+                <h1>Create new request</h1>
+                <hr/>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>Category</h2>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>
+                            <select id="request_category"
+                                    class="form-control"
+                                    required="">
+                            </select>
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Type</h3>
+                    </div>
+                    <div class="col-md-8">
+                        <h3>
+                            <select id="request_type"
+                                    class="form-control"
+                                    required="">
+                            </select>
+                        </h3>
+                        <div id="request_help" class="col-md-8 col-md-offset-4"/>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea id="request_text"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                        <button class="btn btn-primary btn-lg a-submit col-md-6">
+                            Save
+                        </button>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <button class="btn btn-danger btn-lg pull-right">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </t>
     </template>
 </odoo>

@@ -156,7 +156,7 @@ class GenericTag(models.Model):
     def _compute_objects_count(self):
         for tag in self:
             tag.objects_count = self.env[tag.model_id.model].search_count(
-                                        [('tag_ids.id', '=', tag.id)])
+                [('tag_ids.id', '=', tag.id)])
 
     @api.multi
     @api.depends('category_id.name', 'name')
