@@ -66,3 +66,10 @@ class WebsiteAccount(website_account):
         })
         return request.render(
             "website_portal_request.portal_my_request", values)
+
+    @http.route(["/my/requests/new"],
+                type='http', auth="user", website=True)
+    def portal_my_request_new(self, **kw):
+        values = self._prepare_portal_layout_values()
+        return request.render(
+            "website_portal_request.portal_my_requests_new", values)

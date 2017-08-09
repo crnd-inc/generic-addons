@@ -10,7 +10,7 @@ class BaseActionRule(models.Model):
         string='Pre Conditions', help="Pre conditions (Generic conditions)")
     post_condition_ids = fields.Many2many(
         'generic.condition', 'base_action_rule_post_condition_rel',
-        string='Post Conditions',  help="Post conditions (Generic conditions)")
+        string='Post Conditions', help="Post conditions (Generic conditions)")
 
     # TODO: rewrite in new API
     def onchange_kind(self, cr, uid, ids,
@@ -38,12 +38,10 @@ class BaseActionRule(models.Model):
 
     def _filter_pre(self, records):
         if self.pre_condition_ids:
-            records = records.filtered(
-                lambda rec: self.pre_condition_ids.check(rec))
+            records = records.filtered(self.pre_condition_ids.check)
         return super(BaseActionRule, self)._filter_pre(records)
 
     def _filter_post(self, records):
         if self.post_condition_ids:
-            records = records.filtered(
-                lambda rec: self.post_condition_ids.check(rec))
+            records = records.filtered(self.post_condition_ids.check)
         return super(BaseActionRule, self)._filter_post(records)

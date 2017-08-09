@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from openerp.tools.translate import _
-from openerp.tools.safe_eval import safe_eval as eval
+from openerp.tools.safe_eval import safe_eval
 from openerp.exceptions import ValidationError, UserError
 import datetime
 from dateutil.relativedelta import relativedelta
@@ -97,8 +97,8 @@ class GenericCondition(models.Model):
 
     def _get_selection_condition_condition_ids_operator(self):
         return [
-            ('or',  _('OR')),
-            ('and',  _('AND')),
+            ('or', _('OR')),
+            ('and', _('AND')),
         ]
 
     def _get_selection_condition_rel_record_operator(self):
@@ -314,16 +314,16 @@ class GenericCondition(models.Model):
         Model = self.env[self.model_id.model]
 
         filter_obj = self.condition_filter_id
-        domain = [('id', '=', obj.id)] + eval(filter_obj.domain)
+        domain = [('id', '=', obj.id)] + safe_eval(filter_obj.domain)
 
         ctx = self.env.context.copy()
-        ctx.update(eval(filter_obj.context, ctx))
+        ctx.update(safe_eval(filter_obj.context, ctx))
         return bool(Model.with_context(ctx).search(domain, count=True))
 
     # signature check_<type> where type is condition type
     def check_eval(self, obj, cache=None):
         try:
-            res = bool(eval(self.condition_eval, dict(self.env.context)))
+            res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
         except:
             condition_name = self.name_get()[0][1]
             obj_name = "%s [id:%s] (%s)" % (self.model_id.model,
@@ -600,7 +600,7 @@ class GenericCondition(models.Model):
             return self.helper_check_simple_field_boolean(value)
         elif field.ttype == 'selection':
             return self.helper_check_simple_field_selection(value)
-        raise NotImplemented()
+        raise NotImplementedError()
 
     # signature check_<type> where type is condition type
     def check_related_field(self, obj, cache=None):
