@@ -86,6 +86,78 @@ class TestConditionDateDiff(TransactionCase):
         })
         self.assertTrue(condition.check(rec))
 
+    def test_15_condition_date_diff_similar_dates_hours(self):
+        condition = self._create_condition({
+            "condition_date_diff_date_start_type": 'field',
+            "condition_date_diff_date_start_field": self.test_field_start_date.id,  # noqa
+            "condition_date_diff_date_end_type": 'field',
+            "condition_date_diff_date_end_field": self.test_field_end_date.id,
+            "condition_date_diff_operator": '=',
+            "condition_date_diff_uom": 'hours',
+            "condition_date_diff_value": 2,
+        })
+
+        rec = self.TestModel.create({
+            'date_start': '2017-05-01 13:31:14',
+            'date_end': '2017-05-01 15:31:45',
+        })
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '!='
+        self.assertFalse(condition.check(rec))
+
+        rec.date_end = '2017-05-01 14:31:45'
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '='
+        rec.write({
+            'date_start': '2017-05-01 13:31:14',
+            'date_end': '2017-05-01 15:34:45',
+        })
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '!='
+        self.assertFalse(condition.check(rec))
+
+        rec.date_end = '2017-05-01 14:31:45'
+        self.assertTrue(condition.check(rec))
+
+    def test_15_condition_date_diff_similar_dates_days(self):
+        condition = self._create_condition({
+            "condition_date_diff_date_start_type": 'field',
+            "condition_date_diff_date_start_field": self.test_field_start_date.id,  # noqa
+            "condition_date_diff_date_end_type": 'field',
+            "condition_date_diff_date_end_field": self.test_field_end_date.id,
+            "condition_date_diff_operator": '=',
+            "condition_date_diff_uom": 'days',
+            "condition_date_diff_value": 2,
+        })
+
+        rec = self.TestModel.create({
+            'date_start': '2017-05-01 13:31:14',
+            'date_end': '2017-05-03 13:31:45',
+        })
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '!='
+        self.assertFalse(condition.check(rec))
+
+        rec.date_end = '2017-05-02 13:31:45'
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '='
+        rec.write({
+            'date_start': '2017-05-01 13:31:14',
+            'date_end': '2017-05-03 13:34:45',
+        })
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '!='
+        self.assertFalse(condition.check(rec))
+
+        rec.date_end = '2017-05-10 14:31:45'
+        self.assertTrue(condition.check(rec))
+
     def test_20_condition_date_diff_fixed_date(self):
         condition = self._create_condition({
             "condition_date_diff_date_start_type": 'field',
