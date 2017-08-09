@@ -464,37 +464,35 @@ class GenericCondition(models.Model):
 
         # used for operators '==' and '!='
         uom_map = {
-            'hours': lambda d1, d2, dt: (d1 - d2).total_seconds() / 60.0 / 60.0,  # noqa
+            'hours': lambda d1, d2, dt: round((d1 - d2).total_seconds() / 60.0 / 60.0),  # noqa
             'days': lambda d1, d2, dt: (d1 - d2).days,
-            'weeks': lambda d1, d2, dt: uom_map['days'](d1, d2, dt) / 7.0,
+            'weeks': lambda d1, d2, dt: round(uom_map['days'](d1, d2, dt) / 7.0),  # noqa
             'months': lambda d1, d2, dt: dt.months + dt.years * 12,
             'years': lambda d1, d2, dt: dt.years,
         }
 
+        operator_map = {
+            '>': lambda a, b: a > b,
+            '<': lambda a, b: a < b,
+            '>=': lambda a, b: a >= b,
+            '<=': lambda a, b: a <= b,
+        }
+
+        # Special cases for '=' and '!=' to assume that following dates
+        # are same:
+        # 2017-04-03 12:31:44 ~ 2017-04-03 12:31:15
         if operator == '=':
             return uom_map[uom](date_end, date_start, delta) == value
         elif operator == '!=':
             return uom_map[uom](date_end, date_start, delta) != value
-        elif operator == '>':
-            # EX: date_end - date_start > 2 years
+        elif operator in operator_map:
+            # EX: date_end - date_start (>|>=|<|<=) 2 years
             #     equal to
-            #     date_start + 2 year < date_end
-            return date_start + relativedelta(**{uom: value}) < date_end
-        elif operator == '>=':
-            # EX: date_end - date_start >= 2 years
-            #     equal to
-            #     date_start + 2 year <= date_end
-            return date_start + relativedelta(**{uom: value}) <= date_end
-        elif operator == '<':
-            # EX: date_end - date_start < 2 years
-            #     equal to
-            #     date_start + 2 year > date_end
-            return date_start + relativedelta(**{uom: value}) > date_end
-        elif operator == '<=':
-            # EX: date_end - date_start <= 2 years
-            #     equal to
-            #     date_start + 2 year >= date_end
-            return date_start + relativedelta(**{uom: value}) >= date_end
+            #     date_start + 2 year (>|>=|<|<=) date_end
+            return operator_map[operator](
+                date_start + relativedelta(**{uom: value}),
+                date_end
+            )
 
     def helper_check_simple_field_number(self, obj_value):
         operator_map = {
@@ -561,7 +559,6 @@ class GenericCondition(models.Model):
                     reference_value,
                     obj_value,
                     re_flags))
-        return False
 
     def helper_check_simple_field_boolean(self, obj_value):
         reference_value = self.condition_simple_field_value_boolean
