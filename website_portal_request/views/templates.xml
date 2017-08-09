@@ -62,7 +62,7 @@
         <t t-call="website_portal_v10.portal_layout">
             <div class="row">
                 <div class="col-md-10">
-                    <h1><span t-field="req.name"/></h1>
+                    <h1><a href="/my/requests">Requests</a> / <span t-field="req.name"/></h1>
                 </div>
                 <div class="col-md-2">
                     <h2><span class="label label-primary" t-field="req.stage_id.name"/></h2>
@@ -151,8 +151,7 @@
                         </t>
                     </small>
                 </a>
-                <a class="btn btn-success pull-right"
-                   href="/my/requests/new">New</a>
+                <a class="btn btn-primary pull-right" href="/my/requests/new">New</a>
             </h3>
         </xpath>
     </template>
@@ -205,9 +204,10 @@
                         </button>
                     </div>
                     <div class="col-md-6 col-xs-6">
-                        <button class="btn btn-danger btn-lg pull-right">
+                        <a class="btn btn-danger btn-lg pull-right"
+                           href="/my/requests">
                             Cancel
-                        </button>
+                        </a>
                     </div>
                 </div>
             </form>
