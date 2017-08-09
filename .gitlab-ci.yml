@@ -30,7 +30,7 @@ flake8:
 
 pylint:
     script:
-        - odoo-helper test pylint --disable=api-one-deprecated .
+        - odoo-helper test pylint .
 
 tests:
     services:

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from openerp.tools.translate import _
-from openerp.tools.safe_eval import safe_eval as eval
+from openerp.tools.safe_eval import safe_eval
 from openerp.exceptions import ValidationError, UserError
 import datetime
 from dateutil.relativedelta import relativedelta
@@ -97,8 +97,8 @@ class GenericCondition(models.Model):
 
     def _get_selection_condition_condition_ids_operator(self):
         return [
-            ('or',  _('OR')),
-            ('and',  _('AND')),
+            ('or', _('OR')),
+            ('and', _('AND')),
         ]
 
     def _get_selection_condition_rel_record_operator(self):
@@ -314,16 +314,16 @@ class GenericCondition(models.Model):
         Model = self.env[self.model_id.model]
 
         filter_obj = self.condition_filter_id
-        domain = [('id', '=', obj.id)] + eval(filter_obj.domain)
+        domain = [('id', '=', obj.id)] + safe_eval(filter_obj.domain)
 
         ctx = self.env.context.copy()
-        ctx.update(eval(filter_obj.context, ctx))
+        ctx.update(safe_eval(filter_obj.context, ctx))
         return bool(Model.with_context(ctx).search(domain, count=True))
 
     # signature check_<type> where type is condition type
     def check_eval(self, obj, cache=None):
         try:
-            res = bool(eval(self.condition_eval, dict(self.env.context)))
+            res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
         except:
             condition_name = self.name_get()[0][1]
             obj_name = "%s [id:%s] (%s)" % (self.model_id.model,
@@ -464,37 +464,35 @@ class GenericCondition(models.Model):
 
         # used for operators '==' and '!='
         uom_map = {
-            'hours': lambda d1, d2, dt: (d1 - d2).total_seconds() / 60.0 / 60.0,  # noqa
+            'hours': lambda d1, d2, dt: round((d1 - d2).total_seconds() / 60.0 / 60.0),  # noqa
             'days': lambda d1, d2, dt: (d1 - d2).days,
-            'weeks': lambda d1, d2, dt: uom_map['days'](d1, d2, dt) / 7.0,
+            'weeks': lambda d1, d2, dt: round(uom_map['days'](d1, d2, dt) / 7.0),  # noqa
             'months': lambda d1, d2, dt: dt.months + dt.years * 12,
             'years': lambda d1, d2, dt: dt.years,
         }
 
+        operator_map = {
+            '>': lambda a, b: a > b,
+            '<': lambda a, b: a < b,
+            '>=': lambda a, b: a >= b,
+            '<=': lambda a, b: a <= b,
+        }
+
+        # Special cases for '=' and '!=' to assume that following dates
+        # are same:
+        # 2017-04-03 12:31:44 ~ 2017-04-03 12:31:15
         if operator == '=':
             return uom_map[uom](date_end, date_start, delta) == value
         elif operator == '!=':
             return uom_map[uom](date_end, date_start, delta) != value
-        elif operator == '>':
-            # EX: date_end - date_start > 2 years
+        elif operator in operator_map:
+            # EX: date_end - date_start (>|>=|<|<=) 2 years
             #     equal to
-            #     date_start + 2 year < date_end
-            return date_start + relativedelta(**{uom: value}) < date_end
-        elif operator == '>=':
-            # EX: date_end - date_start >= 2 years
-            #     equal to
-            #     date_start + 2 year <= date_end
-            return date_start + relativedelta(**{uom: value}) <= date_end
-        elif operator == '<':
-            # EX: date_end - date_start < 2 years
-            #     equal to
-            #     date_start + 2 year > date_end
-            return date_start + relativedelta(**{uom: value}) > date_end
-        elif operator == '<=':
-            # EX: date_end - date_start <= 2 years
-            #     equal to
-            #     date_start + 2 year >= date_end
-            return date_start + relativedelta(**{uom: value}) >= date_end
+            #     date_start + 2 year (>|>=|<|<=) date_end
+            return operator_map[operator](
+                date_start + relativedelta(**{uom: value}),
+                date_end
+            )
 
     def helper_check_simple_field_number(self, obj_value):
         operator_map = {
@@ -561,7 +559,6 @@ class GenericCondition(models.Model):
                     reference_value,
                     obj_value,
                     re_flags))
-        return False
 
     def helper_check_simple_field_boolean(self, obj_value):
         reference_value = self.condition_simple_field_value_boolean
@@ -600,7 +597,7 @@ class GenericCondition(models.Model):
             return self.helper_check_simple_field_boolean(value)
         elif field.ttype == 'selection':
             return self.helper_check_simple_field_selection(value)
-        raise NotImplemented()
+        raise NotImplementedError()
 
     # signature check_<type> where type is condition type
     def check_related_field(self, obj, cache=None):

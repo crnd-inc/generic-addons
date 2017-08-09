@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="request_category_demo_website" model="request.category">
+        <field name="name">SaAS</field>
+        <field name="description">
+            SaAS related requests
+        </field>
+        <field name="website_published" eval="True"/>
+    </record>
+
+    <record id="request_category_demo_website_tech" model="request.category">
+        <field name="name">Technical</field>
+        <field name="description">
+            Technical requests
+        </field>
+        <field name="website_published" eval="True"/>
+        <field name="parent_id" ref="request_category_demo_website"/>
+    </record>
+
+    <record id="request_category_demo_website_support" model="request.category">
+        <field name="name">Support</field>
+        <field name="description">
+            Support requests
+        </field>
+        <field name="website_published" eval="True"/>
+        <field name="parent_id" ref="request_category_demo_website"/>
+    </record>
+</odoo>

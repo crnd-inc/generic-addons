@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_request_type_form">
+        <field name="name">view.request.type.form.website</field>
+        <field name="model">request.type</field>
+        <field name="inherit_id" ref="generic_request.view_request_type_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" name="website_publish_button"
+                        type="object" icon="fa-globe">
+                    <field name="website_published" widget="website_button"/>
+                </button>
+            </div>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_request_type_search">
+        <field name="name">view.request.type.search.website</field>
+        <field name="model">request.type</field>
+        <field name="inherit_id" ref="generic_request.view_request_type_search"/>
+        <field name="arch" type="xml">
+            <filter name="filter_archived" position="after">
+                <filter name="filter_website_published"
+                        string="Visible on website"
+                        domain="[('website_published', '=', True)]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
+
