@@ -45,13 +45,17 @@ snippet_registry.portal_request_create = snippet_animation.Class.extend({
         ajax.jsonRpc(
             '/website_portal_request/api/categories', 'call', {}
         ).then(function (data) {
-            self.$form_sel_category.html($('<option/>'));
+            //self.$form_sel_category.html($('<option/>'));
             $.each(data, function (index, category) {
                 var option = $('<option/>');
                 option.val(category.id);
                 option.text(category.display_name);
                 self.$form_sel_category.append(option);
             });
+
+            // Handle category changed event
+            var default_category_id = self.$form_sel_category.val();
+            self.on_category_changed(default_category_id);
         });
     },
     on_category_changed: function(category_id) {
@@ -67,13 +71,17 @@ snippet_registry.portal_request_create = snippet_animation.Class.extend({
             '/website_portal_request/api/category/types', 'call',
             {'category_id': category_id}
         ).then(function (data) {
-            self.$form_sel_type.html($('<option/>'));
+            //self.$form_sel_type.html($('<option/>'));
             $.each(data, function (index, type) {
                 var option = $('<option/>');
                 option.val(type.id);
                 option.text(type.name);
                 self.$form_sel_type.append(option);
             });
+
+            // handle type changed event
+            var default_type_id = self.$form_sel_type.val();
+            self.on_type_changed(default_type_id);
         });
     },
     on_type_changed: function(type_id) {
@@ -127,14 +135,13 @@ snippet_registry.portal_request_create = snippet_animation.Class.extend({
                 ['misc', ['help']]
             ];
         $textarea.summernote({
-                height: 500,
+                height: 350,
                 toolbar: toolbar,
                 styleWithSpan: false,
                 onImageUpload: function(images) {
                     $.each(images, function(index, image) {
                         ajax.post('/website_portal_request/image_upload', {
                             'upload': image
-                            //'mime_type': image.type,
                         }).done(function (data) {
                             data = JSON.parse(data)
                             if (data['status'] == 'OK') {
@@ -147,9 +154,6 @@ snippet_registry.portal_request_create = snippet_animation.Class.extend({
                     });
                 }
         });
-
-        //$form.on('click', 'button, .a-submit', function () {
-        //});
     }
 });
 
