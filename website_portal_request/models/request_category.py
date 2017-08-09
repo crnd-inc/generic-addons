@@ -10,11 +10,8 @@ class RequestCategory(models.Model):
     # of inheriting from "website.published.mixin"
     website_published = fields.Boolean(
         'Visible in Website', copy=False)
-        # help='If set to True all child categories '
-             # 'also will be visible on website'))
 
     @api.multi
     def website_publish_button(self):
         self.write({'website_published': True})
         return True
-

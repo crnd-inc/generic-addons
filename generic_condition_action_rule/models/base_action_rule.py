@@ -15,7 +15,7 @@ class BaseActionRule(models.Model):
     # TODO: rewrite in new API
     def onchange_kind(self, cr, uid, ids,
                       kind, context=None
-                     ):  # pylint: disable=old-api7-method-defined
+                      ):  # pylint: disable=old-api7-method-defined
         res = super(BaseActionRule, self).onchange_kind(
             cr, uid, ids, kind, context=context)
 
@@ -27,7 +27,7 @@ class BaseActionRule(models.Model):
     # TODO: rewrite in new API
     def onchange_model_id(self, cr, uid, ids,
                           model_id, context=None
-                         ):  # pylint: disable=old-api7-method-defined
+                          ):  # pylint: disable=old-api7-method-defined
         res = super(BaseActionRule, self).onchange_model_id(
             cr, uid, ids, model_id, context=context)
 

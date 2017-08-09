@@ -2,7 +2,6 @@
 import io
 from PIL import Image
 import json
-import collections
 
 from openerp.addons.web.controllers.main import Home
 from openerp import http
