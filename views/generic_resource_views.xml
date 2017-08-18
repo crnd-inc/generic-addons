@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_generic_resource_root"
+        name="Generic Resources"
+        parent="base.menu_custom" />
+
+    <!-- generic.resource -->
+    <!-- Tree view for generic.resource -->
+    <record id="generic_resource_view_tree" model="ir.ui.view">
+        <field name="name">generic.resource.tree</field>
+        <field name="model">generic.resource</field>
+        <field name="arch" type="xml">
+            <tree string="Resources">
+                <field name="name"/>
+                <field name="active" invisible="1"/>
+                <field name="implementation_ids"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for generic.resource -->
+    <record id="generic_resource_view_form" model="ir.ui.view">
+        <field name="name">generic.resource.form</field>
+        <field name="model">generic.resource</field>
+        <field name="arch" type="xml">
+            <form string="Resource">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="implementation_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_resource_action" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- generic.resource.implementation -->
+    <!-- Tree view for generic.resource.implementation -->
+    <record id="generic_resource_implementation_view_tree" model="ir.ui.view">
+        <field name="name">generic.resource.implementation.tree</field>
+        <field name="model">generic.resource.implementation</field>
+        <field name="arch" type="xml">
+            <tree string="Resources Implementations">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="interface_id"/>
+                <field name="resource_id"/>
+                <field name="implementation_id"/>
+                <field name="implementation_model"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for generic.resource.implementation -->
+    <record id="generic_resource_implementation_view_form" model="ir.ui.view">
+        <field name="name">generic.resource.implementation.form</field>
+        <field name="model">generic.resource.implementation</field>
+        <field name="arch" type="xml">
+            <form string="Resource Implementation">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="interface_id"/>
+                <field name="resource_id"/>
+                <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"/>
+                <field name="implementation_model" invisible="1"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_resource_implementation_action" model="ir.actions.act_window">
+        <field name="name">Resource Implementations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.implementation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- generic.resource.interface -->
+    <!-- Tree view for generic.resource.interface -->
+    <record id="generic_resource_interface_view_tree" model="ir.ui.view">
+        <field name="name">generic.resource.interface.tree</field>
+        <field name="model">generic.resource.interface</field>
+        <field name="arch" type="xml">
+            <tree string="Resource interfaces">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="model_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for generic.resource.interface -->
+    <record id="generic_resource_interface_view_from" model="ir.ui.view">
+        <field name="name">generic.resource.interface.form</field>
+        <field name="model">generic.resource.interface</field>
+        <field name="arch" type="xml">
+            <form string="Resource Interface">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="model_id"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_resource_interface_action" model="ir.actions.act_window">
+        <field name="name">Resource Interfaces</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.interface</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus for Generic Resource -->
+    <menuitem id="generic_resource_menu_item"
+                name="Resources"
+                parent="menu_generic_resource_root" sequence="10"
+                action="generic_resource_action"/>
+    <menuitem id="generic_resource_implementation_menu_item"
+                name="Implementations"
+                parent="menu_generic_resource_root" sequence="20"
+                action="generic_resource_implementation_action"/>
+    <menuitem id="generic_resource_interface_menu_item"
+                name="Interfaces"
+                parent="menu_generic_resource_root" sequence="20"
+                action="generic_resource_interface_action"/>
+</odoo>
