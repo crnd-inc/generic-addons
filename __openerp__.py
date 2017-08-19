@@ -18,6 +18,7 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
         'views/generic_resource_views.xml'
     ],
     'demo': [

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_generic_resource,access_generic_resource,model_generic_resource,,1,0,0,0
+access_generic_resource_implementation,access_generic_resource_implementation,model_generic_resource_implementation,,1,0,0,0
+access_generic_resource_interface,access_generic_resource_interface,model_generic_resource_interface,,1,0,0,0
+access_generic_resource_type,access_generic_resource_type,model_generic_resource_type,,1,0,0,0

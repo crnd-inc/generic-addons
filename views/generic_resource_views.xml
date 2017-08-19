@@ -20,6 +20,15 @@
             </tree>
         </field>
     </record>
+    <!-- Action for open implementations for specific interface -->
+    <record id="action_generic_resource_2_generic_resource_implementation" model="ir.actions.act_window">
+        <field name="name">Resource Implementations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.implementation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('resource_id', '=', active_id)]</field>
+    </record>
     <!-- Form view for generic.resource -->
     <record id="generic_resource_view_form" model="ir.ui.view">
         <field name="name">generic.resource.form</field>
@@ -28,6 +37,12 @@
             <form string="Resource">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                type="action"
+                                name="%(generic_resource.action_generic_resource_2_generic_resource_implementation)d"
+                                icon="fa-bars">
+                            <field string="Implementations" name="implementation_count" widget="statinfo"/>
+                        </button>
                         <button name="toggle_active" type="object"
                                 class="oe_stat_button" icon="fa-archive">
                             <field name="active" widget="boolean_button"
@@ -40,7 +55,7 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="implementation_ids"/>
+                        <field name="implementation_ids" invisible="1"/>
                         <field name="res_type_id"/>
                         <field name="res_model" invisible="1"/>
                         <field name="res_id" widget="generic_m2o" model_field="res_model"/>
@@ -70,8 +85,8 @@
                 <field name="code"/>
                 <field name="interface_id"/>
                 <field name="resource_id"/>
-                <field name="implementation_id"/>
-                <field name="implementation_model"/>
+                <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"/>
+                <field name="implementation_model" invisible="1"/>
             </tree>
         </field>
     </record>
@@ -87,6 +102,7 @@
                             <field name="name"/>
                         </h1>
                     </div>
+
                     <group colspan="4">
                         <field name="interface_id"/>
                         <field name="code"/>
@@ -120,6 +136,24 @@
             </tree>
         </field>
     </record>
+    <!-- Action for open implementations for specific interface -->
+    <record id="action_gen_resource_interface_2_gen_resource_implementation" model="ir.actions.act_window">
+        <field name="name">Resource Implementations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.implementation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('interface_id', '=', active_id)]</field>
+    </record>
+    <!-- Action for open resources for specific interface -->
+    <record id="action_generic_resource_interface_2_generic_resource" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('implementation_ids.interface_id', '=', active_id)]</field>
+    </record>
     <!-- Form view for generic.resource.interface -->
     <record id="generic_resource_interface_view_from" model="ir.ui.view">
         <field name="name">generic.resource.interface.form</field>
@@ -127,8 +161,26 @@
         <field name="arch" type="xml">
             <form string="Resource Interface">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                type="action"
+                                name="%(generic_resource.action_gen_resource_interface_2_gen_resource_implementation)d"
+                                icon="fa-bars">
+                            <field string="Implementations" name="implementation_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button"
+                                type="action"
+                                name="%(generic_resource.action_generic_resource_interface_2_generic_resource)d"
+                                icon="fa-bars">
+                            <field string="Resources" name="resource_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="code"/>
                         <field name="model_id"/>
                     </group>
                 </sheet>
@@ -157,6 +209,15 @@
             </tree>
         </field>
     </record>
+    <!-- Action to open resources from types -->
+    <record id="action_generic_resource_type_2_generic_resource" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('res_type_id', '=', active_id)]</field>
+    </record>
     <!-- Form view for generic.resource.type -->
     <record id="generic_resource_type_view_from" model="ir.ui.view">
         <field name="name">generic.resource.type.form</field>
@@ -164,9 +225,17 @@
         <field name="arch" type="xml">
             <form string="Resource Type">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                type="action"
+                                name="%(generic_resource.action_generic_resource_type_2_generic_resource)d"
+                                icon="fa-bars">
+                            <field string="Resources" name="resource_count" widget="statinfo"/>
+                        </button>
+                    </div>
                     <group>
                         <field name="model_id"/>
-                        <field name="resource_ids"/>
+                        <field name="resource_ids" invisible="1"/>
                     </group>
                 </sheet>
             </form>

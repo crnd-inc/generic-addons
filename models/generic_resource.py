@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import fields, models
+from openerp import fields, models, api
 
 
 class GenericResource(models.Model):
@@ -8,30 +8,51 @@ class GenericResource(models.Model):
     _rec_name = 'name'
     _description = 'Generic Resource'
 
-    name = fields.Char()
+    name = fields.Char(compute="_compute_name")
     active = fields.Boolean(default=True)
     implementation_ids = fields.One2many(
         'generic.resource.implementation', 'resource_id',
         string="Implementations")
+    implementation_count = fields.Integer(
+        compute="_compute_implementation_count")
     res_type_id = fields.Many2one('generic.resource.type', string="Type")
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True)
-    res_id = fields.Integer(string="Model")
+    res_id = fields.Integer(string="Model", required=True)
+
+    @api.depends('res_model', 'res_id')
+    def _compute_name(self):
+        for rec in self:
+            rec.name = self.env[rec.res_model].browse(rec.res_id).display_name
+
+    @api.depends('implementation_ids')
+    def _compute_implementation_count(self):
+        for rec in self:
+            rec.implementation_count = len(rec.implementation_ids)
 
 
 class GenericResourceImplementation(models.Model):
     _name = 'generic.resource.implementation'
     _description = 'Generic Resource Implementation'
 
-    name = fields.Char()
+    name = fields.Char(compute="_compute_name", readonly=True)
     code = fields.Char(
         related='interface_id.code', readonly=True, string="interface code")
-    resource_id = fields.Many2one('generic.resource', string="Resource")
+    resource_id = fields.Many2one(
+        'generic.resource', string="Resource", required=True)
     interface_id = fields.Many2one(
-        'generic.resource.interface', string="Interface")
+        'generic.resource.interface', string="Interface", required=True)
     implementation_model = fields.Char(
         related='interface_id.model_id.model', readonly=True)
-    implementation_id = fields.Integer(string="Implementation")
+    implementation_id = fields.Integer(string="Implementation", required=True)
+
+    @api.depends('implementation_model', 'implementation_id', 'resource_id')
+    def _compute_name(self):
+        for rec in self:
+            impl_name = self.env[rec.implementation_model].browse(
+                rec.implementation_id
+            ).display_name
+            rec.name = rec.resource_id.display_name + ": " + impl_name
 
 
 class GenericResourceInterface(models.Model):
@@ -39,10 +60,29 @@ class GenericResourceInterface(models.Model):
     _inherits = {'ir.model': 'model_id'}
     _description = "Generic Resource Interface"
 
+    implementation_ids = fields.One2many(
+        'generic.resource.implementation', 'interface_id',
+        string="Inplementations")
+    implementation_count = fields.Integer(
+        compute="_compute_implementation_count",
+        string="Inplementation count")
+    resource_count = fields.Integer(
+        compute="_compute_resource_count")
     code = fields.Char()
     model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
         ondelete='restrict')
+
+    @api.depends('implementation_ids')
+    def _compute_implementation_count(self):
+        for rec in self:
+            rec.implementation_count = len(rec.implementation_ids)
+
+    @api.depends('implementation_ids.resource_id')
+    def _compute_resource_count(self):
+        for rec in self:
+            rec.resource_count = len(
+                rec.implementation_ids.mapped('resource_id'))
 
 
 class GenericResourceType(models.Model):
@@ -55,3 +95,9 @@ class GenericResourceType(models.Model):
         ondelete='restrict')
     resource_ids = fields.One2many(
         'generic.resource', 'res_type_id', string='Resources')
+    resource_count = fields.Integer(compute="_compute_resource_count")
+
+    @api.depends('resource_ids')
+    def _compute_resource_count(self):
+        for rec in self:
+            rec.resource_count = len(rec.resource_ids)
