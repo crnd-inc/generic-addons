@@ -257,3 +257,41 @@ class TestConditionDateDiff(TransactionCase):
         # 2017-05-13 - 2017-05-01 != 2 days
         with freeze_time('2017-05-13'):
             self.assertFalse(condition.check(rec))
+
+        # Test operator <
+        condition.condition_date_diff_operator = '<'
+        with freeze_time('2017-05-02'):  # 2017-05-02 - 2017-05-01 < 2 days
+            self.assertTrue(condition.check(rec))
+
+        with freeze_time('2017-05-03'):  # ! (2017-05-03 - 2017-05-01 < 2 days)
+            self.assertFalse(condition.check(rec))
+
+        # Test operator <=
+        condition.condition_date_diff_operator = '<='
+        with freeze_time('2017-05-02'):  # 2017-05-02 - 2017-05-01 <= 2 days
+            self.assertTrue(condition.check(rec))
+
+        with freeze_time('2017-05-03'):  # 2017-05-03 - 2017-05-01 <= 2 days
+            self.assertTrue(condition.check(rec))
+
+        with freeze_time('2017-05-04'):  # !(2017-05-04 - 2017-05-01 <= 2 days)
+            self.assertFalse(condition.check(rec))
+
+        # Test operator >
+        condition.condition_date_diff_operator = '>'
+        with freeze_time('2017-05-04'):  # 2017-05-04 - 2017-05-01 > 2 days
+            self.assertTrue(condition.check(rec))
+
+        with freeze_time('2017-05-03'):  # ! (2017-05-03 - 2017-05-01 > 2 days)
+            self.assertFalse(condition.check(rec))
+
+        # Test operator >=
+        condition.condition_date_diff_operator = '>='
+        with freeze_time('2017-05-04'):  # 2017-05-04 - 2017-05-01 >= 2 days
+            self.assertTrue(condition.check(rec))
+
+        with freeze_time('2017-05-03'):  # 2017-05-03 - 2017-05-01 >= 2 days
+            self.assertTrue(condition.check(rec))
+
+        with freeze_time('2017-05-02'):  # !(2017-05-02 - 2017-05-01 >= 2 days)
+            self.assertFalse(condition.check(rec))
