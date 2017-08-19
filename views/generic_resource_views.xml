@@ -14,6 +14,9 @@
                 <field name="name"/>
                 <field name="active" invisible="1"/>
                 <field name="implementation_ids"/>
+                <field name="res_type_id"/>
+                <field name="res_model" invisible="1"/>
+                <field name="res_id" widget="generic_m2o" model_field="res_model"/>
             </tree>
         </field>
     </record>
@@ -38,6 +41,9 @@
                     </div>
                     <group>
                         <field name="implementation_ids"/>
+                        <field name="res_type_id"/>
+                        <field name="res_model" invisible="1"/>
+                        <field name="res_id" widget="generic_m2o" model_field="res_model"/>
                     </group>
                 </sheet>
             </form>
@@ -75,12 +81,20 @@
         <field name="model">generic.resource.implementation</field>
         <field name="arch" type="xml">
             <form string="Resource Implementation">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="interface_id"/>
-                <field name="resource_id"/>
-                <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"/>
-                <field name="implementation_model" invisible="1"/>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group colspan="4">
+                        <field name="interface_id"/>
+                        <field name="code"/>
+                        <field name="resource_id"/>
+                        <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"/>
+                        <field name="implementation_model" invisible="1"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -93,6 +107,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+
     <!-- generic.resource.interface -->
     <!-- Tree view for generic.resource.interface -->
     <record id="generic_resource_interface_view_tree" model="ir.ui.view">
@@ -100,7 +115,6 @@
         <field name="model">generic.resource.interface</field>
         <field name="arch" type="xml">
             <tree string="Resource interfaces">
-                <field name="name"/>
                 <field name="code"/>
                 <field name="model_id"/>
             </tree>
@@ -112,9 +126,12 @@
         <field name="model">generic.resource.interface</field>
         <field name="arch" type="xml">
             <form string="Resource Interface">
-                <field name="name"/>
-                <field name="code"/>
-                <field name="model_id"/>
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="model_id"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -127,17 +144,58 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+
+    <!-- generic.resource.type -->
+    <!-- Tree view for generic.resource.type -->
+    <record id="generic_resource_type_view_tree" model="ir.ui.view">
+        <field name="name">generic.resource.type.tree</field>
+        <field name="model">generic.resource.type</field>
+        <field name="arch" type="xml">
+            <tree string="Resource types">
+                <field name="model_id"/>
+                <field name="resource_ids"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for generic.resource.type -->
+    <record id="generic_resource_type_view_from" model="ir.ui.view">
+        <field name="name">generic.resource.type.form</field>
+        <field name="model">generic.resource.type</field>
+        <field name="arch" type="xml">
+            <form string="Resource Type">
+                <sheet>
+                    <group>
+                        <field name="model_id"/>
+                        <field name="resource_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_resource_type_action" model="ir.actions.act_window">
+        <field name="name">Resource Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Menus for Generic Resource -->
     <menuitem id="generic_resource_menu_item"
                 name="Resources"
-                parent="menu_generic_resource_root" sequence="10"
+                parent="menu_generic_resource_root" sequence="5"
                 action="generic_resource_action"/>
     <menuitem id="generic_resource_implementation_menu_item"
                 name="Implementations"
-                parent="menu_generic_resource_root" sequence="20"
+                parent="menu_generic_resource_root" sequence="10"
                 action="generic_resource_implementation_action"/>
     <menuitem id="generic_resource_interface_menu_item"
                 name="Interfaces"
-                parent="menu_generic_resource_root" sequence="20"
+                parent="menu_generic_resource_root" sequence="15"
                 action="generic_resource_interface_action"/>
+    <menuitem id="generic_resource_type_menu_item"
+                name="Types"
+                parent="menu_generic_resource_root" sequence="20"
+                action="generic_resource_type_action"/>
 </odoo>
