@@ -58,7 +58,7 @@
                         <field name="implementation_ids" invisible="1"/>
                         <field name="res_type_id"/>
                         <field name="res_model" invisible="1"/>
-                        <field name="res_id" widget="generic_m2o" model_field="res_model"/>
+                        <field name="res_id" widget="generic_m2o" model_field="res_model" attrs="{'invisible': [('res_model', '=', False)]}"/>
                     </group>
                 </sheet>
             </form>
@@ -107,7 +107,7 @@
                         <field name="interface_id"/>
                         <field name="code"/>
                         <field name="resource_id"/>
-                        <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"/>
+                        <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"  attrs="{'invisible': [('implementation_model', '=', False)]}"/>
                         <field name="implementation_model" invisible="1"/>
                     </group>
                 </sheet>

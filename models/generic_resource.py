@@ -15,7 +15,8 @@ class GenericResource(models.Model):
         string="Implementations")
     implementation_count = fields.Integer(
         compute="_compute_implementation_count")
-    res_type_id = fields.Many2one('generic.resource.type', string="Type")
+    res_type_id = fields.Many2one(
+        'generic.resource.type', string="Type", required=True)
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True)
     res_id = fields.Integer(string="Model", required=True)
@@ -23,7 +24,9 @@ class GenericResource(models.Model):
     @api.depends('res_model', 'res_id')
     def _compute_name(self):
         for rec in self:
-            rec.name = self.env[rec.res_model].browse(rec.res_id).display_name
+            if rec.res_model and rec.res_id:
+                rec.name = self.env[
+                    rec.res_model].browse(rec.res_id).display_name
 
     @api.depends('implementation_ids')
     def _compute_implementation_count(self):
@@ -49,10 +52,11 @@ class GenericResourceImplementation(models.Model):
     @api.depends('implementation_model', 'implementation_id', 'resource_id')
     def _compute_name(self):
         for rec in self:
-            impl_name = self.env[rec.implementation_model].browse(
-                rec.implementation_id
-            ).display_name
-            rec.name = rec.resource_id.display_name + ": " + impl_name
+            if (rec.implementation_model and rec.implementation_id and
+                    rec.resource_id):
+                impl_name = self.env[rec.implementation_model].browse(
+                    rec.implementation_id).display_name
+                rec.name = rec.resource_id.display_name + ": " + impl_name
 
 
 class GenericResourceInterface(models.Model):
