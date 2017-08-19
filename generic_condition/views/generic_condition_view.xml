@@ -255,8 +255,7 @@
                                     <td class="oe_form_group_cell"
                                         rowspan="2"
                                         style="vertical-align: middle; border-left: 1px solid #ddd;">
-                                        <field name="condition_date_diff_absolute"
-                                               attrs="{'required': [('type','=','date_diff')]}"/>
+                                        <field name="condition_date_diff_absolute"/>
                                     </td>
                                 </tr>
                                 <tr class="oe_form_group_row">
