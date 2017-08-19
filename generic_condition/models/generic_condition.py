@@ -490,8 +490,8 @@ class GenericCondition(models.Model):
             #     equal to
             #     date_start + 2 year (>|>=|<|<=) date_end
             return operator_map[operator](
-                date_start + relativedelta(**{uom: value}),
-                date_end
+                date_end,
+                date_start + relativedelta(**{uom: value})
             )
 
     def helper_check_simple_field_number(self, obj_value):
