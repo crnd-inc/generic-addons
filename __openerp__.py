@@ -8,7 +8,7 @@
     'author': "Management and Accounting Online",
     'website': "https://maao.com.ua",
 
-    'category': 'Generic Request',
+    'category': 'Generic Resource',
     'version': '9.0.0.0.1',
 
     # any module necessary for this one to work correctly
