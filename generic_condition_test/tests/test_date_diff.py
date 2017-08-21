@@ -3,7 +3,7 @@ from openerp.tests.common import TransactionCase
 
 try:
     from freezegun import freeze_time
-except ImportError:
+except ImportError:  # pragma: no cover
     import logging
     logging.getLogger(__name__).warn(
         "freezegun not installed. Tests will not work!")
