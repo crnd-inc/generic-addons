@@ -28,7 +28,7 @@ class GenericResource(models.Model):
                     record.res_model].browse(record.res_id).display_name
                 result.append((record.id, name))
             else:
-                result.append((record.id, "%s,%s" % (record._name, record.id)))
+                result.append((record.id, False))
         return result
 
     @api.depends('implementation_ids')
@@ -119,4 +119,5 @@ class GenericResourceMixin(models.AbstractModel):
     _inherits = {'generic.resource': 'resource_id'}
 
     resource_id = fields.Many2one(
-        'generic.resource', index=True, auto_join=True)
+        'generic.resource', index=True, auto_join=True, ondelete='restrict',
+        required=True)
