@@ -5,10 +5,8 @@ from openerp import fields, models, api
 
 class GenericResource(models.Model):
     _name = 'generic.resource'
-    _rec_name = 'name'
     _description = 'Generic Resource'
 
-    name = fields.Char(compute="_compute_name")
     active = fields.Boolean(default=True, index=True)
     implementation_ids = fields.One2many(
         'generic.resource.implementation', 'resource_id',
@@ -22,12 +20,16 @@ class GenericResource(models.Model):
         index=True)
     res_id = fields.Integer(string="Model", required=True, index=True)
 
-    @api.depends('res_model', 'res_id')
-    def _compute_name(self):
-        for rec in self:
-            if rec.res_model and rec.res_id:
-                rec.name = self.env[
-                    rec.res_model].browse(rec.res_id).display_name
+    def name_get(self):
+        result = []
+        for record in self:
+            if record.res_model and record.res_id:
+                name = self.env[
+                    record.res_model].browse(record.res_id).display_name
+                result.append((record.id, name))
+            else:
+                result.append((record.id, "%s,%s" % (record._name, record.id)))
+        return result
 
     @api.depends('implementation_ids')
     def _compute_implementation_count(self):
@@ -110,3 +112,11 @@ class GenericResourceType(models.Model):
     def _compute_resource_count(self):
         for rec in self:
             rec.resource_count = len(rec.resource_ids)
+
+
+class GenericResourceMixin(models.AbstractModel):
+    _name = 'generic.resource.mixin'
+    _inherits = {'generic.resource': 'resource_id'}
+
+    resource_id = fields.Many2one(
+        'generic.resource', index=True, auto_join=True)

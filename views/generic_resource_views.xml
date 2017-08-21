@@ -11,7 +11,7 @@
         <field name="model">generic.resource</field>
         <field name="arch" type="xml">
             <tree string="Resources">
-                <field name="name"/>
+                <field name="display_name" string="Name"/>
                 <field name="active" invisible="1"/>
                 <field name="implementation_ids"/>
                 <field name="res_type_id"/>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="oe_title">
                         <h1>
-                            <field name="name"/>
+                            <field name="display_name" string="Name"/>
                         </h1>
                     </div>
                     <group>
