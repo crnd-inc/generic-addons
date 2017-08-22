@@ -145,7 +145,7 @@ class GenericResourceMixin(models.AbstractModel):
         if vals.get('resource_id', None):
             del vals['resource_id']
 
-        super(GenericResourceMixin, self).write(vals)
+        return super(GenericResourceMixin, self).write(vals)
 
     @api.model
     def create(self, vals):
