@@ -18,7 +18,13 @@ class GenericResource(models.Model):
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True, store=True,
         index=True)
-    res_id = fields.Integer(string="Model", required=True, index=True)
+    res_id = fields.Integer(
+        string="Model", required=True, index=True, readonly=True)
+
+    _sql_constraints = [
+        ('unique_model', 'UNIQUE(res_model, res_id)',
+         'Model instance must be unique')
+    ]
 
     def name_get(self):
         result = []
@@ -118,6 +124,44 @@ class GenericResourceMixin(models.AbstractModel):
     _name = 'generic.resource.mixin'
     _inherits = {'generic.resource': 'resource_id'}
 
+    def _default_resource_id(self):
+        return self.env['generic.resource'].create({
+            'res_type_id': self._get_resource_type().id,
+            'res_id': -1
+        })
+
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True, ondelete='restrict',
-        required=True)
+        required=True, default=_default_resource_id)
+
+    _sql_constraints = [
+        ('unique_resource_id', 'UNIQUE(resource_id)',
+         'Resource must be unique')
+    ]
+
+    @api.model
+    def write(self, vals):
+        # Deny write resource_id field
+        if vals.get('resource_id', None):
+            del vals['resource_id']
+
+        super(GenericResourceMixin, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        res = super(GenericResourceMixin, self).create(vals)
+
+        # Update res_id with created id
+        res.resource_id.update({'res_id': res.id})
+        return res
+
+    @api.multi
+    def _get_resource_type(self):
+        r_type_env = self.env['generic.resource.type']
+        model = self.env['ir.model'].search([('name', '=', self._name)])
+
+        r_type = r_type_env.search([('model_id', '=', model.id)])
+        if not r_type:
+            r_type = r_type_env.create({'model_id': model.id})
+
+        return r_type
