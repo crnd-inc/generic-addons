@@ -161,7 +161,6 @@ class GenericResourceMixin(models.AbstractModel):
         res.resource_id.update({'res_id': res.id})
         return res
 
-    @api.multi
     def _get_resource_type(self):
         r_type_env = self.env['generic.resource.type']
         return r_type_env.search([('model_id.model', '=', self._name)])
