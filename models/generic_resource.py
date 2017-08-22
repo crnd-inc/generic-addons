@@ -3,6 +3,10 @@
 from openerp import fields, models, api
 
 
+import logging
+_logger = logging.getLogger(__name__)
+
+
 class GenericResource(models.Model):
     _name = 'generic.resource'
     _description = 'Generic Resource'
@@ -124,15 +128,9 @@ class GenericResourceMixin(models.AbstractModel):
     _name = 'generic.resource.mixin'
     _inherits = {'generic.resource': 'resource_id'}
 
-    def _default_resource_id(self):
-        return self.env['generic.resource'].create({
-            'res_type_id': self._get_resource_type().id,
-            'res_id': -1
-        })
-
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True, ondelete='restrict',
-        required=True, default=_default_resource_id)
+        required=True)
 
     _sql_constraints = [
         ('unique_resource_id', 'UNIQUE(resource_id)',
@@ -143,12 +141,20 @@ class GenericResourceMixin(models.AbstractModel):
     def write(self, vals):
         # Deny write resource_id field
         if vals.get('resource_id', None):
+            _logger.warn("Trying write something in the resource_id field")
             del vals['resource_id']
 
         return super(GenericResourceMixin, self).write(vals)
 
     @api.model
     def create(self, vals):
+        # Create resource with fake id
+        resource = self.env['generic.resource'].create({
+            'res_type_id': self._get_resource_type().id,
+            'res_id': -1
+        })
+        vals['resource_id'] = resource.id
+
         res = super(GenericResourceMixin, self).create(vals)
 
         # Update res_id with created id
@@ -158,10 +164,4 @@ class GenericResourceMixin(models.AbstractModel):
     @api.multi
     def _get_resource_type(self):
         r_type_env = self.env['generic.resource.type']
-        model = self.env['ir.model'].search([('name', '=', self._name)])
-
-        r_type = r_type_env.search([('model_id', '=', model.id)])
-        if not r_type:
-            r_type = r_type_env.create({'model_id': model.id})
-
-        return r_type
+        return r_type_env.search([('model_id.model', '=', self._name)])
