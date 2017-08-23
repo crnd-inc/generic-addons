@@ -146,7 +146,7 @@ class GenericResourceMixin(models.AbstractModel):
 
         return super(GenericResourceMixin, self).write(vals)
 
-    @api.model
+    @api.multi
     def create(self, vals):
         # Create resource with fake id
         resource = self.env['generic.resource'].create({
