@@ -3,6 +3,10 @@
 from openerp import fields, models, api
 
 
+import logging
+_logger = logging.getLogger(__name__)
+
+
 class GenericResource(models.Model):
     _name = 'generic.resource'
     _description = 'Generic Resource'
@@ -18,7 +22,13 @@ class GenericResource(models.Model):
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True, store=True,
         index=True)
-    res_id = fields.Integer(string="Model", required=True, index=True)
+    res_id = fields.Integer(
+        string="Model", required=True, index=True, readonly=True)
+
+    _sql_constraints = [
+        ('unique_model', 'UNIQUE(res_model, res_id)',
+         'Model instance must be unique')
+    ]
 
     def name_get(self):
         result = []
@@ -121,3 +131,36 @@ class GenericResourceMixin(models.AbstractModel):
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True, ondelete='restrict',
         required=True)
+
+    _sql_constraints = [
+        ('unique_resource_id', 'UNIQUE(resource_id)',
+         'Resource must be unique')
+    ]
+
+    @api.model
+    def write(self, vals):
+        # Deny write resource_id field
+        if vals.get('resource_id', None):
+            _logger.warn("Trying write something in the resource_id field")
+            del vals['resource_id']
+
+        return super(GenericResourceMixin, self).write(vals)
+
+    @api.multi
+    def create(self, vals):
+        # Create resource with fake id
+        resource = self.env['generic.resource'].create({
+            'res_type_id': self._get_resource_type().id,
+            'res_id': -1
+        })
+        vals['resource_id'] = resource.id
+
+        res = super(GenericResourceMixin, self).create(vals)
+
+        # Update res_id with created id
+        res.resource_id.update({'res_id': res.id})
+        return res
+
+    def _get_resource_type(self):
+        r_type_env = self.env['generic.resource.type']
+        return r_type_env.search([('model_id.model', '=', self._name)])
