@@ -81,12 +81,10 @@
         <field name="model">generic.resource.implementation</field>
         <field name="arch" type="xml">
             <tree string="Resources Implementations">
-                <field name="name"/>
                 <field name="resource_id"/>
-                <field name="code"/>
-                <field name="interface_id"/>
-                <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"/>
-                <field name="implementation_model" invisible="1"/>
+                <field name="resource_interface_id"/>
+                <field name="resource_impl_id" widget="generic_m2o" model_field="resource_impl_model"/>
+                <field name="resource_impl_model" invisible="1"/>
             </tree>
         </field>
     </record>
@@ -99,16 +97,15 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name"/>
+                            <field name="display_name"/>
                         </h1>
                     </div>
 
                     <group colspan="4">
                         <field name="resource_id"/>
-                        <field name="interface_id"/>
-                        <field name="code"/>
-                        <field name="implementation_id" widget="generic_m2o" model_field="implementation_model"  attrs="{'invisible': [('implementation_model', '=', False)]}"/>
-                        <field name="implementation_model" invisible="1"/>
+                        <field name="resource_interface_id"/>
+                        <field name="resource_impl_id" widget="generic_m2o" model_field="resource_impl_model"  attrs="{'invisible': [('resource_impl_model', '=', False)]}"/>
+                        <field name="resource_impl_model" invisible="1"/>
                     </group>
                 </sheet>
             </form>
@@ -143,7 +140,7 @@
         <field name="res_model">generic.resource.implementation</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('interface_id', '=', active_id)]</field>
+        <field name="domain">[('resource_interface_id', '=', active_id)]</field>
     </record>
     <!-- Action for open resources for specific interface -->
     <record id="action_generic_resource_interface_2_generic_resource" model="ir.actions.act_window">
@@ -152,7 +149,7 @@
         <field name="res_model">generic.resource</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('implementation_ids.interface_id', '=', active_id)]</field>
+        <field name="domain">[('implementation_ids.resource_resource_interface_id', '=', active_id)]</field>
     </record>
     <!-- Form view for generic.resource.interface -->
     <record id="generic_resource_interface_view_from" model="ir.ui.view">
