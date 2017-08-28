@@ -30,6 +30,7 @@ class GenericResource(models.Model):
          'Model instance must be unique')
     ]
 
+    @api.multi
     def name_get(self):
         result = []
         for record in self:
@@ -67,6 +68,7 @@ class GenericResourceImplementation(models.Model):
          'Resource and interface must be unique in implementation')
     ]
 
+    @api.multi
     def name_get(self):
         result = []
         for record in self:
@@ -88,7 +90,7 @@ class GenericResourceInterface(models.Model):
 
     implementation_ids = fields.One2many(
         'generic.resource.implementation', 'resource_interface_id',
-        string="Inplementations")
+        string="Implementations")
     implementation_count = fields.Integer(
         compute="_compute_implementation_count",
         string="Inplementation count")

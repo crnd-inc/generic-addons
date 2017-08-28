@@ -81,6 +81,7 @@
         <field name="model">generic.resource.implementation</field>
         <field name="arch" type="xml">
             <tree string="Resources Implementations">
+                <field name="display_name"/>
                 <field name="resource_id"/>
                 <field name="resource_interface_id"/>
                 <field name="resource_impl_id" widget="generic_m2o" model_field="resource_impl_model"/>
