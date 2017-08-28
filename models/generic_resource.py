@@ -30,6 +30,7 @@ class GenericResource(models.Model):
          'Model instance must be unique')
     ]
 
+    @api.multi
     def name_get(self):
         result = []
         for record in self:
@@ -51,29 +52,35 @@ class GenericResourceImplementation(models.Model):
     _name = 'generic.resource.implementation'
     _description = 'Generic Resource Implementation'
 
-    name = fields.Char(compute="_compute_name", readonly=True)
-    code = fields.Char(
-        related='interface_id.code', readonly=True, string="interface code",
-        store=True, index=True)
     resource_id = fields.Many2one(
         'generic.resource', string="Resource", required=True, index=True)
-    interface_id = fields.Many2one(
+    resource_interface_id = fields.Many2one(
         'generic.resource.interface', string="Interface", required=True,
         index=True)
-    implementation_model = fields.Char(
-        related='interface_id.model_id.model', readonly=True, store=True,
-        index=True)
-    implementation_id = fields.Integer(
+    resource_impl_model = fields.Char(
+        related='resource_interface_id.model_id.model', readonly=True,
+        store=True, index=True)
+    resource_impl_id = fields.Integer(
         string="Implementation", required=True, index=True)
 
-    @api.depends('implementation_model', 'implementation_id', 'resource_id')
-    def _compute_name(self):
-        for rec in self:
-            if (rec.implementation_model and rec.implementation_id and
-                    rec.resource_id):
-                impl_name = self.env[rec.implementation_model].browse(
-                    rec.implementation_id).display_name
-                rec.name = rec.resource_id.display_name + ": " + impl_name
+    _sql_constraints = [
+        ('unique_model', 'UNIQUE(resource_id, resource_interface_id)',
+         'Resource and interface must be unique in implementation')
+    ]
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for record in self:
+            if (record.resource_impl_model and record.resource_impl_id and
+                    record.resource_id):
+                impl_name = self.env[record.resource_impl_model].browse(
+                    record.resource_impl_id).display_name
+                name = record.resource_id.display_name + ": " + impl_name
+                result.append((record.id, name))
+            else:
+                result.append((record.id, False))
+        return result
 
 
 class GenericResourceInterface(models.Model):
@@ -82,8 +89,8 @@ class GenericResourceInterface(models.Model):
     _description = "Generic Resource Interface"
 
     implementation_ids = fields.One2many(
-        'generic.resource.implementation', 'interface_id',
-        string="Inplementations")
+        'generic.resource.implementation', 'resource_interface_id',
+        string="Implementations")
     implementation_count = fields.Integer(
         compute="_compute_implementation_count",
         string="Inplementation count")
@@ -137,7 +144,7 @@ class GenericResourceMixin(models.AbstractModel):
          'Resource must be unique')
     ]
 
-    @api.model
+    @api.multi
     def write(self, vals):
         # Deny write resource_id field
         if vals.get('resource_id', None):
@@ -146,14 +153,11 @@ class GenericResourceMixin(models.AbstractModel):
 
         return super(GenericResourceMixin, self).write(vals)
 
-    @api.multi
+    @api.model
     def create(self, vals):
-        # Create resource with fake id
-        resource = self.env['generic.resource'].create({
-            'res_type_id': self._get_resource_type().id,
-            'res_id': -1
-        })
-        vals['resource_id'] = resource.id
+        # Add vals for resource with fake id
+        vals['res_type_id'] = self._get_resource_type().id
+        vals['res_id'] = -1
 
         res = super(GenericResourceMixin, self).create(vals)
 
@@ -164,3 +168,30 @@ class GenericResourceMixin(models.AbstractModel):
     def _get_resource_type(self):
         r_type_env = self.env['generic.resource.type']
         return r_type_env.search([('model_id.model', '=', self._name)])
+
+
+class GenericResourceInterfaceMixin(models.Model):
+    _name = 'generic.resource.interface.mixin'
+    _inherits = {
+        'generic.resource.implementation': 'resource_implementation_id'}
+
+    resource_implementation_id = fields.Many2one(
+        'generic.resource.implementation', index=True, required=True,
+        auto_join=True, ondelete='restrict')
+
+    @api.model
+    def create(self, vals):
+        # Add vals for implementation with fake id
+        vals['resource_interface_id'] = self._get_resource_interface().id
+        vals['resource_impl_id'] = -1
+
+        res = super(GenericResourceInterfaceMixin, self).create(vals)
+
+        # Update resource_impl_id with created id
+        res.resource_implementation_id.update({
+            'resource_impl_id': res.id})
+        return res
+
+    def _get_resource_interface(self):
+        interface_env = self.env['generic.resource.interface']
+        return interface_env.search([('model_id.model', '=', self._name)])
