@@ -54,8 +54,8 @@ class GenericResourceImplementation(models.Model):
 
     resource_id = fields.Many2one(
         'generic.resource', string="Resource", required=True, index=True)
-    resource_model_model = fields.Char(string="Resource Type",
-        related='resource_id.res_model')
+    resource_model_model = fields.Char(
+        string="Resource Type", related='resource_id.res_model')
     resource_model_id = fields.Integer(related='resource_id.res_id')
     resource_interface_id = fields.Many2one(
         'generic.resource.interface', string="Interface", required=True,
