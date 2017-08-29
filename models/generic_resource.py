@@ -54,6 +54,9 @@ class GenericResourceImplementation(models.Model):
 
     resource_id = fields.Many2one(
         'generic.resource', string="Resource", required=True, index=True)
+    resource_model_model = fields.Char(
+        string="Resource Type", related='resource_id.res_model')
+    resource_model_id = fields.Integer(related='resource_id.res_id')
     resource_interface_id = fields.Many2one(
         'generic.resource.interface', string="Interface", required=True,
         index=True)
@@ -184,6 +187,14 @@ class GenericResourceInterfaceMixin(models.Model):
         # Add vals for implementation with fake id
         vals['resource_interface_id'] = self._get_resource_interface().id
         vals['resource_impl_id'] = -1
+
+        if (not vals.get('resource_id', None) and
+                vals.get('resource_model_model', None) and
+                vals.get('resource_model_id', None)):
+            vals['resource_id'] = self.env['generic.resource'].search([
+                ('res_model', '=', vals['resource_model_model']),
+                ('res_id', '=', vals['resource_model_id'])
+            ]).id
 
         res = super(GenericResourceInterfaceMixin, self).create(vals)
 
