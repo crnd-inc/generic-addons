@@ -118,11 +118,7 @@ class GenericResourceType(models.Model):
     _inherits = {'ir.model': 'model_id'}
     _description = "Generic Resource Type"
 
-    def _default_name(self):
-        return self.model_id.name
-
-    name = fields.Char(
-        index=True, required=True, translate=True, default=_default_name)
+    name = fields.Char(index=True, required=True, translate=True)
     model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
         ondelete='restrict')
@@ -134,6 +130,12 @@ class GenericResourceType(models.Model):
     def _compute_resource_count(self):
         for rec in self:
             rec.resource_count = len(rec.resource_ids)
+
+    @api.onchange('model_id')
+    def _onchenge_model_id(self):
+        for rec in self:
+            if rec.model_id:
+                rec.name = rec.model_id.name
 
 
 class GenericResourceMixin(models.AbstractModel):

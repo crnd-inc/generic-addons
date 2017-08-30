@@ -202,6 +202,7 @@
         <field name="model">generic.resource.type</field>
         <field name="arch" type="xml">
             <tree string="Resource types">
+                <field name="name"/>
                 <field name="model_id"/>
                 <field name="resource_ids"/>
             </tree>
@@ -230,6 +231,11 @@
                                 icon="fa-bars">
                             <field string="Resources" name="resource_count" widget="statinfo"/>
                         </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
                     </div>
                     <group>
                         <field name="model_id"/>
