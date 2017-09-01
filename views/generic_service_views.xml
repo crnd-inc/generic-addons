@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_generic_service_root"
+        name="Generic Services"
+        parent="base.menu_custom" />
+
+    <!-- generic.service -->
+    <!-- Tree view for generic.service -->
+    <record id="generic_service_view_tree" model="ir.ui.view">
+        <field name="name">generic.service.tree</field>
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <tree string="Services">
+                <field name="name"/>
+                <field name="active" invisible="1"/>
+                <field name="product_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for generic.service -->
+    <record id="generic_service_view_form" model="ir.ui.view">
+        <field name="name">generic.service.form</field>
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <form string="Service">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="product_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_service_action" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.service</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus for Generic Resource -->
+    <menuitem id="generic_service_menu_item"
+                name="Services"
+                parent="menu_generic_service_root" sequence="5"
+                action="generic_service_action"/>
+</odoo>
