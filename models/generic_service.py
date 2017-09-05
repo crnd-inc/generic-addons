@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class GenericSerivce(models.Model):
@@ -11,3 +11,9 @@ class GenericSerivce(models.Model):
     product_id = fields.Many2one(
         'product.product', domain=[('type', '=', 'service')], string="Product",
         ondelete='restrict', required=True)
+
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        for rec in self:
+            if rec.product_id:
+                rec.name = rec.product_id.name
