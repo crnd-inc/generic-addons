@@ -23,7 +23,7 @@ class GenericResource(models.Model):
         related='res_type_id.model_id.model', readonly=True, store=True,
         index=True)
     res_id = fields.Integer(
-        string="Model", required=True, index=True, readonly=True)
+        string="Resource", required=True, index=True, readonly=True)
 
     _sql_constraints = [
         ('unique_model', 'UNIQUE(res_model, res_id)',

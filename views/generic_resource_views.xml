@@ -10,7 +10,7 @@
         <field name="name">generic.resource.tree</field>
         <field name="model">generic.resource</field>
         <field name="arch" type="xml">
-            <tree string="Resources">
+            <tree string="Resources" create="false" >
                 <field name="display_name" string="Name"/>
                 <field name="active" invisible="1"/>
                 <field name="implementation_ids"/>
@@ -60,6 +60,8 @@
                         <field name="res_model" invisible="1"/>
                         <field name="res_id" widget="generic_m2o" model_field="res_model" attrs="{'invisible': [('res_model', '=', False)]}"/>
                     </group>
+                    <notebook>
+                    </notebook>
                 </sheet>
             </form>
         </field>
