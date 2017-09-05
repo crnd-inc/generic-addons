@@ -39,8 +39,21 @@
                     <group>
                         <field name="product_id"/>
                     </group>
+                    <notebook>
+                    </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+    <!-- Search for generic.service -->
+    <record model="ir.ui.view" id="generic_service_view_search">
+        <field name="name">generic.service.search</field>
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_id"/>
+            </search>
         </field>
     </record>
 
