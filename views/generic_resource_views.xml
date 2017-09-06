@@ -10,7 +10,7 @@
         <field name="name">generic.resource.tree</field>
         <field name="model">generic.resource</field>
         <field name="arch" type="xml">
-            <tree string="Resources" create="false" >
+            <tree string="Resources">
                 <field name="display_name" string="Name"/>
                 <field name="active" invisible="1"/>
                 <field name="implementation_ids"/>
