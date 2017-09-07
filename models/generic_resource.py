@@ -126,6 +126,12 @@ class GenericResourceType(models.Model):
         'generic.resource', 'res_type_id', string='Resources')
     resource_count = fields.Integer(compute="_compute_resource_count")
 
+    _sql_constraints = [
+        ('model_id_uniq',
+         'UNIQUE (model_id)',
+         'For each Odoo model only one Resource Type can be created!'),
+    ]
+
     @api.depends('resource_ids')
     def _compute_resource_count(self):
         for rec in self:
