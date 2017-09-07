@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="generic.tag.model" id="generic_tag_model_account_invoice">
+        <field name="res_model_id" ref="account.model_account_invoice"/>
+    </record>
+</odoo>
