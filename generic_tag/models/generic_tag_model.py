@@ -24,6 +24,12 @@ class GenericTagModel(models.Model):
         string="Tags", compute="_compute_tags_count", store=False,
         readonly=True, help="How many tags related to this model exists")
 
+    _sql_constraints = [
+        ('res_model_id_uniq',
+         'UNIQUE (res_model_id)',
+         'For each Odoo model only one Tag Model could be created!'),
+    ]
+
     @api.multi
     def action_show_tags(self):
         self.ensure_one()
