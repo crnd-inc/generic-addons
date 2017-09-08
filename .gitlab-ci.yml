@@ -42,6 +42,7 @@ tests:
         - odoo-helper --use-unbuffer test --coverage --create-test-db -d .
         - odoo-helper exec coverage report --fail-under=90
         - odoo-helper exec coverage html -d html-coverage
+    coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     artifacts:
         paths:
             - html-coverage
