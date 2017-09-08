@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- generic.resource.implementation -->
+    <!-- Tree view for generic.resource.implementation -->
+    <record id="generic_resource_implementation_view_tree" model="ir.ui.view">
+        <field name="name">generic.resource.implementation.tree</field>
+        <field name="model">generic.resource.implementation</field>
+        <field name="arch" type="xml">
+            <tree string="Resources Implementations">
+                <field name="display_name"/>
+                <field name="resource_id"/>
+                <field name="resource_interface_id"/>
+                <field name="resource_impl_id" widget="generic_m2o" model_field="resource_impl_model"/>
+                <field name="resource_impl_model" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for generic.resource.implementation -->
+    <record id="generic_resource_implementation_view_form" model="ir.ui.view">
+        <field name="name">generic.resource.implementation.form</field>
+        <field name="model">generic.resource.implementation</field>
+        <field name="arch" type="xml">
+            <form string="Resource Implementation">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name"/>
+                        </h1>
+                    </div>
+
+                    <group colspan="4">
+                        <field name="resource_id"/>
+                        <field name="resource_interface_id"/>
+                        <field name="resource_impl_id" widget="generic_m2o" model_field="resource_impl_model"  attrs="{'invisible': [('resource_impl_model', '=', False)]}"/>
+                        <field name="resource_impl_model" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_resource_implementation_action" model="ir.actions.act_window">
+        <field name="name">Resource Implementations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.implementation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="generic_resource_implementation_menu_item"
+                name="Implementations"
+                parent="menu_generic_resource_root" sequence="10"
+                action="generic_resource_implementation_action"/>
+
+</odoo>

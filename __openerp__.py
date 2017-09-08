@@ -19,7 +19,10 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/generic_resource_views.xml'
+        'views/generic_resource_views.xml',
+        'views/generic_resource_implementation_views.xml',
+        'views/generic_resource_interface_views.xml',
+        'views/generic_resource_type_views.xml'
     ],
     'demo': [
     ],
