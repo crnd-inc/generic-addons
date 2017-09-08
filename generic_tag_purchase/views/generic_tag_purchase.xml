@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_tags_view_action" model="ir.actions.act_window">
+        <field name="name">Purchase Order Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.tag</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_model': 'purchase.order'}</field>
+        <field name="domain">[('model_id.model','=','purchase.order')]</field>
+    </record>
+
+    <record id="purchase_line_tags_view_action" model="ir.actions.act_window">
+        <field name="name">Purchase Line Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.tag</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_model': 'purchase.order.line'}</field>
+        <field name="domain">[('model_id.model','=','purchase.order.line')]</field>
+    </record>
+
+    <menuitem id="menu_purchase_tags"
+              parent="generic_tag.menu_generic_tags_root"
+              name="Purchase Tags"
+              sequence="50"/>
+
+    <menuitem id="menu_purchase_order_tags_id" name="Purchase Order Tags"
+              parent="menu_purchase_tags" sequence="15"
+              action="purchase_order_tags_view_action"/>
+
+    <menuitem id="menu_sale_order_line_tags_id" name="Purchase Line Tags"
+              parent="menu_purchase_tags" sequence="25"
+              action="purchase_line_tags_view_action"/>
+</odoo>

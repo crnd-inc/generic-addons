@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="generic.tag.model" id="generic_tag_model_purchase_order">
+        <field name="res_model_id" ref="purchase.model_purchase_order"/>
+    </record>
+    <record model="generic.tag.model" id="generic_tag_model_purchase_order_line">
+        <field name="res_model_id" ref="purchase.model_purchase_order_line"/>
+    </record>
+</odoo>
