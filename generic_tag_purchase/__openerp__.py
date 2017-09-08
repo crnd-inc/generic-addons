@@ -24,6 +24,6 @@
         'views/generic_tag_purchase.xml'
     ],
     "installable": True,
-    "active": True,
+    "auto_install": True,
     'license': 'Other proprietary',
 }
