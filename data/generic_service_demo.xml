@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="generic_service_rent_notebook" model="generic.service">
-        <field name="name">Оренда ноутбука</field>
+        <field name="name">Rent of notebook</field>
         <field name="product_id" ref="product_product_service_rent_notebook"/>
     </record>
 </odoo>
