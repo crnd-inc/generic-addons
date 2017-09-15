@@ -1,2 +1,2 @@
-Generic Tag Product
-===================
+Generic Tag Product (Experimental)
+==================================

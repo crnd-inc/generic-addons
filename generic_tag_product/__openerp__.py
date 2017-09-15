@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Generic Tag (Product)",
+    'name': "Generic Tag (Product) (Experimental) ",
 
     'summary': """
         Generic tag integration with product addon
@@ -23,6 +23,6 @@
         'views/generic_tag_product.xml'
     ],
     "installable": True,
-    "auto_install": True,
+    "auto_install": False,
     'license': 'Other proprietary',
 }
