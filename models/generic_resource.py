@@ -88,9 +88,9 @@ class GenericResourceMixin(models.AbstractModel):
 
         # Delete records
         res = super(GenericResourceMixin, self).unlink()
-
         # Delete resources and return status
-        return resources.unlink() and res
+        resources.unlink()
+        return res
 
     def _get_resource_type(self):
         r_type_env = self.env['generic.resource.type']

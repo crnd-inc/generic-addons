@@ -8,7 +8,8 @@ class GenericResourceImplementation(models.Model):
     _description = 'Generic Resource Implementation'
 
     resource_id = fields.Many2one(
-        'generic.resource', string="Resource", required=True, index=True)
+        'generic.resource', string="Resource", required=True, index=True,
+        ondelete='restrict')
     resource_interface_id = fields.Many2one(
         'generic.resource.interface', string="Interface", required=True,
         index=True)
