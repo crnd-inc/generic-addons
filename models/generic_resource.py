@@ -36,8 +36,8 @@ class GenericResource(models.Model):
         for record in self:
             if record.res_model and record.res_id:
                 name = self.env[
-                    record.res_model].browse(record.res_id).display_name
-                result.append((record.id, name))
+                    record.res_model].browse(record.res_id)
+                result.append((record.id, name.display_name))
             else:
                 result.append((record.id, False))
         return result
@@ -81,6 +81,16 @@ class GenericResourceMixin(models.AbstractModel):
         # Update res_id with created id
         res.resource_id.update({'res_id': res.id})
         return res
+
+    def unlink(self):
+        # Get resources
+        resources = self.mapped('resource_id')
+
+        # Delete records
+        res = super(GenericResourceMixin, self).unlink()
+
+        # Delete resources and return status
+        return resources.unlink() and res
 
     def _get_resource_type(self):
         r_type_env = self.env['generic.resource.type']
