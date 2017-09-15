@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="invoice_search_form_view" model="ir.ui.view">
+        <field name="name">account.invoice.search.form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <field name="number" position="after">
+                <field name="tag_ids"/>
+                <field name="no_tag_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="account_invoice_tree_view" model="ir.ui.view">
+        <field name="name">account.invoice.tags.tree</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+            </field>
+        </field>
+    </record>
+
+    <record id="account_invoice_supplier_tree_view" model="ir.ui.view">
+        <field name="name">account.invoice.supplier.tags.tree</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_supplier_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_account_invoice_tag_form_supplier" model="ir.ui.view">
+        <field name="name">account.invoice.tag.form.inherit</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_supplier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet/div/h1" position="after">
+                <field name="tag_ids"
+                        widget="many2many_tags"
+                        placeholder="Tags..."
+                        context="{'default_model': 'account.invoice'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_invoice_tag_form_customer" model="ir.ui.view">
+        <field name="name">account.invoice.tag.form.inherit</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet/h1" position="after">
+                <field name="tag_ids"
+                        widget="many2many_tags"
+                        placeholder="Tags..."
+                        context="{'default_model': 'account.invoice'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
