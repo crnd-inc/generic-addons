@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_generic_tag_category_search" model="ir.ui.view">
+        <field name="name">generic.tag.category.search</field>
+        <field name="model">generic.tag.category</field>
+        <field name="arch" type="xml">
+            <search string="Tag Category Search">
+                <field name="model_id"/>
+                <field name="name"/>
+                <field name="code"/>
+
+                <group expand="0" string="Group By...">
+                    <filter string="Model" domain="[]" context="{'group_by':'model_id'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="view_generic_tag_category_tree" model="ir.ui.view">
+        <field name="name">generic.tag.category.tree</field>
+        <field name="model">generic.tag.category</field>
+        <field name="arch" type="xml">
+            <tree string="Tag Categories" colors="grey: tags_count == 0">
+                <field name="model_id" widget="selection"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="comment"/>
+                <field name="check_xor"/>
+                <field name="active"/>
+                <field name="tags_count"/>
+                <button name="action_show_tags" type="object"
+                        string="Show Tags" icon="fa-search"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_generic_tag_category_form" model="ir.ui.view">
+        <field name="name">generic.tag.category.form</field>
+        <field name="model">generic.tag.category</field>
+        <field name="arch" type="xml">
+            <form string="Tag Category">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_show_tags"
+                                type="object" string="Tags" icon="fa-bars"
+                                class="oe_stat_button">
+                            <field name="tags_count"/>
+                        </button>
+                        <button name="toggle_active" type="object" groups="base.group_user"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <label for="name" class="oe_edit_only"/>
+                            <field name="name" placeholder="Category name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="code" placeholder="Category code"/>
+                        <field name="model_id" widget="selection"/>
+                        <field name="check_xor"/>
+                    </group>
+                    <field name="comment" placeholder="Comment..."/>
+                </sheet>
+                <group>
+                    <group>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_generic_tag_caegories_view" model="ir.actions.act_window">
+        <field name="name">Tag Categories</field>
+        <field name="res_model">generic.tag.category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_generic_tag_category_tree"/>
+    </record>
+
+    <menuitem action="action_generic_tag_caegories_view" id="menu_action_generic_tag_categories_view"
+                parent="menu_generic_tags_configuration_root" sequence="20"/>
+</odoo>
