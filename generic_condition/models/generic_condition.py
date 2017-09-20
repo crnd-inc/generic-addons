@@ -3,8 +3,6 @@ from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.tools.safe_eval import safe_eval
 from openerp.exceptions import ValidationError, UserError
-import datetime
-from dateutil.relativedelta import relativedelta
 
 from ..utils import str_to_datetime
 
@@ -13,6 +11,7 @@ import traceback
 import time
 import datetime
 import dateutil
+from dateutil.relativedelta import relativedelta
 from pytz import timezone
 
 import logging
