@@ -10,6 +10,10 @@ from ..utils import str_to_datetime
 
 import re
 import traceback
+import time
+import datetime
+import dateutil
+from pytz import timezone
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -656,6 +660,12 @@ class GenericCondition(models.Model):
             'record': obj,
             'env': self.env,
             'model': self.env[obj._name],
+            'uid': self._uid,
+            'user': self.env.user,
+            'time': time,
+            'datetime': datetime,
+            'dateutil': dateutil,
+            'timezone': timezone,
         }
 
     @api.multi
