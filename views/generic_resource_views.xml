@@ -15,8 +15,6 @@
                 <field name="active" invisible="1"/>
                 <field name="implementation_ids"/>
                 <field name="res_type_id"/>
-                <field name="res_model" invisible="1"/>
-                <field name="res_id" widget="generic_m2o" model_field="res_model"/>
             </tree>
         </field>
     </record>
