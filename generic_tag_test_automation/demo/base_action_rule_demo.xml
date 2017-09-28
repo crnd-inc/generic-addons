@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action Rules -->
+    <record id="action_rule_add_tag" model="base.action.rule">
+        <field name="name">Rule auto add tag</field>
+        <field name="model_id" ref="generic_tag_test.model_generic_tag_test_model"/>
+        <field name="filter_id" ref="generic_tag_test.filter_test_field_eq_add"/>
+        <!--#  'filter_pre_id': filter_pre_id,-->
+        <field name="act_add_tag_ids" eval="[(4, ref('generic_tag_test.test_tag_1'))]"/>
+        <field name="kind">on_create_or_write</field>
+    </record>
+    <record id="action_rule_rem_tag" model="base.action.rule">
+        <field name="name">Rule auto remove tag</field>
+        <field name="model_id" ref="generic_tag_test.model_generic_tag_test_model"/>
+        <field name="filter_id"
+               ref="generic_tag_test.filter_test_field_eq_remove"/>
+        <!--#  'filter_pre_id': filter_pre_id,-->
+        <field name="act_remove_tag_ids"
+               eval="[(4, ref('generic_tag_test.test_tag_1'))]"/>
+        <field name="kind">on_create_or_write</field>
+    </record>
+</odoo>

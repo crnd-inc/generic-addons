@@ -23,7 +23,6 @@
         'views/generic_tag_view.xml',
         'views/generic_tag_category_view.xml',
         'views/generic_tag_model_view.xml',
-        'views/base_action_rule_view.xml',
     ],
     "installable": True,
     'license': 'Other proprietary',
