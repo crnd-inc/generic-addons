@@ -1,6 +1,7 @@
 image: 10.100.98.41:5000/maao-docker/maao-simple:maao-9.0
 
 variables:
+    SERIES_BRANCH: '9.0'
     POSTGRES_USER: odoo
     POSTGRES_PASSWORD: odoo
 
@@ -46,3 +47,22 @@ tests:
     artifacts:
         paths:
             - html-coverage
+
+migration_tests:
+    variables:
+        ODOO_DB_NAME: test-db
+
+    services:
+        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
+
+    before_script:
+        - git checkout $SERIES_BRANCH
+        - odoo-helper link .
+        - odoo-helper db create --demo $ODOO_DB_NAME
+        - odoo-helper addons install -d $ODOO_DB_NAME $(odoo-helper addons list .)
+        - git checkout $CI_COMMIT_SHA
+        - odoo-helper link .
+    script:
+        - odoo-helper --use-unbuffer test --coverage -d .
+        - odoo-helper exec coverage report --fail-under=90
+    coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
