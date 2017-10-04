@@ -46,6 +46,8 @@ tests:
         - odoo-helper exec coverage report --fail-under=90
         - odoo-helper exec coverage html -d html-coverage
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
+    only:
+        - /^9.0-.*$/   # only branches that started with '9.0-'
     artifacts:
         paths:
             - html-coverage
