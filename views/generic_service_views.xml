@@ -10,7 +10,7 @@
         <field name="name">generic.service.tree</field>
         <field name="model">generic.service</field>
         <field name="arch" type="xml">
-            <tree string="Services">
+            <tree>
                 <field name="name"/>
                 <field name="active" invisible="1"/>
                 <field name="product_id"/>
