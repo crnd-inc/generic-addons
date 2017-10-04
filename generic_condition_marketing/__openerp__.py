@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Generic Condition - Marketing",
-    "version": "10.0.0.0.1",
+    "version": "11.0.0.0.1",
     "author": "Management and Accounting Online",
     "website": "https://maao.com.ua",
     "license": "Other proprietary",
@@ -19,6 +19,6 @@
         'views/marketing_campaign_view.xml',
         # 'wizard/test_condition_view.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': True,
 }

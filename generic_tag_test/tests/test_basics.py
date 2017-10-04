@@ -2,6 +2,7 @@
 
 from openerp.tests.common import TransactionCase
 from openerp.exceptions import ValidationError
+from openerp.tools.misc import mute_logger
 from psycopg2 import IntegrityError
 import logging
 _logger = logging.getLogger(__name__)
@@ -299,7 +300,7 @@ class TestBasics(TransactionCase):
         self.assertEqual(tag.model_id.model, 'generic.tag.test.model')
         self.assertEqual(tag.model_id.id, self.test_model.id)
 
-        with self.assertRaises(IntegrityError):
+        with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
             self.env['generic.tag'].with_context(
                 default_model=False
             ).create({

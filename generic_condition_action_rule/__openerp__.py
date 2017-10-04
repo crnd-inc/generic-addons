@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Generic Condition - Action Rules",
-    "version": "10.0.0.0.1",
+    "version": "11.0.0.0.1",
     "author": "Management and Accounting Online",
     "website": "https://maao.com.ua",
     "license": "Other proprietary",
@@ -17,6 +17,6 @@
     'data': [
         'views/base_action_rule_view.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': True,
 }

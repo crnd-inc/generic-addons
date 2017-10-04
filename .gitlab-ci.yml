@@ -1,7 +1,7 @@
-image: 10.100.98.41:5000/maao-docker/maao-simple:10.0-maao
+image: 10.100.98.41:5000/maao-docker/maao-simple:11.0
 
 variables:
-    SERIES_BRANCH: '10.0'
+    SERIES_BRANCH: '11.0'
     POSTGRES_USER: odoo
     POSTGRES_PASSWORD: odoo
 
@@ -72,4 +72,4 @@ migration_tests:
         - odoo-helper exec coverage report --fail-under=90
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
-        - /^10.0-.*$/   # only branches that started with '10.0-'
+        - /^11.0-.*$/   # only branches that started with '11.0-'
