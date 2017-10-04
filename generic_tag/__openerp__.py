@@ -14,7 +14,7 @@
 
     "depends": [
         "base",
-        "base_action_rule",
+        "generic_tag_automation",
     ],
 
     "data": [
