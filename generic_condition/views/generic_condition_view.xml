@@ -53,7 +53,7 @@
         <field name="name">generic.condition.tree</field>
         <field name="model">generic.condition</field>
         <field name="arch" type="xml">
-            <tree string="Conditions">
+            <tree>
                 <field name="name"/>
                 <field name="sequence" invisible="1"/>
                 <field name="type"/>
@@ -186,7 +186,7 @@
                                                domain="[('model_id','=',condition_rel_field_id_model_id)]"
                                                widget="many2many_tags"
                                                options="{'no_quick_create': true}"/></td>
-                                        
+
                                 </tr>
                             </table>
                         </group>
