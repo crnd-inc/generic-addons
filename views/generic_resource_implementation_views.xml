@@ -7,7 +7,7 @@
         <field name="name">generic.resource.implementation.tree</field>
         <field name="model">generic.resource.implementation</field>
         <field name="arch" type="xml">
-            <tree string="Resources Implementations">
+            <tree>
                 <field name="display_name"/>
                 <field name="resource_id"/>
                 <field name="resource_interface_id"/>
