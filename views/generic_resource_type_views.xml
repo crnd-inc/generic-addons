@@ -7,7 +7,7 @@
         <field name="name">generic.resource.type.tree</field>
         <field name="model">generic.resource.type</field>
         <field name="arch" type="xml">
-            <tree string="Resource types">
+            <tree>
                 <field name="name"/>
                 <field name="model_id"/>
                 <field name="resource_ids"/>
