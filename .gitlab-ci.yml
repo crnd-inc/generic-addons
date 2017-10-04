@@ -1,6 +1,7 @@
 image: 10.100.98.41:5000/maao-docker/maao-simple:10.0-maao
 
 variables:
+    SERIES_BRANCH: '10.0'
     POSTGRES_USER: odoo
     POSTGRES_PASSWORD: odoo
 
@@ -23,6 +24,8 @@ before_script:
     - odoo-helper --version
     - jshint --version
     - cat /opt/odoo/conf/odoo.conf
+    - odoo-helper exec pylint --version
+    - odoo-helper exec flake8 --version
 
 flake8:
     script:
@@ -46,3 +49,25 @@ tests:
     artifacts:
         paths:
             - html-coverage
+
+migration_tests:
+    variables:
+        ODOO_DB_NAME: test-db
+
+    services:
+        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
+
+    before_script:
+        - git checkout $SERIES_BRANCH
+        - odoo-helper link .
+        - odoo-helper --use-unbuffer db create --demo $ODOO_DB_NAME
+        - odoo-helper --use-unbuffer addons install -d $ODOO_DB_NAME $(odoo-helper addons list .)
+        - git checkout $CI_COMMIT_SHA
+        - odoo-helper link .
+        - odoo-helper addons update-list
+    script:
+        - odoo-helper --use-unbuffer test --coverage -d .
+        - odoo-helper exec coverage report --fail-under=90
+    coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
+    only:
+        - /^10.0-.*$/   # only branches that started with '10.0-'

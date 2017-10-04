@@ -39,7 +39,7 @@
         <field name="name">generic.tag.tree</field>
         <field name="model">generic.tag</field>
         <field name="arch" type="xml">
-            <tree string="Tags" colors="grey: objects_count == 0;">
+            <tree>
                 <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                 <field name="category_id" domain="[('model_id','=',model_id)]"
                         context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
@@ -107,4 +107,3 @@
     <menuitem action="action_generic_tags_view" id="menu_action_generic_tags_view"
                 parent="menu_generic_tags_all" sequence="10"/>
 </odoo>
-

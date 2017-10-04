@@ -21,7 +21,7 @@
         <field name="name">generic.tag.category.tree</field>
         <field name="model">generic.tag.category</field>
         <field name="arch" type="xml">
-            <tree string="Tag Categories" colors="grey: tags_count == 0">
+            <tree>
                 <field name="model_id" widget="selection"/>
                 <field name="name"/>
                 <field name="code"/>
