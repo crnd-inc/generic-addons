@@ -14,7 +14,6 @@
 
     "depends": [
         "base",
-        "generic_tag_automation",
     ],
 
     "data": [
