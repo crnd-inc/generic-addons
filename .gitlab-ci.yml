@@ -64,6 +64,7 @@ migration_tests:
         - odoo-helper --use-unbuffer addons install -d $ODOO_DB_NAME $(odoo-helper addons list .)
         - git checkout $CI_COMMIT_SHA
         - odoo-helper link .
+        - odoo-helper addons update-list
     script:
         - odoo-helper --use-unbuffer test --coverage -d .
         - odoo-helper exec coverage report --fail-under=90
