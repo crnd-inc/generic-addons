@@ -9,7 +9,7 @@
     'website': "https://maao.com.ua",
 
     'category': 'Generic Service',
-    'version': '10.0.0.0.1',
+    'version': '11.0.0.0.1',
 
     # any module necessary for this one to work correctly
     'depends': [
