@@ -12,6 +12,7 @@
 
     "depends": [
         "generic_tag",
+        "base_action_rule"
     ],
 
     "data": [
