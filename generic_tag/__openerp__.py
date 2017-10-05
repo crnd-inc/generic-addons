@@ -14,7 +14,6 @@
 
     "depends": [
         "base",
-        "base_action_rule",
     ],
 
     "data": [
