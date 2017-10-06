@@ -8,11 +8,11 @@ class BaseActionRule(models.Model):
 
     act_add_tag_ids = fields.Many2many(
         'generic.tag', 'base_action_rule_add_tag_ids_rel', 'rule_id', 'tag_id',
-        string="Add Tags", help="Specify tags to be added to object this rule"
+        string="Add Tags", help="Specify tags to be added to object this rule "
         "is applied to")
     act_remove_tag_ids = fields.Many2many(
         'generic.tag', 'base_action_rule_remove_tag_ids_rel', 'rule_id',
-        'tag_id', string="Remove Tags", help="Specify tags to be removed"
+        'tag_id', string="Remove Tags", help="Specify tags to be removed "
         "from object this rule is applied to")
 
     # Overridden to add tag related logic

@@ -20,7 +20,7 @@ class GenericTagCategory(models.Model):
     # model_id field will be added by 'generic.tag.model.mixin'
     name = fields.Char(required=True, translate=True, index=True)
     code = fields.Char(
-        index=True, help="May be used for special"
+        index=True, help="May be used for special "
                          "tags which have programmed bechavior")
 
     comment = fields.Text(help="Describe what this tag category is for")
