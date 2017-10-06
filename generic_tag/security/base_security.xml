@@ -12,27 +12,31 @@
     <record model="res.groups" id="group_tags_user_restricted">
         <field name="name">Tag User (restricted)</field>
         <field name="category_id" ref="module_category_tag"/>
-        <field name="comment">Access tag only if this tag have same group with user</field>
+        <field name="comment">
+            Users in this group have access to tags that have same group that user have
+        </field>
     </record>
     <record model="res.groups" id="group_tags_user">
         <field name="name">Tag User</field>
         <field name="category_id" ref="module_category_tag"/>
-        <field name="comment">Access to menu Tags. No create / edit tags.</field>
+        <field name="comment">
+            Users in this group have access to menu Tags. They cannot create or edit tags.
+        </field>
     </record>
     <record model="res.groups" id="group_tags_manager">
         <field name="name">Tag Manager</field>
         <field name="implied_ids" eval="[(4, ref('generic_tag.group_tags_user'))]"/>
         <field name="category_id" ref="module_category_tag"/>
         <field name="users" eval="[(4, ref('base.user_root'))]"/>
-        <field name="comment">Manage tags (create / update / ...)</field>
+        <field name="comment">
+            Users in this group can manage tags (create / update / ...)
+        </field>
     </record>
 
     <!-- Global tag rules -->
     <record id="rule_generic_tags_user" model="ir.rule">
         <field name="name">Global: see tags w/o group or if user in same group</field>
         <field name="model_id" ref="generic_tag.model_generic_tag"/>
-        <!--<field name="groups" eval="[(4, ref('base.group_user')), (4, ref('base.group_portal'))]"/>-->
-        <!--<field name="groups" eval="[(4, ref('generic_tag.group_tags_user'))]"/>-->
         <field name="domain_force">['|', '|', ('group_ids','=',False),('group_ids.users.id','=',user.id), (int(user.has_group('generic_tag.group_tags_manager')), '=', 1)]</field>
     </record>
     <record id="rule_generic_tags_user_restricted" model="ir.rule">
