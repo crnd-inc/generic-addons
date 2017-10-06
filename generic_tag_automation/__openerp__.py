@@ -7,7 +7,7 @@
 
     'author': "Management and Accounting Online",
     'website': "https://maao.com.ua",
-    'category': 'Uncategorized',
+    'category': 'Generic Tags',
     'version': '9.0.0.0.1',
 
     "depends": [
@@ -19,6 +19,6 @@
         'views/base_action_rule_view.xml',
     ],
     "installable": True,
-    "auto_install": False,
+    "auto_install": True,
     'license': 'Other proprietary',
 }
