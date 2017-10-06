@@ -48,7 +48,7 @@ class GenericTag(models.Model):
         index=True, ondelete='restrict')
     name = fields.Char(required=True, translate=True, index=True)
     code = fields.Char(
-        index=True, help="May be used for special"
+        index=True, help="May be used for special "
                          "tags which have programmed bechavior")
     comment = fields.Text(help="Describe what this tag means")
 
@@ -57,7 +57,7 @@ class GenericTag(models.Model):
     complete_name = fields.Char(
         string="Name", compute="_compute_complete_name",
         store=True, readonly=True,
-        help="Full name of tag (including category name")
+        help="Full name of tag (including category name)")
 
     objects_count = fields.Integer(
         string="Tags", compute="_compute_objects_count",

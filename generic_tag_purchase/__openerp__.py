@@ -9,7 +9,7 @@
     'author': "Management and Accounting Online",
     'website': "https://maao.com.ua",
 
-    'category': 'Uncategorized',
+    'category': 'Generic Tags',
     'version': '9.0.0.1.0',
 
     "depends": [

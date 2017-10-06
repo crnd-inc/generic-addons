@@ -4,7 +4,7 @@
         <field name="name">generic.tag.model.search</field>
         <field name="model">generic.tag.model</field>
         <field name="arch" type="xml">
-            <search string="Tag model Search">
+            <search>
                 <field name="name"/>
                 <field name="model"/>
                 <field name="res_model_id"/>
@@ -30,7 +30,7 @@
         <field name="name">generic.tag.model.form</field>
         <field name="model">generic.tag.model</field>
         <field name="arch" type="xml">
-            <form string="Tag model">
+            <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_show_tags"
@@ -54,7 +54,7 @@
     </record>
 
     <record id="action_generic_tag_models_view" model="ir.actions.act_window">
-        <field name="name">Tag models</field>
+        <field name="name">Models</field>
         <field name="res_model">generic.tag.model</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_type">form</field>

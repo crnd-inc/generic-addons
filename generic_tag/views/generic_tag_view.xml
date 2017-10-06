@@ -14,13 +14,13 @@
     <menuitem id="menu_generic_tags_configuration_root"
                 parent="generic_tag.menu_generic_tags_root"
                 sequence="220"
-                name="Tags Configuration"/>
+                name="Configuration"/>
 
     <record id="view_generic_tag_search" model="ir.ui.view">
         <field name="name">generic.tag.search</field>
         <field name="model">generic.tag</field>
         <field name="arch" type="xml">
-            <search string="Tag Search">
+            <search>
                 <field name="model_id"/>
                 <field name="category_id"/>
                 <field name="name"/>
@@ -57,7 +57,7 @@
         <field name="name">generic.tag.form</field>
         <field name="model">generic.tag</field>
         <field name="arch" type="xml">
-            <form string="Tag">
+            <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_show_objects"
