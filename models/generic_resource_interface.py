@@ -32,14 +32,25 @@ class GenericResourceInterface(models.Model):
                 rec.implementation_ids.mapped('resource_id'))
 
 
-class GenericResourceInterfaceMixin(models.Model):
-    _name = 'generic.resource.interface.mixin'
-    _inherits = {
-        'generic.resource.implementation': 'resource_implementation_id'}
+class GenericResourceInterfaceMixin(models.AbstractModel):
+    """ Use this mixin if you want to add interface implementation
+        bechavior to your model.
 
-    resource_implementation_id = fields.Many2one(
+        Note, your model name must be less than 32 symbols, to make it work.
+        Reason for this, is three level inehritance:
+         Your Model -> generic.resource.implementation -> generic.resource
+        And thus, to access resource fields from your model, odoo builds
+        table aliaces like:
+           your_model__implementation_id__resource_id
+        Max postgres tablename len is 64 characters,
+        len('__implementation_id__resource_id') is 32
+    """
+    _name = 'generic.resource.interface.mixin'
+
+    implementation_id = fields.Many2one(
         'generic.resource.implementation', index=True, required=True,
-        auto_join=True, ondelete='restrict')
+        auto_join=True, ondelete='restrict', delegate=True,
+        old_name='resource_implementation_id')
 
     @api.model
     def create(self, vals):
@@ -50,7 +61,7 @@ class GenericResourceInterfaceMixin(models.Model):
         res = super(GenericResourceInterfaceMixin, self).create(vals)
 
         # Update resource_impl_id with created id
-        res.resource_implementation_id.update({
+        res.implementation_id.update({
             'resource_impl_id': res.id})
         return res
 
