@@ -54,7 +54,8 @@ class GenericMixinParentNames(models.AbstractModel):
                 rec = rec[self._parent_name]
             return res
 
-        return [(rec.id, " / ".join(reversed(get_names(rec)))) for rec in self]
+        return [(rec.id, " / ".join(reversed(get_names(rec.sudo()))))
+                for rec in self]
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
