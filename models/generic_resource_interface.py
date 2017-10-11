@@ -18,7 +18,18 @@ class GenericResourceInterface(models.Model):
     code = fields.Char(index=True, required=True)
     model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
+        domain=[('transient', '=', False),
+                ('field_id.name', '=', 'implementation_id')],
         ondelete='restrict', delegate=True)
+
+    _sql_constraints = [
+        ('code_uniq',
+         'UNIQUE (code)',
+         'Interface code must be unique.'),
+        ('model_id_uniq',
+         'UNIQUE (model_id)',
+         'Interface model must be unique.'),
+    ]
 
     @api.depends('implementation_ids')
     def _compute_implementation_count(self):

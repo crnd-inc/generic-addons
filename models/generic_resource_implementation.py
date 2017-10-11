@@ -17,7 +17,7 @@ class GenericResourceImplementation(models.Model):
         auto_join=True, ondelete='restrict', delegate=True)
     resource_interface_id = fields.Many2one(
         'generic.resource.interface', string="Interface", required=True,
-        index=True)
+        index=True, ondelete='restrict')
     resource_impl_model = fields.Char(
         related='resource_interface_id.model_id.model', readonly=True,
         store=True, index=True)

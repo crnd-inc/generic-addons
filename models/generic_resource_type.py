@@ -11,6 +11,8 @@ class GenericResourceType(models.Model):
     name = fields.Char(index=True, required=True, translate=True)
     model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
+        domain=[('transient', '=', False),
+                ('field_id.name', '=', 'resource_id')],
         ondelete='restrict')
     resource_ids = fields.One2many(
         'generic.resource', 'res_type_id', string='Resources')
