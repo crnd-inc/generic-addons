@@ -50,11 +50,10 @@ class GenericResource(models.Model):
 
 class GenericResourceMixin(models.AbstractModel):
     _name = 'generic.resource.mixin'
-    _inherits = {'generic.resource': 'resource_id'}
 
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True, ondelete='restrict',
-        required=True)
+        required=True, delegate=True)
 
     _sql_constraints = [
         ('unique_resource_id', 'UNIQUE(resource_id)',

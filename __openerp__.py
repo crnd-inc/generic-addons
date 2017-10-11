@@ -9,7 +9,7 @@
     'website': "https://maao.com.ua",
 
     'category': 'Generic Resource',
-    'version': '9.0.0.0.1',
+    'version': '9.0.0.0.2',
 
     # any module necessary for this one to work correctly
     'depends': [

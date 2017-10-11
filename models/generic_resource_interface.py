@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from openerp import fields, models, api
+from openerp.exceptions import ValidationError
+from openerp import fields, models, api, _
 
 
 class GenericResourceInterface(models.Model):
     _name = 'generic.resource.interface'
-    _inherits = {'ir.model': 'model_id'}
     _description = "Generic Resource Interface"
 
     implementation_ids = fields.One2many(
@@ -18,7 +18,18 @@ class GenericResourceInterface(models.Model):
     code = fields.Char(index=True, required=True)
     model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
-        ondelete='restrict')
+        domain=[('transient', '=', False),
+                ('field_id.name', '=', 'implementation_id')],
+        ondelete='restrict', delegate=True)
+
+    _sql_constraints = [
+        ('code_uniq',
+         'UNIQUE (code)',
+         'Interface code must be unique.'),
+        ('model_id_uniq',
+         'UNIQUE (model_id)',
+         'Interface model must be unique.'),
+    ]
 
     @api.depends('implementation_ids')
     def _compute_implementation_count(self):
@@ -31,15 +42,38 @@ class GenericResourceInterface(models.Model):
             rec.resource_count = len(
                 rec.implementation_ids.mapped('resource_id'))
 
+    # Depends on code, because on creation of interface, odoo does not run
+    # constraint checks for model_id.
+    @api.constrains('model_id', 'code')
+    def _check_model_id_name_length(self):
+        for rec in self:
+            if len(rec.model) >= 32:
+                raise ValidationError(_(
+                    "Cannot use model(%s) as resource interface "
+                    "implementation because it's name is longer than "
+                    "allowed: %d > 32") % (rec.model, len(rec.model)))
 
-class GenericResourceInterfaceMixin(models.Model):
+
+class GenericResourceInterfaceMixin(models.AbstractModel):
+    """ Use this mixin if you want to add interface implementation
+        bechavior to your model.
+
+        Note, your model name must be less than 32 symbols, to make it work.
+        Reason for this, is three level inehritance:
+         Your Model -> generic.resource.implementation -> generic.resource
+        And thus, to access resource fields from your model, odoo builds
+        table aliaces like:
+           your_model__implementation_id__resource_id
+        Max postgres tablename len is 64 characters,
+        len('__implementation_id__resource_id') is 32
+    """
     _name = 'generic.resource.interface.mixin'
-    _inherits = {
-        'generic.resource.implementation': 'resource_implementation_id'}
 
-    resource_implementation_id = fields.Many2one(
+    # TODO: maybe inherit only from resource, to simplify inheritance chain?
+    implementation_id = fields.Many2one(
         'generic.resource.implementation', index=True, required=True,
-        auto_join=True, ondelete='restrict')
+        auto_join=True, ondelete='restrict', delegate=True,
+        old_name='resource_implementation_id')
 
     @api.model
     def create(self, vals):
@@ -50,7 +84,7 @@ class GenericResourceInterfaceMixin(models.Model):
         res = super(GenericResourceInterfaceMixin, self).create(vals)
 
         # Update resource_impl_id with created id
-        res.resource_implementation_id.update({
+        res.implementation_id.update({
             'resource_impl_id': res.id})
         return res
 
