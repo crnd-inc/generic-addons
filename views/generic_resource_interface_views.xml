@@ -29,7 +29,7 @@
         <field name="res_model">generic.resource</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('implementation_ids.resource_resource_interface_id', '=', active_id)]</field>
+        <field name="domain">[('implementation_ids.resource_interface_id', '=', active_id)]</field>
     </record>
     <!-- Form view for generic.resource.interface -->
     <record id="generic_resource_interface_view_from" model="ir.ui.view">
