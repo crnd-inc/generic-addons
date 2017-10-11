@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from openerp import fields, models, api
+from openerp.exceptions import ValidationError
+from openerp import fields, models, api, _
 
 
 class GenericResourceInterface(models.Model):
     _name = 'generic.resource.interface'
-    _inherits = {'ir.model': 'model_id'}
     _description = "Generic Resource Interface"
 
     implementation_ids = fields.One2many(
@@ -18,7 +18,7 @@ class GenericResourceInterface(models.Model):
     code = fields.Char(index=True, required=True)
     model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
-        ondelete='restrict')
+        ondelete='restrict', delegate=True)
 
     @api.depends('implementation_ids')
     def _compute_implementation_count(self):
@@ -30,6 +30,17 @@ class GenericResourceInterface(models.Model):
         for rec in self:
             rec.resource_count = len(
                 rec.implementation_ids.mapped('resource_id'))
+
+    # Depends on code, because on creation of interface, odoo does not run
+    # constraint checks for model_id.
+    @api.constrains('model_id', 'code')
+    def _check_model_id_name_length(self):
+        for rec in self:
+            if len(rec.model) >= 32:
+                raise ValidationError(_(
+                    "Cannot use model(%s) as resource interface "
+                    "implementation because it's name is longer than "
+                    "allowed: %d > 32") % (rec.model, len(rec.model)))
 
 
 class GenericResourceInterfaceMixin(models.AbstractModel):
@@ -47,6 +58,7 @@ class GenericResourceInterfaceMixin(models.AbstractModel):
     """
     _name = 'generic.resource.interface.mixin'
 
+    # TODO: maybe inherit only from resource, to simplify inheritance chain?
     implementation_id = fields.Many2one(
         'generic.resource.implementation', index=True, required=True,
         auto_join=True, ondelete='restrict', delegate=True,
