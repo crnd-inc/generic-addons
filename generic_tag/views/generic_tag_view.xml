@@ -4,7 +4,8 @@
                 parent=""
                 groups="generic_tag.group_tags_user"
                 sequence="120"
-                name="Tags"/>
+                name="Tags"
+                web_icon="generic_tag,static/description/icon.png"/>
 
     <menuitem id="menu_generic_tags_all"
                 parent="generic_tag.menu_generic_tags_root"
