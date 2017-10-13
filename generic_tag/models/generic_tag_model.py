@@ -18,6 +18,8 @@ class GenericTagModel(models.Model):
 
     res_model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
+        domain=[('transient', '=', False),
+                ('field_id.name', '=', 'tag_ids')],
         ondelete='restrict')
 
     tags_count = fields.Integer(

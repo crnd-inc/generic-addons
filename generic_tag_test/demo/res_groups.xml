@@ -2,7 +2,7 @@
 <odoo>
     <record model="res.groups" id="group_tags_test_group">
         <field name="name">Test group for tags</field>
-        <field name="category_id" ref="generic_tag.module_category_tag"/>
+        <field name="category_id" ref="base.module_category_generic_tags"/>
     </record>
 
 </odoo>
