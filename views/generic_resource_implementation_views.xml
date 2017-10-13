@@ -21,6 +21,8 @@
         <field name="arch" type="xml">
             <form string="Resource Implementation">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
                     <div class="oe_title">
                         <h1>
                             <field name="display_name"/>
