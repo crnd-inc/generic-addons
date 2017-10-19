@@ -24,10 +24,6 @@ class GenericResourceImplementation(models.Model):
     resource_impl_id = fields.Integer(
         string="Implementation", required=True, index=True)
 
-    # Used in any search, redefine here to simplify search
-    active = fields.Boolean(
-        related='resource_id.active', store=True, index=True)
-
     _sql_constraints = [
         ('unique_model', 'UNIQUE(resource_id, resource_interface_id)',
          'Resource and interface must be unique in implementation')
