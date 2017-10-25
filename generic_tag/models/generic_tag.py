@@ -175,8 +175,7 @@ class GenericTagMixin(models.AbstractModel):
         domain=lambda self: [('model_id.model', '=', self._name)])
     no_tag_id = fields.Many2one(
         'generic.tag', string="No Tag", compute="_compute_no_tag_id",
-        search='_search_no_tag_id', store=False,
-        readonly=True, track_visibility='always',
+        search='_search_no_tag_id', store=False, readonly=True,
         domain=lambda self: [('model_id.model', '=', self._name)])
 
     @api.multi
