@@ -37,7 +37,8 @@
         <field name="arch" type="xml">
             <field name="product_tmpl_id" position="after">
                 <field name="tag_ids"/>
-                <field name="no_tag_id"/>
+                <field name="search_tag_id"/>
+                <field name="search_no_tag_id"/>
             </field>
         </field>
     </record>
