@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from openerp import fields, models, api
+from openerp import fields, models, api, _
+from openerp.exceptions import ValidationError
 
 
 class GenericResourceRelatedMixin(models.AbstractModel):
@@ -59,8 +60,10 @@ class GenericResourceRelatedMixin(models.AbstractModel):
     def _inverse_resource_id(self):
         for rec in self:
             if rec.resource_id:
-                rec.res_type_id = rec.resource_id.res_type_id
-                rec.res_id = rec.res_id
+                rec.write({
+                    'resource_type_id': rec.resource_id.res_type_id.id,
+                    'resource_res_id': rec.resource_id.res_id,
+                })
 
     @api.constrains('resource_type_id', 'resource_res_id')
     def _constrain_related_resource(self):
