@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <menuitem id="menu_generic_resource_toplevel"
+        name="Generic Resources"
+        groups="generic_resource.group_generic_resource_manager"/>
+
     <menuitem id="menu_generic_resource_root"
         name="Generic Resources"
-        parent="base.menu_custom" />
+        parent="menu_generic_resource_toplevel" />
 
     <!-- generic.resource -->
     <!-- Tree view for generic.resource -->

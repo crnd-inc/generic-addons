@@ -18,6 +18,8 @@
 
     # always loaded
     'data': [
+        'data/ir_module_category.xml',
+        'security/security.xml',
         'security/ir.model.access.csv',
         'views/generic_resource_views.xml',
         'views/generic_resource_implementation_views.xml',
