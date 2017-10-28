@@ -166,17 +166,32 @@ class GenericTagMixin(models.AbstractModel):
         with_tags = self.search([('tag_ids', operator, value)])
         return [('id', 'not in', with_tags.mapped('id'))]
 
-    def _compute_no_tag_id(self):
-        for res in self:
-            res.no_tag_id = False
+    def _search_tag_id(self, operator, value):
+        return [('tag_ids', operator, value)]
+
+    def _compute_search_tag(self):
+        for rec in self:
+            rec.search_tag_id = False
+            rec.search_no_tag_id = False
 
     tag_ids = fields.Many2many(
         'generic.tag', string="Tags",
         domain=lambda self: [('model_id.model', '=', self._name)])
+
+    # Search capabilities
+    search_tag_id = fields.Many2one(
+        'generic.tag', string='Tag', compute='_compute_search_tag',
+        search='_search_tag_id', store=False, readonly=True,
+        domain=lambda self: [('model_id.model', '=', self._name)])
+    search_no_tag_id = fields.Many2one(
+        'generic.tag', string='No tag', compute='_compute_search_tag',
+        search='_search_no_tag_id', store=False, readonly=True,
+        domain=lambda self: [('model_id.model', '=', self._name)])
+
+    # TODO: to be removed in favor of search_no_tag_id field
     no_tag_id = fields.Many2one(
-        'generic.tag', string="No Tag", compute="_compute_no_tag_id",
-        search='_search_no_tag_id', store=False,
-        readonly=True, track_visibility='always',
+        'generic.tag', string="No Tag", compute="_compute_search_tag",
+        search='_search_no_tag_id', store=False, readonly=True,
         domain=lambda self: [('model_id.model', '=', self._name)])
 
     @api.multi

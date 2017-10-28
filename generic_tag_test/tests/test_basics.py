@@ -226,8 +226,10 @@ class TestBasics(TransactionCase):
     def test_93_read_no_tag_id(self):
         """ Test that no_tag_id field evaluates to False
         """
-        self.assertFalse(self.test_record_1.no_tag_id)
-        self.assertFalse(self.test_record_2.no_tag_id)
+        self.assertFalse(self.test_record_1.search_no_tag_id)
+        self.assertFalse(self.test_record_2.search_no_tag_id)
+        self.assertFalse(self.test_record_1.search_tag_id)
+        self.assertFalse(self.test_record_2.search_tag_id)
 
     def test_95_search_no_tag_id(self):
         """ Test that _search_no_tag_id method works fine
@@ -239,23 +241,51 @@ class TestBasics(TransactionCase):
         # normal search
         res = self.env['generic.tag.test.model'].search(
             [('id', 'in', recs.ids),
-             ('no_tag_id.code', '=', 'tc3')])
+             ('search_no_tag_id.code', '=', 'tc3')])
         self.assertEqual(len(res), 1)
         self.assertEqual(res[0], self.test_record_2)
 
         # search by string
         res = self.env['generic.tag.test.model'].search(
             [('id', 'in', recs.ids),
-             ('no_tag_id', '=', 'tc3')])
+             ('search_no_tag_id', '=', 'tc3')])
         self.assertEqual(len(res), 1)
         self.assertEqual(res[0], self.test_record_2)
 
         # search by int
         res = self.env['generic.tag.test.model'].search(
             [('id', 'in', recs.ids),
-             ('no_tag_id', '=', self.test_tag_3.id)])
+             ('search_no_tag_id', '=', self.test_tag_3.id)])
         self.assertEqual(len(res), 1)
         self.assertEqual(res[0], self.test_record_2)
+
+    def test_96_search_tag_id(self):
+        """ Test that _search_no_tag_id method works fine
+        """
+        recs = self.test_record_1 | self.test_record_2
+
+        self.test_record_1.add_tag(code='tc3')
+
+        # normal search
+        res = self.env['generic.tag.test.model'].search(
+            [('id', 'in', recs.ids),
+             ('search_tag_id.code', '=', 'tc3')])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_record_1)
+
+        # search by string
+        res = self.env['generic.tag.test.model'].search(
+            [('id', 'in', recs.ids),
+             ('search_tag_id', '=', 'tc3')])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_record_1)
+
+        # search by int
+        res = self.env['generic.tag.test.model'].search(
+            [('id', 'in', recs.ids),
+             ('search_tag_id', '=', self.test_tag_3.id)])
+        self.assertEqual(len(res), 1)
+        self.assertEqual(res[0], self.test_record_1)
 
     def test_97_get_default_model(self):
         """ Test that _get_default_model_id method works fine
