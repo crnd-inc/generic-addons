@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="group_condition_no_access" model="res.groups">
+        <field name="name">Condition user with no access</field>
+    </record>
+</odoo>
