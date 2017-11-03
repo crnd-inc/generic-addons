@@ -133,6 +133,7 @@ class GenericCondition(models.Model):
     sequence = fields.Integer(index=True, default=10)
     active = fields.Boolean(index=True, default=True)
     invert = fields.Boolean('Invert (Not)')
+    with_sudo = fields.Boolean(default=False)
     enable_caching = fields.Boolean(
         default=True,
         help='If set, then condition result for a specific object will be '
@@ -623,26 +624,35 @@ class GenericCondition(models.Model):
         """ Checks one condition for a specific object
         """
         self.ensure_one()
-        cache_key = (self.id, self.model_id.model, obj.id)
+
+        self_cond = self
+        if self.with_sudo:
+            self_cond = self.sudo()
+            obj = obj.sudo()
+
+        cache_key = (self_cond.id, self_cond.model_id.model, obj.id)
 
         # check cache
-        if self.enable_caching and cache is not None and cache_key in cache:
+        if (self_cond.enable_caching
+                and cache is not None
+                and cache_key in cache):
             return cache[cache_key]
 
         # calculate condition
         try:
-            res = getattr(self, 'check_%s' % self.type)(obj, cache=cache)
+            res = getattr(self_cond, 'check_%s' % self_cond.type)(obj,
+                                                                  cache=cache)
         except:
             msg = _("Error caught while evaluating condition %s[%d]"
-                    "") % (self.name, self.id,)
+                    "") % (self_cond.name, self_cond.id,)
             _logger.error(msg, exc_info=True)
             raise
 
         # Invert resut if required
-        res = (not res) if self.invert else res
+        res = (not res) if self_cond.invert else res
 
         # set cache
-        if self.enable_caching and cache is not None:
+        if self_cond.enable_caching and cache is not None:
             cache[cache_key] = res
 
         return res
