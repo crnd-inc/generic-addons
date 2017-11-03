@@ -633,9 +633,9 @@ class GenericCondition(models.Model):
         cache_key = (self_cond.id, self_cond.model_id.model, obj.id)
 
         # check cache
-        if (self_cond.enable_caching
-                and cache is not None
-                and cache_key in cache):
+        if (self_cond.enable_caching and
+                cache is not None and
+                cache_key in cache):
             return cache[cache_key]
 
         # calculate condition
