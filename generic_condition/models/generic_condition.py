@@ -21,6 +21,7 @@ _logger = logging.getLogger(__name__)
 class GenericCondition(models.Model):
     _name = "generic.condition"
     _order = "sequence"
+    _description = 'Generic Condition'
     _rec_name = 'name'
 
     # To add new type just override this method in subclass,
