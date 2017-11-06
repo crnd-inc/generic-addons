@@ -19,6 +19,11 @@ msgid "No Tag"
 msgstr "Немає тегу"
 
 #. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_search_no_tag_id
+msgid "No tag"
+msgstr "Немає тегу"
+
+#. module: generic_tag_product
 #: model:generic.tag.model,name:generic_tag_product.generic_tag_model_product_product
 #: model:ir.model,name:generic_tag_product.generic_tag_model_product_product_ir_model
 #: model:ir.model,name:generic_tag_product.model_product_product
@@ -31,6 +36,11 @@ msgstr "Товар"
 #: model:ir.ui.menu,name:generic_tag_product.menu_product_tags
 msgid "Product Tags"
 msgstr "Теги товару"
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_search_tag_id
+msgid "Tag"
+msgstr "Тег"
 
 #. module: generic_tag_product
 #: model:ir.model.fields,field_description:generic_tag_product.field_product_product_tag_ids

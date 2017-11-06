@@ -121,7 +121,7 @@ msgstr "Коментар"
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Comment..."
-msgstr "Comment..."
+msgstr "Коментар..."
 
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_configuration_root
@@ -198,11 +198,6 @@ msgstr "Категорія універсальних тегів"
 #: model:ir.model,name:generic_tag.model_generic_tag_model
 msgid "Generic Tag Model"
 msgstr "Модель універсальних тегів"
-
-#. module: generic_tag
-#: model:ir.module.category,name:generic_tag.module_category_tag
-msgid "Generic Tags"
-msgstr "Універсальні теги"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
@@ -283,8 +278,8 @@ msgid "List of modules in which the object is defined or inherited"
 msgstr "Список модулів з визначеним або успадкованим об'єктом"
 
 #. module: generic_tag
-#: model:ir.model.fields,help:generic_tag.field_generic_tag_code
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_code
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_code
 msgid "May be used for special tags which have programmed bechavior"
 msgstr "Може бути використано для спеціальних тегів, що мають запрограмовану поведінку"
 
@@ -339,6 +334,11 @@ msgid "No Tag"
 msgstr "Немає тегу"
 
 #. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_search_no_tag_id
+msgid "No tag"
+msgstr "Немає тегу"
+
+#. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Objects"
 msgstr "Об'єкти"
@@ -366,6 +366,11 @@ msgstr "Показати теги"
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_mixin_model_id
 msgid "Specify model for which this tag is available"
 msgstr "Вкажіть модель для якоъ цей тег буде доступний"
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_search_tag_id
+msgid "Tag"
+msgstr "Тег"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_manager
@@ -403,7 +408,7 @@ msgid "Tags related to category %s"
 msgstr "Теги пов'язані з категорією %s"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_model.py:38
+#: code:addons/generic_tag/models/generic_tag_model.py:40
 #, python-format
 msgid "Tags related to model %s"
 msgstr "Теги пов'язані з моделлю %s"
@@ -412,6 +417,11 @@ msgstr "Теги пов'язані з моделлю %s"
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_inherited_model_ids
 msgid "The list of models that extends the current model."
 msgstr "Список моделей, що розширюють поточну."
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_transient
+msgid "Transient Model"
+msgstr "Transient Model"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_state

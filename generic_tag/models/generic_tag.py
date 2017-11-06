@@ -190,7 +190,7 @@ class GenericTagMixin(models.AbstractModel):
 
     # TODO: to be removed in favor of search_no_tag_id field
     no_tag_id = fields.Many2one(
-        'generic.tag', string="No Tag", compute="_compute_search_tag",
+        'generic.tag', string="No tag", compute="_compute_search_tag",
         search='_search_no_tag_id', store=False, readonly=True,
         domain=lambda self: [('model_id.model', '=', self._name)])
 
