@@ -1,4 +1,3 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_test_generic_condition_test_model_any", "test_generic_condition_test_model any","model_test_generic_condition_test_model",,1,0,0,0
 "access_test_generic_condition_test_model_relation_any", "test_generic_condition_test_model_relation any","model_test_generic_condition_test_model_relation",,1,0,0,0
-

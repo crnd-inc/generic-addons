@@ -20,6 +20,12 @@ msgid "No Tag"
 msgstr "Немає тегу"
 
 #. module: generic_tag_sale
+#: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_line_search_no_tag_id
+#: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_search_no_tag_id
+msgid "No tag"
+msgstr "Немає тегу"
+
+#. module: generic_tag_sale
 #: model:ir.ui.menu,name:generic_tag_sale.menu_sale_order_line_tags_id
 msgid "Sale Line Tags"
 msgstr "Теги лінії продаж"
@@ -53,6 +59,12 @@ msgstr "Замовлення на продаж"
 #: model:ir.model,name:generic_tag_sale.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Рядок замовлення на продаж"
+
+#. module: generic_tag_sale
+#: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_line_search_tag_id
+#: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_search_tag_id
+msgid "Tag"
+msgstr "Тег"
 
 #. module: generic_tag_sale
 #: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_line_tag_ids

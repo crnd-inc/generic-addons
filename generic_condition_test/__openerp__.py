@@ -11,7 +11,11 @@
         'generic_condition',
     ],
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
+    ],
+    'demo': [
+        'demo/test_model_demo.xml',
     ],
     'installable': True,
     'auto_install': False,
