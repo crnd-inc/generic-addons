@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="test_generic_related_model" model="test.generic.condition.test.model.relation">
+    <record id="test_generic_condition_related_model_rec" model="test.generic.condition.test.model.relation">
         <field name="name">name</field>
     </record>
-    <record id="test_generic_related_model" model="test.generic.condition.test.model">
-        <field name="test_m2o" ref="test_generic_related_model"/>
+    <record id="test_generic_condition_model_rec" model="test.generic.condition.test.model">
+        <field name="test_m2o" ref="test_generic_condition_related_model_rec"/>
     </record>
 </odoo>

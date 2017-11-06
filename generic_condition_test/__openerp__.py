@@ -15,7 +15,7 @@
         'security/ir.model.access.csv',
     ],
     'demo': [
-        'demo/res_users_demo.xml',
+        'demo/test_model_demo.xml',
     ],
     'installable': True,
     'auto_install': False,

@@ -328,7 +328,7 @@ class GenericCondition(models.Model):
     def check_eval(self, obj, cache=None):
         try:
             res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
-        except:
+        except Exception:
             condition_name = self.name_get()[0][1]
             obj_name = "%s [id:%s] (%s)" % (self.model_id.model,
                                             obj.id,
@@ -625,34 +625,35 @@ class GenericCondition(models.Model):
         """
         self.ensure_one()
 
-        self_cond = self
+        # Is sudo condition?
+        condition = self
         if self.with_sudo:
-            self_cond = self.sudo()
+            condition = self.sudo()
             obj = obj.sudo()
 
-        cache_key = (self_cond.id, self_cond.model_id.model, obj.id)
+        cache_key = (condition.id, condition.model_id.model, obj.id)
 
         # check cache
-        if (self_cond.enable_caching and
+        if (condition.enable_caching and
                 cache is not None and
                 cache_key in cache):
             return cache[cache_key]
 
         # calculate condition
         try:
-            res = getattr(self_cond, 'check_%s' % self_cond.type)(obj,
+            res = getattr(condition, 'check_%s' % condition.type)(obj,
                                                                   cache=cache)
-        except:
+        except Exception:
             msg = _("Error caught while evaluating condition %s[%d]"
-                    "") % (self_cond.name, self_cond.id,)
+                    "") % (condition.name, condition.id,)
             _logger.error(msg, exc_info=True)
             raise
 
         # Invert resut if required
-        res = (not res) if self_cond.invert else res
+        res = (not res) if condition.invert else res
 
         # set cache
-        if self_cond.enable_caching and cache is not None:
+        if condition.enable_caching and cache is not None:
             cache[cache_key] = res
 
         return res
