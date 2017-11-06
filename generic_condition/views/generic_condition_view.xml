@@ -13,12 +13,16 @@
                 <field name="model_id"/>
 
                 <separator/>
+                <filter name="with_sudo"
+                        domain="[('with_sudo', '=', True)]"
+                        string="With sudo"/>
                 <filter name="type_eval"
                         domain="[('type', '=', 'eval')]"
                         string="Expression"/>
                 <filter name="type_filter"
                         domain="[('type', '=', 'filter')]"
                         string="Filter"/>
+
                 <!--<filter name="type_tags"-->
                         <!--domain="[('type', '=', 'tags')]"-->
                         <!--string="Tags"/>-->
@@ -40,6 +44,9 @@
                 <filter string='Type'
                         domain="[]"
                         context="{'group_by' : 'type'}"/>
+                <filter string='With sudo'
+                        domain="[]"
+                        context="{'group_by' : 'with_sudo'}"/>
                 <filter string='Based on'
                         domain="[]"
                         context="{'group_by' : 'model_id'}"/>
@@ -59,6 +66,7 @@
                 <field name="type"/>
                 <field name="model_id"/>
                 <field name="enable_caching"/>
+                <field name="with_sudo"/>
             </tree>
         </field>
     </record>
@@ -91,6 +99,7 @@
                         <group>
                             <field name="enable_caching"/>
                             <field name="invert"/>
+                            <field name="with_sudo"/>
                         </group>
                     </group>
                     <group string="Condition" colspan="4">

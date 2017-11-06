@@ -133,6 +133,7 @@ class GenericCondition(models.Model):
     sequence = fields.Integer(index=True, default=10)
     active = fields.Boolean(index=True, default=True)
     invert = fields.Boolean('Invert (Not)')
+    with_sudo = fields.Boolean(default=False)
     enable_caching = fields.Boolean(
         default=True,
         help='If set, then condition result for a specific object will be '
@@ -327,7 +328,7 @@ class GenericCondition(models.Model):
     def check_eval(self, obj, cache=None):
         try:
             res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
-        except:
+        except Exception:
             condition_name = self.name_get()[0][1]
             obj_name = "%s [id:%s] (%s)" % (self.model_id.model,
                                             obj.id,
@@ -623,26 +624,36 @@ class GenericCondition(models.Model):
         """ Checks one condition for a specific object
         """
         self.ensure_one()
-        cache_key = (self.id, self.model_id.model, obj.id)
+
+        # Is sudo condition?
+        condition = self
+        if self.with_sudo:
+            condition = self.sudo()
+            obj = obj.sudo()
+
+        cache_key = (condition.id, condition.model_id.model, obj.id)
 
         # check cache
-        if self.enable_caching and cache is not None and cache_key in cache:
+        if (condition.enable_caching and
+                cache is not None and
+                cache_key in cache):
             return cache[cache_key]
 
         # calculate condition
         try:
-            res = getattr(self, 'check_%s' % self.type)(obj, cache=cache)
-        except:
+            res = getattr(condition, 'check_%s' % condition.type)(obj,
+                                                                  cache=cache)
+        except Exception:
             msg = _("Error caught while evaluating condition %s[%d]"
-                    "") % (self.name, self.id,)
+                    "") % (condition.name, condition.id,)
             _logger.error(msg, exc_info=True)
             raise
 
         # Invert resut if required
-        res = (not res) if self.invert else res
+        res = (not res) if condition.invert else res
 
         # set cache
-        if self.enable_caching and cache is not None:
+        if condition.enable_caching and cache is not None:
             cache[cache_key] = res
 
         return res
