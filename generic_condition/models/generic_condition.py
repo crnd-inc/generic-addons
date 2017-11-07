@@ -456,7 +456,7 @@ class GenericCondition(models.Model):
         field = self.condition_user_user_field_id
         obj_value = obj[field.name]
 
-        if obj_value and obj_value == self.env.user:
+        if obj_value and self.env.user in obj_value:
             return True
         return False
 

@@ -48,6 +48,9 @@ class TestConditionCurrentUser(TransactionCase):
 
         rec = self._create_record(user_m2m=False)
         self.assertFalse(condition.check(rec))
+
+        users = [self.env.user.id, self.env.ref('base.user_demo').id]
+
         rec = self._create_record(
-            user_m2m=[(6, 0, [self.env.user.id])])
+            user_m2m=[(6, 0, users)])
         self.assertTrue(condition.check(rec))
