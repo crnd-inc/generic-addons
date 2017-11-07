@@ -5,3 +5,4 @@ from . import test_simple_field_selection
 from . import test_simple_field_string
 from . import test_related_field
 from . import test_with_sudo
+from . import test_current_user

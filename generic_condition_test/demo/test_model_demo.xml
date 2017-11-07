@@ -7,3 +7,4 @@
         <field name="test_m2o" ref="test_generic_condition_related_model_rec"/>
     </record>
 </odoo>
+ 
