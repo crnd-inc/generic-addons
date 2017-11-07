@@ -200,6 +200,17 @@
                             </table>
                         </group>
 
+                        <!-- 'Current user' condition data -->
+                        <group colspan="4" col="4"
+                               name="group_condition_current_user"
+                               attrs="{'invisible': [('type', '!=', 'current_user')]}">
+                            <field name="condition_user_user_field_id"
+                                   attrs="{'required': [('type','=','current_user')]}"
+                                   domain="[('model_id','=',model_id),
+                                            ('ttype', 'in', ('many2one', 'one2many', 'many2many')),
+                                            ('relation', '=', 'res.users')]"/>
+                        </group>
+
                         <!-- 'Date diff' condition data -->
                         <group colspan="4" col="4"
                                name="group_condition_date_diff"

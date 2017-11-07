@@ -36,6 +36,7 @@ class GenericCondition(models.Model):
             ('condition_group', _('Condition group')),
             ('simple_field', _('Simple field')),
             ('related_field', _('Related field')),
+            ('current_user', _('Current user'))
         ]
 
     def _get_selection_date_diff_uom(self):
@@ -164,6 +165,13 @@ class GenericCondition(models.Model):
         '_get_selection_condition_condition_ids_operator', default='and',
         string='Condition (condition group): operator',
         track_visibility='onchange')
+
+    # Current User
+    condition_user_user_field_id = fields.Many2one(
+        'ir.model.fields', 'User Field',
+        ondelete='restrict',
+        domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many')),
+                ('relation', '=', 'res.users')])
 
     # Related conditions
     condition_rel_field_id = fields.Many2one(
@@ -442,6 +450,15 @@ class GenericCondition(models.Model):
         elif date_source == 'field':
             field = self['condition_date_diff_date_%s_field' % date_type]
             return str_to_datetime(field.ttype, obj[field.name])
+
+    # signature check_<type> where type is condition type
+    def check_current_user(self, obj, cache=None):
+        field = self.condition_user_user_field_id
+        obj_value = obj[field.name]
+
+        if obj_value and obj_value == self.env.user:
+            return True
+        return False
 
     # signature check_<type> where type is condition type
     def check_date_diff(self, obj, cache=None):

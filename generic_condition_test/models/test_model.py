@@ -24,6 +24,10 @@ class TestConditionModel(models.Model):
         'test.generic.condition.test.model.relation',
         'test_generic_condition_test_model_relation_rel')
 
+    # Current user
+    user_m2o = fields.Many2one('res.users')
+    user_m2m = fields.Many2one('res.users')
+
 
 class TestConditionModelRelation(models.Model):
     _name = 'test.generic.condition.test.model.relation'
