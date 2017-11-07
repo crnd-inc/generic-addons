@@ -40,7 +40,7 @@ class TestConditionCurrentUser(TransactionCase):
 
         rec = self._create_record(user_m2o=False)
         self.assertFalse(condition.check(rec))
-        rec = self._create_record(test_m2o=self.env.user.id)
+        rec = self._create_record(user_m2o=self.env.user.id)
         self.assertTrue(condition.check(rec))
 
     def test_15_current_user_m2m(self):
@@ -49,5 +49,5 @@ class TestConditionCurrentUser(TransactionCase):
         rec = self._create_record(user_m2m=False)
         self.assertFalse(condition.check(rec))
         rec = self._create_record(
-            user_m2m=[(4, self.env.user.id, 0)])
+            user_m2m=[(6, 0, [self.env.user.id])])
         self.assertTrue(condition.check(rec))

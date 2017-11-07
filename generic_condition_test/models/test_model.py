@@ -26,7 +26,7 @@ class TestConditionModel(models.Model):
 
     # Current user
     user_m2o = fields.Many2one('res.users')
-    user_m2m = fields.Many2one('res.users')
+    user_m2m = fields.Many2many('res.users')
 
 
 class TestConditionModelRelation(models.Model):
