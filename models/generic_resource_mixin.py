@@ -56,6 +56,19 @@ class GenericResourceMixin(models.AbstractModel):
 
 
 class GenericResourceMixinInvNumber(models.AbstractModel):
+    ''' generic_resource_mixin_inv_number model is meant to be inherited by
+     any model that needs to have automaticali generated field inv_number for
+     inventory number.
+     For use it you must create sequence in "ir.sequence" model in data
+     directory.
+     For example:
+        <record id="id_for_your_sequence" model="ir.sequence">
+            <field name="name">name_for_your_sequence</field>
+            <field name="code">code_for_your_sequence</field>
+            <field name="prefix">prefix_for_your_inv_number</field>
+            <field name="padding">count_of_integer_in your_inv_number</field>
+        </record>
+     '''
     _name = 'generic.resource.mixin.inv.number'
     _description = 'Generic Resource Mixin Inv Number'
     _inv_number_seq_code = None
