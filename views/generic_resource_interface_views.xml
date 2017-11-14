@@ -74,8 +74,7 @@
     </record>
 
     <menuitem id="generic_resource_interface_menu_item"
-                name="Interfaces"
-                parent="menu_generic_resource_root" sequence="15"
+                parent="menu_generic_resource_config_root" sequence="15"
                 action="generic_resource_interface_action"/>
 
 </odoo>
