@@ -55,6 +55,12 @@ class GenericResourceMixin(models.AbstractModel):
         r_type_env = self.env['generic.resource.type']
         return r_type_env.search([('model_id.model', '=', self._name)])
 
+    @api.multi
+    def check_access_rule(self, operation):
+        # Overriden to check access to generic resources also
+        self.mapped('resource_id').check_access_rule(operation)
+        return super(GenericResourceMixin, self).check_access_rule(operation)
+
 
 class GenericResourceMixinInvNumber(models.AbstractModel):
     ''' generic_resource_mixin_inv_number model is meant to be inherited by
