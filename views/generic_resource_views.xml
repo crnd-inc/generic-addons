@@ -2,11 +2,17 @@
 <odoo>
     <menuitem id="menu_generic_resource_toplevel"
         name="Generic Resources"
-        groups="generic_resource.group_generic_resource_manager"/>
+        groups="generic_resource.group_generic_resource_user"/>
 
     <menuitem id="menu_generic_resource_root"
         name="Generic Resources"
-        parent="menu_generic_resource_toplevel" />
+        sequence="30"
+        parent="menu_generic_resource_toplevel"/>
+
+    <menuitem id="menu_generic_resource_config_root"
+        name="Configuration"
+        sequence="100"
+        parent="menu_generic_resource_toplevel"/>
 
     <!-- generic.resource -->
     <!-- Tree view for generic.resource -->
@@ -36,7 +42,7 @@
         <field name="name">generic.resource.form</field>
         <field name="model">generic.resource</field>
         <field name="arch" type="xml">
-            <form string="Resource">
+            <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="toggle_active" type="object"
@@ -79,8 +85,7 @@
 
     <!-- Menus for Generic Resource -->
     <menuitem id="generic_resource_menu_item"
-                name="Resources"
-                parent="menu_generic_resource_root" sequence="5"
-                action="generic_resource_action"/>
+              parent="menu_generic_resource_root" sequence="5"
+              action="generic_resource_action"/>
 
 </odoo>

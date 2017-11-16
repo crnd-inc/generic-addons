@@ -34,6 +34,12 @@ class GenericResourceRelatedMixin(models.AbstractModel):
         <field name="resource_res_id" widget="generic_m2o"
                model_field="resource_res_model"
                attrs="{'invisible': [('resource_res_model', '=', False)]}"/>
+
+        If you want to set default resource ID via context, use following
+        example:
+
+        context={'default_resource_res_id': res_id,
+                 'default_resource_type_id': res_type_id}
     """
     _name = 'generic.resource.related.mixin'
 
@@ -88,3 +94,15 @@ class GenericResourceRelatedMixin(models.AbstractModel):
                 self.resource_res_id = False
         else:
             self.resource_res_id = False
+
+    @api.model
+    def default_get(self, fields):
+        defaults = super(GenericResourceRelatedMixin, self).default_get(fields)
+
+        if 'resource_res_model' in fields and 'resource_type_id' in defaults:
+            res_type = self.env['generic.resource.type'].browse(
+                defaults['resource_type_id']
+            )
+            defaults['resource_res_model'] = res_type.model_id.model
+
+        return defaults
