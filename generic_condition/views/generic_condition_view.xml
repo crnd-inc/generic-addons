@@ -346,7 +346,9 @@
                                         <field name="condition_simple_field_number_operator"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('float', 'integer'))], 'invisible': [('condition_simple_field_type', 'not in', ('float', 'integer'))]}"/>
                                         <field name="condition_simple_field_string_operator"
-                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text', 'html'))], 'invisible': [('condition_simple_field_type', 'not in', ('char', 'text', 'html'))]}"/>
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text'))], 'invisible': [('condition_simple_field_type', 'not in', ('char', 'text'))]}"/>
+                                        <field name="condition_simple_field_string_operator_html"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'html')], 'invisible': [('condition_simple_field_type', '!=', 'html')]}"/>
                                         <div>
                                             <span class="oe_form_field"
                                                 attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">

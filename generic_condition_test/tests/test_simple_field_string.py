@@ -2,15 +2,17 @@
 from openerp.tests.common import TransactionCase
 
 
-class TestConditionSimpleFieldString(TransactionCase):
+class TestSimpleFieldStringBase(object):
+    _test_field_name = None
+
     def setUp(self):
-        super(TestConditionSimpleFieldString, self).setUp()
+        super(TestSimpleFieldStringBase, self).setUp()
         self.test_model = self.env['ir.model'].search(
             [('model', '=', 'test.generic.condition.test.model')])
         self.TestModel = self.env[self.test_model.model]
 
-        self.test_field_char = self.test_model.field_id.filtered(
-            lambda r: r.name == 'test_char')
+        self.test_field = self.test_model.field_id.filtered(
+            lambda r: r.name == self._test_field_name)
 
         self.Condition = self.env['generic.condition']
         self.condition_data = {
@@ -33,18 +35,26 @@ class TestConditionSimpleFieldString(TransactionCase):
 
     def _check_string_condition(self, val1, val2, operator,
                                 icase=False, regex=False):
-        """ Test selection values
+        """ Test string values
         """
+        if self.test_field.ttype == 'html':
+            op_field = 'condition_simple_field_string_operator_html'
+        else:
+            op_field = 'condition_simple_field_string_operator'
+
         condition = self._create_condition({
-            'condition_simple_field_field_id': self.test_field_char.id,
+            'condition_simple_field_field_id': self.test_field.id,
             'condition_simple_field_value_char': val2,
-            'condition_simple_field_string_operator': operator,
+            op_field: operator,
             'condition_simple_field_string_operator_icase': icase,
             'condition_simple_field_string_operator_regex': regex,
         })
-        return condition.check(self._create_record(test_char=val1))
+        return condition.check(
+            self._create_record(
+                **{self._test_field_name: val1}))
 
-    def test_10_condition_simple_field_string_simple(self):
+class TestSimpleFieldStringBaseOpSet(object):
+    def test_010_simple_field_string_simple_op_set(self):
         self.assertTrue(self._check_string_condition('val1', False, 'set'))
         self.assertFalse(self._check_string_condition(False, False, 'set'))
 
@@ -52,6 +62,9 @@ class TestConditionSimpleFieldString(TransactionCase):
         self.assertFalse(
             self._check_string_condition('val1', False, 'not set'))
 
+
+class TestSimpleFieldStringBaseOpEq(object):
+    def test_020_simple_field_string_simple_op_eq(self):
         self.assertTrue(self._check_string_condition('val1', 'val1', '='))
         self.assertFalse(self._check_string_condition('val123', 'val1', '='))
         self.assertFalse(self._check_string_condition('val1', 'VaL1', '='))
@@ -64,18 +77,7 @@ class TestConditionSimpleFieldString(TransactionCase):
         self.assertTrue(self._check_string_condition('val1', 'val2', '!='))
         self.assertTrue(self._check_string_condition(False, 'val2', '!='))
 
-        self.assertTrue(
-            self._check_string_condition('val1', 'val1', 'contains'))
-        self.assertTrue(
-            self._check_string_condition('val123', 'val1', 'contains'))
-        self.assertFalse(
-            self._check_string_condition('val1', 'VaL1', 'contains'))
-        self.assertFalse(
-            self._check_string_condition('val1', 'val2', 'contains'))
-        self.assertFalse(
-            self._check_string_condition(False, 'val2', 'contains'))
-
-    def test_20_condition_simple_field_string_simple_icase(self):
+    def test_040_simple_field_string_simple_icase_op_eq(self):
         self.assertTrue(
             self._check_string_condition('val1', 'val1', '=', icase=True))
         self.assertFalse(
@@ -98,23 +100,7 @@ class TestConditionSimpleFieldString(TransactionCase):
         self.assertTrue(
             self._check_string_condition(False, 'val2', '!=', icase=True))
 
-        self.assertTrue(
-            self._check_string_condition(
-                'val1', 'val1', 'contains', icase=True))
-        self.assertTrue(
-            self._check_string_condition(
-                'val123', 'val1', 'contains', icase=True))
-        self.assertTrue(
-            self._check_string_condition(
-                'val1', 'VaL1', 'contains', icase=True))
-        self.assertFalse(
-            self._check_string_condition(
-                'val1', 'val2', 'contains', icase=True))
-        self.assertFalse(
-            self._check_string_condition(
-                False, 'val2', 'contains', icase=True))
-
-    def test_30_condition_simple_field_string_simple_regex(self):
+    def test_060_simple_field_string_simple_regex_op_eq(self):
         self.assertTrue(
             self._check_string_condition('val1', 'val1', '=', regex=True))
         self.assertTrue(
@@ -141,22 +127,7 @@ class TestConditionSimpleFieldString(TransactionCase):
         self.assertFalse(
             self._check_string_condition('val1', r'v\w\w\d', '!=', regex=True))
 
-        self.assertTrue(self._check_string_condition(
-            'val1', 'val1', 'contains', regex=True))
-        self.assertTrue(self._check_string_condition(
-            'val123', 'val1', 'contains', regex=True))
-        self.assertFalse(self._check_string_condition(
-            'val1', 'VaL1', 'contains', regex=True))
-        self.assertFalse(self._check_string_condition(
-            'val1', 'val2', 'contains', regex=True))
-        self.assertFalse(self._check_string_condition(
-            False, 'val2', 'contains', regex=True))
-        self.assertTrue(self._check_string_condition(
-            'val1', r'v\w\w\d', 'contains', regex=True))
-        self.assertTrue(self._check_string_condition(
-            '1223 23 val1 22', r'v\w\w\d', 'contains', regex=True))
-
-    def test_40_condition_simple_field_string_simple_regex_icase(self):
+    def test_080_simple_field_string_simple_regex_icase_op_eq(self):
         self.assertTrue(self._check_string_condition(
             'val1', 'val1', '=', regex=True, icase=True))
         self.assertTrue(self._check_string_condition(
@@ -187,6 +158,54 @@ class TestConditionSimpleFieldString(TransactionCase):
         self.assertFalse(self._check_string_condition(
             'VAl1', r'v\w\w\d', '!=', regex=True, icase=True))
 
+
+class TestSimpleFieldStringBaseOpContains(object):
+    def test_030_simple_field_string_simple_op_contains(self):
+        self.assertTrue(
+            self._check_string_condition('val1', 'val1', 'contains'))
+        self.assertTrue(
+            self._check_string_condition('val123', 'val1', 'contains'))
+        self.assertFalse(
+            self._check_string_condition('val1', 'VaL1', 'contains'))
+        self.assertFalse(
+            self._check_string_condition('val1', 'val2', 'contains'))
+        self.assertFalse(
+            self._check_string_condition(False, 'val2', 'contains'))
+
+    def test_050_simple_field_string_simple_icase_op_contains(self):
+        self.assertTrue(
+            self._check_string_condition(
+                'val1', 'val1', 'contains', icase=True))
+        self.assertTrue(
+            self._check_string_condition(
+                'val123', 'val1', 'contains', icase=True))
+        self.assertTrue(
+            self._check_string_condition(
+                'val1', 'VaL1', 'contains', icase=True))
+        self.assertFalse(
+            self._check_string_condition(
+                'val1', 'val2', 'contains', icase=True))
+        self.assertFalse(
+            self._check_string_condition(
+                False, 'val2', 'contains', icase=True))
+
+    def test_070_simple_field_string_simple_regex_op_contains(self):
+        self.assertTrue(self._check_string_condition(
+            'val1', 'val1', 'contains', regex=True))
+        self.assertTrue(self._check_string_condition(
+            'val123', 'val1', 'contains', regex=True))
+        self.assertFalse(self._check_string_condition(
+            'val1', 'VaL1', 'contains', regex=True))
+        self.assertFalse(self._check_string_condition(
+            'val1', 'val2', 'contains', regex=True))
+        self.assertFalse(self._check_string_condition(
+            False, 'val2', 'contains', regex=True))
+        self.assertTrue(self._check_string_condition(
+            'val1', r'v\w\w\d', 'contains', regex=True))
+        self.assertTrue(self._check_string_condition(
+            '1223 23 val1 22', r'v\w\w\d', 'contains', regex=True))
+
+    def test_090_simple_field_string_simple_regex_icase_op_contains(self):
         self.assertTrue(self._check_string_condition(
             'val1', 'val1', 'contains', regex=True, icase=True))
         self.assertTrue(self._check_string_condition(
@@ -205,3 +224,27 @@ class TestConditionSimpleFieldString(TransactionCase):
             'VAl1', r'v\w\w\d', 'contains', regex=True, icase=True))
         self.assertTrue(self._check_string_condition(
             '1223 23 VAl1 22', r'v\w\w\d', 'contains', regex=True, icase=True))
+
+
+class TestConditionSimpleFieldStringChar(TestSimpleFieldStringBase,
+                                         TestSimpleFieldStringBaseOpSet,
+                                         TestSimpleFieldStringBaseOpEq,
+                                         TestSimpleFieldStringBaseOpContains,
+                                         TransactionCase):
+    _test_field_name = 'test_char'
+
+
+class TestConditionSimpleFieldStringText(TestSimpleFieldStringBase,
+                                         TestSimpleFieldStringBaseOpSet,
+                                         TestSimpleFieldStringBaseOpEq,
+                                         TestSimpleFieldStringBaseOpContains,
+                                         TransactionCase):
+
+    _test_field_name = 'test_text'
+
+
+class TestConditionSimpleFieldStringHtml(TestSimpleFieldStringBase,
+                                         TestSimpleFieldStringBaseOpSet,
+                                         TestSimpleFieldStringBaseOpContains,
+                                         TransactionCase):
+    _test_field_name = 'test_html'
