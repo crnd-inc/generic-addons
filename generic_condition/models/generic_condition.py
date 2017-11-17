@@ -570,6 +570,12 @@ class GenericCondition(models.Model):
         if self.condition_simple_field_type == 'html':
             operator = self.condition_simple_field_string_operator_html
 
+            # Summernote web editor set this value as default, so, if user does
+            # not change it, this value goes to odoo's python code.
+            # Here we treat this value as empty field placeholder
+            if obj_value == '<p><br></p>':
+                obj_value = False
+
         # Simple operators
         if operator == 'set':
             return bool(obj_value)

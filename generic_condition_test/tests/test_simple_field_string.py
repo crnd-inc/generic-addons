@@ -249,3 +249,16 @@ class TestConditionSimpleFieldStringHtml(TestSimpleFieldStringBase,
                                          TestSimpleFieldStringBaseOpContains,
                                          TransactionCase):
     _test_field_name = 'test_html'
+
+
+    def test_101_test_html_empty_field(self):
+        self.assertFalse(
+            self._check_string_condition('<p><br></p>', False, 'set'))
+        self.assertTrue(
+            self._check_string_condition('<p><br></p>', False, 'not set'))
+        self.assertFalse(
+            self._check_string_condition('<p><br></p>', 'test', 'contains'))
+
+        # Field have placeholder inserted by summernote, so treat it as empty
+        self.assertFalse(
+            self._check_string_condition('<p><br></p>', 'br', 'contains'))
