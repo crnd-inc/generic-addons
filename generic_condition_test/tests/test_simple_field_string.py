@@ -53,6 +53,7 @@ class TestSimpleFieldStringBase(object):
             self._create_record(
                 **{self._test_field_name: val1}))
 
+
 class TestSimpleFieldStringBaseOpSet(object):
     def test_010_simple_field_string_simple_op_set(self):
         self.assertTrue(self._check_string_condition('val1', False, 'set'))
