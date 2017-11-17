@@ -148,6 +148,8 @@ class GenericCondition(models.Model):
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
              'This may speed up condition processing.')
+    description = fields.Text()
+
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
         help="Python expression. 'obj' are present in context.")

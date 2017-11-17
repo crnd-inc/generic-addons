@@ -424,6 +424,9 @@
                             </table>
                         </group>
                     </group>
+                    <group colspan="4" string="Description">
+                        <field name="description" placeholder="Description..."/>
+                    </group>
                 </sheet>
             </form>
         </field>
