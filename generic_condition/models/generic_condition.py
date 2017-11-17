@@ -257,7 +257,8 @@ class GenericCondition(models.Model):
     # Simple field conditions
     condition_simple_field_field_id = fields.Many2one(
         'ir.model.fields', 'Check field', ondelete='restrict',
-        domain=[('ttype', 'in', ('boolean', 'char', 'float',
+        domain=[('ttype', 'in', ('boolean', 'char', 'text',
+                                 'html', 'float',
                                  'integer', 'selection'))])
     condition_simple_field_type = fields.Selection(
         related='condition_simple_field_field_id.ttype',
@@ -613,7 +614,7 @@ class GenericCondition(models.Model):
 
         if field.ttype in ('integer', 'float'):
             return self.helper_check_simple_field_number(value)
-        elif field.ttype == 'char':
+        elif field.ttype in ('char', 'text', 'html'):
             return self.helper_check_simple_field_string(value)
         elif field.ttype == 'boolean':
             return self.helper_check_simple_field_boolean(value)
