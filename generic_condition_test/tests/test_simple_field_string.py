@@ -250,7 +250,6 @@ class TestConditionSimpleFieldStringHtml(TestSimpleFieldStringBase,
                                          TransactionCase):
     _test_field_name = 'test_html'
 
-
     def test_101_test_html_empty_field(self):
         self.assertFalse(
             self._check_string_condition('<p><br></p>', False, 'set'))
