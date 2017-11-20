@@ -77,6 +77,13 @@ class GenericCondition(models.Model):
             ('contains', _('Contains')),
         ]
 
+    def _get_selection_simple_field_string_operator_html(self):
+        return [
+            ('set', _('Set')),
+            ('not set', _('Not set')),
+            ('contains', _('Contains')),
+        ]
+
     def _get_selection_simple_field_selection_operator(self):
         return [
             ('=', '='),
@@ -141,6 +148,8 @@ class GenericCondition(models.Model):
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
              'This may speed up condition processing.')
+    description = fields.Text()
+
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
         help="Python expression. 'obj' are present in context.")
@@ -257,7 +266,8 @@ class GenericCondition(models.Model):
     # Simple field conditions
     condition_simple_field_field_id = fields.Many2one(
         'ir.model.fields', 'Check field', ondelete='restrict',
-        domain=[('ttype', 'in', ('boolean', 'char', 'float',
+        domain=[('ttype', 'in', ('boolean', 'char', 'text',
+                                 'html', 'float',
                                  'integer', 'selection'))])
     condition_simple_field_type = fields.Selection(
         related='condition_simple_field_field_id.ttype',
@@ -274,6 +284,8 @@ class GenericCondition(models.Model):
         '_get_selection_simple_field_number_operator', 'Operator')
     condition_simple_field_string_operator = fields.Selection(
         '_get_selection_simple_field_string_operator', 'Operator')
+    condition_simple_field_string_operator_html = fields.Selection(
+        '_get_selection_simple_field_string_operator_html', 'Operator')
     condition_simple_field_string_operator_icase = fields.Boolean(
         'Case insensitive')
     condition_simple_field_string_operator_regex = fields.Boolean(
@@ -535,21 +547,13 @@ class GenericCondition(models.Model):
 
         return operator_map[operator](obj_value, reference_value)
 
-    def helper_check_simple_field_string(self, obj_value):
-        operator = self.condition_simple_field_string_operator
-        is_regex = self.condition_simple_field_string_operator_regex
-        is_icase = self.condition_simple_field_string_operator_icase
+    def helper_check_simple_field_string_regex_params(self, operator):
         reference_value = self.condition_simple_field_value_char
-
-        # Simple operators
-        if operator == 'set':
-            return bool(obj_value)
-        elif operator == 'not set':
-            return not bool(obj_value)
+        is_regex = self.condition_simple_field_string_operator_regex
 
         # Compute regex flags
         re_flags = re.UNICODE
-        if is_icase:
+        if self.condition_simple_field_string_operator_icase:
             re_flags |= re.IGNORECASE
 
         # if not regex, do re.escape
@@ -558,6 +562,30 @@ class GenericCondition(models.Model):
         elif not is_regex and operator == 'contains':
             reference_value = re.escape(
                 reference_value)
+
+        return reference_value, re_flags
+
+    def helper_check_simple_field_string(self, obj_value):
+        operator = self.condition_simple_field_string_operator
+        if self.condition_simple_field_type == 'html':
+            operator = self.condition_simple_field_string_operator_html
+
+            # Summernote web editor set this value as default, so, if user does
+            # not change it, this value goes to odoo's python code.
+            # Here we treat this value as empty field placeholder
+            if obj_value == '<p><br></p>':
+                obj_value = False
+
+        # Simple operators
+        if operator == 'set':
+            return bool(obj_value)
+        elif operator == 'not set':
+            return not bool(obj_value)
+
+        # Get reference value as regex and regex flags
+        reference_value, re_flags = (
+            self.helper_check_simple_field_string_regex_params(operator)
+        )
 
         # Do everything via regex
         if obj_value and operator == '=':
@@ -613,7 +641,7 @@ class GenericCondition(models.Model):
 
         if field.ttype in ('integer', 'float'):
             return self.helper_check_simple_field_number(value)
-        elif field.ttype == 'char':
+        elif field.ttype in ('char', 'text', 'html'):
             return self.helper_check_simple_field_string(value)
         elif field.ttype == 'boolean':
             return self.helper_check_simple_field_boolean(value)

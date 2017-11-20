@@ -12,6 +12,8 @@ class TestConditionModel(models.Model):
 
     # simple fields
     test_char = fields.Char()
+    test_text = fields.Text()
+    test_html = fields.Html()
     test_int = fields.Integer()
     test_float = fields.Float()
     test_selection = fields.Selection([('val1', 'Value 1'),

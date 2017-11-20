@@ -150,7 +150,7 @@
                                name="group_condition_related_conditions"
                                attrs="{'invisible': [('type', '!=', 'related_conditions')]}">
                             <table colspan="4"
-                                   class="oe_form_group">
+                                   class="oe_form_group o_group o_group_inner">
                                 <tr class="oe_form_group">
                                     <td class="oe_form_group_cell oe_form_group_cell_label"
                                         style="width: 1%">
@@ -217,7 +217,7 @@
                                attrs="{'invisible': [('type', '!=', 'date_diff')]}">
 
                             <table colspan="4"
-                                   class="oe_form_group">
+                                   class="oe_form_group o_group o_group_inner">
                                 <tr class="oe_form_group_row">
                                     <td class="oe_form_group_cell oe_form_group_cell_label"
                                         style="border: none;">
@@ -317,7 +317,7 @@
                             <span><field name="condition_simple_field_type"
                                          invisible="1"/></span>
                             <table colspan="4"
-                                   class="oe_form_group">
+                                   class="oe_form_group o_group o_group_inner">
                                 <tr class="oe_form_group_row">
                                     <td class="oe_form_group_cell oe_form_group_cell_label"
                                         style="border: none; width: 1%">
@@ -337,7 +337,7 @@
                                     <td class="oe_form_group_cell">
                                         <field name="condition_simple_field_field_id"
                                                context="{'default_model_id': model_id}"
-                                               domain="[('model_id','=',model_id), ('ttype', 'in', ('boolean', 'char', 'float', 'integer', 'selection'))]"
+                                               domain="[('model_id','=',model_id), ('ttype', 'in', ('boolean', 'char', 'text', 'html', 'float', 'integer', 'selection'))]"
                                                attrs="{'required': [('type','=','simple_field')]}"/>
                                     </td>
                                     <td class="oe_form_group_cell">
@@ -346,23 +346,29 @@
                                         <field name="condition_simple_field_number_operator"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('float', 'integer'))], 'invisible': [('condition_simple_field_type', 'not in', ('float', 'integer'))]}"/>
                                         <field name="condition_simple_field_string_operator"
-                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'char')], 'invisible': [('condition_simple_field_type', '!=', 'char')]}"/>
-                                        <span class="oe_form_field"
-                                              attrs="{'invisible': ['|', ('condition_simple_field_type', '!=', 'char'),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
-                                            <field name="condition_simple_field_string_operator_icase"/>
-                                            <label for="condition_simple_field_string_operator_icase"/>
-                                        </span>
-                                        <span class="oe_form_field"
-                                              attrs="{'invisible': ['|', ('condition_simple_field_type', '!=', 'char'),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
-                                            <field name="condition_simple_field_string_operator_regex"/>
-                                            <label for="condition_simple_field_string_operator_regex"/>
-                                        </span>
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text'))], 'invisible': [('condition_simple_field_type', 'not in', ('char', 'text'))]}"/>
+                                        <field name="condition_simple_field_string_operator_html"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'html')], 'invisible': [('condition_simple_field_type', '!=', 'html')]}"/>
+                                        <div>
+                                            <span class="oe_form_field"
+                                                attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
+                                                <field name="condition_simple_field_string_operator_icase"/>
+                                                <label for="condition_simple_field_string_operator_icase"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span class="oe_form_field"
+                                                attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
+                                                <field name="condition_simple_field_string_operator_regex"/>
+                                                <label for="condition_simple_field_string_operator_regex"/>
+                                            </span>
+                                        </div>
                                         <field name="condition_simple_field_value_boolean"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'boolean')], 'invisible': [('condition_simple_field_type', '!=', 'boolean')]}"/>
                                     </td>
                                     <td class="oe_form_group_cell">
                                         <field name="condition_simple_field_value_char"
-                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'char')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'char'), ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}"/>
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text', 'html'))], 'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')), ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}"/>
                                         <field name="condition_simple_field_value_integer"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'integer')], 'invisible': [('condition_simple_field_type', '!=', 'integer')]}"/>
                                         <field name="condition_simple_field_value_float"
@@ -417,6 +423,9 @@
                                 </tr>
                             </table>
                         </group>
+                    </group>
+                    <group colspan="4" string="Description">
+                        <field name="description" placeholder="Description..."/>
                     </group>
                 </sheet>
             </form>
