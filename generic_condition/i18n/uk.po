@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:104
+#: code:addons/generic_condition/models/generic_condition.py:113
 #, python-format
 msgid "AND"
 msgstr "І"
@@ -40,7 +40,7 @@ msgid "Based on model"
 msgstr "Базується на моделі"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:692
+#: code:addons/generic_condition/models/generic_condition.py:738
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr "Неможливо перевірити умови для порожньої вибірки даних"
@@ -62,7 +62,7 @@ msgid "Check set of other conditions"
 msgstr "Перевірити набір інших умов"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:341
+#: code:addons/generic_condition/models/generic_condition.py:362
 #, python-format
 msgid "Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
 "\n"
@@ -98,7 +98,7 @@ msgid "Color"
 msgstr "Колір"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:32
+#: code:addons/generic_condition/models/generic_condition.py:33
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition_condition_id
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
@@ -132,7 +132,7 @@ msgid "Condition (filter)"
 msgstr "Умова (фільтр)"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:35
+#: code:addons/generic_condition/models/generic_condition.py:36
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 #, python-format
 msgid "Condition group"
@@ -144,9 +144,10 @@ msgid "Condition search"
 msgstr "Пошук умов"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:75
-#: code:addons/generic_condition/models/generic_condition.py:90
-#: code:addons/generic_condition/models/generic_condition.py:110
+#: code:addons/generic_condition/models/generic_condition.py:77
+#: code:addons/generic_condition/models/generic_condition.py:84
+#: code:addons/generic_condition/models/generic_condition.py:99
+#: code:addons/generic_condition/models/generic_condition.py:119
 #, python-format
 msgid "Contains"
 msgstr "Включає"
@@ -164,14 +165,20 @@ msgid "Created on"
 msgstr "Створено"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:95
+#: code:addons/generic_condition/models/generic_condition.py:104
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
 msgid "Current date"
 msgstr "Поточна дата"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:97
+#: code:addons/generic_condition/models/generic_condition.py:39
+#, python-format
+msgid "Current user"
+msgstr "Поточний користувач"
+
+#. module: generic_condition
+#: code:addons/generic_condition/models/generic_condition.py:106
 #, python-format
 msgid "Date"
 msgstr "Дата"
@@ -192,7 +199,7 @@ msgid "Date diff value"
 msgstr "Різниця дат: занчення"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:34
+#: code:addons/generic_condition/models/generic_condition.py:35
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 #, python-format
 msgid "Date difference"
@@ -231,16 +238,27 @@ msgid "Date start type"
 msgstr "Дата початку: тип"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:98
+#: code:addons/generic_condition/models/generic_condition.py:107
 #, python-format
 msgid "Datetime"
 msgstr "Дата-час"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:43
+#: code:addons/generic_condition/models/generic_condition.py:45
 #, python-format
 msgid "Days"
 msgstr "Дні"
+
+#. module: generic_condition
+#: model:ir.model.fields,field_description:generic_condition.field_generic_condition_description
+#: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
+msgid "Description"
+msgstr "Опис"
+
+#. module: generic_condition
+#: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
+msgid "Description..."
+msgstr "Опис..."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_display_name
@@ -259,13 +277,13 @@ msgid "End Date"
 msgstr "Дата завершення"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:647
+#: code:addons/generic_condition/models/generic_condition.py:693
 #, python-format
 msgid "Error caught while evaluating condition %s[%d]"
 msgstr "Виникла помилка при обчисленні умови %s[%d]"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:30
+#: code:addons/generic_condition/models/generic_condition.py:31
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 #, python-format
 msgid "Expression"
@@ -284,7 +302,7 @@ msgid "False"
 msgstr "Фальш"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:96
+#: code:addons/generic_condition/models/generic_condition.py:105
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
 msgid "Field"
@@ -296,11 +314,16 @@ msgid "Field type"
 msgstr "Тип поля"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:31
+#: code:addons/generic_condition/models/generic_condition.py:32
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 #, python-format
 msgid "Filter"
 msgstr "Фільтр"
+
+#. module: generic_condition
+#: model:ir.model,name:generic_condition.model_generic_condition
+msgid "Generic Condition"
+msgstr "Універсальна умова"
 
 #. module: generic_condition
 #: model:ir.actions.act_window,name:generic_condition.generic_condition_action
@@ -315,7 +338,7 @@ msgid "Group by..."
 msgstr "Групувати за..."
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:42
+#: code:addons/generic_condition/models/generic_condition.py:44
 #, python-format
 msgid "Hours"
 msgstr "Години"
@@ -370,7 +393,7 @@ msgid "Link to another condition. Usualy used to get inversed condition"
 msgstr "Зв'язати іншу умову. зазвичай використовується щоб отримати протилежну умову"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:109
+#: code:addons/generic_condition/models/generic_condition.py:118
 #, python-format
 msgid "Match"
 msgstr "Співпадіння"
@@ -381,7 +404,7 @@ msgid "Model"
 msgstr "Модель"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:45
+#: code:addons/generic_condition/models/generic_condition.py:47
 #, python-format
 msgid "Months"
 msgstr "Місяців"
@@ -392,15 +415,16 @@ msgid "Name"
 msgstr "Назва"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:74
+#: code:addons/generic_condition/models/generic_condition.py:76
 #: code:addons/generic_condition/models/generic_condition.py:83
-#: code:addons/generic_condition/models/generic_condition.py:89
+#: code:addons/generic_condition/models/generic_condition.py:92
+#: code:addons/generic_condition/models/generic_condition.py:98
 #, python-format
 msgid "Not set"
 msgstr "Не встановлено"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:103
+#: code:addons/generic_condition/models/generic_condition.py:112
 #, python-format
 msgid "OR"
 msgstr "Або"
@@ -433,6 +457,7 @@ msgstr "Ок"
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_simple_field_number_operator
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_simple_field_selection_operator
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_simple_field_string_operator
+#: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_simple_field_string_operator_html
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Operator"
 msgstr "Оператор"
@@ -473,14 +498,14 @@ msgid "Related check conditions operator"
 msgstr "Зв'язані умови перевірки: оператор"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:33
+#: code:addons/generic_condition/models/generic_condition.py:34
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 #, python-format
 msgid "Related conditions"
 msgstr "Зв'язані умови"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:37
+#: code:addons/generic_condition/models/generic_condition.py:38
 #, python-format
 msgid "Related field"
 msgstr "Зв'язане поле"
@@ -517,15 +542,16 @@ msgid "Sequence"
 msgstr "Послідовність"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:73
+#: code:addons/generic_condition/models/generic_condition.py:75
 #: code:addons/generic_condition/models/generic_condition.py:82
-#: code:addons/generic_condition/models/generic_condition.py:88
+#: code:addons/generic_condition/models/generic_condition.py:91
+#: code:addons/generic_condition/models/generic_condition.py:97
 #, python-format
 msgid "Set"
 msgstr "Встановлено"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:36
+#: code:addons/generic_condition/models/generic_condition.py:37
 #, python-format
 msgid "Simple field"
 msgstr "Просте поле"
@@ -565,13 +591,18 @@ msgstr "Невідомо"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_rel_filter_conditions
-msgid "Used together with Related Field. These conditions are used to filter related items thatwill be checked by 'Related check conditions'. If this conditions evaluates to False for some object, that this object will not be checked"
-msgstr "Used together with Related Field. These conditions are used to filter related items thatwill be checked by 'Related check conditions'. If this conditions evaluates to False for some object, that this object will not be checked"
+msgid "Used together with Related Field. These conditions are used to filter related items that will be checked by 'Related check conditions'. If this conditions evaluates to False for some object, that this object will not be checked"
+msgstr "Used together with Related Field. These conditions are used to filter related items that will be checked by 'Related check conditions'. If this conditions evaluates to False for some object, that this object will not be checked"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_rel_conditions
-msgid "Used together with Related FieldThese conditions will be used to check objects that passed filter conditions.And result of these related conditions will be used as result"
-msgstr "Used together with Related FieldThese conditions will be used to check objects that passed filter conditions.And result of these related conditions will be used as result"
+msgid "Used together with Related Field. These conditions will be used to check objects that passed filter conditions.And result of these related conditions will be used as result"
+msgstr "Used together with Related Field. These conditions will be used to check objects that passed filter conditions.And result of these related conditions will be used as result"
+
+#. module: generic_condition
+#: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_user_user_field_id
+msgid "User Field"
+msgstr "Поле користувача"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_filter_id
@@ -590,7 +621,7 @@ msgid "Value"
 msgstr "Значення"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:44
+#: code:addons/generic_condition/models/generic_condition.py:46
 #, python-format
 msgid "Weeks"
 msgstr "Тижні"
@@ -602,13 +633,13 @@ msgid "With sudo"
 msgstr "Використати sudo"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:121
+#: code:addons/generic_condition/models/generic_condition.py:130
 #, python-format
 msgid "Wrong Related Field / Based on combination"
 msgstr "Wrong Related Field / Based on combination"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:46
+#: code:addons/generic_condition/models/generic_condition.py:48
 #, python-format
 msgid "Years"
 msgstr "Роки"
@@ -617,11 +648,6 @@ msgstr "Роки"
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
 msgid "_Cancel"
 msgstr "_Cancel"
-
-#. module: generic_condition
-#: model:ir.model,name:generic_condition.model_generic_condition
-msgid "Generic Condition"
-msgstr "Універсальна умова"
 
 #. module: generic_condition
 #: model:ir.model,name:generic_condition.model_generic_condition_test_condition

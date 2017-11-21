@@ -15,8 +15,10 @@ msgstr ""
 
 #. module: generic_tag_purchase
 #: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line_no_tag_id
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line_search_no_tag_id
 #: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_no_tag_id
-msgid "No Tag"
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_search_no_tag_id
+msgid "No tag"
 msgstr "Немає тегу"
 
 #. module: generic_tag_purchase
@@ -49,6 +51,12 @@ msgstr "Теги замовлення постачання"
 #: model:ir.ui.menu,name:generic_tag_purchase.menu_purchase_tags
 msgid "Purchase Tags"
 msgstr "Теги постачання"
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line_search_tag_id
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_search_tag_id
+msgid "Tag"
+msgstr "Тег"
 
 #. module: generic_tag_purchase
 #: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line_tag_ids

@@ -15,10 +15,6 @@ msgstr ""
 
 #. module: generic_tag_product
 #: model:ir.model.fields,field_description:generic_tag_product.field_product_product_no_tag_id
-msgid "No Tag"
-msgstr "Немає тегу"
-
-#. module: generic_tag_product
 #: model:ir.model.fields,field_description:generic_tag_product.field_product_product_search_no_tag_id
 msgid "No tag"
 msgstr "Немає тегу"
@@ -53,3 +49,4 @@ msgstr "Теги"
 #: model:ir.ui.view,arch_db:generic_tag_product.view_product_tree_tags
 msgid "Tags..."
 msgstr "Теги"
+

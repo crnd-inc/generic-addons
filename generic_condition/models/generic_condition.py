@@ -180,7 +180,8 @@ class GenericCondition(models.Model):
         'ir.model.fields', 'User Field',
         ondelete='restrict',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many')),
-                ('relation', '=', 'res.users')])
+                ('relation', '=', 'res.users')],
+        help='Field in obeject being checjed, that points to user. ')
 
     # Related conditions
     condition_rel_field_id = fields.Many2one(
@@ -203,7 +204,7 @@ class GenericCondition(models.Model):
         'parent_id', 'child_id', ondelete='restrict', auto_join=True,
         string='Related filter conditions',
         help="Used together with Related Field. "
-             "These conditions are used to filter related items that"
+             "These conditions are used to filter related items that "
              "will be checked by 'Related check conditions'. "
              "If this conditions evaluates to False for some object, "
              "that this object will not be checked")
@@ -216,9 +217,9 @@ class GenericCondition(models.Model):
         'generic_condition_check_conds',
         'parent_id', 'child_id', ondelete='restrict', auto_join=True,
         string='Related check conditions',
-        help="Used together with Related Field"
+        help="Used together with Related Field. "
              "These conditions will be used to check objects "
-             "that passed filter conditions."
+             "that passed filter conditions. "
              "And result of these related conditions will be used as result")
     condition_rel_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',

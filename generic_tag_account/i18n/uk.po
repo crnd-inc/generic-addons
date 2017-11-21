@@ -33,10 +33,6 @@ msgstr "Теги реалізації"
 
 #. module: generic_tag_account
 #: model:ir.model.fields,field_description:generic_tag_account.field_account_invoice_no_tag_id
-msgid "No Tag"
-msgstr "Немає тегу"
-
-#. module: generic_tag_account
 #: model:ir.model.fields,field_description:generic_tag_account.field_account_invoice_search_no_tag_id
 msgid "No tag"
 msgstr "Немає тегу"
