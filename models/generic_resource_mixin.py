@@ -92,6 +92,7 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
     _name = 'generic.resource.mixin.inv.number'
     _description = 'Generic Resource Mixin Inv Number'
     _inv_number_seq_code = None
+    _inv_number_in_display_name = False
 
     inv_number = fields.Char(
         'Inventory Number', index=True, required=True,
@@ -104,4 +105,18 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
             vals['inv_number'] = self.env['ir.sequence'].next_by_code(
                 self._inv_number_seq_code)
         result = super(GenericResourceMixinInvNumber, self).create(vals)
+        return result
+
+    @api.multi
+    def name_get(self):
+        result = super(GenericResourceMixinInvNumber, self).name_get()
+        if not self._inv_number_in_display_name:
+            return result
+
+        name_map = dict(result)
+        result = []
+        for rec in self:
+            result.append(
+                (rec.id, "%s [%s]" % (name_map[rec.id], rec.inv_number))
+            )
         return result
