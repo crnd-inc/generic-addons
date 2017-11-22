@@ -131,7 +131,7 @@ class GenericCondition(models.Model):
         return True
 
     color = fields.Integer()
-    name = fields.Char(required=True, index=True)
+    name = fields.Char(required=True, index=True, translate=True)
     type = fields.Selection(
         '_get_selection_type', default='filter',
         index=True, required=True)
@@ -148,7 +148,7 @@ class GenericCondition(models.Model):
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
              'This may speed up condition processing.')
-    description = fields.Text()
+    description = fields.Text(translate=True)
 
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
