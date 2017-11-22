@@ -15,12 +15,8 @@ msgstr ""
 
 #. module: generic_tag_sale
 #: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_line_no_tag_id
-#: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_no_tag_id
-msgid "No Tag"
-msgstr "Немає тегу"
-
-#. module: generic_tag_sale
 #: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_line_search_no_tag_id
+#: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_no_tag_id
 #: model:ir.model.fields,field_description:generic_tag_sale.field_sale_order_search_no_tag_id
 msgid "No tag"
 msgstr "Немає тегу"
