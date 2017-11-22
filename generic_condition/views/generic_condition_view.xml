@@ -425,7 +425,8 @@
                         </group>
                     </group>
                     <group colspan="4" string="Description">
-                        <field name="description" placeholder="Description..."/>
+                        <field name="description" nolabel="1"
+                               placeholder="Description..."/>
                     </group>
                 </sheet>
             </form>

@@ -330,10 +330,6 @@ msgstr "Назва тегу має бути унікальною для кате
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_no_tag_id
-msgid "No Tag"
-msgstr "Немає тегу"
-
-#. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_search_no_tag_id
 msgid "No tag"
 msgstr "Немає тегу"
