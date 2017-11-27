@@ -7,10 +7,11 @@
         <field name="name">generic.resource.type.tree</field>
         <field name="model">generic.resource.type</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree create="false" delete="false">
                 <field name="name"/>
                 <field name="model_id"/>
-                <field name="resource_ids"/>
+                <field name="active"/>
+                <field name="resource_count"/>
             </tree>
         </field>
     </record>
@@ -28,9 +29,14 @@
         <field name="name">generic.resource.type.form</field>
         <field name="model">generic.resource.type</field>
         <field name="arch" type="xml">
-            <form string="Resource Type">
+            <form create="false" delete="false">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
                         <button class="oe_stat_button"
                                 type="action"
                                 name="%(generic_resource.action_generic_resource_type_2_generic_resource)d"
@@ -44,8 +50,7 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="model_id"/>
-                        <field name="resource_ids" invisible="1"/>
+                        <field name="model_id" readonly="1"/>
                     </group>
                 </sheet>
             </form>

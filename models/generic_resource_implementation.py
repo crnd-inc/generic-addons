@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import fields, models, api
+from openerp import fields, models, api, _
 
 
 class GenericResourceImplementation(models.Model):
@@ -35,8 +35,19 @@ class GenericResourceImplementation(models.Model):
         for record in self:
             if (record.resource_impl_model and record.resource_impl_id and
                     record.resource_id):
-                impl_name = self.env[record.resource_impl_model].browse(
-                    record.resource_impl_id).display_name
+                # This case, when implementation model is not present in pool,
+                # may happen, when addon that implements resource
+                # implementationwas was uninstalled.
+                # TODO: handle this in better way
+                try:
+                    ImplModel = self.env[record.resource_impl_model]
+                except KeyError:
+                    impl_name = _("Error: no model")
+                else:
+                    impl_name = ImplModel.browse(
+                        record.resource_impl_id
+                    ).display_name
+
                 name = u"%s: %s" % (record.resource_id.display_name, impl_name)
                 result.append((record.id, name))
             else:
