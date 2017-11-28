@@ -9,6 +9,7 @@ class GenericResourceType(models.Model):
     _description = "Generic Resource Type"
 
     name = fields.Char(index=True, required=True, translate=True)
+    active = fields.Boolean(index=True, default=True)
     model_id = fields.Many2one(
         'ir.model', 'Model', required=True, index=True, auto_join=True,
         domain=[('transient', '=', False),
