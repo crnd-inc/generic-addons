@@ -1,4 +1,4 @@
-image: 10.100.98.41:5000/maao-docker/maao-simple:11.0
+image: 10.100.98.41:5000/maao-docker/maao-simple:11.0-maao
 
 variables:
     SERIES_BRANCH: '11.0'
