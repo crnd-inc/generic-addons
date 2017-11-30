@@ -149,46 +149,42 @@
                         <group colspan="4" col="4"
                                name="group_condition_related_conditions"
                                attrs="{'invisible': [('type', '!=', 'related_conditions')]}">
-                            <table colspan="4"
-                                   class="oe_form_group o_group o_group_inner">
-                                <tr class="oe_form_group">
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="width: 1%">
+                            <table colspan="4" class="generic_condition_definition">
+                                <tr>
+                                    <td>
                                         <label for="condition_rel_field_id"/>
                                     </td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_rel_record_operator"
                                                attrs="{'required': [('type','=','related_conditions')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_rel_field_id"
                                                attrs="{'required': [('type','=','related_conditions')]}"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('many2many', 'one2many', 'many2one'))]"/>
                                     </td>
                                 </tr>
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="width: 1%">
+                                <tr>
+                                    <td>
                                         <label for="condition_rel_filter_conditions"/>
                                     </td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_rel_filter_conditions_operator"/></td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_rel_filter_conditions"
                                                context="{'default_model_id': condition_rel_field_id_model_id}"
                                                domain="[('model_id','=',condition_rel_field_id_model_id)]"
                                                widget="many2many_tags"
                                                options="{'no_quick_create': true}"/></td>
                                 </tr>
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="width:1%">
+                                <tr>
+                                    <td>
                                         <label for="condition_rel_conditions"/></td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_rel_conditions_operator"
                                                attrs="{'required': [('type','=','related_conditions')]}"/></td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_rel_conditions"
                                                attrs="{'required': [('type','=','related_conditions')]}"
                                                context="{'default_model_id': condition_rel_field_id_model_id}"
@@ -216,70 +212,55 @@
                                name="group_condition_date_diff"
                                attrs="{'invisible': [('type', '!=', 'date_diff')]}">
 
-                            <table colspan="4"
-                                   class="oe_form_group o_group o_group_inner">
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none;">
+                            <table colspan="4" class="generic_condition_definition">
+                                <tr>
+                                    <td>
                                         <label string="End Date"/>
                                     </td>
                                     <td>
                                         &#160; &#160; &#160; &#160;
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none; text-align:right">
+                                    <td>
                                         <label string="Start Date"/>
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none; text-align:center">
+                                    <td>
                                         <label string="Operator"/>
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none;">
+                                    <td>
                                         <label string="Result"/>
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border-left: 1px solid #ddd; border-right: none;">
+                                    <td>
                                         <label for="condition_date_diff_absolute"/>
                                     </td>
                                 </tr>
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell">
+                                <tr>
+                                    <td>
                                         <field name="condition_date_diff_date_end_type"
                                                attrs="{'required': [('type','=','date_diff')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell"
-                                        rowspan="2"
-                                        style="vertical-align: middle">
+                                    <td rowspan="2">
                                             &#160; &#8211; &#160;
                                     </td>
-                                    <td class="oe_form_group_cell"
-                                        style="text-align:right">
+                                    <td>
                                         <field name="condition_date_diff_date_start_type"
                                                attrs="{'required': [('type','=','date_diff')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell"
-                                        rowspan="2"
-                                        style="vertical-align: middle; text-align:center;">
+                                    <td rowspan="2">
                                         <field name="condition_date_diff_operator"
                                                attrs="{'required': [('type','=','date_diff')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell"
-                                        rowspan="2"
-                                        style="vertical-align: middle">
+                                    <td rowspan="2">
                                         <field name="condition_date_diff_value" class="oe_inline"
                                                attrs="{'required': [('type','=','date_diff')]}"/>
                                         <field name="condition_date_diff_uom" class="oe_inline"
                                                attrs="{'required': [('type','=','date_diff')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell"
-                                        rowspan="2"
-                                        style="vertical-align: middle; border-left: 1px solid #ddd;">
+                                    <td rowspan="2">
                                         <field name="condition_date_diff_absolute"/>
                                     </td>
                                 </tr>
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell">
+                                <tr>
+                                    <td>
                                         <field name="condition_date_diff_date_end_field"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"
@@ -292,8 +273,7 @@
                                             Current date
                                         </div>
                                     </td>
-                                    <td class="oe_form_group_cell"
-                                        style="text-align: right">
+                                    <td>
                                         <field name="condition_date_diff_date_start_field"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"
@@ -316,31 +296,27 @@
                                attrs="{'invisible': [('type', '!=', 'simple_field')]}">
                             <span><field name="condition_simple_field_type"
                                          invisible="1"/></span>
-                            <table colspan="4"
-                                   class="oe_form_group o_group o_group_inner">
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none; width: 1%">
+                            <table colspan="4" class="generic_condition_definition">
+                                <tr>
+                                    <td>
                                         <label string="Field"/>
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none; width: 1%">
+                                    <td>
                                         <label string="Operator"/>
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none;">
+                                    <td>
                                         <label string="Value"
                                                attrs="{'invisible': [('condition_simple_field_type', '=', 'boolean')]}"/>
                                     </td>
                                 </tr>
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell">
+                                <tr>
+                                    <td>
                                         <field name="condition_simple_field_field_id"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id), ('ttype', 'in', ('boolean', 'char', 'text', 'html', 'float', 'integer', 'selection'))]"
                                                attrs="{'required': [('type','=','simple_field')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_simple_field_selection_operator"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'selection')], 'invisible': [('condition_simple_field_type', '!=', 'selection')]}"/>
                                         <field name="condition_simple_field_number_operator"
@@ -350,14 +326,14 @@
                                         <field name="condition_simple_field_string_operator_html"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'html')], 'invisible': [('condition_simple_field_type', '!=', 'html')]}"/>
                                         <div>
-                                            <span class="oe_form_field"
+                                            <span
                                                 attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
                                                 <field name="condition_simple_field_string_operator_icase"/>
                                                 <label for="condition_simple_field_string_operator_icase"/>
                                             </span>
                                         </div>
                                         <div>
-                                            <span class="oe_form_field"
+                                            <span
                                                 attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
                                                 <field name="condition_simple_field_string_operator_regex"/>
                                                 <label for="condition_simple_field_string_operator_regex"/>
@@ -366,7 +342,7 @@
                                         <field name="condition_simple_field_value_boolean"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'boolean')], 'invisible': [('condition_simple_field_type', '!=', 'boolean')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_simple_field_value_char"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text', 'html'))], 'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')), ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}"/>
                                         <field name="condition_simple_field_value_integer"
@@ -387,35 +363,31 @@
                                attrs="{'invisible': [('type', '!=', 'related_field')]}">
                             <span><field name="condition_related_field_model"
                                          invisible="1"/></span>
-                            <table colspan="4"
-                                   class="oe_form_group">
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none; width: 1%">
+                            <table colspan="4" class="generic_condition_definition">
+                                <tr>
+                                    <td>
                                         <label string="Field"/>
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none; width: 1%">
+                                    <td>
                                         <label string="Operator"/>
                                     </td>
-                                    <td class="oe_form_group_cell oe_form_group_cell_label"
-                                        style="border: none;">
+                                    <td>
                                         <label string="Value"
                                                attrs="{'invisible': [('condition_related_field_operator', 'in', ('set', 'not set'))]}"/>
                                     </td>
                                 </tr>
-                                <tr class="oe_form_group_row">
-                                    <td class="oe_form_group_cell">
+                                <tr>
+                                    <td>
                                         <field name="condition_related_field_field_id"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id), ('ttype', 'in', ('many2one', 'many2many'))]"
                                                attrs="{'required': [('type','=','related_field')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_related_field_operator"
                                                attrs="{'required': [('type','=','related_field')]}"/>
                                     </td>
-                                    <td class="oe_form_group_cell">
+                                    <td>
                                         <field name="condition_related_field_value_id"
                                                widget="generic_m2o" model_field="condition_related_field_model"
                                                attrs="{'required': [('type','=','related_field'), ('condition_related_field_operator', '=', 'contains')], 'invisible': [('condition_related_field_operator', 'in', ('set', 'not set'))]}"/>
