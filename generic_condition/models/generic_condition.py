@@ -36,7 +36,8 @@ class GenericCondition(models.Model):
             ('condition_group', _('Condition group')),
             ('simple_field', _('Simple field')),
             ('related_field', _('Related field')),
-            ('current_user', _('Current user'))
+            ('current_user', _('Current user')),
+            ('monetary_field', _('Monetary field')),
         ]
 
     def _get_selection_date_diff_uom(self):
@@ -117,6 +118,24 @@ class GenericCondition(models.Model):
         return [
             ('match', _('Match')),
             ('contains', _('Contains')),
+        ]
+
+    def _get_selection_monetary_field_operator(self):
+        return [
+            ('=', '='),
+            ('>', '>'),
+            ('<', '<'),
+            ('>=', '>='),
+            ('<=', '<='),
+            ('!=', '!='),
+        ]
+
+    def _get_selection_currency_date_type(self):
+        return [
+            ('now', _('Current date')),
+            ('field', _('Field')),
+            ('date', _('Date')),
+            ('datetime', _('Datetime')),
         ]
 
     @api.constrains('condition_rel_field_id', 'model_id')
@@ -304,6 +323,47 @@ class GenericCondition(models.Model):
     condition_related_field_operator = fields.Selection(
         '_get_selection_related_field_operator', 'Operator')
     condition_related_field_value_id = fields.Integer('Value')
+
+    # Monetary field conditions
+    # Value monetary fields
+    condition_monetary_field = fields.Many2one(
+        'ir.model.fields', 'Monetary field', ondelete='restrict',
+        domain=[('ttype', 'in', ('monetary',))])
+    condition_monetary_currency_field = fields.Many2one(
+        'ir.model.fields', 'Currency field', ondelete='restrict')
+
+    # Monetary fields: check rules
+    condition_monetary_operator = fields.Selection(
+        '_get_selection_monetary_field_operator',
+        string='Monetary operator')
+    condition_monetary_value = fields.Monetary(
+        'Monetary value', currency_field='condition_monetary_currency_value')
+    condition_monetary_currency_value = fields.Many2one(
+        'res.currency', 'Currency', ondelete='restrict')
+    # Monetary fields: currency date
+    condition_currency_date_type = fields.Selection(
+        '_get_selection_currency_date_type',
+        string='Currency date type', default='now')
+    condition_currency_date_field = fields.Many2one(
+        'ir.model.fields', 'Currency date field', ondelete='restrict',
+        domain=[('ttype', 'in', ('date', 'datetime'))])
+    condition_currency_date_date = fields.Date(
+        'Currency date', default=fields.Date.today)
+    condition_currency_date_datetime = fields.Datetime(
+        'Currency date', default=fields.Datetime.now)
+
+    @api.onchange('type', 'model_id')
+    def onchange_type(self):
+        """
+            Clear monetary condition fields.
+        """
+        for rec in self:
+            rec.condition_monetary_field = False
+            rec.condition_monetary_currency_field = False
+            rec.condition_monetary_operator = False
+            rec.condition_monetary_value = False
+            rec.condition_monetary_currency_value = False
+            rec.condition_currency_date_field = False
 
     @api.model
     def default_get(self, fields):
@@ -666,6 +726,34 @@ class GenericCondition(models.Model):
             return reference_value_id in obj_value.ids
 
         return False
+
+    # signature check_<type> where type is condition type
+    def check_monetary_field(self, obj, cache=None):
+
+        operator_map = {
+            '=': lambda a, b: a == b,
+            '>': lambda a, b: a > b,
+            '<': lambda a, b: a < b,
+            '>=': lambda a, b: a >= b,
+            '<=': lambda a, b: a <= b,
+            '!=': lambda a, b: a != b,
+        }
+        date_map = {
+            'now': fields.Datetime.now(),
+            'field': obj[self.condition_currency_date_field.name],
+            'date': self.condition_currency_date_date,
+            'datetime': self.condition_currency_date_datetime
+        }
+
+        operator = self.condition_monetary_operator
+        joint_currency = self.condition_monetary_currency_value
+        ctx_date = date_map[self.condition_currency_date_type]
+        field_value_in_j_c = (
+            obj[self.condition_monetary_currency_field.name].
+            with_context(date=ctx_date).
+            compute(obj[self.condition_monetary_field.name], joint_currency))
+        return operator_map[operator](
+            self.condition_monetary_value, field_value_in_j_c)
 
     def _check(self, obj, cache=None):
         """ Checks one condition for a specific object
