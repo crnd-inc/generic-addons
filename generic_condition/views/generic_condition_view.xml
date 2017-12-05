@@ -402,7 +402,7 @@
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>
-                                        <field name="condition_monetary_field"
+                                        <field name="condition_monetary_field_id"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id), ('ttype', '=', 'monetary')]"
                                                attrs="{'required': [('type','=','monetary_field')]}"/>
@@ -419,7 +419,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <field name="condition_monetary_currency_field"
+                                        <field name="condition_monetary_currency_field_id"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id), ('relation', '=', 'res.currency')]"
                                                attrs="{'required': [('type','=','monetary_field')]}"/>
@@ -433,7 +433,7 @@
                                                attrs="{'required': [('type', '=', 'monetary_field')]}"/>
                                     </td>
                                     <td>
-                                        <field name="condition_monetary_currency_value"
+                                        <field name="condition_monetary_value_currency_id"
                                                attrs="{'required': [('type', '=', 'monetary_field')]}"/>
                                     </td>
                                 </tr>
@@ -462,14 +462,12 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <field name="condition_currency_date_field"
+                                        <field name="condition_currency_date_field_id"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"
                                                attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','field')], 'invisible': [('condition_currency_date_type', '!=', 'field')]}"/>
                                         <field name="condition_currency_date_date"
                                                attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','date')], 'invisible': [('condition_currency_date_type', '!=', 'date')]}"/>
-                                        <field name="condition_currency_date_datetime"
-                                               attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','datetime')], 'invisible': [('condition_currency_date_type', '!=', 'datetime')]}"/>
                                         <label string="Current date"
                                                attrs="{'invisible': [('condition_currency_date_type', '!=', 'now')]}"/>
                                     </td>

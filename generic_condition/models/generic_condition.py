@@ -134,8 +134,7 @@ class GenericCondition(models.Model):
         return [
             ('now', _('Current date')),
             ('field', _('Field')),
-            ('date', _('Date')),
-            ('datetime', _('Datetime')),
+            ('date', _('Date'))
         ]
 
     @api.constrains('condition_rel_field_id', 'model_id')
@@ -326,44 +325,32 @@ class GenericCondition(models.Model):
 
     # Monetary field conditions
     # Value monetary fields
-    condition_monetary_field = fields.Many2one(
+    condition_monetary_field_id = fields.Many2one(
         'ir.model.fields', 'Monetary field', ondelete='restrict',
-        domain=[('ttype', 'in', ('monetary',))])
-    condition_monetary_currency_field = fields.Many2one(
-        'ir.model.fields', 'Currency field', ondelete='restrict')
+        domain=[('ttype', '=', 'monetary')])
+    condition_monetary_currency_field_id = fields.Many2one(
+        'ir.model.fields', 'Currency field', ondelete='restrict',
+        domain=[('ttype', '=', 'many2one'),
+                ('comodel_name', '=', 'res.currency')])
 
     # Monetary fields: check rules
     condition_monetary_operator = fields.Selection(
         '_get_selection_monetary_field_operator',
         string='Monetary operator')
     condition_monetary_value = fields.Monetary(
-        'Monetary value', currency_field='condition_monetary_currency_value')
-    condition_monetary_currency_value = fields.Many2one(
+        'Monetary value',
+        currency_field='condition_monetary_value_currency_id')
+    condition_monetary_value_currency_id = fields.Many2one(
         'res.currency', 'Currency', ondelete='restrict')
     # Monetary fields: currency date
     condition_currency_date_type = fields.Selection(
         '_get_selection_currency_date_type',
         string='Currency date type', default='now')
-    condition_currency_date_field = fields.Many2one(
+    condition_currency_date_field_id = fields.Many2one(
         'ir.model.fields', 'Currency date field', ondelete='restrict',
         domain=[('ttype', 'in', ('date', 'datetime'))])
     condition_currency_date_date = fields.Date(
         'Currency date', default=fields.Date.today)
-    condition_currency_date_datetime = fields.Datetime(
-        'Currency date', default=fields.Datetime.now)
-
-    @api.onchange('type', 'model_id')
-    def onchange_type(self):
-        """
-            Clear monetary condition fields.
-        """
-        for rec in self:
-            rec.condition_monetary_field = False
-            rec.condition_monetary_currency_field = False
-            rec.condition_monetary_operator = False
-            rec.condition_monetary_value = False
-            rec.condition_monetary_currency_value = False
-            rec.condition_currency_date_field = False
 
     @api.model
     def default_get(self, fields):
@@ -740,18 +727,18 @@ class GenericCondition(models.Model):
         }
         date_map = {
             'now': fields.Datetime.now(),
-            'field': obj[self.condition_currency_date_field.name],
-            'date': self.condition_currency_date_date,
-            'datetime': self.condition_currency_date_datetime
+            'field': obj[self.condition_currency_date_field_id.name],
+            'date': self.condition_currency_date_date
         }
 
         operator = self.condition_monetary_operator
-        joint_currency = self.condition_monetary_currency_value
+        joint_currency = self.condition_monetary_value_currency_id
         ctx_date = date_map[self.condition_currency_date_type]
         field_value_in_j_c = (
-            obj[self.condition_monetary_currency_field.name].
+            obj[self.condition_monetary_currency_field_id.name].
             with_context(date=ctx_date).
-            compute(obj[self.condition_monetary_field.name], joint_currency))
+            compute(obj[self.condition_monetary_field_id.name],
+                    joint_currency))
         return operator_map[operator](
             self.condition_monetary_value, field_value_in_j_c)
 
@@ -784,7 +771,7 @@ class GenericCondition(models.Model):
             _logger.error(msg, exc_info=True)
             raise
 
-        # Invert resut if required
+        # Invert result if required
         res = (not res) if condition.invert else res
 
         # set cache
