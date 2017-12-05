@@ -402,10 +402,7 @@
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>
-                                        <field name="condition_monetary_field_id"
-                                               context="{'default_model_id': model_id}"
-                                               domain="[('model_id','=',model_id), ('ttype', '=', 'monetary')]"
-                                               attrs="{'required': [('type','=','monetary_field')]}"/>
+                                        <label string="Field"/>
                                     </td>
                                     <td>
                                         <label string="Operator"/>
@@ -414,15 +411,16 @@
                                         <label string="Result"/>
                                     </td>
                                     <td>
-                                        <label string="Currency"/>
+                                        <label string="Currency date"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <field name="condition_monetary_currency_field_id"
+                                        <field name="condition_monetary_field_id"
                                                context="{'default_model_id': model_id}"
-                                               domain="[('model_id','=',model_id), ('relation', '=', 'res.currency')]"
-                                               attrs="{'required': [('type','=','monetary_field')]}"/>
+                                               domain="[('model_id','=',model_id), ('ttype', '=', 'monetary')]"
+                                               attrs="{'required': [('type','=','monetary_field')]}"
+                                               placeholder="Field"/>
                                     </td>
                                     <td>
                                         <field name="condition_monetary_operator"
@@ -433,36 +431,28 @@
                                                attrs="{'required': [('type', '=', 'monetary_field')]}"/>
                                     </td>
                                     <td>
-                                        <field name="condition_monetary_value_currency_id"
-                                               attrs="{'required': [('type', '=', 'monetary_field')]}"/>
-                                    </td>
-                                </tr>
-                                 <tr>
-                                    <td>
-                                        <label string="Currency date"/>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
                                         <field name="condition_currency_date_type"
                                                attrs="{'required': [('type','=','monetary_field')]}"/>
                                     </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
+                                        <field name="condition_monetary_currency_field_id"
+                                               context="{'default_model_id': model_id}"
+                                               domain="[('model_id','=',model_id), ('relation', '=', 'res.currency')]"
+                                               attrs="{'required': [('type','=','monetary_field')]}"
+                                               placeholder="Currency field"/>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <field name="condition_monetary_value_currency_id"
+                                               attrs="{'required': [('type', '=', 'monetary_field')]}"
+                                               placeholder="Currency"/>
+                                    </td>
+                                    <td>
                                         <field name="condition_currency_date_field_id"
+                                               placeholder="Date field"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"
                                                attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','field')], 'invisible': [('condition_currency_date_type', '!=', 'field')]}"/>
@@ -470,12 +460,6 @@
                                                attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','date')], 'invisible': [('condition_currency_date_type', '!=', 'date')]}"/>
                                         <label string="Current date"
                                                attrs="{'invisible': [('condition_currency_date_type', '!=', 'now')]}"/>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
                                     </td>
                                 </tr>
                             </table>

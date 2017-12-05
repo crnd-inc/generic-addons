@@ -331,7 +331,7 @@ class GenericCondition(models.Model):
     condition_monetary_currency_field_id = fields.Many2one(
         'ir.model.fields', 'Currency field', ondelete='restrict',
         domain=[('ttype', '=', 'many2one'),
-                ('comodel_name', '=', 'res.currency')])
+                ('relation', '=', 'res.currency')])
 
     # Monetary fields: check rules
     condition_monetary_operator = fields.Selection(
