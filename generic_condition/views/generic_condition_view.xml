@@ -411,7 +411,7 @@
                                         <label string="Result"/>
                                     </td>
                                     <td>
-                                        <label string="Currency date"/>
+                                        <label string="Accounting date"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -420,7 +420,8 @@
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id), ('ttype', '=', 'monetary')]"
                                                attrs="{'required': [('type','=','monetary_field')]}"
-                                               placeholder="Field"/>
+                                               placeholder="Field"
+                                               options="{'no_create': True}"/>
                                     </td>
                                     <td>
                                         <field name="condition_monetary_operator"
@@ -441,18 +442,21 @@
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id), ('relation', '=', 'res.currency')]"
                                                attrs="{'required': [('type','=','monetary_field')]}"
-                                               placeholder="Currency field"/>
+                                               placeholder="Currency field"
+                                               options="{'no_create': True}"/>
                                     </td>
                                     <td>
                                     </td>
                                     <td>
                                         <field name="condition_monetary_value_currency_id"
                                                attrs="{'required': [('type', '=', 'monetary_field')]}"
-                                               placeholder="Currency"/>
+                                               placeholder="Currency"
+                                               options="{'no_create': True}"/>
                                     </td>
                                     <td>
                                         <field name="condition_currency_date_field_id"
                                                placeholder="Date field"
+                                               options="{'no_create': True}"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"
                                                attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','field')], 'invisible': [('condition_currency_date_type', '!=', 'field')]}"/>
