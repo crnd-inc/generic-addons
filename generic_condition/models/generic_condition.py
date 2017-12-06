@@ -716,6 +716,13 @@ class GenericCondition(models.Model):
 
     # signature check_<type> where type is condition type
     def check_monetary_field(self, obj, cache=None):
+        # Compute accounting date
+        if self.condition_currency_date_type == 'date':
+            date = self.condition_currency_date_date
+        elif self.condition_currency_date_type == 'field':
+            date = obj[self.condition_currency_date_field_id.name]
+        else:  # type is 'now'
+            date = fields.Datetime.now()
 
         operator_map = {
             '=': lambda a, b: a == b,
@@ -725,22 +732,22 @@ class GenericCondition(models.Model):
             '<=': lambda a, b: a <= b,
             '!=': lambda a, b: a != b,
         }
-        date_map = {
-            'now': fields.Datetime.now(),
-            'field': obj[self.condition_currency_date_field_id.name],
-            'date': self.condition_currency_date_date
-        }
 
         operator = self.condition_monetary_operator
-        joint_currency = self.condition_monetary_value_currency_id
-        ctx_date = date_map[self.condition_currency_date_type]
-        field_value_in_j_c = (
-            obj[self.condition_monetary_currency_field_id.name].
-            with_context(date=ctx_date).
-            compute(obj[self.condition_monetary_field_id.name],
-                    joint_currency))
-        return operator_map[operator](
-            self.condition_monetary_value, field_value_in_j_c)
+
+        # Object value
+        obj_val = obj[self.condition_monetary_field_id.name]
+        obj_val_currency = obj[self.condition_monetary_currency_field_id.name]
+
+        # Reference value
+        reference_value = self.condition_monetary_value
+        reference_currency = self.condition_monetary_value_currency_id
+
+        # Object value in reference currency
+        test_value = obj_val_currency.with_context(date=date).compute(
+            obj_val, reference_currency)
+
+        return operator_map[operator](test_value, reference_value)
 
     def _check(self, obj, cache=None):
         """ Checks one condition for a specific object

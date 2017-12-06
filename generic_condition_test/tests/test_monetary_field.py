@@ -1,218 +1,262 @@
 # -*- coding: utf-8 -*-
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 from openerp import fields
+import datetime
 
 
-class TestConditionMonetaryField(TransactionCase):
+class TestConditionMonetaryField(SavepointCase):
     def setUp(self):
         super(TestConditionMonetaryField, self).setUp()
-        self.test_model = self.env['ir.model'].search(
-            [('model', '=', 'test.generic.condition.test.model')])
+        self.test_model = self.env.ref(
+            'generic_condition_test.model_test_generic_condition_test_model')
+
+        # Models
         self.TestModel = self.env[self.test_model.model]
-        self.usd = self.env.ref('base.USD')
-        self.uah = self.env.ref('base.UAH')
-        self.vals = {
-            'test_1_monetary': 150,
-            'test_1_monetary_currency': self.usd.id,
-            'date_test': '2012-05-03'
-        }
-        self.test_monetary = self.TestModel.create(self.vals)
-
         self.Condition = self.env['generic.condition']
-        self.condition_data = {
-            "name": 'Monetary field condition',
-            "model_id": self.test_model.id,
-            "type": 'monetary_field',
-        }
-        self.test_1_monetary = self.test_model.field_id.filtered(
-            lambda r: r.name == 'test_1_monetary')
-        self.test_1_monetary_currency = self.test_model.field_id.filtered(
-            lambda r: r.name == 'test_1_monetary_currency')
-        self.condition_currency_date_field_id = (
-            self.test_model.field_id.filtered(lambda r: r.name == 'date_test'))
-        self.date_field_map = {
-            'now': fields.Date.today(),
-            'field': 'condition_currency_date_field_id',
-            'date': 'condition_currency_date_date'
-        }
 
-    def _create_condition(self, data):
-        """ Simple helper to create new condition with some predefined values
-        """
-        condition_data = self.condition_data.copy()
-        condition_data.update(data)
-        return self.Condition.create(condition_data)
+        # Currencies
+        self.usd = self.env.ref('base.USD')
+        self.eur = self.env.ref('base.EUR')
 
-    def _check_monetary_condition(self, val, operator, val_currency,
-                                  date_type, currency_date):
-        """ Test integer values
-        """
+        # Test record
+        # 150 USD on 2012-05-03
+        self.test_monetary = self.env.ref(
+            'generic_condition_test.test_generic_condition_model_rec_monetary')
+
+        # Test condition
+        # Checks if test record's test_monetary field is equal to $150
+        self.test_condition = self.env.ref(
+            'generic_condition_test.test_condition_monetary_equal_150_usd')
+
+    def _check_monetary_condition(self, operator, val, val_currency,
+                                  date_type='now', currency_date=None):
         vals = {
-            'condition_monetary_field_id': self.test_1_monetary.id,
-            'condition_monetary_currency_field_id':
-                self.test_1_monetary_currency.id,
             'condition_monetary_operator': operator,
             'condition_monetary_value': val,
             'condition_monetary_value_currency_id': val_currency.id,
             'condition_currency_date_type': date_type
         }
-        if date_type != 'now':
-            vals.update({self.date_field_map[date_type]: currency_date})
-        condition = self._create_condition(vals)
-        return condition.check(self.test_monetary)
+        if date_type == 'date':
+            assert currency_date is not None, (
+                "Currency date must not be none here")
+            vals.update({
+                'condition_currency_date_date': currency_date,
+            })
 
-    def _currency_exchange(self, ctx_date, val_currency):
-        return (
-            self.test_monetary[self.test_1_monetary_currency.name].
-            with_context(date=ctx_date).
-            compute(self.test_monetary[self.test_1_monetary.name],
-                    val_currency))
+        self.test_condition.write(vals)
+        return self.test_condition.check(self.test_monetary)
 
-    def test_monetary_field_with_date_type_field(self):
-        # tests with date_type field
-        date = self.condition_currency_date_field_id
-        ctx_date = self.test_monetary[
-            self.condition_currency_date_field_id.name]
-        val_currency = self.uah
-        val = self._currency_exchange(ctx_date, val_currency)
+    def test_monetary_field_same_currency_no_rate(self):
+        # Ensure same currency
+        self.assertEqual(self.test_monetary.test_monetary_currency, self.usd)
+        self.assertEqual(
+            self.test_condition.condition_monetary_value_currency_id, self.usd)
 
+        # Test record (150 usd) against 150 usd
         self.assertTrue(self._check_monetary_condition(
-            val, '=', val_currency, 'field', date.id))
+            '=', 150.0, self.usd, date_type='now'))
         self.assertFalse(self._check_monetary_condition(
-            val, '!=', val_currency, 'field', date.id))
+            '!=', 150.0, self.usd, date_type='now'))
         self.assertFalse(self._check_monetary_condition(
-            val, '>', val_currency, 'field', date.id))
+            '>', 150.0, self.usd, date_type='now'))
         self.assertFalse(self._check_monetary_condition(
-            val, '<', val_currency, 'field', date.id))
+            '<', 150.0, self.usd, date_type='now'))
         self.assertTrue(self._check_monetary_condition(
-            val, '>=', val_currency, 'field', date.id))
+            '>=', 150.0, self.usd, date_type='now'))
         self.assertTrue(self._check_monetary_condition(
-            val, '<=', val_currency, 'field', date.id))
+            '<=', 150.0, self.usd, date_type='now'))
 
-        val1 = val + 10
+        # Test record (150 usd) against 140 usd
+        self.assertFalse(self._check_monetary_condition(
+            '=', 140.0, self.usd, date_type='now'))
+        self.assertTrue(self._check_monetary_condition(
+            '!=', 140.0, self.usd, date_type='now'))
+        self.assertTrue(self._check_monetary_condition(
+            '>', 140.0, self.usd, date_type='now'))
+        self.assertFalse(self._check_monetary_condition(
+            '<', 140.0, self.usd, date_type='now'))
+        self.assertTrue(self._check_monetary_condition(
+            '>=', 140.0, self.usd, date_type='now'))
+        self.assertFalse(self._check_monetary_condition(
+            '<=', 140.0, self.usd, date_type='now'))
 
+        # Test record(150 usd)  against 160 usd
         self.assertFalse(self._check_monetary_condition(
-            val1, '=', val_currency, 'field', date.id))
+            '=', 160.0, self.usd, date_type='now'))
         self.assertTrue(self._check_monetary_condition(
-            val1, '!=', val_currency, 'field', date.id))
-        self.assertTrue(self._check_monetary_condition(
-            val1, '>', val_currency, 'field', date.id))
+            '!=', 160.0, self.usd, date_type='now'))
         self.assertFalse(self._check_monetary_condition(
-            val1, '<', val_currency, 'field', date.id))
+            '>', 160.0, self.usd, date_type='now'))
         self.assertTrue(self._check_monetary_condition(
-            val1, '>=', val_currency, 'field', date.id))
+            '<', 160.0, self.usd, date_type='now'))
         self.assertFalse(self._check_monetary_condition(
-            val1, '<=', val_currency, 'field', date.id))
+            '>=', 160.0, self.usd, date_type='now'))
+        self.assertTrue(self._check_monetary_condition(
+            '<=', 160.0, self.usd, date_type='now'))
 
-        val2 = val - 10
+    def test_monetary_field_different_currencies_fixed_date(self):
+        # This test is based on currency rate's demo data
+        # It includes following
+        #   - company currency is EUR
+        #   - USD to EUR
+        #     - 2010-01-01: 1.2834
+        #     - %Y-06-06: 1.5289
+        #
+        # We define two dates that should be used as accounting date:
+        #   - date_1 = '2010-01-05'
+        #   - date_2 = '%Y-07-03'
+        #
+        # These dates should use following rates:
+        #   - date_1 - 1.2834
+        #   - date_2 - 1.5289
+        #
+        # In this test we change currency of record to euro
+        # thus record's 'test_monetary' field is 150 EUR
+        # which is:
+        #   - on 2010-01-01+: 150 * 1.2834 = 192.51 USD
+        #   - on %Y-06-06+:   150 * 1.5289 = 229.34 USD
+        #
+        date_1 = '2010-01-05'  # rate 1.2834 should be used
+        date_2 = datetime.date.today().strftime('%Y-07-03')
+        self.test_monetary.test_monetary_currency = self.eur
 
-        self.assertFalse(self._check_monetary_condition(
-            val2, '=', val_currency, 'field', date.id))
-        self.assertTrue(self._check_monetary_condition(
-            val2, '!=', val_currency, 'field', date.id))
-        self.assertTrue(self._check_monetary_condition(
-            val2, '<', val_currency, 'field', date.id))
-        self.assertFalse(self._check_monetary_condition(
-            val2, '>', val_currency, 'field', date.id))
-        self.assertTrue(self._check_monetary_condition(
-            val2, '<=', val_currency, 'field', date.id))
-        self.assertFalse(self._check_monetary_condition(
-            val2, '>=', val_currency, 'field', date.id))
+        # Ensure currencies ok
+        self.assertEqual(
+            self.test_monetary.test_monetary_currency, self.eur)
+        self.assertEqual(
+            self.test_condition.condition_monetary_value_currency_id, self.usd)
 
-    def test_monetary_field_with_date_type_date(self):
-        # tests with date_type date
-        date = '2012-05-03'
-        val_currency = self.uah
-        val = self._currency_exchange(date, val_currency)
+        # Test record (150 eur) against 192.51 usd on date_1 (2010-01-05)
+        # Expected rate 1.2834
+        # Expected record val and condition val are equal
+        self.assertTrue(self._check_monetary_condition(
+            '=', 192.51, self.usd, date_type='date', currency_date=date_1))
+        self.assertFalse(self._check_monetary_condition(
+            '!=', 192.51, self.usd, date_type='date', currency_date=date_1))
+        self.assertFalse(self._check_monetary_condition(
+            '>', 192.51, self.usd, date_type='date', currency_date=date_1))
+        self.assertFalse(self._check_monetary_condition(
+            '<', 192.51, self.usd, date_type='date', currency_date=date_1))
+        self.assertTrue(self._check_monetary_condition(
+            '>=', 192.51, self.usd, date_type='date', currency_date=date_1))
+        self.assertTrue(self._check_monetary_condition(
+            '<=', 192.51, self.usd, date_type='date', currency_date=date_1))
 
-        self.assertTrue(self._check_monetary_condition(
-            val, '=', val_currency, 'date', date))
+        # Test record (150 eur) against 192.51 usd on date_2 (%Y-07-03)
+        # Expected rate 1.5289
+        # Expected record val is greater then condition val
         self.assertFalse(self._check_monetary_condition(
-            val, '!=', val_currency, 'date', date))
-        self.assertFalse(self._check_monetary_condition(
-            val, '>', val_currency, 'date', date))
-        self.assertFalse(self._check_monetary_condition(
-            val, '<', val_currency, 'date', date))
+            '=', 192.51, self.usd, date_type='date', currency_date=date_2))
         self.assertTrue(self._check_monetary_condition(
-            val, '>=', val_currency, 'date', date))
+            '!=', 192.51, self.usd, date_type='date', currency_date=date_2))
         self.assertTrue(self._check_monetary_condition(
-            val, '<=', val_currency, 'date', date))
+            '>', 192.51, self.usd, date_type='date', currency_date=date_2))
+        self.assertFalse(self._check_monetary_condition(
+            '<', 192.51, self.usd, date_type='date', currency_date=date_2))
+        self.assertTrue(self._check_monetary_condition(
+            '>=', 192.51, self.usd, date_type='date', currency_date=date_2))
+        self.assertFalse(self._check_monetary_condition(
+            '<=', 192.51, self.usd, date_type='date', currency_date=date_2))
 
-        val1 = val + 10
+        # Test record (150 eur) against 229.34 usd on date_2 (%Y-07-03)
+        # Expected rate 1.5289
+        # Expected record val and condition val are equal
+        self.assertTrue(self._check_monetary_condition(
+            '=', 229.34, self.usd, date_type='date', currency_date=date_2))
+        self.assertFalse(self._check_monetary_condition(
+            '!=', 229.34, self.usd, date_type='date', currency_date=date_2))
+        self.assertFalse(self._check_monetary_condition(
+            '>', 229.34, self.usd, date_type='date', currency_date=date_2))
+        self.assertFalse(self._check_monetary_condition(
+            '<', 229.34, self.usd, date_type='date', currency_date=date_2))
+        self.assertTrue(self._check_monetary_condition(
+            '>=', 229.34, self.usd, date_type='date', currency_date=date_2))
+        self.assertTrue(self._check_monetary_condition(
+            '<=', 229.34, self.usd, date_type='date', currency_date=date_2))
 
-        self.assertFalse(self._check_monetary_condition(
-            val1, '=', val_currency, 'date', date))
-        self.assertTrue(self._check_monetary_condition(
-            val1, '!=', val_currency, 'date', date))
-        self.assertTrue(self._check_monetary_condition(
-            val1, '>', val_currency, 'date', date))
-        self.assertFalse(self._check_monetary_condition(
-            val1, '<', val_currency, 'date', date))
-        self.assertTrue(self._check_monetary_condition(
-            val1, '>=', val_currency, 'date', date))
-        self.assertFalse(self._check_monetary_condition(
-            val1, '<=', val_currency, 'date', date))
+    def test_monetary_field_different_currencies_date_in_date_field(self):
+        # This test is based on currency rate's demo data
+        # It includes following
+        #   - company currency is EUR
+        #   - USD to EUR
+        #     - 2010-01-01: 1.2834
+        #     - %Y-06-06: 1.5289
+        #
+        # We define two dates that should be used as accounting date:
+        #   - date_1 = '2010-01-05'
+        #   - date_2 = '%Y-07-03'
+        #
+        # These dates should use following rates:
+        #   - date_1 - 1.2834
+        #   - date_2 - 1.5289
+        #
+        # In this test we change currency of record to euro
+        # thus record's 'test_monetary' field is 150 EUR
+        # which is:
+        #   - on 2010-01-01+: 150 * 1.2834 = 192.51 USD
+        #   - on %Y-06-06+:   150 * 1.5289 = 229.34 USD
+        #
+        # Accounting date now is stored in checked record in 'date_test' field
+        date_1 = '2010-01-05'  # rate 1.2834 should be used
+        date_2 = datetime.date.today().strftime('%Y-07-03')
+        self.test_monetary.test_monetary_currency = self.eur
 
-        val2 = val - 10
+        # Ensure currencies ok
+        self.assertEqual(
+            self.test_monetary.test_monetary_currency, self.eur)
+        self.assertEqual(
+            self.test_condition.condition_monetary_value_currency_id, self.usd)
 
-        self.assertFalse(self._check_monetary_condition(
-            val2, '=', val_currency, 'date', date))
-        self.assertTrue(self._check_monetary_condition(
-            val2, '!=', val_currency, 'date', date))
-        self.assertTrue(self._check_monetary_condition(
-            val2, '<', val_currency, 'date', date))
-        self.assertFalse(self._check_monetary_condition(
-            val2, '>', val_currency, 'date', date))
-        self.assertTrue(self._check_monetary_condition(
-            val2, '<=', val_currency, 'date', date))
-        self.assertFalse(self._check_monetary_condition(
-            val2, '>=', val_currency, 'date', date))
+        # Set date to date_1 (2010-01-05)
+        self.test_monetary.date_test = date_1
 
-    def test_monetary_field_with_date_type_now(self):
-        # tests with date_type now
-        date = self.date_field_map['now']
-        val_currency = self.uah
-        val = self._currency_exchange(date, val_currency)
+        # Test record (150 eur) against 192.51 usd on date_1 (2010-01-05)
+        # Expected rate 1.2834
+        # Expected record val and condition val are equal
+        self.assertTrue(self._check_monetary_condition(
+            '=', 192.51, self.usd, date_type='field'))
+        self.assertFalse(self._check_monetary_condition(
+            '!=', 192.51, self.usd, date_type='field'))
+        self.assertFalse(self._check_monetary_condition(
+            '>', 192.51, self.usd, date_type='field'))
+        self.assertFalse(self._check_monetary_condition(
+            '<', 192.51, self.usd, date_type='field'))
+        self.assertTrue(self._check_monetary_condition(
+            '>=', 192.51, self.usd, date_type='field'))
+        self.assertTrue(self._check_monetary_condition(
+            '<=', 192.51, self.usd, date_type='field'))
 
-        self.assertTrue(self._check_monetary_condition(
-            val, '=', val_currency, 'now', date))
-        self.assertFalse(self._check_monetary_condition(
-            val, '!=', val_currency, 'now', date))
-        self.assertFalse(self._check_monetary_condition(
-            val, '>', val_currency, 'now', date))
-        self.assertFalse(self._check_monetary_condition(
-            val, '<', val_currency, 'now', date))
-        self.assertTrue(self._check_monetary_condition(
-            val, '>=', val_currency, 'now', date))
-        self.assertTrue(self._check_monetary_condition(
-            val, '<=', val_currency, 'now', date))
+        # Set date to date_2 (%Y-07-03)
+        self.test_monetary.date_test = date_2
 
-        val1 = val + 10
+        # Test record (150 eur) against 192.51 usd on date_2 (%Y-07-03)
+        # Expected rate 1.5289
+        # Expected record val is greater then condition val
+        self.assertFalse(self._check_monetary_condition(
+            '=', 192.51, self.usd, date_type='field'))
+        self.assertTrue(self._check_monetary_condition(
+            '!=', 192.51, self.usd, date_type='field'))
+        self.assertTrue(self._check_monetary_condition(
+            '>', 192.51, self.usd, date_type='field'))
+        self.assertFalse(self._check_monetary_condition(
+            '<', 192.51, self.usd, date_type='field'))
+        self.assertTrue(self._check_monetary_condition(
+            '>=', 192.51, self.usd, date_type='field'))
+        self.assertFalse(self._check_monetary_condition(
+            '<=', 192.51, self.usd, date_type='field'))
 
-        self.assertFalse(self._check_monetary_condition(
-            val1, '=', val_currency, 'now', date))
+        # Test record (150 eur) against 229.34 usd on date_2 (%Y-07-03)
+        # Expected rate 1.5289
+        # Expected record val and condition val are equal
         self.assertTrue(self._check_monetary_condition(
-            val1, '!=', val_currency, 'now', date))
-        self.assertTrue(self._check_monetary_condition(
-            val1, '>', val_currency, 'now', date))
+            '=', 229.34, self.usd, date_type='field'))
         self.assertFalse(self._check_monetary_condition(
-            val1, '<', val_currency, 'now', date))
-        self.assertTrue(self._check_monetary_condition(
-            val1, '>=', val_currency, 'now', date))
+            '!=', 229.34, self.usd, date_type='field'))
         self.assertFalse(self._check_monetary_condition(
-            val1, '<=', val_currency, 'now', date))
-
-        val2 = val - 10
-
+            '>', 229.34, self.usd, date_type='field'))
         self.assertFalse(self._check_monetary_condition(
-            val2, '=', val_currency, 'now', date))
+            '<', 229.34, self.usd, date_type='field'))
         self.assertTrue(self._check_monetary_condition(
-            val2, '!=', val_currency, 'now', date))
+            '>=', 229.34, self.usd, date_type='field'))
         self.assertTrue(self._check_monetary_condition(
-            val2, '<', val_currency, 'now', date))
-        self.assertFalse(self._check_monetary_condition(
-            val2, '>', val_currency, 'now', date))
-        self.assertTrue(self._check_monetary_condition(
-            val2, '<=', val_currency, 'now', date))
-        self.assertFalse(self._check_monetary_condition(
-            val2, '>=', val_currency, 'now', date))
+            '<=', 229.34, self.usd, date_type='field'))
