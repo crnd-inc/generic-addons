@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Test records -->
     <record id="test_generic_condition_related_model_rec" model="test.generic.condition.test.model.relation">
         <field name="name">name</field>
     </record>
     <record id="test_generic_condition_model_rec" model="test.generic.condition.test.model">
         <field name="test_m2o" ref="test_generic_condition_related_model_rec"/>
     </record>
+    <record id="test_generic_condition_model_rec_monetary" model="test.generic.condition.test.model">
+        <field name="test_monetary_currency" ref="base.USD"/>
+        <field name="test_monetary" eval="150.0"/>
+        <field name="date_test">2012-05-03</field>
+    </record>
+
+    <!-- Test conditions -->
+    <record id="test_condition_monetary_equal_150_usd" model="generic.condition">
+        <field name="name">Monetary field equal 150 USD</field>
+        <field name="model_id" ref="generic_condition_test.model_test_generic_condition_test_model"/>
+        <field name="type">monetary_field</field>
+        <field name="condition_monetary_field_id" ref="generic_condition_test.field_test_generic_condition_test_model_test_monetary"/>
+        <field name="condition_monetary_currency_field_id" ref="generic_condition_test.field_test_generic_condition_test_model_test_monetary_currency"/>
+        <field name="condition_monetary_operator">=</field>
+        <field name="condition_monetary_value" eval="150"/>
+        <field name="condition_monetary_value_currency_id" ref="base.USD"/>
+        <field name="condition_monetary_curency_date_type">now</field>
+        <field name="condition_monetary_curency_date_field_id" ref="field_test_generic_condition_test_model_date_test"/>
+    </record>
+
+
 </odoo>
  

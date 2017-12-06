@@ -30,6 +30,10 @@ class TestConditionModel(models.Model):
     user_m2o = fields.Many2one('res.users')
     user_m2m = fields.Many2many('res.users')
 
+    # Monetary fields
+    test_monetary = fields.Monetary(currency_field='test_monetary_currency')
+    test_monetary_currency = fields.Many2one('res.currency')
+
 
 class TestConditionModelRelation(models.Model):
     _name = 'test.generic.condition.test.model.relation'

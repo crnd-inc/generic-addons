@@ -1,21 +1,24 @@
 # -*- coding: utf-8 -*-
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 
 
-class TestConditionSimpleFieldBoolean(TransactionCase):
-    def setUp(self):
-        super(TestConditionSimpleFieldBoolean, self).setUp()
-        self.test_model = self.env['ir.model'].search(
-            [('model', '=', 'test.generic.condition.test.model')])
-        self.TestModel = self.env[self.test_model.model]
+class TestConditionSimpleFieldBoolean(SavepointCase):
 
-        self.test_field_bool = self.test_model.field_id.filtered(
+    @classmethod
+    def setUpClass(cls):
+        super(TestConditionSimpleFieldBoolean, cls).setUpClass()
+        cls.test_model = cls.env.ref(
+            'generic_condition_test.model_test_generic_condition_test_model')
+
+        cls.TestModel = cls.env[cls.test_model.model]
+
+        cls.test_field_bool = cls.test_model.field_id.filtered(
             lambda r: r.name == 'test_bool')
 
-        self.Condition = self.env['generic.condition']
-        self.condition_data = {
+        cls.Condition = cls.env['generic.condition']
+        cls.condition_data = {
             "name": 'Simple field condition',
-            "model_id": self.test_model.id,
+            "model_id": cls.test_model.id,
             "type": 'simple_field',
         }
 
