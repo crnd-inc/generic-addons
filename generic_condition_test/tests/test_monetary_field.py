@@ -1,31 +1,32 @@
 # -*- coding: utf-8 -*-
 from openerp.tests.common import SavepointCase
-from openerp import fields
 import datetime
 
 
 class TestConditionMonetaryField(SavepointCase):
-    def setUp(self):
-        super(TestConditionMonetaryField, self).setUp()
-        self.test_model = self.env.ref(
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestConditionMonetaryField, cls).setUpClass()
+        cls.test_model = cls.env.ref(
             'generic_condition_test.model_test_generic_condition_test_model')
 
         # Models
-        self.TestModel = self.env[self.test_model.model]
-        self.Condition = self.env['generic.condition']
+        cls.TestModel = cls.env[cls.test_model.model]
+        cls.Condition = cls.env['generic.condition']
 
         # Currencies
-        self.usd = self.env.ref('base.USD')
-        self.eur = self.env.ref('base.EUR')
+        cls.usd = cls.env.ref('base.USD')
+        cls.eur = cls.env.ref('base.EUR')
 
         # Test record
         # 150 USD on 2012-05-03
-        self.test_monetary = self.env.ref(
+        cls.test_monetary = cls.env.ref(
             'generic_condition_test.test_generic_condition_model_rec_monetary')
 
         # Test condition
         # Checks if test record's test_monetary field is equal to $150
-        self.test_condition = self.env.ref(
+        cls.test_condition = cls.env.ref(
             'generic_condition_test.test_condition_monetary_equal_150_usd')
 
     def _check_monetary_condition(self, operator, val, val_currency,
