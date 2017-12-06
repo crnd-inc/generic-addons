@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_generic_condition_root" name="Generic Conditions"
-        parent="base.menu_custom" />
+              parent="base.menu_custom" />
 
     <!-- Generic Condition Views -->
     <record id="generic_condition_search_view" model="ir.ui.view">
@@ -24,8 +24,8 @@
                         string="Filter"/>
 
                 <!--<filter name="type_tags"-->
-                        <!--domain="[('type', '=', 'tags')]"-->
-                        <!--string="Tags"/>-->
+                <!--domain="[('type', '=', 'tags')]"-->
+                <!--string="Tags"/>-->
                 <filter name="type_condition"
                         domain="[('type', '=', 'condition')]"
                         string="Condition"/>
@@ -41,15 +41,15 @@
                 <separator/>
 
                 <group expand="0" string="Group by...">
-                <filter string='Type'
-                        domain="[]"
-                        context="{'group_by' : 'type'}"/>
-                <filter string='With sudo'
-                        domain="[]"
-                        context="{'group_by' : 'with_sudo'}"/>
-                <filter string='Based on'
-                        domain="[]"
-                        context="{'group_by' : 'model_id'}"/>
+                    <filter string='Type'
+                            domain="[]"
+                            context="{'group_by' : 'type'}"/>
+                    <filter string='With sudo'
+                            domain="[]"
+                            context="{'group_by' : 'with_sudo'}"/>
+                    <filter string='Based on'
+                            domain="[]"
+                            context="{'group_by' : 'model_id'}"/>
                 </group>
 
             </search>
@@ -82,7 +82,7 @@
                         <button name="toggle_active" type="object"
                                 class="oe_stat_button" icon="fa-archive">
                             <field name="active" widget="boolean_button"
-                                options='{"terminology": "archive"}'/>
+                                   options='{"terminology": "archive"}'/>
                         </button>
                     </div>
                     <div class="oe_title">
@@ -191,7 +191,6 @@
                                                domain="[('model_id','=',condition_rel_field_id_model_id)]"
                                                widget="many2many_tags"
                                                options="{'no_quick_create': true}"/></td>
-
                                 </tr>
                             </table>
                         </group>
@@ -239,7 +238,7 @@
                                                attrs="{'required': [('type','=','date_diff')]}"/>
                                     </td>
                                     <td rowspan="2">
-                                            &#160; &#8211; &#160;
+                                        &#160; &#8211; &#160;
                                     </td>
                                     <td>
                                         <field name="condition_date_diff_date_start_type"
@@ -327,14 +326,14 @@
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'html')], 'invisible': [('condition_simple_field_type', '!=', 'html')]}"/>
                                         <div>
                                             <span
-                                                attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
+                                                    attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
                                                 <field name="condition_simple_field_string_operator_icase"/>
                                                 <label for="condition_simple_field_string_operator_icase"/>
                                             </span>
                                         </div>
                                         <div>
                                             <span
-                                                attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
+                                                    attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
                                                 <field name="condition_simple_field_string_operator_regex"/>
                                                 <label for="condition_simple_field_string_operator_regex"/>
                                             </span>
@@ -366,6 +365,7 @@
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>
+
                                         <label string="Field"/>
                                     </td>
                                     <td>
@@ -395,6 +395,79 @@
                                 </tr>
                             </table>
                         </group>
+                        <!-- 'Monetary field' condition data -->
+                        <group colspan="4" col="4"
+                               name="group_condition_simple_field"
+                               attrs="{'invisible': [('type', '!=', 'monetary_field')]}">
+                            <table colspan="4" class="generic_condition_definition">
+                                <tr>
+                                    <td>
+                                        <label string="Field"/>
+                                    </td>
+                                    <td>
+                                        <label string="Operator"/>
+                                    </td>
+                                    <td>
+                                        <label string="Result"/>
+                                    </td>
+                                    <td>
+                                        <label string="Accounting date"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <field name="condition_monetary_field_id"
+                                               context="{'default_model_id': model_id}"
+                                               domain="[('model_id','=',model_id), ('ttype', '=', 'monetary')]"
+                                               attrs="{'required': [('type','=','monetary_field')]}"
+                                               placeholder="Field"
+                                               options="{'no_create': True}"/>
+                                    </td>
+                                    <td>
+                                        <field name="condition_monetary_operator"
+                                               attrs="{'required': [('type','=','monetary_field')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="condition_monetary_value"
+                                               attrs="{'required': [('type', '=', 'monetary_field')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="condition_monetary_curency_date_type"
+                                               attrs="{'required': [('type','=','monetary_field')]}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <field name="condition_monetary_currency_field_id"
+                                               context="{'default_model_id': model_id}"
+                                               domain="[('model_id','=',model_id), ('relation', '=', 'res.currency')]"
+                                               attrs="{'required': [('type','=','monetary_field')]}"
+                                               placeholder="Currency field"
+                                               options="{'no_create': True}"/>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <field name="condition_monetary_value_currency_id"
+                                               attrs="{'required': [('type', '=', 'monetary_field')]}"
+                                               placeholder="Currency"
+                                               options="{'no_create': True}"/>
+                                    </td>
+                                    <td>
+                                        <field name="condition_monetary_curency_date_field_id"
+                                               placeholder="Date field"
+                                               options="{'no_create': True}"
+                                               context="{'default_model_id': model_id}"
+                                               domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"
+                                               attrs="{'required': [('type','=','monetary_field'), ('condition_monetary_curency_date_type', '=','field')], 'invisible': [('condition_monetary_curency_date_type', '!=', 'field')]}"/>
+                                        <field name="condition_monetary_curency_date_date"
+                                               attrs="{'required': [('type','=','monetary_field'), ('condition_monetary_curency_date_type', '=','date')], 'invisible': [('condition_monetary_curency_date_type', '!=', 'date')]}"/>
+                                        <label string="Current date"
+                                               attrs="{'invisible': [('condition_monetary_curency_date_type', '!=', 'now')]}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </group>
                     </group>
                     <group colspan="4" string="Description">
                         <field name="description" nolabel="1"
@@ -415,7 +488,7 @@
 
     <!--menus -->
     <menuitem id="menu_generic_condition"
-                name="Generic Conditions"
-                parent="menu_generic_condition_root" sequence="60"
-                action="generic_condition_action"/>
+              name="Generic Conditions"
+              parent="menu_generic_condition_root" sequence="60"
+              action="generic_condition_action"/>
 </odoo>
