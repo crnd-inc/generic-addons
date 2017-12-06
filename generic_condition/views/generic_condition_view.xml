@@ -432,7 +432,7 @@
                                                attrs="{'required': [('type', '=', 'monetary_field')]}"/>
                                     </td>
                                     <td>
-                                        <field name="condition_currency_date_type"
+                                        <field name="condition_monetary_curency_date_type"
                                                attrs="{'required': [('type','=','monetary_field')]}"/>
                                     </td>
                                 </tr>
@@ -454,16 +454,16 @@
                                                options="{'no_create': True}"/>
                                     </td>
                                     <td>
-                                        <field name="condition_currency_date_field_id"
+                                        <field name="condition_monetary_curency_date_field_id"
                                                placeholder="Date field"
                                                options="{'no_create': True}"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('datetime', 'date'))]"
-                                               attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','field')], 'invisible': [('condition_currency_date_type', '!=', 'field')]}"/>
-                                        <field name="condition_currency_date_date"
-                                               attrs="{'required': [('type','=','monetary_field'), ('condition_currency_date_type', '=','date')], 'invisible': [('condition_currency_date_type', '!=', 'date')]}"/>
+                                               attrs="{'required': [('type','=','monetary_field'), ('condition_monetary_curency_date_type', '=','field')], 'invisible': [('condition_monetary_curency_date_type', '!=', 'field')]}"/>
+                                        <field name="condition_monetary_curency_date_date"
+                                               attrs="{'required': [('type','=','monetary_field'), ('condition_monetary_curency_date_type', '=','date')], 'invisible': [('condition_monetary_curency_date_type', '!=', 'date')]}"/>
                                         <label string="Current date"
-                                               attrs="{'invisible': [('condition_currency_date_type', '!=', 'now')]}"/>
+                                               attrs="{'invisible': [('condition_monetary_curency_date_type', '!=', 'now')]}"/>
                                     </td>
                                 </tr>
                             </table>

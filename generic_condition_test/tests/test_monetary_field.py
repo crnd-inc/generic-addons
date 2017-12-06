@@ -34,13 +34,13 @@ class TestConditionMonetaryField(SavepointCase):
             'condition_monetary_operator': operator,
             'condition_monetary_value': val,
             'condition_monetary_value_currency_id': val_currency.id,
-            'condition_currency_date_type': date_type
+            'condition_monetary_curency_date_type': date_type
         }
         if date_type == 'date':
             assert currency_date is not None, (
                 "Currency date must not be none here")
             vals.update({
-                'condition_currency_date_date': currency_date,
+                'condition_monetary_curency_date_date': currency_date,
             })
 
         self.test_condition.write(vals)

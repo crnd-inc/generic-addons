@@ -343,13 +343,13 @@ class GenericCondition(models.Model):
     condition_monetary_value_currency_id = fields.Many2one(
         'res.currency', 'Currency', ondelete='restrict')
     # Monetary fields: currency date
-    condition_currency_date_type = fields.Selection(
+    condition_monetary_curency_date_type = fields.Selection(
         '_get_selection_currency_date_type',
         string='Currency date type', default='now')
-    condition_currency_date_field_id = fields.Many2one(
+    condition_monetary_curency_date_field_id = fields.Many2one(
         'ir.model.fields', 'Currency date field', ondelete='restrict',
         domain=[('ttype', 'in', ('date', 'datetime'))])
-    condition_currency_date_date = fields.Date(
+    condition_monetary_curency_date_date = fields.Date(
         'Currency date', default=fields.Date.today)
 
     @api.model
@@ -717,10 +717,10 @@ class GenericCondition(models.Model):
     # signature check_<type> where type is condition type
     def check_monetary_field(self, obj, cache=None):
         # Compute accounting date
-        if self.condition_currency_date_type == 'date':
-            date = self.condition_currency_date_date
-        elif self.condition_currency_date_type == 'field':
-            date = obj[self.condition_currency_date_field_id.name]
+        if self.condition_monetary_curency_date_type == 'date':
+            date = self.condition_monetary_curency_date_date
+        elif self.condition_monetary_curency_date_type == 'field':
+            date = obj[self.condition_monetary_curency_date_field_id.name]
         else:  # type is 'now'
             date = fields.Datetime.now()
 

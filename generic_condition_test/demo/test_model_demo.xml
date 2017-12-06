@@ -23,8 +23,8 @@
         <field name="condition_monetary_operator">=</field>
         <field name="condition_monetary_value" eval="150"/>
         <field name="condition_monetary_value_currency_id" ref="base.USD"/>
-        <field name="condition_currency_date_type">now</field>
-        <field name="condition_currency_date_field_id" ref="field_test_generic_condition_test_model_date_test"/>
+        <field name="condition_monetary_curency_date_type">now</field>
+        <field name="condition_monetary_curency_date_field_id" ref="field_test_generic_condition_test_model_date_test"/>
     </record>
 
 
