@@ -6,6 +6,10 @@
         <xpath expr="//script[last()]" position="after">
             <script src="/generic_condition/static/src/js/fake_selection.js"/>
         </xpath>
+
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/generic_condition/static/src/css/style.css"/>
+        </xpath>
     </template>
 </odoo>
 

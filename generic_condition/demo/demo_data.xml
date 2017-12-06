@@ -132,6 +132,5 @@
         <field name="condition_rel_conditions"
                eval="[(6, 0, [ref('generic_condition.demo_condition_partner_contact')])]"/>
     </record>
-        
-        
+
 </odoo>

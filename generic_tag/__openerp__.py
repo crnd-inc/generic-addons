@@ -10,6 +10,7 @@
     'website': "https://maao.com.ua",
 
     'category': 'Generic Tags',
+    'version': '10.0.0.1.0',
 
     "depends": [
         "base",

@@ -36,7 +36,8 @@ class GenericCondition(models.Model):
             ('condition_group', _('Condition group')),
             ('simple_field', _('Simple field')),
             ('related_field', _('Related field')),
-            ('current_user', _('Current user'))
+            ('current_user', _('Current user')),
+            ('monetary_field', _('Monetary field')),
         ]
 
     def _get_selection_date_diff_uom(self):
@@ -119,6 +120,23 @@ class GenericCondition(models.Model):
             ('contains', _('Contains')),
         ]
 
+    def _get_selection_monetary_field_operator(self):
+        return [
+            ('=', '='),
+            ('>', '>'),
+            ('<', '<'),
+            ('>=', '>='),
+            ('<=', '<='),
+            ('!=', '!='),
+        ]
+
+    def _get_selection_currency_date_type(self):
+        return [
+            ('now', _('Current date')),
+            ('field', _('Field')),
+            ('date', _('Date'))
+        ]
+
     @api.constrains('condition_rel_field_id', 'model_id')
     def _check_condition_rel_field_id(self):
         for cond in self:
@@ -131,7 +149,7 @@ class GenericCondition(models.Model):
         return True
 
     color = fields.Integer()
-    name = fields.Char(required=True, index=True)
+    name = fields.Char(required=True, index=True, translate=True)
     type = fields.Selection(
         '_get_selection_type', default='filter',
         index=True, required=True)
@@ -148,7 +166,7 @@ class GenericCondition(models.Model):
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
              'This may speed up condition processing.')
-    description = fields.Text()
+    description = fields.Text(translate=True)
 
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
@@ -304,6 +322,35 @@ class GenericCondition(models.Model):
     condition_related_field_operator = fields.Selection(
         '_get_selection_related_field_operator', 'Operator')
     condition_related_field_value_id = fields.Integer('Value')
+
+    # Monetary field conditions
+    # Value monetary fields
+    condition_monetary_field_id = fields.Many2one(
+        'ir.model.fields', 'Monetary field', ondelete='restrict',
+        domain=[('ttype', '=', 'monetary')])
+    condition_monetary_currency_field_id = fields.Many2one(
+        'ir.model.fields', 'Currency field', ondelete='restrict',
+        domain=[('ttype', '=', 'many2one'),
+                ('relation', '=', 'res.currency')])
+
+    # Monetary fields: check rules
+    condition_monetary_operator = fields.Selection(
+        '_get_selection_monetary_field_operator',
+        string='Monetary operator')
+    condition_monetary_value = fields.Monetary(
+        'Monetary value',
+        currency_field='condition_monetary_value_currency_id')
+    condition_monetary_value_currency_id = fields.Many2one(
+        'res.currency', 'Currency', ondelete='restrict')
+    # Monetary fields: currency date
+    condition_monetary_curency_date_type = fields.Selection(
+        '_get_selection_currency_date_type',
+        string='Currency date type', default='now')
+    condition_monetary_curency_date_field_id = fields.Many2one(
+        'ir.model.fields', 'Currency date field', ondelete='restrict',
+        domain=[('ttype', 'in', ('date', 'datetime'))])
+    condition_monetary_curency_date_date = fields.Date(
+        'Currency date', default=fields.Date.today)
 
     @api.model
     def default_get(self, fields):
@@ -667,6 +714,41 @@ class GenericCondition(models.Model):
 
         return False
 
+    # signature check_<type> where type is condition type
+    def check_monetary_field(self, obj, cache=None):
+        # Compute accounting date
+        if self.condition_monetary_curency_date_type == 'date':
+            date = self.condition_monetary_curency_date_date
+        elif self.condition_monetary_curency_date_type == 'field':
+            date = obj[self.condition_monetary_curency_date_field_id.name]
+        else:  # type is 'now'
+            date = fields.Datetime.now()
+
+        operator_map = {
+            '=': lambda a, b: a == b,
+            '>': lambda a, b: a > b,
+            '<': lambda a, b: a < b,
+            '>=': lambda a, b: a >= b,
+            '<=': lambda a, b: a <= b,
+            '!=': lambda a, b: a != b,
+        }
+
+        operator = self.condition_monetary_operator
+
+        # Object value
+        obj_val = obj[self.condition_monetary_field_id.name]
+        obj_val_currency = obj[self.condition_monetary_currency_field_id.name]
+
+        # Reference value
+        reference_value = self.condition_monetary_value
+        reference_currency = self.condition_monetary_value_currency_id
+
+        # Object value in reference currency
+        test_value = obj_val_currency.with_context(date=date).compute(
+            obj_val, reference_currency)
+
+        return operator_map[operator](test_value, reference_value)
+
     def _check(self, obj, cache=None):
         """ Checks one condition for a specific object
         """
@@ -696,7 +778,7 @@ class GenericCondition(models.Model):
             _logger.error(msg, exc_info=True)
             raise
 
-        # Invert resut if required
+        # Invert result if required
         res = (not res) if condition.invert else res
 
         # set cache
