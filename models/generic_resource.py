@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import fields, models, api
+from openerp import fields, models, api, _
 
 
 import logging
@@ -18,7 +18,8 @@ class GenericResource(models.Model):
     implementation_count = fields.Integer(
         compute="_compute_implementation_count")
     res_type_id = fields.Many2one(
-        'generic.resource.type', string="Type", required=True, index=True)
+        'generic.resource.type', string="Type", required=True, index=True,
+        ondelete='restrict')
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True, store=True,
         index=True)
@@ -35,9 +36,17 @@ class GenericResource(models.Model):
         result = []
         for record in self:
             if record.res_model and record.res_id:
-                name = self.env[
-                    record.res_model].browse(record.res_id)
-                result.append((record.id, name.display_name))
+                # This case, when resource model is not present in pool, may
+                # happen, when addon that implements resource was uninstalled.
+                # TODO: handle this in better way
+                try:
+                    ResourceModel = self.env[record.res_model]
+                except KeyError:
+                    name = _("Error: no model")
+                else:
+                    name = ResourceModel.browse(record.res_id).display_name
+
+                result.append((record.id, name))
             else:
                 result.append((record.id, False))
         return result

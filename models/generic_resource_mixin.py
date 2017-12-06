@@ -96,7 +96,7 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
 
     inv_number = fields.Char(
         'Inventory Number', index=True, required=True,
-        readonly=True, default='')
+        readonly=True, default='', copy=False)
 
     @api.model
     def create(self, vals):
