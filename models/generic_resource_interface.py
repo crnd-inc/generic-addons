@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from openerp.exceptions import ValidationError
 from openerp import fields, models, api, _
 
