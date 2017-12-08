@@ -1,37 +1,36 @@
-# -*- coding: utf-8 -*-
 from openerp.tools.misc import mute_logger
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 from openerp.tools.translate import _
 from openerp.exceptions import ValidationError
 
 
-class TestCondition(TransactionCase):
-
-    def setUp(self):
-        super(TestCondition, self).setUp()
-        self.Condition = self.env['generic.condition']
+class TestCondition(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestCondition, cls).setUpClass()
+        cls.Condition = cls.env['generic.condition']
 
         # demo_data
-        self.partner_demo = self.env.ref('base.partner_demo')
-        self.partner_sx_corp = self.env.ref(
+        cls.partner_demo = cls.env.ref('base.partner_demo')
+        cls.partner_sx_corp = cls.env.ref(
             'generic_condition.demo_partner_sx_corp')
-        self.partner_z_corp = self.env.ref(
+        cls.partner_z_corp = cls.env.ref(
             'generic_condition.demo_partner_z_corp')
 
         # demo conditions
-        self.condition_eval_error = self.env.ref(
+        cls.condition_eval_error = cls.env.ref(
             'generic_condition.demo_condition_eval_error')
-        self.condition_partner_sx_corp = self.env.ref(
+        cls.condition_partner_sx_corp = cls.env.ref(
             'generic_condition.demo_condition_partner_sx_corp')
-        self.condition_partner_not_sx_corp = self.env.ref(
+        cls.condition_partner_not_sx_corp = cls.env.ref(
             'generic_condition.demo_condition_partner_not_sx_corp')
-        self.condition_partner_city_kyiv = self.env.ref(
+        cls.condition_partner_city_kyiv = cls.env.ref(
             'generic_condition.demo_condition_partner_city_kyiv')
-        self.condition_partner_not_sx_corp_but_kyiv = self.env.ref(
+        cls.condition_partner_not_sx_corp_but_kyiv = cls.env.ref(
             'generic_condition.demo_condition_partner_not_sx_corp_but_kyiv')
-        self.condition_partner_has_contact_green = self.env.ref(
+        cls.condition_partner_has_contact_green = cls.env.ref(
             'generic_condition.demo_condition_partner_has_contact_green')
-        self.condition_partner_has_only_contacts = self.env.ref(
+        cls.condition_partner_has_only_contacts = cls.env.ref(
             'generic_condition.demo_condition_partner_has_only_contacts')
 
     def test_00_defaults(self):

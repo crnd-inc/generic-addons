@@ -1,20 +1,21 @@
-# -*- coding: utf-8 -*-
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 
 
-class TestConditionCurrentUser(TransactionCase):
-    def setUp(self):
-        super(TestConditionCurrentUser, self).setUp()
-        self.test_model = self.env['ir.model'].search(
+class TestConditionCurrentUser(SavepointCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestConditionCurrentUser, cls).setUpClass()
+        cls.test_model = cls.env['ir.model'].search(
             [('model', '=', 'test.generic.condition.test.model')])
 
-        self.TestModel = self.env[self.test_model.model]
-        self.ResUsers = self.env['res.users']
+        cls.TestModel = cls.env[cls.test_model.model]
+        cls.ResUsers = cls.env['res.users']
 
-        self.Condition = self.env['generic.condition']
-        self.condition_data = {
+        cls.Condition = cls.env['generic.condition']
+        cls.condition_data = {
             "name": 'Current user condition',
-            "model_id": self.test_model.id,
+            "model_id": cls.test_model.id,
             "type": 'current_user',
         }
 

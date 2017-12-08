@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import datetime
 
 from openerp.tools import (DEFAULT_SERVER_DATETIME_FORMAT,

@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 
 try:
     from freezegun import freeze_time
@@ -9,28 +8,30 @@ except ImportError:  # pragma: no cover
         "freezegun not installed. Tests will not work!")
 
 
-class TestConditionDateDiff(TransactionCase):
+class TestConditionDateDiff(SavepointCase):
     """ This test case requires creation of separate model with at least
         two date / datetime fields, so it is implemented as separate test case
         in separate addon.
     """
 
-    def setUp(self):
-        super(TestConditionDateDiff, self).setUp()
-        self.test_model = self.env['ir.model'].search(
-            [('model', '=', 'test.generic.condition.test.model')])
-        self.TestModel = self.env[self.test_model.model]
-        self.test_field_start_date = self.test_model.field_id.filtered(
+    @classmethod
+    def setUpClass(cls):
+        super(TestConditionDateDiff, cls).setUpClass()
+        cls.test_model = cls.env.ref(
+            'generic_condition_test.model_test_generic_condition_test_model')
+
+        cls.TestModel = cls.env[cls.test_model.model]
+        cls.test_field_start_date = cls.test_model.field_id.filtered(
             lambda r: r.name == 'date_start')
-        self.test_field_end_date = self.test_model.field_id.filtered(
+        cls.test_field_end_date = cls.test_model.field_id.filtered(
             lambda r: r.name == 'date_end')
-        self.test_field_test_date = self.test_model.field_id.filtered(
+        cls.test_field_test_date = cls.test_model.field_id.filtered(
             lambda r: r.name == 'date_test')
 
-        self.Condition = self.env['generic.condition']
-        self.condition_date_diff_data = {
+        cls.Condition = cls.env['generic.condition']
+        cls.condition_date_diff_data = {
             "name": 'Date diff fields diff',
-            "model_id": self.test_model.id,
+            "model_id": cls.test_model.id,
             "type": 'date_diff',
         }
 

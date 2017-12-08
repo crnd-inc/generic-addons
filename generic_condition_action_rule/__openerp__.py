@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     "name": "Generic Condition - Action Rules",
     "version": "11.0.0.0.1",

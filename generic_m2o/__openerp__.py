@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     "name": "Generic M2O Widget",
     "version": "11.0.0.0.1",

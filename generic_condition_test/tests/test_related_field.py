@@ -1,22 +1,23 @@
-# -*- coding: utf-8 -*-
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 
 
-class TestConditionRelatedField(TransactionCase):
-    def setUp(self):
-        super(TestConditionRelatedField, self).setUp()
-        self.test_model = self.env['ir.model'].search(
-            [('model', '=', 'test.generic.condition.test.model')])
-        self.test_model_relation = self.env['ir.model'].search(
-            [('model', '=', 'test.generic.condition.test.model.relation')])
+class TestConditionRelatedField(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestConditionRelatedField, cls).setUpClass()
+        cls.test_model = cls.env.ref(
+            'generic_condition_test.model_test_generic_condition_test_model')
+        cls.test_model_relation = cls.env.ref(
+            'generic_condition_test.'
+            'model_test_generic_condition_test_model_relation')
 
-        self.TestModel = self.env[self.test_model.model]
-        self.TestRelatedModel = self.env[self.test_model_relation.model]
+        cls.TestModel = cls.env[cls.test_model.model]
+        cls.TestRelatedModel = cls.env[cls.test_model_relation.model]
 
-        self.Condition = self.env['generic.condition']
-        self.condition_data = {
+        cls.Condition = cls.env['generic.condition']
+        cls.condition_data = {
             "name": 'Related field condition',
-            "model_id": self.test_model.id,
+            "model_id": cls.test_model.id,
             "type": 'related_field',
         }
 

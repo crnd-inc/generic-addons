@@ -1,23 +1,23 @@
-# -*- coding: utf-8 -*-
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 
 
 class TestSimpleFieldStringBase(object):
     _test_field_name = None
 
-    def setUp(self):
-        super(TestSimpleFieldStringBase, self).setUp()
-        self.test_model = self.env['ir.model'].search(
-            [('model', '=', 'test.generic.condition.test.model')])
-        self.TestModel = self.env[self.test_model.model]
+    @classmethod
+    def setUpClass(cls):
+        super(TestSimpleFieldStringBase, cls).setUpClass()
+        cls.test_model = cls.env.ref(
+            'generic_condition_test.model_test_generic_condition_test_model')
+        cls.TestModel = cls.env[cls.test_model.model]
 
-        self.test_field = self.test_model.field_id.filtered(
-            lambda r: r.name == self._test_field_name)
+        cls.test_field = cls.test_model.field_id.filtered(
+            lambda r: r.name == cls._test_field_name)
 
-        self.Condition = self.env['generic.condition']
-        self.condition_data = {
+        cls.Condition = cls.env['generic.condition']
+        cls.condition_data = {
             "name": 'Simple field condition',
-            "model_id": self.test_model.id,
+            "model_id": cls.test_model.id,
             "type": 'simple_field',
         }
 
@@ -231,7 +231,7 @@ class TestConditionSimpleFieldStringChar(TestSimpleFieldStringBase,
                                          TestSimpleFieldStringBaseOpSet,
                                          TestSimpleFieldStringBaseOpEq,
                                          TestSimpleFieldStringBaseOpContains,
-                                         TransactionCase):
+                                         SavepointCase):
     _test_field_name = 'test_char'
 
 
@@ -239,7 +239,7 @@ class TestConditionSimpleFieldStringText(TestSimpleFieldStringBase,
                                          TestSimpleFieldStringBaseOpSet,
                                          TestSimpleFieldStringBaseOpEq,
                                          TestSimpleFieldStringBaseOpContains,
-                                         TransactionCase):
+                                         SavepointCase):
 
     _test_field_name = 'test_text'
 
@@ -247,7 +247,7 @@ class TestConditionSimpleFieldStringText(TestSimpleFieldStringBase,
 class TestConditionSimpleFieldStringHtml(TestSimpleFieldStringBase,
                                          TestSimpleFieldStringBaseOpSet,
                                          TestSimpleFieldStringBaseOpContains,
-                                         TransactionCase):
+                                         SavepointCase):
     _test_field_name = 'test_html'
 
     def test_101_test_html_empty_field(self):
