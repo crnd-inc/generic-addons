@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from openerp import api, models, _
 from openerp.osv.expression import FALSE_DOMAIN
 from openerp.exceptions import UserError

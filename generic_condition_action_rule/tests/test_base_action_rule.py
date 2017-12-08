@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from openerp.tests.common import (at_install,
                                   post_install,
                                   TransactionCase)

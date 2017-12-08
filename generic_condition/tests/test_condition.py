@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from openerp.tools.misc import mute_logger
 from openerp.tests.common import SavepointCase
 from openerp.tools.translate import _
