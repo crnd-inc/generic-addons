@@ -22,7 +22,6 @@
         'views/generic_service_views.xml'
     ],
     'demo': [
-        'data/product_product_demo.xml',
         'data/generic_service_demo.xml',
     ],
     'installable': True,
