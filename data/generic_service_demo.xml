@@ -3,4 +3,7 @@
     <record id="generic_service_rent_notebook" model="generic.service">
         <field name="name">Rent of notebook</field>
     </record>
+    <record id="generic_service_default" model="generic.service">
+        <field name="name">Default service</field>
+    </record>
 </odoo>
