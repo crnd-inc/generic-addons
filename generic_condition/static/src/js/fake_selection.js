@@ -1,67 +1,78 @@
 odoo.define('web.widgets.fake_selection_widget', function (require) {
 "use strict";
 
-var core = require('web.core');
-var Model = require('web.DataModel');
-var session = require('web.session');
+/// Modify basic model with extra methods to fetch special data
+var BasicModel = require('web.BasicModel');
+BasicModel.include({
+    _fetchSpecialFakeSelection: function (record, fieldName, fieldInfo) {
+        var def;
+        def = this._fetchFakeSelection(record, fieldName, fieldInfo.selection_field);
+        return $.when(def);
+    },
+    _fetchFakeSelection: function (record, fieldName, selection_field_name) {
+        var self = this;
+        var def;
 
-var field_selection = core.form_widget_registry.get('selection');
+        var selection_field = record._changes && record._changes[selection_field_name] || record.data[selection_field_name];
+        var selection_field_data = self.localData[selection_field];
+
+        if (selection_field) {
+            def = self._rpc({
+                model: 'ir.model.fields',
+                method: 'read',
+                args: [[selection_field_data.res_id], ['name', 'model']],
+                context: record.getContext({fieldName: fieldName}),
+            }).then(function (result) {
+                if (result.length == 1)
+                    var model = result[0].model;
+                    var model_field_name = result[0].name;
+                    return self._rpc({
+                        model: model,
+                        method: 'fields_get',
+                        args: [[model_field_name], ['selection']],
+                        context: record.getContext({fieldName: fieldName}),
+                    }).then(function (result) {
+                        return result[model_field_name].selection;
+                    });
+            });
+        }
+        return $.when(def);
+    },
+});
 
 // This widget allows to render selection for other field
 // It is useful in case, when we have one many2one('ir.model.fields') field
 // and want to display selection for selected field.
-var FieldFakeSelection = field_selection.extend( {
-    template: 'FieldSelection',
+var FieldSelection = require('web.relational_fields').FieldSelection;
+var FieldFakeSelection = FieldSelection.extend({
 
-    init: function(field_manager, node) {
-        this._super(field_manager, node);
-        this.selection_field = this.node.attrs.selection_field;
-        this.field_manager.on(
-            'field_changed:' + this.selection_field,
-            this,
-            function() {
-                this.query_values();
-            }
-        );
+    //resetOnAnyFieldChange: true,
+    template: 'FieldSelection',
+    specialData: "_fetchSpecialFakeSelection",
+    supportedFieldTypes: ['selection'],
+
+    _formatValue: function (value) {
+        var val = _.find(this.values, function (option) {
+            return option[0] === value;
+        });
+        if (!val) {
+            // If value not in selection, just show it
+            return value;
+        }
+        value = val[1];
+        return value;
     },
 
-    query_values: function() {
-        var self = this;
-
-        var selection_field_id = self.field_manager.get_field_value(
-            self.selection_field);
-
-        if (!selection_field_id) {
-            // skip if field not selected
-            self.set("values", []);
-            return;
+    _setValues: function () {
+        this.values = this.record.specialData[this.name];
+        if (!this.values) {
+            this.values = [];
         }
-
-        var ModelFields = new Model('ir.model.fields', self.build_context());
-        ModelFields.query(['model', 'name']).filter(
-            [['id', '=', selection_field_id]]
-        ).first().then(function (field){
-                var field_name = field.name;
-                var field_model = new Model(field.model, self.build_context());
-                field_model.call(
-                    "fields_get",
-                    [field.name],
-                    {"context": self.build_context()}
-                ).then(function (field_def) {
-                    var selection = field_def[field_name].selection || [];
-                    var values = _.reject(selection, function (v) { return v[0] === false && v[1] === ''; });
-                    var def = $.when(values);
-                    self.records_orderer.add(def).then(function(values) {
-                        if (! _.isEqual(values, self.get("values"))) {
-                            self.set("values", values);
-                        }
-                    });
-                });
-        });
+        this.values = [[false, this.attrs.placeholder || '']].concat(this.values);
     },
 });
 
-core.form_widget_registry.add('fake_selection', FieldFakeSelection);
+require('web.field_registry').add('fake_selection', FieldFakeSelection);
 
-
+return FieldFakeSelection;
 });
