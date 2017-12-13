@@ -126,7 +126,7 @@
                         <group colspan="4" name="group_condition_eval"
                                attrs="{'invisible': [('type', '!=', 'eval')]}">
                             <field name="condition_eval"
-                                   widget="code" ace-mode="python"
+                                   widget="ace" options="{'mode': 'python'}"
                                    attrs="{'required': [('type','=','eval')]}"/>
                         </group>
 
