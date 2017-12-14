@@ -1,27 +1,28 @@
 # -*- coding: utf-8 -*-
 
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 from openerp.exceptions import ValidationError
 from psycopg2 import IntegrityError
 import logging
 _logger = logging.getLogger(__name__)
 
 
-class TestBasics(TransactionCase):
+class TestBasics(SavepointCase):
     """ Check basic tag logic
     """
 
-    def setUp(self):
-        super(TestBasics, self).setUp()
+    @classmethod
+    def setUpClass(cls):
+        super(TestBasics, cls).setUpClass()
 
-        self.test_model = self.env.ref('generic_tag_test.test_tag_model')
-        self.test_record_1 = self.env.ref('generic_tag_test.taggable_object_1')
-        self.test_record_2 = self.env.ref('generic_tag_test.taggable_object_2')
-        self.test_tag_cat_1 = self.env.ref(
+        cls.test_model = cls.env.ref('generic_tag_test.test_tag_model')
+        cls.test_record_1 = cls.env.ref('generic_tag_test.taggable_object_1')
+        cls.test_record_2 = cls.env.ref('generic_tag_test.taggable_object_2')
+        cls.test_tag_cat_1 = cls.env.ref(
             'generic_tag_test.test_tag_category_1')
-        self.test_tag_1 = self.env.ref('generic_tag_test.test_tag_1')
-        self.test_tag_2 = self.env.ref('generic_tag_test.test_tag_2')
-        self.test_tag_3 = self.env.ref('generic_tag_test.test_tag_3')
+        cls.test_tag_1 = cls.env.ref('generic_tag_test.test_tag_1')
+        cls.test_tag_2 = cls.env.ref('generic_tag_test.test_tag_2')
+        cls.test_tag_3 = cls.env.ref('generic_tag_test.test_tag_3')
 
     def test_05_tags_count(self):
         self.assertEqual(self.test_model.tags_count, 4,

@@ -1,34 +1,35 @@
 # -*- coding: utf-8 -*-
-from openerp.tests.common import TransactionCase
+from openerp.tests.common import SavepointCase
 from openerp.exceptions import AccessError
 import logging
 _logger = logging.getLogger(__name__)
 
 
-class TestSecurity(TransactionCase):
+class TestSecurity(SavepointCase):
     """ Check basic tag logic
     """
 
-    def setUp(self):
-        super(TestSecurity, self).setUp()
+    @classmethod
+    def setUpClass(cls):
+        super(TestSecurity, cls).setUpClass()
 
-        self.test_model = self.env.ref('generic_tag_test.test_tag_model')
-        self.test_record_1 = self.env.ref('generic_tag_test.taggable_object_1')
-        self.test_record_2 = self.env.ref('generic_tag_test.taggable_object_2')
-        self.test_tag_cat_1 = self.env.ref(
+        cls.test_model = cls.env.ref('generic_tag_test.test_tag_model')
+        cls.test_record_1 = cls.env.ref('generic_tag_test.taggable_object_1')
+        cls.test_record_2 = cls.env.ref('generic_tag_test.taggable_object_2')
+        cls.test_tag_cat_1 = cls.env.ref(
             'generic_tag_test.test_tag_category_1')
-        self.test_tag_1 = self.env.ref('generic_tag_test.test_tag_1')
-        self.test_tag_2 = self.env.ref('generic_tag_test.test_tag_2')
-        self.test_tag_3 = self.env.ref('generic_tag_test.test_tag_3')
-        self.test_tag_4 = self.env.ref('generic_tag_test.test_tag_4')
-        self.test_tags = (self.test_tag_1 |
-                          self.test_tag_2 |
-                          self.test_tag_3 |
-                          self.test_tag_4)
+        cls.test_tag_1 = cls.env.ref('generic_tag_test.test_tag_1')
+        cls.test_tag_2 = cls.env.ref('generic_tag_test.test_tag_2')
+        cls.test_tag_3 = cls.env.ref('generic_tag_test.test_tag_3')
+        cls.test_tag_4 = cls.env.ref('generic_tag_test.test_tag_4')
+        cls.test_tags = (cls.test_tag_1 |
+                         cls.test_tag_2 |
+                         cls.test_tag_3 |
+                         cls.test_tag_4)
 
-        self.demo_user = self.env.ref('base.user_demo')
-        self.demo_user.groups_id |= self.env.ref('base.group_user')
-        self.uenv = self.env(user=self.demo_user)
+        cls.demo_user = cls.env.ref('base.user_demo')
+        cls.demo_user.groups_id |= cls.env.ref('base.group_user')
+        cls.uenv = cls.env(user=cls.demo_user)
 
     def test_simple_user_access_records(self):
         # Add to record 2 one tag without group and one tag with group
