@@ -22,10 +22,7 @@ before_script:
     - whoami
     - python --version
     - odoo-helper --version
-    - odoo-helper exec jshint --version
-    - cat /opt/odoo/conf/odoo.conf
-    - odoo-helper exec pylint --version
-    - odoo-helper exec flake8 --version
+    - odoo-helper status
 
 flake8:
     script:

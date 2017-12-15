@@ -19,12 +19,12 @@ var FieldGenericM2O = many2one.extend( {
             this.model_field);
     },
     get_search_result: function(search_val) {
-        this.update_field_relation()
+        this.update_field_relation();
         return this._super(search_val);
     },
 
     render_value: function(no_recurse) {
-        this.update_field_relation()
+        this.update_field_relation();
         return this._super(no_recurse);
     },
 });
