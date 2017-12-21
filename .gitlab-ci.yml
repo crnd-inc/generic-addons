@@ -17,12 +17,13 @@ cache:
         - ".hidden-pip-cache"
 
 
-before_script:
-    - pwd
-    - whoami
-    - python --version
-    - odoo-helper --version
-    - odoo-helper status
+build_env:
+    script:
+        - pwd
+        - whoami
+        - python --version
+        - odoo-helper --version
+        - odoo-helper status --tools-versions --ci-tools-versions
 
 flake8:
     script:
@@ -70,3 +71,13 @@ migration_tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
         - /^9.0-.*$/   # only branches that started with '9.0-'
+
+translation_rate_ua:
+    services:
+        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
+
+    before_script:
+        - odoo-helper link .
+    script:
+        - odoo-helper tr rate --lang uk_UA --min-total-rate 80 $(odoo-helper addons list .)
+    coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
