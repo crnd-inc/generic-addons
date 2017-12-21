@@ -16,24 +16,33 @@ cache:
     paths:
         - ".hidden-pip-cache"
 
+stages:
+    - build
+    - test
 
 build_env:
-    script:
+    stage: build
+    before_script:
         - pwd
         - whoami
         - python --version
         - odoo-helper --version
         - odoo-helper status --tools-versions --ci-tools-versions
+    script:
+        - odoo-helper link .
 
 flake8:
+    stage: test
     script:
         - odoo-helper test flake8 .
 
 pylint:
+    stage: test
     script:
         - odoo-helper test pylint .
 
 tests:
+    stage: test
     services:
         - 10.100.98.41:5000/maao-docker/maao-ci-postgres
 
@@ -49,6 +58,7 @@ tests:
             - html-coverage
 
 migration_tests:
+    stage: test
     variables:
         ODOO_DB_NAME: test-db
 
@@ -73,11 +83,23 @@ migration_tests:
         - /^9.0-.*$/   # only branches that started with '9.0-'
 
 translation_rate_ua:
+    stage: test
     services:
         - 10.100.98.41:5000/maao-docker/maao-ci-postgres
 
     before_script:
         - odoo-helper link .
     script:
-        - odoo-helper tr rate --lang uk_UA --min-total-rate 80 $(odoo-helper addons list .)
+        - odoo-helper --use-unbuffer tr rate --lang uk_UA --min-total-rate 70 $(odoo-helper addons list .)
+    coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
+
+translation_rate_ru:
+    stage: test
+    services:
+        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
+
+    before_script:
+        - odoo-helper link .
+    script:
+        - odoo-helper --use-unbuffer tr rate --lang ru_RU $(odoo-helper addons list .)
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
