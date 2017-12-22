@@ -49,8 +49,10 @@ var FieldFakeSelection = field_selection.extend( {
                     {"context": self.build_context()}
                 ).then(function (field_def) {
                     var selection = field_def[field_name].selection || [];
-                    var values = _.reject(selection, function (v) { return v[0] === false && v[1] === ''; });
-                    var def = $.when(values);
+                    var selection_values = _.reject(selection, function (v) {
+                        return v[0] === false && v[1] === '';
+                    });
+                    var def = $.when(selection_values);
                     self.records_orderer.add(def).then(function(values) {
                         if (! _.isEqual(values, self.get("values"))) {
                             self.set("values", values);

@@ -202,13 +202,13 @@ class GenericTagMixin(models.AbstractModel):
             @param name: tag.name field to search for
             @param create: if True then create tag if not found
         """
-        GenericTag = self.env['generic.tag']
-        tags = GenericTag.get_tags(self._name, code=code, name=name)
+        tags = self.env['generic.tag'].get_tags(
+            self._name, code=code, name=name)
 
         if not tags and create:
             model = self.env['generic.tag.model'].search(
                 [('model', '=', self._name)])[0]
-            tags = GenericTag.create({
+            tags = self.env['generic.tag'].create({
                 'name': name,
                 'code': code,
                 'model_id': model.id,
@@ -224,8 +224,8 @@ class GenericTagMixin(models.AbstractModel):
             @param code: tag.code field to search for
             @param name: tag.name field to search for
         """
-        GenericTag = self.env['generic.tag']
-        tags = GenericTag.get_tags(self._name, code=code, name=name)
+        tags = self.env['generic.tag'].get_tags(
+            self._name, code=code, name=name)
 
         if tags:
             self.write({'tag_ids': [(3, t.id) for t in tags]})
