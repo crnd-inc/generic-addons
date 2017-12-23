@@ -18,11 +18,11 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/generic_service_views.xml'
+        'views/generic_service_views.xml',
+        'data/generic_service_default.xml'
     ],
     'demo': [
-        'data/product_product_demo.xml',
-        'data/generic_service_demo.xml',
+        'demo/generic_service_demo.xml',
     ],
     'installable': True,
     'application': False,
