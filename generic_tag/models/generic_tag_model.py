@@ -54,14 +54,13 @@ class GenericTagModelMixin(models.AbstractModel):
         """ Try to get default model from context and find
             approriate generic.tag.model record
         """
-        GenericTagModel = self.env['generic.tag.model']
         default_model = self.env.context.get('default_model', False)
 
         if default_model:
-            return GenericTagModel.search(
+            return self.env['generic.tag.model'].search(
                 [('model', '=', default_model)], limit=1)
 
-        return GenericTagModel.browse()
+        return self.env['generic.tag.model'].browse()
 
     model_id = fields.Many2one(
         "generic.tag.model", "Model", required=True, ondelete='restrict',

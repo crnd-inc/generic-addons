@@ -88,7 +88,6 @@ var FieldGenericM2O = FieldMany2One.extend( {
 
         this._update_field_relation();
     },
-
     _update_field_relation: function () {
         if (this.record._changes)
             this.field.relation = this.record._changes[this.model_field];
