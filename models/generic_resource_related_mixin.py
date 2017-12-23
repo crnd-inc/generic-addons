@@ -94,10 +94,12 @@ class GenericResourceRelatedMixin(models.AbstractModel):
             self.resource_res_id = False
 
     @api.model
-    def default_get(self, fields):
-        defaults = super(GenericResourceRelatedMixin, self).default_get(fields)
+    def default_get(self, field_names):
+        defaults = super(GenericResourceRelatedMixin, self).default_get(
+            field_names)
 
-        if 'resource_res_model' in fields and 'resource_type_id' in defaults:
+        if ('resource_res_model' in field_names and
+                'resource_type_id' in defaults):
             res_type = self.env['generic.resource.type'].browse(
                 defaults['resource_type_id']
             )
