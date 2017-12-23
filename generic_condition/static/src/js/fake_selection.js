@@ -5,25 +5,30 @@ odoo.define('web.widgets.fake_selection_widget', function (require) {
 var BasicModel = require('web.BasicModel');
 BasicModel.include({
     _fetchSpecialFakeSelection: function (record, fieldName, fieldInfo) {
-        var def;
-        def = this._fetchFakeSelection(record, fieldName, fieldInfo.selection_field);
+        var def = this._fetchFakeSelection(record, fieldName, fieldInfo.selection_field);
         return $.when(def);
     },
     _fetchFakeSelection: function (record, fieldName, selection_field_name) {
         var self = this;
-        var def;
 
-        var selection_field = record._changes && record._changes[selection_field_name] || record.data[selection_field_name];
+        var selection_field = null;
+
+        if (record._changes) {
+            selection_field = record._changes[selection_field_name];
+        } else {
+            selection_field = record.data[selection_field_name];
+        }
+
         var selection_field_data = self.localData[selection_field];
 
         if (selection_field) {
-            def = self._rpc({
+            return self._rpc({
                 model: 'ir.model.fields',
                 method: 'read',
                 args: [[selection_field_data.res_id], ['name', 'model']],
                 context: record.getContext({fieldName: fieldName}),
             }).then(function (result) {
-                if (result.length == 1)
+                if (result.length === 1) {
                     var model = result[0].model;
                     var model_field_name = result[0].name;
                     return self._rpc({
@@ -31,12 +36,13 @@ BasicModel.include({
                         method: 'fields_get',
                         args: [[model_field_name], ['selection']],
                         context: record.getContext({fieldName: fieldName}),
-                    }).then(function (result) {
-                        return result[model_field_name].selection;
+                    }).then(function (fields_data) {
+                        return fields_data[model_field_name].selection;
                     });
+                }
             });
         }
-        return $.when(def);
+        return $.when();
     },
 });
 
@@ -59,8 +65,7 @@ var FieldFakeSelection = FieldSelection.extend({
             // If value not in selection, just show it
             return value;
         }
-        value = val[1];
-        return value;
+        return val[1];
     },
 
     _setValues: function () {

@@ -352,7 +352,7 @@ class GenericCondition(models.Model):
         'Currency date', default=fields.Date.today)
 
     @api.model
-    def default_get(self, fields):
+    def default_get(self, field_names):
         """ If there is no default model id but default based on, then
             search for defautl model and make it default
         """
@@ -363,8 +363,8 @@ class GenericCondition(models.Model):
                 [('model', '=', based_on)], limit=1)
             if model_id:
                 xself = self.with_context(default_model_id=model_id.id)
-                return super(GenericCondition, xself).default_get(fields)
-        return super(GenericCondition, self).default_get(fields)
+                return super(GenericCondition, xself).default_get(field_names)
+        return super(GenericCondition, self).default_get(field_names)
 
     @api.multi
     @api.depends('condition_rel_field_id')

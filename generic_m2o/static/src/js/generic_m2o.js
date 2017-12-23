@@ -7,33 +7,40 @@ var field_utils = require('web.field_utils');
 var FieldMany2One = require('web.relational_fields').FieldMany2One;
 
 
+function _get_record_field (record, field_name) {
+    if (record._changes && record._changes[field_name]) {
+        return record._changes[field_name];
+    }
+    return record.data[field_name];
+}
+
 /// Modify basic model with extra methods to fetch special data
 var BasicModel = require('web.BasicModel');
 BasicModel.include({
     _fetchSpecialGenericM2O: function (record, fieldName, fieldInfo) {
-        var def;
         var field = record.fields[fieldName];
         if (field.type === 'integer') {
-            def = this._fetchGenericM2O(record, fieldName, fieldInfo.model_field);
+            return this._fetchGenericM2O(record, fieldName, fieldInfo.model_field);
         }
-        return $.when(def);
+        return $.when();
     },
     _fetchGenericM2O: function (record, fieldName, model_field) {
         var self = this;
-        var def;
 
         var field = record.fields[fieldName];
-        var model = record._changes && record._changes[model_field] || record.data[model_field];
-        var res = record._changes && record._changes[fieldName] || record.data[fieldName];
+        var model = _get_record_field(record, model_field);
+        var res = _get_record_field(record, fieldName);
 
         if (model && model !== 'False' && res) {
-            if (res.id === undefined)
-                var resID = res;
-            else
-                var resID = res.id;
+            var resID = null;
+            if (typeof res.id === 'undefined') {
+                resID = res;
+            } else {
+                resID = res.id;
+            }
 
             if (resID) {
-                def = self._rpc({
+                return self._rpc({
                     model: model,
                     method: 'exists',
                     args: [resID],
@@ -45,7 +52,7 @@ BasicModel.include({
                         args: [existant_records],
                         context: record.getContext({fieldName: fieldName}),
                     }).then(function (result) {
-                        if (result.length >= 1)
+                        if (result.length >= 1) {
                             return self._makeDataPoint({
                                 data: {
                                     id: result[0][0],
@@ -54,11 +61,12 @@ BasicModel.include({
                                 modelName: model,
                                 parentID: record.id,
                             });
+                        }
                     });
                 });
             }
         }
-        return $.when(def);
+        return $.when();
     },
 });
 
@@ -90,27 +98,33 @@ var FieldGenericM2O = FieldMany2One.extend( {
     },
 
     _update_field_relation: function () {
-        if (this.record._changes)
+        if (this.record._changes) {
             this.field.relation = this.record._changes[this.model_field];
-        else
+        } else {
             this.field.relation = this.record.data[this.model_field];
+        }
         return this.field.relation;
     },
     _formatValue: function (value) {
-        if (value == 0)
+        if (value === 0) {
             return '';
+        }
 
-        value = this.record.specialData[this.name];
-        return value && value.data && value.data.display_name || '';
+        var val = this.record.specialData[this.name];
+        if (val && val.data && val.data.display_name) {
+            return val.data.display_name;
+        }
+        return '';
     },
     _parseValue: function (value) {
-        if ($.isNumeric(value) && Number.isInteger(value))
+        if ($.isNumeric(value) && Number.isInteger(value)) {
             return value;
-        return field_utils.parse['integer'](value, this.field, this.parseOptions);
+        }
+        return field_utils.parse.integer(value, this.field, this.parseOptions);
     },
     _setValue: function (value, options) {
-        value = value.id;
-        return this._super(value, options);
+        var val = value.id;
+        return this._super(val, options);
     },
     _search: function () {
         this._update_field_relation();

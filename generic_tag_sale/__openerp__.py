@@ -13,6 +13,8 @@
 
     "depends": [
         "generic_tag",
+        "payment",  # sale depends on payment addon,
+                    # that is not installed automatically
         "sale",
     ],
 
