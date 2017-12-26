@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 class TestGenericCondition(models.TransientModel):
     _name = 'generic.condition.test_condition'
+    _description = "Wizard: Test generic condition"
 
     condition_id = fields.Many2one(
         'generic.condition', 'Condition', required=True, ondelete='cascade')

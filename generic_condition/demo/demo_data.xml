@@ -122,7 +122,7 @@
     </record>
 
     <record id="demo_condition_partner_has_only_contacts" model="generic.condition">
-        <field name="name">Has obly contacts</field>
+        <field name="name">Has only contacts</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="type">related_conditions</field>
         <field name="condition_rel_field_id" ref="base.field_res_partner_child_ids"/>
