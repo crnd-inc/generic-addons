@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_mixin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_no_unlink.py:34
+#, python-format
+msgid "Cannot unlink these records. Operation not allowed.\n"
+"It is better to deactivate these records.\n"
+"Model: %s [%s]"
+msgstr "Не можливо видалити ці записи. Операція не дозволена.\n"
+"Краще деактивуйте ці записи.\n"
+"Модель: %s [%s]"
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_no_unlink.py:40
+#, python-format
+msgid "Cannot unlink these records. Operation not allowed.\n"
+"Model: %s [%s]"
+msgstr "Не можливо видалити ці записи. Операція не дозволена.\n"
+"Модель: %s [%s]"
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_parent.py:40
+#, python-format
+msgid "Error ! You cannot create recursive %s."
+msgstr "Помилка ! Ви не можете створювати рекурсивні записи %s."
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_no_unlink
+msgid "Generic Mixin: No Unlink"
+msgstr "Generic Mixin: No Unlink"
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_id
+msgid "ID"
+msgstr "ID"
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink___last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names___last_update
+msgid "Last Modified on"
+msgstr "Остання зміна"
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_parent_names
+msgid "generic.mixin.parent.names"
+msgstr "generic.mixin.parent.names"
+
