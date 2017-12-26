@@ -18,6 +18,7 @@
 
     # always loaded
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'views/generic_service_views.xml',
         'data/generic_service_default.xml'
