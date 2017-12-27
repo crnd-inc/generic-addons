@@ -5,8 +5,8 @@
     'summary': """
     """,
 
-    'author': "Management and Accounting Online",
-    'website': "https://maao.com.ua",
+    'author': "Center of Research & Development",
+    'website': "https://crnd.pro",
 
     'category': 'Generic Resource',
     'version': '10.0.0.0.2',
