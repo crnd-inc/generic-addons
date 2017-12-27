@@ -1,0 +1,101 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_service
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_active
+msgid "Active"
+msgstr "Активно"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: generic_service
+#: model:generic.service,name:generic_service.generic_service_default
+msgid "Default"
+msgstr "За замовчанням"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: generic_service
+#: model:ir.model,name:generic_service.model_generic_service
+msgid "Generic Service"
+msgstr "Універсальний сервіс"
+
+#. module: generic_service
+#: model:ir.ui.menu,name:generic_service.menu_generic_service_root
+msgid "Generic Services"
+msgstr "Універсальні сервіси"
+
+#. module: generic_service
+#: model:res.groups,name:generic_service.group_generic_service_manager
+msgid "Generic service manager"
+msgstr "Універсальний сервіс (менеджер)"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_id
+msgid "ID"
+msgstr "ID"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service___last_update
+msgid "Last Modified on"
+msgstr "Остання зміна"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_write_date
+msgid "Last Updated on"
+msgstr "Оновлено"
+
+#. module: generic_service
+#: model:res.groups,comment:generic_service.group_generic_service_manager
+msgid "Manage generic services"
+msgstr "Керує універсальними сервісами"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_name
+msgid "Name"
+msgstr "Назва"
+
+#. module: generic_service
+#: model:generic.service,name:generic_service.generic_service_rent_notebook
+msgid "Rent of notebook"
+msgstr "Оренда ноутбука"
+
+#. module: generic_service
+#: model:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Service"
+msgstr "Сервіс"
+
+#. module: generic_service
+#: model:ir.actions.act_window,name:generic_service.generic_service_action
+#: model:ir.ui.menu,name:generic_service.generic_service_menu_item
+msgid "Services"
+msgstr "Сервіси"
+

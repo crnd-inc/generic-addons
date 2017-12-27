@@ -5,8 +5,8 @@
     'summary': """
     """,
 
-    'author': "Management and Accounting Online",
-    'website': "https://maao.com.ua",
+    'author': "Center of Research & Development",
+    'website': "https://crnd.pro",
 
     'category': 'Generic Service',
     'version': '10.0.0.0.1',
@@ -18,6 +18,7 @@
 
     # always loaded
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'views/generic_service_views.xml',
         'data/generic_service_default.xml'
