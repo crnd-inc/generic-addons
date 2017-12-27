@@ -1,8 +1,8 @@
 {
     "name": "Generic M2O Widget",
     "version": "11.0.0.0.1",
-    "author": "Management and Accounting Online",
-    "website": "https://maao.com.ua",
+    "author": "Center of Research & Development",
+    "website": "https://crnd.pro",
     "license": "Other proprietary",
     "summary": "Generic Many2one widget",
     'category': 'Web',
