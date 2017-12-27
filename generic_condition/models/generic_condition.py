@@ -199,7 +199,7 @@ class GenericCondition(models.Model):
         ondelete='restrict',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many')),
                 ('relation', '=', 'res.users')],
-        help='Field in obeject being checjed, that points to user. ')
+        help='Field in object being checked, that points to user.')
 
     # Related conditions
     condition_rel_field_id = fields.Many2one(
@@ -326,31 +326,32 @@ class GenericCondition(models.Model):
     # Monetary field conditions
     # Value monetary fields
     condition_monetary_field_id = fields.Many2one(
-        'ir.model.fields', 'Monetary field', ondelete='restrict',
+        'ir.model.fields', 'Field', ondelete='restrict',
         domain=[('ttype', '=', 'monetary')])
     condition_monetary_currency_field_id = fields.Many2one(
-        'ir.model.fields', 'Currency field', ondelete='restrict',
+        'ir.model.fields', 'Currency', ondelete='restrict',
         domain=[('ttype', '=', 'many2one'),
-                ('relation', '=', 'res.currency')])
+                ('relation', '=', 'res.currency')],
+        help="Field with currency for field being checked")
 
     # Monetary fields: check rules
     condition_monetary_operator = fields.Selection(
         '_get_selection_monetary_field_operator',
-        string='Monetary operator')
+        string='Operator')
     condition_monetary_value = fields.Monetary(
-        'Monetary value',
+        'Value',
         currency_field='condition_monetary_value_currency_id')
     condition_monetary_value_currency_id = fields.Many2one(
         'res.currency', 'Currency', ondelete='restrict')
     # Monetary fields: currency date
     condition_monetary_curency_date_type = fields.Selection(
         '_get_selection_currency_date_type',
-        string='Currency date type', default='now')
+        string='Type', default='now')
     condition_monetary_curency_date_field_id = fields.Many2one(
-        'ir.model.fields', 'Currency date field', ondelete='restrict',
+        'ir.model.fields', 'Field', ondelete='restrict',
         domain=[('ttype', 'in', ('date', 'datetime'))])
     condition_monetary_curency_date_date = fields.Date(
-        'Currency date', default=fields.Date.today)
+        'Date', default=fields.Date.today)
 
     @api.model
     def default_get(self, field_names):

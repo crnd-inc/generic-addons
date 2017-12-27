@@ -34,6 +34,21 @@ msgid "Congratulations! You are now a Silver Partner!"
 msgstr "Вітаємо! Тепер ви Срібний Партнер!"
 
 #. module: generic_condition_marketing
+#: model:generic.condition,name:generic_condition_marketing.condition_partner_credit_limit_greater_than_10000
+msgid "Credit limit greater than 10000"
+msgstr "Кредитний ліміт більше 10000"
+
+#. module: generic_condition_marketing
+#: model:generic.condition,name:generic_condition_marketing.condition_partner_credit_limit_less_than_10000
+msgid "Credit limit less than 10000"
+msgstr "Кредитний ліміт менше 10000"
+
+#. module: generic_condition_marketing
+#: model:generic.condition,name:generic_condition_marketing.condition_partner_credit_limit_less_than_50000
+msgid "Credit limit less than 50000"
+msgstr "Кредитний ліміт менше 50000"
+
+#. module: generic_condition_marketing
 #: model:mail.template,body_html:generic_condition_marketing.email_template_1
 msgid "Hello, you will receive your welcome pack via email shortly."
 msgstr "Вітаємо, найближчим часом на вашу електронну адресу надійде ваш вітальний пакет."
