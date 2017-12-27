@@ -5,8 +5,8 @@
         Generic tag integration with product addon
     """,
 
-    'author': "Management and Accounting Online",
-    'website': "https://maao.com.ua",
+    'author': "Center of Research & Development",
+    'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
     'version': '11.0.0.1.0',

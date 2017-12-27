@@ -5,8 +5,8 @@
     Technical module with generic mixins, that may help to build other modules
     """,
 
-    'author': "Management and Accounting Online",
-    'website': "https://maao.com.ua",
+    'author': "Center of Research & Development",
+    'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
     'version': '11.0.0.0.1',
