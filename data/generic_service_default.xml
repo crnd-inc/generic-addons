@@ -2,5 +2,6 @@
 <odoo>
     <record id="generic_service_default" model="generic.service">
         <field name="name">Default</field>
+        <field name="description">Default service</field>
     </record>
 </odoo>

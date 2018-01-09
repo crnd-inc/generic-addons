@@ -7,3 +7,4 @@ class GenericSerivce(models.Model):
 
     name = fields.Char(translate=True, required=True, index=True)
     active = fields.Boolean(default=True, index=True)
+    description = fields.Text(translate=True)
