@@ -45,7 +45,7 @@ msgid "Based on model"
 msgstr "Базується на моделі"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:822
+#: code:addons/generic_condition/models/generic_condition.py:824
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr "Неможливо перевірити умови для порожньої вибірки даних"
@@ -292,7 +292,7 @@ msgid "End Date"
 msgstr "Дата завершення"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:777
+#: code:addons/generic_condition/models/generic_condition.py:778
 #, python-format
 msgid "Error caught while evaluating condition %s[%d]"
 msgstr "Виникла помилка при обчисленні умови %s[%d]"

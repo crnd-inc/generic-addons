@@ -74,7 +74,7 @@ msgid "Category code"
 msgstr "Код категорії"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:43
+#: code:addons/generic_tag/models/generic_tag.py:50
 #, python-format
 msgid "Category must be bound to same model as tag"
 msgstr "Категорія тега повинна бути зв'язаною з тією ж моделлю що і тег"
@@ -167,7 +167,7 @@ msgid "Fields"
 msgstr "Поля"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:161
+#: code:addons/generic_tag/models/generic_tag.py:166
 #, python-format
 msgid "Following (category - tags) pairs, break category XOR restriction:\n"
 "%s"
@@ -340,7 +340,7 @@ msgid "Objects"
 msgstr "Об'єкти"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:123
+#: code:addons/generic_tag/models/generic_tag.py:128
 #, python-format
 msgid "Objects related to tag %s"
 msgstr "об'єкти пов'язані з тегом %s"

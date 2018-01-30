@@ -14,6 +14,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_taxes_id
+msgid "Customer Taxes"
+msgstr "Податки (продажі)"
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_property_account_expense_id
+msgid "Expense Account"
+msgstr "Рахунок обліку витрат"
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_property_account_income_id
+msgid "Income Account"
+msgstr "Рахунок обліку доходів"
+
+#. module: generic_tag_product
 #: model:ir.model.fields,field_description:generic_tag_product.field_product_product_no_tag_id
 #: model:ir.model.fields,field_description:generic_tag_product.field_product_product_search_no_tag_id
 msgid "No tag"
@@ -49,4 +64,19 @@ msgstr "Теги"
 #: model:ir.ui.view,arch_db:generic_tag_product.view_product_tree_tags
 msgid "Tags..."
 msgstr "Теги"
+
+#. module: generic_tag_product
+#: model:ir.model.fields,help:generic_tag_product.field_product_product_property_account_expense_id
+msgid "This account will be used for invoices instead of the default one to value expenses for the current product."
+msgstr "Цей рахунок обліку буде використовуватись, замість типового, для оцінки витрат."
+
+#. module: generic_tag_product
+#: model:ir.model.fields,help:generic_tag_product.field_product_product_property_account_income_id
+msgid "This account will be used for invoices instead of the default one to value sales for the current product."
+msgstr "Цей рахунок обліку буде використовуватись, замість типового, для оцінки доходів."
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_supplier_taxes_id
+msgid "Vendor Taxes"
+msgstr "Податки (закупівля)"
 
