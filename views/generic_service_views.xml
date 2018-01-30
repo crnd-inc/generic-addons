@@ -41,6 +41,10 @@
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -51,6 +55,10 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <separator/>
+                <filter name="filter_archived"
+                        string="Archived"
+                        domain="[('active', '=', False)]"/>
             </search>
         </field>
     </record>
