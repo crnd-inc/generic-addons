@@ -37,8 +37,7 @@ class TestConditionMonetaryField(SavepointCase):
             'condition_monetary_curency_date_type': date_type
         }
         if date_type == 'date':
-            assert currency_date is not None, (
-                "Currency date must not be none here")
+            self.assertIsNotNone(currency_date)
             vals.update({
                 'condition_monetary_curency_date_date': currency_date,
             })

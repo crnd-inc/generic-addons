@@ -10,36 +10,40 @@ variables:
     ODOO_DB_PASSWORD: odoo
     ODOO_ADMIN_PASS: admin
 
-    PIP_CACHE_DIR: ".hidden-pip-cache"
-
 cache:
     paths:
-        - ".hidden-pip-cache"
+        - "$HOME/.cache/pip"
 
 stages:
-    - build
+    - static-test
     - test
+    - translation
 
 build_env:
-    stage: build
-    before_script:
+    stage: static-test
+    script:
         - pwd
         - whoami
         - python --version
         - odoo-helper --version
         - odoo-helper status --tools-versions --ci-tools-versions
-    script:
-        - odoo-helper link .
 
 flake8:
-    stage: test
+    stage: static-test
     script:
         - odoo-helper test flake8 .
 
 pylint:
-    stage: test
+    stage: static-test
     script:
         - odoo-helper test pylint .
+
+bandit:
+    stage: static-test
+    before_script:
+        - odoo-helper pip install bandit
+    script:
+        - odoo-helper exec bandit -r .
 
 tests:
     stage: test
@@ -72,9 +76,11 @@ migration_tests:
         - odoo-helper --use-unbuffer db create --demo $ODOO_DB_NAME
         - odoo-helper --use-unbuffer addons install -d $ODOO_DB_NAME $(odoo-helper addons list .)
         - git checkout $CI_COMMIT_SHA
+        - rm -rf $(cat .removed_addons.txt)
         - odoo-helper link .
         - odoo-helper --use-unbuffer addons update-list
         - odoo-helper --use-unbuffer addons update -d $ODOO_DB_NAME $(odoo-helper addons list .)
+        - odoo-helper --use-unbuffer addons uninstall -d $ODOO_DB_NAME $(cat ./removed_addons.txt)
     script:
         - odoo-helper --use-unbuffer test --coverage -d .
         - odoo-helper exec coverage report --fail-under=90
@@ -83,7 +89,7 @@ migration_tests:
         - /^11.0-.*$/   # only branches that started with '11.0-'
 
 translation_rate_ua:
-    stage: test
+    stage: translation 
     services:
         - 10.100.98.41:5000/maao-docker/maao-ci-postgres
 
@@ -94,7 +100,7 @@ translation_rate_ua:
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
 
 translation_rate_ru:
-    stage: test
+    stage: translation
     services:
         - 10.100.98.41:5000/maao-docker/maao-ci-postgres
 

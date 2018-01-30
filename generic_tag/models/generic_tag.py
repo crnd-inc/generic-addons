@@ -9,6 +9,13 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
+def ensure_code_or_name(code, name):
+    if not (bool(code) or bool(name)):
+        raise AssertionError(
+            "'code' or 'name' must not be None! (code=%s;name=%s)"
+            "" % (code, name))
+
+
 class GenericTag(models.Model):
     _name = "generic.tag"
     _inherit = ['generic.tag.model.mixin']
@@ -105,9 +112,7 @@ class GenericTag(models.Model):
     def get_tags(self, model, code=None, name=None):
         """ Search for tags by model, code, name
         """
-        assert bool(code) or bool(name), (
-            "code or name must not be None! (code=%s;name=%s)"
-            "" % (code, name))
+        ensure_code_or_name(code, name)
         tag_domain = [('model_id.model', '=', model)]
         if code is not None:
             tag_domain.append(('code', '=', code))
@@ -233,8 +238,7 @@ class GenericTagMixin(models.AbstractModel):
     def check_tag(self, code=None, name=None):
         """ Check if self have tag with specified code / name
         """
-        assert bool(code is not None) or bool(name is not None), (
-            "code or name must not be None")
+        ensure_code_or_name(code, name)
         tag_domain = [('id', 'in', self.ids)]
         if code is not None:
             tag_domain.append(('tag_ids.code', '=', code))
@@ -249,8 +253,7 @@ class GenericTagMixin(models.AbstractModel):
         """ Checks if self have tag with specified
             category code and/or category name
         """
-        assert bool(code is not None) or bool(name is not None), (
-            "code or name must not be None")
+        ensure_code_or_name(code, name)
         categ_domain = [('id', 'in', self.ids)]
         if code is not None:
             categ_domain.append(('tag_ids.category_id.code', '=', code))

@@ -29,9 +29,10 @@ class GenericMixinParentNames(models.AbstractModel):
     # Overridden to add recursion check constraint
     @classmethod
     def _build_model(cls, pool, cr):
-        assert cls._parent_name, (
-            'do not forget to define `_parent_name` on model if it inherits '
-            '`generic.mixin.parent.names`')
+        if not cls._parent_name:
+            raise AssertionError(
+                'do not forget to define `_parent_name` on model '
+                'if it inherits `generic.mixin.parent.names`')
 
         @api.constrains(cls._parent_name)
         def _recursion_constraint(self):

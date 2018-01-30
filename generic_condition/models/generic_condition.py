@@ -495,7 +495,8 @@ class GenericCondition(models.Model):
                                       - 'end'
             :param Recordset obj: object to get date from
         """
-        assert date_type in ('start', 'end'), ("Date type not in (start,stop)")
+        if date_type not in ('start', 'end'):
+            raise AssertionError("Date type not in (start,stop)")
 
         date_source = self['condition_date_diff_date_%s_type' % date_type]
 
@@ -815,7 +816,8 @@ class GenericCondition(models.Model):
             :param operator: how to join conditions. one of ('and', 'or'),
                              default: 'and'
         """
-        assert operator in ('and', 'or'), "Operator must be in ('and', 'or')"
+        if operator not in ('and', 'or'):
+            raise AssertionError("Operator must be in ('and', 'or')")
 
         if not obj:
             raise UserError(_("Cannot check conditions for empty recordset"))
