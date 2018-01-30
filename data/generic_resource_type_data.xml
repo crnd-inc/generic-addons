@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_resource_type_default" model="generic.resource.type">
+        <field name="name">Default</field>
+        <field name="model_id" ref="generic_resource.model_generic_resource_simple"/>
+    </record>
+</odoo>

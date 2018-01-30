@@ -58,7 +58,8 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="model_id"/>
+                        <field name="model_id"
+                               options="{'no_create': true, 'no_quick_create': true}"/>
                     </group>
                 </sheet>
             </form>
