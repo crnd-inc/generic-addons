@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_generic_service_root"
-        name="Generic Services"
-        parent="base.menu_custom" />
+              name="Generic Services"
+              groups="generic_service.group_generic_service_user"
+              parent="base.menu_custom" />
 
     <!-- generic.service -->
     <!-- Tree view for generic.service -->
