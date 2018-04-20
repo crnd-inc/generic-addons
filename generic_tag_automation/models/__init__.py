@@ -1,1 +1,1 @@
-from . import base_action_rule
+from . import base_automation, ir_actions

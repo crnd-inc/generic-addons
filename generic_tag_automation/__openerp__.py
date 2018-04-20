@@ -11,13 +11,13 @@
 
     "depends": [
         "generic_tag",
-        "base_action_rule",
+        "base_automation",
     ],
 
     "data": [
-        'views/base_action_rule_view.xml',
+        'views/base_automation_view.xml',
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     'license': 'Other proprietary',
 }
