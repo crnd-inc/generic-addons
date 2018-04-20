@@ -79,7 +79,6 @@ migration_tests:
         - odoo-helper link .
         - odoo-helper --use-unbuffer addons update-list
         - odoo-helper --use-unbuffer addons update -d $ODOO_DB_NAME $(odoo-helper addons list .)
-        - odoo-helper --use-unbuffer addons uninstall -d $ODOO_DB_NAME $(cat ./removed_addons.txt)
     script:
         - odoo-helper --use-unbuffer test --coverage -d .
         - odoo-helper exec coverage report --fail-under=90
