@@ -15,11 +15,13 @@ class BaseAutomation(models.Model):
         for record in self:
             if record.trigger != 'on_write':
                 record.pre_condition_ids = False
+        return super(BaseAutomation, self).onchange_trigger()
 
     def onchange_model_id(self):
         for record in self:
             record.pre_condition_ids = False
             record.post_condition_ids = False
+        return super(BaseAutomation, self).onchange_model_id()
 
     def _filter_pre(self, records):
         if self.pre_condition_ids:
