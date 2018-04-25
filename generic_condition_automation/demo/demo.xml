@@ -8,12 +8,12 @@
         <field name="condition_condition_id" ref="generic_condition.demo_condition_partner_city_kyiv"/>
     </record>
 
-    <record id="test_rule_on_write" model="base.action.rule">
+    <record id="test_rule_on_write" model="base.automation">
         <field name="name">Generic Condition: Test rule on write</field>
-        <field name="kind">on_write</field>
+        <field name="trigger">on_write</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="act_user_id" ref="base.user_demo"/>
         <field name="pre_condition_ids" eval="[(4, ref('generic_condition.demo_condition_partner_city_kyiv'))]"/>
-        <field name="post_condition_ids" eval="[(4, ref('generic_condition_action_rule.demo_condition_partner_city_not_kyiv'))]"/>
+        <field name="post_condition_ids" eval="[(4, ref('generic_condition_automation.demo_condition_partner_city_not_kyiv'))]"/>
     </record>
 </odoo>

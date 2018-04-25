@@ -1,1 +1,1 @@
-from . import test_base_action_rule
+from . import test_condition_automation
