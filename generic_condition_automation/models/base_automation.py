@@ -12,14 +12,14 @@ class BaseAutomation(models.Model):
         string='Post Conditions', help="Post conditions (Generic conditions)")
 
     def onchange_trigger(self):
-        if self.trigger != 'on_write':
-            self.pre_condition_ids = False
-        return super(BaseAutomation, self).onchange_trigger()
+        for record in self:
+            if record.trigger != 'on_write':
+                record.pre_condition_ids = False
 
     def onchange_model_id(self):
-        self.pre_condition_ids = False
-        self.post_condition_ids = False
-        return super(BaseAutomation, self).onchange_model_id()
+        for record in self:
+            record.pre_condition_ids = False
+            record.post_condition_ids = False
 
     def _filter_pre(self, records):
         if self.pre_condition_ids:
