@@ -34,7 +34,3 @@ class TestConditionAutomation(TransactionCase):
         self.assertTrue(rule.post_condition_ids)
         self.assertEqual(rule.trigger, 'on_write')
 
-        rule.trigger = 'on_create'
-        rule.onchange_trigger()
-
-        self.assertFalse(rule.pre_condition_ids)
