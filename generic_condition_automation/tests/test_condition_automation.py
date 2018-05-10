@@ -23,7 +23,7 @@ class TestConditionAutomation(TransactionCase):
         self.assertTrue(rule.post_condition_ids)
         self.assertEqual(rule.trigger, 'on_write')
 
-        rule.onchange_model_id()
+        rule._onchange_model_id()
 
         self.assertFalse(rule.pre_condition_ids)
         self.assertFalse(rule.post_condition_ids)
@@ -33,3 +33,8 @@ class TestConditionAutomation(TransactionCase):
         self.assertTrue(rule.pre_condition_ids)
         self.assertTrue(rule.post_condition_ids)
         self.assertEqual(rule.trigger, 'on_write')
+
+        rule.trigger = 'on_create'
+        rule._onchange_trigger()
+
+        self.assertFalse(rule.pre_condition_ids)

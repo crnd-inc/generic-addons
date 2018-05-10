@@ -1,4 +1,4 @@
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class BaseAutomation(models.Model):
@@ -11,12 +11,14 @@ class BaseAutomation(models.Model):
         'generic.condition', 'base_action_rule_post_condition_rel',
         string='Post Conditions', help="Post conditions (Generic conditions)")
 
-    def onchange_trigger(self):
+    @api.onchange('trigger')
+    def _onchange_trigger(self):
         for record in self:
             if record.trigger != 'on_write':
                 record.pre_condition_ids = False
 
-    def onchange_model_id(self):
+    @api.onchange('model_id')
+    def _onchange_model_id(self):
         for record in self:
             record.pre_condition_ids = False
             record.post_condition_ids = False
