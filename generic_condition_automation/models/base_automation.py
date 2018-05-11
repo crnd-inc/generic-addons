@@ -13,7 +13,7 @@ class BaseAutomation(models.Model):
 
     @api.onchange('trigger')
     def _onchange_trigger(self):
-        triggers = ['on_write', 'on_create', 'on_create_or_write', 'on_unlink']
+        triggers = ['on_write', 'on_create_or_write']
         for record in self:
             if record.trigger not in triggers:
                 record.pre_condition_ids = False
@@ -33,11 +33,3 @@ class BaseAutomation(models.Model):
         if self.post_condition_ids:
             records = records.filtered(self.post_condition_ids.check)
         return super(BaseAutomation, self)._filter_post(records)
-
-
-
-    # @api.onchange('trigger')
-    # def _onchange_trigger(self):
-    #     for record in self:
-    #         if record.trigger != 'on_write':
-    #             record.pre_condition_ids = False

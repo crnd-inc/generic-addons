@@ -18,6 +18,6 @@
         'views/base_automation_view.xml',
     ],
     "installable": True,
-    "auto_install": False,
+    "auto_install": True,
     'license': 'Other proprietary',
 }
