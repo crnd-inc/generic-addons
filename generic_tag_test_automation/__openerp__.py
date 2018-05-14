@@ -17,9 +17,9 @@
     "data": [
     ],
     "demo": [
-        "demo/base_action_rule_demo.xml"
+        "demo/base_automation_demo.xml"
     ],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     'license': 'Other proprietary',
 }
