@@ -1,8 +1,8 @@
-from openerp import models, fields
+from openerp import models, fields, api
 
 
-class BaseActionRule(models.Model):
-    _inherit = "base.action.rule"
+class BaseAutomation(models.Model):
+    _inherit = "base.automation"
 
     pre_condition_ids = fields.Many2many(
         'generic.condition', 'base_action_rule_pre_condition_rel',
@@ -11,22 +11,25 @@ class BaseActionRule(models.Model):
         'generic.condition', 'base_action_rule_post_condition_rel',
         string='Post Conditions', help="Post conditions (Generic conditions)")
 
-    def onchange_kind(self):
-        if self.kind != 'on_write':
-            self.pre_condition_ids = False
-        return super(BaseActionRule, self).onchange_kind()
+    @api.onchange('trigger')
+    def _onchange_trigger(self):
+        triggers = ['on_write', 'on_create_or_write']
+        for record in self:
+            if record.trigger not in triggers:
+                record.pre_condition_ids = False
 
-    def onchange_model_id(self):
-        self.pre_condition_ids = False
-        self.post_condition_ids = False
-        return super(BaseActionRule, self).onchange_model_id()
+    @api.onchange('model_id')
+    def _onchange_model_id(self):
+        for record in self:
+            record.pre_condition_ids = False
+            record.post_condition_ids = False
 
     def _filter_pre(self, records):
         if self.pre_condition_ids:
             records = records.filtered(self.pre_condition_ids.check)
-        return super(BaseActionRule, self)._filter_pre(records)
+        return super(BaseAutomation, self)._filter_pre(records)
 
     def _filter_post(self, records):
         if self.post_condition_ids:
             records = records.filtered(self.post_condition_ids.check)
-        return super(BaseActionRule, self)._filter_post(records)
+        return super(BaseAutomation, self)._filter_post(records)

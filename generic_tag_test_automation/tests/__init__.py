@@ -1,1 +1,1 @@
-from . import test_action_rules
+from . import test_automation

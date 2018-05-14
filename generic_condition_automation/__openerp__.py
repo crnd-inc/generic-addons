@@ -8,14 +8,14 @@
     'category': 'Technical Settings',
     'depends': [
         'generic_condition',
-        'base_action_rule',
+        'base_automation',
     ],
     'demo': [
         'demo/demo.xml',
     ],
     'data': [
-        'views/base_action_rule_view.xml',
+        'views/base_automation.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': True,
 }
