@@ -1,13 +1,21 @@
-from openerp import fields, models, api, _
+from openerp import fields, models, api, exceptions, _
 
 
 import logging
 _logger = logging.getLogger(__name__)
 
 
+class GenericResourceResID(int):
+    """ Simple class to ensure that 'generic.resource' being created
+        from 'generic.resource.mixin' code
+    """
+    pass
+
+
 class GenericResource(models.Model):
     _name = 'generic.resource'
     _description = 'Generic Resource'
+    _log_access = False
 
     active = fields.Boolean(default=True, index=True)
     implementation_ids = fields.One2many(
@@ -20,7 +28,7 @@ class GenericResource(models.Model):
         ondelete='restrict')
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True, store=True,
-        index=True)
+        compute_sudo=True, index=True)
     res_id = fields.Integer(
         string="Resource", required=True, index=True, readonly=True)
 
@@ -54,50 +62,32 @@ class GenericResource(models.Model):
         for rec in self:
             rec.implementation_count = len(rec.implementation_ids)
 
-
-class GenericResourceMixin(models.AbstractModel):
-    _name = 'generic.resource.mixin'
-
-    resource_id = fields.Many2one(
-        'generic.resource', index=True, auto_join=True, ondelete='restrict',
-        required=True, delegate=True)
-
-    _sql_constraints = [
-        ('unique_resource_id', 'UNIQUE(resource_id)',
-         'Resource must be unique')
-    ]
-
-    @api.multi
-    def write(self, vals):
-        # Deny write resource_id field
-        if vals.get('resource_id', None):
-            _logger.warning("Trying write something in the resource_id field")
-            del vals['resource_id']
-
-        return super(GenericResourceMixin, self).write(vals)
+    @api.model
+    def _get_resource_type_defaults(self, resource_type):
+        return {
+            'res_type_id': resource_type.id,
+        }
 
     @api.model
     def create(self, vals):
-        # Add vals for resource with fake id
-        vals['res_type_id'] = self._get_resource_type().id
-        vals['res_id'] = -1
+        res_id = vals.get('res_id')
+        if res_id and isinstance(res_id, GenericResourceResID):
+            vals['res_id'] = int(res_id)
+        elif res_id:
+            raise exceptions.ValidationError(_(
+                "Direct creation of 'generic.resource' records "
+                "is not allowed!"))
 
-        res = super(GenericResourceMixin, self).create(vals)
+        return super(GenericResource, self).create(vals)
 
-        # Update res_id with created id
-        res.resource_id.update({'res_id': res.id})
-        return res
+    @api.multi
+    def write(self, vals):
+        res_id = vals.get('res_id')
+        if res_id and isinstance(res_id, GenericResourceResID):
+            vals['res_id'] = int(res_id)
+        elif res_id:
+            raise exceptions.ValidationError(_(
+                "Direct modification of 'generic.resource:res_id' field "
+                "is not allowed!"))
 
-    def unlink(self):
-        # Get resources
-        resources = self.mapped('resource_id')
-
-        # Delete records
-        res = super(GenericResourceMixin, self).unlink()
-        # Delete resources and return status
-        resources.unlink()
-        return res
-
-    def _get_resource_type(self):
-        r_type_env = self.env['generic.resource.type']
-        return r_type_env.search([('model_id.model', '=', self._name)])
+        return super(GenericResource, self).write(vals)

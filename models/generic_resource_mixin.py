@@ -1,4 +1,5 @@
 from openerp import fields, models, api
+from .generic_resource import GenericResourceResID
 
 
 import logging
@@ -9,34 +10,47 @@ class GenericResourceMixin(models.AbstractModel):
     _name = 'generic.resource.mixin'
 
     resource_id = fields.Many2one(
-        'generic.resource', index=True, auto_join=True, ondelete='restrict',
-        required=True, delegate=True)
+        'generic.resource', index=True, auto_join=True,
+        required=True, delegate=True, ondelete='restrict')
 
     _sql_constraints = [
         ('unique_resource_id', 'UNIQUE(resource_id)',
          'Resource must be unique')
     ]
 
+    def _resource_mixin__protect_resource_id(self, vals):
+        if vals.get('resource_id', None):
+            _logger.warning(
+                "Trying update / create object with 'resource_id' "
+                "field specified. No need for this, resource will be created "
+                "automatically")
+            del vals['resource_id']
+        return vals
+
     @api.multi
     def write(self, vals):
-        # Deny write resource_id field
-        if vals.get('resource_id', None):
-            _logger.warning("Trying write something in the resource_id field")
-            del vals['resource_id']
-
+        vals = self._resource_mixin__protect_resource_id(vals)
         return super(GenericResourceMixin, self).write(vals)
 
     @api.model
     def create(self, vals):
-        # Add vals for resource with fake id
-        vals['res_type_id'] = self._get_resource_type().id
-        vals['res_id'] = -1
+        vals = self._resource_mixin__protect_resource_id(vals)
 
-        res = super(GenericResourceMixin, self).create(vals)
+        values = self.env['generic.resource']._get_resource_type_defaults(
+            self._get_resource_type())
+        values.update(vals)
+
+        # Add fake resource id to values. This is required to create
+        # 'generic.resource' record, because 'res_id' field is required
+        # This field will be updated after record creation
+        values['res_id'] = GenericResourceResID(-1)
+
+        # Create record
+        rec = super(GenericResourceMixin, self).create(values)
 
         # Update res_id with created id
-        res.resource_id.update({'res_id': res.id})
-        return res
+        rec.resource_id.write({'res_id': GenericResourceResID(rec.id)})
+        return rec
 
     @api.multi
     def unlink(self):
@@ -50,8 +64,8 @@ class GenericResourceMixin(models.AbstractModel):
         return res
 
     def _get_resource_type(self):
-        r_type_env = self.env['generic.resource.type']
-        return r_type_env.search([('model_id.model', '=', self._name)])
+        return self.env['generic.resource.type'].search(
+            [('model_id.model', '=', self._name)], limit=1)
 
     @api.multi
     def check_access_rule(self, operation):

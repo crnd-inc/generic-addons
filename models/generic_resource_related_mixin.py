@@ -1,5 +1,4 @@
-from openerp import fields, models, api, _
-from openerp.exceptions import ValidationError
+from openerp import fields, models, api
 
 
 class GenericResourceRelatedMixin(models.AbstractModel):
@@ -41,48 +40,43 @@ class GenericResourceRelatedMixin(models.AbstractModel):
     """
     _name = 'generic.resource.related.mixin'
 
-    resource_type_id = fields.Many2one('generic.resource.type',
-                                       string='Resource type')
+    resource_type_id = fields.Many2one(
+        'generic.resource.type', string='Resource type',
+        compute="_compute_resource_res_fields", store=True,
+        inverse="_inverse_resource_res_id")
     resource_res_model = fields.Char(
         related="resource_type_id.model_id.model", readonly=True)
-    resource_res_id = fields.Integer(string="Resource")
-    resource_id = fields.Many2one('generic.resource',
-                                  compute='_compute_resource_id',
-                                  inverse='_inverse_resource_id',
-                                  string='Resource', index=True,
-                                  store=True, ondelete='restrict')
+    resource_res_id = fields.Integer(
+        string="Resource", store=True,
+        compute="_compute_resource_res_fields",
+        inverse="_inverse_resource_res_id")
+    resource_id = fields.Many2one(
+        'generic.resource', string='Resource', index=True,
+        store=True, ondelete='restrict')
 
-    @api.depends('resource_type_id', 'resource_res_id')
-    def _compute_resource_id(self):
-        for rec in self:
-            if rec.resource_type_id and rec.resource_res_id:
-                rec.resource_id = self.env[rec.resource_res_model].browse(
-                    rec.resource_res_id).resource_id.id
-            else:
-                rec.resource_id = False
-
-    def _inverse_resource_id(self):
+    @api.depends('resource_id')
+    def _compute_resource_res_fields(self):
         for rec in self:
             if rec.resource_id:
-                rec.write({
-                    'resource_type_id': rec.resource_id.res_type_id.id,
+                rec.update({
                     'resource_res_id': rec.resource_id.res_id,
+                    'resource_type_id': rec.resource_id.res_type_id.id,
+                })
+            else:
+                rec.update({
+                    'resource_res_id': False,
+                    'resource_type_id': False,
                 })
 
-    @api.constrains('resource_type_id', 'resource_res_id')
-    def _constrain_related_resource(self):
+    def _inverse_resource_res_id(self):
         for rec in self:
-            if rec.resource_type_id and rec.resource_res_id:
-                ResModel = self.env[rec.resource_res_model]
-                if not ResModel.browse(rec.resource_res_id).exists():
-                    raise ValidationError(_(
-                        'Wrong combination of resource type and resource ID!'))
-            elif rec.resource_type_id and not rec.resource_res_id:
-                raise ValidationError(_(
-                    'Resource type specified, but Resource ID not set!'))
-            elif rec.resource_res_id and not rec.resource_type_id:
-                raise ValidationError(_(
-                    'Resource ID specified, but Resource type not set!'))
+            if (rec.resource_res_id and
+                    rec.resource_type_id and
+                    rec.resource_res_id != -1):
+                rec.resource_id = self.env[rec.resource_type_id.model].browse(
+                    rec.resource_res_id).resource_id
+            elif not rec.resource_res_id:
+                rec.resource_id = False
 
     @api.onchange('resource_type_id')
     def _onchange_resource_type_id_clean_resource_res_id(self):
@@ -98,6 +92,7 @@ class GenericResourceRelatedMixin(models.AbstractModel):
         defaults = super(GenericResourceRelatedMixin, self).default_get(
             field_names)
 
+        # TODO: Check if this is realy required
         if ('resource_res_model' in field_names and
                 'resource_type_id' in defaults):
             res_type = self.env['generic.resource.type'].browse(
