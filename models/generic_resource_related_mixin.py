@@ -54,7 +54,8 @@ class GenericResourceRelatedMixin(models.AbstractModel):
         'generic.resource', string='Resource', index=True,
         store=True, ondelete='restrict')
 
-    @api.depends('resource_id')
+    @api.depends('resource_id', 'resource_id.res_id',
+                 'resource_id.res_type_id')
     def _compute_resource_res_fields(self):
         for rec in self:
             if rec.resource_id:
