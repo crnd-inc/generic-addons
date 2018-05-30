@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_generic_location__location_user_implicit,access_generic_location user implicit,model_generic_location,generic_location.group_generic_location_user_implicit,1,0,0,0
+access_generic_location__location_manager,access_generic_location location manager,model_generic_location,generic_location.group_generic_location_manager,1,1,1,1
