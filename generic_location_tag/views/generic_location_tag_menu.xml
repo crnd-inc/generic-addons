@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_generic_location_tags_view" model="ir.actions.act_window">
+        <field name="name">Location Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.tag</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_model': 'generic.location'}</field>
+        <field name="domain">[('model_id.model','=','generic.location')]</field>
+    </record>
+
+    <menuitem id="menu_tags_location_tags"
+              parent="generic_tag.menu_generic_tags_root"
+              name="Location Tags"
+              sequence="60"/>
+
+    <menuitem id="menu_tags_location_tags_action"
+              parent="menu_tags_location_tags" sequence="15"
+              action="action_generic_location_tags_view"/>
+</odoo>

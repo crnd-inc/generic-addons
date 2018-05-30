@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="generic_location_form_view">
+        <field name="name">generic.location.form</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div[@name='location_name']/h1" position="after">
+                <h2 class="header_tags">
+                    <field name="tag_ids"
+                           widget="many2many_tags"
+                           placeholder="Tags..."
+                           class="oe_inline"
+                           domain="[('model_id.model', '=', 'generic.location')]"
+                           context="{'default_model': 'generic.location'}"/>
+                </h2>
+            </xpath>
+        </field>                
+    </record>
+
+    <record model="ir.ui.view" id="generic_location_tree_view">
+        <field name="name">generic.location.tree</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="tag_ids"
+                       widget="many2many_tags"
+                       placeholder="Tags..."
+                       context="{'default_model': 'generic.location'}"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- search views location tag -->
+    <record model="ir.ui.view" id="generic_location_search_view">
+        <field name="name">generic.location.search</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_search_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="tag_ids"/>
+                <field name="search_tag_id"/>
+                <field name="search_no_tag_id"/>
+            </field>
+        </field>
+     </record>
+    <menuitem name="Location Tags"
+              id="menu_location_tags"
+              parent="generic_location.menu_generic_location"
+              action="action_generic_location_tags_view"
+              sequence="120"/>
+</odoo>

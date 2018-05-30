@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Creating parent location-->
+
+    <record id="simple_parent_location_1" model="generic.location">
+        <field name='name'>House</field>
+    </record>
+    <record id="simple_parent_location_2" model="generic.location">
+        <field name='name'>Hostel</field>
+    </record>
+    <record id="simple_parent_location_3" model="generic.location">
+        <field name='name'>Hostel-2</field>
+    </record>
+    <record id="simple_parent_location_4" model="generic.location">
+        <field name='name'>Hostel-3</field>
+    </record>
+    <record id="simple_parent_location_5" model="generic.location">
+        <field name='name'>Hostel-4</field>
+    </record>
+    <record id="simple_parent_location_6" model="generic.location">
+        <field name='name'>Hostel-5</field>
+    </record>
+
+    <!--Creating simple location-->
+    <record id="simple_location_room_1" model="generic.location">
+        <field name="name">Room 1</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_2" model="generic.location">
+        <field name="name">Room 2</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_3" model="generic.location">
+        <field name="name">Room 3</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_4" model="generic.location">
+        <field name="name">Room 4</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_5" model="generic.location">
+        <field name="name">Room 5</field>
+        <field name="parent_id" ref="simple_parent_location_2"/>
+    </record>
+    <record id="simple_location_room_6" model="generic.location">
+        <field name="name">Room 6</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_7" model="generic.location">
+        <field name="name">Room 7</field>
+        <field name="parent_id" ref="simple_parent_location_3"/>
+    </record>
+    <record id="simple_location_room_8" model="generic.location">
+        <field name="name">Room 8</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_9" model="generic.location">
+        <field name="name">Room 9</field>
+        <field name="parent_id" ref="simple_parent_location_4"/>
+    </record>
+    <record id="simple_location_room_10" model="generic.location">
+        <field name="name">Room 10</field>
+        <field name="parent_id" ref="simple_parent_location_5"/>
+    </record>
+    <record id="simple_location_room_11" model="generic.location">
+        <field name="name">Room 11</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_12" model="generic.location">
+        <field name="name">Room 12</field>
+        <field name="parent_id" ref="simple_parent_location_6"/>
+    </record>
+    <record id="simple_location_room_13" model="generic.location">
+        <field name="name">Room 13</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_14" model="generic.location">
+        <field name="name">Room 14</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_21" model="generic.location">
+        <field name="name">Room 2</field>
+        <field name="parent_id" ref="simple_parent_location_6"/>
+    </record>
+    <record id="simple_location_room_51" model="generic.location">
+        <field name="name">Room 5</field>
+        <field name="parent_id" ref="simple_parent_location_5"/>
+    </record>
+    <record id="simple_location_room_61" model="generic.location">
+        <field name="name">Room 6</field>
+        <field name="parent_id" ref="simple_parent_location_2"/>
+    </record>
+    <record id="simple_location_room_71" model="generic.location">
+        <field name="name">Room 7</field>
+        <field name="parent_id" ref="simple_parent_location_6"/>
+    </record>
+    <record id="simple_location_room_81" model="generic.location">
+        <field name="name">Room 8</field>
+        <field name="parent_id" ref="simple_parent_location_3"/>
+    </record>
+    <record id="simple_location_room_91" model="generic.location">
+        <field name="name">Room 9</field>
+        <field name="parent_id" ref="simple_parent_location_2"/>
+    </record>
+    <record id="simple_location_room_101" model="generic.location">
+        <field name="name">Room 10</field>
+        <field name="parent_id" ref="simple_parent_location_1"/>
+    </record>
+    <record id="simple_location_room_111" model="generic.location">
+        <field name="name">Room 11</field>
+        <field name="parent_id" ref="simple_parent_location_3"/>
+    </record>
+
+</odoo>

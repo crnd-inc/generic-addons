@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_location_tag_model" model="generic.tag.model">
+        <field name="res_model_id" ref="generic_location.model_generic_location"/>
+    </record>
+</odoo>

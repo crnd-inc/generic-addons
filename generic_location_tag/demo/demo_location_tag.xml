@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!--Creating tag location-->
+    <record id="simple_tag_location_1" model="generic.tag">
+        <field name="name">Darnitsa</field>
+        <field name="code">DR</field>
+        <field name="comment">it's Kiev</field>
+        <field name="model_id" ref="generic_location_tag_model"/>
+            </record>
+    <record id="simple_tag_location_2"
+            model="generic.tag">
+        <field name='name'>Poznyaki</field>
+        <field name='code'>PZ</field>
+        <field name='model_id' ref="generic_location_tag_model"/>
+    </record>
+    <record id="simple_tag_location_3"
+            model="generic.tag">
+        <field name='name'>Osocorki</field>
+        <field name='code'>OS</field>
+        <field name='model_id' ref="generic_location_tag_model"/>
+    </record>
+    <record id="simple_tag_location_4"
+            model="generic.tag">
+        <field name='name'>Rusanovka</field>
+        <field name='code'>RUSAN</field>
+        <field name='model_id' ref="generic_location_tag_model"/>
+    </record>
+</odoo>
