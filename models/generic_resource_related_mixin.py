@@ -1,4 +1,4 @@
-from openerp import fields, models, api
+from openerp import fields, models, api, _, exceptions
 
 
 class GenericResourceRelatedMixin(models.AbstractModel):
@@ -74,8 +74,16 @@ class GenericResourceRelatedMixin(models.AbstractModel):
             if (rec.resource_res_id and
                     rec.resource_type_id and
                     rec.resource_res_id != -1):
-                rec.resource_id = self.env[rec.resource_type_id.model].browse(
-                    rec.resource_res_id).resource_id
+                if self.env[rec.resource_type_id.model].browse(
+                        rec.resource_res_id).exists():
+                    rec.resource_id = self.env[
+                        rec.resource_type_id.model].browse(
+                            rec.resource_res_id).resource_id
+                else:
+                    raise exceptions.ValidationError(
+                        _('resource_id does not exist'))
+            elif rec.resource_res_id and not rec.resource_type_id:
+                rec.resource_res_id = False
             elif not rec.resource_res_id:
                 rec.resource_id = False
 
