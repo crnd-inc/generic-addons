@@ -74,14 +74,18 @@ class GenericResourceRelatedMixin(models.AbstractModel):
             if (rec.resource_res_id and
                     rec.resource_type_id and
                     rec.resource_res_id != -1):
-                if self.env[rec.resource_type_id.model].browse(
-                        rec.resource_res_id).exists():
-                    rec.resource_id = self.env[
-                        rec.resource_type_id.model].browse(
-                            rec.resource_res_id).resource_id
+                resource = self.env[
+                    rec.resource_type_id.model].browse(rec.resource_res_id)
+                if resource.exists():
+                    rec.resource_id = resource.resource_id
                 else:
-                    raise exceptions.ValidationError(
-                        _('resource_id does not exist'))
+                    raise exceptions.ValidationError(_(
+                        'Resource does not exists!\n'
+                        '\tResource type: %s\n'
+                        '\tResource res_id: %s' % (
+                            rec.resource_type_id.display_name,
+                            rec.resource_res_id)
+                    ))
             elif rec.resource_res_id and not rec.resource_type_id:
                 rec.resource_res_id = False
             elif not rec.resource_res_id:
