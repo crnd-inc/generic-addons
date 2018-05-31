@@ -86,10 +86,17 @@ class GenericResourceRelatedMixin(models.AbstractModel):
                             rec.resource_type_id.display_name,
                             rec.resource_res_id)
                     ))
-            elif rec.resource_res_id and not rec.resource_type_id:
-                rec.resource_res_id = False
-            elif not rec.resource_res_id:
+            elif (not rec.resource_type_id and not
+                  rec.resource_res_id):
                 rec.resource_id = False
+            else:
+                raise exceptions.ValidationError(_(
+                    'Fields incorrect\n'
+                    '\tResource type: %s\n'
+                    '\tResource res_id: %s' % (
+                        rec.resource_type_id.display_name,
+                        rec.resource_res_id)
+                ))
 
     @api.onchange('resource_type_id')
     def _onchange_resource_type_id_clean_resource_res_id(self):
