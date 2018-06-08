@@ -83,8 +83,11 @@ class GenericResource(models.Model):
     @api.multi
     def write(self, vals):
         res_id = vals.get('res_id')
-        if res_id and isinstance(res_id, GenericResourceResID):
+        if res_id and isinstance(
+                res_id, GenericResourceResID) and len(vals) == 1:
             vals['res_id'] = int(res_id)
+            return super(GenericResource, self.sudo()).write(vals)
+
         elif res_id:
             raise exceptions.ValidationError(_(
                 "Direct modification of 'generic.resource:res_id' field "

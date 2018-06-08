@@ -46,6 +46,7 @@ class GenericResourceMixin(models.AbstractModel):
         values['res_id'] = GenericResourceResID(-1)
 
         # Create record
+        # TODO: this create somehow triggers write on self. Review.
         rec = super(GenericResourceMixin, self).create(values)
 
         # Update res_id with created id
