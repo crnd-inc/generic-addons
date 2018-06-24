@@ -8,4 +8,6 @@ def migrate(cr, installed_version):
 
         DROP TABLE IF EXISTS generic_resource_interface CASCADE;
         DELETE FROM ir_model WHERE model = 'generic.resource.interface';
+
+        DELETE FROM ir_model WHERE model = 'generic.resource.interface.mixin';
     """)
