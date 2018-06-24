@@ -18,11 +18,6 @@ class GenericResource(models.Model):
     _log_access = False
 
     active = fields.Boolean(default=True, index=True)
-    implementation_ids = fields.One2many(
-        'generic.resource.implementation', 'resource_id',
-        string="Implementations")
-    implementation_count = fields.Integer(
-        compute="_compute_implementation_count")
     res_type_id = fields.Many2one(
         'generic.resource.type', string="Type", required=True, index=True,
         ondelete='restrict')
@@ -56,11 +51,6 @@ class GenericResource(models.Model):
             else:
                 result.append((record.id, False))
         return result
-
-    @api.depends('implementation_ids')
-    def _compute_implementation_count(self):
-        for rec in self:
-            rec.implementation_count = len(rec.implementation_ids)
 
     @api.model
     def _get_resource_type_defaults(self, resource_type):
