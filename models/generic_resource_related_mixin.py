@@ -10,10 +10,10 @@ class GenericResourceRelatedMixin(models.AbstractModel):
         related resources, use this mixin.
 
         It adds additional fields
-          - resource_type_id
-          - resource_res_model
-          - resource_res_id
-          - resource_id (computed)
+          - resource_type_id (computed)
+          - resource_res_model (related)
+          - resource_res_id (computed)
+          - resource_id
 
         Use following UI workflow to select relate resource
         1. user selects resource type
