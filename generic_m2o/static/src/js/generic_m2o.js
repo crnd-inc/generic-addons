@@ -17,6 +17,49 @@ function _get_record_field (record, field_name) {
 /// Modify basic model with extra methods to fetch special data
 var BasicModel = require('web.BasicModel');
 BasicModel.include({
+    _readUngroupedList: function (list) {
+        var self = this;
+        var def = this._super.apply(this, arguments);
+        return def.then(function () {
+            return $.when(self._fetchGenericM2OsBatched(list));
+        }).then(function () {
+            return list;
+        });
+    },
+    _fetchGenericM2OsBatched: function (list) {
+        var defs = [];
+        var fieldNames = list.getFieldNames();
+        for (var i = 0; i < fieldNames.length; i++) {
+            var fieldName = fieldNames[i];
+            var fieldInfo = list.fieldsInfo[list.viewType][fieldName];
+            if (fieldInfo.widget === 'generic_m2o') {
+                defs.push(this._fetchGenericM2OBatched(list, fieldName));
+            }
+        }
+        return $.when.apply($, defs);
+    },
+    _fetchGenericM2OBatched: function (list, fieldName) {
+        var self = this;
+        var wlist = this._applyX2ManyOperations(list);
+        var defs = [];
+
+        var fieldInfo = wlist.fieldsInfo[wlist.viewType][fieldName];
+        _.each(wlist.data, function (dataPoint) {
+            var record = self.localData[dataPoint];
+            var field = record.fields[fieldName];
+            defs.push(
+                $.when(
+                    self._fetchGenericM2O(
+                        record,
+                        fieldName,
+                        fieldInfo.model_field)
+                ).then(function (specialData) {
+                    record.specialData[fieldName] = specialData;
+                })
+            );
+        });
+        return $.when.apply($, defs);
+    },
     _fetchSpecialGenericM2O: function (record, fieldName, fieldInfo) {
         var field = record.fields[fieldName];
         if (field.type === 'integer') {
