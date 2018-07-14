@@ -1,7 +1,6 @@
 odoo.define('web.widgets.generic_m2o_widget', function (require) {
 "use strict";
 
-var core = require('web.core');
 var field_registry = require('web.field_registry');
 var field_utils = require('web.field_utils');
 var FieldMany2One = require('web.relational_fields').FieldMany2One;
@@ -46,7 +45,6 @@ BasicModel.include({
         var fieldInfo = wlist.fieldsInfo[wlist.viewType][fieldName];
         _.each(wlist.data, function (dataPoint) {
             var record = self.localData[dataPoint];
-            var field = record.fields[fieldName];
             defs.push(
                 $.when(
                     self._fetchGenericM2O(
@@ -70,7 +68,6 @@ BasicModel.include({
     _fetchGenericM2O: function (record, fieldName, model_field) {
         var self = this;
 
-        var field = record.fields[fieldName];
         var model = _get_record_field(record, model_field);
         var res = _get_record_field(record, fieldName);
 
