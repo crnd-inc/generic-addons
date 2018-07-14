@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Look at Odoo code (openepr|odoo)/modules/db.py:create_categories
+         for info abuto a way module categories are generated.
+         This xmlid is used to avoid duplication of module category -->
+    <record model="ir.module.category" id="base.module_category_generic_service">
+        <field name="name">Generic Service</field>
+        <field name="visible" eval="1" />
+    </record>
+
     <!-- User groups -->
     <record id="group_generic_service_user_implicit" model="res.groups">
         <field name="name">Generic service user (implicit)</field>
