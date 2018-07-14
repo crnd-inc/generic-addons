@@ -82,13 +82,14 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem   id="menu_generic_location"
-                name="Generic Location"
-                groups="generic_location.group_generic_location_user"
-                parent="base.menu_custom"/>
-    <menuitem  id="archive_generic_location"
-                name="Location"
-                parent="menu_generic_location"
-                sequence="10"
-                action="generic_location_action"/>
+    <menuitem id="menu_generic_location"
+              name="Generic Location"
+              groups="generic_location.group_generic_location_user"
+              parent=""
+              web_icon="generic_location,static/description/icon.png"/>
+    <menuitem id="archive_generic_location"
+              name="Location"
+              parent="menu_generic_location"
+              sequence="10"
+              action="generic_location_action"/>
 </odoo>
