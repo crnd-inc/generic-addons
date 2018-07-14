@@ -2,7 +2,8 @@
 <odoo>
     <menuitem id="menu_generic_resource_toplevel"
         name="Generic Resources"
-        groups="generic_resource.group_generic_resource_user"/>
+        groups="generic_resource.group_generic_resource_user"
+        web_icon="generic_resource,static/description/icon.png"/>
 
     <menuitem id="menu_generic_resource_root"
         name="Generic Resources"
