@@ -40,8 +40,8 @@
                     <notebook>
                         <page string="Info" name="page_info">
                             <group>
-                                <group name="group_info_left"/>
-                                <group name="group_info_right"/>
+                                <group name="group_info_left"></group>
+                                <group name="group_info_right"></group>
                             </group>
                             <field name="description" placeholder="Description..."/>
                         </page>
