@@ -61,6 +61,7 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
+<<<<<<< HEAD
                             <div class="oe_kanban_content">
                                 <div class="oe_kanban_header">
                                     <span><t t-esc="record.name.raw_value"/></span>
@@ -73,6 +74,18 @@
                                         <span><t t-esc="record.user_count.raw_value"/></span>
                                     </div>
                                 </div>
+=======
+                            <div class="o_kanban_primary_left">
+                                <div class="o_primary">
+                                    <span><t t-esc="record.name.raw_value"/></span>
+                                </div>
+                            </div>
+                            <div>
+                                <span><t t-esc="record.leader_id.raw_value"/></span>
+                            </div>
+                            <div t-if="record.user_count.raw_value" class="text-muted">
+                                <span><t t-esc="record.user_count.raw_value"/></span>
+>>>>>>> 70d70344cdfa6ea9c8756ed6af799b4014a1a106
                             </div>
                         </div>
                     </t>
