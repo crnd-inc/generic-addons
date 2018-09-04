@@ -11,6 +11,7 @@ class GenericTeam(models.Model):
     active = fields.Boolean(index=True, default=True, string='Active?')
     leader_id = fields.Many2one('res.users', required=True, index=True,
                                 string='Team leader')
+    leader_name = fields.Char(related='leader_id.display_name', readonly=True)
     user_ids = fields.Many2many('res.users', string='Team members')
     user_count = fields.Integer(compute='_compute_user_count',
                                 readonly=True, string='Users count')

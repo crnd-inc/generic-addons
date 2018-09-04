@@ -56,36 +56,28 @@
      <!--           <field name="image" widget='image' class="oe_avatar" options='{"preview_image":"image_medium"}'/>
          -->       <field name="name"/>
                 <field name="leader_id"/>
+                <field name="leader_name"/>
                 <field name="user_count"/>
                 <field name="id"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
-<<<<<<< HEAD
-                            <div class="oe_kanban_content">
-                                <div class="oe_kanban_header">
-                                    <span><t t-esc="record.name.raw_value"/></span>
+
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <h2><t t-esc="record.name.raw_value"/></h2>
+                                    </div>
                                 </div>
+                            <div class="oe_kanban_details">
                                 <div>
-                                   <span><t t-esc="record.leader_id.raw_value"/></span>
+                                    <img t-att-src="kanban_image('res.users', 'image_small', record.id.raw_value)"/>
+                                    <span><t t-esc="record.leader_name.raw_value"/></span>
                                 </div>
                                 <div class="oe_kanban_footer">
                                     <div t-if="record.user_count.raw_value" class="text-muted">
-                                        <span><t t-esc="record.user_count.raw_value"/></span>
+                                        <span><i class="fa fa-users"/><t t-esc="record.user_count.raw_value"/></span>
                                     </div>
                                 </div>
-=======
-                            <div class="o_kanban_primary_left">
-                                <div class="o_primary">
-                                    <span><t t-esc="record.name.raw_value"/></span>
-                                </div>
-                            </div>
-                            <div>
-                                <span><t t-esc="record.leader_id.raw_value"/></span>
-                            </div>
-                            <div t-if="record.user_count.raw_value" class="text-muted">
-                                <span><t t-esc="record.user_count.raw_value"/></span>
->>>>>>> 70d70344cdfa6ea9c8756ed6af799b4014a1a106
                             </div>
                         </div>
                     </t>
