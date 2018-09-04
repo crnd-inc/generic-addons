@@ -19,6 +19,9 @@
     "data": [
         'views/generic_team_menu.xml',
         'views/generic_team.xml',
+
+        'security/security.xml',
+        'security/ir.model.access.csv',
     ],
     "installable": True,
     "application": False,
