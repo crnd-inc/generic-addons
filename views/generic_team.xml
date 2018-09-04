@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_team_tree" model="ir.ui.view">
+        <field name="name">generic.team.tree</field>
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_count"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_team_form" model="ir.ui.view">
+        <field name="name">generic.team.form</field>
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div name="title" class="oe_title">
+                        <h1 name="team_name">
+                            <field name="name" placeholder="Team name..."/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="Info" name="info">
+                            <group name="leader_id">
+                                <field name="leader_id"/>
+                            </group>
+                        </page>
+                        <page string="Team" name="team">
+                            <field name="user_ids"/>
+                        </page>
+                    </notebook>
+                    <group name="description">
+                        <field name="description" placeholder="Description..." nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_team_kanban" model="ir.ui.view">
+        <field name="name">generic.team.form</field>
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <kanban>
+     <!--           <field name="image" widget='image' class="oe_avatar" options='{"preview_image":"image_medium"}'/>
+         -->       <field name="name"/>
+                <field name="leader_id"/>
+                <field name="user_count"/>
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_primary_left">
+                                <div class="o_primary">
+                                    <span><t t-esc="record.name.raw_value"/></span>
+                                </div>
+                            </div>
+                            <div>
+                                <span><t t-esc="record.leader_id.raw_value"/></span>
+                            </div>
+                            <div t-if="record.user_count.raw_value" class="text-muted">
+                                <span><t t-esc="record.user_count.raw_value"/></span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+    <record id="generic_team_search" model="ir.ui.view">
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="leader_id"/>
+                <filter name="active" string="Active"
+                        context="[('active','=',True)]"/>
+                <filter name="archived" string="Archived"
+                        context="[('active','=',False)]"/>
+            </search>
+        </field>
+
+    </record>
+
+</odoo>
