@@ -62,25 +62,19 @@
                 <field name="id"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click">
+                        <div class="oe_kanban_global_click gt-kanban-team-global">
 
-                                <div class="o_kanban_card_header_title">
-
-                                        <h2><t t-esc="record.name.raw_value"/></h2>
-
+                                <h2><t t-esc="record.name.raw_value"/></h2>
+                                <div>
+                                    <span><t t-esc="record.description.raw_value"/></span>
                                 </div>
-                            <div>
-                                <span><t t-esc="record.description.raw_value"/></span>
-                            </div>
-                            <div class="oe_kanban_details" style="display:flex;flex-direction:row;align-items:center;">
 
-                                    <div style="width:30%;"><img t-att-src="kanban_image('res.users', 'image_small', record.id.raw_value)"/></div>
-                                    <div style="width:60%"><t t-esc="record.leader_name.raw_value"/></div>
-                                    <div t-if="record.user_count.raw_value" class="text-muted" style="width:10%">
-                                        <span><i class="fa fa-users"/><t t-esc="record.user_count.raw_value"/></span>
-                                    </div>
-
-
+                            <div class="oe_kanban_details gt-kanban-team">
+                                <div class="gt-kanban-team-left"><img t-att-src="kanban_image('res.users', 'image_small', record.id.raw_value)"/></div>
+                                <div class="gt-kanban-team-center"><t t-esc="record.leader_name.raw_value"/></div>
+                                <div t-if="record.user_count.raw_value" class="text-muted gt-kanban-team-right" >
+                                    <span><i class="fa fa-users mr4"/><span t-esc="record.user_count.raw_value"/></span>
+                                </div>
                             </div>
                         </div>
                     </t>

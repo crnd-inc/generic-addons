@@ -11,7 +11,7 @@
     <menuitem
         id="menu_generic_team_root"
         name="Teams"
-        groups=""
+        groups="group_generic_team_user"
         sequence="75"/>
 
     <menuitem

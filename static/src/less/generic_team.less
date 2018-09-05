@@ -1,0 +1,34 @@
+.o_kanban_view .gt-kanban-team-global {
+
+    .o-flex-display();
+    .o-flex-flow(column, nowrap);
+
+    justify-content: space-between;
+}
+
+.o_kanban_view .gt-kanban-team {
+
+    .o-flex-display();
+    .o-flex-flow(row, nowrap);
+
+    align-items: center;
+    border-top: 1px solid;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+@with-left: 30%;
+@with-center: 60%;
+@with-right: 10%;
+
+.o_kanban_view .gt-kanban-team .gt-kanban-team-left {
+      width: @with-left;
+    }
+
+.o_kanban_view .gt-kanban-team .gt-kanban-team-center {
+      width: @with-center;
+    }
+
+.o_kanban_view .gt-kanban-team .gt-kanban_team-right {
+      width: @with-right;
+    }

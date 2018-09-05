@@ -19,6 +19,7 @@
     "data": [
         'views/generic_team_menu.xml',
         'views/generic_team.xml',
+        'views/templates.xml',
 
         'security/security.xml',
         'security/ir.model.access.csv',
