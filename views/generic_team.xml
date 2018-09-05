@@ -32,9 +32,10 @@
                     </div>
                     <notebook>
                         <page string="Info" name="info">
-                            <group name="leader_id">
-                                <field name="leader_id"/>
-                            </group>
+                            <!--<group name="group_leader" string="Team leader">-->
+                                <field name="leader_image" widget='image' class="oe_avatar" options='{"preview_image":"image_small"}' nolabel="1"/>
+                                <field name="leader_id" nolabel="1"/>
+                            <!--</group>-->
                         </page>
                         <page string="Team" name="team">
                             <field name="user_ids"/>
@@ -63,12 +64,10 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click gt-kanban-team-global">
-
-                                <h2><t t-esc="record.name.raw_value"/></h2>
-                                <div>
-                                    <span><t t-esc="record.description.raw_value"/></span>
-                                </div>
-
+                            <h2><t t-esc="record.name.raw_value"/></h2>
+                            <div>
+                                <span><t t-esc="record.description.raw_value"/></span>
+                            </div>
                             <div class="oe_kanban_details gt-kanban-team">
                                 <div class="gt-kanban-team-left"><img t-att-src="kanban_image('res.users', 'image_small', record.id.raw_value)"/></div>
                                 <div class="gt-kanban-team-center"><t t-esc="record.leader_name.raw_value"/></div>

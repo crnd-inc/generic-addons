@@ -17,13 +17,18 @@
     ],
 
     "data": [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+
         'views/generic_team_menu.xml',
         'views/generic_team.xml',
         'views/templates.xml',
-
-        'security/security.xml',
-        'security/ir.model.access.csv',
     ],
+
+    "demo": [
+        'demo/generic_team_demo.xml'
+    ],
+
     "installable": True,
     "application": False,
     'license': 'Other proprietary',

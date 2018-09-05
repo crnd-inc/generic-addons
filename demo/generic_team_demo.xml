@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- res_partner -->
+    <record id="res_partner_user1" model="res.partner">
+        <field name="name">User 1</field>
+    </record>
+    <record id="res_partner_user2" model="res.partner">
+        <field name="name">User 2</field>
+    </record>
+    <record id="res_partner_user3" model="res.partner">
+        <field name="name">User 3</field>
+    </record>
+    <record id="res_partner_user4" model="res.partner">
+        <field name="name">User 4</field>
+    </record>
+
+    <!-- res_users -->
+    <record id="res_users_user1" model="res.users">
+        <field name="login">user1</field>
+        <field name="password">user1</field>
+        <field name="partner_id" ref="res_partner_user1"/>
+    </record>
+    <record id="res_users_user2" model="res.users">
+        <field name="login">user2</field>
+        <field name="password">user2</field>
+        <field name="partner_id" ref="res_partner_user2"/>
+    </record>
+    <record id="res_users_user3" model="res.users">
+        <field name="login">user3</field>
+        <field name="password">user3</field>
+        <field name="partner_id" ref="res_partner_user3"/>
+    </record>
+    <record id="res_users_user4" model="res.users">
+        <field name="login">user4</field>
+        <field name="password">user4</field>
+        <field name="partner_id" ref="res_partner_user4"/>
+    </record>
+
+    <!-- generic_team -->
+    <record id="generic_team_team1" model="generic.team">
+        <field name="name">Team name 1</field>
+        <field name="description">Description for team name 1</field>
+        <field name="leader_id" ref="res_users_user1"/>
+        <field name="user_ids" eval="[(6, 0, [ref('res_users_user3'), ref('res_users_user4')])]"/>
+    </record>
+
+    <record id="generic_team_team2" model="generic.team">
+        <field name="name">Team name 2</field>
+        <field name="description">Description for team name 2</field>
+        <field name="leader_id" ref="res_users_user2"/>
+        <field name="user_ids" eval="[(6, 0, [ref('res_users_user1'), ref('res_users_user3'), ref('res_users_user4')])]"/>
+    </record>
+
+    <record id="generic_team_team3" model="generic.team">
+        <field name="name">Team name 3</field>
+        <field name="description">Description for team name 3</field>
+        <field name="leader_id" ref="res_users_user4"/>
+        <field name="user_ids" eval="[(6, 0, [ref('res_users_user2')])]"/>
+    </record>
+
+</odoo>
