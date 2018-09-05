@@ -57,6 +57,7 @@
          -->       <field name="name"/>
                 <field name="leader_id"/>
                 <field name="leader_name"/>
+                <field name="description"/>
                 <field name="user_count"/>
                 <field name="id"/>
                 <templates>
@@ -64,20 +65,22 @@
                         <div t-attf-class="oe_kanban_global_click">
 
                                 <div class="o_kanban_card_header_title">
-                                    <div class="o_primary">
+
                                         <h2><t t-esc="record.name.raw_value"/></h2>
-                                    </div>
+
                                 </div>
-                            <div class="oe_kanban_details">
-                                <div>
-                                    <img t-att-src="kanban_image('res.users', 'image_small', record.id.raw_value)"/>
-                                    <span><t t-esc="record.leader_name.raw_value"/></span>
-                                </div>
-                                <div class="oe_kanban_footer">
-                                    <div t-if="record.user_count.raw_value" class="text-muted">
+                            <div>
+                                <span><t t-esc="record.description.raw_value"/></span>
+                            </div>
+                            <div class="oe_kanban_details" style="display:flex;flex-direction:row;align-items:center;">
+
+                                    <div style="width:30%;"><img t-att-src="kanban_image('res.users', 'image_small', record.id.raw_value)"/></div>
+                                    <div style="width:60%"><t t-esc="record.leader_name.raw_value"/></div>
+                                    <div t-if="record.user_count.raw_value" class="text-muted" style="width:10%">
                                         <span><i class="fa fa-users"/><t t-esc="record.user_count.raw_value"/></span>
                                     </div>
-                                </div>
+
+
                             </div>
                         </div>
                     </t>
