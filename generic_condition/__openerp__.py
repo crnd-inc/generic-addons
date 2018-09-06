@@ -1,9 +1,9 @@
 {
     "name": "Generic Condition",
-    "version": "11.0.0.0.1",
+    "version": "11.0.1.0.0",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
-    "license": "Other proprietary",
+    "license": "LGPL-3",
     "summary": "Generic Conditions",
     'category': 'Technical Settings',
     'depends': [

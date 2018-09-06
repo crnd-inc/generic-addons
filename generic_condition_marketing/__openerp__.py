@@ -1,9 +1,9 @@
 {
     "name": "Generic Condition - Marketing",
-    "version": "11.0.0.0.1",
+    "version": "11.0.0.0.2",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
-    "license": "Other proprietary",
+    "license": "LGPL-3",
     "summary": "Generic Conditions (Integration with marketing campaigns)",
     'category': 'Marketing',
     'depends': [
