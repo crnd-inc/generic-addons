@@ -5,8 +5,9 @@ class GenericTeam(models.Model):
     _name = 'generic.team'
     _inherit = 'mail.thread'
 
-    name = fields.Char(index=True, required=True, translate=True,
-                       string='Team name')
+    name = fields.Char(
+        index=True, required=True, translate=True,
+        string='Team name')
     description = fields.Text(translate=True)
     active = fields.Boolean(index=True, default=True, string='Active?')
     leader_id = fields.Many2one('res.users', required=True, index=True,
