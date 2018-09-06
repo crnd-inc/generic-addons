@@ -1,4 +1,4 @@
-image: 10.100.98.41:5000/maao-docker/maao-simple:11.0-maao
+image: 10.100.98.41:5000/crnd-docker/crnd-simple:11.0-maao
 
 variables:
     SERIES_BRANCH: '11.0'
@@ -44,6 +44,18 @@ bandit:
         - odoo-helper pip install bandit
     script:
         - odoo-helper exec bandit -r .
+
+stylelint:
+    stage: static-test
+    script:
+        - odoo-helper lint style .
+
+check-versions:
+    stage: static-test
+    script:
+        - odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
+    only:
+        - /^11.0-.*$/   # only branches that started with '11.0-'
 
 tests:
     stage: test
