@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="generic_location_form_view">
+        <field name="name">generic.location.form</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='page_info']/group" position="inside">
+                <group string="Address" name="group_address">
+                    <div class="o_address_format">
+                        <field name="street"
+                               class="o_address_street"
+                               placeholder="Street..."/>
+                        <field name="street2"
+                               class="o_address_street"
+                               placeholder="Street 2..."/>
+                        <field name="city"
+                               class="o_address_city"
+                               placeholder="City"/>
+                        <field name="state_id"
+                               class="o_address_state"
+                               placeholder="State"
+                               domain="[('country_id', '=', country_id)]"
+                               options='{"no_open": True}'/>
+                        <field name="zip"
+                               class="o_address_zip"
+                               placeholder="ZIP"/>
+                        <field name="country_id"
+                               class="o_address_country"
+                               placeholder="Country"
+                               options='{"no_open": True, "no_create": True}'/>
+                    </div>
+
+                </group>
+            </xpath>
+        </field>                
+    </record>
+
+    <record model="ir.ui.view" id="generic_location_tree_view">
+        <field name="name">generic.location.tree</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <!-- TODO: Use computed field to display address -->
+                <field name="street"/>
+                <field name="street2"/>
+                <field name="city"/>
+                <field name="state_id"/>
+                <field name="zip"/>
+                <field name="country_id"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- search views location tag -->
+    <record model="ir.ui.view" id="generic_location_search_view">
+        <field name="name">generic.location.search</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_search_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="state_id"/>
+                <field name="zip"/>
+                <field name="country_id"/>
+            </field>
+        </field>
+     </record>
+</odoo>
+

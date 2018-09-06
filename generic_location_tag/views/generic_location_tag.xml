@@ -23,7 +23,7 @@
         <field name="model">generic.location</field>
         <field name="inherit_id" ref="generic_location.generic_location_tree_view"/>
         <field name="arch" type="xml">
-            <field name="parent_id" position="after">
+            <field name="active" position="before">
                 <field name="tag_ids"
                        widget="many2many_tags"
                        placeholder="Tags..."
