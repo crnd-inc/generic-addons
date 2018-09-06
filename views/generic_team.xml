@@ -32,10 +32,9 @@
                     </div>
                     <notebook>
                         <page string="Info" name="info">
-                            <!--<group name="group_leader" string="Team leader">-->
-                                <field name="leader_image" widget='image' class="oe_avatar" options='{"preview_image":"image_small"}' nolabel="1"/>
-                                <field name="leader_id" nolabel="1"/>
-                            <!--</group>-->
+                            <div class="mt8 mb8">Team Leader</div>
+                            <span class="mr16"><field name="leader_image" widget='image' class="oe_avatar" nolabel="1"/></span>
+                            <span><field name="leader_id" nolabel="1"/></span>
                         </page>
                         <page string="Team" name="team">
                             <field name="user_ids"/>
@@ -54,8 +53,7 @@
         <field name="model">generic.team</field>
         <field name="arch" type="xml">
             <kanban>
-     <!--           <field name="image" widget='image' class="oe_avatar" options='{"preview_image":"image_medium"}'/>
-         -->       <field name="name"/>
+                <field name="name"/>
                 <field name="leader_id"/>
                 <field name="leader_name"/>
                 <field name="description"/>
@@ -78,7 +76,6 @@
                         </div>
                     </t>
                 </templates>
-
             </kanban>
         </field>
     </record>
@@ -95,7 +92,5 @@
                         context="[('active','=',False)]"/>
             </search>
         </field>
-
     </record>
-
 </odoo>
