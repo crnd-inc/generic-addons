@@ -6,24 +6,32 @@
         <field name="name">Pietro Abernathy</field>
         <field name="login">team_user_pietro</field>
         <field name="password">team_user_pietro</field>
+        <field name="image" type="base64"
+               file="generic_team/demo/img/team_demo_pa_image.jpg"/>
     </record>
     <record id="team_res_users_user2" model="res.users"
             context="{'no_reset_password': True}">
         <field name="name">Philip Boe</field>
         <field name="login">team_user_philip</field>
         <field name="password">team_user_philip</field>
+        <field name="image" type="base64"
+               file="generic_team/demo/img/team_demo_pb_image.jpg"/>
     </record>
     <record id="team_res_users_user3" model="res.users"
             context="{'no_reset_password': True}">
         <field name="name">Valentin Odegaard</field>
         <field name="login">team_user_valentin</field>
         <field name="password">team_user_valentin</field>
+        <field name="image" type="base64"
+               file="generic_team/demo/img/team_demo_vo_image.jpg"/>
     </record>
     <record id="team_res_users_user4" model="res.users"
             context="{'no_reset_password': True}">
         <field name="name">Lana Nilssen</field>
         <field name="login">team_user_lana</field>
         <field name="password">team_user_lana</field>
+        <field name="image" type="base64"
+               file="generic_team/demo/img/team_demo_ln_image.jpg"/>
     </record>
 
     <!-- generic_team -->
