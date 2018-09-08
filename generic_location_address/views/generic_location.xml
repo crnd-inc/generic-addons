@@ -6,32 +6,45 @@
         <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='page_info']/group" position="inside">
-                <group string="Address" name="group_address">
-                    <div class="o_address_format">
-                        <field name="street"
-                               class="o_address_street"
-                               placeholder="Street..."/>
-                        <field name="street2"
-                               class="o_address_street"
-                               placeholder="Street 2..."/>
-                        <field name="city"
-                               class="o_address_city"
-                               placeholder="City"/>
-                        <field name="state_id"
-                               class="o_address_state"
-                               placeholder="State"
-                               domain="[('country_id', '=', country_id)]"
-                               options='{"no_open": True}'/>
-                        <field name="zip"
-                               class="o_address_zip"
-                               placeholder="ZIP"/>
-                        <field name="country_id"
-                               class="o_address_country"
-                               placeholder="Country"
-                               options='{"no_open": True, "no_create": True}'/>
-                    </div>
-
-                </group>
+                    <group name="group_address_address" string="Address">
+                        <div class="o_address_format">
+                            <field name="street"
+                                class="o_address_street"
+                                placeholder="Street..."
+                                attrs="{'readonly': [('street_use_parent', '=', True)]}"/>
+                            <field name="street2"
+                                class="o_address_street"
+                                placeholder="Street 2..."
+                                attrs="{'readonly': [('street2_use_parent', '=', True)]}"/>
+                            <field name="city"
+                                class="o_address_city"
+                                placeholder="City"
+                                attrs="{'readonly': [('city_use_parent', '=', True)]}"/>
+                            <field name="state_id"
+                                class="o_address_state"
+                                placeholder="State"
+                                domain="[('country_id', '=', country_id)]"
+                                attrs="{'readonly': [('state_id_use_parent', '=', True)]}"
+                                options='{"no_open": True}'/>
+                            <field name="zip"
+                                class="o_address_zip"
+                                placeholder="ZIP"
+                                attrs="{'readonly': [('zip_use_parent', '=', True)]}"/>
+                            <field name="country_id"
+                                class="o_address_country"
+                                placeholder="Country"
+                                attrs="{'readonly': [('country_id_use_parent', '=', True)]}"
+                                options='{"no_open": True, "no_create": True}'/>
+                        </div>
+                    </group>
+                    <group name="group_address_config">
+                        <field name="street_use_parent"/>
+                        <field name="street2_use_parent"/>
+                        <field name="city_use_parent"/>
+                        <field name="state_id_use_parent"/>
+                        <field name="zip_use_parent"/>
+                        <field name="country_id_use_parent"/>
+                    </group>
             </xpath>
         </field>                
     </record>

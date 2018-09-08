@@ -17,7 +17,7 @@
 
     # always loaded
     'data': [
-        'views/generic_location.xml'
+        'views/generic_location.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
