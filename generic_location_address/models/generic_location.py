@@ -57,7 +57,6 @@ class GenericLocation(models.Model):
         string="Use Parent Street"
     )
 
-
     street2 = fields.Char(
         compute=l_parent_compute('street2'),
         inverse=l_parent_inverse('street2'),
@@ -107,13 +106,13 @@ class GenericLocation(models.Model):
         store=False,
     )
     _country_id = fields.Many2one(
-        'res.country', string='Country', default=_default_country_id)
+        'res.country', string='Country')
     country_id_use_parent = fields.Boolean(
         string="Use Parent Country"
     )
 
     @api.onchange('parent_id')
-    def onchange_street_parent(self):
+    def onchange_parent(self):
         for record in self:
             if record.parent_id:
                 record.street_use_parent = True

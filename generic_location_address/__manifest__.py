@@ -21,6 +21,7 @@
     ],
     # only loaded in demonstration mode
     'demo': [
+        'demo/generic_location.xml',
     ],
     'installable': True,
     'application': False,
