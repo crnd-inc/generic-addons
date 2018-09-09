@@ -81,8 +81,22 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.location</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
     </record>
+    <record id="generic_location_action_view_tree"
+            model="ir.actions.act_window.view">
+        <field eval="5" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id"  ref="generic_location_tree_view"/>
+        <field name="act_window_id" ref="generic_location_action"/>
+    </record>
+    <record id="generic_location_action_view_from"
+            model="ir.actions.act_window.view">
+        <field eval="10" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id"  ref="generic_location_form_view"/>
+        <field name="act_window_id" ref="generic_location_action"/>
+    </record>
+
 
     <menuitem id="menu_generic_location"
               name="Generic Location"

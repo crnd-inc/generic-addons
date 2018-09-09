@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -48,13 +48,12 @@ class GenericLocation(models.Model):
 
     @api.multi
     def action_button_show_sublocations(self):
-        return {
-            'name': self.name,
-            'view_type': 'form',
-            'view_mode': 'tree,form',
-            'res_model': self._name,
-            'type': 'ir.actions.act_window',
-            'target': 'current',
+        action = self.env.ref(
+            'generic_location.generic_location_action').read()[0]
+        action.update({
+            'name': _('Sublocations'),
+            'display_name': _('Sublocations'),
             'domain': [('parent_id', '=', self.id)],
             'context': {'default_parent_id': self.id},
-        }
+        })
+        return action
