@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="generic_location_form_view" model="ir.ui.view">
+        <field name="name">generic.location.form</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='page_info']/group" position="inside">
+                <group string="Geolocation" name="group_geolocation">
+                    <div name="geo_coordinates">
+                        <span class="oe_inline"> ( </span>
+                        <span> Lat : </span>
+                        <field name="latitude" class="oe_inline" no_label="1"/>
+                        <span> : Long : </span>
+                        <field name="longitude" class="oe_inline" nolabel="1"/>
+                        <span>) </span>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

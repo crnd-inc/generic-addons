@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="generic_location_form_view" model="ir.ui.view">
+        <field name="name">generic.location.form</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='page_info']//group[@name='group_geolocation']/div[@name='geo_coordinates']" position="before">
+                <button string="Geolocalize" name="geo_localize" type="object" icon="fa-check" colspan="2"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

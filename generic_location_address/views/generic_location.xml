@@ -37,7 +37,7 @@
                                 options='{"no_open": True, "no_create": True}'/>
                         </div>
                     </group>
-                    <group name="group_address_config">
+                    <group name="group_address_config" string="Address Configuration">
                         <field name="street_use_parent"/>
                         <field name="street2_use_parent"/>
                         <field name="city_use_parent"/>
