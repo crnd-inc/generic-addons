@@ -1,5 +1,5 @@
 {
-    'name': "Generic Location Tag",
+    'name': "Generic Location (Address)",
 
     'summary': """
     """,
@@ -8,20 +8,20 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.1',
+    'version': '11.0.1.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['generic_location', 'generic_tag'],
+    'depends': [
+        'generic_location',
+    ],
 
     # always loaded
     'data': [
-        'data/generic_tag_model.xml',
-        'views/generic_location_tag_menu.xml',
-        'views/generic_location_tag.xml',
+        'views/generic_location.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo_location_tag.xml',
+        'demo/generic_location.xml',
     ],
     'installable': True,
     'application': False,

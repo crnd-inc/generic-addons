@@ -1,8 +1,10 @@
 Generic Location
 ================
 
-Location is a way to easily handle partner's requests in semi-automated way.
+Generic Location - is an abstract entity that represents *location*
+This addon just defines locations with minimum attributes:
+- name
+- description
+- sublocations
 
-Following idea is used:
-
-- There are diferent of location for requests and other more ...
+More functionality have to be added by other addons

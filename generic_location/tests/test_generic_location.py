@@ -12,7 +12,7 @@ class TestGenericLocation(TransactionCase):
         self.assertEqual(simplelocation.child_count, 1)
         # Test action button
         testaction = simplelocation.action_button_show_sublocations()
-        self.assertEqual(testaction['name'], simplelocation.name)
+        self.assertEqual(testaction['name'], 'Sublocations')
         self.assertEqual(testaction['res_model'], simplelocation._name)
         testdomain = testaction['domain']
         self.assertEqual(testdomain[0], ('parent_id', '=', simplelocation.id))

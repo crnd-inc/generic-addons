@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="demo_location_country_us" model="generic.location">
+        <field name="name">US</field>
+        <field name="country_id" ref="base.us"/>
+        <field name="street_use_parent" eval="False"/>
+        <field name="street2_use_parent" eval="False"/>
+        <field name="city_use_parent" eval="False"/>
+        <field name="zip_use_parent" eval="False"/>
+        <field name="state_id_use_parent" eval="False"/>
+        <field name="country_id_use_parent" eval="False"/>
+    </record>
+
+    <record id="demo_location_state_us_ny" model="generic.location">
+        <field name="name">New York</field>
+        <field name="parent_id" ref="demo_location_country_us"/>
+        <field name="state_id" ref="base.state_us_27"/>
+        <field name="street_use_parent" eval="True"/>
+        <field name="street2_use_parent" eval="True"/>
+        <field name="city_use_parent" eval="True"/>
+        <field name="zip_use_parent" eval="True"/>
+        <field name="state_id_use_parent" eval="False"/>
+        <field name="country_id_use_parent" eval="True"/>
+    </record>
+    <record id="demo_location_city_us_ny_buffalo" model="generic.location">
+        <field name="name">Buffalo</field>
+        <field name="parent_id" ref="demo_location_state_us_ny"/>
+        <field name="city">Buffalo</field>
+        <field name="street_use_parent" eval="True"/>
+        <field name="street2_use_parent" eval="True"/>
+        <field name="city_use_parent" eval="False"/>
+        <field name="zip_use_parent" eval="True"/>
+        <field name="state_id_use_parent" eval="True"/>
+        <field name="country_id_use_parent" eval="True"/>
+    </record>
+    <record id="demo_location_street_us_ny_buffalo_4371_bottom_lane" model="generic.location">
+        <field name="name">4371 Bottom Lane</field>
+        <field name="parent_id" ref="demo_location_city_us_ny_buffalo"/>
+        <field name="street_use_parent" eval="False"/>
+        <field name="street2_use_parent" eval="False"/>
+        <field name="city_use_parent" eval="True"/>
+        <field name="zip_use_parent" eval="False"/>
+        <field name="state_id_use_parent" eval="True"/>
+        <field name="country_id_use_parent" eval="True"/>
+    </record>
+</odoo>
