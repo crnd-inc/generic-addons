@@ -1,3 +1,7 @@
 table.generic_condition_definition td {
   padding-right: 35px;
 }
+
+.generic_condition_test_wizard .o_field_widget.o_field_many2one.o_with_button {
+  padding-right: 35px;
+}

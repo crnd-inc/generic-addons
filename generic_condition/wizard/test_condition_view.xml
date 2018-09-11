@@ -4,16 +4,30 @@
         <field name="name">generic.condition.test_condition.form</field>
         <field name="model">generic.condition.test_condition</field>
         <field name="arch" type="xml">
-            <form string="Test Condition">
-                <field name="condition_id"/>
+            <form string="Test Condition" class="generic_condition_test_wizard">
                 <field name="res_model" invisible="1"/>
-                <field name="res_id"
-                       widget="generic_m2o" model_field="res_model"/>
-                <newline/>
-                <field name="result" attrs="{'invisible': [('result', '=', False)]}"/>
-                <newline/>
-                <button icon="gtk-ok" name="process" string="Process" type="object"/>
-                <button icon="gtk-cancel" special="cancel" string="_Cancel"/>
+                <group>
+                    <group string="Condition">
+                        <field name="condition_id"
+                               nolabel="1"/>
+
+                    </group>
+                    <group string="Object">
+                        <field name="res_id"
+                               widget="generic_m2o"
+                               model_field="res_model"
+                               nolabel="1"/>
+                    </group>
+                    <group string="Condition Result"
+                           colspan="4"
+                           attrs="{'invisible': [('result', '=', False)]}">
+                        <field name="result" nolabel="1" colspan="2"/>
+                    </group>
+                </group>
+                <footer>
+                    <button icon="fa-check" name="process" string="Process" type="object"/>
+                    <button icon="fa-ban" special="cancel" string="_Cancel"/>
+                </footer>
             </form>
         </field>
     </record>
