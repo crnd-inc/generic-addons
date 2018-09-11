@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="generic_location_map_view" model="ir.ui.view">
+        <field name="name">generic_location_map_view</field>
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location_google_maps.generic_location_map_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//map/field[@name='country_id']" position="after">
+                <field name="tag_ids"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_kanban_content')]/ul" position="before">
+                <div>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
