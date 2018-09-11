@@ -102,9 +102,11 @@ class TestCondition(SavepointCase):
 
         condition = self.condition_partner_has_only_contacts
 
-        wiz = Wizard.create({'condition_id': condition.id})
+        wiz = Wizard.create({
+            'condition_id': condition.id,
+            'res_id': self.partner_z_corp.id,
+        })
 
-        wiz.write({'res_id': self.partner_z_corp.id})
         wiz.process()
         self.assertEqual(wiz.result, _('Ok'))
 

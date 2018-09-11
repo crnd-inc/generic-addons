@@ -847,3 +847,13 @@ class GenericCondition(models.Model):
             # there are no successful check, so all checks are failed, return
             # fail
             return False
+
+    def action_show_test_wizard(self):
+        self.ensure_one()
+        action = self.env.ref(
+            'generic_condition'
+            '.action_generic_condition_test_wizard_view').read()[0]
+        action['context'] = dict(
+            self.env.context,
+            default_condition_id=self.id)
+        return action

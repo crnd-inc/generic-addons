@@ -9,13 +9,15 @@
                 <group>
                     <group string="Condition">
                         <field name="condition_id"
-                               nolabel="1"/>
+                               nolabel="1"
+                               readonly="context.get('default_condition_id')"/>
 
                     </group>
                     <group string="Object">
                         <field name="res_id"
                                widget="generic_m2o"
                                model_field="res_model"
+                               readonly="context.get('default_res_id')"
                                nolabel="1"/>
                     </group>
                     <group string="Condition Result"
@@ -25,7 +27,7 @@
                     </group>
                 </group>
                 <footer>
-                    <button icon="fa-check" name="process" string="Process" type="object"/>
+                    <button icon="fa-check" name="process" string="Test" type="object"/>
                     <button icon="fa-ban" special="cancel" string="_Cancel"/>
                 </footer>
             </form>
@@ -33,9 +35,9 @@
     </record>
 
     <act_window
-        context="{'default_condition_id': active_id}"
         id="action_generic_condition_test_wizard_view"
         name="Test Condition"
+        context="{'default_condition_id': active_id}"
         res_model="generic.condition.test_condition"
         src_model="generic.condition"
         view_type="form"
