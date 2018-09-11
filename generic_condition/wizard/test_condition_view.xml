@@ -25,6 +25,11 @@
                            attrs="{'invisible': [('result', '=', False)]}">
                         <field name="result" nolabel="1" colspan="2"/>
                     </group>
+                    <group string="Condition Debug Log"
+                           colspan="4"
+                           attrs="{'invisible': [('debug_log', '=', False)]}">
+                        <field name="debug_log" nolabel="1" colspan="2"/>
+                    </group>
                 </group>
                 <footer>
                     <button icon="fa-check" name="process" string="Test" type="object"/>

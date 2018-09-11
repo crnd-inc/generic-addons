@@ -17,6 +17,21 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
+class DebugLogger(list):
+    def log(self, condition, obj, msg):
+        format_str = (
+            "{condition.name}[{condition.id}]({condition.type}) "
+            "obj({obj._name})[{obj.id}] {obj.display_name}: {msg}")
+        msg = format_str.format(condition=condition, obj=obj, msg=msg)
+        self.append(msg)
+        _logger.info(msg)
+
+    def get_log(self):
+        return "\n".join(
+            "%4s: %s" % row for row in enumerate(self)
+        )
+
+
 class GenericCondition(models.Model):
     _name = "generic.condition"
     _order = "sequence"
@@ -381,7 +396,7 @@ class GenericCondition(models.Model):
                 cond.condition_rel_field_id_model_id = rel_model_id
 
     # signature check_<type> where type is condition type
-    def check_filter(self, obj, cache=None):
+    def check_filter(self, obj, cache=None, debug_log=None):
         """ Check object with conditions filter applied
         """
         Model = self.env[self.model_id.model]
@@ -394,7 +409,7 @@ class GenericCondition(models.Model):
         return bool(Model.with_context(ctx).search(domain, count=True))
 
     # signature check_<type> where type is condition type
-    def check_eval(self, obj, cache=None):
+    def check_eval(self, obj, cache=None, debug_log=None):
         try:
             res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
         except Exception:
@@ -413,16 +428,18 @@ class GenericCondition(models.Model):
         return res
 
     # signature check_<type> where type is condition type
-    def check_condition(self, obj, cache=None):
-        return self.condition_condition_id.check(obj, cache=cache)
+    def check_condition(self, obj, cache=None, debug_log=None):
+        return self.condition_condition_id.check(
+            obj, cache=cache, debug_log=debug_log)
 
     # signature check_<type> where type is condition type
-    def check_condition_group(self, obj, cache=None):
+    def check_condition_group(self, obj, cache=None, debug_log=None):
         return self.condition_condition_ids.check(
-            obj, operator=self.condition_condition_ids_operator, cache=cache)
+            obj, operator=self.condition_condition_ids_operator,
+            cache=cache, debug_log=debug_log)
 
     # signature check_<type> where type is condition type
-    def check_related_conditions(self, obj, cache=None):
+    def check_related_conditions(self, obj, cache=None, debug_log=None):
         """ This check will return OK if all related objects that passes
             filter condition also passes check condition.
 
@@ -450,12 +467,14 @@ class GenericCondition(models.Model):
             # Skip record that does not match filter conditions
             if (self.condition_rel_filter_conditions and
                     not self.condition_rel_filter_conditions.check(
-                        rel_rec, operator=filter_operator, cache=cache)):
+                        rel_rec, operator=filter_operator,
+                        cache=cache, debug_log=debug_log)):
                 continue
 
             # check if record match 'check' conditions
             if not self.condition_rel_conditions.check(
-                    rel_rec, operator=operator, cache=cache):
+                    rel_rec, operator=operator,
+                    cache=cache, debug_log=debug_log):
                 # If 'rel record operator' is 'match' we could just return
                 # False, because it requires all record to match 'check'
                 # conditions and we have found first record that does not match
@@ -513,7 +532,7 @@ class GenericCondition(models.Model):
             return str_to_datetime(field.ttype, obj[field.name])
 
     # signature check_<type> where type is condition type
-    def check_current_user(self, obj, cache=None):
+    def check_current_user(self, obj, cache=None, debug_log=None):
         field = self.condition_user_user_field_id
         obj_value = obj[field.name]
 
@@ -522,7 +541,7 @@ class GenericCondition(models.Model):
         return False
 
     # signature check_<type> where type is condition type
-    def check_date_diff(self, obj, cache=None):
+    def check_date_diff(self, obj, cache=None, debug_log=None):
         """ Check date diff
 
             If at least one of dates not set, than return False
@@ -532,6 +551,10 @@ class GenericCondition(models.Model):
 
         # if at leas one field not set, fail
         if not date_start or not date_end:
+            self._debug_log(
+                debug_log, obj,
+                "Date start (%s) or date end (%s) not set. "
+                "Returning False" % (date_start, date_end))
             return False
 
         # if dates not in correct order then swap them
@@ -682,7 +705,7 @@ class GenericCondition(models.Model):
             return obj_value != reference_value
 
     # signature check_<type> where type is condition type
-    def check_simple_field(self, obj, cache=None):
+    def check_simple_field(self, obj, cache=None, debug_log=None):
         """ Check value of simple field of object
         """
         field = self.condition_simple_field_field_id
@@ -699,7 +722,7 @@ class GenericCondition(models.Model):
         raise NotImplementedError()
 
     # signature check_<type> where type is condition type
-    def check_related_field(self, obj, cache=None):
+    def check_related_field(self, obj, cache=None, debug_log=None):
         operator = self.condition_related_field_operator
         field = self.condition_related_field_field_id
         obj_value = obj[field.name]
@@ -716,7 +739,7 @@ class GenericCondition(models.Model):
         return False
 
     # signature check_<type> where type is condition type
-    def check_monetary_field(self, obj, cache=None):
+    def check_monetary_field(self, obj, cache=None, debug_log=None):
         # Compute accounting date
         if self.condition_monetary_curency_date_type == 'date':
             date = self.condition_monetary_curency_date_date
@@ -750,16 +773,24 @@ class GenericCondition(models.Model):
 
         return operator_map[operator](test_value, reference_value)
 
-    def _check(self, obj, cache=None):
+    def _debug_log(self, log, obj, msg):
+        self.ensure_one()
+        if isinstance(log, DebugLogger):
+            log.log(self, obj, msg)
+
+    def _check(self, obj, cache=None, debug_log=None):
         """ Checks one condition for a specific object
         """
         self.ensure_one()
+        self._debug_log(debug_log, obj, "Computing...")
 
         # Is sudo condition?
         condition = self
         if self.with_sudo:
             condition = self.sudo()
             obj = obj.sudo()
+            self._debug_log(
+                debug_log, obj, "Using sudo")
 
         cache_key = (condition.id, condition.model_id.model, obj.id)
 
@@ -767,12 +798,25 @@ class GenericCondition(models.Model):
         if (condition.enable_caching and
                 cache is not None and
                 cache_key in cache):
+            self._debug_log(
+                debug_log, obj,
+                "Using cached result: %s" % cache[cache_key])
             return cache[cache_key]
+
+        # get condition's check method
+        try:
+            check_method = getattr(condition, 'check_%s' % condition.type)
+        except AttributeError:
+            _logger.error(
+                "Condition's check method not found.\n"
+                "\tcondition: %s[%d]"
+                "\tcondition type: %s",
+                condition.name, condition.id, condition.type, exc_info=True)
+            raise
 
         # calculate condition
         try:
-            res = getattr(condition, 'check_%s' % condition.type)(obj,
-                                                                  cache=cache)
+            res = check_method(obj, cache=cache, debug_log=debug_log)
         except Exception:
             msg = _("Error caught while evaluating condition %s[%d]"
                     "") % (condition.name, condition.id,)
@@ -786,6 +830,9 @@ class GenericCondition(models.Model):
         if condition.enable_caching and cache is not None:
             cache[cache_key] = res
 
+        self._debug_log(
+            debug_log, obj,
+            "Computed result: %s" % res)
         return res
 
     @api.model
@@ -809,7 +856,7 @@ class GenericCondition(models.Model):
         }
 
     @api.multi
-    def check(self, obj, operator='and', cache=None):
+    def check(self, obj, operator='and', cache=None, debug_log=None):
         """ Checks if specified conditions satisfied
 
             :param obj: browse_record of object to be checked with conditions
@@ -832,7 +879,8 @@ class GenericCondition(models.Model):
 
         # Do actual condition processing
         for cond in self:
-            res = cond.with_context(ctx)._check(obj, cache=cache)
+            res = cond.with_context(ctx)._check(
+                obj, cache=cache, debug_log=debug_log)
             if operator == 'and' and not res:
                 # if operator is and, then fail on first failed condition
                 return False
