@@ -1,5 +1,5 @@
 {
-    'name': "Generic Location (Address)",
+    'name': "Generic Location (Geo Coordinates)",
 
     'summary': """
     """,
@@ -8,7 +8,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.1',
+    'version': '11.0.1.0.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -21,7 +21,6 @@
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/generic_location.xml',
     ],
     'installable': True,
     'application': False,
