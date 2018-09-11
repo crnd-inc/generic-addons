@@ -18,7 +18,8 @@ class TestGenericCondition(models.TransientModel):
         related='condition_id.model_id.model',
         readonly=True)
     res_id = fields.Integer(
-        'Object ID', help='ID of object to test condition on')
+        'Object ID', required=True,
+        help='ID of object to test condition on')
     result = fields.Text(readonly=True)
 
     @api.multi
@@ -51,6 +52,7 @@ class TestGenericCondition(models.TransientModel):
                 'res_id': wiz.id,
                 'views': [(False, 'form')],
                 'target': 'new',
+                'context': dict(self.env.context),
             }
 
         return {
