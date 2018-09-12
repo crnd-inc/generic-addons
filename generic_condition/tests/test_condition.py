@@ -1,7 +1,7 @@
 from openerp.tools.misc import mute_logger
 from openerp.tests.common import SavepointCase
 from openerp.tools.translate import _
-from openerp.exceptions import ValidationError
+from openerp.exceptions import ValidationError, UserError
 
 
 class TestCondition(SavepointCase):
@@ -63,6 +63,12 @@ class TestCondition(SavepointCase):
     def test_05_condtion_eval_error(self):
         with self.assertRaises(ValidationError):
             self.condition_eval_error.check(self.partner_sx_corp)
+
+    def test_08_condition_partner_sx_corp_wrong_model(self):
+        condition = self.condition_partner_sx_corp
+        wrong_obj = self.env['res.country'].search([], limit=1)
+        with self.assertRaises(UserError):
+            condition.check(wrong_obj)
 
     def test_10_condition_partner_sx_corp(self):
         condition = self.condition_partner_sx_corp
