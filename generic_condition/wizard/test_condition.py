@@ -25,7 +25,7 @@ class TestGenericCondition(models.TransientModel):
         'Object ID', required=True,
         help='ID of object to test condition on')
     result = fields.Text(readonly=True)
-    debug_log = fields.Text(readonly=True)
+    debug_log = fields.Html(readonly=True)
 
     @api.multi
     def process(self):
@@ -53,7 +53,7 @@ class TestGenericCondition(models.TransientModel):
 
                 wiz.write({
                     'result': ustr(result),
-                    'debug_log': debug_log.get_log(),
+                    'debug_log': debug_log.get_log_html(),
                 })
 
             return {

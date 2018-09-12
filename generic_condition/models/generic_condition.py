@@ -18,18 +18,59 @@ _logger = logging.getLogger(__name__)
 
 
 class DebugLogger(list):
-    def log(self, condition, obj, msg):
-        format_str = (
-            "{condition.name}[{condition.id}]({condition.type}) "
+    def __init__(self, *args, **kwargs):
+        super(DebugLogger, self).__init__(*args, **kwargs)
+        self._format_str = (
+            "{index: <4}|{condition.name}[{condition.id}]({condition.type}) "
             "obj({obj._name})[{obj.id}] {obj.display_name}: {msg}")
-        msg = format_str.format(condition=condition, obj=obj, msg=msg)
-        self.append(msg)
-        _logger.info(msg)
-
-    def get_log(self):
-        return "\n".join(
-            "%4s: %s" % row for row in enumerate(self)
+        self._format_html_row = (
+            "<tr>"
+            "<th>{index}</th>"
+            "<td>{condition.name}</td><td>{condition.id}</td>"
+            "<td>{condition.type}</td>"
+            "<td>{obj._name}</td><td>{obj.id}</td><td>{obj.display_name}</td>"
+            "<td>{msg}</td>"
+            "</tr>"
         )
+        self._format_html_header = (
+            "<tr>"
+            "<th rowspan='2'>Index</th>"
+            "<th colspan='3'>Condition</th>"
+            "<th colspan='3'>Object</th>"
+            "<th rowspan='2'>Message</th>"
+            "</tr>"
+            "<tr>"
+            "<th>Name</th><th>ID</th><th>Type</th>"
+            "<th>Model</th><th>ID</th><th>Name</th>"
+            "</tr"
+        )
+        self._index = 1
+
+    def format_str(self, index, condition, obj, msg):
+        return self._format_str.format(
+            index=index, condition=condition, obj=obj, msg=msg)
+
+    def format_html(self, index, condition, obj, msg):
+        return self._format_html_row.format(
+            index=index, condition=condition, obj=obj, msg=msg)
+
+    def log(self, condition, obj, msg):
+        self.append((self._index, condition, obj, msg))
+        _logger.info(self.format_str(self._index, condition, obj, msg))
+        self._index += 1
+
+    def get_log_html(self):
+        body = "".join(
+            self.format_html(index, condition, obj, msg)
+            for index, condition, obj, msg in self)
+        table_classes = "table table-bordered table-condensed table-striped"
+        return (
+            "<table class='%(table_classes)s'>%(header)s%(body)s</table>"
+        ) % {
+            'header': self._format_html_header,
+            'body': body,
+            'table_classes': table_classes,
+        }
 
 
 class GenericCondition(models.Model):
@@ -151,9 +192,45 @@ class GenericCondition(models.Model):
             ('date', _('Date'))
         ]
 
-    @api.constrains('condition_rel_field_id', 'model_id')
-    def _check_condition_rel_field_id(self):
+    @api.constrains('type', 'model_id', 'condition_condition_id')
+    def _constrain_condition_condition_id(self):
+        for record in self:
+            if record.type != 'condition':
+                continue
+            if record.condition_condition_id.model_id != record.model_id:
+                raise ValidationError(_(
+                    "Incorrect Conditon field set for condition: %s[%s]"
+                ) % (record.display_name, record.id))
+
+    @api.constrains('type', 'model_id', 'condition_filter_id')
+    def _constrain_condition_filter_id(self):
+        for record in self:
+            if record.type != 'filter':
+                continue
+            if record.condition_filter_id.model_id != record.model_id.model:
+                raise ValidationError(_(
+                    "Incorrect Filter field set for condition: %s[%s]"
+                ) % (record.display_name, record.id))
+
+    @api.constrains('type', 'model_id', 'condition_condition_ids')
+    def _constrain_condition_group(self):
+        for record in self:
+            if record.type != 'condition_group':
+                continue
+            for c in record.condition_condition_ids:
+                if c.model_id != record.model_id:
+                    raise ValidationError(_(
+                        "Incorrect Condition (condition group) selected!\n"
+                        "Base condition: %s[%s]\n"
+                        "Condition with wrong model: %s[%s]"
+                    ) % (record.display_name, record.id,
+                         c.display_name, c.id))
+
+    @api.constrains('type', 'model_id', 'condition_rel_field_id')
+    def _constrain_condition_rel_field_id(self):
         for cond in self:
+            if cond.type != 'related_conditions':
+                continue
             rel_field_id = cond.condition_rel_field_id
             if rel_field_id:
                 rel_field_model_id = cond.condition_rel_field_id.model_id
@@ -182,19 +259,25 @@ class GenericCondition(models.Model):
              'This may speed up condition processing.')
     description = fields.Text(translate=True)
 
+    # Condition type 'eval' params
     condition_eval = fields.Char(
         'Condition (eval)', required=False, track_visibility='onchange',
         help="Python expression. 'obj' are present in context.")
+
+    # Condition type 'filter' params
     condition_filter_id = fields.Many2one(
         'ir.filters', string='Condition (filter)', auto_join=True,
         ondelete='restrict', track_visibility='onchange',
         help="User filter to be applied by this condition.")
+
+    # Condition type 'condition' params
     condition_condition_id = fields.Many2one(
         'generic.condition', 'Condition (condition)',
         ondelete='restrict', track_visibility='onchange', auto_join=True,
         help='Link to another condition. Usualy used to get '
              'inversed condition')
 
+    # Condition type 'condition_group' params
     condition_condition_ids = fields.Many2many(
         'generic.condition',
         'generic_condition__condition_group__rel',
@@ -207,7 +290,7 @@ class GenericCondition(models.Model):
         string='Condition (condition group): operator',
         track_visibility='onchange')
 
-    # Current User
+    # Condition type 'current_user' params
     condition_user_user_field_id = fields.Many2one(
         'ir.model.fields', 'User Field',
         ondelete='restrict',
@@ -215,7 +298,7 @@ class GenericCondition(models.Model):
                 ('relation', '=', 'res.users')],
         help='Field in object being checked, that points to user.')
 
-    # Related conditions
+    # Condition type 'related_conditions' params
     condition_rel_field_id = fields.Many2one(
         'ir.model.fields', 'Related Field',
         ondelete='restrict', auto_join=True,
@@ -782,6 +865,11 @@ class GenericCondition(models.Model):
         """ Checks one condition for a specific object
         """
         self.ensure_one()
+        if obj._name != self.based_on:
+            raise UserError(_(
+                "Generic conditions misconfigured!\n"
+                "object's model and condition's model does not match"))
+
         self._debug_log(debug_log, obj, "Computing...")
 
         # Is sudo condition?
