@@ -133,4 +133,13 @@
                eval="[(6, 0, [ref('generic_condition.demo_condition_partner_contact')])]"/>
     </record>
 
+    <record id="demo_condition_parenter_country_is_ukraine" model="generic.condition">
+        <field name="name">Country: Ukraine</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">related_field</field>
+        <field name="condition_related_field_field_id" ref="base.field_res_partner_country_id"/>
+        <field name="condition_related_field_operator">contains</field>
+        <field name="condition_related_field_value_id" ref="base.ua"/>
+    </record>
+
 </odoo>
