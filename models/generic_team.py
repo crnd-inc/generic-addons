@@ -16,6 +16,8 @@ class GenericTeam(models.Model):
         related='leader_id.display_name', readonly=True)
     leader_image = fields.Binary(
         related='leader_id.image_small', readonly=True)
+    task_manager_id = fields.Many2one(
+        'res.users', index=True, string='Task manager')
     user_ids = fields.Many2many('res.users', string='Team members')
     user_count = fields.Integer(
         compute='_compute_user_count', readonly=True, string='Users count')
