@@ -42,12 +42,15 @@
 
                 <group expand="0" string="Group by...">
                     <filter string='Type'
+                            name="group_by_type"
                             domain="[]"
                             context="{'group_by' : 'type'}"/>
                     <filter string='With sudo'
+                            name="group_by_with_sudo"
                             domain="[]"
                             context="{'group_by' : 'with_sudo'}"/>
                     <filter string='Based on'
+                            name="group_by_based_on"
                             domain="[]"
                             context="{'group_by' : 'model_id'}"/>
                 </group>
@@ -219,19 +222,19 @@
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>
-                                        <label string="End Date"/>
+                                        <label for="condition_date_diff_date_end_type" string="End Date"/>
                                     </td>
                                     <td>
                                         &#160; &#160; &#160; &#160;
                                     </td>
                                     <td>
-                                        <label string="Start Date"/>
+                                        <label for="condition_date_diff_date_start_type" string="Start Date"/>
                                     </td>
                                     <td>
-                                        <label string="Operator"/>
+                                        <label for="condition_date_diff_operator" string="Operator"/>
                                     </td>
                                     <td>
-                                        <label string="Result"/>
+                                        <label for="condition_date_diff_value" string="Result"/>
                                     </td>
                                     <td>
                                         <label for="condition_date_diff_absolute"/>
@@ -303,13 +306,13 @@
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>
-                                        <label string="Field"/>
+                                        <label for="condition_simple_field_field_id" string="Field"/>
                                     </td>
                                     <td>
-                                        <label string="Operator"/>
+                                        <label for="condition_simple_field_number_operator" string="Operator"/>
                                     </td>
                                     <td>
-                                        <label string="Value"
+                                        <label for="condition_simple_field_value_char" string="Value"
                                                attrs="{'invisible': [('condition_simple_field_type', '=', 'boolean')]}"/>
                                     </td>
                                 </tr>
@@ -371,13 +374,14 @@
                                 <tr>
                                     <td>
 
-                                        <label string="Field"/>
+                                        <label for="condition_related_field_field_id" string="Field"/>
                                     </td>
                                     <td>
-                                        <label string="Operator"/>
+                                        <label for="condition_related_field_operator" string="Operator"/>
                                     </td>
                                     <td>
-                                        <label string="Value"
+                                        <label for="condition_related_field_value_id"
+                                               string="Value"
                                                attrs="{'invisible': [('condition_related_field_operator', 'in', ('set', 'not set'))]}"/>
                                     </td>
                                 </tr>
@@ -407,16 +411,16 @@
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>
-                                        <label string="Field"/>
+                                        <label for="condition_monetary_field_id" string="Field"/>
                                     </td>
                                     <td>
-                                        <label string="Operator"/>
+                                        <label for="condition_monetary_operator" string="Operator"/>
                                     </td>
                                     <td>
-                                        <label string="Result"/>
+                                        <label for="condition_monetary_value" string="Result"/>
                                     </td>
                                     <td>
-                                        <label string="Accounting date"/>
+                                        <label for="condition_monetary_curency_date_type" string="Accounting date"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -468,6 +472,7 @@
                                         <field name="condition_monetary_curency_date_date"
                                                attrs="{'required': [('type','=','monetary_field'), ('condition_monetary_curency_date_type', '=','date')], 'invisible': [('condition_monetary_curency_date_type', '!=', 'date')]}"/>
                                         <label string="Current date"
+                                               for="condition_monetary_curency_date_date"
                                                attrs="{'invisible': [('condition_monetary_curency_date_type', '!=', 'now')]}"/>
                                     </td>
                                 </tr>
@@ -475,7 +480,8 @@
                         </group>
                     </group>
                     <group colspan="4" string="Description">
-                        <field name="description" nolabel="1"
+                        <field name="description"
+                               nolabel="1"
                                placeholder="Description..."/>
                     </group>
                 </sheet>

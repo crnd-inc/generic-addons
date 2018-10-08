@@ -10,7 +10,8 @@
                 <field name="code"/>
 
                 <group expand="0" string="Group By...">
-                    <filter string="Model" domain="[]" context="{'group_by':'model_id'}"/>
+                    <filter name="group_by_model" string="Model"
+                            domain="[]" context="{'group_by':'model_id'}"/>
                 </group>
 
             </search>

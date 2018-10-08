@@ -25,8 +25,10 @@ class TestGenericLocationAddress(SavepointCase):
         self.assertFalse(sublocation._state_id)
 
         # Default country is set based on user's country
-        self.assertEqual(sublocation.country_id, self.env.user.country_id)
-        self.assertEqual(sublocation._country_id, self.env.user.country_id)
+        self.assertEqual(
+            sublocation.country_id, self.env.user.company_id.country_id)
+        self.assertEqual(
+            sublocation._country_id, self.env.user.company_id.country_id)
 
     def test_parent_state_use_parent(self):
         self.assertTrue(self.location_state.state_id)
