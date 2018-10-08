@@ -1,7 +1,5 @@
 import datetime
-
-from openerp.tools import (DEFAULT_SERVER_DATETIME_FORMAT,
-                           DEFAULT_SERVER_DATE_FORMAT)
+import odoo
 
 
 def str_to_datetime(ttype, value):
@@ -16,9 +14,9 @@ def str_to_datetime(ttype, value):
         return None
 
     if ttype == 'datetime':
-        return datetime.datetime.strptime(
-            value, DEFAULT_SERVER_DATETIME_FORMAT)
+        return odoo.fields.Datetime.from_string(value)
 
     if ttype == 'date':
-        return datetime.datetime.strptime(
-            value, DEFAULT_SERVER_DATE_FORMAT)
+        return datetime.datetime.combine(
+            odoo.fields.Date.from_string(value),
+            datetime.datetime.min.time())

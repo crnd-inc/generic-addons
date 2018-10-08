@@ -38,20 +38,23 @@ class TestConditionCurrentUser(SavepointCase):
 
     def test_10_current_user_m2o(self):
         condition = self._create_condition('user_m2o')
+        user = self.env.ref('base.user_demo')
 
         rec = self._create_record(user_m2o=False)
         self.assertFalse(condition.check(rec))
-        rec = self._create_record(user_m2o=self.env.user.id)
-        self.assertTrue(condition.check(rec))
+        rec = self._create_record(user_m2o=user.id)
+        self.assertFalse(condition.check(rec))
+        self.assertTrue(condition.sudo(user).check(rec))
 
     def test_15_current_user_m2m(self):
         condition = self._create_condition('user_m2m')
+        user = self.env.ref('base.user_demo')
 
         rec = self._create_record(user_m2m=False)
         self.assertFalse(condition.check(rec))
 
-        users = [self.env.user.id, self.env.ref('base.user_demo').id]
+        users = [self.env.user.id, user.id]
 
         rec = self._create_record(
             user_m2m=[(6, 0, users)])
-        self.assertTrue(condition.check(rec))
+        self.assertTrue(condition.sudo(user).check(rec))

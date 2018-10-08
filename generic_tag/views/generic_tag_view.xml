@@ -28,8 +28,8 @@
                 <field name="code"/>
 
                 <group expand="0" string="Group By...">
-                    <filter string="Model" domain="[]" context="{'group_by':'model_id'}"/>
-                    <filter string="Category" domain="[]" context="{'group_by':'category_id'}"/>
+                    <filter string="Model" name="group_by_model" domain="[]" context="{'group_by':'model_id'}"/>
+                    <filter string="Category" name="group_by_category" domain="[]" context="{'group_by':'category_id'}"/>
                 </group>
 
             </search>
