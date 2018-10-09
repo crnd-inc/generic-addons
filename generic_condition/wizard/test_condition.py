@@ -3,9 +3,7 @@ from openerp.tools.translate import _
 from openerp.tools import ustr
 from openerp.exceptions import ValidationError
 
-from ..models.generic_condition import (
-    DebugLogger
-)
+from ..debug_logger import DebugLogger
 
 import logging
 logger = logging.getLogger(__name__)
