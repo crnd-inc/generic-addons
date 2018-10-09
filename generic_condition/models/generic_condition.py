@@ -868,7 +868,18 @@ class GenericCondition(models.Model):
         if obj._name != self.based_on:
             raise UserError(_(
                 "Generic conditions misconfigured!\n"
-                "object's model and condition's model does not match"))
+                "object's model and condition's model does not match:\n"
+                "\tcondition: %s [%d]"
+                "\tobject: %s [%d]"
+                "\tobject's model: %s\n"
+                "\tcondition's model: %s\n") % (
+                    self.display_name,
+                    self.id,
+                    obj.display_name,
+                    obj.id,
+                    obj._name,
+                    self.based_on,
+                ))
 
         self._debug_log(debug_log, obj, "Computing...")
 
