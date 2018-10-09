@@ -23,9 +23,6 @@
                         domain="[('type', '=', 'filter')]"
                         string="Filter"/>
 
-                <!--<filter name="type_tags"-->
-                <!--domain="[('type', '=', 'tags')]"-->
-                <!--string="Tags"/>-->
                 <filter name="type_condition"
                         domain="[('type', '=', 'condition')]"
                         string="Condition"/>
@@ -148,7 +145,7 @@
                                    context="{'default_model_id': model_id}"
                                    domain="[('model_id','=',model_id)]"
                                    widget="many2many_tags"
-                                   options="{'no_quick_create': true}"/>
+                                   options="{'no_quick_create': true, 'open': true}"/>
 
                         </group>
 
@@ -184,7 +181,7 @@
                                                context="{'default_model_id': condition_rel_field_id_model_id}"
                                                domain="[('model_id','=',condition_rel_field_id_model_id)]"
                                                widget="many2many_tags"
-                                               options="{'no_quick_create': true}"/></td>
+                                               options="{'no_quick_create': true, 'open': true}"/></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -198,7 +195,7 @@
                                                context="{'default_model_id': condition_rel_field_id_model_id}"
                                                domain="[('model_id','=',condition_rel_field_id_model_id)]"
                                                widget="many2many_tags"
-                                               options="{'no_quick_create': true}"/></td>
+                                               options="{'no_quick_create': true, 'open': true}"/></td>
                                 </tr>
                             </table>
                         </group>
