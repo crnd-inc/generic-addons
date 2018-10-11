@@ -103,6 +103,18 @@ class TestCondition(SavepointCase):
         self.assertFalse(condition.check(self.partner_sx_corp))
         self.assertFalse(condition.check(self.partner_demo))
 
+    def test_36_condition_partner_has_only_contacts__access_portal_user(self):
+        user = self.env.ref('base.demo_user0')
+
+        self.env['ir.rule'].search(
+            [('model_id.model', '=', 'res.partner')],
+        ).unlink()
+
+        condition = self.condition_partner_has_only_contacts.sudo(user)
+        self.assertTrue(condition.check(self.partner_z_corp.sudo(user)))
+        self.assertFalse(condition.check(self.partner_sx_corp.sudo(user)))
+        self.assertFalse(condition.check(self.partner_demo.sudo(user)))
+
     def test_40_test_condition_wizard(self):
         Wizard = self.env['generic.condition.test_condition']
 
