@@ -192,7 +192,8 @@ class GenericCondition(models.Model):
     model_id = fields.Many2one(
         'ir.model', 'Based on model', required=True, index=True)
     based_on = fields.Char(
-        related='model_id.model', readonly=True, index=True, store=True)
+        related='model_id.model', readonly=True, index=True, store=True,
+        related_sudo=True)
     sequence = fields.Integer(index=True, default=10)
     active = fields.Boolean(index=True, default=True)
     invert = fields.Boolean('Invert (Not)')
@@ -250,7 +251,7 @@ class GenericCondition(models.Model):
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
     condition_rel_field_id_model_id = fields.Many2one(
         'ir.model', compute='_compute_condition_rel_field_id_model_id',
-        string='Related field: model', readonly=True)
+        compute_sudo=True, string='Related field: model', readonly=True)
     condition_rel_record_operator = fields.Selection(
         '_get_selection_condition_rel_record_operator',
         'Related record operator', default='match',
@@ -332,7 +333,7 @@ class GenericCondition(models.Model):
                                  'integer', 'selection'))])
     condition_simple_field_type = fields.Selection(
         related='condition_simple_field_field_id.ttype',
-        string='Field type', readonly=True)
+        related_sudo=True, string='Field type', readonly=True)
     condition_simple_field_value_boolean = fields.Selection(
         [('true', 'True'), ('false', 'False')], 'Value')
     condition_simple_field_value_char = fields.Char('Value')
@@ -359,8 +360,8 @@ class GenericCondition(models.Model):
     condition_related_field_model = fields.Char(
         string='Related Model',
         related='condition_related_field_field_id.relation',
-        help="Technical name of related field's model",
-        readonly=True)
+        related_sudo=True, readonly=True,
+        help="Technical name of related field's model")
     condition_related_field_operator = fields.Selection(
         '_get_selection_related_field_operator', 'Operator')
     condition_related_field_value_id = fields.Integer('Value')
@@ -403,10 +404,10 @@ class GenericCondition(models.Model):
         if not self.env.context.get('default_model_id') and \
                 self.env.context.get('default_based_on'):
             based_on = self.env.context['default_based_on']
-            model_id = self.env['ir.model'].search(
+            model = self.env['ir.model'].sudo().search(
                 [('model', '=', based_on)], limit=1)
-            if model_id:
-                xself = self.with_context(default_model_id=model_id.id)
+            if model:
+                xself = self.with_context(default_model_id=model.id)
                 return super(GenericCondition, xself).default_get(field_names)
         return super(GenericCondition, self).default_get(field_names)
 
@@ -417,19 +418,19 @@ class GenericCondition(models.Model):
             when condition_rel_field_id changed
         """
         for cond in self:
-            if cond.condition_rel_field_id:
-                field = cond.condition_rel_field_id
-                rel_model_id = self.env['ir.model'].search(
+            if cond.sudo().condition_rel_field_id:
+                field = cond.sudo().condition_rel_field_id
+                rel_model = self.env['ir.model'].sudo().search(
                     [('model', '=', field.relation)], limit=1)
-                cond.condition_rel_field_id_model_id = rel_model_id
+                cond.condition_rel_field_id_model_id = rel_model
 
     # signature check_<type> where type is condition type
     def check_filter(self, obj, cache=None, debug_log=None):
         """ Check object with conditions filter applied
         """
-        Model = self.env[self.model_id.model]
+        Model = self.env[self.sudo().model_id.model]
 
-        filter_obj = self.condition_filter_id
+        filter_obj = self.sudo().condition_filter_id
         domain = [('id', '=', obj.id)] + safe_eval(filter_obj.domain)
 
         ctx = self.env.context.copy()
@@ -442,9 +443,9 @@ class GenericCondition(models.Model):
             res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
         except Exception:
             condition_name = self.name_get()[0][1]
-            obj_name = "%s [id:%s] (%s)" % (self.model_id.model,
+            obj_name = "%s [id:%s] (%s)" % (self.sudo().model_id.model,
                                             obj.id,
-                                            obj.name_get()[0][1])
+                                            obj.sudo().name_get()[0][1])
             _logger.error(
                 "Error was cauht when checking condition %s on document %s. "
                 "condition expression:\n%s\n", condition_name, obj_name,
@@ -475,7 +476,7 @@ class GenericCondition(models.Model):
             filter condition, and then check them with check conditions
         """
         # Get related field value.
-        field = self.condition_rel_field_id
+        field = self.condition_rel_field_id.sudo()
         related = obj[field.name]
         if not related:
             return False
@@ -556,12 +557,13 @@ class GenericCondition(models.Model):
             date = self['condition_date_diff_date_%s_datetime' % date_type]
             return str_to_datetime('datetime', date)
         elif date_source == 'field':
-            field = self['condition_date_diff_date_%s_field' % date_type]
+            field_name = 'condition_date_diff_date_%s_field' % date_type
+            field = self.sudo()[field_name]
             return str_to_datetime(field.ttype, obj[field.name])
 
     # signature check_<type> where type is condition type
     def check_current_user(self, obj, cache=None, debug_log=None):
-        field = self.condition_user_user_field_id
+        field = self.sudo().condition_user_user_field_id
         obj_value = obj[field.name]
 
         if obj_value and self.env.user in obj_value:
@@ -736,7 +738,7 @@ class GenericCondition(models.Model):
     def check_simple_field(self, obj, cache=None, debug_log=None):
         """ Check value of simple field of object
         """
-        field = self.condition_simple_field_field_id
+        field = self.sudo().condition_simple_field_field_id
         value = obj[field.name]
 
         if field.ttype in ('integer', 'float'):
@@ -752,7 +754,7 @@ class GenericCondition(models.Model):
     # signature check_<type> where type is condition type
     def check_related_field(self, obj, cache=None, debug_log=None):
         operator = self.condition_related_field_operator
-        field = self.condition_related_field_field_id
+        field = self.sudo().condition_related_field_field_id
         obj_value = obj[field.name]
 
         # Simple operators
@@ -766,15 +768,21 @@ class GenericCondition(models.Model):
 
         return False
 
-    # signature check_<type> where type is condition type
-    def check_monetary_field(self, obj, cache=None, debug_log=None):
+    def helper_check_monetary_field_date(self, obj):
         # Compute accounting date
         if self.condition_monetary_curency_date_type == 'date':
-            date = self.condition_monetary_curency_date_date
+            return self.condition_monetary_curency_date_date
         elif self.condition_monetary_curency_date_type == 'field':
-            date = obj[self.condition_monetary_curency_date_field_id.name]
-        else:  # type is 'now'
-            date = fields.Datetime.now()
+            currency_date_field = (
+                self.condition_monetary_curency_date_field_id.sudo())
+            return obj[currency_date_field.name]
+        return fields.Datetime.now()
+
+    # signature check_<type> where type is condition type
+    def check_monetary_field(self, obj, cache=None, debug_log=None):
+        field = self.condition_monetary_field_id.sudo()
+        currency_field = self.condition_monetary_currency_field_id
+        date = self.helper_check_monetary_field_date(obj)
 
         operator_map = {
             '=': lambda a, b: a == b,
@@ -784,12 +792,11 @@ class GenericCondition(models.Model):
             '<=': lambda a, b: a <= b,
             '!=': lambda a, b: a != b,
         }
-
-        operator = self.condition_monetary_operator
+        operator = operator_map[self.condition_monetary_operator]
 
         # Object value
-        obj_val = obj[self.condition_monetary_field_id.name]
-        obj_val_currency = obj[self.condition_monetary_currency_field_id.name]
+        obj_val = obj[field.name]
+        obj_val_currency = obj[currency_field.name]
 
         # Reference value
         reference_value = self.condition_monetary_value
@@ -799,7 +806,7 @@ class GenericCondition(models.Model):
         test_value = obj_val_currency.with_context(date=date).compute(
             obj_val, reference_currency)
 
-        return operator_map[operator](test_value, reference_value)
+        return operator(test_value, reference_value)
 
     def _debug_log(self, log, obj, msg):
         self.ensure_one()
@@ -836,7 +843,8 @@ class GenericCondition(models.Model):
             self._debug_log(
                 debug_log, obj, "Using sudo")
 
-        cache_key = (condition.id, condition.model_id.model, obj.id)
+        # generate cache_key
+        cache_key = (condition.id, obj.id)
 
         # check cache
         if (condition.enable_caching and
