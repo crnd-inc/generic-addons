@@ -1,6 +1,15 @@
 Generic Many2one Widget
 =======================
 
+.. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
+    :target: https://github.com/crnd-inc/generic-addons
+
+.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+
+|badge1| |badge2|
+
 Make it easy to choose rignt records on generic many2one fields.
 For example some where user can separately select name of model,
 and choose ID of record for selected model. With this widget such case

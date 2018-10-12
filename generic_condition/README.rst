@@ -1,6 +1,15 @@
 Generic Condition Module
 ========================
 
+.. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
+    :target: https://github.com/crnd-inc/generic-addons
+
+.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+
+|badge1| |badge2|
+
 Generic Condition is a module developed by the Center of Research &
 Development company. The module allows you to create generic conditions
 on which you can program some logic in Odoo objects.

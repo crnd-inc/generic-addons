@@ -1,6 +1,14 @@
 Generic Tag Purchase
 ====================
 
+.. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
+    :target: https://github.com/crnd-inc/generic-addons
+
+.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+
+|badge1| |badge2|
 
 Bug Tracker
 ===========
