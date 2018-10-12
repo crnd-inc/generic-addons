@@ -22,6 +22,7 @@ Main Features of the Generic Location Module:
 -  *Link your resources, services, etc. to crated locations.*
 -  *Keep an eye on your resources, services etc. for more convenient
    work.*
+
 Read the `Generic Location Module Guide <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Location_admin_eng/>`__ for more information.
 
 Bug Tracker
