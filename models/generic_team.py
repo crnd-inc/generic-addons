@@ -4,6 +4,7 @@ from odoo import models, fields, api
 class GenericTeam(models.Model):
     _name = 'generic.team'
     _inherit = 'mail.thread'
+    _description = 'Generic Team'
 
     name = fields.Char(
         index=True, required=True, translate=True,
