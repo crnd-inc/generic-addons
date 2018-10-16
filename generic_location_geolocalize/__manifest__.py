@@ -1,8 +1,7 @@
 {
     'name': "Generic Location (Geo Localization)",
 
-    'summary': """
-    """,
+    'summary': "Generic Location (Automaticaly determine geo coordinates for location by its address)",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",

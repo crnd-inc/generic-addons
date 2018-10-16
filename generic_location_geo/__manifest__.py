@@ -1,8 +1,7 @@
 {
     'name': "Generic Location (Geo Coordinates)",
 
-    'summary': """
-    """,
+    'summary': "Generic Location (Add geocoordinates to generic locations)",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",

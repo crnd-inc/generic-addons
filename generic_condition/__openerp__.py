@@ -4,7 +4,7 @@
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
-    "summary": "Generic Conditions",
+    "summary": "Create generic conditions on which you can program some logic in Odoo objects",
     'category': 'Technical Settings',
     'depends': [
         'web',

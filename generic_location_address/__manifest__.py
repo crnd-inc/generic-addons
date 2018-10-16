@@ -1,8 +1,7 @@
 {
     'name': "Generic Location (Address)",
 
-    'summary': """
-    """,
+    'summary': "Generic Location (Add address fields to *Generic Locations*)",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
