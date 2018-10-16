@@ -7,18 +7,14 @@
             <form string="Test Condition" class="generic_condition_test_wizard">
                 <field name="res_model" invisible="1"/>
                 <group>
-                    <group string="Condition">
+                    <group string="Test" colspan="4">
                         <field name="condition_id"
-                               nolabel="1"
                                readonly="context.get('default_condition_id')"/>
-
-                    </group>
-                    <group string="Object">
                         <field name="res_id"
                                widget="generic_m2o"
                                model_field="res_model"
-                               readonly="context.get('default_res_id')"
-                               nolabel="1"/>
+                               readonly="context.get('default_res_id')"/>
+                        <field name="test_as_user_id"/>
                     </group>
                     <group string="Condition Result"
                            colspan="4"

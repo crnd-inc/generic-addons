@@ -32,10 +32,12 @@ class DebugLogger(list):
         self._index = 1
 
     def format_str(self, index, condition, obj, msg):
+        obj = obj and obj.sudo()
         return self._format_str.format(
             index=index, condition=condition, obj=obj, msg=msg)
 
     def format_html(self, index, condition, obj, msg):
+        obj = obj and obj.sudo()
         return self._format_html_row.format(
             index=index, condition=condition, obj=obj, msg=msg)
 
