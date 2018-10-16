@@ -8,6 +8,7 @@ Generic Condition Module
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 
+
 |badge1| |badge2|
 
 Generic Condition is a module developed by the Center of Research &
