@@ -8,7 +8,7 @@
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
 
-    'category': 'Generic team',
+    'category': 'Generic Team',
     'version': '11.0.1.0.3',
 
     "depends": [

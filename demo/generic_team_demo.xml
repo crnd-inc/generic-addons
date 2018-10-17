@@ -37,9 +37,10 @@
     <!-- generic_team -->
     <record id="generic_team_team1" model="generic.team">
         <field name="name">Odoo functional team</field>
-        <field name="description">A Functional Team is a group
-            of people with a common functional expertise working
-            toward shared objectives.
+        <field name="description">
+        A Functional Team is a group
+        of people with a common functional expertise working
+        toward shared objectives.
         </field>
         <field name="leader_id" ref="team_res_users_user1"/>
         <field name="user_ids" eval="[(6, 0, [ref('team_res_users_user3'),
@@ -48,9 +49,10 @@
 
     <record id="generic_team_team2" model="generic.team">
         <field name="name">Odoo development team</field>
-        <field name="description">A self-organizing, cross-functional team
-            of people who collectively are responsible for all of the work
-            necessary to produce working, validated assets.
+        <field name="description">
+        A self-organizing, cross-functional team
+        of people who collectively are responsible for all of the work
+        necessary to produce working, validated assets.
         </field>
         <field name="leader_id" ref="team_res_users_user2"/>
         <field name="user_ids" eval="[(6, 0, [ref('team_res_users_user1'),
@@ -59,9 +61,10 @@
 
     <record id="generic_team_team3" model="generic.team">
         <field name="name">DevOps team</field>
-        <field name="description">DevOps as a Service is a delivery model
-            for a set of tools that facilitates collaboration between
-            an organization's software development team and the operations team.
+        <field name="description">
+        DevOps as a Service is a delivery model
+        for a set of tools that facilitates collaboration between
+        an organization's software development team and the operations team.
         </field>
         <field name="leader_id" ref="team_res_users_user4"/>
         <field name="user_ids" eval="[(6, 0, [ref('team_res_users_user2')])]"/>

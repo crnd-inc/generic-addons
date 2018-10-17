@@ -32,19 +32,24 @@
                     </div>
                     <notebook>
                         <page string="Info" name="info">
-                            <div class="mt8 mb8">Team Leader</div>
-                            <span class="mr16"><field name="leader_image" widget='image' class="oe_avatar" nolabel="1"/></span>
-                            <span><field name="leader_id" nolabel="1"/></span>
-                            <div class="mt8 mb8">Task manager</div>
-                            <field name="task_manager_id" nolabel="1"/>
+                            <field name="leader_image"
+                                   widget='image'
+                                   class="oe_avatar mr4"
+                                   nolabel="1"/>
+                            <group style="display: block">
+                                <field name="leader_id"/>
+                                <field name="task_manager_id"/>
+                            </group>
+                            <group name="description">
+                                <field name="description"
+                                       placeholder="Description..."
+                                       nolabel="1"/>
+                            </group>
                         </page>
                         <page string="Team" name="team">
                             <field name="user_ids"/>
                         </page>
                     </notebook>
-                    <group name="description">
-                        <field name="description" placeholder="Description..." nolabel="1"/>
-                    </group>
                 </sheet>
             </form>
         </field>
