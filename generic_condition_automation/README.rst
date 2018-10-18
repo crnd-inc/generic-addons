@@ -11,7 +11,7 @@ Generic Condition (Action rules integration)
 |badge1| |badge2|
 
 This addon provides basic integration of Generic Conditions with
-base_action_rule addon.
+base_automation addon.
 
 
 This module is part of the Bureaucrat ITSM project. 

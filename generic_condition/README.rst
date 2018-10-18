@@ -11,8 +11,8 @@ Generic Condition Module
 
 |badge1| |badge2|
 
-Generic Condition is a module developed by the Center of Research &
-Development company. The module allows you to create generic conditions
+Generic Condition is technical addon developed by the `Center of Research &
+Development company <https://crnd.pro/>`__. This module allows you to create generic conditions
 on which you can program some logic in Odoo objects.
 
 You can set different conditions for changing stages, appointing

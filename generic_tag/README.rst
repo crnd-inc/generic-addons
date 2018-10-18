@@ -13,8 +13,8 @@ Generic Tag
     
 
 
-Generic Tag is a module developed by the Center of Research &
-Development company. It allows you to create and categorize generic tags
+Generic Tag is a module developed by the `Center of Research &
+Development company <https://crnd.pro/>`__. It allows you to create and categorize generic tags
 (keywords).
 
 With these tags in other applications, you can use the logic associated
@@ -32,12 +32,63 @@ Main features of the Generic Tag module:
    tags.*
 -  *Use your tags!*
 
+
 More information read in the `Generic Tag Module Guide <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Tag_admin_eng/>`__.
 
 
-
-This module is part of the Bureaucrat ITSM project. 
+This module is part of the Bureaucrat ITSM project.
 You can try demo database by the reference: https://yodoo.systems/saas/template/itsm-16
+
+Usage:
+''''''
+
+To add tags to your model do the folowing simple steps:
+
+1. Add base_tags module as dependency for your module.
+
+2. Use inherit from "res.tag.mixin" to get tags functionality to your model, like:
+
+.. code:: python
+
+  class Product(model.Model):
+      _name = "product.product"
+      _inherit = ["product.product",
+                  "generic.tag.mixin"]
+ 
+3. Add record to taggable models registry:
+
+.. code::
+
+  <record model="generic.tag.model" id="generic_tag_model_product_product">
+    <field name="res_model_id" ref="product.model_product_product"/>
+  </record>
+
+4. Now you can use tag_ids field in your views for your model:
+
+- search view:
+
+.. code::
+
+  <field name="tag_ids"/>
+  <field name="search_tag_id"/> <!-- For direct searching (items that contain selected tag)-->
+  <field name="search_no_tag_id"/> <!-- For inverse searching (items that do not contain selected tag)-->
+
+- tree view:
+
+.. code::
+
+  <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+
+- form view:
+
+.. code::
+
+  <field name="tag_ids"
+         widget="many2many_tags"
+         placeholder="Tags..."
+         context="{'default_model': 'product.product'}"/>
+
+Pay attention on context field. This will automatically select correct model on tag creation.
 
 
 Bug Tracker

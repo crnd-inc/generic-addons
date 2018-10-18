@@ -10,8 +10,8 @@ Generic Location
 
 |badge1| |badge2|
 
-Generic Location is a module developed by the Center of Research &
-Development company.
+Generic Location is a module developed by the `Center of Research &
+Development company <https://crnd.pro/>`__.
 
 It allows you to make an abstract description of the objects location
 relative to the general location (for example: house3 ▶️ office5 ▶️
