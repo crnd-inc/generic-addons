@@ -2,8 +2,7 @@
     'name': "Generic Location (Google Maps)",
 
     'summary': """
-        Generic Location 
-        (View locations on google maps)""",
+        Generic Location (View locations on google maps)""",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",

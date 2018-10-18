@@ -2,8 +2,8 @@
     'name': "Generic Location Tag",
 
     'summary': """
-        This addon provides integration betwen 
-        *Generic Location* and *Generic Tag* addons""",
+        This addon provides integration betwen *Generic
+        Location* and *Generic Tag* addons""",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
