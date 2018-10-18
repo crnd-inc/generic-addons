@@ -48,47 +48,47 @@ To add tags to your model do the folowing simple steps:
 
 2. Use inherit from "res.tag.mixin" to get tags functionality to your model, like:
 
-.. code:: python
+    .. code:: python
 
-  class Product(model.Model):
-      _name = "product.product"
-      _inherit = ["product.product",
-                  "generic.tag.mixin"]
+      class Product(model.Model):
+          _name = "product.product"
+          _inherit = ["product.product",
+                      "generic.tag.mixin"]
  
 3. Add record to taggable models registry:
 
-.. code::
+    .. code::
 
-  <record model="generic.tag.model" id="generic_tag_model_product_product">
-    <field name="res_model_id" ref="product.model_product_product"/>
-  </record>
+      <record model="generic.tag.model" id="generic_tag_model_product_product">
+        <field name="res_model_id" ref="product.model_product_product"/>
+      </record>
 
 4. Now you can use tag_ids field in your views for your model:
 
-- search view:
+  - search view:
 
-.. code::
+    .. code::
 
-  <field name="tag_ids"/>
-  <field name="search_tag_id"/> <!-- For direct searching (items that contain selected tag)-->
-  <field name="search_no_tag_id"/> <!-- For inverse searching (items that do not contain selected tag)-->
+      <field name="tag_ids"/>
+      <field name="search_tag_id"/> <!-- For direct searching (items that contain selected tag)-->
+      <field name="search_no_tag_id"/> <!-- For inverse searching (items that do not contain selected tag)-->
 
-- tree view:
+  - tree view:
 
-.. code::
+    .. code::
 
-  <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+      <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
 
-- form view:
+  - form view:
 
-.. code::
+    .. code::
 
-  <field name="tag_ids"
-         widget="many2many_tags"
-         placeholder="Tags..."
-         context="{'default_model': 'product.product'}"/>
+      <field name="tag_ids"
+             widget="many2many_tags"
+             placeholder="Tags..."
+             context="{'default_model': 'product.product'}"/>
 
-Pay attention on context field. This will automatically select correct model on tag creation.
+    Pay attention on context field. This will automatically select correct model on tag creation.
 
 
 Bug Tracker
