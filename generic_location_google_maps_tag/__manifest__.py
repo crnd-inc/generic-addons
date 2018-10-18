@@ -1,7 +1,9 @@
 {
     'name': "Generic Location (Google Maps + Tags)",
 
-    'summary': "Generic Location (Techinical addon that shows location tags on map view)",
+    'summary': """
+        Generic Location (Techinical addon that
+        shows location tags on map view)""",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",

@@ -1,7 +1,10 @@
 {
     'name': "Generic Location",
 
-    'summary': "Allows you to make an abstract description of the objects location relative to the general location (for example: house3 -> office5 -> room2 -> table5)",
+    'summary': """
+        Allows you to make an abstract description of the
+        objects location relative to the general location
+        (for example: house3 -> office5 -> room2 -> table5)""",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
