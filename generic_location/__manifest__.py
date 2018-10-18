@@ -7,7 +7,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.1.2',
+    'version': '11.0.1.1.3',
 
     # any module necessary for this one to work correctly
     'depends': [

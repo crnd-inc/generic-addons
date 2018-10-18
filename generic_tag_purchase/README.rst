@@ -10,6 +10,10 @@ Generic Tag Purchase
 
 |badge1| |badge2|
 
+
+This module is part of the Bureaucrat ITSM project. 
+You can try demo database by the reference: https://yodoo.systems/saas/template/itsm-16
+
 Bug Tracker
 ===========
 
@@ -19,7 +23,7 @@ In case of trouble, please check there if your issue has already been reported.
 
 Maintainer
 ''''''''''
-.. image:: https://crnd.pro/web/image/3699/150x50xcrnd.png.pagespeed.ic.LZU01Bt1j0.webp
+.. image:: https://crnd.pro/web/image/3699/300x140/crnd.png
 
 Our web site: https://crnd.pro/
 

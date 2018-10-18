@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition - Marketing",
-    "version": "11.0.0.0.4",
+    "version": "11.0.0.0.5",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",

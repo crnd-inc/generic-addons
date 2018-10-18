@@ -36,6 +36,10 @@ Here are some basic types of conditions that you can customize:
 
 Read the `Generic Condition Module Guide <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Condition_admin_eng/>`__ for more information.
 
+
+The Generic Condition module is part of the Bureaucrat ITSM project. 
+You can try demo database by the reference: https://yodoo.systems/saas/template/itsm-16   
+
 Bug Tracker
 ===========
 
@@ -45,7 +49,7 @@ In case of trouble, please check there if your issue has already been reported.
 
 Maintainer
 ''''''''''
-.. image:: https://crnd.pro/web/image/3699/150x50xcrnd.png.pagespeed.ic.LZU01Bt1j0.webp
+.. image:: https://crnd.pro/web/image/3699/300x140/crnd.png
 
 Our web site: https://crnd.pro/
 
