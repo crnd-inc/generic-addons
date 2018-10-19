@@ -22,6 +22,7 @@
         'views/purchase_order_line.xml',
         'views/generic_tag_purchase.xml'
     ],
+    'images': ['static/description/banner.png'],
     "installable": True,
     "auto_install": True,
     'license': 'LGPL-3',

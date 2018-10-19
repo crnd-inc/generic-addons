@@ -22,6 +22,7 @@
         'views/generic_tag_category_view.xml',
         'views/generic_tag_model_view.xml',
     ],
+    'images': ['static/description/banner.png'],
     "installable": True,
     "application": True,
     'license': 'LGPL-3',

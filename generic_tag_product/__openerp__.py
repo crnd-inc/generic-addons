@@ -21,6 +21,7 @@
         'views/product.xml',
         'views/generic_tag_product.xml'
     ],
+    'images': ['static/description/banner.png'],
     "installable": True,
     "auto_install": False,
     'license': 'LGPL-3',

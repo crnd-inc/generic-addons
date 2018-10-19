@@ -18,6 +18,7 @@
         'views/marketing_campaign_view.xml',
         # 'wizard/test_condition_view.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': False,
     'auto_install': True,
 }
