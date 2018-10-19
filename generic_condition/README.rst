@@ -8,8 +8,17 @@ Generic Condition Module
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 
+.. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
+    :target: https://yodoo.systems
+    
+.. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
+    :target: https://crnd.pro/
+    
+.. |badge4| image:: https://img.shields.io/badge/docs-Generic_Condition-yellowgreen.png
+    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Condition_admin_eng
 
-|badge1| |badge2|
+
+|badge1| |badge2| |badge4| |badge5|
 
 Generic Condition is technical addon developed by the `Center of Research &
 Development company <https://crnd.pro/>`__. This module allows you to create generic conditions
@@ -38,7 +47,14 @@ Read the `Generic Condition Module Guide <https://crnd.pro/doc-bureaucrat-itsm/1
 
 
 The Generic Condition module is part of the Bureaucrat ITSM project. 
-You can try demo database by the reference: https://yodoo.systems/saas/template/itsm-16   
+You can try it by the references below.
+
+Launch your own ITSM system in 60 seconds:
+''''''''''''''''''''''''''''''''''''''''''
+
+Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/itsm-16>`__ database
+
+|badge3| 
 
 Bug Tracker
 ===========

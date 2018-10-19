@@ -8,12 +8,25 @@ Generic Tag Product (Experimental)
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 
-|badge1| |badge2|
+.. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
+    :target: https://yodoo.systems
+    
+.. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
+    :target: https://crnd.pro/
+
+
+|badge1| |badge2| |badge5|
 
 
 This module is part of the Bureaucrat ITSM project. 
-You can try demo database by the reference: https://yodoo.systems/saas/template/itsm-16
+You can try it by the references below.
 
+Launch your own ITSM system in 60 seconds:
+''''''''''''''''''''''''''''''''''''''''''
+
+Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/itsm-16>`__ database
+
+|badge3| 
 
 
 Bug Tracker
