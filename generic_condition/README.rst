@@ -21,17 +21,16 @@ Generic Condition Module
 |badge1| |badge2| |badge4| |badge5|
 
 Generic Condition is technical addon developed by the `Center of Research &
-Development company <https://crnd.pro/>`__. This module allows you to create generic conditions
-on which you can program some logic in Odoo objects.
+Development company <https://crnd.pro/>`__. 
 
-You can set different conditions for changing stages, appointing
-responsible persons, automatically triggering events, etc., so that your
-everyday business processes can proceed more smoothly and automated.
+This addon can be used by other developers in cases where they need to provide users with the ability to program some logic.
 
-Generic Condition module is integrated and can be used with other Odoo
-applications with additional modules.
+Generic Condition module can be used in other Odoo applications with the help of additional connection modules.
 
-Here are some basic types of conditions that you can customize:
+For example, conditions (that you program with Generic Condition addon) can be used to configure Automated Actions in the Generic Condition (automation) addon.
+
+
+Here are some basic types of conditions that can be customized:
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 -  *You can describe conditions as an expression in the Python
@@ -40,8 +39,7 @@ Here are some basic types of conditions that you can customize:
 -  *Use conditions with inversion or a group of conditions.*
 -  *Evaluate dates and monetary fields.*
 -  *Check objects and documents by users or specific fields.*
--  *You can perform rapid tests of conditions using the built-in
-   algorithm.*
+
 
 Read the `Generic Condition Module Guide <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Condition_admin_eng/>`__ for more information.
 
