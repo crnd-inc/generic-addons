@@ -7,7 +7,7 @@
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
     'category': 'Generic Tags',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.3',
 
     "depends": [
         "generic_tag",
@@ -17,6 +17,7 @@
     "data": [
         'views/base_automation_view.xml',
     ],
+    'images': ['static/description/banner.png'],
     "installable": True,
     "auto_install": True,
     'license': 'LGPL-3',

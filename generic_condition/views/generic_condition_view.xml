@@ -112,6 +112,12 @@
                         <!-- 'Filter' condition data -->
                         <group colspan="4" name="group_condition_filter"
                                attrs="{'invisible': [('type', '!=', 'filter')]}">
+
+                            <div>
+                                Here you can specify the filter for verification. <br />
+                                <br />
+                            </div>
+
                             <field name="condition_filter_id"
                                    domain="[('model_id','=',based_on)]"
                                    context="{'default_model_id': based_on}"
@@ -121,6 +127,12 @@
                         <!-- 'Condition' condition data -->
                         <group colspan="4" name="group_condition_condition"
                                attrs="{'invisible': [('type', '!=', 'condition')]}">
+
+                            <div>
+                                In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br />
+                                <br />
+                            </div>     
+
                             <field name="condition_condition_id"
                                    attrs="{'required': [('type','=','condition')]}"
                                    context="{'default_model_id': model_id}"
@@ -130,14 +142,43 @@
                         <!-- 'Eval' condition data -->
                         <group colspan="4" name="group_condition_eval"
                                attrs="{'invisible': [('type', '!=', 'eval')]}">
+
+                            <div>
+                                By this type you can describe the condition as an expression in the Python programming language. <br />
+                                <br />
+                            </div>
+
                             <field name="condition_eval"
                                    widget="ace" options="{'mode': 'python'}"
                                    attrs="{'required': [('type','=','eval')]}"/>
+
+                            <div>
+                                The following arguments are available:
+                                <ul>
+                                    <li>obj - object that is checked</li>
+                                    <li>record - record of the object that is checked (same as obj)</li>
+                                    <li>env - environment</li>
+                                    <li>model - model</li>
+                                    <li>uid - current user id</li>
+                                    <li>user - current user</li>
+                                    <li>time - python module "time"</li>
+                                    <li>datetime - python module "datetime"</li>
+                                    <li>dateutil - python module "dateutil"</li>
+                                    <li>timezone - python module "timezone"</li>
+                                </ul>
+                            </div>
+
                         </group>
 
                         <!-- 'Condition group' condition data -->
                         <group colspan="4" name="group_condition_group"
                                attrs="{'invisible': [('type', '!=', 'condition_group')]}">
+
+                            <div>
+                                With this type of condition you can use multiple conditions simultaneously. <br />
+                                <br /> 
+                            </div>
+
                             <field name="condition_condition_ids_operator"
                                    attrs="{'required': [('type','=','condition_group')]}"/>
                             <field name="condition_condition_ids"
@@ -154,6 +195,12 @@
                         <group colspan="4" col="4"
                                name="group_condition_related_conditions"
                                attrs="{'invisible': [('type', '!=', 'related_conditions')]}">
+
+                            <div>
+                                This type of condition is used to check the properties of related objects. <br />
+                                <br />
+                            </div>
+
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>
@@ -204,6 +251,12 @@
                         <group colspan="4" col="4"
                                name="group_condition_current_user"
                                attrs="{'invisible': [('type', '!=', 'current_user')]}">
+
+                            <div>
+                                This type of condition refers to<br /> the current user and verifies whether<br /> the current user is in the specified field. <br />
+                                <br />
+                            </div>
+
                             <field name="condition_user_user_field_id"
                                    attrs="{'required': [('type','=','current_user')]}"
                                    domain="[('model_id','=',model_id),
@@ -215,6 +268,11 @@
                         <group colspan="4" col="4"
                                name="group_condition_date_diff"
                                attrs="{'invisible': [('type', '!=', 'date_diff')]}">
+
+                            <div>
+                                This type of the condition allows you to estimate the date difference between certain events. <br />
+                                <br />
+                            </div>
 
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
@@ -298,6 +356,12 @@
                         <group colspan="4" col="4"
                                name="group_condition_simple_field"
                                attrs="{'invisible': [('type', '!=', 'simple_field')]}">
+
+                            <div>
+                                Here you can create a condition that relates to the simple field of the Odoo object. <br />
+                                <br />
+                            </div>
+
                             <span><field name="condition_simple_field_type"
                                          invisible="1"/></span>
                             <table colspan="4" class="generic_condition_definition">
@@ -365,6 +429,12 @@
                         <group colspan="4" col="4"
                                name="group_condition_related_field"
                                attrs="{'invisible': [('type', '!=', 'related_field')]}">
+
+                            <div>
+                                This type of condition applies to related fields. <br />
+                                <br />
+                            </div>
+
                             <span><field name="condition_related_field_model"
                                          invisible="1"/></span>
                             <table colspan="4" class="generic_condition_definition">
@@ -405,6 +475,12 @@
                         <group colspan="4" col="4"
                                name="group_condition_monetary_field"
                                attrs="{'invisible': [('type', '!=', 'monetary_field')]}">
+
+                            <div>
+                                By this type you can create the condition to compare monetary indicators. <br />
+                                <br />
+                            </div>
+
                             <table colspan="4" class="generic_condition_definition">
                                 <tr>
                                     <td>

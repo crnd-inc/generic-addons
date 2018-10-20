@@ -2,13 +2,14 @@
     'name': "Generic Location (Geo Localization)",
 
     'summary': """
-    """,
+        Generic Location (Automaticaly determine geo coordinates
+        for location by its address)""",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.3',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -24,6 +25,7 @@
     # only loaded in demonstration mode
     'demo': [
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'LGPL-3',

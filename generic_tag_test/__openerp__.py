@@ -1,6 +1,6 @@
 {
     "name": "Generic Tag - Test",
-    "version": "11.0.1.0.0",
+    "version": "11.0.1.0.3",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -16,6 +16,7 @@
         'demo/res_groups.xml',
         'demo/demo.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
     'application': False,

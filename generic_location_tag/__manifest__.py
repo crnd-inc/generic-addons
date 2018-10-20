@@ -2,13 +2,14 @@
     'name': "Generic Location Tag",
 
     'summary': """
-    """,
+        This addon provides integration betwen *Generic
+        Location* and *Generic Tag* addons""",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.1',
+    'version': '11.0.1.0.4',
 
     # any module necessary for this one to work correctly
     'depends': ['generic_location', 'generic_tag'],
@@ -23,6 +24,7 @@
     'demo': [
         'demo/demo_location_tag.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'LGPL-3',

@@ -1,14 +1,13 @@
 {
     'name': "Generic Location (Address)",
 
-    'summary': """
-    """,
+    'summary': "Generic Location (Add address fields to *Generic Locations*)",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.2',
+    'version': '11.0.1.0.5',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -23,6 +22,7 @@
     'demo': [
         'demo/generic_location.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'LGPL-3',

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-15 09:16+0000\n"
-"PO-Revision-Date: 2018-05-15 09:16+0000\n"
+"POT-Creation-Date: 2018-10-16 07:40+0000\n"
+"PO-Revision-Date: 2018-10-16 07:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,6 +39,16 @@ msgstr "Заархівовано"
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_child_count
 msgid "Child Count"
 msgstr "Сублокація"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_create_date
+msgid "Created on"
+msgstr "Дата створення"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_description
@@ -77,6 +87,16 @@ msgid "Generic location user (implicit)"
 msgstr "Користувач загальної локації (implicit)"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_id
+msgid "ID"
+msgstr "ID"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image
+msgid "Image"
+msgstr "Зображення"
+
+#. module: generic_location
 #: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Info"
 msgstr "Інфо"
@@ -85,6 +105,16 @@ msgstr "Інфо"
 #: model:ir.model.fields,field_description:generic_location.field_generic_location___last_update
 msgid "Last Modified on"
 msgstr "Остання модифікація"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_write_date
+msgid "Last Updated on"
+msgstr "Останнє оновлення"
 
 #. module: generic_location
 #: model:ir.actions.act_window,name:generic_location.generic_location_action
@@ -99,6 +129,16 @@ msgid "Manage generic locations"
 msgstr "Менеджер загальноі локаціі"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image_medium
+msgid "Medium-sized image"
+msgstr "Зображення середньої величини"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image_medium
+msgid "Medium-sized image of the location. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. "
+msgstr "Medium-sized image of the location. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. "
+
+#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_name
 msgid "Name"
 msgstr "Назва"
@@ -110,22 +150,35 @@ msgid "Parent Location"
 msgstr "Батьківська локація"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image_small
+msgid "Small-sized image"
+msgstr "Зменшене зображення"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image_small
+msgid "Small-sized image of the location. It is automatically resized as a 64x64px image, with aspect ratio preserved. "
+msgstr "Small-sized image of the location. It is automatically resized as a 64x64px image, with aspect ratio preserved. "
+
+#. module: generic_location
 #: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Sublocation"
 msgstr "Сублокація"
 
 #. module: generic_location
+#: code:addons/generic_location/models/generic_location.py:79
+#: code:addons/generic_location/models/generic_location.py:80
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_child_ids
+#, python-format
 msgid "Sublocations"
 msgstr "Сублокація"
 
 #. module: generic_location
 #: sql_constraint:generic.location:0
-msgid "The Location title must be unique"
-msgstr "Назва локації має бути унікальною"
-
-#. module: generic_location
-#: sql_constraint:generic.location:0
 msgid "The title of the Location should not be the description"
 msgstr "Назвою локації, не повинен бути опис"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image
+msgid "This field holds the image used as image for the location, limited to 1024x1024px."
+msgstr "This field holds the image used as image for the location, limited to 1024x1024px."
 

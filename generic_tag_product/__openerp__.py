@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.3',
 
     "depends": [
         "generic_tag",
@@ -21,6 +21,7 @@
         'views/product.xml',
         'views/generic_tag_product.xml'
     ],
+    'images': ['static/description/banner.png'],
     "installable": True,
     "auto_install": False,
     'license': 'LGPL-3',

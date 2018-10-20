@@ -62,9 +62,9 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_show_objects"
-                                type="object" string="Objects" icon="fa-bars"
+                                type="object" icon="fa-bars"
                                 class="oe_stat_button">
-                            <field name="objects_count"/>
+                            <field name="objects_count" string="Objects" widget="statinfo"/>
                         </button>
                         <button name="toggle_active" type="object" groups="base.group_user"
                                 class="oe_stat_button" icon="fa-archive">

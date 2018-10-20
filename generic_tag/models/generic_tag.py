@@ -66,7 +66,7 @@ class GenericTag(models.Model):
         help="Full name of tag (including category name)")
 
     objects_count = fields.Integer(
-        string="Tags", compute="_compute_objects_count",
+        string="Objects", compute="_compute_objects_count",
         store=False, readonly=True, track_visibility='always',
         help="How many objects contains this tag")
     group_ids = fields.Many2many('res.groups', string='Groups')

@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition - Marketing",
-    "version": "11.0.0.0.2",
+    "version": "11.0.0.0.5",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -18,6 +18,7 @@
         'views/marketing_campaign_view.xml',
         # 'wizard/test_condition_view.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': False,
     'auto_install': True,
 }

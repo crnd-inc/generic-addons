@@ -2,14 +2,14 @@
     'name': "Generic Location (Google Maps + Tags)",
 
     'summary': """
-        Integration addon
-    """,
+        Generic Location (Techinical addon that
+        shows location tags on map view)""",
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.3',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -24,6 +24,7 @@
     # only loaded in demonstration mode
     'demo': [
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': True,
     'application': False,
