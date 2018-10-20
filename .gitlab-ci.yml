@@ -50,12 +50,12 @@ stylelint:
     script:
         - odoo-helper lint style .
 
-check-versions:
-    stage: static-test
-    script:
-        - odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
-    only:
-        - /^11.0-.*$/   # only branches that started with '11.0-'
+#check-versions:
+    #stage: static-test
+    #script:
+        #- odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
+    #only:
+        #- /^11.0-.*$/   # only branches that started with '11.0-'
 
 tests:
     stage: test
