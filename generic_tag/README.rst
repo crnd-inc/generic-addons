@@ -61,49 +61,60 @@ Usage:
 
 To add tags to your model do the folowing simple steps:
 
-1. Add base_tags module as dependency for your module.
+1. Add `generic_tag` module as dependency for your addon.
 
-2. Use inherit from "res.tag.mixin" to get tags functionality to your model, like:
+2. Use inherit from `"res.tag.mixin"` to get *tags* functionality to your model, like:
 
     .. code:: python
 
-      class Product(model.Model):
-          _name = "product.product"
-          _inherit = ["product.product",
-                      "generic.tag.mixin"]
+        class Product(models.Model):
+            _name = "product.product"
+            _inherit = [
+                "product.product",
+                "generic.tag.mixin",
+            ]
  
 3. Add record to taggable models registry:
 
-    .. code::
+    .. code:: xml
 
-      <record model="generic.tag.model" id="generic_tag_model_product_product">
-        <field name="res_model_id" ref="product.model_product_product"/>
-      </record>
+        <record model="generic.tag.model" id="generic_tag_model_product_product">
+            <field name="res_model_id" ref="product.model_product_product"/>
+        </record>
 
-4. Now you can use tag_ids field in your views for your model:
+4. Now you can use ``tag_ids`` field in your views for your model:
 
-  - search view:
+  - `search` view:
 
-    .. code::
+    .. code:: xml
 
-      <field name="tag_ids"/>
-      <field name="search_tag_id"/> <!-- For direct searching (items that contain selected tag)-->
-      <field name="search_no_tag_id"/> <!-- For inverse searching (items that do not contain selected tag)-->
+        <field name="tag_ids"/>
+        <field name="search_tag_id"/> <!-- For direct searching (items that contain selected tag)-->
+        <field name="search_no_tag_id"/> <!-- For inverse searching (items that do not contain selected tag)-->
 
-  - tree view:
+    See `search_tag_id` and `search_no_tag_id` fields.
+    These fields add autocompletition on searching by specific tag.
+    `search_tag_id` allows to search for records that contain selected tag.
+    `search_no_tag_id` allows to search for records that have no selected tag.
 
-    .. code::
+  - `tree` view:
 
-      <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+    .. code:: xml
 
-  - form view:
+        <field name="tag_ids"
+               widget="many2many_tags"
+               placeholder="Tags..."
+               options="{'color_field': 'color'}"/>
 
-    .. code::
+  - `form` view:
 
-      <field name="tag_ids"
-             widget="many2many_tags"
-             placeholder="Tags..."
-             context="{'default_model': 'product.product'}"/>
+    .. code:: xml
+
+        <field name="tag_ids"
+               widget="many2many_tags"
+               placeholder="Tags..."
+               context="{'default_model': 'product.product'}"
+               options="{'color_field': 'color'}"/>
 
     Pay attention on context field. This will automatically select correct model on tag creation.
 
@@ -121,7 +132,8 @@ Maintainer
 
 Our web site: https://crnd.pro/
 
-This module is maintained by the Center of Research & Development company.
+This module is maintained by the `Center of Research &
+Development company <https://crnd.pro/>`__.
 
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
 
