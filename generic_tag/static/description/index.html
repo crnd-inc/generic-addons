@@ -35,7 +35,7 @@
 <p>This module is part of the Bureaucrat ITSM project. You can try it by the references below.</p>
 
 <div>
-<h3>Launch your own ITSM system in 60 seconds::</h3>
+<h3>Launch your own ITSM system in 60 seconds:</h3>
 <p>Create your own <a href="https://yodoo.systems/saas/template/itsm-16">Bureaucrat ITSM</a> database
 </p>
 <p><a href="https://yodoo.systems"><img src="https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png"/></a>
@@ -76,6 +76,13 @@
 <i>search_tag_id</i> allows to search for records that contain selected tag.
 <i>search_no_tag_id</i> allows to search for records that have no selected tag.
 </p>
+</li>
+<li>tree view:
+<pre>    &lt;field name="tag_ids"
+	   widget="many2many_tags"
+	   placeholder="Tags..."
+	   options="{'color_field': 'color'}"/&gt;
+</pre>
 </li>
 <li>form view:
 <pre>    &lt;field name="tag_ids"
