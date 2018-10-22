@@ -16,3 +16,13 @@ class TestGenericLocation(TransactionCase):
         self.assertEqual(testaction['res_model'], simplelocation._name)
         testdomain = testaction['domain']
         self.assertEqual(testdomain[0], ('parent_id', '=', simplelocation.id))
+
+    def test_location_parent_names(self):
+        root = self.env['generic.location'].create({
+            'name': 'Root',
+        })
+        child = self.env['generic.location'].create({
+            'name': 'Child',
+            'parent_id': root.id,
+        })
+        self.assertEqual(child.display_name, 'Root / Child')
