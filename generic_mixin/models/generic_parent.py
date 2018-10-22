@@ -49,8 +49,10 @@ class GenericMixinParentNames(models.AbstractModel):
         def get_names(rec):
             """ Return the list [rec.name, rec.parent_id.name, ...] """
             res = []
+            name_field = self._rec_name_fallback()
             while rec:
-                res.append(rec[self._rec_name_fallback()])
+                if rec[name_field]:
+                    res.append(rec[name_field])
                 rec = rec[self._parent_name]
             return res
 
