@@ -22,7 +22,7 @@
                eval="[(4, ref('generic_team.group_generic_team_user_implicit'))]"/>
         <field name="category_id" ref="base.module_category_generic_team"/>
         <field name="comment">
-            User - readonly accsess, menu access
+            User - readonly access, menu access
         </field>
     </record>
 
