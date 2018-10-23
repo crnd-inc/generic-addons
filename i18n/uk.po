@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-23 10:00+0000\n"
+"PO-Revision-Date: 2018-10-23 10:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,9 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_needaction
-msgid "Action Needed"
-msgstr "Необхідна дія"
+#: model:res.groups,comment:generic_service.group_generic_service_user
+msgid "Access generic services"
+msgstr "Має доступ до універсальних сервісів"
+
+#. module: generic_service
+#: model:res.groups,comment:generic_service.group_generic_service_user_implicit
+msgid "Access generic services (no access to menu)"
+msgstr "Має доступ до універсальних сервісів (не має доступу до меню)"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_active
@@ -36,12 +43,7 @@ msgstr "Створив"
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_create_date
 msgid "Created on"
-msgstr "Створено"
-
-#. module: generic_service
-#: model:ir.model.fields,help:generic_service.field_generic_service_message_last_post
-msgid "Date of the last message posted on the record."
-msgstr "Дата останнього повідомлення у записі."
+msgstr "Дата створення"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_default
@@ -69,29 +71,9 @@ msgid "Display Name"
 msgstr "Назва для відображення"
 
 #. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_follower_ids
-msgid "Followers"
-msgstr "Підписники"
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Підписники (Чати)"
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_partner_ids
-msgid "Followers (Partners)"
-msgstr "Підписники (Партнери)"
-
-#. module: generic_service
 #: model:ir.model,name:generic_service.model_generic_service
 msgid "Generic Service"
 msgstr "Універсальний сервіс"
-
-#. module: generic_service
-#: model:ir.ui.menu,name:generic_service.menu_generic_service_root
-msgid "Generic Services"
-msgstr "Універсальні сервіси"
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_manager
@@ -99,39 +81,29 @@ msgid "Generic service manager"
 msgstr "Універсальний сервіс (менеджер)"
 
 #. module: generic_service
+#: model:res.groups,name:generic_service.group_generic_service_user
+msgid "Generic service user"
+msgstr "Користувач універсальних сервісів"
+
+#. module: generic_service
+#: model:res.groups,name:generic_service.group_generic_service_user_implicit
+msgid "Generic service user (implicit)"
+msgstr "Користувач універсальних сервісів (неявний)"
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_id
 msgid "ID"
 msgstr "ID"
 
 #. module: generic_service
-#: model:ir.model.fields,help:generic_service.field_generic_service_message_unread
-msgid "If checked new messages require your attention."
-msgstr "Якщо позначено, то повідомлення потребує вашої уваги."
-
-#. module: generic_service
-#: model:ir.model.fields,help:generic_service.field_generic_service_message_needaction
-msgid "If checked, new messages require your attention."
-msgstr "Якщо позначено, то повідомлення потребує вашої уваги."
-
-#. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Info"
-msgstr "Інфо"
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_is_follower
-msgid "Is Follower"
-msgstr "Стежить"
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_last_post
-msgid "Last Message Date"
-msgstr "Дата останнього повідомлення"
+msgstr "Інформація"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service___last_update
 msgid "Last Modified on"
-msgstr "Остання зміна"
+msgstr "Остання модифікація"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_write_uid
@@ -141,7 +113,7 @@ msgstr "Востаннє оновив"
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_write_date
 msgid "Last Updated on"
-msgstr "Оновлено"
+msgstr "Останнє оновлення"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_manager
@@ -149,29 +121,9 @@ msgid "Manage generic services"
 msgstr "Керує універсальними сервісами"
 
 #. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_ids
-msgid "Messages"
-msgstr "Повідомлення"
-
-#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_name
 msgid "Name"
 msgstr "Назва"
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_needaction_counter
-msgid "Number of Actions"
-msgstr "Кількість дій"
-
-#. module: generic_service
-#: model:ir.model.fields,help:generic_service.field_generic_service_message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Кількість повідомлень, що потебують дії"
-
-#. module: generic_service
-#: model:ir.model.fields,help:generic_service.field_generic_service_message_unread_counter
-msgid "Number of unread messages"
-msgstr "Кількість непрочитаних повідомлень"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_notebook
@@ -181,16 +133,7 @@ msgstr "Оренда ноутбука"
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action
 #: model:ir.ui.menu,name:generic_service.generic_service_menu_item
+#: model:ir.ui.menu,name:generic_service.menu_generic_service_root
 msgid "Services"
 msgstr "Сервіси"
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_unread
-msgid "Unread Messages"
-msgstr "Непрочитані повідомлення"
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Лічильник непрочитаних повідомлень"
 

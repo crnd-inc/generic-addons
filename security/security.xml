@@ -12,7 +12,7 @@
     <record id="group_generic_service_user_implicit" model="res.groups">
         <field name="name">Generic service user (implicit)</field>
         <field name="category_id" ref="base.module_category_generic_service"/>
-        <field name="comment">Access generic services (no access to menu</field>
+        <field name="comment">Access generic services (no access to menu)</field>
     </record>
     <record id="group_generic_service_user" model="res.groups">
         <field name="name">Generic service user</field>
