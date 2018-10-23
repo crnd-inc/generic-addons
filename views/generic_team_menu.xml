@@ -12,6 +12,7 @@
         id="menu_generic_team_root"
         name="Teams"
         groups="group_generic_team_user"
+        web_icon="generic_team,static/description/icon.png"
         sequence="75"/>
 
     <menuitem
