@@ -32,22 +32,32 @@ class GenericResource(models.Model):
          'Model instance must be unique')
     ]
 
+    @property
+    def resource(self):
+        """ Property to easyly access implementation of this generic resource
+        """
+        self.ensure_one()
+        # This case, when resource model is not present in pool, may
+        # happen, when addon that implements resource was uninstalled.
+        # TODO: handle this in better way
+        try:
+            ResourceModel = self.env[self.res_model]
+        except KeyError:
+            return False
+        resource = ResourceModel.browse(self.res_id)
+        if resource.exists():
+            return resource
+        return False
+
     @api.multi
     def name_get(self):
         result = []
         for record in self:
             if record.res_model and record.res_id:
-                # This case, when resource model is not present in pool, may
-                # happen, when addon that implements resource was uninstalled.
-                # TODO: handle this in better way
-                try:
-                    ResourceModel = self.env[record.res_model]
-                except KeyError:
-                    name = _("Error: no model")
+                if record.resource:
+                    result.append((record.id, record.resource.display_name))
                 else:
-                    name = ResourceModel.browse(record.res_id).display_name
-
-                result.append((record.id, name))
+                    result.append((record.id, _("Error: no model")))
             else:
                 result.append((record.id, False))
         return result
@@ -84,3 +94,8 @@ class GenericResource(models.Model):
                 "is not allowed!"))
 
         return super(GenericResource, self).write(vals)
+
+    @api.multi
+    def action_open_resource_object(self):
+        if self.resource:
+            return self.resource.get_formview_action()
