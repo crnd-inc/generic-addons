@@ -30,7 +30,7 @@ class GenericTag(models.Model):
     def _compute_objects_count(self):
         for tag in self:
             try:
-                TagModel = self.env[self.model_id.model]
+                TagModel = self.env[tag.model_id.model]
             except KeyError:
                 tag.objects_count = 0
             else:
