@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-23 10:00+0000\n"
-"PO-Revision-Date: 2018-10-23 10:00+0000\n"
+"POT-Creation-Date: 2018-10-25 09:47+0000\n"
+"PO-Revision-Date: 2018-10-25 09:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,11 @@ msgid "Archived"
 msgstr "Заархівовано"
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_assignment_model_ids
+msgid "Assignment Model"
+msgstr "Модель призначення"
+
+#. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
 msgid "Categories"
 msgstr "Категорії"
@@ -59,7 +64,7 @@ msgstr "Комп'ютери"
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_config_root
 msgid "Configuration"
-msgstr "Конфігурація"
+msgstr "Налаштування"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_count
@@ -163,7 +168,7 @@ msgstr "Універсальний ресурс"
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin_inv_number
 msgid "Generic Resource Mixin Inv Number"
-msgstr "Generic Resource Mixin Inv Number"
+msgstr "Універсальний ресурс Mixin Інвентарний номер"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.generic_resource_type_default_ir_model
@@ -201,7 +206,7 @@ msgstr "користувач універсальних ресурсів"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_2090
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_2266
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_id
 msgid "ID"
@@ -266,7 +271,7 @@ msgstr "Останнє оновлення"
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_left
 msgid "Left Parent"
-msgstr "Зліва від батька"
+msgstr "Батьківський зліва"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type_modules
@@ -288,9 +293,9 @@ msgstr "Керує універсальними ресурсами"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_resource_res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model_id
+#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_res_model
 msgid "Model"
 msgstr "Модель"
 
@@ -425,8 +430,8 @@ msgstr "Читає і змінює універсальні ресурси"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_res_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_res_id
+#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_id
+#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_res_id
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
 msgid "Resource"
@@ -461,7 +466,7 @@ msgstr "Ресурс має бути унікальним"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_type_id
 msgid "Resource type"
 msgstr "Тип ресурсу"
 
@@ -485,7 +490,7 @@ msgstr "Категорії ресурсів"
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_right
 msgid "Right Parent"
-msgstr "Зліва від батька"
+msgstr "Батьківський справа"
 
 #. module: generic_resource
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
