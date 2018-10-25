@@ -16,7 +16,7 @@ Generic team
     :target: https://crnd.pro/
 
 
-|badge1| |badge2| |badge5|
+|badge1| |badge5|
 
 
 This module is part of the Bureaucrat ITSM project. 
@@ -33,8 +33,8 @@ Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/itsm-16>`_
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/crnd-inc/generic-addons/issues>`_.
-In case of trouble, please check there if your issue has already been reported.
+Bugs are tracked on `https://crnd.pro/requests <https://crnd.pro/requests>`_.
+In case of trouble, please report there.
 
 
 Maintainer
