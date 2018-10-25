@@ -14,13 +14,15 @@ Generic Resource
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
     
-.. |badge4| image:: https://img.shields.io/badge/docs-Generic_Location-yellowgreen.png
-    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Location_admin_eng
+.. |badge4| image:: https://img.shields.io/badge/docs-Generic_Resource-yellowgreen.png
+    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Resource_admin_eng
 
 
-|badge1| |badge2| |badge4| |badge5|
+|badge1| |badge4| |badge5|
 
-description
+The module provides the ability to create and categorize various resources that can be used in other Odoo modules.
+
+Read the `Generic Resource <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Resource_admin_eng/>`__ Module Guide for more information.
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.
@@ -35,8 +37,8 @@ Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/itsm-16>`_
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/crnd-inc/generic-addons/issues>`_.
-In case of trouble, please check there if your issue has already been reported.
+Bugs are tracked on `https://crnd.pro/requests <https://crnd.pro/requests>`_.
+In case of trouble, please report there.
 
 
 Maintainer
