@@ -32,16 +32,19 @@
                     </div>
                     <notebook>
                         <page string="Info" name="info">
-                            <field name="leader_image"
+                            <div class="mt16">
+                                <p>Team leader</p>
+                                <field name="leader_image"
                                    widget='image'
-                                   class="oe_avatar mr4"
+                                   class="oe_avatar mr16"
                                    nolabel="1"/>
-                            <group style="display: block">
                                 <field name="leader_id"/>
-                                <field name="task_manager_id"/>
-                            </group>
+                            </div>
+                            <hr class="mb8" style="clear:both;"/>
+                            <p>Task manager</p>
+                            <field name="task_manager_id"/>
                             <group name="description">
-                                <field name="description"
+                                    <field name="description"
                                        placeholder="Description..."
                                        nolabel="1"/>
                             </group>
@@ -71,7 +74,7 @@
                         <div class="oe_kanban_global_click gt-kanban-team-global">
                             <h2><t t-esc="record.name.raw_value"/></h2>
                             <div>
-                                <span><t t-esc="record.description.raw_value"/></span>
+                                <span><t t-if="record.description.raw_value"><t t-esc="record.description.raw_value"/></t></span>
                             </div>
                             <div class="oe_kanban_details gt-kanban-team">
                                 <div class="gt-kanban-team-left"><field name="leader_image" widget='image' class="oe_avatar" nolabel="1"/></div>
