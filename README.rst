@@ -18,6 +18,7 @@ Generic team
 
 |badge1| |badge5|
 
+With this module you can create teams and add users to them, which allows you to perform group actions (such as assigning a responsible team instead of one person) while working with Odoo applications.  The teams can be used in other Odoo applications with the help of additional communication modules.
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.
