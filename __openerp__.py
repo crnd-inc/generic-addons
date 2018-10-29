@@ -37,6 +37,7 @@
     'demo': [
         'demo/demo_resource.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'Other proprietary',
