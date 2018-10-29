@@ -31,7 +31,7 @@
     "demo": [
         'demo/generic_team_demo.xml'
     ],
-
+    'images': ['static/description/banner.png'],
     "installable": True,
     "application": False,
     'license': 'Other proprietary',
