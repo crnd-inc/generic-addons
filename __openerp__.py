@@ -2,6 +2,8 @@
     'name': "Generic Resource",
 
     'summary': """
+        Provides the ability to create and categorize
+        various resources that can be used in other Odoo modules.
     """,
 
     'author': "Center of Research & Development",
