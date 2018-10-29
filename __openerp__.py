@@ -27,6 +27,7 @@
     'demo': [
         'demo/generic_service_demo.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'Other proprietary',
