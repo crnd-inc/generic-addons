@@ -32,24 +32,20 @@
                     </div>
                     <notebook>
                         <page string="Info" name="info">
-                            <div class="mt16">
-                                <p>Team leader</p>
-                                <field name="leader_image"
+                            <field name="leader_image"
                                    widget='image'
-                                   class="oe_avatar mr16"
+                                   class="oe_avatar mr4"
                                    nolabel="1"/>
+                            <group style="display: block">
                                 <field name="leader_id"/>
-                            </div>
-                            <hr class="mb8" style="clear:both;"/>
-                            <p>Task manager</p>
-                            <field name="task_manager_id"/>
+                                <field name="task_manager_id"/>
+                            </group>
                             <group name="description">
-                                    <field name="description"
+                                <field name="description"
                                        placeholder="Description..."
                                        nolabel="1"/>
                             </group>
-                        </page>
-                        <page string="Team" name="team">
+                        </page>                        <page string="Team" name="team">
                             <field name="user_ids"/>
                         </page>
                     </notebook>
