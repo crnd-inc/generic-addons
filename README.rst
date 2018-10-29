@@ -1,4 +1,4 @@
-Generic team
+Generic Team
 =======================
 
 
