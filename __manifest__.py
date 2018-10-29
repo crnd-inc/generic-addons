@@ -2,7 +2,10 @@
     'name': "Generic team",
 
     'summary': """
-        Generic team.
+        With this module you can create teams and add
+        users to them, which allows you to perform group
+        actions (such as assigning a responsible team
+        instead of one person) while working with Odoo applications.
     """,
 
     'author': "Center of Research & Development",
