@@ -2,6 +2,9 @@
     'name': "Generic Service",
 
     'summary': """
+        The module allows you to create various services,
+        which can then be used in other Odoo applications
+        and modules.
     """,
 
     'author': "Center of Research & Development",
