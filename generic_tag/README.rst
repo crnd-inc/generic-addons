@@ -137,7 +137,7 @@ Development company <https://crnd.pro/>`__.
 
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
 
-For any questions contact us: info@crnd.pro 
+For any questions `contact us <mailto:info@crnd.pro>`__.
 
 
 
