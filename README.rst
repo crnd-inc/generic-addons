@@ -1,6 +1,10 @@
 Generic Service
 ===============
 
+.. |badge2| image:: https://img.shields.io/badge/license-OPL--1-blue.png
+    :target: https://www.odoo.com/documentation/user/12.0/legal/licenses/licenses.html#odoo-apps
+    :alt: License: OPL-1
+
 .. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
     :target: https://yodoo.systems
     
@@ -10,7 +14,7 @@ Generic Service
 .. |badge4| image:: https://img.shields.io/badge/docs-Generic_Service-yellowgreen.png
     :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Service_admin_eng
 
-|badge4| |badge5|
+|badge2| |badge4| |badge5|
 
 The module allows you to create various services, which can then be used in other Odoo applications and modules.
 
