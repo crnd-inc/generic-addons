@@ -40,5 +40,5 @@
     'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
-    'license': 'Odoo Proprietary License v1.0',
+    'license': 'OPL-1',
 }
