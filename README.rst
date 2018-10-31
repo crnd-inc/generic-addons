@@ -11,10 +11,15 @@ Generic Team
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
 
+.. |badge4| image:: https://img.shields.io/badge/docs-Generic_Team-yellowgreen.png
+    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Team_admin_eng
 
-|badge2| |badge5|
+
+|badge2| |badge4| |badge5|
 
 With this module you can create teams and add users to them, which allows you to perform group actions (such as assigning a responsible team instead of one person) while working with Odoo applications. The teams can be used in other Odoo applications with the help of additional communication modules.
+
+Read the `Generic Team <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Team_admin_eng/>`__ Module Guide for more information.
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.
