@@ -1,4 +1,4 @@
-from openerp import fields, models, api, exceptions, _
+from odoo import fields, models, api, exceptions, _
 
 
 import logging

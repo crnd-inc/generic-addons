@@ -1,4 +1,4 @@
-from openerp import fields, models, api, _, exceptions
+from odoo import fields, models, api, _, exceptions
 
 
 class GenericResourceRelatedMixin(models.AbstractModel):

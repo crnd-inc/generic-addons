@@ -1,4 +1,4 @@
-from openerp import fields, models, api
+from odoo import fields, models, api
 from .generic_resource import GenericResourceResID
 
 
