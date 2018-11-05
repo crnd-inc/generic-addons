@@ -20,6 +20,9 @@ _logger = logging.getLogger(__name__)
 
 class GenericCondition(models.Model):
     _name = "generic.condition"
+    _inherit = [
+        'mail.thread',
+    ]
     _order = "sequence"
     _description = 'Generic Condition'
     _rec_name = 'name'
@@ -185,24 +188,28 @@ class GenericCondition(models.Model):
         return True
 
     color = fields.Integer()
-    name = fields.Char(required=True, index=True, translate=True)
+    name = fields.Char(required=True, index=True, translate=True,
+                       track_visibility='onchange')
     type = fields.Selection(
         '_get_selection_type', default='filter',
-        index=True, required=True)
+        index=True, required=True, track_visibility='onchange')
     model_id = fields.Many2one(
         'ir.model', 'Based on model', required=True, index=True)
     based_on = fields.Char(
         related='model_id.model', readonly=True, index=True, store=True,
-        related_sudo=True)
-    sequence = fields.Integer(index=True, default=10)
-    active = fields.Boolean(index=True, default=True)
-    invert = fields.Boolean('Invert (Not)')
-    with_sudo = fields.Boolean(default=False)
+        related_sudo=True, track_visibility='onchange')
+    sequence = fields.Integer(
+        index=True, default=10, track_visibility='onchange')
+    active = fields.Boolean(
+        index=True, default=True, track_visibility='onchange')
+    invert = fields.Boolean('Invert (Not)', track_visibility='onchange')
+    with_sudo = fields.Boolean(default=False, track_visibility='onchange')
     enable_caching = fields.Boolean(
         default=True,
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
-             'This may speed up condition processing.')
+             'This may speed up condition processing.',
+        track_visibility='onchange')
     description = fields.Text(translate=True)
 
     # Condition type 'eval' params
@@ -242,23 +249,27 @@ class GenericCondition(models.Model):
         ondelete='restrict',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many')),
                 ('relation', '=', 'res.users')],
+        track_visibility='onchange',
         help='Field in object being checked, that points to user.')
 
     # Condition type 'related_conditions' params
     condition_rel_field_id = fields.Many2one(
         'ir.model.fields', 'Related Field',
         ondelete='restrict', auto_join=True,
-        domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
+        domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))],
+        track_visibility='onchange')
     condition_rel_field_id_model_id = fields.Many2one(
         'ir.model', compute='_compute_condition_rel_field_id_model_id',
-        compute_sudo=True, string='Related field: model', readonly=True)
+        compute_sudo=True, string='Related field: model', readonly=True,
+        track_visibility='onchange')
     condition_rel_record_operator = fields.Selection(
         '_get_selection_condition_rel_record_operator',
         'Related record operator', default='match',
         help='Choose way related record will be checked:\n'
              '- Match: return True if all filtered records match condition.\n'
              '- Contains: return True if at least one of filtered records '
-             'match \'check\' conditions')
+             'match \'check\' conditions',
+        track_visibility='onchange')
     condition_rel_filter_conditions = fields.Many2many(
         'generic.condition',
         'generic_condition_filter_conds',
@@ -268,7 +279,8 @@ class GenericCondition(models.Model):
              "These conditions are used to filter related items that "
              "will be checked by 'Related check conditions'. "
              "If this conditions evaluates to False for some object, "
-             "that this object will not be checked")
+             "that this object will not be checked",
+        track_visibility='onchange')
     condition_rel_filter_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
         string='Related filter conditions operator',
@@ -281,7 +293,8 @@ class GenericCondition(models.Model):
         help="Used together with Related Field. "
              "These conditions will be used to check objects "
              "that passed filter conditions. "
-             "And result of these related conditions will be used as result")
+             "And result of these related conditions will be used as result",
+        track_visibility='onchange')
     condition_rel_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
         string='Related check conditions operator',
@@ -290,68 +303,83 @@ class GenericCondition(models.Model):
     # Date difference fields: start date
     condition_date_diff_date_start_type = fields.Selection(
         '_get_selection_date_diff_date_type',
-        string='Date start type', default='now')
+        string='Date start type', default='now', track_visibility='onchange')
     condition_date_diff_date_start_field = fields.Many2one(
         'ir.model.fields', 'Date start field', ondelete='restrict',
-        domain=[('ttype', 'in', ('date', 'datetime'))])
+        domain=[('ttype', 'in', ('date', 'datetime'))],
+        track_visibility='onchange')
     condition_date_diff_date_start_date = fields.Date(
-        'Date start', default=fields.Date.today)
+        'Date start', default=fields.Date.today, track_visibility='onchange')
     condition_date_diff_date_start_datetime = fields.Datetime(
-        'Date start', default=fields.Datetime.now)
+        'Date start', default=fields.Datetime.now, track_visibility='onchange')
 
     # Date difference fields: end date
     condition_date_diff_date_end_type = fields.Selection(
         '_get_selection_date_diff_date_type',
-        string='Date end type', default='now')
+        string='Date end type', default='now', track_visibility='onchange')
     condition_date_diff_date_end_field = fields.Many2one(
         'ir.model.fields', 'Date end field', ondelete='restrict',
-        domain=[('ttype', 'in', ('date', 'datetime'))])
+        domain=[('ttype', 'in', ('date', 'datetime'))],
+        track_visibility='onchange')
     condition_date_diff_date_end_date = fields.Date(
-        'Date end', default=fields.Date.today)
+        'Date end', default=fields.Date.today, track_visibility='onchange')
     condition_date_diff_date_end_datetime = fields.Datetime(
-        'Date end', default=fields.Datetime.now)
+        'Date end', default=fields.Datetime.now, track_visibility='onchange')
 
     # Date difference fields: check rules
     condition_date_diff_operator = fields.Selection(
         '_get_selection_date_diff_operator',
-        string='Date diff operator')
+        string='Date diff operator', track_visibility='onchange')
     condition_date_diff_uom = fields.Selection(
         '_get_selection_date_diff_uom',
         string='Date diff UoM',
-        help='Choose Unit of Measurement for date diff here')
+        help='Choose Unit of Measurement for date diff here',
+        track_visibility='onchange')
     condition_date_diff_value = fields.Integer('Date diff value')
     condition_date_diff_absolute = fields.Boolean(
         'Absolute', default=False,
         help='If checked, then absolute date difference will be checked. '
-             '(date difference will be positive always)')
+             '(date difference will be positive always)',
+        track_visibility='onchange')
 
     # Simple field conditions
     condition_simple_field_field_id = fields.Many2one(
         'ir.model.fields', 'Check field', ondelete='restrict',
         domain=[('ttype', 'in', ('boolean', 'char', 'text',
                                  'html', 'float',
-                                 'integer', 'selection'))])
+                                 'integer', 'selection'))],
+        track_visibility='onchange')
     condition_simple_field_type = fields.Selection(
         related='condition_simple_field_field_id.ttype',
-        related_sudo=True, string='Field type', readonly=True)
+        related_sudo=True, string='Field type', readonly=True,
+        track_visibility='onchange')
     condition_simple_field_value_boolean = fields.Selection(
-        [('true', 'True'), ('false', 'False')], 'Value')
-    condition_simple_field_value_char = fields.Char('Value')
-    condition_simple_field_value_float = fields.Float('Value')
-    condition_simple_field_value_integer = fields.Integer('Value')
-    condition_simple_field_value_selection = fields.Char('Value')
+        [('true', 'True'), ('false', 'False')], 'Value',
+        track_visibility='onchange')
+    condition_simple_field_value_char = fields.Char(
+        'Value', track_visibility='onchange')
+    condition_simple_field_value_float = fields.Float(
+        'Value', track_visibility='onchange')
+    condition_simple_field_value_integer = fields.Integer(
+        'Value', track_visibility='onchange')
+    condition_simple_field_value_selection = fields.Char(
+        'Value', track_visibility='onchange')
     condition_simple_field_selection_operator = fields.Selection(
-        '_get_selection_simple_field_selection_operator', 'Operator')
+        '_get_selection_simple_field_selection_operator', 'Operator',
+        track_visibility='onchange')
     condition_simple_field_number_operator = fields.Selection(
-        '_get_selection_simple_field_number_operator', 'Operator')
+        '_get_selection_simple_field_number_operator', 'Operator',
+        track_visibility='onchange')
     condition_simple_field_string_operator = fields.Selection(
-        '_get_selection_simple_field_string_operator', 'Operator')
+        '_get_selection_simple_field_string_operator', 'Operator',
+        track_visibility='onchange')
     condition_simple_field_string_operator_html = fields.Selection(
-        '_get_selection_simple_field_string_operator_html', 'Operator')
+        '_get_selection_simple_field_string_operator_html', 'Operator',
+        track_visibility='onchange')
     condition_simple_field_string_operator_icase = fields.Boolean(
-        'Case insensitive')
+        'Case insensitive', track_visibility='onchange')
     condition_simple_field_string_operator_regex = fields.Boolean(
-        'Regular expression')
+        'Regular expression', track_visibility='onchange')
 
     # Related field conditions
     condition_related_field_field_id = fields.Many2one(
@@ -361,40 +389,47 @@ class GenericCondition(models.Model):
         string='Related Model',
         related='condition_related_field_field_id.relation',
         related_sudo=True, readonly=True,
-        help="Technical name of related field's model")
+        help="Technical name of related field's model",
+        track_visibility='onchange')
     condition_related_field_operator = fields.Selection(
-        '_get_selection_related_field_operator', 'Operator')
-    condition_related_field_value_id = fields.Integer('Value')
+        '_get_selection_related_field_operator', 'Operator',
+        track_visibility='onchange')
+    condition_related_field_value_id = fields.Integer(
+        'Value', track_visibility='onchange')
 
     # Monetary field conditions
     # Value monetary fields
     condition_monetary_field_id = fields.Many2one(
         'ir.model.fields', 'Field', ondelete='restrict',
-        domain=[('ttype', '=', 'monetary')])
+        domain=[('ttype', '=', 'monetary')], track_visibility='onchange')
     condition_monetary_currency_field_id = fields.Many2one(
         'ir.model.fields', 'Currency', ondelete='restrict',
         domain=[('ttype', '=', 'many2one'),
                 ('relation', '=', 'res.currency')],
-        help="Field with currency for field being checked")
+        help="Field with currency for field being checked",
+        track_visibility='onchange')
 
     # Monetary fields: check rules
     condition_monetary_operator = fields.Selection(
         '_get_selection_monetary_field_operator',
-        string='Operator')
+        string='Operator', track_visibility='onchange')
     condition_monetary_value = fields.Monetary(
         'Value',
-        currency_field='condition_monetary_value_currency_id')
+        currency_field='condition_monetary_value_currency_id',
+        track_visibility='onchange')
     condition_monetary_value_currency_id = fields.Many2one(
-        'res.currency', 'Currency', ondelete='restrict')
+        'res.currency', 'Currency', ondelete='restrict',
+        track_visibility='onchange')
     # Monetary fields: currency date
     condition_monetary_curency_date_type = fields.Selection(
         '_get_selection_currency_date_type',
-        string='Type', default='now')
+        string='Type', default='now', track_visibility='onchange')
     condition_monetary_curency_date_field_id = fields.Many2one(
         'ir.model.fields', 'Field', ondelete='restrict',
-        domain=[('ttype', 'in', ('date', 'datetime'))])
+        domain=[('ttype', 'in', ('date', 'datetime'))],
+        track_visibility='onchange')
     condition_monetary_curency_date_date = fields.Date(
-        'Date', default=fields.Date.today)
+        'Date', default=fields.Date.today, track_visibility='onchange')
 
     @api.model
     def default_get(self, field_names):
