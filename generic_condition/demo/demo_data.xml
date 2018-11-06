@@ -107,7 +107,7 @@
         <field name="name">Has contact 'Green'</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="type">related_conditions</field>
-        <field name="condition_rel_field_id" ref="base.field_res_partner_child_ids"/>
+        <field name="condition_rel_field_id" ref="base.field_res_partner__child_ids"/>
 
         <!-- Find records that satisfy all following conditions (all partner contacts)-->
         <field name="condition_rel_filter_conditions_operator">and</field>
@@ -125,7 +125,7 @@
         <field name="name">Has only contacts</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="type">related_conditions</field>
-        <field name="condition_rel_field_id" ref="base.field_res_partner_child_ids"/>
+        <field name="condition_rel_field_id" ref="base.field_res_partner__child_ids"/>
 
         <field name="condition_rel_record_operator">match</field>
         <field name="condition_rel_conditions_operator">and</field>
@@ -137,7 +137,7 @@
         <field name="name">Country: Ukraine</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="type">related_field</field>
-        <field name="condition_related_field_field_id" ref="base.field_res_partner_country_id"/>
+        <field name="condition_related_field_field_id" ref="base.field_res_partner__country_id"/>
         <field name="condition_related_field_operator">contains</field>
         <field name="condition_related_field_value_id" ref="base.ua"/>
     </record>
