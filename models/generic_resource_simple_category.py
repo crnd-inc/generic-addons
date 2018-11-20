@@ -18,8 +18,7 @@ class GenericResourceSimpleCategory(models.Model):
     parent_id = fields.Many2one(
         'generic.resource.simple.category', 'Parent Category',
         index=True, ondelete='restrict')
-    parent_left = fields.Integer('Left Parent', index=True)
-    parent_right = fields.Integer('Right Parent', index=True)
+    parent_path = fields.Char(index=True)
 
     _sql_constraints = [
         ('category_unique', 'unique(parent_id, name)',
