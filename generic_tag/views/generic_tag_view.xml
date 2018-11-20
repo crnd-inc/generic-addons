@@ -15,7 +15,8 @@
     <menuitem id="menu_generic_tags_configuration_root"
                 parent="generic_tag.menu_generic_tags_root"
                 sequence="220"
-                name="Configuration"/>
+                name="Configuration"
+                groups="group_tags_manager"/>
 
     <record id="view_generic_tag_search" model="ir.ui.view">
         <field name="name">generic.tag.search</field>
