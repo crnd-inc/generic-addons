@@ -1,4 +1,4 @@
-from openerp.tests.common import (at_install,
+from odoo.tests.common import (at_install,
                                   post_install,
                                   TransactionCase)
 

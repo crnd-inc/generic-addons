@@ -1,4 +1,4 @@
-from openerp.tests.common import SavepointCase
+from odoo.tests.common import SavepointCase
 
 try:
     from freezegun import freeze_time

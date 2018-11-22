@@ -1,5 +1,5 @@
-from openerp.tests.common import SavepointCase
-from openerp.exceptions import AccessError
+from odoo.tests.common import SavepointCase
+from odoo.exceptions import AccessError
 import logging
 _logger = logging.getLogger(__name__)
 

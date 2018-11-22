@@ -1,4 +1,4 @@
-from openerp import models
+from odoo import models
 
 
 class PurchaseOrder(models.Model):
