@@ -1,13 +1,5 @@
-image: 10.100.98.41:5000/crnd-docker/crnd-simple:11.0-maao
-
 variables:
     SERIES_BRANCH: '11.0'
-    POSTGRES_USER: odoo
-    POSTGRES_PASSWORD: odoo
-
-    ODOO_DB_HOST: 10.100.98.41-maao-docker-maao-ci-postgres
-    ODOO_DB_USER: odoo
-    ODOO_DB_PASSWORD: odoo
     ODOO_ADMIN_PASS: admin
 
 cache:
@@ -20,6 +12,7 @@ stages:
     - translation
 
 build_env:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
         - pwd
@@ -29,16 +22,19 @@ build_env:
         - odoo-helper status --tools-versions --ci-tools-versions
 
 flake8:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
         - odoo-helper test flake8 .
 
 pylint:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
         - odoo-helper test pylint .
 
 bandit:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     before_script:
         - odoo-helper pip install bandit
@@ -46,22 +42,22 @@ bandit:
         - odoo-helper exec bandit -r .
 
 stylelint:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
         - odoo-helper lint style .
 
-#check-versions:
-    #stage: static-test
-    #script:
-        #- odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
-    #only:
-        #- /^11.0-.*$/   # only branches that started with '11.0-'
+check-versions:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
+    stage: static-test
+    script:
+        - odoo-helper ci check-versions-git --repo-version . origin/$SERIES_BRANCH $CI_COMMIT_SHA
+    only:
+        - /^11.0-.*$/   # only branches that started with '11.0-'
 
 tests:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: test
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
-
     before_script:
         - odoo-helper link .
     script:
@@ -69,18 +65,12 @@ tests:
         - odoo-helper exec coverage report --fail-under=90
         - odoo-helper exec coverage html -d html-coverage
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
-    artifacts:
-        paths:
-            - html-coverage
 
 migration_tests:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db
-
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
-
     before_script:
         - git checkout $SERIES_BRANCH
         - git pull
@@ -99,23 +89,10 @@ migration_tests:
         - /^11.0-.*$/   # only branches that started with '11.0-'
 
 translation_rate_ua:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: translation 
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
-
     before_script:
         - odoo-helper link .
     script:
         - odoo-helper --use-unbuffer tr rate --lang uk_UA --min-total-rate 70 $(odoo-helper addons list .)
-    coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
-
-translation_rate_ru:
-    stage: translation
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
-
-    before_script:
-        - odoo-helper link .
-    script:
-        - odoo-helper --use-unbuffer tr rate --lang ru_RU $(odoo-helper addons list .)
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
