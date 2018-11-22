@@ -1,6 +1,5 @@
-from openerp.tests.common import (at_install,
-                                  post_install,
-                                  TransactionCase)
+from odoo.tests.common import (
+    at_install, post_install, TransactionCase)
 
 
 @at_install(False)

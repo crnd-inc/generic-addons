@@ -1,20 +1,20 @@
 {
-    "name": "Generic Condition - Test",
-    "version": "11.0.1.0.7",
+    "name": "Generic Tag - Test",
+    "version": "11.0.1.0.5",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
-    "summary": "Generic Conditions - Tests (do not install manualy)",
+    "summary": "Generic Tag - Tests (do not install manualy)",
     'category': 'Technical Settings',
     'depends': [
-        'generic_condition',
+        'generic_tag',
     ],
     'data': [
-        'security/security.xml',
         'security/ir.model.access.csv',
     ],
     'demo': [
-        'demo/test_model_demo.xml',
+        'demo/res_groups.xml',
+        'demo/demo.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,

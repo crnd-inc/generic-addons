@@ -1,9 +1,9 @@
 import traceback
 
-from openerp import models, fields, api
-from openerp.tools.translate import _
-from openerp.tools import ustr
-from openerp.exceptions import ValidationError
+from odoo import models, fields, api
+from odoo.tools.translate import _
+from odoo.tools import ustr
+from odoo.exceptions import ValidationError
 
 from ..debug_logger import DebugLogger
 

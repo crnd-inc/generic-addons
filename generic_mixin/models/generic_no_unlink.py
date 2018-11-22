@@ -1,6 +1,6 @@
-from openerp import api, models, _
-from openerp.osv.expression import FALSE_DOMAIN
-from openerp.exceptions import UserError
+from odoo import api, models, _
+from odoo.osv.expression import FALSE_DOMAIN
+from odoo.exceptions import UserError
 
 
 class GenericMixinNoUnlink(models.AbstractModel):
