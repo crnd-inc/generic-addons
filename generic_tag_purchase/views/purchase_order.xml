@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form/sheet/div/h1" position="after">
                 <h3><field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'purchase.order'}"/>
@@ -16,6 +17,7 @@
             <xpath expr="//form/sheet/notebook//field[@name='order_line']/tree//field[@name='price_subtotal']"
                    position="after">
                 <field name="tag_ids"
+                       options="{'color_field': 'color'}"
                        widget="many2many_tags"
                        placeholder="Tags..."
                        context="{'default_model': 'purchase.order.line'}"/>
@@ -24,6 +26,7 @@
             <xpath expr="//form/sheet/notebook//field[@name='order_line']/form//field[@name='date_planned']"
                    position="after">
                 <field name="tag_ids"
+                       options="{'color_field': 'color'}"
                        widget="many2many_tags"
                        placeholder="Tags..."
                        context="{'default_model': 'purchase.order.line'}"/>
@@ -39,6 +42,7 @@
             <data>
                 <field name="state" position="after">
                     <field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'purchase.order'}"/>
@@ -53,7 +57,8 @@
         <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="tag_ids"/>
+                <field name="tag_ids"
+                       options="{'color_field': 'color'}"/>
                 <field name="search_tag_id"/>
                 <field name="search_no_tag_id"/>
             </field>

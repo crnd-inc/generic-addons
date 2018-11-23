@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <field name="name" position="after">
                     <field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'product.product'}"/>
@@ -22,6 +23,7 @@
             <data>
                 <field name="barcode" position="after">
                     <field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'product.product'}"/>
@@ -36,7 +38,8 @@
         <field name="inherit_id" ref="product.product_search_form_view"/>
         <field name="arch" type="xml">
             <field name="product_tmpl_id" position="after">
-                <field name="tag_ids"/>
+                <field name="tag_ids"
+                       options="{'color_field': 'color'}"/>
                 <field name="search_tag_id"/>
                 <field name="search_no_tag_id"/>
             </field>
@@ -52,6 +55,7 @@
             <data>
                 <div name="tags" position="before">
                     <field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'product.product'}"/>
