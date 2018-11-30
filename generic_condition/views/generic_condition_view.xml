@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_generic_condition_root" name="Generic Conditions"
-              parent="base.menu_custom" />
-
     <!-- Generic Condition Views -->
     <record id="generic_condition_search_view" model="ir.ui.view">
         <field name="name">generic.condition.search</field>
