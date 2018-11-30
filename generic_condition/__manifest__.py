@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition",
-    "version": "11.0.1.2.10",
+    "version": "11.0.1.2.11",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -12,6 +12,7 @@
         'web',
         'mail',
         'generic_m2o',
+        'generic_rule',
     ],
     'demo': [
         'demo/demo_data.xml',
