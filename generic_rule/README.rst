@@ -1,5 +1,5 @@
-Generic Request Actions
-=======================
+Generic Rule
+============
 
 .. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
     :target: https://www.odoo.com/documentation/user/12.0/legal/licenses/licenses.html#odoo-apps
@@ -11,15 +11,11 @@ Generic Request Actions
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
     
-.. |badge4| image:: https://img.shields.io/badge/docs-Generic_Request_Actions-yellowgreen.png
-    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Request_Actions_admin_eng
 
 
-|badge2| |badge4| |badge5|
+|badge2| |badge5|
 
-Generic Rule is a base module for access to rules menus
-
-Read the `Generic Rule Module Guide <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Condition_admin_eng/>`__ for more information.
+Generic Rule module adds new top-level menu 'rules'.
 
 
 This module is part of the Bureaucrat ITSM project. 
@@ -35,8 +31,8 @@ Create your own `Bureaucrat ITSM <https://yodoo.systems/saas/template/itsm-16>`_
 Bug Tracker
 ===========
 
-Bugs are tracked on `https://crnd.pro/requests <https://crnd.pro/requests>`_.
-In case of trouble, please report there.
+Bugs are tracked on `GitHub Issues <https://github.com/crnd-inc/generic-addons/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
 
 Maintainer
 ''''''''''

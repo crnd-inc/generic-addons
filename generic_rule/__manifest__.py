@@ -2,14 +2,14 @@
     'name': "Generic Rule",
 
     'summary': """
-        Generic Rule
+        Adds new top-level menu 'rules'
     """,
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '11.0.1.0.1',
+    'version': '11.0.1.0.2',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -20,7 +20,7 @@
         'views/generic_rule_menu.xml'
     ],
 
-    'images': [],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'LGPL-3',
