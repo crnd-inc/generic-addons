@@ -577,6 +577,6 @@
     <!--menus -->
     <menuitem id="menu_generic_condition"
               name="Generic Conditions"
-              parent="menu_generic_condition_root" sequence="60"
+              parent="generic_rule.menu_generic_rule" sequence="60"
               action="generic_condition_action"/>
 </odoo>

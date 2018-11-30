@@ -12,6 +12,7 @@
         'web',
         'mail',
         'generic_m2o',
+        'generic_rule',
     ],
     'demo': [
         'demo/demo_data.xml',
