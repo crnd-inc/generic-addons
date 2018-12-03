@@ -3,5 +3,10 @@
     <menuitem id="menu_generic_rule"
               name="Rules"
               parent=""
-              groups="base.group_system"/>
+              groups="base.group_system"
+              sequence="120"/>
+    <menuitem id="menu_generic_rule_configuration"
+              name="Configuration"
+              parent="menu_generic_rule"
+              sequence="150"/>
 </odoo>
