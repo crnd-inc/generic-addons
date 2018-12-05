@@ -1,6 +1,6 @@
-from openerp import api, models, _
-from openerp.exceptions import ValidationError
-from openerp.osv import expression
+from odoo import api, models, _
+from odoo.exceptions import ValidationError
+from odoo.osv import expression
 
 
 # Inspired by default product.category implementation

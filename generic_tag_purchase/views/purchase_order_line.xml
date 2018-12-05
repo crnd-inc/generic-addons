@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form/sheet/h1" position="after">
                 <h3><field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'purchase.order.line'}"/>
@@ -24,6 +25,7 @@
             <data>
                 <field name="date_planned" position="after">
                     <field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'purchase.order.line'}"/>
@@ -38,7 +40,8 @@
         <field name="inherit_id" ref="purchase.purchase_order_line_search"/>
         <field name="arch" type="xml">
             <field name="product_id" position="after">
-                <field name="tag_ids"/>
+                <field name="tag_ids"
+                       options="{'color_field': 'color'}"/>
                 <field name="search_tag_id"/>
                 <field name="search_no_tag_id"/>
             </field>

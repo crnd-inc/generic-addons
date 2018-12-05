@@ -7,10 +7,14 @@
         <field name="inherit_id" ref="base_automation.view_base_automation_form"/>
         <field name="arch" type="xml">
             <field name="state" position="after">
-                <field name="act_add_tag_ids" widget="many2many_tags"
+                <field name="act_add_tag_ids"
+                       options="{'color_field': 'color'}"
+                       widget="many2many_tags"
                        attrs="{'invisible':[('state','!=','set_tag')]}"
                        context="{'default_model': model_name}"/>
-                <field name="act_remove_tag_ids" widget="many2many_tags"
+                <field name="act_remove_tag_ids"
+                       options="{'color_field': 'color'}"
+                       widget="many2many_tags"
                        attrs="{'invisible':[('state','!=','set_tag')]}"
                        context="{'default_model': model_name}"/>
             </field>

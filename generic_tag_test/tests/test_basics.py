@@ -1,6 +1,6 @@
-from openerp.tests.common import SavepointCase
-from openerp.exceptions import ValidationError
-from openerp.tools.misc import mute_logger
+from odoo.tests.common import SavepointCase
+from odoo.exceptions import ValidationError
+from odoo.tools.misc import mute_logger
 from psycopg2 import IntegrityError
 import logging
 _logger = logging.getLogger(__name__)

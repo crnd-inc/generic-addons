@@ -1,9 +1,9 @@
 import collections
 
-from openerp import models, fields, api
-from openerp.tools.translate import _
-from openerp.exceptions import ValidationError
-from openerp.osv import expression
+from odoo import models, fields, api
+from odoo.tools.translate import _
+from odoo.exceptions import ValidationError
+from odoo.osv import expression
 
 import logging
 _logger = logging.getLogger(__name__)
