@@ -1,5 +1,5 @@
 variables:
-    SERIES_BRANCH: '11.0'
+    SERIES_BRANCH: '12.0'
     ODOO_ADMIN_PASS: admin
 
 cache:
@@ -12,7 +12,7 @@ stages:
     - translation
 
 build_env:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
         - pwd
@@ -22,19 +22,19 @@ build_env:
         - odoo-helper status --tools-versions --ci-tools-versions
 
 flake8:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
         - odoo-helper test flake8 .
 
 pylint:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
         - odoo-helper test pylint .
 
 bandit:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     before_script:
         - odoo-helper pip install bandit
@@ -42,21 +42,21 @@ bandit:
         - odoo-helper exec bandit -r .
 
 stylelint:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
         - odoo-helper lint style .
 
 check-versions:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
         - odoo-helper ci check-versions-git --repo-version . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
-        - /^11.0-.*$/   # only branches that started with '11.0-'
+        - /^12.0-.*$/   # only branches that started with '12.0-'
 
 tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     stage: test
     before_script:
         - odoo-helper link .
@@ -67,7 +67,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 migration_tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db
@@ -86,10 +86,10 @@ migration_tests:
         - odoo-helper exec coverage report --fail-under=90
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
-        - /^11.0-.*$/   # only branches that started with '11.0-'
+        - /^12.0-.*$/   # only branches that started with '12.0-'
 
 translation_rate_ua:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     stage: translation 
     before_script:
         - odoo-helper link .
