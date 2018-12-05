@@ -1,24 +1,26 @@
 {
-    'name': "Generic Tag (Automation)",
+    'name': "Generic Tag (Automation) - Test",
 
     'summary': """
     """,
 
     'author': "Center of Research & Development",
     'website': "https://crnd.pro",
-    'category': 'Generic Tags',
-    'version': '11.0.1.0.4',
+    'category': 'Uncategorized',
+    'version': '11.0.1.0.5',
 
     "depends": [
-        "generic_tag",
-        "base_automation",
+        "generic_tag_automation",
+        "generic_tag_test"
     ],
 
     "data": [
-        'views/base_automation_view.xml',
+    ],
+    "demo": [
+        "demo/base_automation_demo.xml"
     ],
     'images': ['static/description/banner.png'],
     "installable": True,
-    "auto_install": True,
+    "auto_install": False,
     'license': 'LGPL-3',
 }

@@ -1,7 +1,7 @@
-from openerp import models, fields, api
-from openerp.tools.translate import _
-from openerp.tools.safe_eval import safe_eval
-from openerp.exceptions import ValidationError, UserError
+from odoo import models, fields, api
+from odoo.tools.translate import _
+from odoo.tools.safe_eval import safe_eval
+from odoo.exceptions import ValidationError, UserError
 
 from ..utils import str_to_datetime
 from ..debug_logger import DebugLogger

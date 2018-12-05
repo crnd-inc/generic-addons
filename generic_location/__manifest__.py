@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.1.5',
+    'version': '11.0.1.1.6',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -31,5 +31,5 @@
     'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
-    'license': 'LGPL-3',
+    "license": "LGPL-3",
 }

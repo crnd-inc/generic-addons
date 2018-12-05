@@ -6,7 +6,8 @@
         <field name="inherit_id" ref="sale.view_sales_order_filter"/>
         <field name="arch" type="xml">
             <field name="product_id" position="after">
-                <field name="tag_ids"/>
+                <field name="tag_ids"
+                       options="{'color_field': 'color'}"/>
                 <field name="search_tag_id"/>
                 <field name="search_no_tag_id"/>
             </field>
@@ -20,6 +21,7 @@
         <field name="arch" type="xml">
             <field name="state" position="after">
                 <field name="tag_ids"
+                       options="{'color_field': 'color'}"
                        widget="many2many_tags"
                        placeholder="Tags..."/>
             </field>
@@ -33,6 +35,7 @@
         <field name="arch" type="xml">
             <field name="state" position="after">
                 <field name="tag_ids"
+                       options="{'color_field': 'color'}"
                        widget="many2many_tags"
                        placeholder="Tags..."
                        context="{'default_model': 'sale.order'}"/>
@@ -48,6 +51,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form/sheet/div/h1" position="after">
                 <h3><field name="tag_ids"
+                           options="{'color_field': 'color'}"
                            widget="many2many_tags"
                            placeholder="Tags..."
                            context="{'default_model': 'sale.order'}"/>
@@ -56,6 +60,7 @@
             <xpath expr="//form/sheet/notebook//field[@name='order_line']/form//field[@name='tax_id']"
                    position="before">
                 <field name="tag_ids"
+                       options="{'color_field': 'color'}"
                        widget="many2many_tags"
                        placeholder="Tags..."
                        context="{'default_model': 'sale.order.line'}"/>
@@ -63,6 +68,7 @@
             <xpath expr="//form/sheet/notebook//field[@name='order_line']/tree//field[@name='price_subtotal']"
                    position="after">
                 <field name="tag_ids"
+                       options="{'color_field': 'color'}"
                        widget="many2many_tags"
                        placeholder="Tags..."
                        context="{'default_model': 'sale.order.line'}"/>

@@ -1,23 +1,22 @@
 {
-    "name": "Generic Tag - Test",
-    "version": "11.0.1.0.4",
+    "name": "Generic Condition - Action Rules",
+    "version": "11.0.1.0.6",
     "author": "Center of Research & Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
-    "summary": "Generic Tag - Tests (do not install manualy)",
+    "summary": "Generic Conditions (Integration with Action Rules)",
     'category': 'Technical Settings',
     'depends': [
-        'generic_tag',
-    ],
-    'data': [
-        'security/ir.model.access.csv',
+        'generic_condition',
+        'base_automation',
     ],
     'demo': [
-        'demo/res_groups.xml',
         'demo/demo.xml',
+    ],
+    'data': [
+        'views/base_automation.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
-    'auto_install': False,
-    'application': False,
+    'auto_install': True,
 }

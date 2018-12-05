@@ -1,7 +1,7 @@
-from openerp.tools.misc import mute_logger
-from openerp.tests.common import SavepointCase
-from openerp.tools.translate import _
-from openerp.exceptions import ValidationError, UserError
+from odoo.tools.misc import mute_logger
+from odoo.tests.common import SavepointCase
+from odoo.tools.translate import _
+from odoo.exceptions import ValidationError, UserError
 
 
 class TestCondition(SavepointCase):

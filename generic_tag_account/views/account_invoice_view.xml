@@ -6,7 +6,8 @@
         <field name="inherit_id" ref="account.view_account_invoice_filter"/>
         <field name="arch" type="xml">
             <field name="number" position="after">
-                <field name="tag_ids"/>
+                <field name="tag_ids"
+                       options="{'color_field': 'color'}"/>
                 <field name="search_tag_id"/>
                 <field name="search_no_tag_id"/>
             </field>
@@ -19,7 +20,10 @@
         <field name="inherit_id" ref="account.invoice_tree"/>
         <field name="arch" type="xml">
             <field name="state" position="after">
-                <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+                <field name="tag_ids"
+                       options="{'color_field': 'color'}"
+                       widget="many2many_tags"
+                       placeholder="Tags..."/>
             </field>
         </field>
     </record>
@@ -30,7 +34,10 @@
         <field name="inherit_id" ref="account.invoice_supplier_tree"/>
         <field name="arch" type="xml">
             <field name="state" position="after">
-                <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+                <field name="tag_ids"
+                       options="{'color_field': 'color'}"
+                       widget="many2many_tags"
+                       placeholder="Tags..."/>
             </field>
         </field>
     </record>
@@ -42,6 +49,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form//sheet/div/h1" position="after">
                 <field name="tag_ids"
+                        options="{'color_field': 'color'}"
                         widget="many2many_tags"
                         placeholder="Tags..."
                         context="{'default_model': 'account.invoice'}"/>
@@ -56,6 +64,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form//sheet/h1" position="after">
                 <field name="tag_ids"
+                        options="{'color_field': 'color'}"
                         widget="many2many_tags"
                         placeholder="Tags..."
                         context="{'default_model': 'account.invoice'}"/>

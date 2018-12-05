@@ -1,5 +1,5 @@
-from openerp.tests.common import SavepointCase
-from openerp.exceptions import ValidationError
+from odoo.tests.common import SavepointCase
+from odoo.exceptions import ValidationError
 
 
 class TestCondition(SavepointCase):
