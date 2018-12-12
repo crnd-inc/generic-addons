@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 15:35+0000\n"
+"PO-Revision-Date: 2018-12-12 15:35+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +21,7 @@ msgid "\n"
 "            Users in this group can manage tags (create / update / ...)\n"
 "        "
 msgstr "\n"
-"            Користувачі цієї групи можуть керувати тегами (створення / оновлення / ...)\n"
+"            Пользователи этой группы могут управлять тегами (создание / обновление / ...)\n"
 "        "
 
 #. module: generic_tag
@@ -28,7 +30,7 @@ msgid "\n"
 "            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
 "        "
 msgstr "\n"
-"            Користувачі цієї групи мають доступ до меню Теги. Але вони не можуть створювати чи редагувати теги.\n"
+"            Пользователи этой группы имеют доступ в меню Теги. Но они не могут создавать или редактировать теги.\n"
 "        "
 
 #. module: generic_tag
@@ -37,7 +39,7 @@ msgid "\n"
 "            Users in this group have access to tags that have same group that user have\n"
 "        "
 msgstr "\n"
-"            Користувачі цієї групи мають доступ до тегів, у яких вказана група в яку входить користувач\n"
+"            Пользователи этой группы имеют доступ к тегам, у которых указана группа, в которую входит пользователь\n"
 "        "
 
 #. module: generic_tag
@@ -54,40 +56,40 @@ msgstr "Активно"
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_all
 msgid "All Tags"
-msgstr "Всі теги"
+msgstr "Все теги"
 
 #. module: generic_tag
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tag_caegories_view
 #: model:ir.ui.menu,name:generic_tag.menu_action_generic_tag_categories_view
 msgid "Categories"
-msgstr "Категорії"
+msgstr "Категории"
 
 #. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_id_1543
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_id_1423
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Category"
-msgstr "Категорія"
+msgstr "Категория"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 msgid "Category code"
-msgstr "Код категорії"
+msgstr "Код категории"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:50
+#: code:addons/generic_tag/models/generic_tag.py:54
 #, python-format
 msgid "Category must be bound to same model as tag"
-msgstr "Категорія тега повинна бути зв'язаною з тією ж моделлю що і тег"
+msgstr "Категория должна быть связана с той же моделью, что и тег"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 msgid "Category name"
-msgstr "Назва категорії"
+msgstr "Название категории"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_check_xor
 msgid "Check XOR"
-msgstr "Виключне або (XOR)"
+msgstr "Исключенный или (XOR)"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_code
@@ -98,59 +100,64 @@ msgstr "Код"
 #. module: generic_tag
 #: sql_constraint:generic.tag.category:0
 msgid "Code of category must be unique"
-msgstr "Код категорії повинен бути унікальним"
+msgstr "Код категории должен быть уникальным"
 
 #. module: generic_tag
 #: sql_constraint:generic.tag:0
 msgid "Code of tag must be unique"
-msgstr "Код тега повинен бути унікальним"
+msgstr "Код тега должен быть уникальным"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_color
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_color
 msgid "Color"
-msgstr "Колір"
+msgstr "Цвет"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_comment
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_comment
 msgid "Comment"
-msgstr "Коментар"
+msgstr "Комментарий"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Comment..."
-msgstr "Коментар..."
+msgstr "Комментарий..."
 
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_configuration_root
 msgid "Configuration"
-msgstr "Конфігурація"
+msgstr "Конфигурация"
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_count
+msgid "Count (incl. archived)"
+msgstr "Количество (вкл. заарх.)"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_create_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_create_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_create_uid
 msgid "Created by"
-msgstr "Створив"
+msgstr "Создал"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_create_date
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_create_date
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_create_date
 msgid "Created on"
-msgstr "Створено"
+msgstr "Создано"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_comment
 msgid "Describe what this tag category is for"
-msgstr "Опишіть категорію"
+msgstr "Опишите категорию"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_comment
 msgid "Describe what this tag means"
-msgstr "Опишіть тег"
+msgstr "Опишите тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_display_name
@@ -159,7 +166,7 @@ msgstr "Опишіть тег"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin_display_name
 msgid "Display Name"
-msgstr "Назва для відображення"
+msgstr "Название для отображения"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_field_id
@@ -167,63 +174,63 @@ msgid "Fields"
 msgstr "Поля"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:166
+#: code:addons/generic_tag/models/generic_tag.py:170
 #, python-format
 msgid "Following (category - tags) pairs, break category XOR restriction:\n"
 "%s"
-msgstr "Наступні пари (категорія - теги), порушують умову виключного або (XOR) для категорії:\n"
+msgstr "Пары (категория - теги) нарушают условие исключенного или (XOR) для категории:\n"
 "%s"
 
 #. module: generic_tag
 #: sql_constraint:generic.tag.model:0
 msgid "For each Odoo model only one Tag Model could be created!"
-msgstr "Для кожної моделі Odoo лише одна модель тегів може бути створена!"
+msgstr "Для каждой модели Оду может быть создана только одна модель тегов!"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_complete_name
 msgid "Full name of tag (including category name)"
-msgstr "Повна назва тегу (включаючи назву категорії)"
+msgstr "Полное название тега (включая название категории)"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag
 msgid "Generic Tag"
-msgstr "Універсальний тег"
+msgstr "Универсальный тег"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_category
 msgid "Generic Tag Category"
-msgstr "Категорія універсальних тегів"
+msgstr "Категория универсальных тегов"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_model
 msgid "Generic Tag Model"
-msgstr "Модель універсальних тегів"
+msgstr "Модель универсальных тегов"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Group By..."
-msgstr "Група"
+msgstr "Группировать по..."
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_group_ids
 msgid "Groups"
-msgstr "Групи"
+msgstr "Группы"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_objects_count
 msgid "How many objects contains this tag"
-msgstr "Скільки об'єктів мають даний тег"
+msgstr "Сколько объектов содержат даный тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_tags_count
 msgid "How many tags related to this catgory"
-msgstr "Скільки тегів відносяться до цієї категорії"
+msgstr "Сколько тегов относится к этой категории"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_tags_count
 msgid "How many tags related to this model exists"
-msgstr "Скільки тегів відносяться до цієї моделі"
+msgstr "Сколько тегов относится к этой модели"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_id
@@ -237,17 +244,17 @@ msgstr "ID"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_modules
 msgid "In Apps"
-msgstr "В додатках"
+msgstr "В Приложениях"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_info
 msgid "Information"
-msgstr "Інформація"
+msgstr "Информация"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_inherited_model_ids
 msgid "Inherited models"
-msgstr "Успадковані моделі"
+msgstr "Унаследованные модели"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag___last_update
@@ -256,36 +263,36 @@ msgstr "Успадковані моделі"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model___last_update
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin___last_update
 msgid "Last Modified on"
-msgstr "Остання зміна"
+msgstr "Последнее изменение"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_write_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_write_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_write_uid
 msgid "Last Updated by"
-msgstr "Востаннє оновив"
+msgstr "Последний раз обновил"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_write_date
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_write_date
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_write_date
 msgid "Last Updated on"
-msgstr "Оновлено"
+msgstr "Последнее обновление"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_modules
 msgid "List of modules in which the object is defined or inherited"
-msgstr "Список модулів з визначеним або успадкованим об'єктом"
+msgstr "Список модулей с определенным или наследованным объектом"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_code
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_code
 msgid "May be used for special tags which have programmed bechavior"
-msgstr "Може бути використано для спеціальних тегів, що мають запрограмовану поведінку"
+msgstr "Может быть использовано для специальных тегов, которые имеют запрограммированное поведение"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_model_id
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_id_1529
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_id_1432
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin_model_id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_model
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_res_model_id
@@ -297,71 +304,72 @@ msgstr "Модель"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_name
 msgid "Model Description"
-msgstr "Опис"
+msgstr "Описание"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_category.py:59
+#: code:addons/generic_tag/models/generic_tag_category.py:57
 #, python-format
 msgid "Model must be same as one used in related tags"
-msgstr "Модель має бути та ж що і у пов'язаних тегах"
+msgstr "Модель должна быть такой же, как и в связанных тегах"
 
 #. module: generic_tag
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tag_models_view
 #: model:ir.ui.menu,name:generic_tag.menu_action_generic_tag_modeles_view
 msgid "Models"
-msgstr "Моделі"
+msgstr "Модели"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_complete_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_name
 msgid "Name"
-msgstr "Назва"
+msgstr "Название"
 
 #. module: generic_tag
 #: sql_constraint:generic.tag.category:0
 msgid "Name of category must be unique"
-msgstr "Назва категорії повинна бути унікальною"
+msgstr "Название категории должно быть уникальным"
 
 #. module: generic_tag
 #: sql_constraint:generic.tag:0
 msgid "Name of tag must be unique for category"
-msgstr "Назва тегу має бути унікальною для категорії"
+msgstr "Название тега должно быть уникальным для категории"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_no_tag_id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_search_no_tag_id
 msgid "No tag"
-msgstr "Немає тегу"
+msgstr "Нет тега"
 
 #. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_objects_count
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Objects"
-msgstr "Об'єкти"
+msgstr "Объекты"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:128
+#: code:addons/generic_tag/models/generic_tag.py:132
 #, python-format
 msgid "Objects related to tag %s"
-msgstr "Об'єкти пов'язані з тегом %s"
+msgstr "Объекты, связанные с тегом %s"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_tree
 msgid "Show Objects"
-msgstr "Показати об'єкти"
+msgstr "Показать объекты"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_tree
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_model_tree
 msgid "Show Tags"
-msgstr "Показати теги"
+msgstr "Показать теги"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_model_id
-#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_id_1529
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_id_1432
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_mixin_model_id
 msgid "Specify model for which this tag is available"
-msgstr "Вкажіть модель для якої цей тег буде доступний"
+msgstr "Укажите модель, для которой данный тег будет доступен"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_search_tag_id
@@ -371,17 +379,17 @@ msgstr "Тег"
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_manager
 msgid "Tag Manager"
-msgstr "Менеджер тегів"
+msgstr "Менеджер тегов"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_user
 msgid "Tag User"
-msgstr "Користувач тегів"
+msgstr "Пользователь тегов"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_user_restricted
 msgid "Tag User (restricted)"
-msgstr "Користувач тегів (обмежено)"
+msgstr "Пользователь тегов (ограничено)"
 
 #. module: generic_tag
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tags_view
@@ -389,7 +397,6 @@ msgstr "Користувач тегів (обмежено)"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_tags_count
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_tag_ids
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_tags_count
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_objects_count
 #: model:ir.ui.menu,name:generic_tag.menu_action_generic_tags_view
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_root
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
@@ -398,26 +405,31 @@ msgid "Tags"
 msgstr "Теги"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_category.py:69
+#: code:addons/generic_tag/models/generic_tag_category.py:67
 #, python-format
 msgid "Tags related to category %s"
-msgstr "Теги пов'язані з категорією %s"
+msgstr "Теги, связанные с категорией %s"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_model.py:40
+#: code:addons/generic_tag/models/generic_tag_model.py:39
 #, python-format
 msgid "Tags related to model %s"
-msgstr "Теги пов'язані з моделлю %s"
+msgstr "Теги, связанные с моделью %s"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_inherited_model_ids
 msgid "The list of models that extends the current model."
-msgstr "Список моделей, що розширюють поточну."
+msgstr "Список моделей, расширяющих текущую модель."
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_count
+msgid "Total number of records in this model"
+msgstr "Общее количество записей в этой модели"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_transient
 msgid "Transient Model"
-msgstr "Transient Model"
+msgstr "Временная модель"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_state
@@ -427,7 +439,7 @@ msgstr "Тип"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_view_ids
 msgid "Views"
-msgstr "Перегляди"
+msgstr "Просмотры"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_mixin
@@ -442,5 +454,5 @@ msgstr "generic.tag.model.mixin"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_check_xor
 msgid "if set to True then only one tag from this category may be present on a single object. On attempt to add second tag from this category to object, error will be raised"
-msgstr "якщо встановлено, то лише один тег цієї категорії моде бути присутній на одному об'єкті. При спробі додати другий тег цієї ж категорії до об'єкту, буде видано повідомлення про помилку"
+msgstr "Если установлено, то только один тег этой категории может присутствовать на одном объекте. При попытке добавить второй тег этой же категории к объекту, будет вызвана ошибка"
 
