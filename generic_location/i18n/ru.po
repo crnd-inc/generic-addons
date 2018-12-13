@@ -126,7 +126,7 @@ msgstr "Локация"
 #. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_manager
 msgid "Manage generic locations"
-msgstr "Менеджер локации"
+msgstr "Управляет настройкой локаций"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_image_medium
