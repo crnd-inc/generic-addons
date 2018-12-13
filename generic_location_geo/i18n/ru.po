@@ -20,7 +20,7 @@ msgstr ""
 msgid "<span class=\"oe_inline\"> ( </span>\n"
 "                        <span> Lat : </span>"
 msgstr "<span class=\"oe_inline\"> ( </span>\n"
-"                        <span> Lat : </span>"
+"                        <span> Шир : </span>"
 
 #. module: generic_location_geo
 #: model:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
