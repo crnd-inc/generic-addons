@@ -1,0 +1,132 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_location_address
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 16:38+0000\n"
+"PO-Revision-Date: 2018-12-12 16:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city
+msgid " City"
+msgstr " Город"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street
+msgid " Street"
+msgstr " Улица"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street2
+msgid " Street2"
+msgstr " Улица2"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__zip
+msgid " Zip"
+msgstr " Почтовый индекс"
+
+#. module: generic_location_address
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Address"
+msgstr "Адрес"
+
+#. module: generic_location_address
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Address Configuration"
+msgstr "Настройки адреса"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_city
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "City"
+msgstr "Город"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_country_id
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Country"
+msgstr "Страна"
+
+#. module: generic_location_address
+#: model:ir.model,name:generic_location_address.model_generic_location
+msgid "Location"
+msgstr "Локация"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_state_id
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "State"
+msgstr "Регион"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street
+msgid "Street"
+msgstr "Улица"
+
+#. module: generic_location_address
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Street 2..."
+msgstr "Улица 2..."
+
+#. module: generic_location_address
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Street..."
+msgstr "Улица..."
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street2
+msgid "Street2"
+msgstr "Улица2"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_city_use_parent
+msgid "Use Parent City"
+msgstr "Использовать родительский город"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_country_id_use_parent
+msgid "Use Parent Country"
+msgstr "Использовать родительскую страну"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_state_id_use_parent
+msgid "Use Parent State"
+msgstr "Use Parent State"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street_use_parent
+msgid "Use Parent Street"
+msgstr "Использовать родительскую улицу"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street2_use_parent
+msgid "Use Parent Street2"
+msgstr "Использовать родительскую улицу2"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_zip_use_parent
+msgid "Use Parent Zip"
+msgstr "Использовать родительский почтовый индекс"
+
+#. module: generic_location_address
+#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "ZIP"
+msgstr "Индекс"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_zip
+msgid "Zip"
+msgstr "Индекс"
+
