@@ -32,7 +32,7 @@
         <field name="implied_ids"
                eval="[(4, ref('generic_team.group_generic_team_user'))]"/>
         <field name="category_id" ref="base.module_category_generic_team"/>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         <field name="comment">
             Manager - full access
         </field>
