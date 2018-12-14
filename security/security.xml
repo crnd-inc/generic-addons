@@ -27,7 +27,7 @@
                eval="[(4, ref('generic_service.group_generic_service_user'))]"/>
         <field name="category_id" ref="base.module_category_generic_service"/>
         <field name="comment">Manage generic services</field>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 
     <!-- Rules -->
