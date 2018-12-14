@@ -19,7 +19,7 @@
                eval="[(4, ref('generic_location.group_generic_location_user'))]"/>
         <field name="category_id" ref="base.module_category_generic_location"/>
         <field name="comment">Manage generic locations</field>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
     <!-- Rules-->
     <record id="rule_generic_location_user_implicit" model="ir.rule">

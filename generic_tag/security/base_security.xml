@@ -30,7 +30,7 @@
         <field name="name">Tag Manager</field>
         <field name="implied_ids" eval="[(4, ref('generic_tag.group_tags_user'))]"/>
         <field name="category_id" ref="base.module_category_generic_tags"/>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         <field name="comment">
             Users in this group can manage tags (create / update / ...)
         </field>
