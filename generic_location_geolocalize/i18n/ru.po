@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_location_geolocalize
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-13 11:09+0000\n"
+"PO-Revision-Date: 2018-12-13 11:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_location_geolocalize
+#: model:ir.ui.view,arch_db:generic_location_geolocalize.generic_location_form_view
+msgid "Geolocalize"
+msgstr "Определить координаты"
+
+#. module: generic_location_geolocalize
+#: model:ir.model,name:generic_location_geolocalize.model_generic_location
+msgid "Location"
+msgstr "Локация"
+

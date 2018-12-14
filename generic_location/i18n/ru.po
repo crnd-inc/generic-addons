@@ -1,0 +1,184 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_location
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-12 14:57+0000\n"
+"PO-Revision-Date: 2018-12-12 14:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_location
+#: model:res.groups,comment:generic_location.group_generic_location_user
+msgid "Access generic locations"
+msgstr "Доступ к локации"
+
+#. module: generic_location
+#: model:res.groups,comment:generic_location.group_generic_location_user_implicit
+msgid "Access generic locations (no access to menu)"
+msgstr "Доступ к локации (без доступа к меню)"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_active
+msgid "Active"
+msgstr "Активно"
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_search_view
+msgid "Archived"
+msgstr "Заархивировано"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_child_count
+msgid "Child Count"
+msgstr "Сублокация"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_create_date
+msgid "Created on"
+msgstr "Дата создания"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_description
+msgid "Description"
+msgstr "Описание"
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Description..."
+msgstr "Описание..."
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_display_name
+msgid "Display Name"
+msgstr "Название для отображения"
+
+#. module: generic_location
+#: model:ir.ui.menu,name:generic_location.menu_generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Generic Location"
+msgstr "Локация"
+
+#. module: generic_location
+#: model:res.groups,name:generic_location.group_generic_location_manager
+msgid "Generic location manager"
+msgstr "Менеджер локаций"
+
+#. module: generic_location
+#: model:res.groups,name:generic_location.group_generic_location_user
+msgid "Generic location user"
+msgstr "Пользователь локаций"
+
+#. module: generic_location
+#: model:res.groups,name:generic_location.group_generic_location_user_implicit
+msgid "Generic location user (implicit)"
+msgstr "Пользователь локаций (implicit)"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_id
+msgid "ID"
+msgstr "ID"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image
+msgid "Image"
+msgstr "Изображение"
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Info"
+msgstr "Информация"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_write_uid
+msgid "Last Updated by"
+msgstr "Последний раз обновил"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: generic_location
+#: model:ir.actions.act_window,name:generic_location.generic_location_action
+#: model:ir.model,name:generic_location.model_generic_location
+#: model:ir.ui.menu,name:generic_location.archive_generic_location
+msgid "Location"
+msgstr "Локация"
+
+#. module: generic_location
+#: model:res.groups,comment:generic_location.group_generic_location_manager
+msgid "Manage generic locations"
+msgstr "Управляет настройкой локаций"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image_medium
+msgid "Medium-sized image"
+msgstr "Изображение средних размеров"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image_medium
+msgid "Medium-sized image of the location. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. "
+msgstr "Изображение локации средней величины. Оно автоматически меняет размер на 128x128px с сохранением соотношения сторон, если один из размеров превышает указанный. "
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_name
+msgid "Name"
+msgstr "Название"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_id
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Parent Location"
+msgstr "Родительская локация"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image_small
+msgid "Small-sized image"
+msgstr "Уменьшенное изображение"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image_small
+msgid "Small-sized image of the location. It is automatically resized as a 64x64px image, with aspect ratio preserved. "
+msgstr "Уменьшенное изображение локации. Оно автоматически меняет размер на 64x64px с сохранением соотношения сторон, если один из размеров превышает указанный. "
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Sublocation"
+msgstr "Сублокация"
+
+#. module: generic_location
+#: code:addons/generic_location/models/generic_location.py:79
+#: code:addons/generic_location/models/generic_location.py:80
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_child_ids
+#, python-format
+msgid "Sublocations"
+msgstr "Сублокации"
+
+#. module: generic_location
+#: sql_constraint:generic.location:0
+msgid "The title of the Location should not be the description"
+msgstr "Название и описание локации не должны совпадать"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image
+msgid "This field holds the image used as image for the location, limited to 1024x1024px."
+msgstr "Это поле содержит изображение, которое используется как изображение локации, ограниченное до размера 1024x1024px."
+
