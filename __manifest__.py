@@ -8,11 +8,11 @@
         instead of one person) while working with Odoo applications.
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Team',
-    'version': '12.0.1.0.10',
+    'version': '12.0.1.0.11',
 
     "depends": [
         'base',
