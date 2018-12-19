@@ -6,11 +6,11 @@
         objects location relative to the general location
         (for example: house3 -> office5 -> room2 -> table5)""",
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '12.0.1.1.8',
+    'version': '12.0.1.1.9',
 
     # any module necessary for this one to work correctly
     'depends': [
