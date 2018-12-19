@@ -5,11 +5,11 @@
     Technical module with generic mixins, that may help to build other modules
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '11.0.1.0.7',
+    'version': '11.0.1.0.8',
 
     # any module necessary for this one to work correctly
     'depends': [

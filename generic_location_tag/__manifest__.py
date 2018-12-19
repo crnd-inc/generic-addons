@@ -5,11 +5,11 @@
         This addon provides integration betwen *Generic
         Location* and *Generic Tag* addons""",
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.7',
+    'version': '11.0.1.0.8',
 
     # any module necessary for this one to work correctly
     'depends': ['generic_location', 'generic_tag'],

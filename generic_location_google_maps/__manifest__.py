@@ -4,11 +4,11 @@
     'summary': """
         Generic Location (View locations on google maps)""",
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.0.6',
+    'version': '11.0.1.0.7',
 
     # any module necessary for this one to work correctly
     'depends': [

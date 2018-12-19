@@ -5,11 +5,11 @@
         Adds new top-level menu 'rules'
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '11.0.1.0.4',
+    'version': '11.0.1.0.5',
 
     # any module necessary for this one to work correctly
     'depends': [
