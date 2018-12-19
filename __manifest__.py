@@ -7,7 +7,7 @@
         and modules.
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
     'version': '11.0.1.2.4',
