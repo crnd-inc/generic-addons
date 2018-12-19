@@ -6,11 +6,11 @@
         various resources that can be used in other Odoo modules.
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Resource',
-    'version': '12.0.1.1.2',
+    'version': '12.0.1.1.3',
 
     # any module necessary for this one to work correctly
     'depends': [
