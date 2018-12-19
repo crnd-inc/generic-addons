@@ -5,7 +5,7 @@
         Generic Location (Techinical addon that
         shows location tags on map view)""",
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',

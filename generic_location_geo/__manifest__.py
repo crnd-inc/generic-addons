@@ -3,7 +3,7 @@
 
     'summary': "Generic Location (Add geocoordinates to generic locations)",
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',

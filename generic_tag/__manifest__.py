@@ -5,7 +5,7 @@
         Generic tag management.
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',

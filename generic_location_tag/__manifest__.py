@@ -5,7 +5,7 @@
         This addon provides integration betwen *Generic
         Location* and *Generic Tag* addons""",
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',

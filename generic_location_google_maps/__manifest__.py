@@ -4,7 +4,7 @@
     'summary': """
         Generic Location (View locations on google maps)""",
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
