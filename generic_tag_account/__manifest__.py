@@ -5,11 +5,11 @@
         Generic tag integration with account addon
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '12.0.1.0.7',
+    'version': '12.0.1.0.8',
 
     "depends": [
         "generic_tag",

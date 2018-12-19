@@ -5,11 +5,11 @@
         Generic tag integration with sale addon
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '12.0.0.1.8',
+    'version': '12.0.0.1.9',
 
     "depends": [
         "generic_tag",
