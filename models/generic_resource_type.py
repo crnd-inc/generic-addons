@@ -3,7 +3,6 @@ from odoo import fields, models, api
 
 class GenericResourceType(models.Model):
     _name = 'generic.resource.type'
-    _inherits = {'ir.model': 'model_id'}
     _description = "Generic Resource Type"
 
     name = fields.Char(index=True, required=True, translate=True)
@@ -12,7 +11,7 @@ class GenericResourceType(models.Model):
         'ir.model', 'Model', required=True, index=True, auto_join=True,
         domain=[('transient', '=', False),
                 ('field_id.name', '=', 'resource_id')],
-        ondelete='restrict')
+        delegate=True, ondelete='restrict')
     resource_ids = fields.One2many(
         'generic.resource', 'res_type_id', string='Resources')
     resource_count = fields.Integer(compute="_compute_resource_count")
