@@ -33,13 +33,13 @@ flake8:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
-        - odoo-helper test flake8 .
+        - odoo-helper lint flake8 .
 
 pylint:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
-        - odoo-helper test pylint .
+        - odoo-helper lint pylint .
 
 bandit:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
