@@ -19,6 +19,15 @@ This addon can be used to store big numbers (greater than *2 147 483 647*) in da
 At this time this addon is in *alpha* stage, thus use it on your own risk.
 See `this issue <https://github.com/odoo/odoo/issues/8437>`__ for more details on possible errors.
 
+Usage
+=====
+
+1. Add *base_field_big_int* to dependency to your addon
+2. Import field class ``from odoo.addons.base_field_big_int.field import BigInt``
+3. Declare field ``my_field = BigInt('My Big Integer field')``
+
+Also it is possible to use this field as: ``my_field = odoo.fields.BigInt()``
+
 Known Bugs
 ==========
 

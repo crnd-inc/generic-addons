@@ -18,6 +18,18 @@
 </section>
 
 <section style="max-width: 896px; margin: 0 auto;">
+<h3>Usage</h3>
+<ol>
+<li>Add <i>base_field_big_int</i> as dependency to your addon</li>
+<li>Import field class <code>from odoo.addons.base_field_big_int.field import BigInt</code></li>
+<li>Declare field <code>my_field = BigInt('My Big Integer field')</code></li>
+</ol>
+<p>
+Also it is possible to use this field as: <code>my_field = odoo.fields.BigInt()</code>
+</p>
+</section>
+
+<section style="max-width: 896px; margin: 0 auto;">
 <h3>Known Bugs</h3>
 <ul>
 <li><i>BigInt</i> fields are not supported in <i>xmlrpc</i></li>
