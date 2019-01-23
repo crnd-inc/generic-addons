@@ -165,12 +165,12 @@ msgstr "Руководитель"
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team2
 msgid "Odoo development team"
-msgstr "Odoo development team"
+msgstr "Команда разработчиков Odoo"
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team1
 msgid "Odoo functional team"
-msgstr "Odoo functional team"
+msgstr "Функциональная команда Odoo"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_leader_image
