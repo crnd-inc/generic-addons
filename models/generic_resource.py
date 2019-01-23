@@ -34,7 +34,7 @@ class GenericResource(models.Model):
 
     @property
     def resource(self):
-        """ Property to easyly access implementation of this generic resource
+        """ Property to easily access implementation of this generic resource
         """
         self.ensure_one()
         # This case, when resource model is not present in pool, may
