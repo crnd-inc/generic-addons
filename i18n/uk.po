@@ -526,7 +526,7 @@ msgstr "Загальна кількість записів у цій модел�
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_transient
 msgid "Transient Model"
-msgstr "Transient Model"
+msgstr "Перехідна модель"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_res_type_id
