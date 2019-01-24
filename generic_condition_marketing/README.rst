@@ -17,8 +17,6 @@ Generic Conditions - Marketing
 
 |badge1| |badge2| |badge5|
 
-***This addon can not be installed because the marketing_campaign module is now part of Odoo Enterprise***
-
 Integration of Generic Conditions with standard Odoo marketing campaigns
 platform.
 

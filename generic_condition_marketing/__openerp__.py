@@ -20,6 +20,6 @@
         # 'wizard/test_condition_view.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': True,
 }
