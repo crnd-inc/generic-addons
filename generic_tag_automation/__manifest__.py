@@ -7,7 +7,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Tags',
-    'version': '11.0.1.0.8',
+    'version': '11.0.1.0.9',
 
     "depends": [
         "generic_tag",
