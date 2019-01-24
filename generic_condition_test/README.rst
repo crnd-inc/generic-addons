@@ -21,6 +21,7 @@ Test suit for generic condition addon.
 This addon just defines simple model, that is used inside tests.
 ***So you do not need to install this addon***
 
+**Warning! Currently Odoo version 10.0 do not have active support. Main development is on the 11.0 and 12.0 versions.**
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.

@@ -20,6 +20,7 @@ Generic Condition (Action rules integration)
 This addon provides basic integration of Generic Conditions with
 base_action_rule addon.
 
+**Warning! Currently Odoo version 10.0 do not have active support. Main development is on the 11.0 and 12.0 versions.**
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.

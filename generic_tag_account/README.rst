@@ -21,6 +21,7 @@ This addon integrates *Generic Tags* with *Account* Odoo addon.
 
 At this time, just adds generic tags to account invoices.
 
+**Warning! Currently Odoo version 10.0 do not have active support. Main development is on the 11.0 and 12.0 versions.**
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.

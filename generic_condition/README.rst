@@ -43,6 +43,7 @@ Here are some basic types of conditions that can be customized:
 
 Read the `Generic Condition Module Guide <https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Condition_admin_eng/>`__ for more information.
 
+**Warning! Currently Odoo version 10.0 do not have active support. Main development is on the 11.0 and 12.0 versions.**
 
 The Generic Condition module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.
