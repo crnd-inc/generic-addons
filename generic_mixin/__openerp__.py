@@ -6,17 +6,18 @@
     Technical module with generic mixins, that may help to build other modules
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '10.0.0.0.1',
+    'version': '10.0.0.0.2',
 
     # any module necessary for this one to work correctly
     'depends': [
         'base',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
-    'license': 'Other proprietary',
+    'license': 'LGPL-3',
 }

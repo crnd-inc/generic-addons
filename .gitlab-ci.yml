@@ -1,111 +1,163 @@
-image: 10.100.98.41:5000/maao-docker/maao-simple:10.0-maao
-
 variables:
     SERIES_BRANCH: '10.0'
-    POSTGRES_USER: odoo
-    POSTGRES_PASSWORD: odoo
-
-    ODOO_DB_HOST: 10.100.98.41-maao-docker-maao-ci-postgres
-    ODOO_DB_USER: odoo
-    ODOO_DB_PASSWORD: odoo
     ODOO_ADMIN_PASS: admin
+    CI_JOB_TOKEN_GIT_HOST: 'gitlab.crnd.pro'
 
-cache:
-    paths:
-        - "$HOME/.cache/pip"
+    PIP_CACHE_DIR: ".hidden-pip-cache"
+
+# Disable global cache
+cache: {}
+
+.pip_cache: &pip_cache_definition
+    cache:
+        key: ${CI_JOB_NAME}
+        paths:
+            - "${PIP_CACHE_DIR}"
 
 stages:
     - static-test
     - test
     - translation
+    - deploy
 
 build_env:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-simple
     stage: static-test
     script:
         - pwd
         - whoami
-        - python --version
         - odoo-helper --version
         - odoo-helper status --tools-versions --ci-tools-versions
 
 flake8:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-simple
     stage: static-test
     script:
-        - odoo-helper test flake8 .
+        - odoo-helper lint flake8 .
 
 pylint:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-simple
     stage: static-test
     script:
-        - odoo-helper test pylint .
+        - odoo-helper lint pylint .
 
 bandit:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-simple
     stage: static-test
+    <<: *pip_cache_definition
     before_script:
         - odoo-helper pip install bandit
     script:
         - odoo-helper exec bandit -r .
 
-tests:
-    stage: test
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
+stylelint:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-simple
+    stage: static-test
+    script:
+        - odoo-helper lint style .
 
+check-versions:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-simple
+    stage: static-test
+    script:
+        - odoo-helper ci check-versions-git --repo-version . origin/$SERIES_BRANCH $CI_COMMIT_SHA
+    only:
+        - /^10.0-.*$/   # only branches that started with '10.0-'
+    allow_failure: true
+
+tests:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-ci
+    stage: test
+    <<: *pip_cache_definition
     before_script:
         - odoo-helper link .
     script:
-        - odoo-helper --use-unbuffer test --coverage --create-test-db -d .
+        - odoo-helper --use-unbuffer test --coverage --create-test-db --dir .
         - odoo-helper exec coverage report --fail-under=90
-        - odoo-helper exec coverage html -d html-coverage
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
-    artifacts:
-        paths:
-            - html-coverage
 
 migration_tests:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-ci
     stage: test
+    <<: *pip_cache_definition
     variables:
         ODOO_DB_NAME: test-db
-
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
-
     before_script:
         - git checkout $SERIES_BRANCH
         - git pull
         - odoo-helper link .
         - odoo-helper --use-unbuffer db create --demo $ODOO_DB_NAME
-        - odoo-helper --use-unbuffer addons install -d $ODOO_DB_NAME $(odoo-helper addons list .)
+        - odoo-helper --use-unbuffer addons install -d $ODOO_DB_NAME --dir .
         - git checkout $CI_COMMIT_SHA
-        - rm -rf $(cat .removed_addons.txt)
         - odoo-helper link .
         - odoo-helper --use-unbuffer addons update-list
-        - odoo-helper --use-unbuffer addons update -d $ODOO_DB_NAME $(odoo-helper addons list .)
-        - odoo-helper --use-unbuffer addons uninstall -d $ODOO_DB_NAME $(cat ./removed_addons.txt)
+        - odoo-helper --use-unbuffer addons update -d $ODOO_DB_NAME --dir .
     script:
-        - odoo-helper --use-unbuffer test --coverage -d .
+        - odoo-helper --use-unbuffer test --coverage --dir .
         - odoo-helper exec coverage report --fail-under=90
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
         - /^10.0-.*$/   # only branches that started with '10.0-'
 
 translation_rate_ua:
-    stage: translation 
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
-
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-ci
+    stage: translation
+    <<: *pip_cache_definition
     before_script:
         - odoo-helper link .
     script:
-        - odoo-helper --use-unbuffer tr rate --lang uk_UA --min-total-rate 70 $(odoo-helper addons list .)
+        - odoo-helper --use-unbuffer tr rate --lang uk_UA --min-total-rate 70 --dir .
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
+    allow_failure: true
 
 translation_rate_ru:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:10.0-ci
     stage: translation
-    services:
-        - 10.100.98.41:5000/maao-docker/maao-ci-postgres
-
+    <<: *pip_cache_definition
     before_script:
         - odoo-helper link .
     script:
-        - odoo-helper --use-unbuffer tr rate --lang ru_RU $(odoo-helper addons list .)
+        - odoo-helper --use-unbuffer tr rate --lang ru_RU --min-total-rate 70 --dir .
     coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
+    allow_failure: true
+
+.deploy_review_definition: &deploy_review_definition
+    stage: deploy
+    variables:
+    before_script:
+        - ci-review-app init
+    script:
+        - ci-review-app start
+    tags:
+        - traefic
+        - review-apps
+        - deploy
+
+deploy_review_dev:
+    <<: *deploy_review_definition
+    environment:
+        name: review/$CI_COMMIT_REF_NAME
+        url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci3.crnd.pro
+        on_stop: stop_review_dev
+    only:
+        - /^10.0-.*$/   # only branches that started with '10.0-'
+    when: manual
+
+stop_review_dev:
+    stage: deploy
+    environment:
+        name: review/$CI_COMMIT_REF_NAME
+        action: stop
+    variables:
+        GIT_STRATEGY: none
+    script:
+        - ci-review-app stop
+    when: manual
+    tags:
+        - traefic
+        - review-apps
+        - deploy
+    only:
+        - /^10.0-.*$/   # only branches that started with '10.0-'
+
+

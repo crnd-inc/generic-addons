@@ -3,7 +3,6 @@ odoo.define('web.widgets.fake_selection_widget', function (require) {
 
 var core = require('web.core');
 var Model = require('web.DataModel');
-var session = require('web.session');
 
 var field_selection = core.form_widget_registry.get('selection');
 

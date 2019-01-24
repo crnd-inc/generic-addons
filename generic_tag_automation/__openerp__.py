@@ -5,10 +5,10 @@
     'summary': """
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Tags',
-    'version': '10.0.0.0.1',
+    'version': '10.0.0.0.2',
 
     "depends": [
         "generic_tag",
@@ -18,7 +18,8 @@
     "data": [
         'views/base_action_rule_view.xml',
     ],
+    'images': ['static/description/banner.png'],
     "installable": True,
     "auto_install": True,
-    'license': 'Other proprietary',
+    'license': 'LGPL-3',
 }

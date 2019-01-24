@@ -1,0 +1,134 @@
+<section style="max-width: 896px; margin: 0 auto;">
+<div align="center">
+<h1 style="color:#875A7B;">Generic Tag</h1>
+</div>
+<div align="center">
+<p><a href="https://github.com/crnd-inc/generic-addons"><img alt="pipeline-pass" src="https://img.shields.io/badge/pipeline-pass-brightgreen.png" /></a> <a href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png" /></a> <a href="https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Tag_admin_eng"><img alt="docs" src="https://img.shields.io/badge/docs-module-yellowgreen.png" /></a> <a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://img.shields.io/badge/maintainer-CR&amp;D-purple.png" /></a></p>
+<p><br></p>
+</div>
+</section>
+
+<section style="margin: 0 auto; max-width: 896px;">
+<div>
+<p>Generic Tag is a module developed by the <a href="https://crnd.pro/">Center of Research &amp; Development</a> company.</p>
+<p>It allows you to create and categorize generic tags (keywords).
+</p>
+<p>With these tags in other applications, you can use the logic associated with them (for example, search and filter objects by tags).</p>
+<p>Integration with other modules is realized with the help of additional modules.</p>
+</div>
+
+<div>
+<h3>Main Features of the Generic Tag Module:
+</h3>
+<ul>
+<li><i>Customize your own categories of tags.</i>
+</li>
+<li><i>Create and set up your unique (or completely generic) tags.</i>
+</li>
+<li><i>Associate your products, documents, contacts, etc. with created
+   tags.</i>
+</li>
+<li><i>Use your tags!</i>
+</li>
+</ul>
+</div>
+
+<div>
+<h2>Usage</h2>
+<p>To add tags to your model do the folowing simple steps:</p>
+<ol>
+<li>Add <i>generic_tag</i> module as dependency for your addon.</li>
+
+<li> Use inherit from <i>"res.tag.mixin"</i> to get <i>tags</i> functionality to your model, like:
+<pre>    class Product(models.Model):
+	_name = "product.product"
+	_inherit = [
+	    "product.product",
+            "generic.tag.mixin",
+        ]
+</pre>
+</li>
+
+<li>Add record to taggable models registry:
+<pre>    &lt;record model="generic.tag.model" id="generic_tag_model_product_product"&gt;
+	&lt;field name="res_model_id" ref="product.model_product_product"/&gt;
+    &lt;/record&gt;
+</pre>
+</li>
+
+<li>Now you can use <i>tag_ids</i> field in your views for your model:
+<ul>
+<li>search view:
+<pre>    &lt;field name="tag_ids"/&gt;
+    &lt;field name="search_tag_id"/&gt; &lt;!-- For direct searching (items that contain selected tag)--&gt;
+    &lt;field name="search_no_tag_id"/&gt; &lt;!-- For inverse searching (items that do not contain selected tag)--&gt;
+</pre>
+<p>See <i>search_tag_id</i> and <i>search_no_tag_id</i> fields. These fields add autocompletition on searching by specific tag.
+<i>search_tag_id</i> allows to search for records that contain selected tag.
+<i>search_no_tag_id</i> allows to search for records that have no selected tag.
+</p>
+</li>
+<li>tree view:
+<pre>    &lt;field name="tag_ids"
+	   widget="many2many_tags"
+	   placeholder="Tags..."
+	   options="{'color_field': 'color'}"/&gt;
+</pre>
+</li>
+<li>form view:
+<pre>    &lt;field name="tag_ids"
+	   widget="many2many_tags"
+	   placeholder="Tags..."
+	   context="{'default_model': 'product.product'}"
+	   options="{'color_field': 'color'}"/&gt;
+</pre>
+<p>Pay attention on context field. This will automatically select correct model on tag creation.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><b>Warning! Currently Odoo version 10.0 do not have active support. Main development is on the 11.0 and 12.0 versions.</b></p>
+</div>
+<p><br></p>
+</section>
+
+<section style="max-width: 896px; margin: 0 auto;">
+<p>Read the <a href="https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Tag_admin_eng/">Generic Tag</a> module guide for more information.</p>
+<p>The Generic Condition module is part of the Bureaucrat ITSM project. You can try it by the references below.</p>
+</section>
+
+<section style="max-width: 896px; margin: 0 auto;">
+<div>
+<h3>Bug Tracker</h3>
+<p>Bugs are tracked on <a href="https://github.com/crnd-inc/generic-addons/issues">GitHub Issues</a>. In case of trouble, please check there if your issue has already been reported.
+</p>
+<p><br></p>
+</div>
+</section>
+
+<section align="center" style="max-width: 896px; margin: 0 auto;">
+<div>
+<h2 style="color:#875A7B;">Launch your own ITSM system in 60 seconds:</h2>
+<p>Create your own <a href="https://yodoo.systems/saas/template/itsm-16">Bureaucrat ITSM</a> database
+<a href="https://yodoo.systems"><img alt="yodoo.systems" src="https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png"/></a>
+</p> 
+</div>
+</section>
+
+<section align="center" style="max-width: 896px; margin: 0 auto;">
+<div>
+<h2 style="color: #138c33">Maintainer</h2>
+<a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://crnd.pro/web/image/3699/300x140/crnd.png" /></a>
+<p>Our web site: <a href="https://crnd.pro">https://crnd.pro</a>
+</p>
+<p>This module is maintained by the <a href="https://crnd.pro/">Center of Research &amp; Development</a>
+company.
+</p>
+<p>
+We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
+</p>
+<p>
+For any questions <a href="mailto:info@crnd.pro">contact us</a>.
+</p>
+</div>
+</section>
