@@ -1,5 +1,5 @@
-Generic Condition Module
-========================
+Generic Condition
+=================
 
 .. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
     :target: https://github.com/crnd-inc/generic-addons
