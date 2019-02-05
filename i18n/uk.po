@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-25 09:47+0000\n"
-"PO-Revision-Date: 2018-10-25 09:47+0000\n"
+"POT-Creation-Date: 2019-02-05 16:17+0000\n"
+"PO-Revision-Date: 2019-02-05 16:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,11 +34,6 @@ msgstr "Активно"
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Archived"
 msgstr "Заархівовано"
-
-#. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_assignment_model_ids
-msgid "Assignment Model"
-msgstr "Модель призначення"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
@@ -146,7 +141,7 @@ msgid "Fields"
 msgstr "Поля"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_related_mixin.py:92
+#: code:addons/generic_resource/models/generic_resource_related_mixin.py:93
 #, python-format
 msgid "Fields incorrect\n"
 "	Resource type: %s\n"
@@ -166,9 +161,19 @@ msgid "Generic Resource"
 msgstr "Універсальний ресурс"
 
 #. module: generic_resource
+#: model:ir.model,name:generic_resource.model_generic_resource_mixin
+msgid "Generic Resource MixIn"
+msgstr "Універсальний ресурс: Домішок"
+
+#. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin_inv_number
 msgid "Generic Resource Mixin Inv Number"
 msgstr "Універсальний ресурс Mixin Інвентарний номер"
+
+#. module: generic_resource
+#: model:ir.model,name:generic_resource.model_generic_resource_related_mixin
+msgid "Generic Resource Mixin: Related Resource"
+msgstr "Домішок універсального ресурсу: Пов'язаний ресурс"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.generic_resource_type_default_ir_model
@@ -206,11 +211,11 @@ msgstr "користувач універсальних ресурсів"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_2266
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_2076
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_id
 msgid "ID"
-msgstr "ID"
+msgstr "ІД"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_modules
@@ -295,7 +300,6 @@ msgstr "Керує універсальними ресурсами"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_res_model
 msgid "Model"
 msgstr "Модель"
 
@@ -430,8 +434,6 @@ msgstr "Читає і змінює універсальні ресурси"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_res_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_res_id
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
 msgid "Resource"
@@ -443,13 +445,18 @@ msgid "Resource Count"
 msgstr "К-сть ресурсів"
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_related_res_action_id
+msgid "Resource Related Res Action"
+msgstr "Дія: Відкрити пов'язаний ресурс"
+
+#. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_type_action
 #: model:ir.ui.menu,name:generic_resource.generic_resource_type_menu_item
 msgid "Resource Types"
 msgstr "Типи ресурсу"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_related_mixin.py:82
+#: code:addons/generic_resource/models/generic_resource_related_mixin.py:83
 #, python-format
 msgid "Resource does not exists!\n"
 "	Resource type: %s\n"
@@ -466,7 +473,6 @@ msgstr "Ресурс має бути унікальним"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_type_id
 msgid "Resource type"
 msgstr "Тип ресурсу"
 
@@ -545,14 +551,4 @@ msgstr "Переглядів"
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type_is_mail_thread
 msgid "Whether this model supports messages and notifications."
 msgstr "Чи підтримує ця модель повідомлення та сповіщення."
-
-#. module: generic_resource
-#: model:ir.model,name:generic_resource.model_generic_resource_mixin
-msgid "generic.resource.mixin"
-msgstr "generic.resource.mixin"
-
-#. module: generic_resource
-#: model:ir.model,name:generic_resource.model_generic_resource_related_mixin
-msgid "generic.resource.related.mixin"
-msgstr "generic.resource.related.mixin"
 
