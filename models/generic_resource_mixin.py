@@ -8,6 +8,7 @@ _logger = logging.getLogger(__name__)
 
 class GenericResourceMixin(models.AbstractModel):
     _name = 'generic.resource.mixin'
+    _description = 'Generic Resource MixIn'
 
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True,

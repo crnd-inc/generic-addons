@@ -39,6 +39,7 @@ class GenericResourceRelatedMixin(models.AbstractModel):
                  'default_resource_type_id': res_type_id}
     """
     _name = 'generic.resource.related.mixin'
+    _description = 'Generic Resource Mixin: Related Resource'
 
     resource_type_id = fields.Many2one(
         'generic.resource.type', string='Resource type',
