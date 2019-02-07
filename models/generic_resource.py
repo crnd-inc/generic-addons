@@ -1,7 +1,19 @@
 import logging
+from inspect import getmembers, isfunction
 from odoo import fields, models, api, exceptions, _
 
 _logger = logging.getLogger(__name__)
+
+
+def method_wrapper(method_name):
+    """ Generate proxy method for resource methods.
+
+        :param method_name: name of method in resource model.
+    """
+    def method(self, *args, **kwargs):
+        return getattr(
+            self.resource_id, method_name)(*args, **kwargs)
+    return method
 
 
 class GenericResourceResID(int):
@@ -36,6 +48,30 @@ class GenericResource(models.Model):
         ('unique_model', 'UNIQUE(res_model, res_id)',
          'Model instance must be unique')
     ]
+
+    # Overridden to add resource-proxy methods
+    @api.model
+    def _setup_complete(self):
+        """ Setup recomputation triggers, and complete the model setup. """
+        res = super(GenericResource, self)._setup_complete()
+
+        mixin_cls = type(self.env['generic.resource.mixin'])
+
+        def is_resource_proxy(func):
+            """ Check if function is decorated with resource-proxy
+            """
+            return isfunction(func) and hasattr(func, '__resource_proxy__')
+
+        for attrname, __ in getmembers(type(self), is_resource_proxy):
+            if hasattr(mixin_cls, attrname):
+                continue
+            # TODO: remove before merge, or make it log debug
+            _logger.info(
+                "Proxying resource method %s to %s.%s",
+                attrname, mixin_cls._name, attrname)
+            setattr(mixin_cls, attrname, method_wrapper(attrname))
+
+        return res
 
     @property
     def resource(self):
