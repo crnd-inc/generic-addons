@@ -71,14 +71,14 @@ msgstr "Подсчет (включая заархивированные)"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_create_uid
 msgid "Created by"
-msgstr "Создал"
+msgstr "Создан"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_create_date
 msgid "Created on"
-msgstr "Дата создания"
+msgstr "Создан"
 
 #. module: generic_resource
 #: model:generic.resource.type,name:generic_resource.generic_resource_type_default
