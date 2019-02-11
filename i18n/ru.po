@@ -99,12 +99,12 @@ msgstr "Заархивировано"
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_create_uid
 msgid "Created by"
-msgstr "Создал"
+msgstr "Создан"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_create_date
 msgid "Created on"
-msgstr "Дата создания"
+msgstr "Создан"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_description
