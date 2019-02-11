@@ -38,12 +38,12 @@ msgstr "Заархивировано"
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_create_uid
 msgid "Created by"
-msgstr "Создал"
+msgstr "Создан"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_create_date
 msgid "Created on"
-msgstr "Дата создания"
+msgstr "Создан"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_default
