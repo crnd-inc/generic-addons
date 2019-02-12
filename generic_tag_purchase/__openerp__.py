@@ -6,11 +6,11 @@
         Generic tag integration with purchase addon
     """,
 
-    'author': "Center of Research & Development",
+    'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '9.0.0.1.0',
+    'version': '9.0.0.1.1',
 
     "depends": [
         "generic_tag",
@@ -23,7 +23,8 @@
         'views/purchase_order_line.xml',
         'views/generic_tag_purchase.xml'
     ],
+    'images': ['static/description/banner.png'],
     "installable": True,
     "auto_install": True,
-    'license': 'Other proprietary',
+    'license': 'LGPL-3',
 }

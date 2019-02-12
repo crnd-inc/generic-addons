@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Generic M2O Widget",
-    "version": "9.0.0.0.1",
-    "author": "Center of Research & Development",
+    "version": "9.0.0.0.2",
+    "author": "Center of Research and Development",
     "website": "https://crnd.pro",
-    "license": "Other proprietary",
+    "license": "LGPL-3",
     "summary": "Generic Many2one widget",
     'category': 'Web',
     'depends': [
@@ -13,6 +13,7 @@
     'data': [
         'web_assets.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
     'application': False,

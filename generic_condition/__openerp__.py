@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Generic Condition",
-    "version": "9.0.0.0.1",
-    "author": "Center of Research & Development",
+    "version": "9.0.0.0.2",
+    "author": "Center of Research and Development",
     "website": "https://crnd.pro",
-    "license": "Other proprietary",
-    "summary": "Generic Conditions",
+    "license": "LGPL-3",
+    "summary": """
+        Create generic conditions on which you
+        can program some logic in Odoo objects""",
     'category': 'Technical Settings',
     'depends': [
         'web',
@@ -20,6 +22,7 @@
         'views/assets.xml',
         'wizard/test_condition_view.xml',
     ],
+    'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,
 }
