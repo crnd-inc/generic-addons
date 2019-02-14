@@ -62,12 +62,7 @@ check-versions:
     script:
         - odoo-helper ci check-versions-git --repo-version . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
-<<<<<<< HEAD
         - /^12.0-.*$/   # only branches that started with '12.0-'
-=======
-        - /^11.0-.*$/   # only branches that started with '11.0-'
-    allow_failure: true
->>>>>>> origin/11.0
 
 tests:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
@@ -104,14 +99,9 @@ migration_tests:
         - /^12.0-.*$/   # only branches that started with '12.0-'
 
 translation_rate_ua:
-<<<<<<< HEAD
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
-    stage: translation 
-=======
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: translation
     <<: *pip_cache_definition
->>>>>>> origin/11.0
     before_script:
         - odoo-helper link .
     script:
@@ -120,7 +110,7 @@ translation_rate_ua:
     allow_failure: true
 
 translation_rate_ru:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
     stage: translation
     <<: *pip_cache_definition
     before_script:
@@ -149,7 +139,7 @@ deploy_review_dev:
         url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci3.crnd.pro
         on_stop: stop_review_dev
     only:
-        - /^11.0-.*$/   # only branches that started with '11.0-'
+        - /^12.0-.*$/   # only branches that started with '12.0-'
     when: manual
 
 stop_review_dev:
@@ -167,5 +157,5 @@ stop_review_dev:
         - review-apps
         - deploy
     only:
-        - /^11.0-.*$/   # only branches that started with '11.0-'
+        - /^12.0-.*$/   # only branches that started with '12.0-'
 
