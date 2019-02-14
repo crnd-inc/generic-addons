@@ -4,7 +4,8 @@
               name="Rules"
               parent=""
               groups="base.group_system"
-              sequence="120"/>
+              sequence="120"
+              web_icon="generic_rule,static/description/menu.png"/>
     <menuitem id="menu_generic_rule_configuration"
               name="Configuration"
               parent="menu_generic_rule"
