@@ -198,7 +198,7 @@ msgstr "Создал"
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_create_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition_create_date
 msgid "Created on"
-msgstr "Создан"
+msgstr "Создано"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_monetary_currency_field_id
