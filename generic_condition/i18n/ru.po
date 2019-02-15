@@ -198,7 +198,7 @@ msgstr "Создал"
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_create_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition_create_date
 msgid "Created on"
-msgstr "Создано"
+msgstr "Создан"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_monetary_currency_field_id
@@ -213,7 +213,7 @@ msgstr "Валюта"
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
 msgid "Current date"
-msgstr "Current date"
+msgstr "Текущая дата"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:42
