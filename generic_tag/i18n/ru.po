@@ -147,7 +147,7 @@ msgstr "Создал"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_create_date
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_create_date
 msgid "Created on"
-msgstr "Создано"
+msgstr "Создан"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_comment
