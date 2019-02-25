@@ -5,7 +5,7 @@ class GenericSerivce(models.Model):
     _name = 'generic.service'
     _inherit = 'mail.thread'
     _description = 'Generic Service'
-    _order = 'sequence'
+    _order = 'sequence, name'
 
     name = fields.Char(
         translate=True, required=True, index=True, track_visibility='always')
