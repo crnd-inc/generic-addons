@@ -1,5 +1,5 @@
-Base Field Many2manyView Module
-===============================
+Base Field Many2manyView
+========================
 
 .. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
@@ -15,8 +15,8 @@ Base Field Many2manyView Module
 Development company <https://crnd.pro/>`__.
 
 This addon adds new field ``Many2manyView``.
-This field have only on difference from standard ``Many2many`` field:
-it does not create m2m relation table, instead to expects that that table have to be created somewhere outside.
+This field have only one difference from the standard ``Many2many`` field:
+it does not create m2m relation table, but expects this table to be created somewhere outside.
 Thus it allows to use another models as m2m-relation tables, or PostgreSQL Views.
 
 At this time this addon is in *alpha* stage, thus use it on your own risk.
