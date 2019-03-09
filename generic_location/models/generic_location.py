@@ -1,6 +1,7 @@
+import logging
+from psycopg2 import sql
 from odoo import models, fields, api, tools, _
 
-import logging
 _logger = logging.getLogger(__name__)
 
 
@@ -11,12 +12,23 @@ class GenericLocation(models.Model):
         'generic.mixin.parent.names',
     ]
     _parent_name = 'parent_id'
+    _parent_store = True
     _description = 'Location'
 
     name = fields.Char(required=True, index=True)
     description = fields.Text()
     parent_id = fields.Many2one(
-        'generic.location', index=True, string='Parent Location')
+        'generic.location', index=True, ondelete='cascade',
+        string='Parent Location')
+    parent_path = fields.Char(index=True)
+    parent_ids = fields.Many2manyView(
+        comodel_name='generic.location',
+        relation='generic_location_parents_rel_view',
+        column1='child_id',
+        column2='parent_id',
+        string='Parents',
+        readonly=True)
+
     active = fields.Boolean(default=True, index=True)
     child_ids = fields.One2many(
         'generic.location', 'parent_id', string='Sublocations', readonly=True)
@@ -47,15 +59,47 @@ class GenericLocation(models.Model):
         for record in self:
             record.child_count = len(record.child_ids)
 
+    @api.model_cr
+    def init(self):
+        # Create relation (location_id <-> parent_location_id) as PG View
+        # This relation is used to compute field parent_ids
+
+        tools.drop_view_if_exists(
+            self.env.cr, 'generic_location_parents_rel_view')
+        self.env.cr.execute(sql.SQL("""
+            CREATE or REPLACE VIEW generic_location_parents_rel_view AS (
+                SELECT c.id AS child_id,
+                       p.id AS parent_id
+                FROM generic_location AS c
+                LEFT JOIN generic_location AS p ON (
+                    p.id::character varying IN (
+                        SELECT * FROM unnest(regexp_split_to_array(
+                            c.parent_path, '/')))
+                    AND p.id != c.id)
+            )
+        """))
+
     @api.model
     def create(self, vals):
         tools.image_resize_images(vals)
-        return super(GenericLocation, self).create(vals)
+        res = super(GenericLocation, self).create(vals)
+
+        # Invalidate cache for 'parent_ids' field
+        if 'parent_id' in vals:
+            self.env.cache.invalidate(
+                [(self._fields['parent_ids'], None)])
+        return res
 
     @api.multi
     def write(self, vals):
         tools.image_resize_images(vals)
-        return super(GenericLocation, self).write(vals)
+        res = super(GenericLocation, self).write(vals)
+
+        # Invalidate cache for 'parent_ids' field
+        if 'parent_id' in vals:
+            self.env.cache.invalidate(
+                [(self._fields['parent_ids'], None)])
+        return res
 
     @api.multi
     def copy(self, default=None):

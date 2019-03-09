@@ -33,6 +33,8 @@ easily describe complex objects using a tree-like structure.
 The module is designed for use with other Odoo applications and modules
 and can extend its functionality depending on the installed modules.
 
+**Location access feature:** if you grant access for the user to some location, this user will automatically have access to all of its sub-locations.
+
 Main Features of the Generic Location Module:
 '''''''''''''''''''''''''''''''''''''''''''''
 

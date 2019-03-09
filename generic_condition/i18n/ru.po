@@ -213,7 +213,7 @@ msgstr "Валюта"
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
 msgid "Current date"
-msgstr "Current date"
+msgstr "Текущая дата"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:42

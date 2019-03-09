@@ -1,0 +1,65 @@
+<section style="max-width: 896px; margin: 0 auto;">
+	<div align="center">
+		<h1 style="color:#875A7B;">Base Field Many2manyView</h1>
+	</div>
+	<div align="center">
+		<p><a href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png" /></a> <a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://img.shields.io/badge/maintainer-CR&amp;D-purple.png" /></a></p>
+		<p><br></p>
+	</div>
+</section>
+
+<section style="margin: 0 auto; max-width: 896px;">
+	<div>
+		<p><i>Base Field Many2manyView</i> is technical addon developed by the <a href="https://crnd.pro/">Center of Research &amp; Development</a> company.</p>
+		<p>This addon adds a new field <code>Many2manyView</code>.</p>
+		<p>This field have only one difference from the standard <code>Many2many</code> field: it does not create m2m relation table, but expects this table to be created somewhere outside. Thus it allows to use another models as m2m-relation tables, or PostgreSQL Views.</p>
+		<p>At this time this addon is in <i>alpha</i> stage, thus use it on your own risk.</p>
+	</div>
+</section>
+
+<section style="max-width: 896px; margin: 0 auto;">
+	<h3>Usage</h3>
+	<ol>
+		<li>Add <code>base_field_m2m_view</code> to dependency to your addon</li>
+		<li>Import field class <code>from odoo.addons.base_field_m2m_view.fields import Many2manyView</code></li>
+		<li>Declare field <code>my_field = Many2manyView('my.model', 'my_relation_table', 'column1', 'column2')</code></li>
+	</ol>
+	<p>
+		It is also possible to use this field as: <code>my_field = odoo.fields.Many2manyView(...)</code></p>
+	</section>
+
+	<section style="max-width: 896px; margin: 0 auto;">
+		<div>
+			<h3>Bug Tracker</h3>
+			<p>Bugs are tracked on <a href="https://github.com/crnd-inc/generic-addons/issues">GitHub Issues</a>. In case of trouble, please check there if your issue has already been reported.
+			</p>
+			<p><br></p>
+		</div>
+	</section>
+
+	<section align="center" style="max-width: 896px; margin: 0 auto;">
+		<div>
+			<h2 style="color:#875A7B;">Launch your own ITSM system in 60 seconds:</h2>
+			<p>Create your own <a href="https://yodoo.systems/saas/template/itsm-16">Bureaucrat ITSM</a> database
+				<a href="https://yodoo.systems"><img alt="yodoo.systems" src="https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png"/></a>
+			</p> 
+		</div>
+	</section>
+
+	<section align="center" style="max-width: 896px; margin: 0 auto;">
+		<div>
+			<h2 style="color: #138c33">Maintainer</h2>
+			<a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://crnd.pro/web/image/3699/300x140/crnd.png" /></a>
+			<p>Our web site: <a href="https://crnd.pro">https://crnd.pro</a>
+			</p>
+			<p>This module is maintained by the <a href="https://crnd.pro/">Center of Research &amp; Development</a>
+				company.
+			</p>
+			<p>
+				We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you.
+			</p>
+			<p>
+				For any questions <a href="mailto:info@crnd.pro">contact us</a>.
+			</p>
+		</div>
+	</section>
