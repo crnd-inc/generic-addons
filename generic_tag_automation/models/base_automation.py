@@ -15,7 +15,7 @@ class BaseAutomation(models.Model):
 
     # Overridden to add tag related logic
     @api.multi
-    def _process(self, records, domain_post=None):
+    def _process(self, records, *args, **kwargs):
         """ process the given action on the records """
         action_done = self._context['__action_done']
         records -= action_done.setdefault(self, records.browse())
@@ -35,7 +35,7 @@ class BaseAutomation(models.Model):
             tag_ids_val = [(3, int(t)) for t in self.act_remove_tag_ids]
             records.write({'tag_ids': tag_ids_val})
 
-        super(BaseAutomation, self)._process(records, domain_post=domain_post)
+        super(BaseAutomation, self)._process(records, *args, **kwargs)
 
     @api.onchange('model_id')
     def onchange_model_id(self):
