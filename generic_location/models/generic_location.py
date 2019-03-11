@@ -86,8 +86,7 @@ class GenericLocation(models.Model):
 
         # Invalidate cache for 'parent_ids' field
         if 'parent_id' in vals:
-            self.env.cache.invalidate(
-                [(self._fields['parent_ids'], None)])
+            self.invalidate_cache(['parent_ids'])
         return res
 
     @api.multi
@@ -97,8 +96,7 @@ class GenericLocation(models.Model):
 
         # Invalidate cache for 'parent_ids' field
         if 'parent_id' in vals:
-            self.env.cache.invalidate(
-                [(self._fields['parent_ids'], None)])
+            self.invalidate_cache(['parent_ids'])
         return res
 
     @api.multi
