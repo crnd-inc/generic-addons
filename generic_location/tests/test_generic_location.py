@@ -1,7 +1,7 @@
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import SavepointCase
 
 
-class TestGenericLocation(TransactionCase):
+class TestGenericLocation(SavepointCase):
 
     def test_create_location(self):
         simplelocation = self.env.ref(
@@ -26,3 +26,25 @@ class TestGenericLocation(TransactionCase):
             'parent_id': root.id,
         })
         self.assertEqual(child.display_name, 'Root / Child')
+
+    def test_location_parent_ids(self):
+        house1 = self.env.ref('generic_location.simple_parent_location_1')
+        room1 = self.env.ref('generic_location.simple_location_room_1')
+
+        self.assertEqual(room1.parent_ids, house1)
+
+    def test_location_parent_ids_2(self):
+        root = self.env['generic.location'].create({
+            'name': 'Root',
+        })
+        house1 = self.env.ref('generic_location.simple_parent_location_1')
+        room1 = self.env.ref('generic_location.simple_location_room_1')
+        house1.parent_id = root
+
+        # Without this test does not pass. It seems that parent left/right are
+        # not recomputed just after write
+        self.env['generic.location']._parent_store_compute()
+
+        self.assertEqual(len(room1.parent_ids), 2)
+        self.assertIn(root, room1.parent_ids)
+        self.assertIn(house1, room1.parent_ids)
