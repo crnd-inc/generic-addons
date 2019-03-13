@@ -8,6 +8,14 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
+    <record id="generic_team_member_action" model="ir.actions.act_window">
+        <field name="name">Team members</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.team.member</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <menuitem
         id="menu_generic_team_root"
         name="Teams"
@@ -21,5 +29,12 @@
         parent="menu_generic_team_root"
         action="generic_team_action"
         sequence="0"/>
+
+    <menuitem
+        id="menu_generic_team_member"
+        name="Team members"
+        parent="menu_generic_team_root"
+        action="generic_team_member_action"
+        sequence="1"/>
 
 </odoo>
