@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.addons.base_field_m2m_view.fields import Many2manyView
 
 
 class GenericTeam(models.Model):
@@ -22,6 +23,12 @@ class GenericTeam(models.Model):
     user_ids = fields.Many2many('res.users', string='Team members')
     user_count = fields.Integer(
         compute='_compute_user_count', readonly=True, string='Users count')
+    team_user_ids = Many2manyView(
+        'res.users',
+        relation='generic_team_member',
+        column1='team_id',
+        column2='user_id',
+        string='Team members')
 
     @api.multi
     def _compute_user_count(self):
