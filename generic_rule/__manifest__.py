@@ -9,14 +9,14 @@
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '12.0.1.0.7',
+    'version': '12.0.1.0.8',
 
     # any module necessary for this one to work correctly
     'depends': [
         'base',
     ],
 
-    'demo': [
+    'data': [
         'views/generic_rule_menu.xml'
     ],
 
