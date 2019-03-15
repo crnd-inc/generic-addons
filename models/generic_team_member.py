@@ -7,4 +7,3 @@ class GenericTeamMember(models.Model):
 
     user_id = fields.Many2one('res.users', index=True, required=True)
     team_id = fields.Many2one('generic.team', index=True, required=True)
-
