@@ -13,22 +13,23 @@ def migrate(cr, installed_version):
         select id from ir_model
         where name='generic.team.member';
     """)
-    model_id = cr.fetchone()[0]
 
-    if not model_id:
+    if cr.rowcount == 0:
         cr.execute("""
             insert into ir_model (name, model)
             values ('generic.team.member', 'generic.team.member')
             returning id;
         """)
         model_id = cr.fetchone()[0]
+    else:
+        model_id = cr.fetchone()[0]
 
     cr.execute("""
-        select count(*)
+        select *
         from ir_model_access
         where name like 'generic_team_member';
     """)
-    cn = cr.fetchone()[0]
+    cn = cr.rowcount
 
     if cn == 0:
         cr.execute("""
@@ -40,10 +41,10 @@ def migrate(cr, installed_version):
         """, {'model_id': model_id})
 
     cr.execute("""
-        select count(*) from ir_model_data
+        select * from ir_model_data
         where name='model_generic_team_member' and module='generic_team';
     """)
-    cn = cr.fetchone()[0]
+    cn = cr.rowcount
 
     if cn == 0:
         cr.execute("""
