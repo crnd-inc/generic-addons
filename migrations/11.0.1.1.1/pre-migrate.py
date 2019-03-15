@@ -1,12 +1,13 @@
 def migrate(cr, installed_version):
     cr.execute("""
-        CREATE TABLE IF NOT EXISTS generic_team_member (
-        user_id INTEGER NOT NULL,
-        team_id INTEGER NOT NULL);
-
-        INSERT INTO generic_team_member (user_id, team_id)
-        (SELECT res_users_id, generic_team_id
-        FROM generic_team_res_users_rel);
+        ALTER TABLE generic_team_res_users_rel
+            RENAME TO generic_team_member;
+        ALTER TABLE generic_team_member
+            RENAME COLUMN generic_team_id
+               TO team_id;
+        ALTER TABLE generic_team_member
+            RENAME COLUMN res_users_id
+               TO user_id;
     """)
 
     cr.execute("""
@@ -24,6 +25,7 @@ def migrate(cr, installed_version):
     else:
         model_id = cr.fetchone()[0]
 
+    '''
     cr.execute("""
         SELECT *
         FROM ir_model_access
@@ -39,6 +41,7 @@ def migrate(cr, installed_version):
             ('generic_team_member_user', %(model_id)s),
             ('generic_team_member_manager', %(model_id)s);
         """, {'model_id': model_id})
+    '''
 
     cr.execute("""
         SELECT * FROM ir_model_data
