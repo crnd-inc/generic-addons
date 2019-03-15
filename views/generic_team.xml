@@ -46,10 +46,7 @@
                                        nolabel="1"/>
                             </group>
                         </page>
-                        <page string="Team" name="team">
-                            <field name="user_ids"/>
-                        </page>
-                        <page string="Team_members" name="team_members">
+                        <page string="Team members" name="team_members">
                             <field name="team_user_ids"/>
                         </page>
 
