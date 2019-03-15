@@ -25,24 +25,6 @@ def migrate(cr, installed_version):
     else:
         model_id = cr.fetchone()[0]
 
-    '''
-    cr.execute("""
-        SELECT *
-        FROM ir_model_access
-        WHERE name='generic_team_member';
-    """)
-    cn = cr.rowcount
-
-    if cn == 0:
-        cr.execute("""
-            INSERT INTO ir_model_access (name, model_id)
-            VALUES
-            ('generic_team_member_user_implicit', %(model_id)s),
-            ('generic_team_member_user', %(model_id)s),
-            ('generic_team_member_manager', %(model_id)s);
-        """, {'model_id': model_id})
-    '''
-
     cr.execute("""
         SELECT * FROM ir_model_data
         WHERE name='model_generic_team_member' AND module='generic_team';
