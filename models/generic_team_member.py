@@ -8,6 +8,12 @@ class GenericTeamMember(models.Model):
     user_id = fields.Many2one('res.users', index=True, required=True)
     team_id = fields.Many2one('generic.team', index=True, required=True)
 
+    _sql_constraints = [
+        ('user_team_unique',
+         'UNIQUE (user_id, team_id)',
+         'User may be added to team only once.'),
+    ]
+
     @api.multi
     def name_get(self):
         res = []

@@ -48,7 +48,7 @@
                         </page>
                         <page string="Team members" name="page_team_members">
                             <field name="team_member_ids"
-                                   context="{'default_team_id': parent.id}"/>
+                                   context="{'default_team_id': id}"/>
                         </page>
                     </notebook>
                 </sheet>

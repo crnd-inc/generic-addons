@@ -5,7 +5,9 @@
         <field name="model">generic.team.member</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="team_id"/>
+                <field name="team_id"
+                       readonly="context.get('default_team_id')"
+                       invisible="context.get('default_team_id')"/>
                 <field name="user_id"/>
             </tree>
         </field>
@@ -25,7 +27,8 @@
                     <group>
                         <group name="group_left">
                             <field name="team_id"
-                                   readonly="context.get('default_team_id')"/>
+                                   readonly="context.get('default_team_id')"
+                                   invisible="context.get('default_team_id')"/>
                             <field name="user_id"/>
                         </group>
                         <group name="group_right"></group>
