@@ -24,7 +24,7 @@ class GenericTeam(models.Model):
         'generic.team.member', 'team_id', 'Team Members')
 
     # Kept for backward compatability reason
-    user_ids = fields.Many2many(
+    user_ids = Many2manyView(
         'res.users',
         relation='generic_team_member',
         column1='team_id',
