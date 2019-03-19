@@ -47,8 +47,11 @@
                             </group>
                         </page>
                         <page string="Team members" name="page_team_members">
-                            <field name="team_member_ids"
-                                   context="{'default_team_id': id}"/>
+                            <field name="team_member_ids">
+                                <tree editable="bottom">
+                                    <field name="user_id"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
