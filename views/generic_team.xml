@@ -31,7 +31,7 @@
                         </h1>
                     </div>
                     <notebook>
-                        <page string="Info" name="info">
+                        <page string="Info" name="page_info">
                             <field name="leader_image"
                                    widget='image'
                                    class="oe_avatar mr4"
@@ -46,10 +46,10 @@
                                        nolabel="1"/>
                             </group>
                         </page>
-                        <page string="Team members" name="team_members">
-                            <field name="team_user_ids"/>
+                        <page string="Team members" name="page_team_members">
+                            <field name="team_member_ids"
+                                   context="{'default_team_id': parent.id}"/>
                         </page>
-
                     </notebook>
                 </sheet>
             </form>

@@ -20,15 +20,18 @@ class GenericTeam(models.Model):
         related='leader_id.image_small', readonly=True)
     task_manager_id = fields.Many2one(
         'res.users', index=True, string='Task manager')
-    user_ids = fields.Many2many('res.users', string='Team members')
-    user_count = fields.Integer(
-        compute='_compute_user_count', readonly=True, string='Users count')
-    team_user_ids = Many2manyView(
+    team_member_ids = fields.One2many(
+        'generic.team.member', 'team_id', 'Team Members')
+
+    # Kept for backward compatability reason
+    user_ids = fields.Many2many(
         'res.users',
         relation='generic_team_member',
         column1='team_id',
         column2='user_id',
-        string='Team members')
+        string='Team members (Users)')
+    user_count = fields.Integer(
+        compute='_compute_user_count', readonly=True, string='Users count')
 
     @api.multi
     def _compute_user_count(self):

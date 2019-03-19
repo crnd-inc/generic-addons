@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class GenericTeamMember(models.Model):
@@ -7,3 +7,14 @@ class GenericTeamMember(models.Model):
 
     user_id = fields.Many2one('res.users', index=True, required=True)
     team_id = fields.Many2one('generic.team', index=True, required=True)
+
+    @api.multi
+    def name_get(self):
+        res = []
+        for record in self:
+            res += [(
+                record.id,
+                "%s (%s)" % (record.user_id.display_name,
+                             record.team_id.display_name),
+            )]
+        return res

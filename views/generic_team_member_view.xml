@@ -5,8 +5,8 @@
         <field name="model">generic.team.member</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="user_id"/>
                 <field name="team_id"/>
+                <field name="user_id"/>
             </tree>
         </field>
     </record>
@@ -17,17 +17,18 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div name="title" class="oe_title">
+                        <h1>
+                            <field name="display_name"/>
+                        </h1>
+                    </div>
                     <group>
-                        <group name="user">
+                        <group name="group_left">
+                            <field name="team_id"
+                                   readonly="context.get('default_team_id')"/>
                             <field name="user_id"/>
                         </group>
-                        <group></group>
-                    </group>
-                    <group>
-                        <group name="team">
-                            <field name="team_id"/>
-                        </group>
-                        <group></group>
+                        <group name="group_right"></group>
                     </group>
                 </sheet>
             </form>
