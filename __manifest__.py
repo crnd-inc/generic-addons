@@ -12,11 +12,12 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Team',
-    'version': '12.0.1.0.16',
+    'version': '12.0.1.1.1',
 
     "depends": [
         'base',
         'mail',
+        'base_field_m2m_view',
     ],
 
     "data": [
@@ -25,6 +26,7 @@
 
         'views/generic_team_menu.xml',
         'views/generic_team.xml',
+        'views/generic_team_member_view.xml',
         'views/templates.xml',
     ],
 
