@@ -36,5 +36,5 @@
     'images': ['static/description/banner.png'],
     "installable": True,
     "application": False,
-    'license': 'LGPL-3',
+    'license': 'OPL-1',
 }
