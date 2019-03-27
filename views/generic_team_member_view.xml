@@ -21,7 +21,7 @@
                 <sheet>
                     <div name="title" class="oe_title">
                         <h1>
-                            <field name="display_name" placeholder="Name"/>
+                            <field name="display_name"/>
                         </h1>
                     </div>
                     <group>
