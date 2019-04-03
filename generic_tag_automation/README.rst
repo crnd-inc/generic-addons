@@ -14,8 +14,11 @@ Generic Tag (Automation)
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
 
+.. |badge6| image:: https://img.shields.io/badge/GitHub-Generic_Tag_Automation-green.png
+    :target: https://github.com/crnd-inc/generic-addons/tree/11.0/generic_tag_automation
 
-|badge1| |badge2| |badge5|
+
+|badge1| |badge2| |badge5| |badge6|
 
 
 This module is part of the Bureaucrat ITSM project. 
