@@ -4,7 +4,7 @@ from odoo.addons.base_field_m2m_view.fields import Many2manyView
 
 class GenericTeam(models.Model):
     _name = 'generic.team'
-    _inherit = 'mail.thread',
+    _inherit = 'mail.thread'
     _description = 'Generic Team'
 
     name = fields.Char(
