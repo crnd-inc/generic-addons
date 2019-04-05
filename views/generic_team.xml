@@ -34,7 +34,7 @@
                         <page string="Info" name="page_info">
                             <field name="leader_image"
                                    widget='image'
-                                   class="oe_avatar mr4"
+                                   class="oe_avatar mr16 ml8"
                                    nolabel="1"/>
                             <group style="display: block">
                                 <field name="leader_id"/>
@@ -55,6 +55,11 @@
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+
             </form>
         </field>
     </record>

@@ -12,7 +12,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Team',
-    'version': '12.0.1.1.4',
+    'version': '12.0.1.1.5',
 
     "depends": [
         'base',
