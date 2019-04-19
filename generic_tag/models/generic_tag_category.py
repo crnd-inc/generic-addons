@@ -8,7 +8,7 @@ class GenericTagCategory(models.Model):
     _description = "Generic Tag Category"
 
     _order = 'sequence'
-    sequence = fields.Integer(index = True, default = 5)
+    sequence = fields.Integer(index=True, default=5)
 
     _access_log = False
 

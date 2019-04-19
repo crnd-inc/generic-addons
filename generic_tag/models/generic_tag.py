@@ -25,7 +25,7 @@ class GenericTag(models.Model):
 
     _rec_name = 'complete_name'
     _order = 'category_id, sequence'
-    sequence = fields.Integer(index = True, default = 5)
+    sequence = fields.Integer(index=True, default=5)
 
     @api.multi
     def _compute_objects_count(self):
