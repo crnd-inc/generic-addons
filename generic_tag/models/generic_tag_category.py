@@ -7,6 +7,9 @@ class GenericTagCategory(models.Model):
     _inherit = ['generic.tag.model.mixin']
     _description = "Generic Tag Category"
 
+    _order = 'sequence'
+    sequence = fields.Integer(index = True, default = 5)
+
     _access_log = False
 
     @api.multi
