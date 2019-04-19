@@ -553,7 +553,7 @@ class GenericCondition(models.Model):
                     # that match 'check' conditions. all other recors don't
                     # matter
                     return True
-                elif self.condition_rel_record_operator == 'match':
+                if self.condition_rel_record_operator == 'match':
                     # mark that atleast one record matched. This is used by
                     # 'match' rel_record_operator. if all records match 'check'
                     # conditions, then we shoudl know about it after this loop
@@ -585,13 +585,13 @@ class GenericCondition(models.Model):
 
         if date_source == 'now':
             return datetime.datetime.now()
-        elif date_source == 'date':
+        if date_source == 'date':
             date = self['condition_date_diff_date_%s_date' % date_type]
             return str_to_datetime('date', date)
-        elif date_source == 'datetime':
+        if date_source == 'datetime':
             date = self['condition_date_diff_date_%s_datetime' % date_type]
             return str_to_datetime('datetime', date)
-        elif date_source == 'field':
+        if date_source == 'field':
             field_name = 'condition_date_diff_date_%s_field' % date_type
             field = self.sudo()[field_name]
             return str_to_datetime(field.ttype, obj[field.name])
@@ -654,9 +654,9 @@ class GenericCondition(models.Model):
         # 2017-04-03 12:31:44 ~ 2017-04-03 12:31:15
         if operator == '=':
             return uom_map[uom](date_end, date_start, delta) == value
-        elif operator == '!=':
+        if operator == '!=':
             return uom_map[uom](date_end, date_start, delta) != value
-        elif operator in operator_map:
+        if operator in operator_map:
             # EX: date_end - date_start (>|>=|<|<=) 2 years
             #     equal to
             #     date_start + 2 year (>|>=|<|<=) date_end
@@ -716,7 +716,7 @@ class GenericCondition(models.Model):
         # Simple operators
         if operator == 'set':
             return bool(obj_value)
-        elif operator == 'not set':
+        if operator == 'not set':
             return not bool(obj_value)
 
         # Get reference value as regex and regex flags
@@ -731,16 +731,16 @@ class GenericCondition(models.Model):
                     reference_value,
                     obj_value,
                     re_flags))
-        elif obj_value and operator == '!=':
+        if obj_value and operator == '!=':
             return not bool(
                 re.match(
                     reference_value,
                     obj_value,
                     re_flags))
-        elif not obj_value and operator == '!=':
+        if not obj_value and operator == '!=':
             # False != reference_value
             return True
-        elif obj_value and operator == 'contains':
+        if obj_value and operator == 'contains':
             return bool(
                 re.search(
                     reference_value,
@@ -762,11 +762,11 @@ class GenericCondition(models.Model):
         # Simple operators
         if operator == 'set':
             return bool(obj_value)
-        elif operator == 'not set':
+        if operator == 'not set':
             return not bool(obj_value)
-        elif operator == '=':
+        if operator == '=':
             return obj_value == reference_value
-        elif operator == '!=':
+        if operator == '!=':
             return obj_value != reference_value
 
     # signature check_<type> where type is condition type
@@ -778,11 +778,11 @@ class GenericCondition(models.Model):
 
         if field.ttype in ('integer', 'float'):
             return self.helper_check_simple_field_number(value)
-        elif field.ttype in ('char', 'text', 'html'):
+        if field.ttype in ('char', 'text', 'html'):
             return self.helper_check_simple_field_string(value)
-        elif field.ttype == 'boolean':
+        if field.ttype == 'boolean':
             return self.helper_check_simple_field_boolean(value)
-        elif field.ttype == 'selection':
+        if field.ttype == 'selection':
             return self.helper_check_simple_field_selection(value)
         raise NotImplementedError()
 
@@ -795,9 +795,9 @@ class GenericCondition(models.Model):
         # Simple operators
         if operator == 'set':
             return bool(obj_value)
-        elif operator == 'not set':
+        if operator == 'not set':
             return not bool(obj_value)
-        elif obj_value and operator == 'contains':
+        if obj_value and operator == 'contains':
             reference_value_id = self.condition_related_field_value_id
             return reference_value_id in obj_value.ids
 
@@ -807,7 +807,7 @@ class GenericCondition(models.Model):
         # Compute accounting date
         if self.condition_monetary_curency_date_type == 'date':
             return self.condition_monetary_curency_date_date
-        elif self.condition_monetary_curency_date_type == 'field':
+        if self.condition_monetary_curency_date_type == 'field':
             currency_date_field = (
                 self.condition_monetary_curency_date_field_id.sudo())
             return obj[currency_date_field.name]
@@ -971,14 +971,14 @@ class GenericCondition(models.Model):
             if operator == 'and' and not res:
                 # if operator is and, then fail on first failed condition
                 return False
-            elif operator == 'or' and res:
+            if operator == 'or' and res:
                 # if operator is or, then return ok on first successful check
                 return True
 
         if operator == 'and':
             # there are no failed checks, so return ok
             return True
-        elif operator == 'or':
+        if operator == 'or':
             # there are no successful check, so all checks are failed, return
             # fail
             return False
