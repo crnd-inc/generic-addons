@@ -9,7 +9,6 @@ class GenericResourceResID(int):
     """ Simple class to ensure that 'generic.resource' being created
         from 'generic.resource.mixin' code
     """
-    pass
 
 
 class GenericResource(models.Model):
@@ -88,7 +87,7 @@ class GenericResource(models.Model):
             vals['res_id'] = int(res_id)
             return super(GenericResource, self.sudo()).write(vals)
 
-        elif res_id:
+        if res_id:
             raise exceptions.ValidationError(_(
                 "Direct modification of 'generic.resource:res_id' field "
                 "is not allowed!"))
