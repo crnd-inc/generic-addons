@@ -50,8 +50,12 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="model_id" readonly="1"/>
-                        <field name="resource_related_res_action_id" readonly="1"/>
+                        <group name="group_left">
+                            <field name="model_id" readonly="1"/>
+                            <field name="resource_related_res_action_id" readonly="1"/>
+                        </group>
+                        <group name="group_right">
+                        </group>
                     </group>
                 </sheet>
             </form>
