@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, exceptions, _
 
 
 class GenericResourceType(models.Model):
@@ -18,6 +18,8 @@ class GenericResourceType(models.Model):
 
     resource_related_res_action_id = fields.Many2one(
         'ir.actions.act_window', readonly=True)
+    show_resources_action_id = fields.Many2one(
+        'ir.actions.act_window', readonly=True)
 
     _sql_constraints = [
         ('model_id_uniq',
@@ -35,6 +37,16 @@ class GenericResourceType(models.Model):
         for rec in self:
             if rec.model_id:
                 rec.name = rec.model_id.name
+
+    @api.constrains('model_id', 'show_resources_action_id')
+    def check_show_resource_action_model(self):
+        for record in self:
+            if not record.show_resources_action_id:
+                continue
+            if record.model != record.show_resources_action_id.res_model:
+                raise exceptions.ValidationError(_(
+                    "Wrong 'Show Resources Action' for resource type '%s'"
+                    "") % record.name)
 
     def _create_context_action_for_target_model(self):
         for record in self:
@@ -69,3 +81,17 @@ class GenericResourceType(models.Model):
     def unlink(self):
         self.mapped('resource_related_res_action_id').unlink()
         return super(GenericResourceType, self).unlink()
+
+    @api.multi
+    def action_show_resources(self):
+        self.ensure_one()
+        if self.show_resources_action_id:
+            return self.show_resources_action_id.read()[0]
+        return {
+            'type': 'ir.actions.act_window',
+            'name': self.model_id.name,
+            'res_model': self.model_id.model,
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'target': 'current',
+        }
