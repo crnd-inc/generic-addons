@@ -24,10 +24,11 @@ class GenericTag(models.Model):
     _access_log = False
 
     _rec_name = 'complete_name'
-    _order = 'category_sequence, sequence, complete_name'
+    _order = 'category_sequence, category_name, sequence, complete_name'
     sequence = fields.Integer(index=True, default=5)
     category_sequence = fields.Integer(
         related='category_id.sequence', store=True)
+    category_name = fields.Char(related='category_id.name', store=True)
 
     @api.multi
     def _compute_objects_count(self):
