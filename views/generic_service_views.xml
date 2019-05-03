@@ -6,6 +6,11 @@
               parent=""
               web_icon="generic_service,static/description/icon.png"/>
 
+    <menuitem id="menu_generic_service_configuration_menu_item"
+              name="Configurations"
+              sequence="10"
+              parent="menu_generic_service_root"/>
+
     <!-- generic.service -->
     <!-- Tree view for generic.service -->
     <record id="generic_service_view_tree" model="ir.ui.view">

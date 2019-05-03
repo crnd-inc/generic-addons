@@ -7,6 +7,7 @@
         <field name="model">generic.service.level</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="code"/>
             </tree>
@@ -35,9 +36,17 @@
                             <field name="code" placeholder="Code..."/>
                         </h2>
                     </div>
-                    <group>
-                        <field name="description" placeholder="Description..."/>
-                    </group>
+                    <notebook>
+                        <page string="Info" name="page_info">
+                            <group>
+                                <group name="group_info_left"/>
+                                <group name="group_info_right">
+                                    <field name="sequence"/>
+                                </group>
+                            </group>
+                            <field name="description" placeholder="Description..."/>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
@@ -74,8 +83,9 @@
 
     <!-- Menu items for generic.service.level -->
     <menuitem id="generic_service_level_menu_item"
-                name="Service Levels"
-                parent="generic_service.menu_generic_service_root" sequence="10"
-                action="generic_service_level_action"/>
+              name="Service Levels"
+              parent="generic_service.menu_generic_service_configuration_menu_item"
+              sequence="5"
+              action="generic_service_level_action"/>
 
 </odoo>

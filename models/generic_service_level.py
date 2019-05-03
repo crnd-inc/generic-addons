@@ -1,6 +1,7 @@
 import logging
 
 from odoo import models, fields, api
+from odoo.addons.http_routing.models.ir_http import slugify
 
 _logger = logging.getLogger(__name__)
 
@@ -8,6 +9,7 @@ _logger = logging.getLogger(__name__)
 class GenericServiceLevel(models.Model):
     _name = 'generic.service.level'
     _inherit = 'mail.thread'
+    _order = 'sequence, name'
     _description = 'Generic Service Level'
 
     name = fields.Char(
@@ -16,6 +18,7 @@ class GenericServiceLevel(models.Model):
     description = fields.Text(translate=True)
     active = fields.Boolean(
         default=True, index=True, track_visibility='onchange')
+    sequence = fields.Integer(index=True, default=5)
 
     _sql_constraints = [
         ('name_uniq', 'UNIQUE (name)',
@@ -27,6 +30,6 @@ class GenericServiceLevel(models.Model):
     ]
 
     @api.onchange('name')
-    def onchange_name_set_code(self):
-        for rec in self:
-            rec.code = rec.name
+    def _onchange_mixin_name_set_code(self):
+        for record in self:
+            record.code = slugify(record.name or '', max_length=0)

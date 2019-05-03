@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet//notebook//page[@name='sales_purchases']" position="after">
-                <page name="service_levels" string="Service Levels">
+                <page name="service_info" string="Service Info">
                     <group>
                         <group>
                             <field name="service_level_id"/>
