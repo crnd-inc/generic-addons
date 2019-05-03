@@ -55,6 +55,10 @@ class GenericResourceType(models.Model):
                 record.resource_related_res_action_id = action
 
     @api.model
+    def get_resource_type(self, model_name):
+        return self.search([('model_id.model', '=', model_name)], limit=1)
+
+    @api.model
     @api.returns('self', lambda value: value.id)
     def create(self, vals):
         record = super(GenericResourceType, self).create(vals)

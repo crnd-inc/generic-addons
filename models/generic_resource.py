@@ -68,6 +68,20 @@ class GenericResource(models.Model):
         }
 
     @api.model
+    def default_get(self, fields_list):
+        res = super(GenericResource, self).default_get(fields_list)
+
+        if 'generic_resource_type_model' in self.env.context:
+            res_type = self.env['generic.resource.type'].get_resource_type(
+                self.env.context['generic_resource_type_model'])
+            res.update({
+                k: v
+                for k, v in self._get_resource_type_defaults(res_type).items()
+                if k in fields_list
+            })
+        return res
+
+    @api.model
     def create(self, vals):
         res_id = vals.get('res_id')
         if res_id and isinstance(res_id, GenericResourceResID):

@@ -28,6 +28,13 @@ class GenericResourceMixin(models.AbstractModel):
             del vals['resource_id']
         return vals
 
+    @api.model
+    def default_get(self, fields_list):
+        return super(
+            GenericResourceMixin,
+            self.with_context(generic_resource_type_model=self._name)
+        ).default_get(fields_list)
+
     @api.multi
     def write(self, vals):
         vals = self._resource_mixin__protect_resource_id(vals)
@@ -47,7 +54,7 @@ class GenericResourceMixin(models.AbstractModel):
         values['res_id'] = GenericResourceResID(-1)
 
         # Create record
-        # TODO: this create somehow triggers write on self. Review.
+        # TODO: this create call somehow triggers write on self. Review.
         rec = super(GenericResourceMixin, self).create(values)
 
         # Update res_id with created id
@@ -66,8 +73,8 @@ class GenericResourceMixin(models.AbstractModel):
         return res
 
     def _get_resource_type(self):
-        return self.env['generic.resource.type'].search(
-            [('model_id.model', '=', self._name)], limit=1)
+        # TODO: remove this method in future
+        return self.env['generic.resource.type'].get_resource_type(self._name)
 
     @api.multi
     def check_access_rule(self, operation):
