@@ -9,7 +9,6 @@ class GenericResourceResID(int):
     """ Simple class to ensure that 'generic.resource' being created
         from 'generic.resource.mixin' code
     """
-    pass
 
 
 class GenericResource(models.Model):
@@ -69,6 +68,20 @@ class GenericResource(models.Model):
         }
 
     @api.model
+    def default_get(self, fields_list):
+        res = super(GenericResource, self).default_get(fields_list)
+
+        if 'generic_resource_type_model' in self.env.context:
+            res_type = self.env['generic.resource.type'].get_resource_type(
+                self.env.context['generic_resource_type_model'])
+            res.update({
+                k: v
+                for k, v in self._get_resource_type_defaults(res_type).items()
+                if k in fields_list
+            })
+        return res
+
+    @api.model
     def create(self, vals):
         res_id = vals.get('res_id')
         if res_id and isinstance(res_id, GenericResourceResID):
@@ -88,7 +101,7 @@ class GenericResource(models.Model):
             vals['res_id'] = int(res_id)
             return super(GenericResource, self.sudo()).write(vals)
 
-        elif res_id:
+        if res_id:
             raise exceptions.ValidationError(_(
                 "Direct modification of 'generic.resource:res_id' field "
                 "is not allowed!"))

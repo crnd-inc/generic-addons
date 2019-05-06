@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Resource',
-    'version': '12.0.1.2.2',
+    'version': '12.0.1.3.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -26,13 +26,14 @@
         'security/security.xml',
         'security/ir.model.access.csv',
 
-        'data/generic_resource_type_data.xml',
         'data/ir_sequence_data.xml',
 
         'views/generic_resource_views.xml',
         'views/generic_resource_type_views.xml',
         'views/generic_resource_simple.xml',
         'views/generic_resource_simple_category.xml',
+
+        'data/generic_resource_type_data.xml',
     ],
     'demo': [
         'demo/demo_resource.xml',
