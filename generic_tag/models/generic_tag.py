@@ -20,11 +20,43 @@ class GenericTag(models.Model):
     _name = "generic.tag"
     _inherit = ['generic.tag.model.mixin']
     _description = "Generic Tag"
-
     _access_log = False
-
     _rec_name = 'complete_name'
-    _order = 'complete_name'
+    _order = 'category_sequence, category_name, sequence, complete_name'
+
+    category_id = fields.Many2one(
+        'generic.tag.category', 'Category',
+        index=True, ondelete='restrict')
+    name = fields.Char(required=True, translate=True, index=True)
+    code = fields.Char(
+        index=True, help="May be used for special "
+                         "tags which have programmed bechavior")
+    sequence = fields.Integer(index=True, default=5)
+    comment = fields.Text(help="Describe what this tag means")
+    complete_name = fields.Char(
+        string="Name", compute="_compute_complete_name",
+        store=True, readonly=True,
+        help="Full name of tag (including category name)")
+    category_sequence = fields.Integer(
+        related='category_id.sequence', store=True, index=True)
+    category_name = fields.Char(
+        related='category_id.name', store=True, index=True)
+    objects_count = fields.Integer(
+        string="Objects", compute="_compute_objects_count",
+        store=False, readonly=True, track_visibility='always',
+        help="How many objects contains this tag")
+    group_ids = fields.Many2many('res.groups', string='Groups')
+    color = fields.Integer()
+    active = fields.Boolean(default=True, index=True)
+
+    _sql_constraints = [
+        ('name_uniq',
+         'unique(model_id, category_id, name)',
+         'Name of tag must be unique for category'),
+        ('code_uniq',
+         'unique(model_id, code)',
+         'Code of tag must be unique'),
+    ]
 
     @api.multi
     def _compute_objects_count(self):
@@ -42,8 +74,8 @@ class GenericTag(models.Model):
     def _compute_complete_name(self):
         for tag in self:
             if tag.category_id:
-                tag.complete_name = "%s / %s" % (tag.category_id.name,
-                                                 tag.name)
+                tag.complete_name = "%s / %s" % (
+                    tag.category_id.name, tag.name)
             else:
                 tag.complete_name = tag.name
 
@@ -53,38 +85,6 @@ class GenericTag(models.Model):
             if tag.category_id and tag.model_id != tag.category_id.model_id:
                 raise ValidationError(_(
                     u"Category must be bound to same model as tag"))
-
-    category_id = fields.Many2one(
-        'generic.tag.category', 'Category',
-        index=True, ondelete='restrict')
-    name = fields.Char(required=True, translate=True, index=True)
-    code = fields.Char(
-        index=True, help="May be used for special "
-                         "tags which have programmed bechavior")
-    comment = fields.Text(help="Describe what this tag means")
-
-    active = fields.Boolean(default=True, index=True)
-
-    complete_name = fields.Char(
-        string="Name", compute="_compute_complete_name",
-        store=True, readonly=True,
-        help="Full name of tag (including category name)")
-
-    objects_count = fields.Integer(
-        string="Objects", compute="_compute_objects_count",
-        store=False, readonly=True, track_visibility='always',
-        help="How many objects contains this tag")
-    group_ids = fields.Many2many('res.groups', string='Groups')
-    color = fields.Integer()
-
-    _sql_constraints = [
-        ('name_uniq',
-         'unique(model_id, category_id, name)',
-         'Name of tag must be unique for category'),
-        ('code_uniq',
-         'unique(model_id, code)',
-         'Code of tag must be unique'),
-    ]
 
     @api.multi
     def name_get(self):
@@ -145,6 +145,7 @@ class GenericTagMixin(models.AbstractModel):
             _inherit=["generic.tag.mixin"]
     """
     _name = "generic.tag.mixin"
+    _description = "Generic Tag Mixin"
 
     @api.constrains('tag_ids')
     def _check_tags_xor(self):

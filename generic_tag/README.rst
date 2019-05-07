@@ -18,8 +18,11 @@ Generic Tag
 .. |badge4| image:: https://img.shields.io/badge/docs-Generic_Tag-yellowgreen.png
     :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Tag_admin_eng
 
+.. |badge6| image:: https://img.shields.io/badge/GitHub-Generic_Tag-green.png
+    :target: https://github.com/crnd-inc/generic-addons/tree/11.0/generic_tag
 
-|badge1| |badge2| |badge4| |badge5|
+
+|badge1| |badge2| |badge4| |badge5| |badge6|
     
 
 

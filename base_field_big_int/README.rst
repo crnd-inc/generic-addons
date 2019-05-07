@@ -1,6 +1,9 @@
 Base Field BigInt Module
 ========================
 
+.. |badge1| image:: https://img.shields.io/badge/GitHub-Base_Field_BigInt_Module-green.png
+    :target: https://github.com/crnd-inc/generic-addons/tree/11.0/base_field_big_int
+
 .. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
@@ -9,7 +12,7 @@ Base Field BigInt Module
     :target: https://crnd.pro/
     
 
-|badge2| |badge5|
+|badge2| |badge5| |badge1|
 
 *Base Field Big Int* is technical addon developed by the `Center of Research &
 Development company <https://crnd.pro/>`__.

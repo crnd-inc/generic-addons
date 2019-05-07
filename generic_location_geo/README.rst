@@ -14,8 +14,11 @@ Generic Location (Geocoordinates)
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
 
+.. |badge6| image:: https://img.shields.io/badge/GitHub-Generic_Location_Geocoordinates-green.png
+    :target: https://github.com/crnd-inc/generic-addons/tree/11.0/generic_location_geo
 
-|badge1| |badge2| |badge5|
+
+|badge1| |badge2| |badge5| |badge6|
 
 Add geocoordinates to generic locations.
 

@@ -1,7 +1,5 @@
-from odoo import models, fields, api
-from odoo.tools.translate import _
+from odoo import models, fields, api, exceptions, _
 from odoo.tools.safe_eval import safe_eval
-from odoo.exceptions import ValidationError, UserError
 
 from ..utils import str_to_datetime
 from ..debug_logger import DebugLogger
@@ -146,7 +144,7 @@ class GenericCondition(models.Model):
             if record.type != 'condition':
                 continue
             if record.condition_condition_id.model_id != record.model_id:
-                raise ValidationError(_(
+                raise exceptions.ValidationError(_(
                     "Incorrect Conditon field set for condition: %s[%s]"
                 ) % (record.display_name, record.id))
 
@@ -156,7 +154,7 @@ class GenericCondition(models.Model):
             if record.type != 'filter':
                 continue
             if record.condition_filter_id.model_id != record.model_id.model:
-                raise ValidationError(_(
+                raise exceptions.ValidationError(_(
                     "Incorrect Filter field set for condition: %s[%s]"
                 ) % (record.display_name, record.id))
 
@@ -167,12 +165,11 @@ class GenericCondition(models.Model):
                 continue
             for c in record.condition_condition_ids:
                 if c.model_id != record.model_id:
-                    raise ValidationError(_(
+                    raise exceptions.ValidationError(_(
                         "Incorrect Condition (condition group) selected!\n"
                         "Base condition: %s[%s]\n"
                         "Condition with wrong model: %s[%s]"
-                    ) % (record.display_name, record.id,
-                         c.display_name, c.id))
+                    ) % (record.display_name, record.id, c.display_name, c.id))
 
     @api.constrains('type', 'model_id', 'condition_rel_field_id')
     def _constrain_condition_rel_field_id(self):
@@ -183,27 +180,35 @@ class GenericCondition(models.Model):
             if rel_field_id:
                 rel_field_model_id = cond.condition_rel_field_id.model_id
                 if rel_field_model_id != cond.model_id:
-                    raise ValidationError(
+                    raise exceptions.ValidationError(
                         _('Wrong Related Field / Based on combination'))
         return True
 
     color = fields.Integer()
-    name = fields.Char(required=True, index=True, translate=True,
-                       track_visibility='onchange')
+    name = fields.Char(
+        required=True, index=True, translate=True,
+        track_visibility='onchange')
     type = fields.Selection(
         '_get_selection_type', default='filter',
         index=True, required=True, track_visibility='onchange')
     model_id = fields.Many2one(
-        'ir.model', 'Based on model', required=True, index=True)
+        'ir.model', 'Based on model', required=True, index=True,
+        help="Choose model to apply condition to")
     based_on = fields.Char(
         related='model_id.model', readonly=True, index=True, store=True,
         related_sudo=True, track_visibility='onchange')
     sequence = fields.Integer(
-        index=True, default=10, track_visibility='onchange')
+        index=True, default=10, track_visibility='onchange',
+        help="Conditions with smaller value in this field "
+             "will be checked first")
     active = fields.Boolean(
         index=True, default=True, track_visibility='onchange')
-    invert = fields.Boolean('Invert (Not)', track_visibility='onchange')
-    with_sudo = fields.Boolean(default=False, track_visibility='onchange')
+    invert = fields.Boolean(
+        'Invert (Not)', track_visibility='onchange',
+        help="Invert condition result.")
+    with_sudo = fields.Boolean(
+        default=False, track_visibility='onchange',
+        help="Run this condition as superuser.")
     enable_caching = fields.Boolean(
         default=True,
         help='If set, then condition result for a specific object will be '
@@ -478,14 +483,14 @@ class GenericCondition(models.Model):
             res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
         except Exception:
             condition_name = self.name_get()[0][1]
-            obj_name = "%s [id:%s] (%s)" % (self.sudo().model_id.model,
-                                            obj.id,
-                                            obj.sudo().name_get()[0][1])
+            obj_name = "%s [id:%s] (%s)" % (
+                self.sudo().model_id.model, obj.id,
+                obj.sudo().name_get()[0][1])
             _logger.error(
                 "Error was cauht when checking condition %s on document %s. "
                 "condition expression:\n%s\n", condition_name, obj_name,
                 self.condition_eval, exc_info=True)
-            raise ValidationError(
+            raise exceptions.ValidationError(
                 _("Checking condition %s on document %s caused error. "
                   "Notify administrator to fix it.\n\n---\n"
                   "%s") % (condition_name, obj_name, traceback.format_exc()))
@@ -553,7 +558,7 @@ class GenericCondition(models.Model):
                     # that match 'check' conditions. all other recors don't
                     # matter
                     return True
-                elif self.condition_rel_record_operator == 'match':
+                if self.condition_rel_record_operator == 'match':
                     # mark that atleast one record matched. This is used by
                     # 'match' rel_record_operator. if all records match 'check'
                     # conditions, then we shoudl know about it after this loop
@@ -582,16 +587,15 @@ class GenericCondition(models.Model):
             raise AssertionError("Date type not in (start,stop)")
 
         date_source = self['condition_date_diff_date_%s_type' % date_type]
-
         if date_source == 'now':
             return datetime.datetime.now()
-        elif date_source == 'date':
+        if date_source == 'date':
             date = self['condition_date_diff_date_%s_date' % date_type]
             return str_to_datetime('date', date)
-        elif date_source == 'datetime':
+        if date_source == 'datetime':
             date = self['condition_date_diff_date_%s_datetime' % date_type]
             return str_to_datetime('datetime', date)
-        elif date_source == 'field':
+        if date_source == 'field':
             field_name = 'condition_date_diff_date_%s_field' % date_type
             field = self.sudo()[field_name]
             return str_to_datetime(field.ttype, obj[field.name])
@@ -654,9 +658,9 @@ class GenericCondition(models.Model):
         # 2017-04-03 12:31:44 ~ 2017-04-03 12:31:15
         if operator == '=':
             return uom_map[uom](date_end, date_start, delta) == value
-        elif operator == '!=':
+        if operator == '!=':
             return uom_map[uom](date_end, date_start, delta) != value
-        elif operator in operator_map:
+        if operator in operator_map:
             # EX: date_end - date_start (>|>=|<|<=) 2 years
             #     equal to
             #     date_start + 2 year (>|>=|<|<=) date_end
@@ -681,7 +685,6 @@ class GenericCondition(models.Model):
             reference_value = self.condition_simple_field_value_float
         elif self.condition_simple_field_type == 'integer':
             reference_value = self.condition_simple_field_value_integer
-
         return operator_map[operator](obj_value, reference_value)
 
     def helper_check_simple_field_string_regex_params(self, operator):
@@ -699,7 +702,6 @@ class GenericCondition(models.Model):
         elif not is_regex and operator == 'contains':
             reference_value = re.escape(
                 reference_value)
-
         return reference_value, re_flags
 
     def helper_check_simple_field_string(self, obj_value):
@@ -716,7 +718,7 @@ class GenericCondition(models.Model):
         # Simple operators
         if operator == 'set':
             return bool(obj_value)
-        elif operator == 'not set':
+        if operator == 'not set':
             return not bool(obj_value)
 
         # Get reference value as regex and regex flags
@@ -731,16 +733,16 @@ class GenericCondition(models.Model):
                     reference_value,
                     obj_value,
                     re_flags))
-        elif obj_value and operator == '!=':
+        if obj_value and operator == '!=':
             return not bool(
                 re.match(
                     reference_value,
                     obj_value,
                     re_flags))
-        elif not obj_value and operator == '!=':
+        if not obj_value and operator == '!=':
             # False != reference_value
             return True
-        elif obj_value and operator == 'contains':
+        if obj_value and operator == 'contains':
             return bool(
                 re.search(
                     reference_value,
@@ -762,11 +764,11 @@ class GenericCondition(models.Model):
         # Simple operators
         if operator == 'set':
             return bool(obj_value)
-        elif operator == 'not set':
+        if operator == 'not set':
             return not bool(obj_value)
-        elif operator == '=':
+        if operator == '=':
             return obj_value == reference_value
-        elif operator == '!=':
+        if operator == '!=':
             return obj_value != reference_value
 
     # signature check_<type> where type is condition type
@@ -778,11 +780,11 @@ class GenericCondition(models.Model):
 
         if field.ttype in ('integer', 'float'):
             return self.helper_check_simple_field_number(value)
-        elif field.ttype in ('char', 'text', 'html'):
+        if field.ttype in ('char', 'text', 'html'):
             return self.helper_check_simple_field_string(value)
-        elif field.ttype == 'boolean':
+        if field.ttype == 'boolean':
             return self.helper_check_simple_field_boolean(value)
-        elif field.ttype == 'selection':
+        if field.ttype == 'selection':
             return self.helper_check_simple_field_selection(value)
         raise NotImplementedError()
 
@@ -795,19 +797,18 @@ class GenericCondition(models.Model):
         # Simple operators
         if operator == 'set':
             return bool(obj_value)
-        elif operator == 'not set':
+        if operator == 'not set':
             return not bool(obj_value)
-        elif obj_value and operator == 'contains':
+        if obj_value and operator == 'contains':
             reference_value_id = self.condition_related_field_value_id
             return reference_value_id in obj_value.ids
-
         return False
 
     def helper_check_monetary_field_date(self, obj):
         # Compute accounting date
         if self.condition_monetary_curency_date_type == 'date':
             return self.condition_monetary_curency_date_date
-        elif self.condition_monetary_curency_date_type == 'field':
+        if self.condition_monetary_curency_date_type == 'field':
             currency_date_field = (
                 self.condition_monetary_curency_date_field_id.sudo())
             return obj[currency_date_field.name]
@@ -853,7 +854,7 @@ class GenericCondition(models.Model):
         """
         self.ensure_one()
         if obj._name != self.based_on:
-            raise UserError(_(
+            raise exceptions.UserError(_(
                 "Generic conditions misconfigured!\n"
                 "object's model and condition's model does not match:\n"
                 "\tcondition: %s [%d]"
@@ -875,8 +876,7 @@ class GenericCondition(models.Model):
         if self.with_sudo:
             condition = self.sudo()
             obj = obj.sudo()
-            self._debug_log(
-                debug_log, obj, "Using sudo")
+            self._debug_log(debug_log, obj, "Using sudo")
 
         # generate cache_key
         cache_key = (condition.id, obj.id)
@@ -886,8 +886,7 @@ class GenericCondition(models.Model):
                 cache is not None and
                 cache_key in cache):
             self._debug_log(
-                debug_log, obj,
-                "Using cached result: %s" % cache[cache_key])
+                debug_log, obj, "Using cached result: %s" % cache[cache_key])
             return cache[cache_key]
 
         # get condition's check method
@@ -917,9 +916,7 @@ class GenericCondition(models.Model):
         if condition.enable_caching and cache is not None:
             cache[cache_key] = res
 
-        self._debug_log(
-            debug_log, obj,
-            "Computed result: %s" % res)
+        self._debug_log(debug_log, obj, "Computed result: %s" % res)
         return res
 
     @api.model
@@ -954,10 +951,10 @@ class GenericCondition(models.Model):
             raise AssertionError("Operator must be in ('and', 'or')")
 
         if not obj:
-            raise UserError(_("Cannot check conditions for empty recordset"))
+            raise exceptions.UserError(
+                _("Cannot check conditions for empty recordset"))
 
         cache = {} if cache is None else cache
-
         ctx = self._prepare_object_context(obj)
 
         if not self:
@@ -971,14 +968,14 @@ class GenericCondition(models.Model):
             if operator == 'and' and not res:
                 # if operator is and, then fail on first failed condition
                 return False
-            elif operator == 'or' and res:
+            if operator == 'or' and res:
                 # if operator is or, then return ok on first successful check
                 return True
 
         if operator == 'and':
             # there are no failed checks, so return ok
             return True
-        elif operator == 'or':
+        if operator == 'or':
             # there are no successful check, so all checks are failed, return
             # fail
             return False
