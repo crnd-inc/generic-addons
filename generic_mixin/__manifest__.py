@@ -14,6 +14,7 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
+        'http_routing',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
