@@ -25,6 +25,7 @@ class GenericMixinParentNames(models.AbstractModel):
                 parent_id = fields.Many2one('my.cool.model')
     """
     _name = "generic.mixin.parent.names"
+    _description = "Generic Mixin: Parent Names"
 
     # Overridden to add recursion check constraint
     @classmethod

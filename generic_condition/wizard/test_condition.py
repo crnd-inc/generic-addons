@@ -46,9 +46,9 @@ class TestGenericCondition(models.TransientModel):
     def _adapt_result(self, result):
         if result is True:
             return _('Ok')
-        elif result is False:
+        if result is False:
             return _('Fail')
-        elif isinstance(result, Exception):
+        if isinstance(result, Exception):
             return _('Error')
         return _('Unknown')
 

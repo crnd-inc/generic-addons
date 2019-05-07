@@ -14,8 +14,11 @@ Generic Tag (Sale)
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
 
+.. |badge6| image:: https://img.shields.io/badge/GitHub-Generic_Tag_Sale-green.png
+    :target: https://github.com/crnd-inc/generic-addons/tree/11.0/generic_tag_sale
 
-|badge1| |badge2| |badge5|
+
+|badge1| |badge2| |badge5| |badge6|
 
 This addon integrates *Generic Tags* with *Sale* Odoo addon
 

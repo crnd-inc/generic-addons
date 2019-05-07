@@ -9,11 +9,12 @@
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '12.0.1.0.10',
+    'version': '12.0.1.0.12',
 
     # any module necessary for this one to work correctly
     'depends': [
         'base',
+        'http_routing',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,

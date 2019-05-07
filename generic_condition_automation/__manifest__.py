@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition - Action Rules",
-    "version": "12.0.1.0.10",
+    "version": "12.0.1.0.12",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",

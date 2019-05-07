@@ -1,5 +1,5 @@
-Generic Condition (Action rules integration)
-============================================
+Generic Condition (Automation)
+==============================
 
 .. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
     :target: https://github.com/crnd-inc/generic-addons
@@ -14,8 +14,11 @@ Generic Condition (Action rules integration)
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
 
+.. |badge6| image:: https://img.shields.io/badge/GitHub-Generic_Condition_Automation-green.png
+    :target: https://github.com/crnd-inc/generic-addons/tree/11.0/generic_condition_automation
 
-|badge1| |badge2| |badge5|
+
+|badge1| |badge2| |badge5| |badge6|
 
 This addon provides basic integration of Generic Conditions with
 base_automation addon.
