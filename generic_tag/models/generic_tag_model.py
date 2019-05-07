@@ -5,7 +5,6 @@ class GenericTagModel(models.Model):
     _name = "generic.tag.model"
     _inherits = {'ir.model': 'res_model_id'}
     _description = "Generic Tag Model"
-
     _access_log = False
 
     @api.multi

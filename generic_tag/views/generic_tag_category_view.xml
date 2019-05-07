@@ -62,10 +62,14 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="code" placeholder="Category code"/>
-                        <field name="model_id" widget="selection"/>
-                        <field name="check_xor"/>
-                        <field name="sequence"/>
+                        <group>
+                            <field name="code" placeholder="Category code"/>
+                            <field name="model_id" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="check_xor"/>
+                        </group>
                     </group>
                     <field name="comment" placeholder="Comment..."/>
                 </sheet>
