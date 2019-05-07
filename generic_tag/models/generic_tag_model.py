@@ -4,7 +4,6 @@ from odoo import models, fields, api, _
 class GenericTagModel(models.Model):
     _name = "generic.tag.model"
     _inherits = {'ir.model': 'res_model_id'}
-
     _description = "Generic Tag Model"
 
     _access_log = False
@@ -48,6 +47,7 @@ class GenericTagModel(models.Model):
 
 class GenericTagModelMixin(models.AbstractModel):
     _name = "generic.tag.model.mixin"
+    _description = "Generic Tag Model Mixin"
 
     @api.model
     def _get_default_model_id(self):

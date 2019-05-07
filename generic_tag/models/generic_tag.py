@@ -150,6 +150,7 @@ class GenericTagMixin(models.AbstractModel):
             _inherit=["generic.tag.mixin"]
     """
     _name = "generic.tag.mixin"
+    _description = "Generic Tag Mixin"
 
     @api.constrains('tag_ids')
     def _check_tags_xor(self):

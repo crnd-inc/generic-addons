@@ -188,22 +188,30 @@ class GenericCondition(models.Model):
         return True
 
     color = fields.Integer()
-    name = fields.Char(required=True, index=True, translate=True,
-                       track_visibility='onchange')
+    name = fields.Char(
+        required=True, index=True, translate=True,
+        track_visibility='onchange')
     type = fields.Selection(
         '_get_selection_type', default='filter',
         index=True, required=True, track_visibility='onchange')
     model_id = fields.Many2one(
-        'ir.model', 'Based on model', required=True, index=True)
+        'ir.model', 'Based on model', required=True, index=True,
+        help="Choose model to apply condition to")
     based_on = fields.Char(
         related='model_id.model', readonly=True, index=True, store=True,
         related_sudo=True, track_visibility='onchange')
     sequence = fields.Integer(
-        index=True, default=10, track_visibility='onchange')
+        index=True, default=10, track_visibility='onchange',
+        help="Conditions with smaller value in this field "
+             "will be checked first")
     active = fields.Boolean(
         index=True, default=True, track_visibility='onchange')
-    invert = fields.Boolean('Invert (Not)', track_visibility='onchange')
-    with_sudo = fields.Boolean(default=False, track_visibility='onchange')
+    invert = fields.Boolean(
+        'Invert (Not)', track_visibility='onchange',
+        help="Invert condition result.")
+    with_sudo = fields.Boolean(
+        default=False, track_visibility='onchange',
+        help="Run this condition as superuser.")
     enable_caching = fields.Boolean(
         default=True,
         help='If set, then condition result for a specific object will be '
