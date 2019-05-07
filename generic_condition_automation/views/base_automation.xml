@@ -23,7 +23,7 @@
                        context="{'default_model_id': model_id}"
                        options="{'no_quick_create': true, 'open': true}"
                        string="Set filter conditions:"
-                       attrs="{'invisible':[('trigger', 'not in', ['on_create_or_write', 'on_write'])]}"/>
+                       attrs="{'invisible':[('trigger', 'not in', ['on_create', 'on_create_or_write', 'on_write'])]}"/>
             </field>
         </field>
     </record>

@@ -6,7 +6,7 @@ class GenericTagCategory(models.Model):
     _name = 'generic.tag.category'
     _inherit = ['generic.tag.model.mixin']
     _description = "Generic Tag Category"
-
+    _order = 'sequence'
     _access_log = False
 
     @api.multi
@@ -20,14 +20,10 @@ class GenericTagCategory(models.Model):
     code = fields.Char(
         index=True, help="May be used for special "
                          "tags which have programmed bechavior")
-
     comment = fields.Text(help="Describe what this tag category is for")
-
     active = fields.Boolean(index=True, default=True)
-
     tag_ids = fields.One2many(
         "generic.tag", "category_id", "Tags", readonly=True)
-
     check_xor = fields.Boolean(
         "Check XOR",
         help="if set to True then only one tag from this category "
@@ -38,8 +34,8 @@ class GenericTagCategory(models.Model):
         string="Tags", compute="_compute_tags_count", store=True,
         readonly=True, track_visibility='always',
         help="How many tags related to this catgory")
-
     color = fields.Integer()
+    sequence = fields.Integer(index=True, default=5)
 
     _sql_constraints = [
         ('name_uniq', 'unique(model_id, name)',
