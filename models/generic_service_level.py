@@ -30,6 +30,6 @@ class GenericServiceLevel(models.Model):
     ]
 
     @api.onchange('name')
-    def _onchange_mixin_name_set_code(self):
+    def _onchange_name_set_code(self):
         for record in self:
             record.code = slugify(record.name or '', max_length=0)

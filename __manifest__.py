@@ -28,6 +28,7 @@
     ],
     'demo': [
         'demo/generic_service_demo.xml',
+        'demo/generic_service_level_demo.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
