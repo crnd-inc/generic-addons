@@ -51,5 +51,5 @@ class TestGenericServiceLevel(TransactionCase):
         new_service_level = self.ServiceLevel.new({
             'name': 'Test!!#@{}__--Service//.<>,__True__Сервіс'
         })
-        new_service_level._onchange_name_set_code()
+        new_service_level._onchange_mixin_name_set_code()
         self.assertEqual(new_service_level.code, 'test-service-true-servis')
