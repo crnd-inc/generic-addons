@@ -68,8 +68,12 @@ class GenericResourceMixin(models.AbstractModel):
 
         # Delete records
         res = super(GenericResourceMixin, self).unlink()
+
         # Delete resources and return status
-        resources.unlink()
+        # We are using sudo here to avoid access rights (ACL) conflicts.
+        # resource's access rules (ir.rule) checked
+        # when unlink called on this object.
+        resources.sudo().unlink()
         return res
 
     def _get_resource_type(self):
