@@ -15,6 +15,7 @@
     # any module necessary for this one to work correctly
     'depends': [
         'mail',
+        'generic_mixin',
     ],
 
     # always loaded
