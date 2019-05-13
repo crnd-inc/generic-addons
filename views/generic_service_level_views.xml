@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_generic_service_root"
-              name="Services"
-              groups="generic_service.group_generic_service_user"
-              parent=""
-              web_icon="generic_service,static/description/icon.png"/>
 
-    <menuitem id="menu_generic_service_configuration_menu_item"
-              name="Configurations"
-              sequence="10"
-              parent="menu_generic_service_root"/>
-
-    <!-- generic.service -->
-    <!-- Tree view for generic.service -->
-    <record id="generic_service_view_tree" model="ir.ui.view">
-        <field name="name">generic.service.tree</field>
-        <field name="model">generic.service</field>
+    <!-- Tree view for generic.service.level -->
+    <record id="generic_service_level_view_tree" model="ir.ui.view">
+        <field name="name">generic.service.level.tree</field>
+        <field name="model">generic.service.level</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
-                <field name="active" invisible="1"/>
+                <field name="code"/>
+                <field name="active"/>
             </tree>
         </field>
     </record>
-    <!-- Form view for generic.service -->
-    <record id="generic_service_view_form" model="ir.ui.view">
-        <field name="name">generic.service.form</field>
-        <field name="model">generic.service</field>
+
+    <!-- Form view for generic.service.level -->
+    <record id="generic_service_level_view_form" model="ir.ui.view">
+        <field name="name">generic.service.level.form</field>
+        <field name="model">generic.service.level</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -40,13 +31,16 @@
                     </div>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" placeholder="Name"/>
+                            <field name="name" placeholder="Name..."/>
                         </h1>
+                        <h2>
+                            <field name="code" placeholder="Code..."/>
+                        </h2>
                     </div>
                     <notebook>
                         <page string="Info" name="page_info">
                             <group>
-                                <group name="group_info_left"></group>
+                                <group name="group_info_left"/>
                                 <group name="group_info_right">
                                     <field name="sequence"/>
                                 </group>
@@ -62,13 +56,15 @@
             </form>
         </field>
     </record>
-    <!-- Search for generic.service -->
-    <record model="ir.ui.view" id="generic_service_view_search">
-        <field name="name">generic.service.search</field>
-        <field name="model">generic.service</field>
+
+    <!-- Search for generic.service.level -->
+    <record model="ir.ui.view" id="generic_service_level_view_search">
+        <field name="name">generic.service.level.search</field>
+        <field name="model">generic.service.level</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="code"/>
                 <separator/>
                 <filter name="filter_archived"
                         string="Archived"
@@ -77,17 +73,20 @@
         </field>
     </record>
 
-    <record id="generic_service_action" model="ir.actions.act_window">
-        <field name="name">Services</field>
+    <!-- Actions for generic.service.level -->
+    <record id="generic_service_level_action" model="ir.actions.act_window">
+        <field name="name">Service Levels</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">generic.service</field>
+        <field name="res_model">generic.service.level</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Menus for Generic Resource -->
-    <menuitem id="generic_service_menu_item"
-                name="Services"
-                parent="menu_generic_service_root" sequence="5"
-                action="generic_service_action"/>
+    <!-- Menu items for generic.service.level -->
+    <menuitem id="generic_service_level_menu_item"
+              name="Service Levels"
+              parent="generic_service.menu_generic_service_configuration_menu_item"
+              sequence="5"
+              action="generic_service_level_action"/>
+
 </odoo>
