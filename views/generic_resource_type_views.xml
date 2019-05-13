@@ -53,12 +53,55 @@
         </field>
     </record>
 
+    <record id="view_generic_resource_type_kanban" model="ir.ui.view">
+        <field name="model">generic.resource.type</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_resource_dashboard_kanban">
+                <field name="name"/>
+                <field name="display_name"/>
+                <field name="model_id"/>
+                <field name="resource_count"/>
+                <field name="id"/>
+
+                <templates>
+                     <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_resource_dashboard_kanban">
+                            <div class="o_resource_dashboard_kanban_main">
+                                <div class="o_resource_dashboard_content">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <span> <t t-esc="record.display_name.value"/></span>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span> <t t-esc="record.model_id.value"/></span>
+                                        </div>
+                                        <div class="o_buttons">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_resource_dashboard_kanban_boxes">
+                                <div class="o_resource_dashboard_kanban_box" title="Resources">
+                                    <a name="action_show_resources" type="object">
+                                        <span class="o_value"><t t-esc="record.resource_count.value"/></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+
+    </record>
+
     <record id="generic_resource_type_action" model="ir.actions.act_window">
         <field name="name">Resource Types</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.resource.type</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <menuitem id="generic_resource_type_menu_item"

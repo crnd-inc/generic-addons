@@ -1,1 +1,4 @@
-from . import test_generic_resource_mixin_inv_number
+from . import (
+    test_generic_resource,
+    test_generic_resource_mixin_inv_number,
+)

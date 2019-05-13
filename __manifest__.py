@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Resource',
-    'version': '12.0.1.3.0',
+    'version': '12.0.1.4.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -32,6 +32,7 @@
         'views/generic_resource_type_views.xml',
         'views/generic_resource_simple.xml',
         'views/generic_resource_simple_category.xml',
+        'views/assets.xml',
 
         'data/generic_resource_type_data.xml',
     ],
