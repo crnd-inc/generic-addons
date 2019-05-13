@@ -72,9 +72,9 @@
 
                 <templates>
                      <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click o_resource_dashboard_kanban">
-                            <div class="o_resource_dashboard_kanban_main">
-                                <div class="o_resource_dashboard_content">
+                        <div t-attf-class="oe_kanban_global_click o_service_dashboard_kanban">
+                            <div class="o_service_dashboard_kanban_main">
+                                <div class="o_service_dashboard_content">
                                     <div class="o_kanban_primary_left">
                                         <div class="o_primary">
                                             <span> <t t-esc="record.display_name.value"/></span>
