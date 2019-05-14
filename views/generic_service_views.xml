@@ -66,7 +66,7 @@
         <record id="view_generic_service_kanban" model="ir.ui.view">
         <field name="model">generic.service</field>
         <field name="arch" type="xml">
-            <kanban class="oe_background_grey o_resource_dashboard_kanban">
+            <kanban class="oe_background_grey o_service_dashboard_kanban">
                 <field name="display_name"/>
                 <field name="description"/>
 
