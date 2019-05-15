@@ -5,22 +5,22 @@
     </record>
 
     <record id="generic_service_support_consulting" model="generic.service">
-        <field name="name">Support/Consulting</field>
+        <field name="name">Support / Consulting</field>
     </record>
 
     <record id="generic_service_support_development" model="generic.service">
-        <field name="name">Support/Development</field>
+        <field name="name">Support / Development</field>
     </record>
 
     <record id="generic_service_support_configuration" model="generic.service">
-        <field name="name">Support/Configuration</field>
+        <field name="name">Support / Configuration</field>
     </record>
 
     <record id="generic_service_support_administration" model="generic.service">
-        <field name="name">Support/Administration</field>
+        <field name="name">Support / Administration</field>
     </record>
 
     <record id="generic_service_support_hosting" model="generic.service">
-        <field name="name">Support/Hosting</field>
+        <field name="name">Support / Hosting</field>
     </record>
 </odoo>
