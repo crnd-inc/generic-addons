@@ -12,6 +12,7 @@
     'category': 'Generic Service',
     'version': '11.0.1.3.4',
 
+
     # any module necessary for this one to work correctly
     'depends': [
         'mail',

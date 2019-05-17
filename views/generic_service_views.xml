@@ -62,6 +62,7 @@
             </form>
         </field>
     </record>
+
     <!-- Kanban view for generic.service -->
         <record id="view_generic_service_kanban" model="ir.ui.view">
         <field name="model">generic.service</field>
@@ -95,6 +96,7 @@
             </kanban>
         </field>
     </record>
+
     <!-- Search for generic.service -->
     <record model="ir.ui.view" id="generic_service_view_search">
         <field name="name">generic.service.search</field>
