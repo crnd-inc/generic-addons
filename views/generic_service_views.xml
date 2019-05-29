@@ -62,6 +62,41 @@
             </form>
         </field>
     </record>
+
+    <!-- Kanban view for generic.service -->
+        <record id="view_generic_service_kanban" model="ir.ui.view">
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_service_dashboard_kanban">
+                <field name="display_name"/>
+                <field name="description"/>
+
+                <templates>
+                     <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_service_dashboard_kanban">
+                            <div class="o_service_dashboard_kanban_main">
+                                <div class="o_service_dashboard_content">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <span> <t t-esc="record.display_name.value"/></span>
+                                        </div>
+                                         <div class="text-muted">
+                                            <span> <t t-esc="record.description.value"/></span>
+                                        </div>
+                                        <div class="o_buttons">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_service_dashboard_kanban_boxes">
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- Search for generic.service -->
     <record model="ir.ui.view" id="generic_service_view_search">
         <field name="name">generic.service.search</field>
@@ -82,7 +117,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.service</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <!-- Menus for Generic Resource -->

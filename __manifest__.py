@@ -10,7 +10,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
-    'version': '12.0.1.3.1',
+    'version': '12.0.1.3.5',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -22,6 +22,7 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/assets.xml',
         'views/generic_service_views.xml',
         'views/generic_service_level_views.xml',
         'views/res_partner_views.xml',
