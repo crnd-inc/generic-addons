@@ -10,7 +10,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
-    'version': '11.0.1.3.5',
+    'version': '11.0.1.3.6',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -31,6 +31,7 @@
     'demo': [
         'demo/generic_service_demo.xml',
         'demo/generic_service_level_demo.xml',
+        'demo/res_partner.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
