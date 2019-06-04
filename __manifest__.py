@@ -2,15 +2,13 @@
     'name': "Generic Service",
 
     'summary': """
-        The module allows you to create various services,
-        which can then be used in other Odoo applications
-        and modules.
+        Custom Services and Levels of Service
     """,
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
-    'version': '11.0.1.3.7',
+    'version': '11.0.1.3.8',
 
     # any module necessary for this one to work correctly
     'depends': [
