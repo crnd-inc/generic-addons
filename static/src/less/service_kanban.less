@@ -39,6 +39,15 @@
             }
         }
 
+        .o_service_dashboard_kanban_box:nth-last-child(1) {
+            color: white;
+            background-color: grey;
+
+            &:hover {
+                background-color: darken(grey, 10%);
+            }
+        }        
+
         .o_service_dashboard_kanban_box:nth-child(1) {
             color: white;
             background-color: @odoo-brand-optional;
@@ -47,16 +56,7 @@
                 background-color: darken(@odoo-brand-optional, 10%);
             }
         }
-
-        .o_service_dashboard_kanban_box:nth-last-child(1) {
-            color: white;
-            background-color: grey;
-
-            &:hover {
-                background-color: darken(grey, 10%);
-            }
-        }
-    }
+   }
 
     .o_service_dashboard_kanban_main {
         flex: 0 0 auto;
