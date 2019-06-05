@@ -2,7 +2,7 @@
     'name': "Generic Service",
 
     'summary': """
-        Custom Services and Levels of Service
+        Create and manage service catalog
     """,
 
     'author': "Center of Research and Development",
