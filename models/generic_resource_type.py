@@ -71,6 +71,12 @@ class GenericResourceType(models.Model):
         return self.search([('model_id.model', '=', model_name)], limit=1)
 
     @api.model
+    def get_resource(self, res_id):
+        if not self.model_id:
+            return False
+        return self.sudo().env[self.model_id.model].browse(res_id).exists()
+
+    @api.model
     @api.returns('self', lambda value: value.id)
     def create(self, vals):
         record = super(GenericResourceType, self).create(vals)
