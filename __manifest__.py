@@ -2,15 +2,13 @@
     'name': "Generic Service",
 
     'summary': """
-        The module allows you to create various services,
-        which can then be used in other Odoo applications
-        and modules.
+        Create and manage service catalog
     """,
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
-    'version': '12.0.1.3.5',
+    'version': '12.0.1.3.8',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -31,6 +29,7 @@
     'demo': [
         'demo/generic_service_demo.xml',
         'demo/generic_service_level_demo.xml',
+        'demo/res_partner.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,

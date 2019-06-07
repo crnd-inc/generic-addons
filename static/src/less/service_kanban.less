@@ -40,11 +40,21 @@
         }
 
         .o_service_dashboard_kanban_box:nth-last-child(1) {
-            .rd_button(grey);
+            color: white;
+            background-color: grey;
         }
 
         .o_service_dashboard_kanban_box:nth-child(1) {
-            .rd_button(@odoo-brand-optional);
+            color: white;
+            background-color: @odoo-brand-optional;
+        }
+
+        .o_service_dashboard_kanban_box:hover:nth-last-child(1) {
+            background-color: darken(grey, 10%);
+        }
+
+        .o_service_dashboard_kanban_box:hover:nth-child(1) {
+            background-color: darken(@odoo-brand-optional, 10%);
         }
     }
 
