@@ -71,10 +71,16 @@ class GenericResourceType(models.Model):
         return self.search([('model_id.model', '=', model_name)], limit=1)
 
     @api.model
-    def get_resource(self, res_id):
+    def get_resource_by_id(self, res_id):
+        """
+            Returns recordset of resource for res_id from model_id.model.
+
+        :param res_id: int id of related record.
+        :return: Recordset of resource model_id.model.
+        """
         if not self.model_id:
             return False
-        return self.sudo().env[self.model_id.model].browse(res_id).exists()
+        return self.env[self.sudo().model_id.model].browse(res_id).exists()
 
     @api.model
     @api.returns('self', lambda value: value.id)
