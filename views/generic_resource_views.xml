@@ -20,6 +20,7 @@
     <record id="generic_resource_view_search" model="ir.ui.view">
         <field name="name">generic.resource.search</field>
         <field name="model">generic.resource</field>
+        <field name="mode">primary</field>
         <field name="arch" type="xml">
             <search>
                 <field name="res_type_id"/>
@@ -38,6 +39,7 @@
     <record id="generic_resource_view_tree" model="ir.ui.view">
         <field name="name">generic.resource.tree</field>
         <field name="model">generic.resource</field>
+        <field name="mode">primary</field>
         <field name="arch" type="xml">
             <tree create="false" delete="false">
                 <field name="display_name" string="Name"/>
@@ -54,6 +56,7 @@
     <record id="generic_resource_view_form" model="ir.ui.view">
         <field name="name">generic.resource.form</field>
         <field name="model">generic.resource</field>
+        <field name="mode">primary</field>
         <field name="arch" type="xml">
             <form create="false" delete="false">
                 <sheet>

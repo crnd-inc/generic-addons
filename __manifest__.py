@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Resource',
-    'version': '11.0.1.4.2',
+    'version': '11.0.1.5.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -28,6 +28,7 @@
 
         'data/ir_sequence_data.xml',
 
+        'views/ir_model.xml',
         'views/generic_resource_views.xml',
         'views/generic_resource_type_views.xml',
         'views/generic_resource_simple.xml',
