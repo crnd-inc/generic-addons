@@ -1,8 +1,18 @@
 from odoo import exceptions
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, tagged
 
 
+@tagged('post_install')
 class TestCustomResource(TransactionCase):
+
+    def setUp(self):
+        super(TestCustomResource, self).setUp()
+
+        self.env['ir.ui.view'].search([
+            ('model', 'not in', list(self.registry.models))
+        ]).write({
+            'active': False,
+        })
 
     def test_create_custom_resource(self):
         # Create custom resource model
