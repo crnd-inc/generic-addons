@@ -1,6 +1,9 @@
-from . import generic_resource
-from . import generic_resource_type
-from . import generic_resource_related_mixin
-from . import generic_resource_mixin
-from . import generic_resource_simple
-from . import generic_resource_simple_category
+from . import (
+    generic_resource,
+    generic_resource_type,
+    generic_resource_related_mixin,
+    generic_resource_mixin,
+    generic_resource_simple,
+    generic_resource_simple_category,
+    ir_model,
+)

@@ -27,7 +27,7 @@
         <field name="name">generic.resource.simple.category.form</field>
         <field name="model">generic.resource.simple.category</field>
         <field name="arch" type="xml">
-            <form string="Resources Categories">
+            <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="toggle_active" type="object"
