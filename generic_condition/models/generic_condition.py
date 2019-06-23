@@ -154,12 +154,26 @@ class GenericCondition(models.Model):
         track_visibility='onchange')
 
     # Condition type 'current_user' params
+    condition_user_check_type = fields.Selection(
+        [('field', 'Field'),
+         ('one_of', 'One of'),
+         ('checks', 'Checks')],
+        string="Check Type", default='field', track_visibility='onchange')
     condition_user_user_field_id = fields.Many2one(
         'ir.model.fields', string='User Field',
         ondelete='restrict', track_visibility='onchange',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many')),
                 ('relation', '=', 'res.users')],
         help='Field in object being checked, that points to user.')
+    condition_user_one_of_user_ids = fields.Many2many(
+        'res.users', 'generic_conditon__current_user__one_of__user_rel',
+        string='Users', track_visibility='onchange')
+    condition_user_checks_condition_ids = fields.Many2many(
+        'generic.condition',
+        'generic_condition__current_user__checks__condition_ids',
+        'parent_condition_id', 'child_condition_id',
+        domain=[('based_on', '=', 'res.users')],
+        string='Conditions', track_visibility='onchange')
 
     # Condition type 'related_conditions' params
     condition_rel_field_id = fields.Many2one(
@@ -528,11 +542,16 @@ class GenericCondition(models.Model):
 
     # signature check_<type> where type is condition type
     def check_current_user(self, obj, cache=None, debug_log=None):
-        field = self.sudo().condition_user_user_field_id
-        obj_value = obj[field.name]
-
-        if obj_value and self.env.user in obj_value:
-            return True
+        if self.condition_user_check_type == 'field':
+            field = self.sudo().condition_user_user_field_id
+            if obj[field.name] and self.env.user in obj[field.name]:
+                return True
+        elif self.condition_user_check_type == 'one_of':
+            if self.env.user in self.sudo().condition_user_one_of_user_ids:
+                return True
+        elif self.condition_user_check_type == 'checks':
+            if self.condition_user_checks_condition_ids.check(self.env.user):
+                return True
         return False
 
     # signature check_<type> where type is condition type
