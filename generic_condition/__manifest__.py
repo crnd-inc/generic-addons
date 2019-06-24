@@ -18,6 +18,7 @@
         'demo/demo_data.xml',
     ],
     'data': [
+        'data/generic_condition.xml',
         'security/ir.model.access.csv',
         'views/generic_condition_view.xml',
         'views/assets.xml',

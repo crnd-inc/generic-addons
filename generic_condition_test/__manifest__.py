@@ -1,11 +1,11 @@
 {
     "name": "Generic Condition - Test",
-    "version": "12.0.1.0.12",
+    "version": "12.0.1.0.13",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
     "summary": "Generic Conditions - Tests (do not install manualy)",
-    'category': 'Technical Settings',
+    'category': 'Hidden',
     'depends': [
         'generic_condition',
     ],
