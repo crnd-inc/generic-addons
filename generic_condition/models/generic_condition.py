@@ -18,88 +18,10 @@ _logger = logging.getLogger(__name__)
 
 class GenericCondition(models.Model):
     _name = "generic.condition"
-    _inherit = [
-        'mail.thread',
-    ]
+    _inherit = 'mail.thread'
     _order = "sequence"
     _description = 'Generic Condition'
     _rec_name = 'name'
-
-    # To add new type just override this method in subclass,
-    # adding it after calling super
-    def _get_selection_type(self):
-        return [
-            ('eval', _('Expression')),
-            ('filter', _('Filter')),
-            ('condition', _('Condition')),
-            ('related_conditions', _('Related conditions')),
-            ('date_diff', _('Date difference')),
-            ('condition_group', _('Condition group')),
-            ('simple_field', _('Simple field')),
-            ('related_field', _('Related field')),
-            ('current_user', _('Current user')),
-            ('monetary_field', _('Monetary field')),
-        ]
-
-    def _get_selection_date_diff_uom(self):
-        return [
-            ('hours', _('Hours')),
-            ('days', _('Days')),
-            ('weeks', _('Weeks')),
-            ('months', _('Months')),
-            ('years', _('Years')),
-        ]
-
-    def _get_selection_date_diff_operator(self):
-        return [
-            ('=', '='),
-            ('>', '>'),
-            ('<', '<'),
-            ('>=', '>='),
-            ('<=', '<='),
-            ('!=', '!='),
-        ]
-
-    def _get_selection_simple_field_number_operator(self):
-        return [
-            ('=', '='),
-            ('>', '>'),
-            ('<', '<'),
-            ('>=', '>='),
-            ('<=', '<='),
-            ('!=', '!='),
-        ]
-
-    def _get_selection_simple_field_string_operator(self):
-        return [
-            ('=', '='),
-            ('!=', '!='),
-            ('set', _('Set')),
-            ('not set', _('Not set')),
-            ('contains', _('Contains')),
-        ]
-
-    def _get_selection_simple_field_string_operator_html(self):
-        return [
-            ('set', _('Set')),
-            ('not set', _('Not set')),
-            ('contains', _('Contains')),
-        ]
-
-    def _get_selection_simple_field_selection_operator(self):
-        return [
-            ('=', '='),
-            ('!=', '!='),
-            ('set', _('Set')),
-            ('not set', _('Not set')),
-        ]
-
-    def _get_selection_related_field_operator(self):
-        return [
-            ('set', _('Set')),
-            ('not set', _('Not set')),
-            ('contains', _('Contains')),
-        ]
 
     def _get_selection_date_diff_date_type(self):
         return [
@@ -113,29 +35,6 @@ class GenericCondition(models.Model):
         return [
             ('or', _('OR')),
             ('and', _('AND')),
-        ]
-
-    def _get_selection_condition_rel_record_operator(self):
-        return [
-            ('match', _('Match')),
-            ('contains', _('Contains')),
-        ]
-
-    def _get_selection_monetary_field_operator(self):
-        return [
-            ('=', '='),
-            ('>', '>'),
-            ('<', '<'),
-            ('>=', '>='),
-            ('<=', '<='),
-            ('!=', '!='),
-        ]
-
-    def _get_selection_currency_date_type(self):
-        return [
-            ('now', _('Current date')),
-            ('field', _('Field')),
-            ('date', _('Date'))
         ]
 
     @api.constrains('type', 'model_id', 'condition_condition_id')
@@ -182,15 +81,22 @@ class GenericCondition(models.Model):
                 if rel_field_model_id != cond.model_id:
                     raise exceptions.ValidationError(
                         _('Wrong Related Field / Based on combination'))
-        return True
 
     color = fields.Integer()
     name = fields.Char(
-        required=True, index=True, translate=True,
-        track_visibility='onchange')
+        required=True, index=True, translate=True, track_visibility='onchange')
     type = fields.Selection(
-        '_get_selection_type', default='filter',
-        index=True, required=True, track_visibility='onchange')
+        [('eval', 'Expression'),
+         ('filter', 'Filter'),
+         ('condition', 'Condition'),
+         ('related_conditions', 'Related conditions'),
+         ('date_diff', 'Date difference'),
+         ('condition_group', 'Condition group'),
+         ('simple_field', 'Simple field'),
+         ('related_field', 'Related field'),
+         ('current_user', 'Current user'),
+         ('monetary_field', 'Monetary field')], default='filter', index=True,
+        required=True, track_visibility='onchange')
     model_id = fields.Many2one(
         'ir.model', 'Based on model', required=True, index=True,
         help="Choose model to apply condition to")
@@ -210,11 +116,10 @@ class GenericCondition(models.Model):
         default=False, track_visibility='onchange',
         help="Run this condition as superuser.")
     enable_caching = fields.Boolean(
-        default=True,
+        default=True, track_visibility='onchange',
         help='If set, then condition result for a specific object will be '
              'cached during one condition chain call. '
-             'This may speed up condition processing.',
-        track_visibility='onchange')
+             'This may speed up condition processing.')
     description = fields.Text(translate=True)
 
     # Condition type 'eval' params
@@ -249,57 +154,66 @@ class GenericCondition(models.Model):
         track_visibility='onchange')
 
     # Condition type 'current_user' params
+    condition_user_check_type = fields.Selection(
+        [('field', 'Field'),
+         ('one_of', 'One of'),
+         ('checks', 'Checks')],
+        string="Check Type", default='field', track_visibility='onchange')
     condition_user_user_field_id = fields.Many2one(
-        'ir.model.fields', 'User Field',
-        ondelete='restrict',
+        'ir.model.fields', string='User Field',
+        ondelete='restrict', track_visibility='onchange',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many')),
                 ('relation', '=', 'res.users')],
-        track_visibility='onchange',
         help='Field in object being checked, that points to user.')
+    condition_user_one_of_user_ids = fields.Many2many(
+        'res.users', 'generic_conditon__current_user__one_of__user_rel',
+        string='Users', track_visibility='onchange')
+    condition_user_checks_condition_ids = fields.Many2many(
+        'generic.condition',
+        'generic_condition__current_user__checks__condition_ids',
+        'parent_condition_id', 'child_condition_id',
+        domain=[('based_on', '=', 'res.users')],
+        string='Conditions', track_visibility='onchange')
 
     # Condition type 'related_conditions' params
     condition_rel_field_id = fields.Many2one(
-        'ir.model.fields', 'Related Field',
-        ondelete='restrict', auto_join=True,
-        domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))],
-        track_visibility='onchange')
+        'ir.model.fields', string='Related Field',
+        ondelete='restrict', auto_join=True, track_visibility='onchange',
+        domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
     condition_rel_field_id_model_id = fields.Many2one(
         'ir.model', compute='_compute_condition_rel_field_id_model_id',
         compute_sudo=True, string='Related field: model', readonly=True,
         track_visibility='onchange')
     condition_rel_record_operator = fields.Selection(
-        '_get_selection_condition_rel_record_operator',
-        'Related record operator', default='match',
+        [('match', 'Match'),
+         ('contains', 'Contains')],
+        string='Related record operator', default='match',
         help='Choose way related record will be checked:\n'
              '- Match: return True if all filtered records match condition.\n'
              '- Contains: return True if at least one of filtered records '
              'match \'check\' conditions',
         track_visibility='onchange')
     condition_rel_filter_conditions = fields.Many2many(
-        'generic.condition',
-        'generic_condition_filter_conds',
+        'generic.condition', 'generic_condition_filter_conds',
         'parent_id', 'child_id', ondelete='restrict', auto_join=True,
-        string='Related filter conditions',
+        string='Related filter conditions', track_visibility='onchange',
         help="Used together with Related Field. "
              "These conditions are used to filter related items that "
              "will be checked by 'Related check conditions'. "
              "If this conditions evaluates to False for some object, "
-             "that this object will not be checked",
-        track_visibility='onchange')
+             "that this object will not be checked")
     condition_rel_filter_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
         string='Related filter conditions operator',
         track_visibility='onchange')
     condition_rel_conditions = fields.Many2many(
-        'generic.condition',
-        'generic_condition_check_conds',
+        'generic.condition', 'generic_condition_check_conds',
         'parent_id', 'child_id', ondelete='restrict', auto_join=True,
-        string='Related check conditions',
+        string='Related check conditions', track_visibility='onchange',
         help="Used together with Related Field. "
              "These conditions will be used to check objects "
              "that passed filter conditions. "
-             "And result of these related conditions will be used as result",
-        track_visibility='onchange')
+             "And result of these related conditions will be used as result")
     condition_rel_conditions_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
         string='Related check conditions operator',
@@ -333,13 +247,21 @@ class GenericCondition(models.Model):
 
     # Date difference fields: check rules
     condition_date_diff_operator = fields.Selection(
-        '_get_selection_date_diff_operator',
+        [('=', '='),
+         ('>', '>'),
+         ('<', '<'),
+         ('>=', '>='),
+         ('<=', '<='),
+         ('!=', '!=')],
         string='Date diff operator', track_visibility='onchange')
     condition_date_diff_uom = fields.Selection(
-        '_get_selection_date_diff_uom',
-        string='Date diff UoM',
-        help='Choose Unit of Measurement for date diff here',
-        track_visibility='onchange')
+        [('hours', 'Hours'),
+         ('days', 'Days'),
+         ('weeks', 'Weeks'),
+         ('months', 'Months'),
+         ('years', 'Years')],
+        string='Date diff UoM', track_visibility='onchange',
+        help='Choose Unit of Measurement for date diff here')
     condition_date_diff_value = fields.Integer('Date diff value')
     condition_date_diff_absolute = fields.Boolean(
         'Absolute', default=False,
@@ -355,9 +277,8 @@ class GenericCondition(models.Model):
                                  'integer', 'selection'))],
         track_visibility='onchange')
     condition_simple_field_type = fields.Selection(
-        related='condition_simple_field_field_id.ttype',
-        related_sudo=True, string='Field type', readonly=True,
-        track_visibility='onchange')
+        related='condition_simple_field_field_id.ttype', related_sudo=True,
+        string='Field type', readonly=True, track_visibility='onchange')
     condition_simple_field_value_boolean = fields.Selection(
         [('true', 'True'), ('false', 'False')], 'Value',
         track_visibility='onchange')
@@ -370,17 +291,30 @@ class GenericCondition(models.Model):
     condition_simple_field_value_selection = fields.Char(
         'Value', track_visibility='onchange')
     condition_simple_field_selection_operator = fields.Selection(
-        '_get_selection_simple_field_selection_operator', 'Operator',
-        track_visibility='onchange')
+        [('=', '='),
+         ('!=', '!='),
+         ('set', 'Set'),
+         ('not set', 'Not set')],
+        string='Operator', track_visibility='onchange')
     condition_simple_field_number_operator = fields.Selection(
-        '_get_selection_simple_field_number_operator', 'Operator',
-        track_visibility='onchange')
+        [('=', '='),
+         ('>', '>'),
+         ('<', '<'),
+         ('>=', '>='),
+         ('<=', '<='),
+         ('!=', '!=')], string='Operator', track_visibility='onchange')
     condition_simple_field_string_operator = fields.Selection(
-        '_get_selection_simple_field_string_operator', 'Operator',
-        track_visibility='onchange')
+        [('=', '='),
+         ('!=', '!='),
+         ('set', 'Set'),
+         ('not set', 'Not set'),
+         ('contains', 'Contains')],
+        string='Operator', track_visibility='onchange')
     condition_simple_field_string_operator_html = fields.Selection(
-        '_get_selection_simple_field_string_operator_html', 'Operator',
-        track_visibility='onchange')
+        [('set', 'Set'),
+         ('not set', 'Not set'),
+         ('contains', 'Contains')],
+        string='Operator', track_visibility='onchange')
     condition_simple_field_string_operator_icase = fields.Boolean(
         'Case insensitive', track_visibility='onchange')
     condition_simple_field_string_operator_regex = fields.Boolean(
@@ -391,14 +325,15 @@ class GenericCondition(models.Model):
         'ir.model.fields', 'Check field', ondelete='restrict',
         domain=[('ttype', 'in', ('many2one', 'many2many'))])
     condition_related_field_model = fields.Char(
-        string='Related Model',
+        string='Related Model', related_sudo=True, readonly=True,
         related='condition_related_field_field_id.relation',
-        related_sudo=True, readonly=True,
         help="Technical name of related field's model",
         track_visibility='onchange')
     condition_related_field_operator = fields.Selection(
-        '_get_selection_related_field_operator', 'Operator',
-        track_visibility='onchange')
+        [('set', 'Set'),
+         ('not set', 'Not set'),
+         ('contains', 'Contains')],
+        string='Operator', track_visibility='onchange')
     condition_related_field_value_id = fields.Integer(
         'Value', track_visibility='onchange')
 
@@ -416,18 +351,23 @@ class GenericCondition(models.Model):
 
     # Monetary fields: check rules
     condition_monetary_operator = fields.Selection(
-        '_get_selection_monetary_field_operator',
-        string='Operator', track_visibility='onchange')
+        [('=', '='),
+         ('>', '>'),
+         ('<', '<'),
+         ('>=', '>='),
+         ('<=', '<='),
+         ('!=', '!=')], string='Operator', track_visibility='onchange')
     condition_monetary_value = fields.Monetary(
-        'Value',
-        currency_field='condition_monetary_value_currency_id',
+        'Value', currency_field='condition_monetary_value_currency_id',
         track_visibility='onchange')
     condition_monetary_value_currency_id = fields.Many2one(
         'res.currency', 'Currency', ondelete='restrict',
         track_visibility='onchange')
     # Monetary fields: currency date
     condition_monetary_curency_date_type = fields.Selection(
-        '_get_selection_currency_date_type',
+        [('now', 'Current date'),
+         ('field', 'Field'),
+         ('date', 'Date')],
         string='Type', default='now', track_visibility='onchange')
     condition_monetary_curency_date_field_id = fields.Many2one(
         'ir.model.fields', 'Field', ondelete='restrict',
@@ -602,11 +542,16 @@ class GenericCondition(models.Model):
 
     # signature check_<type> where type is condition type
     def check_current_user(self, obj, cache=None, debug_log=None):
-        field = self.sudo().condition_user_user_field_id
-        obj_value = obj[field.name]
-
-        if obj_value and self.env.user in obj_value:
-            return True
+        if self.condition_user_check_type == 'field':
+            field = self.sudo().condition_user_user_field_id
+            if obj[field.name] and self.env.user in obj[field.name]:
+                return True
+        elif self.condition_user_check_type == 'one_of':
+            if self.env.user in self.sudo().condition_user_one_of_user_ids:
+                return True
+        elif self.condition_user_check_type == 'checks':
+            if self.condition_user_checks_condition_ids.check(self.env.user):
+                return True
         return False
 
     # signature check_<type> where type is condition type
