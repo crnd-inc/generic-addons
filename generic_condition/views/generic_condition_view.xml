@@ -249,16 +249,34 @@
                                name="group_condition_current_user"
                                attrs="{'invisible': [('type', '!=', 'current_user')]}">
 
-                            <div>
-                                This type of condition refers to<br /> the current user and verifies whether<br /> the current user is in the specified field. <br />
-                                <br />
+                            <div colspan="4">
+                                <p>This type of condition refers to the current user and verifies whether the current user satisfies conditions.</p>
+                                <p>There following check types</p>
+                                <ul>
+                                    <li>Field: Check if current user is present in field of object</li>
+                                    <li>One of: Check if current user is present in specified list of users</li>
+                                    <li>Checks: Check if current user satisfies specified conditions</li>
+                                </ul>
                             </div>
 
-                            <field name="condition_user_user_field_id"
-                                   attrs="{'required': [('type','=','current_user')]}"
-                                   domain="[('model_id','=',model_id),
-                                            ('ttype', 'in', ('many2one', 'one2many', 'many2many')),
-                                            ('relation', '=', 'res.users')]"/>
+                            <group colspan="2">
+                                <field name="condition_user_check_type"
+                                    attrs="{'required': [('type','=','current_user')]}"/>
+                            </group>
+                            <group colspan="2">
+                                <field name="condition_user_user_field_id"
+                                       attrs="{'required': [('type','=','current_user'), ('condition_user_check_type', '=', 'field')], 'invisible': ['|', ('type','!=','current_user'), ('condition_user_check_type', '!=', 'field')]}"
+                                       domain="[('model_id','=',model_id),
+                                                ('ttype', 'in', ('many2one', 'one2many', 'many2many')),
+                                                ('relation', '=', 'res.users')]"/>
+                                <field name="condition_user_one_of_user_ids"
+                                       attrs="{'required': [('type','=','current_user'), ('condition_user_check_type', '=', 'one_of')], 'invisible': ['|', ('type','!=','current_user'), ('condition_user_check_type', '!=', 'one_of')]}"
+                                       widget="many2many_tags"/>
+                                <field name="condition_user_checks_condition_ids"
+                                       attrs="{'required': [('type','=','current_user'), ('condition_user_check_type', '=', 'checks')], 'invisible': ['|', ('type','!=','current_user'), ('condition_user_check_type', '!=', 'checks')]}"
+                                       context="{'default_based_on': 'res.users'}"
+                                       widget="many2many_tags"/>
+                            </group>
                         </group>
 
                         <!-- 'Date diff' condition data -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="condition_user_is_internal" model="generic.condition">
+        <field name="name">User is internal</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="type">simple_field</field>
+        <field name="condition_simple_field_field_id" ref="base.field_res_users__share"/>
+        <field name="condition_simple_field_value_boolean">false</field>
+    </record>
+    <record id="condition_user_is_external" model="generic.condition">
+        <field name="name">User is external</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="type">simple_field</field>
+        <field name="condition_simple_field_field_id" ref="base.field_res_users__share"/>
+        <field name="condition_simple_field_value_boolean">true</field>
+    </record>
+</odoo>
