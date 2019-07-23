@@ -81,3 +81,11 @@ class TestCustomResource(TransactionCase):
 
         # Ensure type removed
         self.assertFalse(res_type.exists())
+
+    def test_make_base_model_to_be_resource(self):
+        partner_model = self.env['ir.model']._get('res.partner')
+
+        with self.assertRaises(exceptions.UserError):
+            partner_model.write({
+                'is_generic_resource': True,
+            })
