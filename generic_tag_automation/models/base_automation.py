@@ -22,7 +22,7 @@ class BaseAutomation(models.Model):
         if not records:
             return
 
-        model = self.env[self.model_id.model]
+        model = self.env[self.sudo().model_id.model]
         model_has_tags = bool(
             model.fields_get(['tag_ids']).get('tag_ids', False))
         if self.act_add_tag_ids and model_has_tags:

@@ -14,20 +14,20 @@ class BaseAutomationTest(common.TransactionCase):
     def test_20_test_automation(self):
         """ Test that rule_actions work fine
         """
-        self.assertEquals(len(self.test_record_1.tag_ids), 0)
+        self.assertEqual(len(self.test_record_1.tag_ids), 0)
 
         # Test that act_add_field works fine
         self.test_record_1.write({'test_field': 'add'})
-        self.assertEquals(self.test_record_1.test_field, 'add')
-        self.assertEquals(len(self.test_record_1.tag_ids), 1)
-        self.assertEquals(self.test_record_1.tag_ids[0].name, 'TC1')
+        self.assertEqual(self.test_record_1.test_field, 'add')
+        self.assertEqual(len(self.test_record_1.tag_ids), 1)
+        self.assertEqual(self.test_record_1.tag_ids[0].name, 'TC1')
 
         # Add another tag to object
         self.test_record_1.add_tag(name='TC2')
-        self.assertEquals(len(self.test_record_1.tag_ids), 2)
+        self.assertEqual(len(self.test_record_1.tag_ids), 2)
 
         # Test that act_rem_field works fine
         self.test_record_1.write({'test_field': 'remove'})
-        self.assertEquals(self.test_record_1.test_field, 'remove')
-        self.assertEquals(len(self.test_record_1.tag_ids), 1)
-        self.assertEquals(self.test_record_1.tag_ids[0].name, 'TC2')
+        self.assertEqual(self.test_record_1.test_field, 'remove')
+        self.assertEqual(len(self.test_record_1.tag_ids), 1)
+        self.assertEqual(self.test_record_1.tag_ids[0].name, 'TC2')
