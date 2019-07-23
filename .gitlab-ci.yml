@@ -63,9 +63,9 @@ check-versions:
         - odoo-helper ci check-versions-git --repo-version . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
         - /^11.0-.*$/   # only branches that started with '11.0-'
-    allow_failure: true
 
 ensure-changelog:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
         - odoo-helper ci ensure-changelog --format md . origin/$SERIES_BRANCH $CI_COMMIT_SHA
@@ -74,6 +74,7 @@ ensure-changelog:
     allow_failure: true
 
 ensure-icons:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-simple
     stage: static-test
     script:
         - odoo-helper ci ensure-icons .

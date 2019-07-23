@@ -4,7 +4,7 @@ try:
     from freezegun import freeze_time
 except ImportError:  # pragma: no cover
     import logging
-    logging.getLogger(__name__).warn(
+    logging.getLogger(__name__).warning(
         "freezegun not installed. Tests will not work!")
 
 
