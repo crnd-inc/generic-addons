@@ -6,8 +6,8 @@
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
-    'category': 'Uncategorized',
-    'version': '11.0.1.0.9',
+    'category': 'Hidden',
+    'version': '11.0.1.0.10',
 
     "depends": [
         "generic_tag_automation",
