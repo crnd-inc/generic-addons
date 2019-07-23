@@ -65,6 +65,22 @@ check-versions:
         - /^11.0-.*$/   # only branches that started with '11.0-'
     allow_failure: true
 
+ensure-changelog:
+    stage: static-test
+    script:
+        - odoo-helper ci ensure-changelog --format md . origin/$SERIES_BRANCH $CI_COMMIT_SHA
+    only:
+        - /^11.0-.*$/   # only branches that started with '11.0-'
+    allow_failure: true
+
+ensure-icons:
+    stage: static-test
+    script:
+        - odoo-helper ci ensure-icons .
+    only:
+        - /^11.0-.*$/   # only branches that started with '11.0-'
+    allow_failure: true
+
 tests:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:11.0-ci
     stage: test
@@ -72,8 +88,7 @@ tests:
     before_script:
         - odoo-helper link .
     script:
-        - odoo-helper --use-unbuffer test --coverage --create-test-db --dir .
-        - odoo-helper exec coverage report --fail-under=90
+        - odoo-helper --use-unbuffer test --coverage-report --coverage-fail-under 90 --create-test-db --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 migration_tests:
@@ -93,8 +108,7 @@ migration_tests:
         - odoo-helper --use-unbuffer addons update-list
         - odoo-helper --use-unbuffer addons update -d $ODOO_DB_NAME --dir .
     script:
-        - odoo-helper --use-unbuffer test --coverage --dir .
-        - odoo-helper exec coverage report --fail-under=90
+        - odoo-helper --use-unbuffer test --coverage-report --coverage-fail-under 90 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
         - /^11.0-.*$/   # only branches that started with '11.0-'
