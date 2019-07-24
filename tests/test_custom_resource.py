@@ -1,7 +1,9 @@
 from odoo import exceptions
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, post_install, at_install
 
 
+@post_install(True)
+@at_install(False)
 class TestCustomResource(TransactionCase):
 
     def test_create_custom_resource(self):

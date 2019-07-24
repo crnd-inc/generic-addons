@@ -1,8 +1,7 @@
+import logging
 from odoo import fields, models, api
 from .generic_resource import GenericResourceResID
 
-
-import logging
 _logger = logging.getLogger(__name__)
 
 

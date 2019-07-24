@@ -1,6 +1,8 @@
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, post_install, at_install
 
 
+@post_install(True)
+@at_install(False)
 class TestGenericResourceMixinInvNumber(TransactionCase):
 
     def test_create_method(self):

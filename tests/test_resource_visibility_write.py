@@ -1,7 +1,10 @@
 from odoo.exceptions import AccessError
+from odoo.tests.common import post_install, at_install
 from .common import TestResourceVisibilityBase
 
 
+@post_install(True)
+@at_install(False)
 class TestResourceRoleWrite(TestResourceVisibilityBase):
 
     def test_internal_resource_write_employee(self):
