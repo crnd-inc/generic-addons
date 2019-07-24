@@ -20,6 +20,11 @@ class GenericResourceType(models.Model):
         'ir.actions.act_window', readonly=True)
     show_resources_action_id = fields.Many2one(
         'ir.actions.act_window', readonly=True)
+    resource_visibility = fields.Selection(
+        [('internal', 'Visible only to employees'),
+         ('portal', 'Visible to employees and portal users'),
+         ('public', 'Visible for unregistered users')],
+        default='internal', required=True)
 
     _sql_constraints = [
         ('model_id_uniq',

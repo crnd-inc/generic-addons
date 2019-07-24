@@ -100,6 +100,7 @@
     <record id="simple_resource_notebook_7" model="generic.resource.simple">
         <field name="name">Notebook</field>
         <field name="category_id" ref="simple_resource_category_equipment_computers_notebooks"/>
+        <field name="resource_visibility">portal</field>
     </record>
 
     <record id="simple_resource_inkprinter_1" model="generic.resource.simple">
@@ -125,6 +126,7 @@
     <record id="simple_resource_inkprinter_6" model="generic.resource.simple">
         <field name="name">Printer Canon i569</field>
         <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+        <field name="resource_visibility">public</field>
     </record>
     <record id="simple_resource_inkprinter_7" model="generic.resource.simple">
         <field name="name">Printer Lexmark LS45</field>

@@ -6,4 +6,5 @@ from . import (
     generic_resource_simple,
     generic_resource_simple_category,
     ir_model,
+    ir_rule,
 )

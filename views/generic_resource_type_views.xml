@@ -46,6 +46,7 @@
                             <field name="resource_related_res_action_id" readonly="1"/>
                         </group>
                         <group name="group_right">
+                            <field name="resource_visibility"/>
                         </group>
                     </group>
                 </sheet>
