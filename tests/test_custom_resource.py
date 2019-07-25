@@ -1,4 +1,5 @@
 from odoo import exceptions
+
 from odoo.tests.common import TransactionCase, tagged
 
 

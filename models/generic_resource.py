@@ -1,7 +1,6 @@
+import logging
 from odoo import fields, models, api, exceptions, _
 
-
-import logging
 _logger = logging.getLogger(__name__)
 
 
@@ -25,6 +24,13 @@ class GenericResource(models.Model):
         compute_sudo=True, index=True)
     res_id = fields.Integer(
         string="Resource", required=True, index=True, readonly=True)
+    resource_visibility = fields.Selection(
+        [('internal', 'Visible only to employees'),
+         ('portal', 'Visible to employees and portal users'),
+         ('public', 'Visible for unregistered users')],
+        default='internal', required=True, index=True,
+        help="Resource visibility determines users that have read access for "
+             "this resource.")
 
     _sql_constraints = [
         ('unique_model', 'UNIQUE(res_model, res_id)',
@@ -65,6 +71,7 @@ class GenericResource(models.Model):
     def _get_resource_type_defaults(self, resource_type):
         return {
             'res_type_id': resource_type.id,
+            'resource_visibility': resource_type.resource_visibility,
         }
 
     @api.model

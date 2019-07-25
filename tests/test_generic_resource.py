@@ -1,8 +1,10 @@
 from odoo import exceptions
 from odoo.tools.misc import mute_logger
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import SavepointCase, post_install, at_install
 
 
+@post_install(True)
+@at_install(False)
 class TestResource(SavepointCase):
 
     @classmethod

@@ -14,6 +14,7 @@
                 <field name="display_name" string="Name"/>
                 <field name="resource_id" string="Resource"/>
                 <field name="category_id"/>
+                <field name="resource_visibility"/>
             </tree>
         </field>
     </record>
@@ -40,6 +41,7 @@
                     <group>
                         <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
                         <field name="category_id" placeholder="Category"/>
+                        <field name="resource_visibility"/>
                     </group>
                     <notebook>
                     </notebook>

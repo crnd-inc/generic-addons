@@ -80,6 +80,7 @@
                                widget="generic_m2o"
                                model_field="res_model"
                                attrs="{'invisible': [('res_model', '=', False)]}"/>
+                        <field name="resource_visibility"/>
                     </group>
                     <notebook>
                     </notebook>
