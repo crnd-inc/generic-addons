@@ -12,7 +12,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Team',
-    'version': '11.0.1.1.6',
+    'version': '11.0.1.2.0',
 
     "depends": [
         'base',
@@ -27,6 +27,7 @@
         'views/generic_team_menu.xml',
         'views/generic_team.xml',
         'views/generic_team_member_view.xml',
+        'views/res_users.xml',
         'views/templates.xml',
     ],
 
