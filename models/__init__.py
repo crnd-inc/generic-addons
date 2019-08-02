@@ -1,2 +1,5 @@
-from . import generic_team
-from . import generic_team_member
+from . import (
+    generic_team,
+    generic_team_member,
+    res_users,
+)
