@@ -68,6 +68,9 @@ def create_generic_resources(cr, rtype_id, table, visibility):
     cr.execute(
         sql.SQL("SELECT array_agg(id) FROM {}").format(sql.Identifier(table)))
     record_ids = cr.fetchone()[0]
+    if not record_ids:
+        return
+
     for record_id in record_ids:
         cr.execute("""
             INSERT INTO generic_resource
