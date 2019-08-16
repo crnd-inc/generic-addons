@@ -545,7 +545,7 @@ msgstr "Батьківський справа"
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_show_resources_action_id
 msgid "Show Resources Action"
-msgstr "Показувати дії ресурсів"
+msgstr "Дія показати ресурси"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_simple_action
