@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 13:42+0000\n"
-"PO-Revision-Date: 2019-03-19 13:42+0000\n"
+"POT-Creation-Date: 2019-08-16 17:22+0000\n"
+"PO-Revision-Date: 2019-08-16 17:22+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -136,6 +136,11 @@ msgid "Generic Team"
 msgstr "Универсальная команда"
 
 #. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_res_users_generic_team_member_ids
+msgid "Generic Team Member"
+msgstr "Участник универсальной команды"
+
+#. module: generic_team
 #: model:ir.model,name:generic_team.model_generic_team_member
 msgid "Generic team member"
 msgstr "Участник универсальной команды"
@@ -236,10 +241,17 @@ msgstr "Название команды..."
 
 #. module: generic_team
 #: model:ir.actions.act_window,name:generic_team.generic_team_action
+#: model:ir.model.fields,field_description:generic_team.field_res_users_generic_team_ids
 #: model:ir.ui.menu,name:generic_team.menu_generic_team
 #: model:ir.ui.menu,name:generic_team.menu_generic_team_root
+#: model:ir.ui.view,arch_db:generic_team.view_users_form
 msgid "Teams"
 msgstr "Команды"
+
+#. module: generic_team
+#: model:ir.model.fields,help:generic_team.field_res_users_generic_team_ids
+msgid "This user is member of following generic teams"
+msgstr "Этот пользователь участник слудующих команд"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_user_id
@@ -256,6 +268,11 @@ msgstr "Пользователь (неявный)"
 #: sql_constraint:generic.team.member:0
 msgid "User may be added to team only once."
 msgstr "Пользователь может быть добавлен в команду лишь однажды."
+
+#. module: generic_team
+#: model:ir.model,name:generic_team.model_res_users
+msgid "Users"
+msgstr "Пользователи"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_user_count
