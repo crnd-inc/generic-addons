@@ -15,9 +15,10 @@ class GenericMixInTrackChanges(models.AbstractModel):
         return set()
 
     @api.multi
-    def _get_changed_fields(self, field_names, vals):
+    def _get_changed_fields(self, vals):
         """ Preprocess vals to be written, and gether field changes
         """
+        field_names = self._get_generic_tracking_fields()
         changes = collections.defaultdict(dict)
         changed_fields = set(field_names) & set(vals.keys())
         if changed_fields:
@@ -72,8 +73,7 @@ class GenericMixInTrackChanges(models.AbstractModel):
 
     @api.multi
     def write(self, vals):
-        changes = self._get_changed_fields(
-            self._get_generic_tracking_fields(), vals)
+        changes = self._get_changed_fields(vals)
 
         # Store here updates got from preprocessing
         updates = collections.defaultdict(dict)
