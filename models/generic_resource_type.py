@@ -71,6 +71,14 @@ class GenericResourceType(models.Model):
                 })
                 record.resource_related_res_action_id = action
 
+    @api.multi
+    def get_resource_tracking_fields(self):
+        """ Have to be overridden in another addons
+
+            Return set of fields to track changes in
+        """
+        return set()
+
     @api.model
     def get_resource_type(self, model_name):
         return self.search([('model_id.model', '=', model_name)], limit=1)

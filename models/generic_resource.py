@@ -73,6 +73,37 @@ class GenericResource(models.Model):
             'res_type_id': resource_type.id,
             'resource_visibility': resource_type.resource_visibility,
         }
+    @api.multi
+    def _preprocess_resource_changes(self, changes):
+        """ This method is called before write on resource implementation and
+            receives dict with changes of tracked fields.
+
+            This method may be overridden by other modules to add
+            some postprocessing of resource changes.
+
+            :param dict changes: keys are changed field names,
+                                 values are tuples (old_value, new_value)
+            :rtype: dict
+            :return: values to update record with.
+                     These values will be written just after write
+        """
+        return {}
+
+    @api.multi
+    def _postprocess_resource_changes(self, changes):
+        """ This method is called adter write on resource implementation and
+            receives dict with changes of tracked fields.
+
+            This method may be overridden by other modules to add
+            some postprocessing of write.
+            This method does not return any  value.
+
+            :param dict changes: keys are changed field names,
+                                 values are tuples (old_value, new_value)
+            :return: None
+
+        """
+        pass
 
     @api.model
     def default_get(self, fields_list):
@@ -114,6 +145,12 @@ class GenericResource(models.Model):
                 "is not allowed!"))
 
         return super(GenericResource, self).write(vals)
+
+    @api.multi
+    def on_resource_created(self):
+        """ Hook to be called when resource creation completed
+        """
+        pass
 
     @api.multi
     def action_open_resource_object(self):
