@@ -4,6 +4,7 @@ from odoo import models, api
 
 class GenericMixInTrackChanges(models.AbstractModel):
     _name = 'generic.mixin.track.changes'
+    _description = 'Generic Mixin: Track Changes'
 
     @api.model
     def _get_generic_tracking_fields(self):
