@@ -73,6 +73,7 @@ class GenericResource(models.Model):
             'res_type_id': resource_type.id,
             'resource_visibility': resource_type.resource_visibility,
         }
+
     @api.multi
     def _preprocess_resource_changes(self, changes):
         """ This method is called before write on resource implementation and
@@ -103,7 +104,6 @@ class GenericResource(models.Model):
             :return: None
 
         """
-        pass
 
     @api.model
     def default_get(self, fields_list):
@@ -150,7 +150,6 @@ class GenericResource(models.Model):
     def on_resource_created(self):
         """ Hook to be called when resource creation completed
         """
-        pass
 
     @api.multi
     def action_open_resource_object(self):
