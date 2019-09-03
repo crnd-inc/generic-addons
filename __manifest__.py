@@ -10,13 +10,14 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Resource',
-    'version': '11.0.1.6.3',
+    'version': '11.0.1.7.0',
 
     # any module necessary for this one to work correctly
     'depends': [
         'mail',
         'generic_m2o',
         'generic_mixin',
+        'base_field_m2m_view',
     ],
 
     # always loaded
