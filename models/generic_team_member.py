@@ -14,7 +14,6 @@ class GenericTeamMember(models.Model):
          'User may be added to team only once.'),
     ]
 
-    @api.multi
     def name_get(self):
         res = []
         for record in self:

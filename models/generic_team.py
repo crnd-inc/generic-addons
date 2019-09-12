@@ -33,7 +33,6 @@ class GenericTeam(models.Model):
     user_count = fields.Integer(
         compute='_compute_user_count', readonly=True, string='Users count')
 
-    @api.multi
     def _compute_user_count(self):
         for record in self:
             record.user_count = len(record.user_ids)
