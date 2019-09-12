@@ -37,7 +37,6 @@ class GenericResourceMixin(models.AbstractModel):
         res_type = self._get_resource_type()
         return track_fields | res_type.get_resource_tracking_fields()
 
-    @api.multi
     def _preprocess_write_changes(self, changes):
         """ Called before write
 
@@ -55,7 +54,6 @@ class GenericResourceMixin(models.AbstractModel):
         vals.update(self.resource_id._preprocess_resource_changes(changes))
         return vals
 
-    @api.multi
     def _postprocess_write_changes(self, changes):
         """ Called after write
 
@@ -80,7 +78,6 @@ class GenericResourceMixin(models.AbstractModel):
             self.with_context(generic_resource_type_model=self._name)
         ).default_get(fields_list)
 
-    @api.multi
     def write(self, vals):
         vals = self._resource_mixin__protect_resource_id(vals)
         return super(GenericResourceMixin, self).write(vals)
@@ -109,7 +106,6 @@ class GenericResourceMixin(models.AbstractModel):
         rec.resource_id.on_resource_created()
         return rec
 
-    @api.multi
     def unlink(self):
         # Get resources
         resources = self.mapped('resource_id')
@@ -127,7 +123,6 @@ class GenericResourceMixin(models.AbstractModel):
     def _get_resource_type(self):
         return self.env['generic.resource.type'].get_resource_type(self._name)
 
-    @api.multi
     def check_access_rule(self, operation):
         # Overriden to check access to generic resources also
         self.mapped('resource_id').check_access_rule(operation)
@@ -179,7 +174,6 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
         result = super(GenericResourceMixinInvNumber, self).create(vals)
         return result
 
-    @api.multi
     def name_get(self):
         result = super(GenericResourceMixinInvNumber, self).name_get()
         if not self._inv_number_in_display_name:

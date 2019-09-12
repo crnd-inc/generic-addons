@@ -54,7 +54,6 @@ class GenericResource(models.Model):
             return resource
         return False
 
-    @api.multi
     def name_get(self):
         result = []
         for record in self:
@@ -74,7 +73,6 @@ class GenericResource(models.Model):
             'resource_visibility': resource_type.resource_visibility,
         }
 
-    @api.multi
     def _preprocess_resource_changes(self, changes):
         """ This method is called before write on resource implementation and
             receives dict with changes of tracked fields.
@@ -90,7 +88,6 @@ class GenericResource(models.Model):
         """
         return {}
 
-    @api.multi
     def _postprocess_resource_changes(self, changes):
         """ This method is called adter write on resource implementation and
             receives dict with changes of tracked fields.
@@ -131,7 +128,6 @@ class GenericResource(models.Model):
 
         return super(GenericResource, self).create(vals)
 
-    @api.multi
     def write(self, vals):
         res_id = vals.get('res_id')
         if res_id and isinstance(
@@ -146,12 +142,10 @@ class GenericResource(models.Model):
 
         return super(GenericResource, self).write(vals)
 
-    @api.multi
     def on_resource_created(self):
         """ Hook to be called when resource creation completed
         """
 
-    @api.multi
     def action_open_resource_object(self):
         if self.resource:
             return self.resource.get_formview_action()

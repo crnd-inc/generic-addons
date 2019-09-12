@@ -55,7 +55,6 @@ class IrModel(models.Model):
 
         return res
 
-    @api.multi
     def write(self, vals):
         if self and 'is_generic_resource' in vals:
             # Guard agains modification of base models
