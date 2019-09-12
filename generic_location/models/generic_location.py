@@ -99,7 +99,11 @@ class GenericLocation(models.Model):
                 [(self._fields['parent_ids'], None)])
         return res
 
+    # TODO rewrite method
+    # @api.multi
+    # this decorator is deprecated and removed in Odoo 13
     def copy(self, default=None):
+        # pylint: disable=copy-wo-api-one
         default = dict(default or {})
 
         copied_count = self.search_count(
