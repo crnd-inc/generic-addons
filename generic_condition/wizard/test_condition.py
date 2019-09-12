@@ -74,7 +74,6 @@ class TestGenericCondition(models.TransientModel):
                 "<pre>%s</pre>" % traceback.format_exc())
         return self._adapt_result(result)
 
-    @api.multi
     def process(self):
         self.ensure_one()
         debug_log = DebugLogger()

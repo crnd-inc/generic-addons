@@ -4,7 +4,6 @@ from odoo import api, models, _
 class GenericLocation(models.Model):
     _inherit = 'generic.location'
 
-    @api.multi
     def action_button_show_location_map(self):
         action = self.env.ref(
             'generic_location.generic_location_action').read()[0]

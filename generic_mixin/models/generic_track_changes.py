@@ -15,7 +15,6 @@ class GenericMixInTrackChanges(models.AbstractModel):
         """
         return set()
 
-    @api.multi
     def _get_changed_fields(self, vals):
         """ Preprocess vals to be written, and gether field changes
         """
@@ -40,7 +39,6 @@ class GenericMixInTrackChanges(models.AbstractModel):
                                                      new_value)
         return dict(changes)
 
-    @api.multi
     def _preprocess_write_changes(self, changes):
         """ Called before write
 
@@ -56,7 +54,6 @@ class GenericMixInTrackChanges(models.AbstractModel):
         self.ensure_one()
         return {}
 
-    @api.multi
     def _postprocess_write_changes(self, changes):
         """ Called after write
 
@@ -72,7 +69,6 @@ class GenericMixInTrackChanges(models.AbstractModel):
 
         self.ensure_one()
 
-    @api.multi
     def write(self, vals):
         changes = self._get_changed_fields(vals)
 

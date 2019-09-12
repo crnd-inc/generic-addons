@@ -14,7 +14,6 @@ class BaseAutomation(models.Model):
         "from object this rule is applied to")
 
     # Overridden to add tag related logic
-    @api.multi
     def _process(self, records):
         """ process the given action on the records """
         action_done = self._context['__action_done']

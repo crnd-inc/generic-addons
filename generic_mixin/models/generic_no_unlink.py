@@ -26,7 +26,6 @@ class GenericMixinNoUnlink(models.AbstractModel):
         )
         return allowed_count == len(self.exists())
 
-    @api.multi
     def unlink(self):
         if not self._allow_unlink():
             if 'active' in self._fields:

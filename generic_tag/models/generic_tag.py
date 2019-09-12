@@ -58,7 +58,6 @@ class GenericTag(models.Model):
          'Code of tag must be unique'),
     ]
 
-    @api.multi
     def _compute_objects_count(self):
         for tag in self:
             try:
@@ -69,7 +68,6 @@ class GenericTag(models.Model):
                 tag.objects_count = TagModel.search_count(
                     [('tag_ids.id', '=', tag.id)])
 
-    @api.multi
     @api.depends('category_id.name', 'name')
     def _compute_complete_name(self):
         for tag in self:
@@ -86,7 +84,6 @@ class GenericTag(models.Model):
                 raise ValidationError(_(
                     u"Category must be bound to same model as tag"))
 
-    @api.multi
     def name_get(self):
         return [(t.id, t.complete_name) for t in self]
 
@@ -125,7 +122,6 @@ class GenericTag(models.Model):
             tag_domain.append(('name', '=', name))
         return self.search(tag_domain)
 
-    @api.multi
     def action_show_objects(self):
         self.ensure_one()
         return {
@@ -204,7 +200,6 @@ class GenericTagMixin(models.AbstractModel):
         search='_search_no_tag_id', store=False, readonly=True,
         domain=lambda self: [('model_id.model', '=', self._name)])
 
-    @api.multi
     def add_tag(self, code=None, name=None, create=False):
         """ Adds tag new tag to object.
 
@@ -227,7 +222,6 @@ class GenericTagMixin(models.AbstractModel):
         if tags:
             self.write({'tag_ids': [(4, t.id) for t in tags]})
 
-    @api.multi
     def remove_tag(self, code=None, name=None):
         """ Removes tags specified by code/name
 
@@ -240,7 +234,6 @@ class GenericTagMixin(models.AbstractModel):
         if tags:
             self.write({'tag_ids': [(3, t.id) for t in tags]})
 
-    @api.multi
     def check_tag(self, code=None, name=None):
         """ Check if self have tag with specified code / name
         """
@@ -254,7 +247,6 @@ class GenericTagMixin(models.AbstractModel):
         count = self.search_count(tag_domain)
         return bool(count == len(self))
 
-    @api.multi
     def check_tag_category(self, code=None, name=None):
         """ Checks if self have tag with specified
             category code and/or category name

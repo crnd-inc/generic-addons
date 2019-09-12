@@ -90,7 +90,6 @@ class GenericLocation(models.Model):
                 [(self._fields['parent_ids'], None)])
         return res
 
-    @api.multi
     def write(self, vals):
         tools.image_resize_images(vals)
         res = super(GenericLocation, self).write(vals)
@@ -101,7 +100,6 @@ class GenericLocation(models.Model):
                 [(self._fields['parent_ids'], None)])
         return res
 
-    @api.multi
     def copy(self, default=None):
         default = dict(default or {})
 
@@ -115,7 +113,6 @@ class GenericLocation(models.Model):
         default['name'] = new_name
         return super(GenericLocation, self).copy(default)
 
-    @api.multi
     def action_button_show_sublocations(self):
         action = self.env.ref(
             'generic_location.generic_location_action').read()[0]
