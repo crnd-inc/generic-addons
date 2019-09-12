@@ -1,4 +1,4 @@
-from odoo import api, models, _
+from odoo import models, _
 from odoo.osv.expression import FALSE_DOMAIN
 from odoo.exceptions import UserError
 

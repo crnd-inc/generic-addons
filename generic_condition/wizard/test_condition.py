@@ -1,6 +1,6 @@
 import traceback
 
-from odoo import models, fields, api
+from odoo import models, fields
 from odoo.tools.translate import _
 from odoo.tools import ustr
 from odoo.exceptions import ValidationError

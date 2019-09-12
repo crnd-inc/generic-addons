@@ -1,4 +1,4 @@
-from odoo import api, models
+from odoo import models
 from odoo.addons.base_geolocalize.models.res_partner import (
     geo_find,
     geo_query_address,
