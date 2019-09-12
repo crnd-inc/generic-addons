@@ -1,0 +1,459 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_tag
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-12 17:16+0000\n"
+"PO-Revision-Date: 2019-09-12 17:16+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_tag
+#: model:res.groups,comment:generic_tag.group_tags_manager
+msgid "\n"
+"            Users in this group can manage tags (create / update / ...)\n"
+"        "
+msgstr ""
+
+#. module: generic_tag
+#: model:res.groups,comment:generic_tag.group_tags_user
+msgid "\n"
+"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
+"        "
+msgstr ""
+
+#. module: generic_tag
+#: model:res.groups,comment:generic_tag.group_tags_user_restricted
+msgid "\n"
+"            Users in this group have access to tags that have same group that user have\n"
+"        "
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_access_ids
+msgid "Access"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_active
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_active
+msgid "Active"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.menu,name:generic_tag.menu_generic_tags_all
+msgid "All Tags"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.actions.act_window,name:generic_tag.action_generic_tag_caegories_view
+#: model:ir.ui.menu,name:generic_tag.menu_action_generic_tag_categories_view
+msgid "Categories"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_id_1431
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
+msgid "Category"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
+msgid "Category code"
+msgstr ""
+
+#. module: generic_tag
+#: code:addons/generic_tag/models/generic_tag.py:84
+#, python-format
+msgid "Category must be bound to same model as tag"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
+msgid "Category name"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_check_xor
+msgid "Check XOR"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_code
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_code
+msgid "Code"
+msgstr ""
+
+#. module: generic_tag
+#: sql_constraint:generic.tag.category:0
+msgid "Code of category must be unique"
+msgstr ""
+
+#. module: generic_tag
+#: sql_constraint:generic.tag:0
+msgid "Code of tag must be unique"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_color
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_color
+msgid "Color"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_comment
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_comment
+msgid "Comment"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
+msgid "Comment..."
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.menu,name:generic_tag.menu_generic_tags_configuration_root
+msgid "Configuration"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_count
+msgid "Count (incl. archived)"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_create_uid
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_create_uid
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_create_date
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_create_date
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_category_comment
+msgid "Describe what this tag category is for"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_comment
+msgid "Describe what this tag means"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_field_id
+msgid "Fields"
+msgstr ""
+
+#. module: generic_tag
+#: code:addons/generic_tag/models/generic_tag.py:166
+#, python-format
+msgid "Following (category - tags) pairs, break category XOR restriction:\n"
+"%s"
+msgstr ""
+
+#. module: generic_tag
+#: sql_constraint:generic.tag.model:0
+msgid "For each Odoo model only one Tag Model could be created!"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_complete_name
+msgid "Full name of tag (including category name)"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model,name:generic_tag.model_generic_tag
+msgid "Generic Tag"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model,name:generic_tag.model_generic_tag_category
+msgid "Generic Tag Category"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model,name:generic_tag.model_generic_tag_mixin
+msgid "Generic Tag Mixin"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model,name:generic_tag.model_generic_tag_model
+msgid "Generic Tag Model"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model,name:generic_tag.model_generic_tag_model_mixin
+msgid "Generic Tag Model Mixin"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
+msgid "Group By..."
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_group_ids
+msgid "Groups"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_objects_count
+msgid "How many objects contains this tag"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_category_tags_count
+msgid "How many tags related to this catgory"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_tags_count
+msgid "How many tags related to this model exists"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin_id
+msgid "ID"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_modules
+msgid "In Apps"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_info
+msgid "Information"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_inherited_model_ids
+msgid "Inherited models"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag___last_update
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category___last_update
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin___last_update
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model___last_update
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_write_uid
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_write_uid
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_write_date
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_write_date
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_modules
+msgid "List of modules in which the object is defined or inherited"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_category_code
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_code
+msgid "May be used for special tags which have programmed bechavior"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_id_1443
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin_model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_model
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_res_model_id
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
+msgid "Model"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_name
+msgid "Model Description"
+msgstr ""
+
+#. module: generic_tag
+#: code:addons/generic_tag/models/generic_tag_category.py:52
+#, python-format
+msgid "Model must be same as one used in related tags"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.actions.act_window,name:generic_tag.action_generic_tag_models_view
+#: model:ir.ui.menu,name:generic_tag.menu_action_generic_tag_modeles_view
+msgid "Models"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_name_1438
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_complete_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_name
+msgid "Name"
+msgstr ""
+
+#. module: generic_tag
+#: sql_constraint:generic.tag.category:0
+msgid "Name of category must be unique"
+msgstr ""
+
+#. module: generic_tag
+#: sql_constraint:generic.tag:0
+msgid "Name of tag must be unique for category"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_no_tag_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_search_no_tag_id
+msgid "No tag"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_objects_count
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
+msgid "Objects"
+msgstr ""
+
+#. module: generic_tag
+#: code:addons/generic_tag/models/generic_tag.py:127
+#, python-format
+msgid "Objects related to tag %s"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_sequence
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_sequence_1437
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_tree
+msgid "Show Objects"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_tree
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_model_tree
+msgid "Show Tags"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_category_model_id
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_id_1443
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_mixin_model_id
+msgid "Specify model for which this tag is available"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_search_tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: generic_tag
+#: model:res.groups,name:generic_tag.group_tags_manager
+msgid "Tag Manager"
+msgstr ""
+
+#. module: generic_tag
+#: model:res.groups,name:generic_tag.group_tags_user
+msgid "Tag User"
+msgstr ""
+
+#. module: generic_tag
+#: model:res.groups,name:generic_tag.group_tags_user_restricted
+msgid "Tag User (restricted)"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.actions.act_window,name:generic_tag.action_generic_tags_view
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_tag_ids
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_tags_count
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_tag_ids
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_tags_count
+#: model:ir.ui.menu,name:generic_tag.menu_action_generic_tags_view
+#: model:ir.ui.menu,name:generic_tag.menu_generic_tags_root
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
+#: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_model_form
+msgid "Tags"
+msgstr ""
+
+#. module: generic_tag
+#: code:addons/generic_tag/models/generic_tag_category.py:61
+#, python-format
+msgid "Tags related to category %s"
+msgstr ""
+
+#. module: generic_tag
+#: code:addons/generic_tag/models/generic_tag_model.py:35
+#, python-format
+msgid "Tags related to model %s"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_inherited_model_ids
+msgid "The list of models that extends the current model."
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_count
+msgid "Total number of records in this model"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_transient
+msgid "Transient Model"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_state
+msgid "Type"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_view_ids
+msgid "Views"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_category_check_xor
+msgid "if set to True then only one tag from this category may be present on a single object. On attempt to add second tag from this category to object, error will be raised"
+msgstr ""
+
