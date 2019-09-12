@@ -71,7 +71,6 @@ class GenericResourceType(models.Model):
                 })
                 record.resource_related_res_action_id = action
 
-    @api.multi
     def get_resource_tracking_fields(self):
         """ Have to be overridden in another addons
 
@@ -83,7 +82,6 @@ class GenericResourceType(models.Model):
     def get_resource_type(self, model_name):
         return self.search([('model_id.model', '=', model_name)], limit=1)
 
-    @api.multi
     def get_resource_by_id(self, res_id):
         """
             Returns recordset of resource for res_id from model_id.model.
@@ -95,18 +93,15 @@ class GenericResourceType(models.Model):
         return self.env[self.sudo().model_id.model].browse(res_id).exists()
 
     @api.model
-    @api.returns('self', lambda value: value.id)
     def create(self, vals):
         record = super(GenericResourceType, self).create(vals)
         record._create_context_action_for_target_model()
         return record
 
-    @api.multi
     def unlink(self):
         self.mapped('resource_related_res_action_id').unlink()
         return super(GenericResourceType, self).unlink()
 
-    @api.multi
     def action_show_resources(self):
         self.ensure_one()
         if self.show_resources_action_id:
