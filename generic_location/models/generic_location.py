@@ -60,7 +60,6 @@ class GenericLocation(models.Model):
         for record in self:
             record.child_count = len(record.child_ids)
 
-    @api.model_cr
     def init(self):
         # Create relation (location_id <-> parent_location_id) as PG View
         # This relation is used to compute field parent_ids
