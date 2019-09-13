@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 11:17+0000\n"
-"PO-Revision-Date: 2018-12-13 11:17+0000\n"
+"POT-Creation-Date: 2019-09-13 10:42+0000\n"
+"PO-Revision-Date: 2019-09-13 10:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_mixin
-#: code:addons/generic_mixin/models/generic_no_unlink.py:33
+#: code:addons/generic_mixin/models/generic_no_unlink.py:32
 #, python-format
 msgid "Cannot unlink these records. Operation not allowed.\n"
 "It is better to deactivate these records.\n"
@@ -26,7 +26,7 @@ msgstr "Невозможно удалить эти записи. Операци�
 "Модель: %s [%s]"
 
 #. module: generic_mixin
-#: code:addons/generic_mixin/models/generic_no_unlink.py:39
+#: code:addons/generic_mixin/models/generic_no_unlink.py:38
 #, python-format
 msgid "Cannot unlink these records. Operation not allowed.\n"
 "Model: %s [%s]"
@@ -34,16 +34,39 @@ msgstr "Невозможно удалить эти записи. Операци�
 "Модель: %s [%s]"
 
 #. module: generic_mixin
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_display_name
-msgid "Display Name"
-msgstr "Отображаемое название"
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code_code
+msgid "Code"
+msgstr "Код"
 
 #. module: generic_mixin
-#: code:addons/generic_mixin/models/generic_parent.py:40
+#: sql_constraint:generic.mixin.name_with_code:0
+msgid "Code must be ascii only"
+msgstr "Code must be ascii only"
+
+#. module: generic_mixin
+#: sql_constraint:generic.mixin.uniq_name_code:0
+msgid "Code must be unique."
+msgstr "Code must be unique."
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code_display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes_display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code_display_name
+msgid "Display Name"
+msgstr "Отображаемое Имя"
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_parent.py:41
 #, python-format
 msgid "Error ! You cannot create recursive %s."
 msgstr "Ощибка ! Вы не можете создавать рекурсивные записи %s."
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_name_with_code
+msgid "Generic Mixin: Name with code"
+msgstr "Generic Mixin: Name with code"
 
 #. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_no_unlink
@@ -51,19 +74,45 @@ msgid "Generic Mixin: No Unlink"
 msgstr "Generic Mixin: No Unlink"
 
 #. module: generic_mixin
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_id
-msgid "ID"
-msgstr "ID"
+#: model:ir.model,name:generic_mixin.model_generic_mixin_parent_names
+msgid "Generic Mixin: Parent Names"
+msgstr "Generic Mixin: Parent Names"
 
 #. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_track_changes
+msgid "Generic Mixin: Track Changes"
+msgstr "Generic Mixin: Track Changes"
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_uniq_name_code
+msgid "Generic Mixin: Unique name and code"
+msgstr "Generic Mixin: Unique name and code"
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code_id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes_id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code_id
+msgid "ID"
+msgstr "Номер"
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code___last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink___last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names___last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes___last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code___last_update
 msgid "Last Modified on"
 msgstr "Последнее изменение"
 
 #. module: generic_mixin
-#: model:ir.model,name:generic_mixin.model_generic_mixin_parent_names
-msgid "generic.mixin.parent.names"
-msgstr "generic.mixin.parent.names"
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code_name
+msgid "Name"
+msgstr "Название"
+
+#. module: generic_mixin
+#: sql_constraint:generic.mixin.uniq_name_code:0
+msgid "Name must be unique."
+msgstr "Name must be unique."
 
