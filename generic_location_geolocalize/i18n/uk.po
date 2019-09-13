@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 18:08+0000\n"
-"PO-Revision-Date: 2019-09-12 18:08+0000\n"
+"POT-Creation-Date: 2019-09-13 15:05+0000\n"
+"PO-Revision-Date: 2019-09-13 15:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_geolocalize
-#: model:ir.ui.view,arch_db:generic_location_geolocalize.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_geolocalize.generic_location_form_view
 msgid "Geolocalize"
-msgstr "Geolocalize"
+msgstr ""
 
 #. module: generic_location_geolocalize
 #: model:ir.model,name:generic_location_geolocalize.model_generic_location

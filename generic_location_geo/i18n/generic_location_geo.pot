@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 16:40+0000\n"
-"PO-Revision-Date: 2019-09-12 16:40+0000\n"
+"POT-Creation-Date: 2019-09-13 14:50+0000\n"
+"PO-Revision-Date: 2019-09-13 14:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_geo
-#: model:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
 msgid "<span class=\"oe_inline\"> ( </span>\n"
 "                        <span> Lat : </span>"
 msgstr ""
 
 #. module: generic_location_geo
-#: model:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
 msgid "<span> : Long : </span>"
 msgstr ""
 
 #. module: generic_location_geo
-#: model:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
 msgid "Geolocation"
 msgstr ""
 
 #. module: generic_location_geo
-#: model:ir.model.fields,field_description:generic_location_geo.field_generic_location_latitude
+#: model:ir.model.fields,field_description:generic_location_geo.field_generic_location__latitude
 msgid "Latitude"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgid "Location"
 msgstr ""
 
 #. module: generic_location_geo
-#: model:ir.model.fields,field_description:generic_location_geo.field_generic_location_longitude
+#: model:ir.model.fields,field_description:generic_location_geo.field_generic_location__longitude
 msgid "Longitude"
 msgstr ""
 

@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 10:42+0000\n"
-"PO-Revision-Date: 2019-09-13 10:42+0000\n"
+"POT-Creation-Date: 2019-09-13 15:09+0000\n"
+"PO-Revision-Date: 2019-09-13 15:09+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,6 @@ msgstr "Теги бухучета"
 #. module: generic_tag_account
 #: model:generic.tag.model,name:generic_tag_account.generic_tag_model_account_invoice
 #: model:ir.model,name:generic_tag_account.generic_tag_model_account_invoice_ir_model
-#: model:ir.model,name:generic_tag_account.model_account_invoice
 msgid "Invoice"
 msgstr "Реализация"
 
@@ -34,10 +33,10 @@ msgid "Invoice Tags"
 msgstr "Теги реализации"
 
 #. module: generic_tag_account
-#: model:ir.ui.view,arch_db:generic_tag_account.account_invoice_supplier_tree_view
-#: model:ir.ui.view,arch_db:generic_tag_account.account_invoice_tree_view
-#: model:ir.ui.view,arch_db:generic_tag_account.view_account_invoice_tag_form_customer
-#: model:ir.ui.view,arch_db:generic_tag_account.view_account_invoice_tag_form_supplier
+#: model_terms:ir.ui.view,arch_db:generic_tag_account.account_invoice_supplier_tree_view
+#: model_terms:ir.ui.view,arch_db:generic_tag_account.account_invoice_tree_view
+#: model_terms:ir.ui.view,arch_db:generic_tag_account.view_account_invoice_tag_form_customer
+#: model_terms:ir.ui.view,arch_db:generic_tag_account.view_account_invoice_tag_form_supplier
 msgid "Tags..."
 msgstr "Теги..."
 

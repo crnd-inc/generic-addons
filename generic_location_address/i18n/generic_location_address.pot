@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 16:38+0000\n"
-"PO-Revision-Date: 2019-09-12 16:38+0000\n"
+"POT-Creation-Date: 2019-09-13 14:50+0000\n"
+"PO-Revision-Date: 2019-09-13 14:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,45 +16,45 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___city
 msgid " City"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___street
 msgid " Street"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street2
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___street2
 msgid " Street2"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__zip
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___zip
 msgid " Zip"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "Address"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "Address Configuration"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_city
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "City"
 msgstr ""
 
 #. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___country_id
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_id
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_country_id
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "Country"
 msgstr ""
 
@@ -64,69 +64,69 @@ msgid "Location"
 msgstr ""
 
 #. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___state_id
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_id
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_state_id
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "State"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street
 msgid "Street"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "Street 2..."
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "Street..."
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street2
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street2
 msgid "Street2"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_city_use_parent
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city_use_parent
 msgid "Use Parent City"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_country_id_use_parent
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_id_use_parent
 msgid "Use Parent Country"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_state_id_use_parent
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_id_use_parent
 msgid "Use Parent State"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street_use_parent
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street_use_parent
 msgid "Use Parent Street"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_street2_use_parent
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street2_use_parent
 msgid "Use Parent Street2"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_zip_use_parent
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__zip_use_parent
 msgid "Use Parent Zip"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "ZIP"
 msgstr ""
 
 #. module: generic_location_address
-#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_zip
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__zip
 msgid "Zip"
 msgstr ""
 
