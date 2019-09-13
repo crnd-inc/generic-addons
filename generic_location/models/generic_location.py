@@ -60,7 +60,6 @@ class GenericLocation(models.Model):
         for record in self:
             record.child_count = len(record.child_ids)
 
-    @api.model_cr
     def init(self):
         # Create relation (location_id <-> parent_location_id) as PG View
         # This relation is used to compute field parent_ids
@@ -90,7 +89,6 @@ class GenericLocation(models.Model):
                 [(self._fields['parent_ids'], None)])
         return res
 
-    @api.multi
     def write(self, vals):
         tools.image_resize_images(vals)
         res = super(GenericLocation, self).write(vals)
@@ -101,8 +99,11 @@ class GenericLocation(models.Model):
                 [(self._fields['parent_ids'], None)])
         return res
 
-    @api.multi
+    # TODO rewrite method
+    # @api.multi
+    # this decorator is deprecated and removed in Odoo 13
     def copy(self, default=None):
+        # pylint: disable=copy-wo-api-one
         default = dict(default or {})
 
         copied_count = self.search_count(
@@ -115,7 +116,6 @@ class GenericLocation(models.Model):
         default['name'] = new_name
         return super(GenericLocation, self).copy(default)
 
-    @api.multi
     def action_button_show_sublocations(self):
         action = self.env.ref(
             'generic_location.generic_location_action').read()[0]

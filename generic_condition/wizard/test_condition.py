@@ -1,6 +1,6 @@
 import traceback
 
-from odoo import models, fields, api
+from odoo import models, fields
 from odoo.tools.translate import _
 from odoo.tools import ustr
 from odoo.exceptions import ValidationError
@@ -74,7 +74,6 @@ class TestGenericCondition(models.TransientModel):
                 "<pre>%s</pre>" % traceback.format_exc())
         return self._adapt_result(result)
 
-    @api.multi
     def process(self):
         self.ensure_one()
         debug_log = DebugLogger()

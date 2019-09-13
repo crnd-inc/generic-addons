@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 14:57+0000\n"
-"PO-Revision-Date: 2018-12-12 14:57+0000\n"
+"POT-Creation-Date: 2019-09-13 10:42+0000\n"
+"PO-Revision-Date: 2019-09-13 10:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,18 +22,20 @@ msgstr "Доступ к локации"
 
 #. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user_implicit
-msgid "Access generic locations (no access to menu)"
-msgstr "Доступ к локации (без доступа к меню)"
+msgid "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+"        "
+msgstr "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+"        "
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_active
 msgid "Active"
-msgstr "Активно"
+msgstr "Актив"
 
 #. module: generic_location
 #: model:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Archived"
-msgstr "Заархивировано"
+msgstr "Архивировано"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_child_count
@@ -43,12 +45,12 @@ msgstr "Сублокация"
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_create_uid
 msgid "Created by"
-msgstr "Создал"
+msgstr "Создано"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_create_date
 msgid "Created on"
-msgstr "Дата создания"
+msgstr "Создан"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_description
@@ -63,7 +65,7 @@ msgstr "Описание..."
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_display_name
 msgid "Display Name"
-msgstr "Название для отображения"
+msgstr "Отображаемое Имя"
 
 #. module: generic_location
 #: model:ir.ui.menu,name:generic_location.menu_generic_location
@@ -89,7 +91,7 @@ msgstr "Пользователь локаций (implicit)"
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_id
 msgid "ID"
-msgstr "ID"
+msgstr "Номер"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_image
@@ -115,6 +117,11 @@ msgstr "Последний раз обновил"
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_write_date
 msgid "Last Updated on"
 msgstr "Последнее обновление"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_left
+msgid "Left Parent"
+msgstr "Левый родительский элемент"
 
 #. module: generic_location
 #: model:ir.actions.act_window,name:generic_location.generic_location_action
@@ -147,12 +154,22 @@ msgstr "Название"
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_id
 #: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Parent Location"
-msgstr "Родительская локация"
+msgstr "Главное место хранения"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_ids
+msgid "Parents"
+msgstr "Parents"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_right
+msgid "Right Parent"
+msgstr "Правый источник"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_image_small
 msgid "Small-sized image"
-msgstr "Уменьшенное изображение"
+msgstr "Маленькое изображение"
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location_image_small
@@ -165,8 +182,8 @@ msgid "Sublocation"
 msgstr "Сублокация"
 
 #. module: generic_location
-#: code:addons/generic_location/models/generic_location.py:79
-#: code:addons/generic_location/models/generic_location.py:80
+#: code:addons/generic_location/models/generic_location.py:123
+#: code:addons/generic_location/models/generic_location.py:124
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_child_ids
 #, python-format
 msgid "Sublocations"

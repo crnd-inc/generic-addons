@@ -391,7 +391,6 @@ class GenericCondition(models.Model):
                 return super(GenericCondition, xself).default_get(field_names)
         return super(GenericCondition, self).default_get(field_names)
 
-    @api.multi
     @api.depends('condition_rel_field_id')
     def _compute_condition_rel_field_id_model_id(self):
         """ Sets value for condition_rel_field_id_model_id
@@ -884,7 +883,6 @@ class GenericCondition(models.Model):
             'timezone': timezone,
         }
 
-    @api.multi
     def check(self, obj, operator='and', cache=None, debug_log=None):
         """ Checks if specified conditions satisfied
 

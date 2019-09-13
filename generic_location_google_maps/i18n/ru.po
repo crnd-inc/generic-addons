@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 11:11+0000\n"
-"PO-Revision-Date: 2018-12-13 11:11+0000\n"
+"POT-Creation-Date: 2019-09-13 10:42+0000\n"
+"PO-Revision-Date: 2019-09-13 10:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,8 +36,8 @@ msgid "Location"
 msgstr "Локация"
 
 #. module: generic_location_google_maps
+#: code:addons/generic_location_google_maps/models/generic_location.py:22
 #: code:addons/generic_location_google_maps/models/generic_location.py:23
-#: code:addons/generic_location_google_maps/models/generic_location.py:24
 #: model:ir.ui.view,arch_db:generic_location_google_maps.generic_location_form_view
 #, python-format
 msgid "Map"

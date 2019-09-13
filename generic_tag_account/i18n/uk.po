@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-12 18:21+0000\n"
+"PO-Revision-Date: 2019-09-12 18:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,22 +32,6 @@ msgstr "Реалізація"
 #: model:ir.ui.menu,name:generic_tag_account.menu_account_invoice_tags_id
 msgid "Invoice Tags"
 msgstr "Теги реалізації"
-
-#. module: generic_tag_account
-#: model:ir.model.fields,field_description:generic_tag_account.field_account_invoice_no_tag_id
-#: model:ir.model.fields,field_description:generic_tag_account.field_account_invoice_search_no_tag_id
-msgid "No tag"
-msgstr "Немає тегу"
-
-#. module: generic_tag_account
-#: model:ir.model.fields,field_description:generic_tag_account.field_account_invoice_search_tag_id
-msgid "Tag"
-msgstr "Тег"
-
-#. module: generic_tag_account
-#: model:ir.model.fields,field_description:generic_tag_account.field_account_invoice_tag_ids
-msgid "Tags"
-msgstr "Теги"
 
 #. module: generic_tag_account
 #: model:ir.ui.view,arch_db:generic_tag_account.account_invoice_supplier_tree_view
