@@ -45,7 +45,6 @@ class GenericMixinParentNames(models.AbstractModel):
 
         return super(GenericMixinParentNames, cls)._build_model(pool, cr)
 
-    @api.multi
     def name_get(self):
         def get_names(rec):
             """ Return the list [rec.name, rec.parent_id.name, ...] """

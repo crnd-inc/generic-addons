@@ -1,0 +1,174 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_condition_test
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-12 16:34+0000\n"
+"PO-Revision-Date: 2019-09-12 16:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_condition_test
+#: model:res.groups,name:generic_condition_test.group_condition_no_access
+msgid "Condition user with no access"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_create_uid
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_create_date
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_date_end
+msgid "Date End"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_date_start
+msgid "Date Start"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_date_test
+msgid "Date Test"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_display_name
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_id
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation_id
+msgid "ID"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model___last_update
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation_write_uid
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation_write_date
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_monetary_equal_150_usd
+msgid "Monetary field equal 150 USD"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation_name
+msgid "Name"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_bool
+msgid "Test Bool"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_char
+msgid "Test Char"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_float
+msgid "Test Float"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_html
+msgid "Test Html"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_int
+msgid "Test Int"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_m2m
+msgid "Test M2M"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_m2o
+msgid "Test M2O"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_monetary
+msgid "Test Monetary"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_monetary_currency
+msgid "Test Monetary Currency"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_selection
+msgid "Test Selection"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_test_text
+msgid "Test Text"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_user_m2m
+msgid "User M2M"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_user_m2o
+msgid "User M2O"
+msgstr ""
+
+#. module: generic_condition_test
+#: selection:test.generic.condition.test.model,test_selection:0
+msgid "Value 1"
+msgstr ""
+
+#. module: generic_condition_test
+#: selection:test.generic.condition.test.model,test_selection:0
+msgid "Value 2"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model,name:generic_condition_test.model_test_generic_condition_test_model
+msgid "test.generic.condition.test.model"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model,name:generic_condition_test.model_test_generic_condition_test_model_relation
+msgid "test.generic.condition.test.model.relation"
+msgstr ""
+

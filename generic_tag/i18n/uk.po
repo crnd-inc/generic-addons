@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-12 18:19+0000\n"
+"PO-Revision-Date: 2019-09-12 18:19+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -63,7 +65,7 @@ msgid "Categories"
 msgstr "Категорії"
 
 #. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_id_1543
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_id_1431
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Category"
 msgstr "Категорія"
@@ -74,7 +76,7 @@ msgid "Category code"
 msgstr "Код категорії"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:50
+#: code:addons/generic_tag/models/generic_tag.py:84
 #, python-format
 msgid "Category must be bound to same model as tag"
 msgstr "Категорія тега повинна бути зв'язаною з тією ж моделлю що і тег"
@@ -127,6 +129,11 @@ msgstr "Коментар..."
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_configuration_root
 msgid "Configuration"
 msgstr "Конфігурація"
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_count
+msgid "Count (incl. archived)"
+msgstr "Підрахунок (у тому числі архівований)"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_create_uid
@@ -195,9 +202,19 @@ msgid "Generic Tag Category"
 msgstr "Категорія універсальних тегів"
 
 #. module: generic_tag
+#: model:ir.model,name:generic_tag.model_generic_tag_mixin
+msgid "Generic Tag Mixin"
+msgstr "Generic Tag Mixin"
+
+#. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_model
 msgid "Generic Tag Model"
 msgstr "Модель універсальних тегів"
+
+#. module: generic_tag
+#: model:ir.model,name:generic_tag.model_generic_tag_model_mixin
+msgid "Generic Tag Model Mixin"
+msgstr "Generic Tag Model Mixin"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
@@ -285,7 +302,7 @@ msgstr "Може бути використано для спеціальних �
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_model_id
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_id_1529
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_id_1443
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin_model_id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_model
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_res_model_id
@@ -300,7 +317,7 @@ msgid "Model Description"
 msgstr "Опис"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_category.py:59
+#: code:addons/generic_tag/models/generic_tag_category.py:52
 #, python-format
 msgid "Model must be same as one used in related tags"
 msgstr "Модель має бути та ж що і у пов'язаних тегах"
@@ -313,6 +330,7 @@ msgstr "Моделі"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_name_1438
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_complete_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_name
 msgid "Name"
@@ -335,15 +353,23 @@ msgid "No tag"
 msgstr "Немає тегу"
 
 #. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_objects_count
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Objects"
 msgstr "Об'єкти"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:128
+#: code:addons/generic_tag/models/generic_tag.py:127
 #, python-format
 msgid "Objects related to tag %s"
 msgstr "Об'єкти пов'язані з тегом %s"
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_sequence
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_sequence_1437
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_sequence
+msgid "Sequence"
+msgstr "Послідовність"
 
 #. module: generic_tag
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_tree
@@ -358,7 +384,7 @@ msgstr "Показати теги"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_model_id
-#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_id_1529
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_id_1443
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_mixin_model_id
 msgid "Specify model for which this tag is available"
 msgstr "Вкажіть модель для якої цей тег буде доступний"
@@ -389,7 +415,6 @@ msgstr "Користувач тегів (обмежено)"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category_tags_count
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin_tag_ids
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_tags_count
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_objects_count
 #: model:ir.ui.menu,name:generic_tag.menu_action_generic_tags_view
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_root
 #: model:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
@@ -398,13 +423,13 @@ msgid "Tags"
 msgstr "Теги"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_category.py:69
+#: code:addons/generic_tag/models/generic_tag_category.py:61
 #, python-format
 msgid "Tags related to category %s"
 msgstr "Теги пов'язані з категорією %s"
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_model.py:40
+#: code:addons/generic_tag/models/generic_tag_model.py:35
 #, python-format
 msgid "Tags related to model %s"
 msgstr "Теги пов'язані з моделлю %s"
@@ -413,6 +438,11 @@ msgstr "Теги пов'язані з моделлю %s"
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_inherited_model_ids
 msgid "The list of models that extends the current model."
 msgstr "Список моделей, що розширюють поточну."
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model_count
+msgid "Total number of records in this model"
+msgstr "Загальна кількість записів у цій моделі"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_transient
@@ -428,16 +458,6 @@ msgstr "Тип"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_view_ids
 msgid "Views"
 msgstr "Перегляди"
-
-#. module: generic_tag
-#: model:ir.model,name:generic_tag.model_generic_tag_mixin
-msgid "generic.tag.mixin"
-msgstr "generic.tag.mixin"
-
-#. module: generic_tag
-#: model:ir.model,name:generic_tag.model_generic_tag_model_mixin
-msgid "generic.tag.model.mixin"
-msgstr "generic.tag.model.mixin"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category_check_xor

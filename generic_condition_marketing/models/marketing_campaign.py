@@ -16,7 +16,6 @@ class MarketingCampaignActivity(models.Model):
 class MarketingCampaignWorkitem(models.Model):
     _inherit = "marketing.campaign.workitem"
 
-    @api.multi
     def _process_one(self):
         if self.state != 'todo':
             return False

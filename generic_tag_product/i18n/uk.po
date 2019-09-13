@@ -4,35 +4,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-12 18:25+0000\n"
+"PO-Revision-Date: 2019-09-12 18:25+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_taxes_id
-msgid "Customer Taxes"
-msgstr "Податки (продажі)"
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_property_account_expense_id
-msgid "Expense Account"
-msgstr "Рахунок обліку витрат"
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_property_account_income_id
-msgid "Income Account"
-msgstr "Рахунок обліку доходів"
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_no_tag_id
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_search_no_tag_id
-msgid "No tag"
-msgstr "Немає тегу"
 
 #. module: generic_tag_product
 #: model:generic.tag.model,name:generic_tag_product.generic_tag_model_product_product
@@ -49,34 +30,9 @@ msgid "Product Tags"
 msgstr "Теги товару"
 
 #. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_search_tag_id
-msgid "Tag"
-msgstr "Тег"
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_tag_ids
-msgid "Tags"
-msgstr "Теги"
-
-#. module: generic_tag_product
 #: model:ir.ui.view,arch_db:generic_tag_product.view_product_form_tags
 #: model:ir.ui.view,arch_db:generic_tag_product.view_product_kanban_tags
 #: model:ir.ui.view,arch_db:generic_tag_product.view_product_tree_tags
 msgid "Tags..."
 msgstr "Теги"
-
-#. module: generic_tag_product
-#: model:ir.model.fields,help:generic_tag_product.field_product_product_property_account_expense_id
-msgid "This account will be used for invoices instead of the default one to value expenses for the current product."
-msgstr "Цей рахунок обліку буде використовуватись, замість типового, для оцінки витрат."
-
-#. module: generic_tag_product
-#: model:ir.model.fields,help:generic_tag_product.field_product_product_property_account_income_id
-msgid "This account will be used for invoices instead of the default one to value sales for the current product."
-msgstr "Цей рахунок обліку буде використовуватись, замість типового, для оцінки доходів."
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product_supplier_taxes_id
-msgid "Vendor Taxes"
-msgstr "Податки (закупівля)"
 

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 07:40+0000\n"
-"PO-Revision-Date: 2018-10-16 07:40+0000\n"
+"POT-Creation-Date: 2019-09-12 18:03+0000\n"
+"PO-Revision-Date: 2019-09-12 18:03+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,8 +22,10 @@ msgstr "Доступ загальної локації"
 
 #. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user_implicit
-msgid "Access generic locations (no access to menu)"
-msgstr "Доступ до загальноі локації (без доступу до меню)"
+msgid "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+"        "
+msgstr "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+"        "
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_active
@@ -117,6 +119,11 @@ msgid "Last Updated on"
 msgstr "Останнє оновлення"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_left
+msgid "Left Parent"
+msgstr "Left Parent"
+
+#. module: generic_location
 #: model:ir.actions.act_window,name:generic_location.generic_location_action
 #: model:ir.model,name:generic_location.model_generic_location
 #: model:ir.ui.menu,name:generic_location.archive_generic_location
@@ -150,6 +157,16 @@ msgid "Parent Location"
 msgstr "Батьківська локація"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_ids
+msgid "Parents"
+msgstr "Parents"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_right
+msgid "Right Parent"
+msgstr "Right Parent"
+
+#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_image_small
 msgid "Small-sized image"
 msgstr "Зменшене зображення"
@@ -165,8 +182,8 @@ msgid "Sublocation"
 msgstr "Сублокація"
 
 #. module: generic_location
-#: code:addons/generic_location/models/generic_location.py:79
-#: code:addons/generic_location/models/generic_location.py:80
+#: code:addons/generic_location/models/generic_location.py:123
+#: code:addons/generic_location/models/generic_location.py:124
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_child_ids
 #, python-format
 msgid "Sublocations"
