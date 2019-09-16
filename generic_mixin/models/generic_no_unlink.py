@@ -1,4 +1,4 @@
-from odoo import api, models, _
+from odoo import models, _
 from odoo.osv.expression import FALSE_DOMAIN
 from odoo.exceptions import UserError
 
@@ -26,7 +26,6 @@ class GenericMixinNoUnlink(models.AbstractModel):
         )
         return allowed_count == len(self.exists())
 
-    @api.multi
     def unlink(self):
         if not self._allow_unlink():
             if 'active' in self._fields:

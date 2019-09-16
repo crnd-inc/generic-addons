@@ -1,4 +1,4 @@
-from odoo import api, models
+from odoo import models
 from odoo.addons.base_geolocalize.models.res_partner import (
     geo_find,
     geo_query_address,
@@ -20,7 +20,6 @@ class GenericLocation(models.Model):
             result = geo_find(search, apikey)
         return result
 
-    @api.multi
     def geo_localize(self):
         apikey = self.env['ir.config_parameter'].sudo().get_param(
             'google.api_key_geocode')

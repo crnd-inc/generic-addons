@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_mixin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-13 14:50+0000\n"
+"PO-Revision-Date: 2019-09-13 14:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_no_unlink.py:32
+#, python-format
+msgid "Cannot unlink these records. Operation not allowed.\n"
+"It is better to deactivate these records.\n"
+"Model: %s [%s]"
+msgstr ""
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_no_unlink.py:38
+#, python-format
+msgid "Cannot unlink these records. Operation not allowed.\n"
+"Model: %s [%s]"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__code
+msgid "Code"
+msgstr ""
+
+#. module: generic_mixin
+#: sql_constraint:generic.mixin.name_with_code:0
+msgid "Code must be ascii only"
+msgstr ""
+
+#. module: generic_mixin
+#: sql_constraint:generic.mixin.uniq_name_code:0
+msgid "Code must be unique."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_parent.py:41
+#, python-format
+msgid "Error ! You cannot create recursive %s."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_name_with_code
+msgid "Generic Mixin: Name with code"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_no_unlink
+msgid "Generic Mixin: No Unlink"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_parent_names
+msgid "Generic Mixin: Parent Names"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_track_changes
+msgid "Generic Mixin: Track Changes"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_uniq_name_code
+msgid "Generic Mixin: Unique name and code"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__name
+msgid "Name"
+msgstr ""
+
+#. module: generic_mixin
+#: sql_constraint:generic.mixin.uniq_name_code:0
+msgid "Name must be unique."
+msgstr ""
+

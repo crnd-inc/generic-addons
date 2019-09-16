@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 11:11+0000\n"
-"PO-Revision-Date: 2018-12-13 11:11+0000\n"
+"POT-Creation-Date: 2019-09-13 15:09+0000\n"
+"PO-Revision-Date: 2019-09-13 15:09+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,19 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_google_maps
-#: model:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
+#: model_terms:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
 msgid "Archive"
-msgstr "Заархивировать"
+msgstr ""
 
 #. module: generic_location_google_maps
-#: model:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
+#: model_terms:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
 msgid "Delete"
-msgstr "Удалить"
+msgstr ""
 
 #. module: generic_location_google_maps
-#: model:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
+#: model_terms:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
 msgid "Edit"
-msgstr "Редактировать"
+msgstr ""
 
 #. module: generic_location_google_maps
 #: model:ir.model,name:generic_location_google_maps.model_generic_location
@@ -36,20 +36,20 @@ msgid "Location"
 msgstr "Локация"
 
 #. module: generic_location_google_maps
+#: code:addons/generic_location_google_maps/models/generic_location.py:22
 #: code:addons/generic_location_google_maps/models/generic_location.py:23
-#: code:addons/generic_location_google_maps/models/generic_location.py:24
-#: model:ir.ui.view,arch_db:generic_location_google_maps.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location_google_maps.generic_location_form_view
 #, python-format
 msgid "Map"
 msgstr "Карта"
 
 #. module: generic_location_google_maps
-#: model:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
+#: model_terms:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
 msgid "Maps"
-msgstr "Карты"
+msgstr ""
 
 #. module: generic_location_google_maps
-#: model:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
+#: model_terms:ir.ui.view,arch_db:generic_location_google_maps.generic_location_map_view
 msgid "Restore"
-msgstr "Восстановить"
+msgstr ""
 

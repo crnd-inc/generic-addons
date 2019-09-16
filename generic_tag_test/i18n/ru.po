@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_tag_test
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-13 15:09+0000\n"
+"PO-Revision-Date: 2019-09-13 15:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__create_date
+msgid "Created on"
+msgstr "Создан"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__display_name
+msgid "Display Name"
+msgstr "Отображаемое Имя"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__id
+msgid "ID"
+msgstr "Номер"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__write_uid
+msgid "Last Updated by"
+msgstr "Последний раз обновил"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__name
+msgid "Name"
+msgstr "Название"
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__no_tag_id
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__search_no_tag_id
+msgid "No tag"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_1
+msgid "TC1"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_2
+msgid "TC2"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_3
+msgid "TC3"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_4
+msgid "TC4"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__search_tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__tag_ids
+msgid "Tags"
+msgstr "Теги"
+
+#. module: generic_tag_test
+#: model:generic.tag,category_name:generic_tag_test.test_tag_1
+#: model:generic.tag,category_name:generic_tag_test.test_tag_2
+#: model:generic.tag.category,name:generic_tag_test.test_tag_category_1
+msgid "Test Category 1"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:res.groups,name:generic_tag_test.group_tags_test_group
+msgid "Test group for tags"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.filters,name:generic_tag_test.filter_test_field_eq_add
+msgid "Test model test field = 'add'"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.filters,name:generic_tag_test.filter_test_field_eq_remove
+msgid "Test model test field = 'remove'"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag.model,name:generic_tag_test.test_tag_model
+#: model:ir.model,name:generic_tag_test.model_generic_tag_test_model
+msgid "generic.tag.test.model"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__test_field
+msgid "test_field"
+msgstr ""
+

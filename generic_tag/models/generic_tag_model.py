@@ -7,7 +7,6 @@ class GenericTagModel(models.Model):
     _description = "Generic Tag Model"
     _access_log = False
 
-    @api.multi
     def _compute_tags_count(self):
         for model in self:
             model.tags_count = self.env['generic.tag'].search_count(
@@ -29,7 +28,6 @@ class GenericTagModel(models.Model):
          'For each Odoo model only one Tag Model could be created!'),
     ]
 
-    @api.multi
     def action_show_tags(self):
         self.ensure_one()
         ctx = dict(self.env.context, default_model_id=self.id)

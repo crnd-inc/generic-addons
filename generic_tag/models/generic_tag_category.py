@@ -9,7 +9,6 @@ class GenericTagCategory(models.Model):
     _order = 'sequence'
     _access_log = False
 
-    @api.multi
     @api.depends('tag_ids')
     def _compute_tags_count(self):
         for line in self:
@@ -53,7 +52,6 @@ class GenericTagCategory(models.Model):
                 raise ValidationError(_(
                     u"Model must be same as one used in related tags"))
 
-    @api.multi
     def action_show_tags(self):
         self.ensure_one()
         ctx = dict(self.env.context,

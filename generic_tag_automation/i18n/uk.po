@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-13 15:06+0000\n"
+"PO-Revision-Date: 2019-09-13 15:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,27 +16,94 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_tag_automation
-#: model:ir.model,name:generic_tag_automation.model_base_action_rule
-msgid "Action Rules"
-msgstr "Правила дій"
+#: model:ir.model.fields,field_description:generic_tag_automation.field_ir_actions_server__state
+msgid "Action To Do"
+msgstr "Дія, яку необхідно зробити"
 
 #. module: generic_tag_automation
-#: model:ir.model.fields,field_description:generic_tag_automation.field_base_action_rule_act_add_tag_ids
+#: selection:ir.actions.server,state:0
+msgid "Add Followers"
+msgstr "Додати підписників"
+
+#. module: generic_tag_automation
+#: model:ir.model.fields,field_description:generic_tag_automation.field_base_automation__act_add_tag_ids
 msgid "Add Tags"
-msgstr "Додати теги"
+msgstr ""
 
 #. module: generic_tag_automation
-#: model:ir.model.fields,field_description:generic_tag_automation.field_base_action_rule_act_remove_tag_ids
+#: model:ir.model,name:generic_tag_automation.model_base_automation
+msgid "Automated Action"
+msgstr "Автоматизована дія"
+
+#. module: generic_tag_automation
+#: selection:ir.actions.server,state:0
+msgid "Create Next Activity"
+msgstr ""
+
+#. module: generic_tag_automation
+#: selection:ir.actions.server,state:0
+msgid "Create a new Record"
+msgstr "Створіть новий запис"
+
+#. module: generic_tag_automation
+#: selection:ir.actions.server,state:0
+msgid "Execute Python Code"
+msgstr "Виконати код Python"
+
+#. module: generic_tag_automation
+#: selection:ir.actions.server,state:0
+msgid "Execute several actions"
+msgstr "Виконати декілька дій"
+
+#. module: generic_tag_automation
+#: model:ir.model.fields,field_description:generic_tag_automation.field_base_automation__act_remove_tag_ids
 msgid "Remove Tags"
-msgstr "Видалити теги"
+msgstr ""
 
 #. module: generic_tag_automation
-#: model:ir.model.fields,help:generic_tag_automation.field_base_action_rule_act_add_tag_ids
+#: selection:ir.actions.server,state:0
+msgid "Send Email"
+msgstr "Надіслати ел. листа"
+
+#. module: generic_tag_automation
+#: model:ir.model,name:generic_tag_automation.model_ir_actions_server
+msgid "Server Action"
+msgstr "Дії на сервері"
+
+#. module: generic_tag_automation
+#: selection:ir.actions.server,state:0
+msgid "Set Tag"
+msgstr ""
+
+#. module: generic_tag_automation
+#: model:ir.model.fields,help:generic_tag_automation.field_base_automation__act_add_tag_ids
 msgid "Specify tags to be added to object this rule is applied to"
-msgstr "Вкажіть теги, що будуть додані до об'єкту, до якого застосовується це правило"
+msgstr ""
 
 #. module: generic_tag_automation
-#: model:ir.model.fields,help:generic_tag_automation.field_base_action_rule_act_remove_tag_ids
+#: model:ir.model.fields,help:generic_tag_automation.field_base_automation__act_remove_tag_ids
 msgid "Specify tags to be removed from object this rule is applied to"
-msgstr "Вкажіть теги, що будуть видалені з об'єкту, до якого застосовується це правило"
+msgstr ""
+
+#. module: generic_tag_automation
+#: model:ir.model.fields,help:generic_tag_automation.field_ir_actions_server__state
+msgid "Type of server action. The following values are available:\n"
+"- 'Execute Python Code': a block of python code that will be executed\n"
+"- 'Create or Copy a new Record': create a new record with new values, or copy an existing record in your database\n"
+"- 'Write on a Record': update the values of a record\n"
+"- 'Execute several actions': define an action that triggers several other server actions\n"
+"- 'Add Followers': add followers to a record (available in Discuss)\n"
+"- 'Send Email': automatically send an email (available in email_template)"
+msgstr "Тип дії сервера. Доступні наступні значення:\n"
+"- 'Execute Python Code': блок коду python, який буде виконуватися\n"
+"- \"Створити або скопіювати новий запис\": створити новий запис із новими значеннями або скопіювати існуючий запис у вашу базу даних\n"
+"- \"Написати на запис\": оновіть значення запису\n"
+"- \"Виконати кілька дій\": визначити дію, яка запускає кілька інших дій сервера\n"
+"- \"Додати послідовників\": додавати послідовників до запису (доступно в Обговоренні)\n"
+"- \"Надіслати електронний лист\": автоматично надсилатиме електронний лист (доступний в email_template)"
+
+#. module: generic_tag_automation
+#: selection:ir.actions.server,state:0
+msgid "Update the Record"
+msgstr "Оновити запис"
 
