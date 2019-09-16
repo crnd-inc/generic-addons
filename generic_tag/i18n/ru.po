@@ -73,7 +73,7 @@ msgstr "Категория"
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 msgid "Category code"
-msgstr ""
+msgstr "Код категории"
 
 #. module: generic_tag
 #: code:addons/generic_tag/models/generic_tag.py:84
@@ -89,7 +89,7 @@ msgstr "Название категории"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__check_xor
 msgid "Check XOR"
-msgstr ""
+msgstr "Исключенный или (XOR)"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__code
@@ -123,7 +123,7 @@ msgstr "Комментарий"
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Comment..."
-msgstr ""
+msgstr "Комментарий..."
 
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_configuration_root
@@ -133,7 +133,7 @@ msgstr "Настройка"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__count
 msgid "Count (incl. archived)"
-msgstr ""
+msgstr "Кол-во (вкл. заарх.)"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__create_uid
@@ -152,12 +152,12 @@ msgstr "Создан"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__comment
 msgid "Describe what this tag category is for"
-msgstr ""
+msgstr "Опишите категорию"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__comment
 msgid "Describe what this tag means"
-msgstr ""
+msgstr "Опишите тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__display_name
@@ -166,7 +166,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__display_name
 msgid "Display Name"
-msgstr "Отображаемое Имя"
+msgstr "Отображаемое название"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__field_id
@@ -189,7 +189,7 @@ msgstr "Для каждой модели Оду может быть создан
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__complete_name
 msgid "Full name of tag (including category name)"
-msgstr ""
+msgstr "Полное название тега (включая название категории)"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag
@@ -230,17 +230,17 @@ msgstr "Группы"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__objects_count
 msgid "How many objects contains this tag"
-msgstr ""
+msgstr "Сколько объектов содержат даный тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__tags_count
 msgid "How many tags related to this catgory"
-msgstr ""
+msgstr "Сколько тегов относится к этой категории"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__tags_count
 msgid "How many tags related to this model exists"
-msgstr ""
+msgstr "Сколько тегов относится к этой модели"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__id
@@ -249,7 +249,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__id
 msgid "ID"
-msgstr "Номер"
+msgstr "ID"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__modules
@@ -374,30 +374,30 @@ msgstr "Правила доступа"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__sequence
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__sequence
 msgid "Sequence"
-msgstr "Нумерация"
+msgstr "Последовательность"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_tree
 msgid "Show Objects"
-msgstr ""
+msgstr "Показать объекты"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_tree
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_model_tree
 msgid "Show Tags"
-msgstr ""
+msgstr "Показать теги"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__model_id
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__model_id
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_mixin__model_id
 msgid "Specify model for which this tag is available"
-msgstr ""
+msgstr "Укажите модель, для которой доступен данный тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__search_tag_id
 msgid "Tag"
-msgstr ""
+msgstr "Тег"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_manager
@@ -467,5 +467,5 @@ msgstr "Виды"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__check_xor
 msgid "if set to True then only one tag from this category may be present on a single object. On attempt to add second tag from this category to object, error will be raised"
-msgstr ""
+msgstr "Если установлено, то только один тег этой категории может присутствовать на одном объекте. При попытке добавить второй тег этой же категории к объекту, будет вызвана ошибка"
 

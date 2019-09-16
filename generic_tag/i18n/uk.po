@@ -73,7 +73,7 @@ msgstr "Категорія"
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 msgid "Category code"
-msgstr ""
+msgstr "Код категорії"
 
 #. module: generic_tag
 #: code:addons/generic_tag/models/generic_tag.py:84
@@ -89,7 +89,7 @@ msgstr "Назва категорії"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__check_xor
 msgid "Check XOR"
-msgstr ""
+msgstr "Виключне або (XOR)"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__code
@@ -152,12 +152,12 @@ msgstr "Створено"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__comment
 msgid "Describe what this tag category is for"
-msgstr ""
+msgstr "Опишіть категорію"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__comment
 msgid "Describe what this tag means"
-msgstr ""
+msgstr "Опишіть тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__display_name
@@ -189,7 +189,7 @@ msgstr "Для кожної моделі Odoo лише одна модель т�
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__complete_name
 msgid "Full name of tag (including category name)"
-msgstr ""
+msgstr "Повна назва тегу (включаючи назву категорії)"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag
@@ -230,17 +230,17 @@ msgstr "Групи"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__objects_count
 msgid "How many objects contains this tag"
-msgstr ""
+msgstr "Скільки об'єктів мають даний тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__tags_count
 msgid "How many tags related to this catgory"
-msgstr ""
+msgstr "Скільки тегів відносяться до цієї категорії"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__tags_count
 msgid "How many tags related to this model exists"
-msgstr ""
+msgstr "Скільки тегів відносяться до цієї моделі"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__id
@@ -249,7 +249,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__modules
@@ -379,25 +379,25 @@ msgstr "Послідовність"
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_tree
 msgid "Show Objects"
-msgstr ""
+msgstr "Показати обʼєкти"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_tree
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_model_tree
 msgid "Show Tags"
-msgstr ""
+msgstr "показати теги"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__model_id
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__model_id
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_mixin__model_id
 msgid "Specify model for which this tag is available"
-msgstr ""
+msgstr "Вкажіть модель, для якої доступний даний тег"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__search_tag_id
 msgid "Tag"
-msgstr ""
+msgstr "Тег"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_manager
@@ -467,5 +467,5 @@ msgstr "Переглядів"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__check_xor
 msgid "if set to True then only one tag from this category may be present on a single object. On attempt to add second tag from this category to object, error will be raised"
-msgstr ""
+msgstr "якщо встановлено, то лише один тег цієї категорії моде бути присутній на одному об'єкті. При спробі додати другий тег цієї ж категорії до об'єкту, буде видано повідомлення про помилку"
 
