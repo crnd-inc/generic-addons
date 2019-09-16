@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 11:37+0000\n"
-"PO-Revision-Date: 2019-09-13 11:37+0000\n"
+"POT-Creation-Date: 2019-09-16 11:46+0000\n"
+"PO-Revision-Date: 2019-09-16 11:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_access_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__access_ids
 msgid "Access"
 msgstr "Доступ"
 
@@ -24,22 +24,34 @@ msgstr "Доступ"
 #: selection:generic.resource,resource_visibility:0
 #: selection:generic.resource.type,resource_visibility:0
 msgid "Access restricted by roles"
-msgstr "Access restricted by roles"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_active
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_active
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_active
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_active
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_active
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction
+msgid "Action Needed"
+msgstr "Дія необхідна"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource__active
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__active
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__active
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__active
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__active
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Active"
 msgstr "Активно"
 
 #. module: generic_resource
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Archived"
 msgstr "Заархівовано"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_attachment_count
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_attachment_count
+msgid "Attachment Count"
+msgstr "Підрахунок прикріплення"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
@@ -47,9 +59,9 @@ msgid "Categories"
 msgstr "Категорії"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_search
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__category_id
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_search
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 msgid "Category"
 msgstr "Категорія"
 
@@ -69,23 +81,23 @@ msgid "Configuration"
 msgstr "Налаштування"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_count
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__count
 msgid "Count (incl. archived)"
 msgstr "Підрахунок (у тому числі архівований)"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_create_uid
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_create_uid
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_create_uid
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__create_uid
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_uid
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_uid
 msgid "Created by"
 msgstr "Створив"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_create_date
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_create_date
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_create_date
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__create_date
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_date
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_date
 msgid "Created on"
-msgstr "Дата створення"
+msgstr "Створено"
 
 #. module: generic_resource
 #: model:generic.resource.type,name:generic_resource.generic_resource_type_default
@@ -121,13 +133,13 @@ msgid "Direct modification of 'generic.resource:res_id' field is not allowed!"
 msgstr "Пряма модифікація 'generic.resource:res_id' заборонена!"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_display_name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource__display_name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__display_name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__display_name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__display_name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__display_name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__display_name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__display_name
 msgid "Display Name"
 msgstr "Назва для відображення"
 
@@ -149,7 +161,7 @@ msgid "Field 'Is Generic Resource' cannot be changed to 'False'."
 msgstr "Поле 'Є загальним ресурсом' не можна змінювати на 'False'."
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_field_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__field_id
 msgid "Fields"
 msgstr "Поля"
 
@@ -164,13 +176,31 @@ msgstr "Поля неправильні\n"
 "	ID ресурсу (res_id): %s"
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_follower_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_channel_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Підписники (Канали)"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_partner_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: generic_resource
 #: sql_constraint:generic.resource.type:0
 msgid "For each Odoo model only one Resource Type can be created!"
 msgstr "Для кожної моделі Odoo може бути визначено лише один тип ресурсу!"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource
-#: model:ir.ui.view,arch_db:generic_resource.view_model_search
+#: model_terms:ir.ui.view,arch_db:generic_resource.view_model_search
 msgid "Generic Resource"
 msgstr "Універсальний ресурс"
 
@@ -191,7 +221,6 @@ msgstr "Домішок універсального ресурсу: Пов'яз�
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.generic_resource_type_default_ir_model
-#: model:ir.model,name:generic_resource.model_generic_resource_simple
 msgid "Generic Resource Simple"
 msgstr "Простий універсальний ресурс"
 
@@ -221,93 +250,117 @@ msgid "Generic resource user"
 msgstr "користувач універсальних ресурсів"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_2903
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource__id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_modules
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_unread
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_unread
+msgid "If checked new messages require your attention."
+msgstr "Якщо позначено, то повідомленя потребує вашої уваги"
+
+#. module: generic_resource
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_needaction
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо відмічено, то нові повідомлення будуть потребувати вашої уваги."
+
+#. module: generic_resource
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__modules
 msgid "In Apps"
 msgstr "В додатках"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_info
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__info
 msgid "Information"
 msgstr "Інформація"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_inherited_model_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "Inherited models"
 msgstr "Успадковані моделі"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_inkjet
 msgid "InkJet"
-msgstr "InkJet"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_inv_number
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_inv_number
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__inv_number
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__inv_number
 msgid "Inventory Number"
-msgstr "Інвентарний номер"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_is_generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model_is_generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_ir_model_is_generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_is_follower
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_is_follower
+msgid "Is Follower"
+msgstr "Стежить"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_ir_model__is_generic_resource
 msgid "Is Generic Resource"
-msgstr "Є загальним ресурсом"
+msgstr ""
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_laserjet
 msgid "LaserJet"
-msgstr "LaserJet"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource___last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin___last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number___last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin___last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple___last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category___last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type___last_update
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource____last_update
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin____last_update
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number____last_update
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin____last_update
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple____last_update
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category____last_update
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type____last_update
 msgid "Last Modified on"
 msgstr "Остання модифікація"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_write_uid
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_write_uid
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_write_uid
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_uid
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_uid
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_uid
 msgid "Last Updated by"
 msgstr "Востаннє оновив"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_write_date
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_write_date
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_write_date
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_date
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_date
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_date
 msgid "Last Updated on"
 msgstr "Останнє оновлення"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_left
-msgid "Left Parent"
-msgstr "Залишений батько "
-
-#. module: generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_type_modules
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_type__modules
 msgid "List of modules in which the object is defined or inherited"
 msgstr "Список модулів з визначеним або успадкованим об'єктом"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_is_mail_thread
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Mail Thread"
 msgstr "Поштовий зв'язок"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_main_attachment_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Основне прикріплення"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_manager
@@ -315,19 +368,24 @@ msgid "Manage generic resources"
 msgstr "Керує універсальними ресурсами"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_account_analytic_invoice_line_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_service_line_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_template_resource_line_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_role_link_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_res_model
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставлення повідомлення"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_model
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__res_model
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_res_model
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_model
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model_id
 msgid "Model"
 msgstr "Модель"
 
@@ -342,15 +400,15 @@ msgid "Models"
 msgstr "Моделі"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_name
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_category_view_form
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_form
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__name
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__name
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_category_view_form
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_form
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
 msgid "Name"
 msgstr "Назва"
 
@@ -371,20 +429,55 @@ msgid "Notebooks"
 msgstr "Ноутбуки"
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction_counter
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error_counter
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error_counter
+msgid "Number of error"
+msgstr "Кількість помилок"
+
+#. module: generic_resource
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_needaction_counter
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Кількість повідомлень, які потебують дії"
+
+#. module: generic_resource
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error_counter
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилковою дставкою"
+
+#. module: generic_resource
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_unread_counter
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Кількість непрочитаних повідомлень"
+
+#. module: generic_resource
 #: code:addons/generic_resource/models/ir_model.py:62
 #, python-format
 msgid "Only custom models can be modified."
-msgstr "Можна змінювати тільки користувацькі моделі."
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
 msgid "Open Resource"
-msgstr "Відкрити ресурс"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_id
 msgid "Parent Category"
 msgstr "Батьківська категорія"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_path
+msgid "Parent Path"
+msgstr ""
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_3
@@ -467,53 +560,45 @@ msgid "Read and write to generic resources"
 msgstr "Читає і змінює універсальні ресурси"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_account_analytic_invoice_line_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_account_analytic_invoice_line_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_service_line_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_service_line_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_template_resource_line_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_template_resource_line_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_role_link_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_test_model_2_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_test_model_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_res_id
-#: model:ir.model.fields,field_description:generic_resource.field_stock_warehouse_resource_id
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
+#: model:ir.model,name:generic_resource.model_ir_rule
+msgid "Record Rule"
+msgstr "Правило запису"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__rule_ids
+msgid "Record Rules"
+msgstr "Правила запису"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__res_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__resource_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_res_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__resource_id
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
 msgid "Resource"
 msgstr "Ресурс"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_count
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_count
 msgid "Resource Count"
-msgstr "К-сть ресурсів"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_related_res_action_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_related_res_action_id
 msgid "Resource Related Res Action"
-msgstr "Дія: Відкрити пов'язаний ресурс"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_type_ids
-#: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model_resource_type_ids
-#: model:ir.model.fields,field_description:generic_resource.field_ir_model_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_ir_model_resource_type_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_type_ids
+#: model:ir.model.fields,field_description:generic_resource.field_ir_model__resource_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_ir_model__resource_type_ids
 msgid "Resource Type"
-msgstr "Тип ресурсу"
+msgstr "Тип кадру"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_type_action
@@ -522,12 +607,12 @@ msgid "Resource Types"
 msgstr "Типи ресурсу"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_resource_visibility
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_resource_visibility
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_resource_visibility
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_visibility
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource__resource_visibility
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__resource_visibility
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__resource_visibility
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_visibility
 msgid "Resource Visibility"
-msgstr "Видимість ресурсу"
+msgstr ""
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:83
@@ -546,50 +631,38 @@ msgid "Resource must be unique"
 msgstr "Ресурс має бути унікальним"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_account_analytic_invoice_line_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_service_line_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_contract_template_resource_line_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_role_link_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_type_id
 msgid "Resource type"
-msgstr "Тип ресурсу"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_mixin_resource_visibility
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_resource_visibility
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_resource_visibility
+#: model:ir.model.fields,help:generic_resource.field_generic_resource__resource_visibility
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_mixin__resource_visibility
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__resource_visibility
 msgid "Resource visibility determines users that have read access for this resource."
-msgstr "Видимість ресурсу визначає користувачів, які мають доступ на читання до цього ресурсу."
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_action
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_ids
 #: model:ir.ui.menu,name:generic_resource.generic_resource_menu_item
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_menu_item
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_toplevel
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_category_view_form
-#: model:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
-#: model:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_category_view_form
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
+#: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resources"
-msgstr "Ресурси"
+msgstr "Кадри"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_right
-msgid "Right Parent"
-msgstr "Правий батько"
-
-#. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_field_security_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__field_security_ids
 msgid "Security Fields"
-msgstr "Безпека полів"
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_show_resources_action_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__show_resources_action_id
 msgid "Show Resources Action"
-msgstr "Дія показати ресурси"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_simple_action
@@ -608,30 +681,42 @@ msgid "Simple resources"
 msgstr "Прості ресурси"
 
 #. module: generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_type_inherited_model_ids
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "The list of models that extends the current model."
 msgstr "Список моделей, що розширюють поточну."
 
 #. module: generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_type_count
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_type__count
 msgid "Total number of records in this model"
 msgstr "Загальна кількість записів у цій моделі"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_transient
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__transient
 msgid "Transient Model"
-msgstr "Тимчасова модель"
+msgstr "Перехід"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_res_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_res_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_state
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__res_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_type_id
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__state
 msgid "Type"
 msgstr "Тип"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_view_ids
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_unread
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_unread
+msgid "Unread Messages"
+msgstr "Непрочитані повідомлення"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_unread_counter
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Кількість непрочитаних повідомлень"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__view_ids
 msgid "Views"
 msgstr "Переглядів"
 
@@ -654,14 +739,13 @@ msgid "Visible to employees and portal users"
 msgstr "Видимий для співробітників та користувачів порталу"
 
 #. module: generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_type_is_generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_tag_model_is_generic_resource
-#: model:ir.model.fields,help:generic_resource.field_ir_model_is_generic_resource
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_generic_resource
+#: model:ir.model.fields,help:generic_resource.field_ir_model__is_generic_resource
 msgid "Whether this model is Generic Resource."
-msgstr "Чи є ця модель загальним ресурсом."
+msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_type_is_mail_thread
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Whether this model supports messages and notifications."
 msgstr "Чи підтримує ця модель повідомлення та сповіщення."
 
@@ -670,9 +754,4 @@ msgstr "Чи підтримує ця модель повідомлення та 
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%s'"
 msgstr "Невірна 'Дія відображення ресурсів' для типу ресурсу '%s'"
-
-#. module: generic_resource
-#: model:ir.model,name:generic_resource.model_ir_rule
-msgid "ir.rule"
-msgstr "ir.rule"
 
