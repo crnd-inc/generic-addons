@@ -29,7 +29,7 @@ msgstr "Имеет доступ к универсальным сервисам (
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction
 msgid "Action Needed"
-msgstr "Требует внимания"
+msgstr "Требует действия"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__active
@@ -41,13 +41,13 @@ msgstr "Активно"
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_search
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Archived"
-msgstr "Архивировано"
+msgstr "Заархивировано"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_attachment_count
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Кол-во вложений"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__code
@@ -57,7 +57,7 @@ msgstr "Код"
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 msgid "Code..."
-msgstr ""
+msgstr "Код..."
 
 #. module: generic_service
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_configuration_menu_item
@@ -73,7 +73,7 @@ msgstr "Контакт"
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_uid
 msgid "Created by"
-msgstr "Создано"
+msgstr "Создан"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_date
@@ -101,13 +101,13 @@ msgstr "Описание"
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Description..."
-msgstr ""
+msgstr "Описание..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__display_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__display_name
 msgid "Display Name"
-msgstr "Отображаемое Имя"
+msgstr "Отображаемое название"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_follower_ids
@@ -156,7 +156,7 @@ msgstr "Пользователь универсальных сервисов (н
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__id
 msgid "ID"
-msgstr "Номер"
+msgstr "ID"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_unread
@@ -174,13 +174,13 @@ msgstr "Если отмечено - новые сообщения требуют
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_has_error
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Если отмечено, некоторые сообщения имеют ошибку доставки."
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_is_follower
@@ -230,7 +230,7 @@ msgstr "Уровень 4"
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_main_attachment_id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Основное вложение"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_manager
@@ -241,7 +241,7 @@ msgstr "Управляет универсальными сервисами"
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_error
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Ошибка доставки сообщения"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_ids
@@ -259,7 +259,7 @@ msgstr "Название"
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 msgid "Name..."
-msgstr ""
+msgstr "Название..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction_counter
@@ -271,7 +271,7 @@ msgstr "Количество действий"
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_error_counter
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "Кол-во ошибок"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_needaction_counter
@@ -283,7 +283,7 @@ msgstr "Количество сообщений, требующих вниман
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_has_error_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Кол-во сообщений с ошибкой доставки"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_unread_counter
@@ -300,17 +300,17 @@ msgstr "Аренда ноутбука"
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__sequence
 msgid "Sequence"
-msgstr "Нумерация"
+msgstr "Последовательность"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.res_partner_view_form_inherit_service_level
 msgid "Service Info"
-msgstr ""
+msgstr "Информация по сервису"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_partner__service_level_id
 msgid "Service Level"
-msgstr ""
+msgstr "Уровень сервиса"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_level_action

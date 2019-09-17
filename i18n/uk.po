@@ -47,7 +47,7 @@ msgstr "Заархівовано"
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_attachment_count
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_attachment_count
 msgid "Attachment Count"
-msgstr "Підрахунок прикріплення"
+msgstr "Кіль-ть вкладень"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__code
@@ -57,7 +57,7 @@ msgstr "Код"
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 msgid "Code..."
-msgstr ""
+msgstr "Код..."
 
 #. module: generic_service
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_configuration_menu_item
@@ -101,7 +101,7 @@ msgstr "Опис"
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Description..."
-msgstr ""
+msgstr "Опис..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__display_name
@@ -156,7 +156,7 @@ msgstr "Користувач універсальних сервісів (нея
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_unread
@@ -180,13 +180,13 @@ msgstr "Якщо позначено, деякі повідомлення маю�
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Info"
-msgstr ""
+msgstr "Інформація"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_is_follower
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_is_follower
 msgid "Is Follower"
-msgstr "Стежить"
+msgstr "Підписник"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service____last_update
@@ -259,7 +259,7 @@ msgstr "Назва"
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 msgid "Name..."
-msgstr ""
+msgstr "Назва..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction_counter
@@ -305,12 +305,12 @@ msgstr "Послідовність"
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.res_partner_view_form_inherit_service_level
 msgid "Service Info"
-msgstr ""
+msgstr "Інформація сервісу"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_partner__service_level_id
 msgid "Service Level"
-msgstr ""
+msgstr "Рівень сервісу"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_level_action
