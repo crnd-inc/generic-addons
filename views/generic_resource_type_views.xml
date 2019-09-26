@@ -57,7 +57,8 @@
     <record id="view_generic_resource_type_kanban" model="ir.ui.view">
         <field name="model">generic.resource.type</field>
         <field name="arch" type="xml">
-            <kanban class="oe_background_grey o_resource_dashboard_kanban">
+            <kanban create="false" delete="false"
+                    class="oe_background_grey o_resource_dashboard_kanban">
                 <field name="name"/>
                 <field name="display_name"/>
                 <field name="model_id"/>
@@ -106,7 +107,9 @@
     </record>
 
     <menuitem id="generic_resource_type_menu_item"
-                parent="menu_generic_resource_config_root" sequence="20"
-                action="generic_resource_type_action"/>
+              name="Dashboard"
+              parent="menu_generic_resource_toplevel"
+              sequence="5"
+              action="generic_resource_type_action"/>
 
 </odoo>
