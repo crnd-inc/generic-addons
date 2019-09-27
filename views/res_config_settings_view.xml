@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="generic_request_mail_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">generic.request.mail.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="21"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_global_settings']/group[@name='group_global_settings_left']" position="inside">
+                <field name="group_use_service_level"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

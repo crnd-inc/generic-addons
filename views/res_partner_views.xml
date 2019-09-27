@@ -8,7 +8,7 @@
                 <page name="service_info" string="Service Info">
                     <group>
                         <group>
-                            <field name="service_level_id"/>
+                            <field name="service_level_id" groups="generic_service.group_use_service_level"/>
                         </group>
                     </group>
                 </page>
