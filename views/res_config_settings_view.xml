@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="generic_request_mail_res_config_settings_view_form" model="ir.ui.view">
-        <field name="name">generic.request.mail.config.settings.view.form</field>
+    <record id="generic_service_action_service_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'generic_service'}</field>
+    </record>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
         <field name="model">res.config.settings</field>
         <field name="priority" eval="21"/>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='group_global_settings']/group[@name='group_global_settings_right']" position="inside">
-                <field name="group_use_service_level"/>
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div data-string="Services" class="app_settings_block"
+                     string="Services" data-key="generic_service">
+
+                    <h2>Generic service settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 o_setting_box">
+                            <group name="group_global_settings_service">
+                                <group name="group_global_settings_left">
+                                    <field name="group_use_service_level"/>
+                                </group>
+                                <group name="group_global_settings_right">
+                                </group>
+                            </group>
+                        </div>
+                    </div>
+                </div>
             </xpath>
         </field>
     </record>
+
+        <menuitem name="Settings"
+          id="menu_settings_service"
+          parent="menu_generic_service_configuration_menu_item"
+          action="generic_service_action_service_settings"
+          sequence="0"/>
 </odoo>
