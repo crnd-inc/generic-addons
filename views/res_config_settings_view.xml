@@ -6,7 +6,7 @@
         <field name="priority" eval="21"/>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='group_global_settings']/group[@name='group_global_settings_left']" position="inside">
+            <xpath expr="//group[@name='group_global_settings']/group[@name='group_global_settings_right']" position="inside">
                 <field name="group_use_service_level"/>
             </xpath>
         </field>
