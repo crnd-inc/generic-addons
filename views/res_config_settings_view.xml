@@ -21,11 +21,11 @@
                     <h2>Generic service settings</h2>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 o_setting_box">
-                            <group name="group_global_settings_service">
-                                <group name="group_global_settings_left">
+                            <group name="group_settings_service">
+                                <group name="group_settings_service_left">
                                     <field name="group_use_service_level"/>
                                 </group>
-                                <group name="group_global_settings_right">
+                                <group name="group_settings_service_right">
                                 </group>
                             </group>
                         </div>
