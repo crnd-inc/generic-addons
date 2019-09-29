@@ -87,6 +87,7 @@
               name="Service Levels"
               parent="generic_service.menu_generic_service_configuration_menu_item"
               sequence="5"
+              groups="generic_service.group_use_service_level"
               action="generic_service_level_action"/>
 
 </odoo>
