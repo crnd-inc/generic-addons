@@ -23,18 +23,15 @@
     <record id="generic_resource_simple_view_form" model="ir.ui.view">
         <field name="name">generic.resource.simple.form</field>
         <field name="model">generic.resource.simple</field>
-        <field name="inherit_id" ref="generic_resource_view_form"/>
+        <field name="inherit_id" ref="generic_resource_view_form_base"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <!-- pylint: disable=dangerous-view-replace-wo-priority -->
-            <xpath expr="//div[hasclass('oe_title')]//field[@name='display_name']" position="replace">
+            <xpath expr="//h1[@name='h1_title']" position="inside">
                 <field name="name" string="Name" placeholder="Name"/>
             </xpath>
-            <xpath expr="//group[@name='group_info_left']" position="replace">
-                <group name="group_info_left">
-                    <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
-                    <field name="category_id" placeholder="Category"/>
-                </group>
+            <xpath expr="//group[@name='group_info_left']" position="inside">
+                <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
+                <field name="category_id" placeholder="Category"/>
             </xpath>
             <xpath expr="/form/sheet" position="after">
                 <div class="oe_chatter">
