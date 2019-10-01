@@ -29,9 +29,15 @@
             <xpath expr="//h1[@name='h1_title']" position="inside">
                 <field name="name" string="Name" placeholder="Name"/>
             </xpath>
-            <xpath expr="//group[@name='group_info_left']" position="inside">
-                <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
-                <field name="category_id" placeholder="Category"/>
+            <xpath expr="//page[@name='page_resource_info']" position="before">
+                <page name="page_info" string="Info">
+                    <group>
+                        <group>
+                            <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
+                            <field name="category_id" placeholder="Category"/>
+                        </group>
+                    </group>
+                </page>
             </xpath>
             <xpath expr="/form/sheet" position="after">
                 <div class="oe_chatter">

@@ -70,14 +70,16 @@
                         <h1 name="h1_title">
                         </h1>
                     </div>
-                    <group name="group_info">
-                        <group name="group_info_left">
-                        </group>
-                        <group name="group_info_right">
-                            <field name="resource_visibility"/>
-                        </group>
-                    </group>
                     <notebook>
+                        <page name="page_resource_info" string="Resource Info">
+                            <group name="group_resource_info">
+                                <group name="group_resource_info_left">
+                                    <field name="resource_visibility"/>
+                                </group>
+                                <group name="group_resource_info_right">
+                                </group>
+                            </group>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -93,7 +95,7 @@
             <xpath expr="//h1[@name='h1_title']" position="inside">
                 <field name="display_name" string="Name"/>
             </xpath>
-            <xpath expr="//group[@name='group_info_left']" position="inside">
+            <xpath expr="//group[@name='group_resource_info_left']" position="inside">
                 <field name="res_type_id"
                        options="{'no_create': true, 'no_quick_create': true}"/>
                 <field name="res_model" invisible="1"/>
