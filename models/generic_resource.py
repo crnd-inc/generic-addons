@@ -62,13 +62,11 @@ class GenericResource(models.Model):
             """
             return isfunction(func) and hasattr(func, '__resource_proxy__')
 
+        # Proxy methods decorated with resource_proxy to resource
+        # implementation model (via generic.resource.mixin)
         for attrname, __ in getmembers(type(self), is_resource_proxy):
             if hasattr(mixin_cls, attrname):
                 continue
-            # TODO: remove before merge, or make it log debug
-            _logger.info(
-                "Proxying resource method %s to %s.%s",
-                attrname, mixin_cls._name, attrname)
             setattr(mixin_cls, attrname, method_wrapper(attrname))
 
         return res
@@ -86,6 +84,9 @@ class GenericResource(models.Model):
         except KeyError:
             return False
         resource = ResourceModel.browse(self.res_id)
+        # Resource implementation record may not exist,
+        # when resource implementation record was deleted
+        # with ondelete='cascade' on related model
         if resource.exists():
             return resource
         return False
@@ -104,6 +105,8 @@ class GenericResource(models.Model):
 
     @api.model
     def _get_resource_type_defaults(self, resource_type):
+        """ Get default values for resource from resource type
+        """
         return {
             'res_type_id': resource_type.id,
             'resource_visibility': resource_type.resource_visibility,
@@ -183,5 +186,7 @@ class GenericResource(models.Model):
         """
 
     def action_open_resource_object(self):
+        """ Open resource implementation object
+        """
         if self.resource:
             return self.resource.get_formview_action()
