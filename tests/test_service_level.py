@@ -1,18 +1,19 @@
-import psycopg2
 import logging
+import psycopg2
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import SavepointCase
 from odoo.tools import mute_logger
 
 _logger = logging.getLogger(__name__)
 
 
-class TestGenericServiceLevel(TransactionCase):
+class TestGenericServiceLevel(SavepointCase):
 
-    def setUp(self):
-        super(TestGenericServiceLevel, self).setUp()
-        self.ServiceLevel = self.env['generic.service.level']
-        self.demo_service_level_1 = self.env.ref(
+    @classmethod
+    def setUpClass(cls):
+        super(TestGenericServiceLevel, cls).setUpClass()
+        cls.ServiceLevel = cls.env['generic.service.level']
+        cls.demo_service_level_1 = cls.env.ref(
             'generic_service.generic_service_level_1')
 
     @mute_logger('odoo.sql_db')
