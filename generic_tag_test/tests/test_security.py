@@ -1,6 +1,7 @@
+import logging
 from odoo.tests.common import SavepointCase
 from odoo.exceptions import AccessError
-import logging
+
 _logger = logging.getLogger(__name__)
 
 

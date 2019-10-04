@@ -1,5 +1,5 @@
-from odoo.tests.common import SavepointCase
 import datetime
+from odoo.tests.common import SavepointCase
 
 
 class TestConditionMonetaryField(SavepointCase):
