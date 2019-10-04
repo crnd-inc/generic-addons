@@ -45,7 +45,7 @@ class TestConditionCurrentUser(SavepointCase):
         self.assertFalse(condition.check(rec))
         rec = self._create_record(user_m2o=user.id)
         self.assertFalse(condition.check(rec))
-        self.assertTrue(condition.sudo(user).check(rec))
+        self.assertTrue(condition.with_user(user).check(rec))
 
     def test_15_current_user__field__m2m(self):
         condition = self._create_condition('user_m2m')
@@ -58,7 +58,7 @@ class TestConditionCurrentUser(SavepointCase):
 
         rec = self._create_record(
             user_m2m=[(6, 0, users)])
-        self.assertTrue(condition.sudo(user).check(rec))
+        self.assertTrue(condition.with_user(user).check(rec))
 
     def test_20_current_user__one_of(self):
         user = self.env.ref('base.user_demo')
@@ -74,7 +74,7 @@ class TestConditionCurrentUser(SavepointCase):
 
         # Root user is not demo user
         self.assertFalse(condition.check(rec))
-        self.assertTrue(condition.sudo(user).check(rec))
+        self.assertTrue(condition.with_user(user).check(rec))
 
     def test_25_current_user__checks(self):
         user = self.env.ref('base.user_demo')
@@ -94,5 +94,5 @@ class TestConditionCurrentUser(SavepointCase):
 
         # Root user is not demo user
         self.assertTrue(condition.check(rec))
-        self.assertFalse(condition.sudo(user_portal).check(rec))
-        self.assertTrue(condition.sudo(user).check(rec))
+        self.assertFalse(condition.with_user(user_portal).check(rec))
+        self.assertTrue(condition.with_user(user).check(rec))

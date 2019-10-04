@@ -40,7 +40,7 @@
         name="Test Condition"
         context="{'default_condition_id': active_id}"
         res_model="generic.condition.test_condition"
-        src_model="generic.condition"
+        binding_model="generic.condition"
         view_mode="form"
         target="new"/>
 </odoo>

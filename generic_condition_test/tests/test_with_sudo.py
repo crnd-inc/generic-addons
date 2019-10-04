@@ -62,12 +62,12 @@ class TestConditionRelatedCondition(SavepointCase):
                 }),
             ]
         })
-        cls.ucondition = cls.condition.sudo(cls.demo_user)
+        cls.ucondition = cls.condition.with_user(cls.demo_user)
 
         # Record to be checked
         cls.rec = cls.env.ref(
             'generic_condition_test.test_generic_condition_model_rec')
-        cls.urec = cls.rec.sudo(cls.demo_user.id)
+        cls.urec = cls.rec.with_user(cls.demo_user.id)
 
     @mute_logger('odoo.addons.generic_condition.models.generic_condition')
     def test_10_related_condition_without_sudo(self):

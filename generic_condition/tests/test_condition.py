@@ -110,10 +110,10 @@ class TestCondition(SavepointCase):
             [('model_id.model', '=', 'res.partner')],
         ).unlink()
 
-        condition = self.condition_partner_has_only_contacts.sudo(user)
-        self.assertTrue(condition.check(self.partner_z_corp.sudo(user)))
-        self.assertFalse(condition.check(self.partner_sx_corp.sudo(user)))
-        self.assertFalse(condition.check(self.partner_demo.sudo(user)))
+        condition = self.condition_partner_has_only_contacts.with_user(user)
+        self.assertTrue(condition.check(self.partner_z_corp.with_user(user)))
+        self.assertFalse(condition.check(self.partner_sx_corp.with_user(user)))
+        self.assertFalse(condition.check(self.partner_demo.with_user(user)))
 
     def test_40_test_condition_wizard(self):
         Wizard = self.env['generic.condition.test_condition']

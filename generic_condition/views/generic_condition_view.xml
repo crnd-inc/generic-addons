@@ -188,11 +188,9 @@
                         </group>
 
                         <!-- 'Related condition' condition data -->
-                        <field name="condition_rel_field_id_model_id" invisible="1"/>
                         <group colspan="4" col="4"
                                name="group_condition_related_conditions"
                                attrs="{'invisible': [('type', '!=', 'related_conditions')]}">
-
                             <div>
                                 This type of condition is used to check the properties of related objects. <br />
                                 <br />
@@ -212,6 +210,7 @@
                                                attrs="{'required': [('type','=','related_conditions')]}"
                                                context="{'default_model_id': model_id}"
                                                domain="[('model_id','=',model_id),('ttype', 'in', ('many2many', 'one2many', 'many2one'))]"/>
+                                        <field name="condition_rel_field_id_model_id" invisible="1"/>
                                     </td>
                                 </tr>
                                 <tr>

@@ -1,5 +1,5 @@
 variables:
-    SERIES_BRANCH: '12.0'
+    SERIES_BRANCH: '13.0'
     ODOO_ADMIN_PASS: admin
     CI_JOB_TOKEN_GIT_HOST: 'gitlab.crnd.pro'
 
@@ -21,7 +21,7 @@ stages:
     - deploy
 
 build_env:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     script:
         - pwd
@@ -30,19 +30,19 @@ build_env:
         - odoo-helper status --tools-versions --ci-tools-versions
 
 flake8:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     script:
         - odoo-helper lint flake8 .
 
 pylint:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     script:
         - odoo-helper lint pylint .
 
 bandit:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     <<: *pip_cache_definition
     before_script:
@@ -51,39 +51,39 @@ bandit:
         - odoo-helper exec bandit -r .
 
 stylelint:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     script:
         - odoo-helper lint style .
 
 check-versions:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     script:
         - odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
 
 ensure-changelog:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     script:
         - odoo-helper ci ensure-changelog --format md . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
     allow_failure: true
 
 ensure-icons:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-simple
     stage: static-test
     script:
         - odoo-helper ci ensure-icons .
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
     allow_failure: true
 
 tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: test
     <<: *pip_cache_definition
     before_script:
@@ -93,7 +93,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 migration_tests:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: test
     <<: *pip_cache_definition
     variables:
@@ -112,10 +112,10 @@ migration_tests:
         - odoo-helper --use-unbuffer test --coverage-report --coverage-fail-under 90 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
 
 translation_rate_ua:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: translation
     <<: *pip_cache_definition
     before_script:
@@ -126,7 +126,7 @@ translation_rate_ua:
     allow_failure: true
 
 translation_rate_ru:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: translation
     <<: *pip_cache_definition
     before_script:
@@ -155,7 +155,7 @@ deploy_review_dev:
         url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci3.crnd.pro
         on_stop: stop_review_dev
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
     when: manual
 
 stop_review_dev:
@@ -173,5 +173,5 @@ stop_review_dev:
         - review-apps
         - deploy
     only:
-        - /^12.0-.*$/   # only branches that started with '12.0-'
+        - /^13.0-.*$/   # only branches that started with '13.0-'
 

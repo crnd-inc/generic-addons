@@ -37,7 +37,7 @@ class TestGenericCondition(models.TransientModel):
     def _get_record(self):
         record = self._get_record_internal()
         if self.test_as_user_id:
-            record = record.sudo(self.test_as_user_id)
+            record = record.with_user(self.test_as_user_id)
         return record
 
     def _adapt_result(self, result):
@@ -53,7 +53,7 @@ class TestGenericCondition(models.TransientModel):
         cache = dict()
         record = self._get_record()
         if self.test_as_user_id:
-            return self.condition_id.sudo(self.test_as_user_id).check(
+            return self.condition_id.with_user(self.test_as_user_id).check(
                 record, cache=cache, debug_log=debug_log)
 
         return self.condition_id.check(

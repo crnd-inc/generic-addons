@@ -1,1 +1,1 @@
---repo https://github.com/gityopie/odoo-addons.git --branch 12.0 --name gityopie-odoo-addons
+--repo https://github.com/gityopie/odoo-addons.git --name gityopie-odoo-addons

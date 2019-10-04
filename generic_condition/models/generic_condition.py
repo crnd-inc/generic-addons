@@ -181,9 +181,10 @@ class GenericCondition(models.Model):
         ondelete='restrict', auto_join=True, track_visibility='onchange',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
     condition_rel_field_id_model_id = fields.Many2one(
-        'ir.model', compute='_compute_condition_rel_field_id_model_id',
-        compute_sudo=True, string='Related field: model', readonly=True,
-        track_visibility='onchange')
+        comodel_name='ir.model',
+        compute='_compute_condition_rel_field_id_model_id',
+        compute_sudo=True,
+        string='Related field: model', readonly=True, store=False)
     condition_rel_record_operator = fields.Selection(
         [('match', 'Match'),
          ('contains', 'Contains')],

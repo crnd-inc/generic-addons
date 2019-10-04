@@ -39,6 +39,10 @@ class TestSecurity(SavepointCase):
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
         urec.ensure_one()
+
+        # We need here to clean caches, because record contains data read by
+        # superuser
+        urec.refresh()
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
@@ -86,6 +90,9 @@ class TestSecurity(SavepointCase):
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
         urec.ensure_one()
+        # We need here to clean caches, because record contains data read by
+        # superuser
+        urec.refresh()
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
@@ -133,6 +140,9 @@ class TestSecurity(SavepointCase):
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
         urec.ensure_one()
+        # We need here to clean caches, because record contains data read by
+        # superuser
+        urec.refresh()
         self.assertEqual(len(urec.tag_ids), 0)
 
         self.demo_user.groups_id |= self.group_tags_test_group
