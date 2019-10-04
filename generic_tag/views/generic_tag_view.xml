@@ -103,7 +103,6 @@
         <field name="name">Tags</field>
         <field name="res_model">generic.tag</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_generic_tag_tree"/>
     </record>

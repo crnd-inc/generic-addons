@@ -60,7 +60,7 @@ check-versions:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
-        - odoo-helper ci check-versions-git --repo-version . origin/$SERIES_BRANCH $CI_COMMIT_SHA
+        - odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
         - /^12.0-.*$/   # only branches that started with '12.0-'
 

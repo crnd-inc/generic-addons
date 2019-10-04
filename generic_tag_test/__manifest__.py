@@ -1,6 +1,6 @@
 {
     "name": "Generic Tag - Test",
-    "version": "12.0.1.1.0",
+    "version": "12.0.1.2.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",

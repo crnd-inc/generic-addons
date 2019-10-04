@@ -4,7 +4,6 @@
         <field name="name">Sale Order Tags</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.tag</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{'default_model': 'sale.order'}</field>
         <field name="domain">[('model_id.model','=','sale.order')]</field>
@@ -13,7 +12,6 @@
         <field name="name">Sale line Tags</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.tag</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{'default_model': 'sale.order.line'}</field>
         <field name="domain">[('model_id.model','=','sale.order.line')]</field>
