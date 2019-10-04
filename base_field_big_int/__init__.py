@@ -1,5 +1,5 @@
-from odoo import fields
+import odoo
 from .field import BigInt
 
-if not hasattr(fields, 'BigInt'):
-    fields.BigInt = BigInt
+if not hasattr(odoo.fields, 'BigInt'):
+    odoo.fields.BigInt = BigInt
