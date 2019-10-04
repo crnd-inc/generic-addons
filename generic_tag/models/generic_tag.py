@@ -1,11 +1,9 @@
+import logging
 import collections
 
-from odoo import models, fields, api
-from odoo.tools.translate import _
-from odoo.exceptions import ValidationError
+from odoo import models, fields, api, exceptions, _
 from odoo.osv import expression
 
-import logging
 _logger = logging.getLogger(__name__)
 
 
@@ -81,7 +79,7 @@ class GenericTag(models.Model):
     def _check_category_model(self):
         for tag in self:
             if tag.category_id and tag.model_id != tag.category_id.model_id:
-                raise ValidationError(_(
+                raise exceptions.ValidationError(_(
                     u"Category must be bound to same model as tag"))
 
     def name_get(self):
@@ -110,6 +108,7 @@ class GenericTag(models.Model):
         return tags.name_get()
 
     @api.model
+    @api.returns('self')
     def get_tags(self, model, code=None, name=None):
         """ Search for tags by model, code, name
         """
@@ -125,7 +124,6 @@ class GenericTag(models.Model):
         self.ensure_one()
         return {
             'name': _('Objects related to tag %s') % self.name,
-            'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': self.model_id.model,
             'type': 'ir.actions.act_window',
@@ -162,7 +160,7 @@ class GenericTagMixin(models.AbstractModel):
                     ('[%s - %s]' % (cat.name, ', '.join(tags.mapped('name')))
                      for cat, tags in bad_tags)
                 )
-                raise ValidationError(
+                raise exceptions.ValidationError(
                     _("Following (category - tags) pairs, "
                       "break category XOR restriction:\n%s"
                       "") % msg_detail)

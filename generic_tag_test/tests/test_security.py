@@ -1,6 +1,7 @@
+import logging
 from odoo.tests.common import SavepointCase
 from odoo.exceptions import AccessError
-import logging
+
 _logger = logging.getLogger(__name__)
 
 
@@ -21,14 +22,12 @@ class TestSecurity(SavepointCase):
         cls.test_tag_2 = cls.env.ref('generic_tag_test.test_tag_2')
         cls.test_tag_3 = cls.env.ref('generic_tag_test.test_tag_3')
         cls.test_tag_4 = cls.env.ref('generic_tag_test.test_tag_4')
-        cls.test_tags = (cls.test_tag_1 |
-                         cls.test_tag_2 |
-                         cls.test_tag_3 |
-                         cls.test_tag_4)
 
         cls.demo_user = cls.env.ref('base.user_demo')
-        cls.demo_user.groups_id |= cls.env.ref('base.group_user')
         cls.uenv = cls.env(user=cls.demo_user)
+
+        cls.group_tags_test_group = cls.env.ref(
+            'generic_tag_test.group_tags_test_group')
 
     def test_simple_user_access_records(self):
         # Add to record 2 one tag without group and one tag with group
@@ -43,8 +42,7 @@ class TestSecurity(SavepointCase):
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
-        self.demo_user.groups_id |= self.env.ref(
-            'generic_tag_test.group_tags_test_group')
+        self.demo_user.groups_id |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
@@ -91,8 +89,7 @@ class TestSecurity(SavepointCase):
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
-        self.demo_user.groups_id |= self.env.ref(
-            'generic_tag_test.group_tags_test_group')
+        self.demo_user.groups_id |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
@@ -138,8 +135,7 @@ class TestSecurity(SavepointCase):
         urec.ensure_one()
         self.assertEqual(len(urec.tag_ids), 0)
 
-        self.demo_user.groups_id |= self.env.ref(
-            'generic_tag_test.group_tags_test_group')
+        self.demo_user.groups_id |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
@@ -164,8 +160,7 @@ class TestSecurity(SavepointCase):
         self.assertIn(self.test_tag_1.id, urec.tag_ids.ids)
         self.assertIn(self.test_tag_4.id, urec.tag_ids.ids)
 
-        self.demo_user.groups_id |= self.env.ref(
-            'generic_tag_test.group_tags_test_group')
+        self.demo_user.groups_id |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
