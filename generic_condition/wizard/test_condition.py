@@ -1,13 +1,10 @@
+import logging
 import traceback
 
-from odoo import models, fields
-from odoo.tools.translate import _
-from odoo.tools import ustr
-from odoo.exceptions import ValidationError
+from odoo import models, fields, tools, exceptions, _
 
 from ..debug_logger import DebugLogger
 
-import logging
 logger = logging.getLogger(__name__)
 
 
@@ -32,7 +29,7 @@ class TestGenericCondition(models.TransientModel):
         TestModel = self.env[self.condition_id.model_id.model]
         record = TestModel.browse(self.res_id)
         if not record.exists():
-            raise ValidationError(
+            raise exceptions.ValidationError(
                 _('Object (model: %s; id: %s) not found'
                   '') % (self.condition_id.model_id.model, self.res_id))
         return record
@@ -79,7 +76,7 @@ class TestGenericCondition(models.TransientModel):
         debug_log = DebugLogger()
         result = self._get_result(debug_log)
         self.write({
-            'result': ustr(result),
+            'result': tools.ustr(result),
             'debug_log': debug_log.get_log_html(),
         })
 
@@ -87,7 +84,6 @@ class TestGenericCondition(models.TransientModel):
             'type': 'ir.actions.act_window',
             'res_model': 'generic.condition.test_condition',
             'view_mode': 'form',
-            'view_type': 'form',
             'res_id': self.id,
             'views': [(False, 'form')],
             'target': 'new',

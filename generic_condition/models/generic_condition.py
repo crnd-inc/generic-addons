@@ -1,18 +1,18 @@
+import re
+import time
+import logging
+import datetime
+import traceback
+import dateutil
+from dateutil.relativedelta import relativedelta
+from pytz import timezone
+
 from odoo import models, fields, api, exceptions, _
 from odoo.tools.safe_eval import safe_eval
 
 from ..utils import str_to_datetime
 from ..debug_logger import DebugLogger
 
-import re
-import traceback
-import time
-import datetime
-import dateutil
-from dateutil.relativedelta import relativedelta
-from pytz import timezone
-
-import logging
 _logger = logging.getLogger(__name__)
 
 
@@ -402,6 +402,8 @@ class GenericCondition(models.Model):
                 rel_model = self.env['ir.model'].sudo().search(
                     [('model', '=', field.relation)], limit=1)
                 cond.condition_rel_field_id_model_id = rel_model
+            else:
+                cond.condition_rel_field_id_model_id = False
 
     # signature check_<type> where type is condition type
     def check_filter(self, obj, cache=None, debug_log=None):
@@ -880,6 +882,7 @@ class GenericCondition(models.Model):
             'time': time,
             'datetime': datetime,
             'dateutil': dateutil,
+            'relativedelta': relativedelta,
             'timezone': timezone,
         }
 
