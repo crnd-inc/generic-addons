@@ -402,6 +402,8 @@ class GenericCondition(models.Model):
                 rel_model = self.env['ir.model'].sudo().search(
                     [('model', '=', field.relation)], limit=1)
                 cond.condition_rel_field_id_model_id = rel_model
+            else:
+                cond.condition_rel_field_id_model_id = False
 
     # signature check_<type> where type is condition type
     def check_filter(self, obj, cache=None, debug_log=None):

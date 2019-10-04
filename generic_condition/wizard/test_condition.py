@@ -87,7 +87,6 @@ class TestGenericCondition(models.TransientModel):
             'type': 'ir.actions.act_window',
             'res_model': 'generic.condition.test_condition',
             'view_mode': 'form',
-            'view_type': 'form',
             'res_id': self.id,
             'views': [(False, 'form')],
             'target': 'new',
