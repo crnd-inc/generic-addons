@@ -191,12 +191,6 @@ class GenericTagMixin(models.AbstractModel):
         search='_search_no_tag_id', store=False, readonly=True,
         domain=lambda self: [('model_id.model', '=', self._name)])
 
-    # TODO: to be removed in favor of search_no_tag_id field
-    no_tag_id = fields.Many2one(
-        'generic.tag', string="No tag", compute="_compute_search_tag",
-        search='_search_no_tag_id', store=False, readonly=True,
-        domain=lambda self: [('model_id.model', '=', self._name)])
-
     def add_tag(self, code=None, name=None, create=False):
         """ Adds tag new tag to object.
 
