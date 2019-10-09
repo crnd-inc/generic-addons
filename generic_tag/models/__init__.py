@@ -1,3 +1,5 @@
-from . import generic_tag_model
-from . import generic_tag_category
-from . import generic_tag
+from . import (
+    generic_tag_model,
+    generic_tag_category,
+    generic_tag,
+)
