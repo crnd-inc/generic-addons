@@ -64,7 +64,6 @@ class GenericResourceType(models.Model):
                     'src_model': record.model,
                     'view_mode': 'tree,form',
                     'target': 'current',
-                    'view_type': 'form',
                     'domain': (
                         "[('res_id', 'in', active_ids),"
                         "('res_model', '=', active_model)]"),
@@ -110,7 +109,6 @@ class GenericResourceType(models.Model):
             'type': 'ir.actions.act_window',
             'name': self.model_id.name,
             'res_model': self.model_id.model,
-            'view_type': 'form',
             'view_mode': 'tree,form',
             'target': 'current',
         }
