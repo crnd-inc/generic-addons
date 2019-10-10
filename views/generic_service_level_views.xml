@@ -78,7 +78,6 @@
         <field name="name">Service Levels</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.service.level</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 
