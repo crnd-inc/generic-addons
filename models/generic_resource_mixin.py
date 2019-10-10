@@ -32,6 +32,8 @@ class GenericResourceMixin(models.AbstractModel):
     @api.model
     def _get_generic_tracking_fields(self):
         """ Get tracking fields
+
+            :return set(str): Set of names of fields to track changes
         """
         track_fields = super(
             GenericResourceMixin, self)._get_generic_tracking_fields()
