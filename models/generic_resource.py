@@ -29,11 +29,11 @@ class GenericResource(models.Model):
 
     active = fields.Boolean(default=True, index=True)
     res_type_id = fields.Many2one(
-        'generic.resource.type', string="Type", required=True, index=True,
-        ondelete='cascade')
+        'generic.resource.type', string="Resource Type",
+        required=True, index=True, ondelete='cascade')
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True, store=True,
-        compute_sudo=True, index=True)
+        string="Resource Model", compute_sudo=True, index=True)
     res_id = fields.Integer(
         string="Resource", required=True, index=True, readonly=True)
     resource_visibility = fields.Selection(

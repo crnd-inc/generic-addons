@@ -1,9 +1,12 @@
 from odoo.tests.common import TransactionCase, post_install, at_install
+from odoo.addons.generic_mixin.tests.common import (
+    ReduceLoggingMixin
+)
 
 
 @post_install(True)
 @at_install(False)
-class TestGenericResourceMixinInvNumber(TransactionCase):
+class TestGenericResourceMixinInvNumber(ReduceLoggingMixin, TransactionCase):
 
     def test_create_method(self):
 
