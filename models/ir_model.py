@@ -41,6 +41,8 @@ class IrModel(models.Model):
 
         if res_model_names:
             self.env['generic.resource']._inherits_children -= res_model_names
+            self.env['generic.resource.mixin']._inherit_children -= (
+                res_model_names)
 
         self.pool.setup_models(self._cr)
         return res
