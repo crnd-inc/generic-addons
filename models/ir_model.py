@@ -10,10 +10,12 @@ class IrModel(models.Model):
         help="Whether this model is Generic Resource.",
     )
     resource_type_ids = fields.One2many(
-        'generic.resource.type', 'model_id', readonly=True)
+        'generic.resource.type', 'model_id', readonly=True,
+        string="Generic Resource Types")
     resource_type_id = fields.Many2one(
         'generic.resource.type', readonly=True, store=False,
-        compute='_compute_resource_type_id')
+        compute='_compute_resource_type_id',
+        string="Generic Resource Type")
 
     @api.depends('resource_type_ids')
     def _compute_resource_type_id(self):

@@ -1,10 +1,13 @@
 from odoo import exceptions
-
 from odoo.tests.common import TransactionCase, tagged
+from odoo.addons.generic_mixin.tests.common import (
+    ReduceLoggingMixin
+)
 
 
+@tagged('-at_install')
 @tagged('post_install')
-class TestCustomResource(TransactionCase):
+class TestCustomResource(ReduceLoggingMixin, TransactionCase):
 
     def setUp(self):
         super(TestCustomResource, self).setUp()

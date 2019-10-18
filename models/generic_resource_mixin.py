@@ -13,7 +13,8 @@ class GenericResourceMixin(models.AbstractModel):
 
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True,
-        required=True, delegate=True, ondelete='restrict')
+        required=True, delegate=True, ondelete='restrict',
+        string="Generic Resource")
 
     _sql_constraints = [
         ('unique_resource_id', 'UNIQUE(resource_id)',
@@ -21,6 +22,8 @@ class GenericResourceMixin(models.AbstractModel):
     ]
 
     def _resource_mixin__protect_resource_id(self, vals):
+        """ Guard to deny changes of 'resource_id' field
+        """
         if vals.get('resource_id', None):
             _logger.warning(
                 "Trying update / create object with 'resource_id' "

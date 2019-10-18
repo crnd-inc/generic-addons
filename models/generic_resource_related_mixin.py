@@ -46,13 +46,14 @@ class GenericResourceRelatedMixin(models.AbstractModel):
         compute="_compute_resource_res_fields", store=True,
         inverse="_inverse_resource_res_id", compute_sudo=True)
     resource_res_model = fields.Char(
-        related="resource_type_id.model_id.model", readonly=True)
+        related="resource_type_id.model_id.model",
+        string="Resource model", readonly=True)
     resource_res_id = fields.Integer(
         string="Resource", store=True,
         compute="_compute_resource_res_fields",
         inverse="_inverse_resource_res_id", compute_sudo=True)
     resource_id = fields.Many2one(
-        'generic.resource', string='Resource', index=True,
+        'generic.resource', string='Generic resource', index=True,
         store=True, ondelete='restrict')
 
     @api.depends('resource_id', 'resource_id.res_id',
