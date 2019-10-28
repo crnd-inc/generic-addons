@@ -3,6 +3,29 @@ from odoo import models, api
 
 
 class GenericMixInTrackChanges(models.AbstractModel):
+    """ Simple mixin to provide mechanism to track changes of objects
+
+        How to use
+        ----------
+
+        1. Inerit your model from 'generic.mixin.track.changes'
+        2. Override '_get_generic_tracking_fields' method to return
+           set of fields to track changes of.
+        3. Override '_preprocess_write_changes' to add preprocessing
+        4. Override '_postprocess_write_changes' to add postprocessing.
+        5. Thats all
+
+        Details
+        -------
+
+        Both methods '_postprocess_write_changes' and
+        '_preprocess_write_changes' have to be designed to process single
+        record. Each method receives 'changes' param that is dictionary, where
+        keys are names of fields, and values are tuples of two elements:
+        (old_value, new_value).
+
+
+    """
     _name = 'generic.mixin.track.changes'
     _description = 'Generic Mixin: Track Changes'
 
@@ -59,7 +82,7 @@ class GenericMixInTrackChanges(models.AbstractModel):
 
             This method may be overridden by other modules to add
             some postprocessing of write.
-            This method does not return any  value.
+            This method does not return any value.
 
             :param dict changes: keys are changed field names,
                                  values are tuples (old_value, new_value)
