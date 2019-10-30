@@ -60,7 +60,8 @@ odoo.define('web.widgets.generic_m2o_widget', function (require) {
         },
         _fetchSpecialGenericM2O: function (record, fieldName, fieldInfo) {
             var field = record.fields[fieldName];
-            if (field.type === 'integer') {
+            if (field.type === 'integer' ||
+                    field.type === 'many2one_reference') {
                 return this._fetchGenericM2O(
                     record, fieldName, fieldInfo.model_field);
             }
@@ -115,7 +116,7 @@ odoo.define('web.widgets.generic_m2o_widget', function (require) {
     // Define new GenericM2O field widget
     var FieldGenericM2O = FieldMany2One.extend( {
         resetOnAnyFieldChange: true,
-        supportedFieldTypes: ['integer'],
+        supportedFieldTypes: ['integer', 'many2one_reference'],
         specialData: "_fetchSpecialGenericM2O",
         template: "FieldMany2One",
 
