@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_generic_crypto_param_system","generic_crypto_param_system","model_generic_crypto_param","base.group_system",1,1,1,1
+
