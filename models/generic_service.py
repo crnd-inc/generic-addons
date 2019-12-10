@@ -13,3 +13,4 @@ class GenericSerivce(models.Model):
         default=True, index=True, track_visibility='onchange')
     description = fields.Text(translate=True)
     sequence = fields.Integer(index=True, default=5)
+    change_manager_id = fields.Many2one('res.users')
