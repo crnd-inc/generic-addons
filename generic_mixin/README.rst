@@ -23,6 +23,14 @@ Generic Mixins
 This is technical addon, that contains model mixins, that may be useful
 in develompent of other addons.
 
+Following mixins ara available:
+- ``generic.mixin.name_with_code`` - just add ``name`` and ``code`` fields to model, on name changed - compute code automatically.
+- ``generic.mixin.uniq_name_code`` - add *unique* constraint to name and code fields.
+- ``generic.mixin.transaction.utils`` - utility methods to handle transactions in Odoo.
+- ``generic.mixin.no.unlink`` - deny unlink of specific records in model.
+- ``generic.parent.names`` - implement ``name_get`` and ``name_search`` for hierarchial models in generic way
+- ``generic.mixin.track.changes`` - provides convenient mechanism to handle changes of specific fields.
+
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.
