@@ -39,8 +39,12 @@ class GenericMixinTransactionUtils(models.AbstractModel):
             })
 
     @contextmanager
-    def _in_new_transaction(self):
+    def _in_new_transaction(self, lock=False, no_raise=False):
         """ Start new transaction for selected records
+
+            :param bool lock: lock records in self for update (nowait)
+            :param bool no_raise: Do not raise errors,
+                                  just roll back transaction instead
 
             Example of usage:
 
@@ -57,5 +61,18 @@ class GenericMixinTransactionUtils(models.AbstractModel):
                     new_cr,
                     self.env.uid,
                     self.env.context.copy())
+                nself = self.with_env(new_env)
 
-                yield self.with_env(new_env)
+                if lock:
+                    nself._lock_for_update()
+
+                try:
+                    yield nself
+                except Exception:
+                    if no_raise:
+                        _logger.warning(
+                            "Error caught while processing %s in transaction",
+                            self, exc_info=True)
+                        new_cr.rollback()
+                    else:
+                        raise
