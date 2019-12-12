@@ -46,7 +46,9 @@
                     <notebook>
                         <page string="Info" name="page_info">
                             <group>
-                                <group name="group_info_left"></group>
+                                <group name="group_info_left">
+                                    <field name="change_manager_id"/>
+                                </group>
                                 <group name="group_info_right">
                                     <field name="sequence"/>
                                 </group>
