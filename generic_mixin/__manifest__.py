@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '11.0.1.3.1',
+    'version': '11.0.1.4.0',
 
     # any module necessary for this one to work correctly
     'depends': [
