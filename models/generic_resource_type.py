@@ -1,4 +1,4 @@
-from odoo import fields, models, api, exceptions, _
+from odoo import fields, models, api, tools, exceptions, _
 
 
 class GenericResourceType(models.Model):
@@ -79,8 +79,18 @@ class GenericResourceType(models.Model):
         return set()
 
     @api.model
+    @tools.ormcache('model_name')
+    def _get_resource_type_id(self, model_name):
+        res_type_ids = self._search(
+            [('model_id.model', '=', model_name)], limit=1)
+        return res_type_ids[0] if res_type_ids else False
+
+    @api.model
     def get_resource_type(self, model_name):
-        return self.search([('model_id.model', '=', model_name)], limit=1)
+        """ Return instance of resource type by model name
+        """
+        res_type_id = self._get_resource_type_id(model_name)
+        return self.browse(res_type_id) if res_type_id else self.browse()
 
     def get_resource_by_id(self, res_id):
         """
@@ -95,12 +105,15 @@ class GenericResourceType(models.Model):
     @api.model
     def create(self, vals):
         record = super(GenericResourceType, self).create(vals)
+        self._get_resource_type_id.clear_cache(self)
         record._create_context_action_for_target_model()
         return record
 
     def unlink(self):
         self.mapped('resource_related_res_action_id').unlink()
-        return super(GenericResourceType, self).unlink()
+        res = super(GenericResourceType, self).unlink()
+        self._get_resource_type_id.clear_cache(self)
+        return res
 
     def action_show_resources(self):
         self.ensure_one()
