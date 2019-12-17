@@ -54,22 +54,25 @@ class GenericResourceType(models.Model):
                     "Wrong 'Show Resources Action' for resource type '%s'"
                     "") % record.name)
 
+    def _create_context_action_for_target_model_single(self):
+        if not self.resource_related_res_action_id:
+            action = self.env['ir.actions.act_window'].create({
+                'name': 'Related Resources',
+                'binding_type': 'action',
+                'binding_model_id': self.model_id.id,
+                'res_model': 'generic.resource',
+                'src_model': self.model,
+                'view_mode': 'tree,form',
+                'target': 'current',
+                'domain': (
+                    "[('res_id', 'in', active_ids),"
+                    "('res_model', '=', active_model)]"),
+            })
+            self.resource_related_res_action_id = action
+
     def _create_context_action_for_target_model(self):
         for record in self:
-            if not record.resource_related_res_action_id:
-                action = self.env['ir.actions.act_window'].create({
-                    'name': 'Related Resources',
-                    'binding_type': 'action',
-                    'binding_model_id': record.model_id.id,
-                    'res_model': 'generic.resource',
-                    'src_model': record.model,
-                    'view_mode': 'tree,form',
-                    'target': 'current',
-                    'domain': (
-                        "[('res_id', 'in', active_ids),"
-                        "('res_model', '=', active_model)]"),
-                })
-                record.resource_related_res_action_id = action
+            record._create_context_action_for_target_model_single()
 
     def get_resource_tracking_fields(self):
         """ Have to be overridden in another addons
