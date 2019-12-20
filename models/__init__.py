@@ -5,6 +5,7 @@ from . import (
     generic_resource_mixin,
     generic_resource_simple,
     generic_resource_simple_category,
+    generic_resource_wizard_mixin,
     ir_model,
     ir_rule,
 )
