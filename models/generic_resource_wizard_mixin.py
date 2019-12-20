@@ -25,7 +25,7 @@ class ResourceWizardMixin(models.AbstractModel):
             else:
                 record.resource_type_id = False
 
-    @api.constrains('resource_type_id', 'resource_ids')
+    @api.constrains('resource_ids')
     def _check_resource_type_and_resources(self):
         for record in self:
             rt = record.resource_ids.mapped('res_type_id')
