@@ -3,7 +3,7 @@ from odoo.tools.misc import mute_logger
 
 
 # pylint: disable=class-camelcase
-class hide_log_messages(object):
+class hide_log_messages:
     """ Temporary suppress log messages that pass fn_check
 
         Usage as decorator:
@@ -48,7 +48,7 @@ class hide_log_messages(object):
         return wrapper
 
 
-class ReduceLoggingMixin(object):
+class ReduceLoggingMixin:
     """ Simple mixin to remove boring messages from logging ourput.
 
         This class have to be mixed in test cases.
@@ -68,7 +68,7 @@ class ReduceLoggingMixin(object):
         return super(ReduceLoggingMixin, self).run(*args, **kwargs)
 
 
-class AccessRulesFixMixinST(object):
+class AccessRulesFixMixinST:
     """ Fix access rules for single transaction cases:
             - SingleTransactionCase
             - SavepointCase
@@ -89,7 +89,7 @@ class AccessRulesFixMixinST(object):
         cls.env['ir.rule'].browse(rule_ids).write({'active': False})
 
 
-class AccessRulesFixMixinMT(object):
+class AccessRulesFixMixinMT:
     """ Fix access rules for multi transaction cases
         - TransactionCase
         - HttpCase

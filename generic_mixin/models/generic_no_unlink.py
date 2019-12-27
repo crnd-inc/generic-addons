@@ -34,10 +34,9 @@ class GenericMixinNoUnlink(models.AbstractModel):
                     "It is better to deactivate these records.\n"
                     "Model: %s [%s]"
                 ) % (self._name, self._description))
-            else:
-                raise UserError(_(
-                    "Cannot unlink these records. Operation not allowed.\n"
-                    "Model: %s [%s]"
-                ) % (self._name, self._description))
+            raise UserError(_(
+                "Cannot unlink these records. Operation not allowed.\n"
+                "Model: %s [%s]"
+            ) % (self._name, self._description))
 
         return super(GenericMixinNoUnlink, self).unlink()

@@ -1,5 +1,5 @@
-Generic Mixins
-==============
+Generic Condition Module
+========================
 
 .. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
     :target: https://github.com/crnd-inc/generic-addons
@@ -13,27 +13,27 @@ Generic Mixins
     
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
-
-.. |badge6| image:: https://img.shields.io/badge/GitHub-Generic_Mixin-green.png
-    :target: https://github.com/crnd-inc/generic-addons/tree/11.0/generic_mixin
-
-
-|badge1| |badge2| |badge5| |badge6|
-
-This is technical addon, that contains model mixins, that may be useful
-in develompent of other addons.
-
-Following mixins ara available:
-- ``generic.mixin.name_with_code`` - just add ``name`` and ``code`` fields to model, on name changed - compute code automatically.
-- ``generic.mixin.uniq_name_code`` - add *unique* constraint to name and code fields.
-- ``generic.mixin.transaction.utils`` - utility methods to handle transactions in Odoo.
-- ``generic.mixin.no.unlink`` - deny unlink of specific records in model.
-- ``generic.parent.names`` - implement ``name_get`` and ``name_search`` for hierarchial models in generic way
-- ``generic.mixin.track.changes`` - provides convenient mechanism to handle changes of specific fields.
+    
+.. |badge4| image:: https://img.shields.io/badge/docs-Generic_Condition-yellowgreen.png
+    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Condition_admin_eng
 
 
-This module is part of the Bureaucrat ITSM project. 
-You can try it by the references below.
+
+|badge1| |badge2| |badge4| |badge5|
+
+Generic Crypto Utils is technical addon developed by the `Center of Research &
+Development company <https://crnd.pro/>`__. 
+
+The goal of this addon is to provide generic utilities to add encryption to other addons.
+Currently it implements ``generic.crypto.param`` model, wich works same
+as ``ir.config_parameter`` but values stored are encrypted.
+
+It is required to place *encryption key* in odoo configuration file (``odoo.conf``).
+To do this, add following line to config file: ``crypto_token = <key>``
+
+Run following command to generate new key:
+``python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key())"``
+
 
 Launch your own ITSM system in 60 seconds:
 ''''''''''''''''''''''''''''''''''''''''''
@@ -61,4 +61,8 @@ This module is maintained by the Center of Research & Development company.
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
 
 For any questions `contact us <mailto:info@crnd.pro>`__.
+
+
+
+
 
