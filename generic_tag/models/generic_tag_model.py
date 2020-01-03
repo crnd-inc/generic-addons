@@ -13,7 +13,7 @@ class GenericTagModel(models.Model):
                 [('model_id', '=', model.id)])
 
     res_model_id = fields.Many2one(
-        'ir.model', 'Model', required=True, index=True, auto_join=True,
+        'ir.model', 'Odoo Model', required=True, index=True, auto_join=True,
         domain=[('transient', '=', False),
                 ('field_id.name', '=', 'tag_ids')],
         ondelete='restrict')

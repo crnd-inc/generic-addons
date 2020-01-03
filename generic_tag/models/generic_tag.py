@@ -32,11 +32,13 @@ class GenericTag(models.Model):
     sequence = fields.Integer(index=True, default=5)
     comment = fields.Text(help="Describe what this tag means")
     complete_name = fields.Char(
-        string="Name", compute="_compute_complete_name",
+        compute="_compute_complete_name",
         store=True, readonly=True,
         help="Full name of tag (including category name)")
     category_sequence = fields.Integer(
-        related='category_id.sequence', store=True, index=True)
+        related='category_id.sequence',
+        string="Category priority",
+        store=True, index=True, readonly=True)
     category_name = fields.Char(
         related='category_id.name', store=True, index=True)
     objects_count = fields.Integer(
@@ -185,11 +187,13 @@ class GenericTagMixin(models.AbstractModel):
     search_tag_id = fields.Many2one(
         'generic.tag', string='Tag', compute='_compute_search_tag',
         search='_search_tag_id', store=False, readonly=True,
-        domain=lambda self: [('model_id.model', '=', self._name)])
+        domain=lambda self: [('model_id.model', '=', self._name)],
+        help="Find all records that contain this tag")
     search_no_tag_id = fields.Many2one(
         'generic.tag', string='No tag', compute='_compute_search_tag',
         search='_search_no_tag_id', store=False, readonly=True,
-        domain=lambda self: [('model_id.model', '=', self._name)])
+        domain=lambda self: [('model_id.model', '=', self._name)],
+        help="Find all records that have no this tag")
 
     def add_tag(self, code=None, name=None, create=False):
         """ Adds tag new tag to object.
