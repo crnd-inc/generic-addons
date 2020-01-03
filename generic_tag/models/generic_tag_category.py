@@ -30,7 +30,7 @@ class GenericTagCategory(models.Model):
              "On attempt to add second tag from this category to object, "
              "error will be raised")
     tags_count = fields.Float(
-        string="Tags", compute="_compute_tags_count", store=True,
+        compute="_compute_tags_count", store=True,
         readonly=True, track_visibility='always',
         help="How many tags related to this catgory")
     color = fields.Integer()
