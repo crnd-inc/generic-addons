@@ -8,7 +8,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '11.0.1.1.0',
+    'version': '11.0.1.2.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -26,6 +26,6 @@
     'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
-    'license': 'LGPL-3',
+    'license': 'AGPL-3',
     'uninstall_hook': 'uninstall_hook',
 }
