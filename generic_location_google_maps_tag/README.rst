@@ -4,9 +4,9 @@ Generic Location (Google Map + Generic Tag Integration)
 .. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
     :target: https://github.com/crnd-inc/generic-addons
 
-.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
-    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
-    :alt: License: LGPL-3
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
+    :alt: License: AGPL-3
 
 .. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
     :target: https://yodoo.systems
