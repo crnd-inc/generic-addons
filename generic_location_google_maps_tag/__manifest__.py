@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '13.0.1.1.0',
+    'version': '13.0.1.2.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -28,5 +28,5 @@
     'installable': False,
     'auto_install': True,
     'application': False,
-    'license': 'LGPL-3',
+    'license': 'AGPL-3',
 }
