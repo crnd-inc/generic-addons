@@ -3,12 +3,15 @@ from odoo import models, fields
 
 class GenericSerivce(models.Model):
     _name = 'generic.service'
-    _inherit = 'mail.thread'
+    _inherit = [
+        'mail.thread',
+        'generic.mixin.name_with_code',
+        'generic.mixin.uniq_name_code',
+    ]
     _description = 'Generic Service'
     _order = 'sequence, name'
 
-    name = fields.Char(
-        translate=True, required=True, index=True, track_visibility='always')
+    name = fields.Char(track_visibility='always')
     active = fields.Boolean(
         default=True, index=True, track_visibility='onchange')
     description = fields.Text(translate=True)
