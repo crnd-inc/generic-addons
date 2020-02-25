@@ -20,6 +20,7 @@
             <tree>
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="code"/>
                 <field name="active" invisible="1"/>
             </tree>
         </field>
@@ -42,6 +43,9 @@
                         <h1>
                             <field name="name" placeholder="Name"/>
                         </h1>
+                        <h2>
+                            <field name="code" placeholder="Code..."/>
+                        </h2>
                     </div>
                     <notebook>
                         <page string="Info" name="page_info">
@@ -72,6 +76,7 @@
             <kanban class="oe_background_grey o_service_dashboard_kanban">
                 <field name="display_name"/>
                 <field name="description"/>
+                <field name="code"/>
 
                 <templates>
                      <t t-name="kanban-box">
@@ -82,8 +87,8 @@
                                         <div class="o_primary">
                                             <span> <t t-esc="record.display_name.value"/></span>
                                         </div>
-                                         <div class="text-muted">
-                                            <span> <t t-esc="record.description.value"/></span>
+                                        <div class="text-muted">
+                                            <span> <t t-esc="record.code.value"/></span>
                                         </div>
                                         <div class="o_buttons">
                                         </div>
@@ -106,6 +111,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="code"/>
                 <separator/>
                 <filter name="filter_archived"
                         string="Archived"
