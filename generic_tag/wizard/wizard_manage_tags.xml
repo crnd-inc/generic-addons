@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="generic_tag_wizard_manage_tags_form_view" model="ir.ui.view">
+        <field name="model">generic.tag.wizard.manage.tags</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="model_id" invisible="1"/>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="action"/>
+                        </group>
+                        <group>
+                            <field name="tag_ids"
+                                   domain="[('model_id', '=', model_id)]"
+                                   placeholder="Tags..."
+                                   context="{'default_model_id': model_id}"
+                                   widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" name="do_apply" class="btn-primary" type="object"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
+

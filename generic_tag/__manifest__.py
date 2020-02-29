@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '12.0.1.3.0',
+    'version': '12.0.2.0.0',
 
     "depends": [
         "base",
@@ -21,6 +21,7 @@
         'views/generic_tag_view.xml',
         'views/generic_tag_category_view.xml',
         'views/generic_tag_model_view.xml',
+        'wizard/wizard_manage_tags.xml',
     ],
     'images': ['static/description/banner.png'],
     "installable": True,

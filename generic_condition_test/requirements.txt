@@ -1,1 +1,2 @@
 freezegun
+python-dateutil>=2.7

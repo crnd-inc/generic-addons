@@ -22,11 +22,42 @@ class GenericTagModel(models.Model):
         string="Tags", compute="_compute_tags_count", store=False,
         readonly=True, help="How many tags related to this model exists")
 
+    act_manage_tags_id = fields.Many2one(
+        'ir.actions.act_window', readonly=True)
+
     _sql_constraints = [
         ('res_model_id_uniq',
          'UNIQUE (res_model_id)',
          'For each Odoo model only one Tag Model could be created!'),
     ]
+
+    def _create_context_action_for_target_model(self):
+        ActWindow = self.env['ir.actions.act_window']
+        for record in self:
+            if not record.act_manage_tags_id:
+                self.act_manage_tags_id = ActWindow.create({
+                    'name': 'Manage Tags',
+                    'binding_type': 'action',
+                    'binding_model_id': self.res_model_id.id,
+                    'res_model': 'generic.tag.wizard.manage.tags',
+                    'view_mode': 'form',
+                    'target': 'new',
+                    'context': (
+                        "{"
+                        "'manage_tags_model': active_model,"
+                        "'manage_tags_object_ids': active_ids,"
+                        "}"),
+                })
+
+    @api.model
+    def create(self, vals):
+        record = super(GenericTagModel, self).create(vals)
+        record._create_context_action_for_target_model()
+        return record
+
+    def unlink(self):
+        self.mapped('act_manage_tags_id').unlink()
+        return super(GenericTagModel, self).unlink()
 
     def action_show_tags(self):
         self.ensure_one()
