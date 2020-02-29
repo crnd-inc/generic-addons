@@ -1,7 +1,7 @@
 from odoo.tests.common import SavepointCase
 
 
-class TestSimpleFieldStringBase(object):
+class TestSimpleFieldStringBase:
     _test_field_name = None
 
     @classmethod
@@ -54,7 +54,7 @@ class TestSimpleFieldStringBase(object):
                 **{self._test_field_name: val1}))
 
 
-class TestSimpleFieldStringBaseOpSet(object):
+class TestSimpleFieldStringBaseOpSet:
     def test_010_simple_field_string_simple_op_set(self):
         self.assertTrue(self._check_string_condition('val1', False, 'set'))
         self.assertFalse(self._check_string_condition(False, False, 'set'))
@@ -64,7 +64,7 @@ class TestSimpleFieldStringBaseOpSet(object):
             self._check_string_condition('val1', False, 'not set'))
 
 
-class TestSimpleFieldStringBaseOpEq(object):
+class TestSimpleFieldStringBaseOpEq:
     def test_020_simple_field_string_simple_op_eq(self):
         self.assertTrue(self._check_string_condition('val1', 'val1', '='))
         self.assertFalse(self._check_string_condition('val123', 'val1', '='))
