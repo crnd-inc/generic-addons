@@ -103,6 +103,14 @@ odoo.define('web.widgets.generic_m2o_widget', function (require) {
                                     parentID: record.id,
                                 });
                             }
+                            return self._makeDataPoint({
+                                data: {
+                                    id: 0,
+                                    display_name: undefined,
+                                },
+                                modelName: model,
+                                parentID: record.id,
+                            });
                         });
                     });
                 }
