@@ -40,7 +40,8 @@ class GenericTag(models.Model):
         string="Category priority",
         store=True, index=True, readonly=True)
     category_name = fields.Char(
-        related='category_id.name', store=True, index=True)
+        related='category_id.name', store=True, index=True,
+        string="Name of Category")
     objects_count = fields.Integer(
         string="Objects", compute="_compute_objects_count",
         store=False, readonly=True, track_visibility='always',
