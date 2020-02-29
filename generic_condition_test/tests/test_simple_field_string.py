@@ -160,7 +160,7 @@ class TestSimpleFieldStringBaseOpEq:
             'VAl1', r'v\w\w\d', '!=', regex=True, icase=True))
 
 
-class TestSimpleFieldStringBaseOpContains(object):
+class TestSimpleFieldStringBaseOpContains():
     def test_030_simple_field_string_simple_op_contains(self):
         self.assertTrue(
             self._check_string_condition('val1', 'val1', 'contains'))
