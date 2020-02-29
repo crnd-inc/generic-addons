@@ -308,3 +308,42 @@ class TestBasics(SavepointCase):
                 'name': 'Test 2',
                 'code': 'test_2',
             })
+
+    def test_100_wizard(self):
+        record = self.env['generic.tag.test.model'].create({
+            'name': 'Test',
+        })
+        tag = self.env['generic.tag'].with_context(
+            default_model='generic.tag.test.model'
+        ).create({
+            'name': 'Test',
+            'code': 'test',
+        })
+
+        self.assertFalse(record.tag_ids)
+        self.env['generic.tag.wizard.manage.tags'].with_context(
+            manage_tags_model='generic.tag.test.model',
+            manage_tags_object_ids=record.ids,
+        ).create({
+            'action': 'set',
+            'tag_ids': [(6, 0, tag.ids)],
+        }).do_apply()
+        self.assertEqual(record.tag_ids, tag)
+
+        self.env['generic.tag.wizard.manage.tags'].with_context(
+            manage_tags_model='generic.tag.test.model',
+            manage_tags_object_ids=record.ids,
+        ).create({
+            'action': 'remove',
+            'tag_ids': [(6, 0, tag.ids)],
+        }).do_apply()
+        self.assertFalse(record.tag_ids)
+
+        self.env['generic.tag.wizard.manage.tags'].with_context(
+            manage_tags_model='generic.tag.test.model',
+            manage_tags_object_ids=record.ids,
+        ).create({
+            'action': 'add',
+            'tag_ids': [(6, 0, tag.ids)],
+        }).do_apply()
+        self.assertEqual(record.tag_ids, tag)
