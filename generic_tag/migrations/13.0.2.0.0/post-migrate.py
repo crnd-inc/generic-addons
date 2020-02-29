@@ -8,10 +8,10 @@ def migrate(cr, installed_version):
         cr.execute("""
             INSERT INTO ir_act_window
                    (name, res_model, binding_type,
-                    view_type, view_mode, target, context,
+                    view_mode, target, context,
                     type, binding_model_id)
             VALUES ('Manage Tags', 'generic.tag.wizard.manage.tags', 'action',
-                    'form', 'form', 'new', %(context)s,
+                    'form', 'new', %(context)s,
                     'ir.actions.act_window', %(binding_model_id)s)
             RETURNING id;
         """, {
