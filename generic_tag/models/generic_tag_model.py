@@ -38,8 +38,8 @@ class GenericTagModel(models.Model):
                 self.act_manage_tags_id = ActWindow.create({
                     'name': 'Manage Tags',
                     'binding_type': 'action',
-                    'binding_model_id': self.model_id.id,
-                    'res_model': 'generic.resource',
+                    'binding_model_id': self.res_model_id.id,
+                    'res_model': 'generic.tag.wizard.manage.tags',
                     'view_mode': 'form',
                     'target': 'new',
                     'context': (

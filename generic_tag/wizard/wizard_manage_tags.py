@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 
-class GenericTagWizardManageTags(models.Model):
+class GenericTagWizardManageTags(models.TransientModel):
     _name = 'generic.tag.wizard.manage.tags'
     _description = 'Generic Tag Wizard: Manage Tags'
 
