@@ -102,10 +102,12 @@
             <search>
                 <field name="name"/>
                 <field name="leader_id"/>
-                <filter name="active" string="Active"
-                        context="[('active','=',True)]"/>
-                <filter name="archived" string="Archived"
-                        context="[('active','=',False)]"/>
+                <filter name="filter_active"
+                        string="Active"
+                        domain="[('active','=',True)]"/>
+                <filter name="filter_archived"
+                        string="Archived"
+                        domain="[('active','=',False)]"/>
             </search>
         </field>
     </record>
