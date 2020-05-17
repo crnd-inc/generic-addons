@@ -15,11 +15,13 @@ class GenericMixinNameWithCode(models.AbstractModel):
          'Code must be ascii only'),
     ]
 
-    # TODO: maybe use display_name?
     @api.onchange('name')
     def _onchange_mixin_name_set_code(self):
         for record in self:
-            record.code = slugify(record.name or '', max_length=0)
+            # TODO: if it is new record change code.
+            #       if record is aready created then do not change code
+            if not record.id:
+                record.code = slugify(record.name or '', max_length=0)
 
 
 class GenericMixinUniqNameCode(models.AbstractModel):
