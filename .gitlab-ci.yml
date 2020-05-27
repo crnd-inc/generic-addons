@@ -17,7 +17,6 @@ cache: {}
 stages:
     - static-test
     - test
-    - translation
     - deploy
 
 build_env:
@@ -113,28 +112,6 @@ migration_tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
         - /^12.0-.*$/   # only branches that started with '12.0-'
-
-translation_rate_ua:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
-    stage: translation
-    <<: *pip_cache_definition
-    before_script:
-        - odoo-helper link .
-    script:
-        - odoo-helper --use-unbuffer tr rate --lang uk_UA --min-total-rate 70 --dir .
-    coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
-    allow_failure: true
-
-translation_rate_ru:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
-    stage: translation
-    <<: *pip_cache_definition
-    before_script:
-        - odoo-helper link .
-    script:
-        - odoo-helper --use-unbuffer tr rate --lang ru_RU --min-total-rate 70 --dir .
-    coverage: '/^TOTAL\s+\|\s+\d+\s+\|\s+\d+\s+|\s+(\d+\.\d+)/'
-    allow_failure: true
 
 .deploy_review_definition: &deploy_review_definition
     stage: deploy
