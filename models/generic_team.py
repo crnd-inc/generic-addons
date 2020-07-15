@@ -14,10 +14,12 @@ class GenericTeam(models.Model):
     active = fields.Boolean(index=True, default=True, string='Active?')
     leader_id = fields.Many2one(
         'res.users', required=True, index=True, string='Team leader')
-    leader_name = fields.Char(
-        related='leader_id.display_name', readonly=True)
-    leader_image = fields.Binary(
-        related='leader_id.image_small', readonly=True)
+    leader_name = fields.Char(  # pylint: disable=attribute-string-redundant
+        related='leader_id.display_name', readonly=True,
+        string="Leader Name")
+    leader_image = fields.Binary(  # pylint: disable=attribute-string-redundant
+        related='leader_id.image_small', readonly=True,
+        string="Leader Image")
     task_manager_id = fields.Many2one(
         'res.users', index=True, string='Task manager')
     team_member_ids = fields.One2many(
