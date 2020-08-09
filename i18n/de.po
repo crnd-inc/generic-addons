@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-09 18:22+0000\n"
-"PO-Revision-Date: 2020-08-09 18:22+0000\n"
+"POT-Creation-Date: 2020-08-09 18:12+0000\n"
+"PO-Revision-Date: 2020-08-09 18:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,21 +20,27 @@ msgstr ""
 msgid "\n"
 "            Imlicit user for generic team\n"
 "        "
-msgstr ""
+msgstr "\n"
+"            Imlicit user for generic team\n"
+"        "
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_manager
 msgid "\n"
 "            Manager - full access\n"
 "        "
-msgstr ""
+msgstr "\n"
+"            Manager - full access\n"
+"        "
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_user
 msgid "\n"
 "            User - readonly access, menu access\n"
 "        "
-msgstr ""
+msgstr "\n"
+"            User - readonly access, menu access\n"
+"        "
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team1
@@ -43,7 +49,11 @@ msgid "\n"
 "        of people with a common functional expertise working\n"
 "        toward shared objectives.\n"
 "        "
-msgstr ""
+msgstr "\n"
+"        A Functional Team is a group\n"
+"        of people with a common functional expertise working\n"
+"        toward shared objectives.\n"
+"        "
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team2
@@ -52,7 +62,11 @@ msgid "\n"
 "        of people who collectively are responsible for all of the work\n"
 "        necessary to produce working, validated assets.\n"
 "        "
-msgstr ""
+msgstr "\n"
+"        A self-organizing, cross-functional team\n"
+"        of people who collectively are responsible for all of the work\n"
+"        necessary to produce working, validated assets.\n"
+"        "
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team3
@@ -61,169 +75,173 @@ msgid "\n"
 "        for a set of tools that facilitates collaboration between\n"
 "        an organization's software development team and the operations team.\n"
 "        "
-msgstr ""
+msgstr "\n"
+"        DevOps as a Service is a delivery model\n"
+"        for a set of tools that facilitates collaboration between\n"
+"        an organization's software development team and the operations team.\n"
+"        "
 
 #. module: generic_team
 #: model:ir.ui.view,arch_db:generic_team.generic_team_search
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_active
 msgid "Active?"
-msgstr ""
+msgstr "Active?"
 
 #. module: generic_team
 #: model:ir.ui.view,arch_db:generic_team.generic_team_search
 msgid "Archived"
-msgstr ""
+msgstr "Archived"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_create_uid
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Created by"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_create_date
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Created on"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_description
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: generic_team
 #: model:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Description..."
-msgstr ""
+msgstr "Description..."
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team3
 msgid "DevOps team"
-msgstr ""
+msgstr "DevOps team"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_display_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Display Name"
 
 #. module: generic_team
 #: model:ir.model,name:generic_team.model_generic_team
 msgid "Generic Team"
-msgstr ""
+msgstr "Generic Team"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_res_users_generic_team_member_ids
 msgid "Generic Team Member"
-msgstr ""
+msgstr "Generic Team Member"
 
 #. module: generic_team
 #: model:ir.model,name:generic_team.model_generic_team_member
 msgid "Generic team member"
-msgstr ""
+msgstr "Generic team member"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_id
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: generic_team
 #: model:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team___last_update
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Last Modified on"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_write_uid
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Last Updated by"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_write_date
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Last Updated on"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_leader_image
 msgid "Leader Image"
-msgstr ""
+msgstr "Leader Image"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_leader_name
 msgid "Leader Name"
-msgstr ""
+msgstr "Leader Name"
 
 #. module: generic_team
 #: model:res.groups,name:generic_team.group_generic_team_manager
 msgid "Manager"
-msgstr ""
+msgstr "Manager"
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team2
 msgid "Odoo development team"
-msgstr ""
+msgstr "Odoo development team"
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team1
 msgid "Odoo functional team"
-msgstr ""
+msgstr "Odoo functional team"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team_leader_image
 msgid "Small-sized image of this contact. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
-msgstr ""
+msgstr "Small-sized image of this contact. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_task_manager_id
 msgid "Task manager"
-msgstr ""
+msgstr "Task manager"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_team_id
 msgid "Team"
-msgstr ""
+msgstr "Team"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_team_member_ids
 msgid "Team Members"
-msgstr ""
+msgstr "Team Members"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_leader_id
 msgid "Team leader"
-msgstr ""
+msgstr "Team leader"
 
 #. module: generic_team
 #: model:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Team members"
-msgstr ""
+msgstr "Team members"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_user_ids
 msgid "Team members (Users)"
-msgstr ""
+msgstr "Team members (Users)"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_name
 msgid "Team name"
-msgstr ""
+msgstr "Team name"
 
 #. module: generic_team
 #: model:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Team name..."
-msgstr ""
+msgstr "Team name..."
 
 #. module: generic_team
 #: model:ir.actions.act_window,name:generic_team.generic_team_action
@@ -232,36 +250,36 @@ msgstr ""
 #: model:ir.ui.menu,name:generic_team.menu_generic_team_root
 #: model:ir.ui.view,arch_db:generic_team.view_users_form
 msgid "Teams"
-msgstr ""
+msgstr "Teams"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_res_users_generic_team_ids
 msgid "This user is member of following generic teams"
-msgstr ""
+msgstr "This user is member of following generic teams"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member_user_id
 #: model:res.groups,name:generic_team.group_generic_team_user
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #. module: generic_team
 #: model:res.groups,name:generic_team.group_generic_team_user_implicit
 msgid "User implicit"
-msgstr ""
+msgstr "User implicit"
 
 #. module: generic_team
 #: sql_constraint:generic.team.member:0
 msgid "User may be added to team only once."
-msgstr ""
+msgstr "User may be added to team only once."
 
 #. module: generic_team
 #: model:ir.model,name:generic_team.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "Users"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_user_count
 msgid "Users count"
-msgstr ""
+msgstr "Users count"
 
