@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-09 18:22+0000\n"
-"PO-Revision-Date: 2020-08-09 18:22+0000\n"
+"POT-Creation-Date: 2020-08-09 18:13+0000\n"
+"PO-Revision-Date: 2020-08-09 18:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,235 +18,235 @@ msgstr ""
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_user
 msgid "Access generic services"
-msgstr ""
+msgstr "Access generic services"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_user_implicit
 msgid "Access generic services (no access to menu)"
-msgstr ""
+msgstr "Access generic services (no access to menu)"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_active
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_active
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.generic_service_level_view_search
 #: model:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Archived"
-msgstr ""
+msgstr "Archived"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_change_manager_id
 msgid "Change Manager"
-msgstr ""
+msgstr "Change Manager"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_code
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Code..."
-msgstr ""
+msgstr "Code..."
 
 #. module: generic_service
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_configuration_menu_item
 msgid "Configurations"
-msgstr ""
+msgstr "Configurations"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Created by"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_create_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Created on"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_default
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 #. module: generic_service
 #: model:generic.service,description:generic_service.generic_service_default
 msgid "Default service"
-msgstr ""
+msgstr "Default service"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_description
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_description
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Description..."
-msgstr ""
+msgstr "Description..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_display_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Display Name"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_generic_service
 msgid "Generic Service"
-msgstr ""
+msgstr "Generic Service"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_generic_service_level
 msgid "Generic Service Level"
-msgstr ""
+msgstr "Generic Service Level"
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_manager
 msgid "Generic service manager"
-msgstr ""
+msgstr "Generic service manager"
 
 #. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
 msgid "Generic service settings"
-msgstr ""
+msgstr "Generic service settings"
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_user
 msgid "Generic service user"
-msgstr ""
+msgstr "Generic service user"
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_user_implicit
 msgid "Generic service user (implicit)"
-msgstr ""
+msgstr "Generic service user (implicit)"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service___last_update
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Last Modified on"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Last Updated by"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_write_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Last Updated on"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_1
 msgid "Level 1"
-msgstr ""
+msgstr "Level 1"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_2
 msgid "Level 2"
-msgstr ""
+msgstr "Level 2"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_3
 msgid "Level 3"
-msgstr ""
+msgstr "Level 3"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_4
 msgid "Level 4"
-msgstr ""
+msgstr "Level 4"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_manager
 msgid "Manage generic services"
-msgstr ""
+msgstr "Manage generic services"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_name
 #: model:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 msgid "Name..."
-msgstr ""
+msgstr "Name..."
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_notebook
 msgid "Rent of notebook"
-msgstr ""
+msgstr "Rent of notebook"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level_sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequence"
 
 #. module: generic_service
 #: model:ir.ui.view,arch_db:generic_service.res_partner_view_form_inherit_service_level
 msgid "Service Info"
-msgstr ""
+msgstr "Service Info"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_partner_service_level_id
 #: model:ir.model.fields,field_description:generic_service.field_res_users_service_level_id
 msgid "Service Level"
-msgstr ""
+msgstr "Service Level"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_level_action
 #: model:ir.ui.menu,name:generic_service.generic_service_level_menu_item
 msgid "Service Levels"
-msgstr ""
+msgstr "Service Levels"
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_4
 msgid "Service level for our Bronze clients."
-msgstr ""
+msgstr "Service level for our Bronze clients."
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_2
 msgid "Service level for our Gold clients."
-msgstr ""
+msgstr "Service level for our Gold clients."
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_1
 msgid "Service level for our Platinum clients."
-msgstr ""
+msgstr "Service level for our Platinum clients."
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_3
 msgid "Service level for our Silver clients."
-msgstr ""
+msgstr "Service level for our Silver clients."
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action
@@ -254,52 +254,52 @@ msgstr ""
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_root
 #: model:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
 msgid "Services"
-msgstr ""
+msgstr "Services"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action_service_settings
 #: model:ir.ui.menu,name:generic_service.menu_settings_service
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_administration
 msgid "Support / Administration"
-msgstr ""
+msgstr "Support / Administration"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_configuration
 msgid "Support / Configuration"
-msgstr ""
+msgstr "Support / Configuration"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_consulting
 msgid "Support / Consulting"
-msgstr ""
+msgstr "Support / Consulting"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_development
 msgid "Support / Development"
-msgstr ""
+msgstr "Support / Development"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_hosting
 msgid "Support / Hosting"
-msgstr ""
+msgstr "Support / Hosting"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_config_settings_group_use_service_level
 msgid "Use Service Level"
-msgstr ""
+msgstr "Use Service Level"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_use_service_level
 #: model:res.groups,name:generic_service.group_use_service_level
 msgid "Use service level"
-msgstr ""
+msgstr "Use service level"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_res_config_settings
 msgid "res.config.settings"
-msgstr ""
+msgstr "res.config.settings"
 
