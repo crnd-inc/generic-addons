@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-09 18:23+0000\n"
-"PO-Revision-Date: 2020-08-09 18:23+0000\n"
+"POT-Creation-Date: 2020-08-09 18:16+0000\n"
+"PO-Revision-Date: 2020-08-09 18:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,13 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_access_ids
 msgid "Access"
-msgstr ""
+msgstr "Access"
 
 #. module: generic_resource
 #: selection:generic.resource,resource_visibility:0
 #: selection:generic.resource.type,resource_visibility:0
 msgid "Access restricted by roles"
-msgstr ""
+msgstr "Access restricted by roles"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_active
@@ -34,74 +34,74 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_active
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #. module: generic_resource
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Archived"
-msgstr ""
+msgstr "Archived"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_wizard_mixin.py:33
 #, python-format
 msgid "Cannot apply this action to resources with different types! Please, select resources of single resource type"
-msgstr ""
+msgstr "Cannot apply this action to resources with different types! Please, select resources of single resource type"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_search
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 msgid "Category"
-msgstr ""
+msgstr "Category"
 
 #. module: generic_resource
 #: sql_constraint:generic.resource.simple.category:0
 msgid "Category can not have subcategories with the same name!"
-msgstr ""
+msgstr "Category can not have subcategories with the same name!"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers
 msgid "Computers"
-msgstr ""
+msgstr "Computers"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_config_root
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_count
 msgid "Count (incl. archived)"
-msgstr ""
+msgstr "Count (incl. archived)"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Created by"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Created on"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_type_menu_item
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #. module: generic_resource
 #: model:generic.resource.type,name:generic_resource.generic_resource_type_default
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_computer_1
@@ -112,24 +112,24 @@ msgstr ""
 #: model:generic.resource.simple,name:generic_resource.simple_resource_computer_6
 #: model:generic.resource.simple,name:generic_resource.simple_resource_computer_7
 msgid "Desktop Computer"
-msgstr ""
+msgstr "Desktop Computer"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers_desktops
 msgid "Desktops"
-msgstr ""
+msgstr "Desktops"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource.py:164
 #, python-format
 msgid "Direct creation of 'generic.resource' records is not allowed!"
-msgstr ""
+msgstr "Direct creation of 'generic.resource' records is not allowed!"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource.py:178
 #, python-format
 msgid "Direct modification of 'generic.resource:res_id' field is not allowed!"
-msgstr ""
+msgstr "Direct modification of 'generic.resource:res_id' field is not allowed!"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_display_name
@@ -141,29 +141,29 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Display Name"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment
 msgid "Equipment"
-msgstr ""
+msgstr "Equipment"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource.py:101
 #, python-format
 msgid "Error: no model"
-msgstr ""
+msgstr "Error: no model"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/ir_model.py:72
 #, python-format
 msgid "Field 'Is Generic Resource' cannot be changed to 'False'."
-msgstr ""
+msgstr "Field 'Is Generic Resource' cannot be changed to 'False'."
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_field_id
 msgid "Fields"
-msgstr ""
+msgstr "Fields"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:94
@@ -171,12 +171,14 @@ msgstr ""
 msgid "Fields incorrect\n"
 "	Resource type: %s\n"
 "	Resource res_id: %s"
-msgstr ""
+msgstr "Fields incorrect\n"
+"	Resource type: %s\n"
+"	Resource res_id: %s"
 
 #. module: generic_resource
 #: sql_constraint:generic.resource.type:0
 msgid "For each Odoo model only one Resource Type can be created!"
-msgstr ""
+msgstr "For each Odoo model only one Resource Type can be created!"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource
@@ -187,33 +189,33 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_stock_warehouse_resource_id
 #: model:ir.ui.view,arch_db:generic_resource.view_model_search
 msgid "Generic Resource"
-msgstr ""
+msgstr "Generic Resource"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin
 msgid "Generic Resource MixIn"
-msgstr ""
+msgstr "Generic Resource MixIn"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin_inv_number
 msgid "Generic Resource Mixin Inv Number"
-msgstr ""
+msgstr "Generic Resource Mixin Inv Number"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_related_mixin
 msgid "Generic Resource Mixin: Related Resource"
-msgstr ""
+msgstr "Generic Resource Mixin: Related Resource"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.generic_resource_type_default_ir_model
 #: model:ir.model,name:generic_resource.model_generic_resource_simple
 msgid "Generic Resource Simple"
-msgstr ""
+msgstr "Generic Resource Simple"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_simple_category
 msgid "Generic Resource Simple Category"
-msgstr ""
+msgstr "Generic Resource Simple Category"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_type
@@ -221,19 +223,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model_resource_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model_resource_type_id
 msgid "Generic Resource Type"
-msgstr ""
+msgstr "Generic Resource Type"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_type_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model_resource_type_ids
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model_resource_type_ids
 msgid "Generic Resource Types"
-msgstr ""
+msgstr "Generic Resource Types"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_root
 msgid "Generic Resources"
-msgstr ""
+msgstr "Generic Resources"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_id
@@ -243,22 +245,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_id
 #: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_id
 msgid "Generic resource"
-msgstr ""
+msgstr "Generic resource"
 
 #. module: generic_resource
 #: model:res.groups,name:generic_resource.group_generic_resource_manager
 msgid "Generic resource manager"
-msgstr ""
+msgstr "Generic resource manager"
 
 #. module: generic_resource
 #: model:res.groups,name:generic_resource.group_generic_resource_user
 msgid "Generic resource user"
-msgstr ""
+msgstr "Generic resource user"
 
 #. module: generic_resource
 #: model:res.groups,name:generic_resource.group_generic_resource_user_implicit
 msgid "Generic resource user (imlicit)"
-msgstr ""
+msgstr "Generic resource user (imlicit)"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_id
@@ -270,50 +272,50 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_modules
 msgid "In Apps"
-msgstr ""
+msgstr "In Apps"
 
 #. module: generic_resource
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_info
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_inherited_model_ids
 msgid "Inherited models"
-msgstr ""
+msgstr "Inherited models"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_inkjet
 msgid "InkJet"
-msgstr ""
+msgstr "InkJet"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_inv_number
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_inv_number
 msgid "Inventory Number"
-msgstr ""
+msgstr "Inventory Number"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_is_generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model_is_generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model_is_generic_resource
 msgid "Is Generic Resource"
-msgstr ""
+msgstr "Is Generic Resource"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_laserjet
 msgid "LaserJet"
-msgstr ""
+msgstr "LaserJet"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource___last_update
@@ -325,56 +327,56 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type___last_update
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Last Modified on"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Last Updated by"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Last Updated on"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_left
 msgid "Left Parent"
-msgstr ""
+msgstr "Left Parent"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type_modules
 msgid "List of modules in which the object is defined or inherited"
-msgstr ""
+msgstr "List of modules in which the object is defined or inherited"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_is_mail_thread
 msgid "Mail Thread"
-msgstr ""
+msgstr "Mail Thread"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_manager
 msgid "Manage generic resources"
-msgstr ""
+msgstr "Manage generic resources"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #. module: generic_resource
 #: sql_constraint:generic.resource:0
 msgid "Model instance must be unique"
-msgstr ""
+msgstr "Model instance must be unique"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_ir_model
 msgid "Models"
-msgstr ""
+msgstr "Models"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_name
@@ -387,7 +389,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_form
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_1
@@ -398,113 +400,113 @@ msgstr ""
 #: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_6
 #: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_7
 msgid "Notebook"
-msgstr ""
+msgstr "Notebook"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers_notebooks
 msgid "Notebooks"
-msgstr ""
+msgstr "Notebooks"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/ir_model.py:66
 #, python-format
 msgid "Only custom models can be modified."
-msgstr ""
+msgstr "Only custom models can be modified."
 
 #. module: generic_resource
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
 msgid "Open Resource"
-msgstr ""
+msgstr "Open Resource"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_id
 msgid "Parent Category"
-msgstr ""
+msgstr "Parent Category"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_3
 msgid "Printer Canon i-sensys 123"
-msgstr ""
+msgstr "Printer Canon i-sensys 123"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_1
 msgid "Printer Canon i-sensys 233"
-msgstr ""
+msgstr "Printer Canon i-sensys 233"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_2
 msgid "Printer Canon i-sensys 255"
-msgstr ""
+msgstr "Printer Canon i-sensys 255"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_6
 msgid "Printer Canon i-sensys 569"
-msgstr ""
+msgstr "Printer Canon i-sensys 569"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_3
 msgid "Printer Canon i123"
-msgstr ""
+msgstr "Printer Canon i123"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_1
 msgid "Printer Canon i233"
-msgstr ""
+msgstr "Printer Canon i233"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_2
 msgid "Printer Canon i255"
-msgstr ""
+msgstr "Printer Canon i255"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_6
 msgid "Printer Canon i569"
-msgstr ""
+msgstr "Printer Canon i569"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_4
 msgid "Printer Epson foto 235"
-msgstr ""
+msgstr "Printer Epson foto 235"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_5
 msgid "Printer Epson stylus 15"
-msgstr ""
+msgstr "Printer Epson stylus 15"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_7
 msgid "Printer Lexmark LS45"
-msgstr ""
+msgstr "Printer Lexmark LS45"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_7
 msgid "Printer Panasonic LS45"
-msgstr ""
+msgstr "Printer Panasonic LS45"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_5
 msgid "Printer Xerox 15"
-msgstr ""
+msgstr "Printer Xerox 15"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_4
 msgid "Printer Xerox 235"
-msgstr ""
+msgstr "Printer Xerox 235"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers
 msgid "Printers"
-msgstr ""
+msgstr "Printers"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_user
 msgid "Read and write to generic resources"
-msgstr ""
+msgstr "Read and write to generic resources"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_user_implicit
 msgid "Read and write to generic resources (no access to menus)"
-msgstr ""
+msgstr "Read and write to generic resources (no access to menus)"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_res_id
@@ -521,17 +523,17 @@ msgstr ""
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
 msgid "Resource"
-msgstr ""
+msgstr "Resource"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_count
 msgid "Resource Count"
-msgstr ""
+msgstr "Resource Count"
 
 #. module: generic_resource
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_view_form_base
 msgid "Resource Info"
-msgstr ""
+msgstr "Resource Info"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_res_model
@@ -539,12 +541,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_model_id
 msgid "Resource Model"
-msgstr ""
+msgstr "Resource Model"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_related_res_action_id
 msgid "Resource Related Res Action"
-msgstr ""
+msgstr "Resource Related Res Action"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_res_type_id
@@ -554,12 +556,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_manage_roles_resource_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin_resource_type_id
 msgid "Resource Type"
-msgstr ""
+msgstr "Resource Type"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_type_action
 msgid "Resource Types"
-msgstr ""
+msgstr "Resource Types"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_resource_visibility
@@ -567,12 +569,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_resource_visibility
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_resource_visibility
 msgid "Resource Visibility"
-msgstr ""
+msgstr "Resource Visibility"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_wizard_mixin
 msgid "Resource Wizard: Mixin"
-msgstr ""
+msgstr "Resource Wizard: Mixin"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:84
@@ -580,7 +582,9 @@ msgstr ""
 msgid "Resource does not exists!\n"
 "	Resource type: %s\n"
 "	Resource res_id: %s"
-msgstr ""
+msgstr "Resource does not exists!\n"
+"	Resource type: %s\n"
+"	Resource res_id: %s"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_res_model
@@ -591,13 +595,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_res_model
 #: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_res_model
 msgid "Resource model"
-msgstr ""
+msgstr "Resource model"
 
 #. module: generic_resource
 #: sql_constraint:generic.resource.mixin:0
 #: sql_constraint:generic.resource.simple:0
 msgid "Resource must be unique"
-msgstr ""
+msgstr "Resource must be unique"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_type_id
@@ -608,14 +612,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_timesheet_line_resource_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_request_request_resource_type_id
 msgid "Resource type"
-msgstr ""
+msgstr "Resource type"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_mixin_resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_resource_visibility
 msgid "Resource visibility determines users that have read access for this resource."
-msgstr ""
+msgstr "Resource visibility determines users that have read access for this resource."
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_action
@@ -627,97 +631,97 @@ msgstr ""
 #: model:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 #: model:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resources"
-msgstr ""
+msgstr "Resources"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_parent_right
 msgid "Right Parent"
-msgstr ""
+msgstr "Right Parent"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_show_resources_action_id
 msgid "Show Resources Action"
-msgstr ""
+msgstr "Show Resources Action"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_simple_action
 #: model:ir.ui.menu,name:generic_resource.menu_simple_resource_root
 msgid "Simple Resources"
-msgstr ""
+msgstr "Simple Resources"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_simple_category_action
 msgid "Simple Resources Categories"
-msgstr ""
+msgstr "Simple Resources Categories"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.action_list_of_simple_resources
 msgid "Simple resources"
-msgstr ""
+msgstr "Simple resources"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type_inherited_model_ids
 msgid "The list of models that extends the current model."
-msgstr ""
+msgstr "The list of models that extends the current model."
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type_count
 msgid "Total number of records in this model"
-msgstr ""
+msgstr "Total number of records in this model"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_transient
 msgid "Transient Model"
-msgstr ""
+msgstr "Transient Model"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_state
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_view_ids
 msgid "Views"
-msgstr ""
+msgstr "Views"
 
 #. module: generic_resource
 #: selection:generic.resource,resource_visibility:0
 #: selection:generic.resource.type,resource_visibility:0
 msgid "Visible for unregistered users"
-msgstr ""
+msgstr "Visible for unregistered users"
 
 #. module: generic_resource
 #: selection:generic.resource,resource_visibility:0
 #: selection:generic.resource.type,resource_visibility:0
 msgid "Visible only to employees"
-msgstr ""
+msgstr "Visible only to employees"
 
 #. module: generic_resource
 #: selection:generic.resource,resource_visibility:0
 #: selection:generic.resource.type,resource_visibility:0
 msgid "Visible to employees and portal users"
-msgstr ""
+msgstr "Visible to employees and portal users"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type_is_generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_tag_model_is_generic_resource
 #: model:ir.model.fields,help:generic_resource.field_ir_model_is_generic_resource
 msgid "Whether this model is Generic Resource."
-msgstr ""
+msgstr "Whether this model is Generic Resource."
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type_is_mail_thread
 msgid "Whether this model supports messages and notifications."
-msgstr ""
+msgstr "Whether this model supports messages and notifications."
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_type.py:53
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%s'"
-msgstr ""
+msgstr "Wrong 'Show Resources Action' for resource type '%s'"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_ir_rule
 msgid "ir.rule"
-msgstr ""
+msgstr "ir.rule"
 
