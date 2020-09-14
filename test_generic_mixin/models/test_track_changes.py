@@ -4,7 +4,10 @@ from odoo.addons.generic_mixin import pre_write, post_write
 
 class TestTrackChangesModel(models.Model):
     _name = 'test.generic.mixin.track.changes.model'
-    _inherit = 'generic.mixin.track.changes'
+    _inherit = [
+        'generic.mixin.track.changes',
+        'generic.mixin.data.updatable',
+    ]
 
     name = fields.Char()
     value1 = fields.Integer()
