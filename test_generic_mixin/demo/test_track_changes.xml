@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="test.generic.mixin.track.changes.model" id="demo_tc_1">
+        <field name="name">Test 1</field>
+    </record>
+    <record model="test.generic.mixin.track.changes.model" id="demo_tc_2">
+        <field name="name">Test 2</field>
+    </record>
+</odoo>
