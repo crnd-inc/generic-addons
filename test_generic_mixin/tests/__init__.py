@@ -1,1 +1,4 @@
-from . import test_track_changes
+from . import (
+    test_track_changes,
+    test_updatable_mixin,
+)
