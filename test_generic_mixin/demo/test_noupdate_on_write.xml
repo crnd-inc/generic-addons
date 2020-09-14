@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="test.generic.mixin.noupdate.on.write.model" id="demo_nu1">
+        <field name="name">Test 1</field>
+    </record>
+</odoo>
