@@ -1,5 +1,10 @@
 from odoo import models, fields, api
 
+IGNORE_NOUPDATE_ON_WRITE_FIElDS = [
+    'ir_model_data_ids',
+    'ir_model_data_no_update',
+]
+
 
 class GenericMixinDataUpdatable(models.AbstractModel):
     """ Mixin to provide easy management of updatable state on datarecord,
@@ -8,9 +13,21 @@ class GenericMixinDataUpdatable(models.AbstractModel):
         This mixin just adds two fields:
             ir_model_data_id (readonly)
             ir_model_data_no_update (editable)
+            ir_model_data_xmlid (readonly)
+
+        Also, if you want to make record 'noupdate' on any change, you
+        can set '_auto_set_noupdate_on_write' model attr to True
+        For example:
+
+            class MyModel(models.Model):
+                _name = 'my.model.name'
+                _inherit = 'generic.mixin.data.updatable'
+                _auto_set_noupdate_on_write = True
     """
     _name = 'generic.mixin.data.updatable'
     _description = 'GenericMixin: Data Updatable'
+
+    _auto_set_noupdate_on_write = False
 
     ir_model_data_ids = fields.One2many(
         'ir.model.data', 'res_id',
@@ -32,7 +49,7 @@ class GenericMixinDataUpdatable(models.AbstractModel):
     ir_model_data_xmlid = fields.Char(
         compute='_compute_ir_model_data',
         # search='_search_ir_model_data_xmlid',
-        readonly=False,
+        readonly=True,
         string='XML ID',
         help="XML ID for this record.")
 
@@ -67,3 +84,17 @@ class GenericMixinDataUpdatable(models.AbstractModel):
 
     def _search_ir_model_data_no_update(self, operator, value):
         return [('ir_model_data_ids.noupdate', operator, value)]
+
+    def write(self, vals):
+        res = super(GenericMixinDataUpdatable, self).write(vals)
+
+        if not self._auto_set_noupdate_on_write:
+            return res
+        if self.env.context.get('install_mode'):
+            return res
+
+        # Set noupdate for changed records
+        if set(vals) - set(IGNORE_NOUPDATE_ON_WRITE_FIElDS):
+            self.mapped('ir_model_data_ids').write({'noupdate': True})
+
+        return res

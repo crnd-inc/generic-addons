@@ -15,6 +15,7 @@
     ],
     'demo': [
         'demo/test_track_changes.xml',
+        'demo/test_noupdate_on_write.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,

@@ -7,8 +7,7 @@ class UpdatableMixinTest(SavepointCase):
     def setUpClass(cls):
         super(UpdatableMixinTest, cls).setUpClass()
 
-    def test_track_changes(self):
-        # pylint: disable=too-many-statements
+    def test_mixin_updatable(self):
         Model = self.env['test.generic.mixin.track.changes.model']
 
         r1 = self.env.ref('test_generic_mixin.demo_tc_1')
@@ -35,3 +34,15 @@ class UpdatableMixinTest(SavepointCase):
 
         recs = Model.search([('ir_model_data_no_update', '=', True)])
         self.assertEqual(set(recs.ids), set([r1.id, r2.id]))
+
+    def test_mixin_noupdate_on_write(self):
+        r = self.env.ref('test_generic_mixin.demo_nu1')
+
+        # Make record updatabale
+        r.ir_model_data_no_update = False
+        self.assertFalse(r.ir_model_data_no_update)
+
+        r.write({'name': 'test 42'})
+
+        # Ensure record become noupdate
+        self.assertTrue(r.ir_model_data_no_update)
