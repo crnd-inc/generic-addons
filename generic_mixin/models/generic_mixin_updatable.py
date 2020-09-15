@@ -97,6 +97,6 @@ class GenericMixinDataUpdatable(models.AbstractModel):
 
         # Set noupdate for changed records
         if set(vals) - set(IGNORE_NOUPDATE_ON_WRITE_FIElDS):
-            self.mapped('ir_model_data_ids').write({'noupdate': True})
+            self.sudo().mapped('ir_model_data_ids').write({'noupdate': True})
 
         return res
