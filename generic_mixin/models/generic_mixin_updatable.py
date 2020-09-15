@@ -57,7 +57,7 @@ class GenericMixinDataUpdatable(models.AbstractModel):
                  'ir_model_data_ids.name', 'ir_model_data_ids.module')
     def _compute_ir_model_data(self):
         # Assume that there is only one xmlid per record
-        ir_model_data = self.env['ir.model.data'].search([
+        ir_model_data = self.sudo().env['ir.model.data'].search([
             ('model', '=', self._name),
             ('res_id', 'in', self.ids),
         ])
@@ -67,7 +67,7 @@ class GenericMixinDataUpdatable(models.AbstractModel):
         for record in self:
             data_rec = ir_model_data_map.get(
                 record.id,
-                self.env['ir.model.data'].browse()
+                self.sudo().env['ir.model.data'].browse()
             )
 
             record.ir_model_data_id = data_rec
@@ -80,7 +80,9 @@ class GenericMixinDataUpdatable(models.AbstractModel):
 
     def _inverse_ir_model_data_no_update(self):
         for record in self:
-            record.ir_model_data_id.noupdate = record.ir_model_data_no_update
+            if record.ir_model_data_id:
+                record.ir_model_data_id.noupdate = (
+                    record.ir_model_data_no_update)
 
     def _search_ir_model_data_no_update(self, operator, value):
         return [('ir_model_data_ids.noupdate', operator, value)]
@@ -95,6 +97,6 @@ class GenericMixinDataUpdatable(models.AbstractModel):
 
         # Set noupdate for changed records
         if set(vals) - set(IGNORE_NOUPDATE_ON_WRITE_FIElDS):
-            self.mapped('ir_model_data_ids').write({'noupdate': True})
+            self.sudo().mapped('ir_model_data_ids').write({'noupdate': True})
 
         return res
