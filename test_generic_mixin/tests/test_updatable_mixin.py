@@ -35,6 +35,16 @@ class UpdatableMixinTest(SavepointCase):
         recs = Model.search([('ir_model_data_no_update', '=', True)])
         self.assertEqual(set(recs.ids), set([r1.id, r2.id]))
 
+    def test_mixin_noupdate_create(self):
+        Model = self.env['test.generic.mixin.noupdate.on.write.model']
+
+        r = Model.create({'name': 'Test'})
+        self.assertTrue(r.ir_model_data_no_update)
+
+        r.ir_model_data_no_update = False
+        r.invalidate_cache()
+        self.assertTrue(r.ir_model_data_no_update)
+
     def test_mixin_noupdate_on_write(self):
         r = self.env.ref('test_generic_mixin.demo_nu1')
 
