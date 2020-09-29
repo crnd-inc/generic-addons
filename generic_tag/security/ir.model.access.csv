@@ -6,3 +6,4 @@
 "access_generic_tag_manager","generic_tag manager","model_generic_tag","generic_tag.group_tags_manager",1,1,1,1
 "access_generic_tag_model_manager","generic_tag_model manager","model_generic_tag_model","generic_tag.group_tags_manager",1,1,1,1
 "access_generic_tag_category_manager","generic_tag_category manager","model_generic_tag_category","generic_tag.group_tags_manager",1,1,1,1
+"access_generic_tag_wizard_manage_tags",access_generic_tag_wizard_manage_tags,model_generic_tag_wizard_manage_tags,base.group_user,1,0,0,0

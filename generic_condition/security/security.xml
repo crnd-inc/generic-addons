@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+ 
+    <record id="rule_generic_condition_test_condition_admin" model="ir.rule">
+        <field name="name">acces generic condition test condition admin</field>
+        <field name="model_id" ref="generic_condition.model_generic_condition_test_condition"/>
+        <field name="domain_force">[
+                ('create_uid', '=', user.id),
+            ]</field>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field eval="1" name="perm_unlink"/>
+        <field eval="1" name="perm_write"/>
+        <field eval="1" name="perm_read"/>
+        <field eval="1" name="perm_create"/>
+    </record>
+
+</odoo> 

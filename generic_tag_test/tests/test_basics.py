@@ -250,7 +250,7 @@ class TestBasics(SavepointCase):
         # search by string
         res = self.env['generic.tag.test.model'].search(
             [('id', 'in', recs.ids),
-             ('search_no_tag_id', '=', 'tc3')])
+             ('search_no_tag_id.code', '=', 'tc3')])
         self.assertEqual(len(res), 1)
         self.assertEqual(res[0], self.test_record_2)
 
@@ -278,7 +278,7 @@ class TestBasics(SavepointCase):
         # search by string
         res = self.env['generic.tag.test.model'].search(
             [('id', 'in', recs.ids),
-             ('search_tag_id', '=', 'tc3')])
+             ('search_tag_id.code', '=', 'tc3')])
         self.assertEqual(len(res), 1)
         self.assertEqual(res[0], self.test_record_1)
 

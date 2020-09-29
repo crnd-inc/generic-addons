@@ -31,7 +31,7 @@ class GenericTagCategory(models.Model):
              "error will be raised")
     tags_count = fields.Float(
         compute="_compute_tags_count", store=True,
-        readonly=True, track_visibility='always',
+        readonly=True, tracking=True,
         help="How many tags related to this catgory")
     color = fields.Integer()
     sequence = fields.Integer(index=True, default=5)

@@ -1,9 +1,8 @@
-from odoo.tests.common import (
-    at_install, post_install, TransactionCase)
+from odoo.tests.common import (tagged, TransactionCase)
 
 
-@at_install(False)
-@post_install(True)
+@tagged('at_install')
+@tagged('post_install')
 class TestConditionAutomation(TransactionCase):
 
     def test_condition_automation(self):

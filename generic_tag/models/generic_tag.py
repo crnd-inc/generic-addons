@@ -44,7 +44,7 @@ class GenericTag(models.Model):
         string="Name of Category")
     objects_count = fields.Integer(
         string="Objects", compute="_compute_objects_count",
-        store=False, readonly=True, track_visibility='always',
+        store=False, readonly=True, tracking=True,
         help="How many objects contains this tag")
     group_ids = fields.Many2many('res.groups', string='Groups')
     color = fields.Integer()
@@ -59,8 +59,13 @@ class GenericTag(models.Model):
          'Code of tag must be unique'),
     ]
 
+    @api.depends()
     def _compute_objects_count(self):
         for tag in self:
+            if not tag.id:
+                tag.objects_count = 0
+                continue
+
             try:
                 TagModel = self.env[tag.model_id.model]
             except KeyError:
