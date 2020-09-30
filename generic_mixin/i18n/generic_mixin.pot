@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 16:52+0000\n"
-"PO-Revision-Date: 2019-09-12 16:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,7 +22,7 @@ msgid "Cannot unlink these records. Operation not allowed.\n"
 msgstr ""
 
 #. module: generic_mixin
-#: code:addons/generic_mixin/models/generic_no_unlink.py:38
+#: code:addons/generic_mixin/models/generic_no_unlink.py:37
 #, python-format
 msgid "Cannot unlink these records. Operation not allowed.\n"
 "Model: %s [%s]"
@@ -46,10 +44,12 @@ msgid "Code must be unique."
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable_display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code_display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes_display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils_display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code_display_name
 msgid "Display Name"
 msgstr ""
@@ -86,19 +86,50 @@ msgid "Generic Mixin: Unique name and code"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_data_updatable
+msgid "GenericMixin: Data Updatable"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_transaction_utils
+msgid "GenericMixin: Transaction Utils"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable_id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code_id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink_id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names_id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes_id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils_id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code_id
 msgid "ID"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable_ir_model_data_no_update
+#: model:ir.model.fields,help:generic_mixin.field_test_generic_mixin_noupdate_on_write_model_ir_model_data_no_update
+#: model:ir.model.fields,help:generic_mixin.field_test_generic_mixin_track_changes_model_ir_model_data_no_update
+msgid "Indicates whether this record will be updated with module update or not. If set to True, the record will not be overriden on module update, if set to False, thenrecord will be overridden by module update"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable_ir_model_data_id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable_ir_model_data_ids
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_noupdate_on_write_model_ir_model_data_id
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_noupdate_on_write_model_ir_model_data_ids
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_track_changes_model_ir_model_data_id
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_track_changes_model_ir_model_data_ids
+msgid "Ir Model Data"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable___last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code___last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink___last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names___last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes___last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils___last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code___last_update
 msgid "Last Modified on"
 msgstr ""
@@ -111,5 +142,26 @@ msgstr ""
 #. module: generic_mixin
 #: sql_constraint:generic.mixin.uniq_name_code:0
 msgid "Name must be unique."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable_ir_model_data_no_update
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_noupdate_on_write_model_ir_model_data_no_update
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_track_changes_model_ir_model_data_no_update
+msgid "Non Updatable"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable_ir_model_data_xmlid
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_noupdate_on_write_model_ir_model_data_xmlid
+#: model:ir.model.fields,field_description:generic_mixin.field_test_generic_mixin_track_changes_model_ir_model_data_xmlid
+msgid "XML ID"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable_ir_model_data_xmlid
+#: model:ir.model.fields,help:generic_mixin.field_test_generic_mixin_noupdate_on_write_model_ir_model_data_xmlid
+#: model:ir.model.fields,help:generic_mixin.field_test_generic_mixin_track_changes_model_ir_model_data_xmlid
+msgid "XML ID for this record."
 msgstr ""
 

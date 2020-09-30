@@ -1,0 +1,84 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_crypto_utils
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-30 08:41+0000\n"
+"PO-Revision-Date: 2020-09-30 08:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_create_uid
+msgid "Created by"
+msgstr "Created by"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_create_date
+msgid "Created on"
+msgstr "Created on"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_display_name
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: generic_crypto_utils
+#: model:ir.model,name:generic_crypto_utils.model_generic_crypto_param
+msgid "Generic Crypto Param"
+msgstr "Generic Crypto Param"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_id
+msgid "ID"
+msgstr "ID"
+
+#. module: generic_crypto_utils
+#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:41
+#, python-format
+msgid "Invalid 'crypto_token'! Ensure it is valid 32-bytes base64-encoded string!"
+msgstr "Invalid 'crypto_token'! Ensure it is valid 32-bytes base64-encoded string!"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_key
+msgid "Key"
+msgstr "Key"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param___last_update
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_write_uid
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_write_date
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: generic_crypto_utils
+#: sql_constraint:generic.crypto.param:0
+msgid "Param key must be unique."
+msgstr "Param key must be unique."
+
+#. module: generic_crypto_utils
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param_value
+msgid "Value"
+msgstr "Value"
+
+#. module: generic_crypto_utils
+#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:35
+#, python-format
+msgid "You must add 'crypto_token' to 'odoo.conf' to be able to use this feature"
+msgstr "You must add 'crypto_token' to 'odoo.conf' to be able to use this feature"
+

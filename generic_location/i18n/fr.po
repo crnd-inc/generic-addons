@@ -1,0 +1,201 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_location
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-30 08:42+0000\n"
+"PO-Revision-Date: 2020-09-30 08:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_location
+#: model:res.groups,comment:generic_location.group_generic_location_user
+msgid "Access generic locations"
+msgstr "Access generic locations"
+
+#. module: generic_location
+#: model:res.groups,comment:generic_location.group_generic_location_user_implicit
+msgid "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+"        "
+msgstr "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+"        "
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_active
+msgid "Active"
+msgstr "Active"
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_search_view
+msgid "Archived"
+msgstr "Archived"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_child_count
+msgid "Child Count"
+msgstr "Child Count"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_create_uid
+msgid "Created by"
+msgstr "Created by"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_create_date
+msgid "Created on"
+msgstr "Created on"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_description
+msgid "Description"
+msgstr "Description"
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Description..."
+msgstr "Description..."
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_display_name
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: generic_location
+#: model:ir.ui.menu,name:generic_location.menu_generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Generic Location"
+msgstr "Generic Location"
+
+#. module: generic_location
+#: model:res.groups,name:generic_location.group_generic_location_manager
+msgid "Generic location manager"
+msgstr "Generic location manager"
+
+#. module: generic_location
+#: model:res.groups,name:generic_location.group_generic_location_user
+msgid "Generic location user"
+msgstr "Generic location user"
+
+#. module: generic_location
+#: model:res.groups,name:generic_location.group_generic_location_user_implicit
+msgid "Generic location user (implicit)"
+msgstr "Generic location user (implicit)"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_id
+msgid "ID"
+msgstr "ID"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image
+msgid "Image"
+msgstr "Image"
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Info"
+msgstr "Info"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___last_update
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_write_uid
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_write_date
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_left
+msgid "Left Parent"
+msgstr "Left Parent"
+
+#. module: generic_location
+#: model:ir.actions.act_window,name:generic_location.generic_location_action
+#: model:ir.model,name:generic_location.model_generic_location
+#: model:ir.ui.menu,name:generic_location.archive_generic_location
+msgid "Location"
+msgstr "Location"
+
+#. module: generic_location
+#: model:res.groups,comment:generic_location.group_generic_location_manager
+msgid "Manage generic locations"
+msgstr "Manage generic locations"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image_medium
+msgid "Medium-sized image"
+msgstr "Medium-sized image"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image_medium
+msgid "Medium-sized image of the location. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. "
+msgstr "Medium-sized image of the location. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. "
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_name
+msgid "Name"
+msgstr "Name"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_id
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Parent Location"
+msgstr "Parent Location"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_ids
+msgid "Parents"
+msgstr "Parents"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_parent_right
+msgid "Right Parent"
+msgstr "Right Parent"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_image_small
+msgid "Small-sized image"
+msgstr "Small-sized image"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image_small
+msgid "Small-sized image of the location. It is automatically resized as a 64x64px image, with aspect ratio preserved. "
+msgstr "Small-sized image of the location. It is automatically resized as a 64x64px image, with aspect ratio preserved. "
+
+#. module: generic_location
+#: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Sublocation"
+msgstr "Sublocation"
+
+#. module: generic_location
+#: code:addons/generic_location/models/generic_location.py:123
+#: code:addons/generic_location/models/generic_location.py:124
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_child_ids
+#, python-format
+msgid "Sublocations"
+msgstr "Sublocations"
+
+#. module: generic_location
+#: sql_constraint:generic.location:0
+msgid "The title of the Location should not be the description"
+msgstr "The title of the Location should not be the description"
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location_image
+msgid "This field holds the image used as image for the location, limited to 1024x1024px."
+msgstr "This field holds the image used as image for the location, limited to 1024x1024px."
+
