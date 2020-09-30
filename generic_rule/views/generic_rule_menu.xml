@@ -2,7 +2,6 @@
 <odoo>
     <menuitem id="menu_generic_rule"
               name="Rules"
-              parent=""
               groups="base.group_system"
               sequence="120"
               web_icon="generic_rule,static/description/menu.png"/>

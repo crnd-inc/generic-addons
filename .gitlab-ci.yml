@@ -33,12 +33,22 @@ flake8:
     stage: static-test
     script:
         - odoo-helper lint flake8 .
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
 
 pylint:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
         - odoo-helper lint pylint .
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
 
 bandit:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
@@ -48,12 +58,22 @@ bandit:
         - odoo-helper pip install bandit
     script:
         - odoo-helper exec bandit -r .
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
 
 stylelint:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
     stage: static-test
     script:
         - odoo-helper lint style .
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
 
 check-versions:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
@@ -62,6 +82,11 @@ check-versions:
         - odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
         - /^12.0-.*$/   # only branches that started with '12.0-'
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
 
 ensure-changelog:
     image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-simple
@@ -70,6 +95,11 @@ ensure-changelog:
         - odoo-helper ci ensure-changelog --format md . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     only:
         - /^12.0-.*$/   # only branches that started with '12.0-'
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
     allow_failure: true
 
 ensure-icons:
@@ -79,6 +109,11 @@ ensure-icons:
         - odoo-helper ci ensure-icons .
     only:
         - /^12.0-.*$/   # only branches that started with '12.0-'
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
     allow_failure: true
 
 tests:
@@ -89,6 +124,11 @@ tests:
         - odoo-helper link .
     script:
         - odoo-helper --use-unbuffer test --coverage-report --coverage-fail-under 90 --create-test-db --dir .
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 migration_tests:
@@ -112,6 +152,31 @@ migration_tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     only:
         - /^12.0-.*$/   # only branches that started with '12.0-'
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
+
+update_addons_list_and_trans:
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    stage: deploy
+    before_script:
+        - odoo-helper link .
+    script:
+        - odoo-helper doc-utils addons-list --sys-name --field name --field license --field version --field summary --field price --format csv . > ./ADDONS.csv
+        - odoo-helper doc-utils addons-list --sys-name --field name --field license --field version --field summary --field price --format md . > ./ADDONS.md
+        - odoo-helper tr regenerate --lang-file "uk_UA:uk" --lang-file "ru_RU:ru" --lang-file "de_DE:de" --lang-file "fr_FR:fr" --pot --pot-remove-dates --missing-only --dir .
+        - git add ./ADDONS.csv ./ADDONS.md "*.po" "*.pot"
+        - odoo-helper ci push-changes "[CI-AUTO-UPDATE]"
+    except:
+        variables:
+            # Do not run package on commits created by packager itself
+            - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
+            - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
+    only:
+        - "12.0"
+    allow_failure: true
 
 .deploy_review_definition: &deploy_review_definition
     stage: deploy
