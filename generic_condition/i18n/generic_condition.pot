@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 14:50+0000\n"
-"PO-Revision-Date: 2019-09-13 14:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -69,7 +67,7 @@ msgid "By this type you can describe the condition as an expression in the Pytho
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:898
+#: code:addons/generic_condition/models/generic_condition.py:902
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr ""
@@ -96,7 +94,7 @@ msgid "Check set of other conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:433
+#: code:addons/generic_condition/models/generic_condition.py:436
 #, python-format
 msgid "Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
 "\n"
@@ -355,13 +353,13 @@ msgid "End Date"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:52
+#: code:addons/generic_condition/wizard/test_condition.py:49
 #, python-format
 msgid "Error"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:851
+#: code:addons/generic_condition/models/generic_condition.py:854
 #, python-format
 msgid "Error caught while evaluating condition %s[%d]"
 msgstr ""
@@ -374,7 +372,7 @@ msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/tests/test_condition.py:133
-#: code:addons/generic_condition/wizard/test_condition.py:50
+#: code:addons/generic_condition/wizard/test_condition.py:47
 #, python-format
 msgid "Fail"
 msgstr ""
@@ -448,7 +446,7 @@ msgid "Generic Conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:801
+#: code:addons/generic_condition/models/generic_condition.py:804
 #, python-format
 msgid "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
@@ -669,7 +667,7 @@ msgid "OR"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:36
+#: code:addons/generic_condition/wizard/test_condition.py:33
 #, python-format
 msgid "Object (model: %s; id: %s) not found"
 msgstr ""
@@ -686,7 +684,7 @@ msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/tests/test_condition.py:129
-#: code:addons/generic_condition/wizard/test_condition.py:48
+#: code:addons/generic_condition/wizard/test_condition.py:45
 #, python-format
 msgid "Ok"
 msgstr ""
@@ -875,7 +873,7 @@ msgid "Type"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:53
+#: code:addons/generic_condition/wizard/test_condition.py:50
 #, python-format
 msgid "Unknown"
 msgstr ""

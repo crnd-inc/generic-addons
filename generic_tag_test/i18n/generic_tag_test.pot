@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 14:50+0000\n"
-"PO-Revision-Date: 2019-09-13 14:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,6 +26,22 @@ msgstr ""
 #. module: generic_tag_test
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.model.fields,help:generic_tag_test.field_generic_tag_test_model__search_tag_id
+msgid "Find all records that contain this tag"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.model.fields,help:generic_tag_test.field_generic_tag_test_model__search_no_tag_id
+msgid "Find all records that have no this tag"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag.model,name:generic_tag_test.test_tag_model
+#: model:ir.model,name:generic_tag_test.model_generic_tag_test_model
+msgid "Generic Tag Test Model"
 msgstr ""
 
 #. module: generic_tag_test
@@ -56,9 +70,13 @@ msgid "Name"
 msgstr ""
 
 #. module: generic_tag_test
-#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__no_tag_id
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__search_no_tag_id
 msgid "No tag"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__no_tag_id
+msgid "No tag (deprecated)"
 msgstr ""
 
 #. module: generic_tag_test
@@ -111,12 +129,6 @@ msgstr ""
 #. module: generic_tag_test
 #: model:ir.filters,name:generic_tag_test.filter_test_field_eq_remove
 msgid "Test model test field = 'remove'"
-msgstr ""
-
-#. module: generic_tag_test
-#: model:generic.tag.model,name:generic_tag_test.test_tag_model
-#: model:ir.model,name:generic_tag_test.model_generic_tag_test_model
-msgid "generic.tag.test.model"
 msgstr ""
 
 #. module: generic_tag_test
