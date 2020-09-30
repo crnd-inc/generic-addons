@@ -16,7 +16,7 @@ class GenericTagModel(models.Model):
         'ir.model', 'Odoo Model', required=True, index=True, auto_join=True,
         domain=[('transient', '=', False),
                 ('field_id.name', '=', 'tag_ids')],
-        ondelete='restrict')
+        ondelete='cascade')
 
     tags_count = fields.Integer(
         string="Tags", compute="_compute_tags_count", store=False,
@@ -90,6 +90,6 @@ class GenericTagModelMixin(models.AbstractModel):
         return self.env['generic.tag.model'].browse()
 
     model_id = fields.Many2one(
-        "generic.tag.model", "Model", required=True, ondelete='restrict',
+        "generic.tag.model", "Model", required=True, ondelete='cascade',
         default=_get_default_model_id,
         help="Specify model for which this tag is available")
