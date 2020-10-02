@@ -99,6 +99,7 @@ class GenericCondition(models.Model):
         required=True, track_visibility='onchange')
     model_id = fields.Many2one(
         'ir.model', 'Based on model', required=True, index=True,
+        ondelete='cascade',
         help="Choose model to apply condition to")
     based_on = fields.Char(
         related='model_id.model', readonly=True, index=True, store=True,
@@ -161,7 +162,7 @@ class GenericCondition(models.Model):
         string="Check Type", default='field', track_visibility='onchange')
     condition_user_user_field_id = fields.Many2one(
         'ir.model.fields', string='User Field',
-        ondelete='restrict', track_visibility='onchange',
+        ondelete='cascade', track_visibility='onchange',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many')),
                 ('relation', '=', 'res.users')],
         help='Field in object being checked, that points to user.')
@@ -178,7 +179,7 @@ class GenericCondition(models.Model):
     # Condition type 'related_conditions' params
     condition_rel_field_id = fields.Many2one(
         'ir.model.fields', string='Related Field',
-        ondelete='restrict', auto_join=True, track_visibility='onchange',
+        ondelete='cascade', auto_join=True, track_visibility='onchange',
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
     condition_rel_field_id_model_id = fields.Many2one(
         comodel_name='ir.model',
@@ -225,7 +226,7 @@ class GenericCondition(models.Model):
         '_get_selection_date_diff_date_type',
         string='Date start type', default='now', track_visibility='onchange')
     condition_date_diff_date_start_field = fields.Many2one(
-        'ir.model.fields', 'Date start field', ondelete='restrict',
+        'ir.model.fields', 'Date start field', ondelete='cascade',
         domain=[('ttype', 'in', ('date', 'datetime'))],
         track_visibility='onchange')
     condition_date_diff_date_start_date = fields.Date(
@@ -238,7 +239,7 @@ class GenericCondition(models.Model):
         '_get_selection_date_diff_date_type',
         string='Date end type', default='now', track_visibility='onchange')
     condition_date_diff_date_end_field = fields.Many2one(
-        'ir.model.fields', 'Date end field', ondelete='restrict',
+        'ir.model.fields', 'Date end field', ondelete='cascade',
         domain=[('ttype', 'in', ('date', 'datetime'))],
         track_visibility='onchange')
     condition_date_diff_date_end_date = fields.Date(
@@ -272,7 +273,7 @@ class GenericCondition(models.Model):
 
     # Simple field conditions
     condition_simple_field_field_id = fields.Many2one(
-        'ir.model.fields', 'Check field', ondelete='restrict',
+        'ir.model.fields', 'Check field', ondelete='cascade',
         domain=[('ttype', 'in', ('boolean', 'char', 'text',
                                  'html', 'float',
                                  'integer', 'selection'))],
@@ -323,7 +324,7 @@ class GenericCondition(models.Model):
 
     # Related field conditions
     condition_related_field_field_id = fields.Many2one(
-        'ir.model.fields', 'Check field', ondelete='restrict',
+        'ir.model.fields', 'Check field', ondelete='cascade',
         domain=[('ttype', 'in', ('many2one', 'many2many'))])
     condition_related_field_model = fields.Char(
         string='Related Model', related_sudo=True, readonly=True,
@@ -341,10 +342,10 @@ class GenericCondition(models.Model):
     # Monetary field conditions
     # Value monetary fields
     condition_monetary_field_id = fields.Many2one(
-        'ir.model.fields', 'Field', ondelete='restrict',
+        'ir.model.fields', 'Field', ondelete='cascade',
         domain=[('ttype', '=', 'monetary')], track_visibility='onchange')
     condition_monetary_currency_field_id = fields.Many2one(
-        'ir.model.fields', 'Currency', ondelete='restrict',
+        'ir.model.fields', 'Currency', ondelete='cascade',
         domain=[('ttype', '=', 'many2one'),
                 ('relation', '=', 'res.currency')],
         help="Field with currency for field being checked",
@@ -371,7 +372,7 @@ class GenericCondition(models.Model):
          ('date', 'Date')],
         string='Type', default='now', track_visibility='onchange')
     condition_monetary_curency_date_field_id = fields.Many2one(
-        'ir.model.fields', 'Field', ondelete='restrict',
+        'ir.model.fields', 'Field', ondelete='cascade',
         domain=[('ttype', 'in', ('date', 'datetime'))],
         track_visibility='onchange')
     condition_monetary_curency_date_date = fields.Date(
