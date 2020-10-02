@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_generic_tags_root"
-                parent=""
                 groups="generic_tag.group_tags_user"
                 sequence="120"
                 name="Tags"
