@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_team
+# 	* generic_team
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-16 11:54+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -17,39 +18,47 @@ msgstr ""
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_user_implicit
-msgid "\n"
+msgid ""
+"\n"
 "            Imlicit user for generic team\n"
 "        "
-msgstr "\n"
+msgstr ""
+"\n"
 "            Неявный пользователь универсальных команд\n"
 "        "
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_manager
-msgid "\n"
+msgid ""
+"\n"
 "            Manager - full access\n"
 "        "
-msgstr "\n"
+msgstr ""
+"\n"
 "            Менеджер - полный доступ\n"
 "        "
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_user
-msgid "\n"
+msgid ""
+"\n"
 "            User - readonly access, menu access\n"
 "        "
-msgstr "\n"
+msgstr ""
+"\n"
 "            Пользователь - доступ только на чтение, доступ к меню\n"
 "        "
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team1
-msgid "\n"
+msgid ""
+"\n"
 "        A Functional Team is a group\n"
 "        of people with a common functional expertise working\n"
 "        toward shared objectives.\n"
 "        "
-msgstr "\n"
+msgstr ""
+"\n"
 "        Функциональная команда это группа\n"
 "        людей одной компетенции, работающая \n"
 "        в направлении общих целей.\n"
@@ -57,12 +66,14 @@ msgstr "\n"
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team2
-msgid "\n"
+msgid ""
+"\n"
 "        A self-organizing, cross-functional team\n"
 "        of people who collectively are responsible for all of the work\n"
 "        necessary to produce working, validated assets.\n"
 "        "
-msgstr "\n"
+msgstr ""
+"\n"
 "        Самоорганизованная, многофункциональная команда\n"
 "        людей, которые коллективно отвечают за всю работу,\n"
 "        необходимую для производства работающих, проверенных активов.\n"
@@ -70,15 +81,19 @@ msgstr "\n"
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team3
-msgid "\n"
+msgid ""
+"\n"
 "        DevOps as a Service is a delivery model\n"
 "        for a set of tools that facilitates collaboration between\n"
-"        an organization's software development team and the operations team.\n"
+"        an organization's software development team and the operations "
+"team.\n"
 "        "
-msgstr "\n"
+msgstr ""
+"\n"
 "        DevOps как сервис - это модель доставки\n"
 "        для набора инструментов, который облегчает сотрудничество между\n"
-"        командой разработчиков программного обеспечения организации и операционной командой.\n"
+"        командой разработчиков программного обеспечения организации и "
+"операционной командой.\n"
 "        "
 
 #. module: generic_team
@@ -135,7 +150,6 @@ msgstr "Команда DevOps"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
 msgid "Display Name"
 msgstr "Отображаемое название"
@@ -220,6 +234,16 @@ msgid "Last Updated on"
 msgstr "Последнее обновление"
 
 #. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_image
+msgid "Leader Image"
+msgstr ""
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_name
+msgid "Leader Name"
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_main_attachment_id
 msgid "Main Attachment"
 msgstr "Основное вложение"
@@ -275,14 +299,15 @@ msgid "Odoo functional team"
 msgstr "Функциональная команда Odoo"
 
 #. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_image
-msgid "Small-sized image"
-msgstr "Уменьшенное изображение"
-
-#. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__leader_image
-msgid "Small-sized image of this contact. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
-msgstr "Маленькое изображение контакта. Автоматически преобразуется в изображение 64x64px, с сохранением пропорций. Используйте это поле там, где требуется маленькое изображение."
+msgid ""
+"Small-sized image of this contact. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is "
+"required."
+msgstr ""
+"Маленькое изображение контакта. Автоматически преобразуется в изображение "
+"64x64px, с сохранением пропорций. Используйте это поле там, где требуется "
+"маленькое изображение."
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__task_manager_id
@@ -374,3 +399,5 @@ msgstr "Пользователи"
 msgid "Users count"
 msgstr "Количество пользователей"
 
+#~ msgid "Small-sized image"
+#~ msgstr "Уменьшенное изображение"
