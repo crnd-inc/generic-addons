@@ -35,15 +35,13 @@
         </field>
     </record>
 
-    <act_window
-        id="action_generic_condition_test_wizard_view"
-        name="Test Condition"
-        context="{'default_condition_id': active_id}"
-        res_model="generic.condition.test_condition"
-        src_model="generic.condition"
-        view_mode="form"
-        target="new"/>
+    <record id="action_generic_condition_test_wizard_view"
+            model="ir.actions.act_window">
+        <field name="name">Test Condition</field>
+        <field name="context">{'default_condition_id': active_id}</field>
+        <field name="res_model">generic.condition.test_condition</field>
+        <field name="binding_model_id" ref="model_generic_condition"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 </odoo>
-
-
-
