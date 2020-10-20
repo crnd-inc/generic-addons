@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_condition
+# 	* generic_condition
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-13 10:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -48,20 +49,28 @@ msgstr "Основан на модели"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "By this type you can create the condition to compare monetary indicators. <br/>\n"
+msgid ""
+"By this type you can create the condition to compare monetary indicators. "
+"<br/>\n"
 "                                <br/>"
-msgstr "Используя этот тип, вы можете создать условие для сравнения денежных показателей. <br/>\n"
+msgstr ""
+"Используя этот тип, вы можете создать условие для сравнения денежных "
+"показателей. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
+msgid ""
+"By this type you can describe the condition as an expression in the Python "
+"programming language. <br/>\n"
 "                                <br/>"
-msgstr "Используя этот тип, вы можете описать условие как выражение на языке программирования Python.  <br/>\n"
+msgstr ""
+"Используя этот тип, вы можете описать условие как выражение на языке "
+"программирования Python.  <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:898
+#: code:addons/generic_condition/models/generic_condition.py:902
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr "Невозможно проверить условия для пустой выборки данных"
@@ -88,13 +97,17 @@ msgid "Check set of other conditions"
 msgstr "Проверить набор других условий"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:433
+#: code:addons/generic_condition/models/generic_condition.py:436
 #, python-format
-msgid "Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
+msgid ""
+"Checking condition %s on document %s caused error. Notify administrator to "
+"fix it.\n"
 "\n"
 "---\n"
 "%s"
-msgstr "Проверка %s документа %s вызвала ошибку. Сообщите администратору для ее исправления.\n"
+msgstr ""
+"Проверка %s документа %s вызвала ошибку. Сообщите администратору для ее "
+"исправления.\n"
 "\n"
 "---\n"
 "%s"
@@ -107,7 +120,8 @@ msgstr "Проверки"
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Checks: Check if current user satisfies specified conditions"
-msgstr "Проверки: Проверить удовлетворяет ли текущий пользователь выбранные условия"
+msgstr ""
+"Проверки: Проверить удовлетворяет ли текущий пользователь выбранные условия"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_date_diff_uom
@@ -121,12 +135,17 @@ msgstr "Выберите модель, для которой применить 
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_rel_record_operator
-msgid "Choose way related record will be checked:\n"
+msgid ""
+"Choose way related record will be checked:\n"
 "- Match: return True if all filtered records match condition.\n"
-"- Contains: return True if at least one of filtered records match 'check' conditions"
-msgstr "Выберите способ проверки связанных запросов:\n"
-"- Совпадение: Истинно, если все выбранные записи соответствуют условиям проверки.\n"
-"- Включение: Истинно, если хоть одна из выбранных записей соответствует условиям проверки."
+"- Contains: return True if at least one of filtered records match 'check' "
+"conditions"
+msgstr ""
+"Выберите способ проверки связанных запросов:\n"
+"- Совпадение: Истинно, если все выбранные записи соответствуют условиям "
+"проверки.\n"
+"- Включение: Истинно, если хоть одна из выбранных записей соответствует "
+"условиям проверки."
 
 #. module: generic_condition
 #: model:ir.filters,name:generic_condition.demo_filter_partner_city_kyiv
@@ -352,13 +371,13 @@ msgid "End Date"
 msgstr "Дата завершения"
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:52
+#: code:addons/generic_condition/wizard/test_condition.py:49
 #, python-format
 msgid "Error"
 msgstr "Ошибка"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:851
+#: code:addons/generic_condition/models/generic_condition.py:854
 #, python-format
 msgid "Error caught while evaluating condition %s[%d]"
 msgstr "Возникла ошибка при вычислении условия %s[%d]"
@@ -371,7 +390,7 @@ msgstr "Выражение"
 
 #. module: generic_condition
 #: code:addons/generic_condition/tests/test_condition.py:133
-#: code:addons/generic_condition/wizard/test_condition.py:50
+#: code:addons/generic_condition/wizard/test_condition.py:47
 #, python-format
 msgid "Fail"
 msgstr "Провал"
@@ -430,18 +449,18 @@ msgid "Generic Conditions"
 msgstr "Универсальные условия"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:801
+#: code:addons/generic_condition/models/generic_condition.py:804
 #, python-format
-msgid "Generic conditions misconfigured!\n"
+msgid ""
+"Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"	condition: %s [%d]	object: %s [%d]	object's model: %s\n"
-"	condition's model: %s\n"
-""
-msgstr "Неправильно настроены универсальные условия!\n"
+"\tcondition: %s [%d]\tobject: %s [%d]\tobject's model: %s\n"
+"\tcondition's model: %s\n"
+msgstr ""
+"Неправильно настроены универсальные условия!\n"
 "модели объекта и условия не совпадают:\n"
-"	условие: %s [%d]	объект: %s [%d]	модель объекта: %s\n"
-"	модель условия: %s\n"
-""
+"\tусловие: %s [%d]\tобъект: %s [%d]\tмодель объекта: %s\n"
+"\tмодель условия: %s\n"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
@@ -460,16 +479,21 @@ msgstr "Содержит только контакты"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "Here you can create a condition that relates to the simple field of the Odoo object. <br/>\n"
+msgid ""
+"Here you can create a condition that relates to the simple field of the Odoo "
+"object. <br/>\n"
 "                                <br/>"
-msgstr "Создайте условие, которое связано с простым полем объекта Оду. <br/>\n"
+msgstr ""
+"Создайте условие, которое связано с простым полем объекта Оду. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "Here you can specify the filter for verification. <br/>\n"
+msgid ""
+"Here you can specify the filter for verification. <br/>\n"
 "                                <br/>"
-msgstr "Укажите фильтр. <br/>\n"
+msgstr ""
+"Укажите фильтр. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
@@ -490,28 +514,45 @@ msgstr "ID объекта, на котором протестировать ус
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_date_diff_absolute
-msgid "If checked, then absolute date difference will be checked. (date difference will be positive always)"
-msgstr "Если выбрано, разница дат будет рассчитываться по модулю (разница дат всегда будет положительной)"
+msgid ""
+"If checked, then absolute date difference will be checked. (date difference "
+"will be positive always)"
+msgstr ""
+"Если выбрано, разница дат будет рассчитываться по модулю (разница дат всегда "
+"будет положительной)"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_enable_caching
-msgid "If set, then condition result for a specific object will be cached during one condition chain call. This may speed up condition processing."
-msgstr "Если выбрано, результат проверки для каждого отдельного объекта будет кешироваться во время проверки одной цепи условий. Это может ускорить обработку условий."
+msgid ""
+"If set, then condition result for a specific object will be cached during "
+"one condition chain call. This may speed up condition processing."
+msgstr ""
+"Если выбрано, результат проверки для каждого отдельного объекта будет "
+"кешироваться во время проверки одной цепи условий. Это может ускорить "
+"обработку условий."
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br/>\n"
+msgid ""
+"In that case you can select one of the already created conditions (this "
+"could be useful if you use the same condition but with inversion or as a "
+"superuser). <br/>\n"
 "                                <br/>"
-msgstr "В этом случае вы можете выбрать одно из уже созданных условий (это может быть полезно при использовании такого же условия, но с инверсией, или как суперпользователь). <br/>\n"
+msgstr ""
+"В этом случае вы можете выбрать одно из уже созданных условий (это может "
+"быть полезно при использовании такого же условия, но с инверсией, или как "
+"суперпользователь). <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:67
 #, python-format
-msgid "Incorrect Condition (condition group) selected!\n"
+msgid ""
+"Incorrect Condition (condition group) selected!\n"
 "Base condition: %s[%s]\n"
 "Condition with wrong model: %s[%s]"
-msgstr "Выбрано некорректное условие (группа условий)!\n"
+msgstr ""
+"Выбрано некорректное условие (группа условий)!\n"
 "Основное условие: %s[%s]\n"
 "Условие с неверной моделью: %s[%s]"
 
@@ -558,7 +599,9 @@ msgstr "Последнее обновление"
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_condition_id
 msgid "Link to another condition. Usualy used to get inversed condition"
-msgstr "Связать с другим условием. Обычно используется для получения противоположного условия"
+msgstr ""
+"Связать с другим условием. Обычно используется для получения "
+"противоположного условия"
 
 #. module: generic_condition
 #: selection:generic.condition,condition_rel_record_operator:0
@@ -600,7 +643,7 @@ msgid "OR"
 msgstr "Или"
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:36
+#: code:addons/generic_condition/wizard/test_condition.py:33
 #, python-format
 msgid "Object (model: %s; id: %s) not found"
 msgstr "Объект (модель: %s; id: %s) не найден"
@@ -617,7 +660,7 @@ msgstr "Модель объекта"
 
 #. module: generic_condition
 #: code:addons/generic_condition/tests/test_condition.py:129
-#: code:addons/generic_condition/wizard/test_condition.py:48
+#: code:addons/generic_condition/wizard/test_condition.py:45
 #, python-format
 msgid "Ok"
 msgstr "Ok"
@@ -630,7 +673,8 @@ msgstr "Один из"
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "One of: Check if current user is present in specified list of users"
-msgstr "Один из: входит ли текщий пользователь в выбранный список пользователей"
+msgstr ""
+"Один из: входит ли текщий пользователь в выбранный список пользователей"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_monetary_operator
@@ -772,28 +816,41 @@ msgstr "There following check types"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of condition applies to related fields. <br/>\n"
+msgid ""
+"This type of condition applies to related fields. <br/>\n"
 "                                <br/>"
-msgstr "Этот тип условия применяется для связанных полей. <br/>\n"
-"                                <br/>"
-
-#. module: generic_condition
-#: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of condition is used to check the properties of related objects. <br/>\n"
-"                                <br/>"
-msgstr "Этот тип условия используется для проверки связанных объектов. <br/>\n"
+msgstr ""
+"Этот тип условия применяется для связанных полей. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of condition refers to the current user and verifies whether the current user satisfies conditions."
-msgstr "Этот тип условия относится к текущему пользователю и проверяет виполняются ли условия пользователя."
+msgid ""
+"This type of condition is used to check the properties of related objects. "
+"<br/>\n"
+"                                <br/>"
+msgstr ""
+"Этот тип условия используется для проверки связанных объектов. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of the condition allows you to estimate the date difference between certain events. <br/>\n"
+msgid ""
+"This type of condition refers to the current user and verifies whether the "
+"current user satisfies conditions."
+msgstr ""
+"Этот тип условия относится к текущему пользователю и проверяет виполняются "
+"ли условия пользователя."
+
+#. module: generic_condition
+#: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
+msgid ""
+"This type of the condition allows you to estimate the date difference "
+"between certain events. <br/>\n"
 "                                <br/>"
-msgstr "Этот тип условий позволяет оценить разницу дат между определенными событиями. <br/>\n"
+msgstr ""
+"Этот тип условий позволяет оценить разницу дат между определенными "
+"событиями. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
@@ -809,20 +866,35 @@ msgid "Type"
 msgstr "Тип"
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:53
+#: code:addons/generic_condition/wizard/test_condition.py:50
 #, python-format
 msgid "Unknown"
 msgstr "Неизвестно"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_rel_filter_conditions
-msgid "Used together with Related Field. These conditions are used to filter related items that will be checked by 'Related check conditions'. If this conditions evaluates to False for some object, that this object will not be checked"
-msgstr "Используется для проверки связанного поля. Эти условия используются, чтобы отфильтровать связанные элементы, которые будут проверены условиями 'Связанные условия проверки'. Если эти условия будут пересчитаны в False для какого-нибудь объекта, этот объект не будет проверен"
+msgid ""
+"Used together with Related Field. These conditions are used to filter "
+"related items that will be checked by 'Related check conditions'. If this "
+"conditions evaluates to False for some object, that this object will not be "
+"checked"
+msgstr ""
+"Используется для проверки связанного поля. Эти условия используются, чтобы "
+"отфильтровать связанные элементы, которые будут проверены условиями "
+"'Связанные условия проверки'. Если эти условия будут пересчитаны в False для "
+"какого-нибудь объекта, этот объект не будет проверен"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_condition_rel_conditions
-msgid "Used together with Related Field. These conditions will be used to check objects that passed filter conditions. And result of these related conditions will be used as result"
-msgstr "Используются для проверки связанного поля. Эти условия будут использованы для проверки объектов, которые были отфильтрованы 'Условиями фильтра связанных записей'. Результат проверки данных условий будет использован как результат проверки этого условия"
+msgid ""
+"Used together with Related Field. These conditions will be used to check "
+"objects that passed filter conditions. And result of these related "
+"conditions will be used as result"
+msgstr ""
+"Используются для проверки связанного поля. Эти условия будут использованы "
+"для проверки объектов, которые были отфильтрованы 'Условиями фильтра "
+"связанных записей'. Результат проверки данных условий будет использован как "
+"результат проверки этого условия"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_condition_user_user_field_id
@@ -878,9 +950,13 @@ msgstr "Использовать sudo"
 
 #. module: generic_condition
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "With this type of condition you can use multiple conditions simultaneously. <br/>\n"
+msgid ""
+"With this type of condition you can use multiple conditions simultaneously. "
+"<br/>\n"
 "                                <br/>"
-msgstr "С помощью этого типа условия вы можете использовать несколько условий одновременно. <br/>\n"
+msgstr ""
+"С помощью этого типа условия вы можете использовать несколько условий "
+"одновременно. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
@@ -989,4 +1065,3 @@ msgstr "uid - id текущего пользователя"
 #: model:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "user - current user"
 msgstr "user - текущий пользователь"
-

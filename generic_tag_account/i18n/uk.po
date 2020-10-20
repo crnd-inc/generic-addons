@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_tag_account
+# 	* generic_tag_account
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-12 18:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -40,4 +41,3 @@ msgstr "Теги реалізації"
 #: model:ir.ui.view,arch_db:generic_tag_account.view_account_invoice_tag_form_supplier
 msgid "Tags..."
 msgstr "Теги"
-

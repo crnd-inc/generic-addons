@@ -2,9 +2,8 @@
 |---|---|---|---|---|---|
 | base_field_big_int | Base Field Big Int | LGPL-3 | 11.0.0.2.0 | BigInt field implementation for Odoo |  |
 | base_field_m2m_view | Base Field Many2many View | LGPL-3 | 11.0.0.2.0 | Adds Many2manyView field implementation for Odoo. Useful in cases when m2m relation computed via Postgresql View |  |
-| generic_condition | Generic Condition | LGPL-3 | 11.0.1.4.1 | Create generic conditions on which you         can program some logic in Odoo objects |  |
+| generic_condition | Generic Condition | LGPL-3 | 11.0.1.5.0 | Create generic conditions on which you         can program some logic in Odoo objects |  |
 | generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 11.0.1.1.1 | Generic Conditions (Integration with Action Rules) |  |
-| generic_condition_marketing | Generic Condition - Marketing | LGPL-3 | 11.0.0.1.0 | Generic Conditions (Integration with marketing campaigns) |  |
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 11.0.1.4.0 | Generic Conditions - Tests (do not install manualy) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 11.0.0.1.0 | Technical utils to add encryption to other addons |  |
 | generic_location | Generic Location | LGPL-3 | 11.0.1.4.1 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |

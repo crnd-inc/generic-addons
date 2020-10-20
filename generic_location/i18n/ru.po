@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_location
+# 	* generic_location
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-13 10:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -22,9 +23,13 @@ msgstr "Доступ к локации"
 
 #. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user_implicit
-msgid "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+msgid ""
+"Access generic locations (no access to menu, access only to locations he is "
+"subscribed to, and theirs sublocations)\n"
 "        "
-msgstr "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+msgstr ""
+"Access generic locations (no access to menu, access only to locations he is "
+"subscribed to, and theirs sublocations)\n"
 "        "
 
 #. module: generic_location
@@ -142,8 +147,14 @@ msgstr "Изображение средних размеров"
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location_image_medium
-msgid "Medium-sized image of the location. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. "
-msgstr "Изображение локации средней величины. Оно автоматически меняет размер на 128x128px с сохранением соотношения сторон, если один из размеров превышает указанный. "
+msgid ""
+"Medium-sized image of the location. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved, only when the image exceeds "
+"one of those sizes. "
+msgstr ""
+"Изображение локации средней величины. Оно автоматически меняет размер на "
+"128x128px с сохранением соотношения сторон, если один из размеров превышает "
+"указанный. "
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_name
@@ -173,8 +184,12 @@ msgstr "Маленькое изображение"
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location_image_small
-msgid "Small-sized image of the location. It is automatically resized as a 64x64px image, with aspect ratio preserved. "
-msgstr "Уменьшенное изображение локации. Оно автоматически меняет размер на 64x64px с сохранением соотношения сторон, если один из размеров превышает указанный. "
+msgid ""
+"Small-sized image of the location. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. "
+msgstr ""
+"Уменьшенное изображение локации. Оно автоматически меняет размер на 64x64px "
+"с сохранением соотношения сторон, если один из размеров превышает указанный. "
 
 #. module: generic_location
 #: model:ir.ui.view,arch_db:generic_location.generic_location_form_view
@@ -196,6 +211,9 @@ msgstr "Название и описание локации не должны с
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location_image
-msgid "This field holds the image used as image for the location, limited to 1024x1024px."
-msgstr "Это поле содержит изображение, которое используется как изображение локации, ограниченное до размера 1024x1024px."
-
+msgid ""
+"This field holds the image used as image for the location, limited to "
+"1024x1024px."
+msgstr ""
+"Это поле содержит изображение, которое используется как изображение локации, "
+"ограниченное до размера 1024x1024px."
