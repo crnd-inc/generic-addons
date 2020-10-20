@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_service
+# 	* generic_service
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-16 11:53+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -50,14 +51,26 @@ msgid "Attachment Count"
 msgstr "Кол-во вложений"
 
 #. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__change_manager_id
+msgid "Change Manager"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__code
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__code
 msgid "Code"
 msgstr "Код"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Code..."
 msgstr "Код..."
+
+#. module: generic_service
+#: model:ir.model,name:generic_service.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
 
 #. module: generic_service
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_configuration_menu_item
@@ -141,6 +154,11 @@ msgstr "Универсальный уровень сервиса"
 #: model:res.groups,name:generic_service.group_generic_service_manager
 msgid "Generic service manager"
 msgstr "Менеджер универсальных сервисов"
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
+msgid "Generic service settings"
+msgstr ""
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_user
@@ -309,6 +327,7 @@ msgstr "Информация по сервису"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_partner__service_level_id
+#: model:ir.model.fields,field_description:generic_service.field_res_users__service_level_id
 msgid "Service Level"
 msgstr "Уровень сервиса"
 
@@ -342,8 +361,15 @@ msgstr "Уровень сервиса для наших Серебрянных �
 #: model:ir.actions.act_window,name:generic_service.generic_service_action
 #: model:ir.ui.menu,name:generic_service.generic_service_menu_item
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_root
+#: model_terms:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
 msgid "Services"
 msgstr "Сервисы"
+
+#. module: generic_service
+#: model:ir.actions.act_window,name:generic_service.generic_service_action_service_settings
+#: model:ir.ui.menu,name:generic_service.menu_settings_service
+msgid "Settings"
+msgstr ""
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_administration
@@ -382,3 +408,13 @@ msgstr "Непрочитанные Сообщения"
 msgid "Unread Messages Counter"
 msgstr "Счетчик непрочитанных сообщений"
 
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_res_config_settings__group_use_service_level
+msgid "Use Service Level"
+msgstr ""
+
+#. module: generic_service
+#: model:res.groups,comment:generic_service.group_use_service_level
+#: model:res.groups,name:generic_service.group_use_service_level
+msgid "Use service level"
+msgstr ""
