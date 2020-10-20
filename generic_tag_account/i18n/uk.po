@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_tag_account
+# 	* generic_tag_account
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-13 15:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -21,22 +22,22 @@ msgid "Account Tags"
 msgstr "Теги бухобліку"
 
 #. module: generic_tag_account
-#: model:generic.tag.model,name:generic_tag_account.generic_tag_model_account_invoice
-#: model:ir.model,name:generic_tag_account.generic_tag_model_account_invoice_ir_model
-msgid "Invoice"
-msgstr "Реалізація"
-
-#. module: generic_tag_account
-#: model:ir.actions.act_window,name:generic_tag_account.account_invoice_tags_view_action
-#: model:ir.ui.menu,name:generic_tag_account.menu_account_invoice_tags_id
+#: model:ir.actions.act_window,name:generic_tag_account.account_move_tags_view_action
+#: model:ir.ui.menu,name:generic_tag_account.menu_account_move_tags_id
 msgid "Invoice Tags"
 msgstr "Теги реалізації"
 
 #. module: generic_tag_account
-#: model_terms:ir.ui.view,arch_db:generic_tag_account.account_invoice_supplier_tree_view
+#: model:generic.tag.model,name:generic_tag_account.generic_tag_model_account_move
+#: model:ir.model,name:generic_tag_account.generic_tag_model_account_move_ir_model
+msgid "Journal Entries"
+msgstr ""
+
+#. module: generic_tag_account
 #: model_terms:ir.ui.view,arch_db:generic_tag_account.account_invoice_tree_view
-#: model_terms:ir.ui.view,arch_db:generic_tag_account.view_account_invoice_tag_form_customer
-#: model_terms:ir.ui.view,arch_db:generic_tag_account.view_account_invoice_tag_form_supplier
+#: model_terms:ir.ui.view,arch_db:generic_tag_account.view_account_move_tag_form
 msgid "Tags..."
 msgstr "Мітки..."
 
+#~ msgid "Invoice"
+#~ msgstr "Реалізація"

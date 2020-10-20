@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_location
+# 	* generic_location
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-13 15:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -22,7 +23,9 @@ msgstr "Доступ загальної локації"
 
 #. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user_implicit
-msgid "Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
+msgid ""
+"Access generic locations (no access to menu, access only to locations he is "
+"subscribed to, and theirs sublocations)\n"
 "        "
 msgstr ""
 
@@ -118,12 +121,8 @@ msgid "ID"
 msgstr ""
 
 #. module: generic_location
-#: model:ir.model.fields,help:generic_location.field_generic_location__message_unread
-msgid "If checked new messages require your attention."
-msgstr "Якщо позначено, то повідомленя потребує вашої уваги"
-
-#. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__message_needaction
+#: model:ir.model.fields,help:generic_location.field_generic_location__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "Якщо відмічено, то нові повідомлення будуть потребувати вашої уваги."
 
@@ -133,9 +132,29 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
 
 #. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location__image
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__image_1920
 msgid "Image"
 msgstr "Зображення"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__image_512
+msgid "Image 512"
+msgstr ""
 
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
@@ -180,16 +199,6 @@ msgid "Manage generic locations"
 msgstr "Менеджер загальноі локаціі"
 
 #. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location__image_medium
-msgid "Medium-sized image"
-msgstr "Зображення середньої величини"
-
-#. module: generic_location
-#: model:ir.model.fields,help:generic_location.field_generic_location__image_medium
-msgid "Medium-sized image of the location. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. "
-msgstr ""
-
-#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_has_error
 msgid "Message Delivery error"
 msgstr "Помилка доставлення повідомлення"
@@ -211,8 +220,8 @@ msgstr "Кількість дій"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_has_error_counter
-msgid "Number of error"
-msgstr "Кількість помилок"
+msgid "Number of errors"
+msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__message_needaction_counter
@@ -246,37 +255,21 @@ msgid "Parents"
 msgstr ""
 
 #. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location__image_small
-msgid "Small-sized image"
-msgstr "Зменшене зображення"
-
-#. module: generic_location
-#: model:ir.model.fields,help:generic_location.field_generic_location__image_small
-msgid "Small-sized image of the location. It is automatically resized as a 64x64px image, with aspect ratio preserved. "
-msgstr ""
-
-#. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Sublocation"
 msgstr ""
 
 #. module: generic_location
-#: code:addons/generic_location/models/generic_location.py:121
-#: code:addons/generic_location/models/generic_location.py:122
+#: code:addons/generic_location/models/generic_location.py:0
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__child_ids
 #, python-format
 msgid "Sublocations"
 msgstr "Сублокація"
 
 #. module: generic_location
-#: sql_constraint:generic.location:0
+#: model:ir.model.constraint,message:generic_location.constraint_generic_location_name_description_check
 msgid "The title of the Location should not be the description"
 msgstr "Назвою локації, не повинен бути опис"
-
-#. module: generic_location
-#: model:ir.model.fields,help:generic_location.field_generic_location__image
-msgid "This field holds the image used as image for the location, limited to 1024x1024px."
-msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_unread
@@ -288,3 +281,14 @@ msgstr "Непрочитані повідомлення"
 msgid "Unread Messages Counter"
 msgstr "Кількість непрочитаних повідомлень"
 
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Якщо позначено, то повідомленя потребує вашої уваги"
+
+#~ msgid "Medium-sized image"
+#~ msgstr "Зображення середньої величини"
+
+#~ msgid "Number of error"
+#~ msgstr "Кількість помилок"
+
+#~ msgid "Small-sized image"
+#~ msgstr "Зменшене зображення"

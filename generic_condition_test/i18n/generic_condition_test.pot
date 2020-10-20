@@ -1,14 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_condition_test
+# 	* generic_condition_test
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 14:50+0000\n"
-"PO-Revision-Date: 2019-09-13 14:50+0000\n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -153,12 +151,12 @@ msgid "User M2O"
 msgstr ""
 
 #. module: generic_condition_test
-#: selection:test.generic.condition.test.model,test_selection:0
+#: model:ir.model.fields.selection,name:generic_condition_test.selection__test_generic_condition_test_model__test_selection__val1
 msgid "Value 1"
 msgstr ""
 
 #. module: generic_condition_test
-#: selection:test.generic.condition.test.model,test_selection:0
+#: model:ir.model.fields.selection,name:generic_condition_test.selection__test_generic_condition_test_model__test_selection__val2
 msgid "Value 2"
 msgstr ""
 
@@ -171,4 +169,3 @@ msgstr ""
 #: model:ir.model,name:generic_condition_test.model_test_generic_condition_test_model_relation
 msgid "test.generic.condition.test.model.relation"
 msgstr ""
-
