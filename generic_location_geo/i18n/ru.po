@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_location_geo
+# 	* generic_location_geo
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-09-13 15:09+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -17,7 +18,8 @@ msgstr ""
 
 #. module: generic_location_geo
 #: model_terms:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
-msgid "<span class=\"oe_inline\"> ( </span>\n"
+msgid ""
+"<span class=\"oe_inline\"> ( </span>\n"
 "                        <span> Lat : </span>"
 msgstr ""
 
@@ -45,4 +47,3 @@ msgstr "Локация"
 #: model:ir.model.fields,field_description:generic_location_geo.field_generic_location__longitude
 msgid "Longitude"
 msgstr ""
-

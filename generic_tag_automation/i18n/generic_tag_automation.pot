@@ -16,6 +16,7 @@ msgstr ""
 #. module: generic_tag_automation
 #: model:ir.model.fields,field_description:generic_tag_automation.field_base_automation__state
 #: model:ir.model.fields,field_description:generic_tag_automation.field_ir_actions_server__state
+#: model:ir.model.fields,field_description:generic_tag_automation.field_ir_cron__state
 msgid "Action To Do"
 msgstr ""
 
@@ -87,6 +88,7 @@ msgstr ""
 #. module: generic_tag_automation
 #: model:ir.model.fields,help:generic_tag_automation.field_base_automation__state
 #: model:ir.model.fields,help:generic_tag_automation.field_ir_actions_server__state
+#: model:ir.model.fields,help:generic_tag_automation.field_ir_cron__state
 msgid "Type of server action. The following values are available:\n"
 "- 'Execute Python Code': a block of python code that will be executed\n"
 "- 'Create': create a new record with new values\n"

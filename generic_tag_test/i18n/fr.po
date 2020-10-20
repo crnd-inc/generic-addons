@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_tag_test
+# 	* generic_tag_test
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2020-09-30 10:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -137,4 +138,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__test_field
 msgid "test_field"
 msgstr ""
-

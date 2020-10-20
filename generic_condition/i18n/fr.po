@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_condition
+# 	* generic_condition
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2020-09-30 10:07+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -58,13 +59,17 @@ msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "By this type you can create the condition to compare monetary indicators. <br/>\n"
+msgid ""
+"By this type you can create the condition to compare monetary indicators. "
+"<br/>\n"
 "                                <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
+msgid ""
+"By this type you can describe the condition as an expression in the Python "
+"programming language. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -98,7 +103,9 @@ msgstr ""
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:436
 #, python-format
-msgid "Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
+msgid ""
+"Checking condition %s on document %s caused error. Notify administrator to "
+"fix it.\n"
 "\n"
 "---\n"
 "%s"
@@ -126,9 +133,11 @@ msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_rel_record_operator
-msgid "Choose way related record will be checked:\n"
+msgid ""
+"Choose way related record will be checked:\n"
 "- Match: return True if all filtered records match condition.\n"
-"- Contains: return True if at least one of filtered records match 'check' conditions"
+"- Contains: return True if at least one of filtered records match 'check' "
+"conditions"
 msgstr ""
 
 #. module: generic_condition
@@ -450,11 +459,11 @@ msgstr ""
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:804
 #, python-format
-msgid "Generic conditions misconfigured!\n"
+msgid ""
+"Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"	condition: %s [%d]	object: %s [%d]	object's model: %s\n"
-"	condition's model: %s\n"
-""
+"\tcondition: %s [%d]\tobject: %s [%d]\tobject's model: %s\n"
+"\tcondition's model: %s\n"
 msgstr ""
 
 #. module: generic_condition
@@ -474,13 +483,16 @@ msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "Here you can create a condition that relates to the simple field of the Odoo object. <br/>\n"
+msgid ""
+"Here you can create a condition that relates to the simple field of the Odoo "
+"object. <br/>\n"
 "                                <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "Here you can specify the filter for verification. <br/>\n"
+msgid ""
+"Here you can specify the filter for verification. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -517,24 +529,32 @@ msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_date_diff_absolute
-msgid "If checked, then absolute date difference will be checked. (date difference will be positive always)"
+msgid ""
+"If checked, then absolute date difference will be checked. (date difference "
+"will be positive always)"
 msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__enable_caching
-msgid "If set, then condition result for a specific object will be cached during one condition chain call. This may speed up condition processing."
+msgid ""
+"If set, then condition result for a specific object will be cached during "
+"one condition chain call. This may speed up condition processing."
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br/>\n"
+msgid ""
+"In that case you can select one of the already created conditions (this "
+"could be useful if you use the same condition but with inversion or as a "
+"superuser). <br/>\n"
 "                                <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:67
 #, python-format
-msgid "Incorrect Condition (condition group) selected!\n"
+msgid ""
+"Incorrect Condition (condition group) selected!\n"
 "Base condition: %s[%s]\n"
 "Condition with wrong model: %s[%s]"
 msgstr ""
@@ -841,24 +861,31 @@ msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of condition applies to related fields. <br/>\n"
+msgid ""
+"This type of condition applies to related fields. <br/>\n"
 "                                <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of condition is used to check the properties of related objects. <br/>\n"
+msgid ""
+"This type of condition is used to check the properties of related objects. "
+"<br/>\n"
 "                                <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of condition refers to the current user and verifies whether the current user satisfies conditions."
+msgid ""
+"This type of condition refers to the current user and verifies whether the "
+"current user satisfies conditions."
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "This type of the condition allows you to estimate the date difference between certain events. <br/>\n"
+msgid ""
+"This type of the condition allows you to estimate the date difference "
+"between certain events. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -892,12 +919,19 @@ msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_rel_filter_conditions
-msgid "Used together with Related Field. These conditions are used to filter related items that will be checked by 'Related check conditions'. If this conditions evaluates to False for some object, that this object will not be checked"
+msgid ""
+"Used together with Related Field. These conditions are used to filter "
+"related items that will be checked by 'Related check conditions'. If this "
+"conditions evaluates to False for some object, that this object will not be "
+"checked"
 msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_rel_conditions
-msgid "Used together with Related Field. These conditions will be used to check objects that passed filter conditions. And result of these related conditions will be used as result"
+msgid ""
+"Used together with Related Field. These conditions will be used to check "
+"objects that passed filter conditions. And result of these related "
+"conditions will be used as result"
 msgstr ""
 
 #. module: generic_condition
@@ -954,7 +988,9 @@ msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "With this type of condition you can use multiple conditions simultaneously. <br/>\n"
+msgid ""
+"With this type of condition you can use multiple conditions simultaneously. "
+"<br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1064,4 +1100,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "user - current user"
 msgstr ""
-
