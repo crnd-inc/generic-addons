@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_resource
+# 	* generic_resource
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2020-08-09 18:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -44,8 +45,12 @@ msgstr "Archived"
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_wizard_mixin.py:33
 #, python-format
-msgid "Cannot apply this action to resources with different types! Please, select resources of single resource type"
-msgstr "Cannot apply this action to resources with different types! Please, select resources of single resource type"
+msgid ""
+"Cannot apply this action to resources with different types! Please, select "
+"resources of single resource type"
+msgstr ""
+"Cannot apply this action to resources with different types! Please, select "
+"resources of single resource type"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
@@ -168,12 +173,14 @@ msgstr "Fields"
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:94
 #, python-format
-msgid "Fields incorrect\n"
-"	Resource type: %s\n"
-"	Resource res_id: %s"
-msgstr "Fields incorrect\n"
-"	Resource type: %s\n"
-"	Resource res_id: %s"
+msgid ""
+"Fields incorrect\n"
+"\tResource type: %s\n"
+"\tResource res_id: %s"
+msgstr ""
+"Fields incorrect\n"
+"\tResource type: %s\n"
+"\tResource res_id: %s"
 
 #. module: generic_resource
 #: sql_constraint:generic.resource.type:0
@@ -267,7 +274,7 @@ msgstr "Generic resource user (imlicit)"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_3272
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_3305
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin_id
@@ -579,12 +586,14 @@ msgstr "Resource Wizard: Mixin"
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:84
 #, python-format
-msgid "Resource does not exists!\n"
-"	Resource type: %s\n"
-"	Resource res_id: %s"
-msgstr "Resource does not exists!\n"
-"	Resource type: %s\n"
-"	Resource res_id: %s"
+msgid ""
+"Resource does not exists!\n"
+"\tResource type: %s\n"
+"\tResource res_id: %s"
+msgstr ""
+"Resource does not exists!\n"
+"\tResource type: %s\n"
+"\tResource res_id: %s"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_contract_resource_line_resource_res_model
@@ -618,8 +627,10 @@ msgstr "Resource type"
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_mixin_resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_resource_visibility
-msgid "Resource visibility determines users that have read access for this resource."
-msgstr "Resource visibility determines users that have read access for this resource."
+msgid ""
+"Resource visibility determines users that have read access for this resource."
+msgstr ""
+"Resource visibility determines users that have read access for this resource."
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_action
@@ -724,4 +735,3 @@ msgstr "Wrong 'Show Resources Action' for resource type '%s'"
 #: model:ir.model,name:generic_resource.model_ir_rule
 msgid "ir.rule"
 msgstr "ir.rule"
-
