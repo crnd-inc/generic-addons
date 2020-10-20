@@ -159,7 +159,7 @@ migration_tests:
             - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
 
 update_addons_list_and_trans:
-    image: registry.crnd.pro/crnd/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd/docker/odoo-ci-x:13.0-ci
     stage: deploy
     before_script:
         - odoo-helper link .
