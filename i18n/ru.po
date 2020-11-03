@@ -272,7 +272,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_3305
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category_id_3330
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin_id
