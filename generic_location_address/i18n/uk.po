@@ -60,6 +60,21 @@ msgid "Country"
 msgstr "Країна"
 
 #. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_location_address
 #: model:ir.model,name:generic_location_address.model_generic_location
 msgid "Location"
 msgstr "Локація"

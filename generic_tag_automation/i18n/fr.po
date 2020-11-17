@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2020-10-20 12:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -30,6 +31,24 @@ msgstr ""
 #. module: generic_tag_automation
 #: model:ir.model,name:generic_tag_automation.model_base_automation
 msgid "Automated Action"
+msgstr ""
+
+#. module: generic_tag_automation
+#: model:ir.model.fields,field_description:generic_tag_automation.field_base_automation__display_name
+#: model:ir.model.fields,field_description:generic_tag_automation.field_ir_actions_server__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_tag_automation
+#: model:ir.model.fields,field_description:generic_tag_automation.field_base_automation__id
+#: model:ir.model.fields,field_description:generic_tag_automation.field_ir_actions_server__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_tag_automation
+#: model:ir.model.fields,field_description:generic_tag_automation.field_base_automation____last_update
+#: model:ir.model.fields,field_description:generic_tag_automation.field_ir_actions_server____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: generic_tag_automation
@@ -66,7 +85,8 @@ msgid ""
 "- 'Execute Python Code': a block of python code that will be executed\n"
 "- 'Create': create a new record with new values\n"
 "- 'Update a Record': update the values of a record\n"
-"- 'Execute several actions': define an action that triggers several other server actions\n"
+"- 'Execute several actions': define an action that triggers several other "
+"server actions\n"
 "- 'Send Email': automatically send an email (Discuss)\n"
 "- 'Add Followers': add followers to a record (Discuss)\n"
 "- 'Create Next Activity': create an activity (Discuss)"

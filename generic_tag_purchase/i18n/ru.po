@@ -17,6 +17,42 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_tag_purchase
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,help:generic_tag_purchase.field_purchase_order__search_tag_id
+#: model:ir.model.fields,help:generic_tag_purchase.field_purchase_order_line__search_tag_id
+msgid "Find all records that contain this tag"
+msgstr ""
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,help:generic_tag_purchase.field_purchase_order__search_no_tag_id
+#: model:ir.model.fields,help:generic_tag_purchase.field_purchase_order_line__search_no_tag_id
+msgid "Find all records that have no this tag"
+msgstr ""
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order__id
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order__search_no_tag_id
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line__search_no_tag_id
+msgid "No tag"
+msgstr ""
+
+#. module: generic_tag_purchase
 #: model:ir.actions.act_window,name:generic_tag_purchase.purchase_line_tags_view_action
 #: model:ir.ui.menu,name:generic_tag_purchase.menu_sale_order_line_tags_id
 msgid "Purchase Line Tags"
@@ -24,13 +60,13 @@ msgstr "Теги линии снабжения"
 
 #. module: generic_tag_purchase
 #: model:generic.tag.model,name:generic_tag_purchase.generic_tag_model_purchase_order
-#: model:ir.model,name:generic_tag_purchase.generic_tag_model_purchase_order_ir_model
+#: model:ir.model,name:generic_tag_purchase.model_purchase_order
 msgid "Purchase Order"
 msgstr "Заказ на закупку"
 
 #. module: generic_tag_purchase
 #: model:generic.tag.model,name:generic_tag_purchase.generic_tag_model_purchase_order_line
-#: model:ir.model,name:generic_tag_purchase.generic_tag_model_purchase_order_line_ir_model
+#: model:ir.model,name:generic_tag_purchase.model_purchase_order_line
 msgid "Purchase Order Line"
 msgstr "Позиция заказа на закупку"
 
@@ -44,6 +80,18 @@ msgstr "Теги заказа на закупку"
 #: model:ir.ui.menu,name:generic_tag_purchase.menu_purchase_tags
 msgid "Purchase Tags"
 msgstr "Теги закупок"
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order__search_tag_id
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line__search_tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: generic_tag_purchase
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order__tag_ids
+#: model:ir.model.fields,field_description:generic_tag_purchase.field_purchase_order_line__tag_ids
+msgid "Tags"
+msgstr ""
 
 #. module: generic_tag_purchase
 #: model_terms:ir.ui.view,arch_db:generic_tag_purchase.view_purchase_order_form_tags

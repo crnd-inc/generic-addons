@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2020-10-20 12:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -27,7 +28,8 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user
 msgid ""
 "\n"
-"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
+"            Users in this group have access to menu Tags. They cannot create "
+"or edit tags.\n"
 "        "
 msgstr ""
 
@@ -35,7 +37,8 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
 msgid ""
 "\n"
-"            Users in this group have access to tags that have same group that user have\n"
+"            Users in this group have access to tags that have same group "
+"that user have\n"
 "        "
 msgstr ""
 
@@ -426,6 +429,11 @@ msgid "Odoo Model"
 msgstr ""
 
 #. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__order
+msgid "Order"
+msgstr ""
+
+#. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__rule_ids
 msgid "Record Rules"
 msgstr ""
@@ -433,6 +441,13 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields.selection,name:generic_tag.selection__generic_tag_wizard_manage_tags__action__remove
 msgid "Remove"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__order
+msgid ""
+"SQL expression for ordering records in the model; e.g. \"x_sequence asc, id "
+"desc\""
 msgstr ""
 
 #. module: generic_tag

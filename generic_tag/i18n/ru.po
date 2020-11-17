@@ -444,6 +444,11 @@ msgid "Odoo Model"
 msgstr ""
 
 #. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__order
+msgid "Order"
+msgstr ""
+
+#. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__rule_ids
 msgid "Record Rules"
 msgstr "Правила доступа"
@@ -451,6 +456,13 @@ msgstr "Правила доступа"
 #. module: generic_tag
 #: model:ir.model.fields.selection,name:generic_tag.selection__generic_tag_wizard_manage_tags__action__remove
 msgid "Remove"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__order
+msgid ""
+"SQL expression for ordering records in the model; e.g. \"x_sequence asc, id "
+"desc\""
 msgstr ""
 
 #. module: generic_tag

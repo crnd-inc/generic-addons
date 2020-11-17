@@ -22,10 +22,25 @@ msgid "Automated Action"
 msgstr "Автоматизированное действие"
 
 #. module: generic_condition_automation
+#: model:ir.model.fields,field_description:generic_condition_automation.field_base_automation__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_condition_automation
 #: model:base.automation,name:generic_condition_automation.test_rule_on_write
 #: model:ir.actions.server,name:generic_condition_automation.test_rule_on_write_ir_actions_server
 msgid "Generic Condition: Test rule on write"
 msgstr "Универсальное условие: Тестовое правило на запись"
+
+#. module: generic_condition_automation
+#: model:ir.model.fields,field_description:generic_condition_automation.field_base_automation__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_condition_automation
+#: model:ir.model.fields,field_description:generic_condition_automation.field_base_automation____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: generic_condition_automation
 #: model:generic.condition,name:generic_condition_automation.demo_condition_partner_city_not_kyiv

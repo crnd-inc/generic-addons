@@ -10,14 +10,45 @@ msgstr ""
 "PO-Revision-Date: 2020-10-20 12:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.model.fields,help:generic_tag_product.field_product_product__search_tag_id
+msgid "Find all records that contain this tag"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.model.fields,help:generic_tag_product.field_product_product__search_no_tag_id
+msgid "Find all records that have no this tag"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product__search_no_tag_id
+msgid "No tag"
+msgstr ""
+
+#. module: generic_tag_product
 #: model:generic.tag.model,name:generic_tag_product.generic_tag_model_product_product
-#: model:ir.model,name:generic_tag_product.generic_tag_model_product_product_ir_model
+#: model:ir.model,name:generic_tag_product.model_product_product
 msgid "Product"
 msgstr ""
 
@@ -26,6 +57,16 @@ msgstr ""
 #: model:ir.ui.menu,name:generic_tag_product.menu_product_product_tags_id
 #: model:ir.ui.menu,name:generic_tag_product.menu_product_tags
 msgid "Product Tags"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product__search_tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.model.fields,field_description:generic_tag_product.field_product_product__tag_ids
+msgid "Tags"
 msgstr ""
 
 #. module: generic_tag_product
