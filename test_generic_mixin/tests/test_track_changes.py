@@ -106,3 +106,88 @@ class TrackChangesTest(SavepointCase):
         self.assertEqual(rec.value3, 6)
         self.assertEqual(rec.value4, 8)
         self.assertEqual(rec.description, "v1: 9 -> 3\n")
+
+    def test_track_changes_2(self):
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        rec = Model.create({
+            'name': 'Test',
+        })
+        self.assertEqual(rec.name, 'Test')
+        self.assertEqual(rec.value5, 0)
+        self.assertEqual(rec.value11, 0)
+        self.assertEqual(rec.value21, 0)
+        self.assertFalse(rec.description)
+
+        rec.value5 = 53
+
+        self.assertEqual(rec.description, "Test V5 change Overriden")
+
+    def test_track_changes_3(self):
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        rec = Model.create({
+            'name': 'Test',
+        })
+        self.assertEqual(rec.name, 'Test')
+        self.assertEqual(rec.value5, 0)
+        self.assertEqual(rec.value11, 0)
+        self.assertEqual(rec.value21, 0)
+        self.assertFalse(rec.description)
+
+        rec.value21 = 243
+
+        self.assertEqual(rec.description, "Test V5 change Overriden")
+
+    def test_track_changes_4(self):
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        rec = Model.create({
+            'name': 'Test',
+        })
+        self.assertEqual(rec.name, 'Test')
+        self.assertEqual(rec.value5, 0)
+        self.assertEqual(rec.value11, 0)
+        self.assertEqual(rec.value21, 0)
+        self.assertFalse(rec.description)
+
+        rec.value11 = 28
+
+        self.assertEqual(rec.description, "Test V5 change Overriden")
+
+    def test_track_changes_priority_1(self):
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        rec = Model.create({
+            'name': 'Test',
+        })
+        self.assertFalse(rec.description)
+
+        rec.value6 = 42
+
+        self.assertEqual(rec.description, 'Priority 6-15')
+
+    def test_track_changes_priority_2(self):
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        rec = Model.create({
+            'name': 'Test',
+        })
+        self.assertFalse(rec.description)
+
+        rec.value7 = 13
+
+        self.assertEqual(rec.description, 'Priority 7-15')
+
+    def test_track_changes_priority_3(self):
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        rec = Model.create({
+            'name': 'Test',
+        })
+        self.assertFalse(rec.description)
+
+        rec.value8 = 773
+
+        # None - means priority 10, and have to be executed after priority 5
+        self.assertEqual(rec.description, 'Priority 8-None')

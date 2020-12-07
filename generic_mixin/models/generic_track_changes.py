@@ -1,12 +1,16 @@
 import logging
 import collections
+from operator import itemgetter
 from inspect import getmembers
 from odoo import models, api
+from odoo.fields import resolve_mro
 
 _logger = logging.getLogger(__name__)
 
+DEFAULT_WRITE_HANDER_PRIORITY = 10
 
-def pre_write(*track_fields):
+
+def pre_write(*track_fields, priority=None):
     """ Declare pre_write hook that will be called on any of specified fields
         changed.
 
@@ -27,13 +31,17 @@ def pre_write(*track_fields):
                 if fnew == 'my value':
                     # do something.
     """
+    if priority is not None and not isinstance(priority, int):
+        raise AssertionError("priority must be int")
+
     def decorator(func):
         func._pre_write_fields = track_fields
+        func._pre_write_priority = priority
         return func
     return decorator
 
 
-def post_write(*track_fields):
+def post_write(*track_fields, priority=None):
     """ Declare pre_write hook that will be called on any of specified fields
         changed.
 
@@ -53,10 +61,49 @@ def post_write(*track_fields):
                 if fnew == 'my value':
                     # do something.
     """
-    def wrapper(func):
+    if priority is not None and not isinstance(priority, int):
+        raise AssertionError("priority must be int")
+
+    def decorator(func):
         func._post_write_fields = track_fields
+        func._post_write_priority = priority
         return func
-    return wrapper
+    return decorator
+
+
+def is_write_handler(func):
+    """ Check if method (func) is write handler
+    """
+    if not callable(func):
+        return False
+    if hasattr(func, '_pre_write_fields'):
+        return True
+    if hasattr(func, '_post_write_fields'):
+        return True
+    return False
+
+
+def get_method_fields_via_mro(obj, method_name, attr_name):
+    """ Get set of all fields metioned in attr 'attr_name' of method in all
+        method overrides in subclasses
+    """
+    return set(
+        field
+        for method in resolve_mro(obj, method_name, callable)
+        for field in getattr(method, attr_name, [])
+    )
+
+
+def get_method_priority_via_mro(obj, method_name, attr_name, default):
+    """ Get the priority for method from attr 'attr_name',
+        checking all overrides in mro order and looking for first non None
+        value. If no such value found, then default value will be applied
+    """
+    for method in resolve_mro(obj, method_name, callable):
+        meth_val = getattr(method, attr_name, None)
+        if meth_val is not None:
+            return meth_val
+    return default
 
 
 class GenericMixInTrackChanges(models.AbstractModel):
@@ -98,79 +145,80 @@ class GenericMixInTrackChanges(models.AbstractModel):
             :rtype: set
             :return: set of fields track changes of
         """
-        return self._write_handler_tracking_fields
+        return self._write_handler_data['track_fields']
 
     @property
-    def _pre_write_handlers(self):
-        def is_pre_write_handler(func):
-            return callable(func) and hasattr(func, '_pre_write_fields')
-
-        # collect pre-write methods on the model's class
-        cls = type(self)
-        methods = []
-        for __, func in getmembers(cls, is_pre_write_handler):
-            for name in func._pre_write_fields:
-                if name not in cls._fields:
-                    _logger.warning(
-                        "@pre_write%r parameters must be field names (%s)",
-                        func._pre_write_fields, name)
-            methods.append(func)
-
-        # optimization: memoize result on cls, it will not be recomputed
-        cls._pre_write_handlers = methods
-        return methods
-
-    @property
-    def _post_write_handlers(self):
-        def is_post_write_handler(func):
-            return callable(func) and hasattr(func, '_post_write_fields')
-
-        # collect post-write methods on the model's class
-        cls = type(self)
-        methods = []
-        for __, func in getmembers(cls, is_post_write_handler):
-            for name in func._post_write_fields:
-                if name not in cls._fields:
-                    _logger.warning(
-                        "@post_write%r parameters must be field names (%s)",
-                        func._post_write_fields, name)
-            methods.append(func)
-
-        # optimization: memoize result on cls, it will not be recomputed
-        cls._post_write_handlers = methods
-        return methods
-
-    @property
-    def _write_handler_tracking_fields(self):
+    def _write_handler_data(self):
         """ Return a dictionary mapping field names to post write handlers. """
-        def is_write_handler(func):
-            if not callable(func):
-                return False
-            if hasattr(func, '_pre_write_fields'):
-                return True
-            if hasattr(func, '_post_write_fields'):
-                return True
-            return False
-
         # collect tracking fields on the model's class
         cls = type(self)
-        track_fields = set()
-        for __, func in getmembers(cls, is_write_handler):
-            track_fields |= set(getattr(func, '_pre_write_fields', []))
-            track_fields |= set(getattr(func, '_post_write_fields', []))
+        write_handlers = {}
+        pre_write_handlers = write_handlers['pre_write_handlers'] = []
+        post_write_handlers = write_handlers['post_write_handlers'] = []
+        track_fields = write_handlers['track_fields'] = set()
+
+        for method_name, __ in getmembers(cls, is_write_handler):
+            # TODO: do only one iteration over method overrides
+            pre_write_fields = get_method_fields_via_mro(
+                self, method_name, '_pre_write_fields')
+            post_write_fields = get_method_fields_via_mro(
+                self, method_name, '_post_write_fields')
+
+            if pre_write_fields and post_write_fields:
+                _logger.warning(
+                    "Method must not be decorated as @pre_write and "
+                    "@post_write at same time! Method: %s", method_name)
+
+            # Validate pre_write_fields
+            for name in pre_write_fields:
+                if name not in self._fields:
+                    _logger.warning(
+                        "@pre_write%r (%s) parameters must be "
+                        "field name (%s)",
+                        tuple(pre_write_fields), method_name, name)
+
+            # Validate post_write_fields
+            for name in post_write_fields:
+                if name not in self._fields:
+                    _logger.warning(
+                        "@post_write%r (%s) parameters must be "
+                        "field name (%s)",
+                        tuple(post_write_fields), method_name, name)
+
+            if pre_write_fields:
+                pre_write_handlers += [{
+                    'method': method_name,
+                    'priority': get_method_priority_via_mro(
+                        self, method_name, '_pre_write_priority',
+                        DEFAULT_WRITE_HANDER_PRIORITY),
+                    'fields': tuple(pre_write_fields),
+                }]
+
+            if post_write_fields:
+                post_write_handlers += [{
+                    'method': method_name,
+                    'priority': get_method_priority_via_mro(
+                        self, method_name, '_post_write_priority',
+                        DEFAULT_WRITE_HANDER_PRIORITY),
+                    'fields': tuple(post_write_fields),
+                }]
+
+            track_fields |= pre_write_fields
+            track_fields |= post_write_fields
+
+        # Sort handlers
+        pre_write_handlers.sort(key=itemgetter('priority'))
+        post_write_handlers.sort(key=itemgetter('priority'))
 
         # optimization: memoize result on cls, it will not be recomputed
-        cls._write_handler_tracking_fields = track_fields
-        return track_fields
+        cls._write_handler_data = write_handlers
+        return write_handlers
 
     @classmethod
     def _init_constraints_onchanges(cls):
         # reset properties memoized on cls
-        cls._pre_write_handlers = GenericMixInTrackChanges._pre_write_handlers
-        cls._post_write_handlers = (
-            GenericMixInTrackChanges._post_write_handlers)
-        cls._write_handler_tracking_fields = (
-            GenericMixInTrackChanges._write_handler_tracking_fields)
+        cls._write_handler_data = (
+            GenericMixInTrackChanges._write_handler_data)
         return super(
             GenericMixInTrackChanges, cls)._init_constraints_onchanges()
 
@@ -216,9 +264,9 @@ class GenericMixInTrackChanges(models.AbstractModel):
         """
         self.ensure_one()
         res = {}
-        for handler in self._pre_write_handlers:
-            if set(handler._pre_write_fields) & set(changes):
-                handler_res = handler(self, changes)
+        for handler in self._write_handler_data['pre_write_handlers']:
+            if set(handler['fields']) & set(changes):
+                handler_res = getattr(self, handler['method'])(changes)
                 if handler_res and isinstance(handler_res, dict):
                     res.update(handler_res)
         return res
@@ -235,9 +283,9 @@ class GenericMixInTrackChanges(models.AbstractModel):
             :return: None
 
         """
-        for handler in self._post_write_handlers:
-            if set(handler._post_write_fields) & set(changes):
-                handler(self, changes)
+        for handler in self._write_handler_data['post_write_handlers']:
+            if set(handler['fields']) & set(changes):
+                getattr(self, handler['method'])(changes)
         self.ensure_one()
 
     def write(self, vals):
