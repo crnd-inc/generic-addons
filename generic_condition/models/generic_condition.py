@@ -792,7 +792,7 @@ class GenericCondition(models.Model):
         company = (
             self.env['res.company'].browse(self.env.context['company_id'])
             if self.env.context.get('company_id')
-            else self.env['res.users']._get_company()
+            else self.env.company
         )
         test_value = obj_val_currency._convert(
             obj_val, reference_currency, company, date)
