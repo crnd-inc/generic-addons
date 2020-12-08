@@ -788,8 +788,13 @@ class GenericCondition(models.Model):
         reference_currency = self.condition_monetary_value_currency_id
 
         # Object value in reference currency
-        test_value = obj_val_currency.with_context(date=date).compute(
-            obj_val, reference_currency)
+        company = (
+            self.env['res.company'].browse(self.env.context['company_id'])
+            if self.env.context.get('company_id')
+            else self.env['res.users']._get_company()
+        )
+        test_value = obj_val_currency._convert(
+            obj_val, reference_currency, company, date)
 
         return operator(test_value, reference_value)
 
