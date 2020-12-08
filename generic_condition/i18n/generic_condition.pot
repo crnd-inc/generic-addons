@@ -67,7 +67,7 @@ msgid "By this type you can describe the condition as an expression in the Pytho
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:902
+#: code:addons/generic_condition/models/generic_condition.py:909
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr ""
@@ -94,7 +94,7 @@ msgid "Check set of other conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:436
+#: code:addons/generic_condition/models/generic_condition.py:437
 #, python-format
 msgid "Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
 "\n"
@@ -359,7 +359,7 @@ msgid "Error"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:854
+#: code:addons/generic_condition/models/generic_condition.py:861
 #, python-format
 msgid "Error caught while evaluating condition %s[%d]"
 msgstr ""
@@ -446,7 +446,7 @@ msgid "Generic Conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:804
+#: code:addons/generic_condition/models/generic_condition.py:811
 #, python-format
 msgid "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
@@ -605,6 +605,11 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_ids
 msgid "Messages"
+msgstr ""
+
+#. module: generic_condition
+#: selection:generic.condition,condition_date_diff_uom:0
+msgid "Minutes"
 msgstr ""
 
 #. module: generic_condition
