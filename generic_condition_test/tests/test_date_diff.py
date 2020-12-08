@@ -87,6 +87,42 @@ class TestConditionDateDiff(SavepointCase):
         })
         self.assertTrue(condition.check(rec))
 
+    def test_15_condition_date_diff_similar_dates_minutes(self):
+        condition = self._create_condition({
+            "condition_date_diff_date_start_type": 'field',
+            "condition_date_diff_date_start_field": self.test_field_start_date.id,  # noqa
+            "condition_date_diff_date_end_type": 'field',
+            "condition_date_diff_date_end_field": self.test_field_end_date.id,
+            "condition_date_diff_operator": '=',
+            "condition_date_diff_uom": 'minutes',
+            "condition_date_diff_value": 2,
+        })
+
+        rec = self.TestModel.create({
+            'date_start': '2017-05-01 13:31:14',
+            'date_end': '2017-05-01 13:33:14',
+        })
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '!='
+        self.assertFalse(condition.check(rec))
+
+        rec.date_end = '2017-05-01 13:32:14'
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '='
+        rec.write({
+            'date_start': '2017-05-01 13:31:14',
+            'date_end': '2017-05-01 13:33:45',
+        })
+        self.assertTrue(condition.check(rec))
+
+        condition.condition_date_diff_operator = '!='
+        self.assertFalse(condition.check(rec))
+
+        rec.date_end = '2017-05-01 13:32:45'
+        self.assertTrue(condition.check(rec))
+
     def test_15_condition_date_diff_similar_dates_hours(self):
         condition = self._create_condition({
             "condition_date_diff_date_start_type": 'field',

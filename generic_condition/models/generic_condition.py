@@ -256,7 +256,8 @@ class GenericCondition(models.Model):
          ('!=', '!=')],
         string='Date diff operator', track_visibility='onchange')
     condition_date_diff_uom = fields.Selection(
-        [('hours', 'Hours'),
+        [('minutes', 'Minutes'),
+         ('hours', 'Hours'),
          ('days', 'Days'),
          ('weeks', 'Weeks'),
          ('months', 'Months'),
@@ -586,6 +587,7 @@ class GenericCondition(models.Model):
 
         # used for operators '==' and '!='
         uom_map = {
+            'minutes': lambda d1, d2, dt: dt.minutes,
             'hours': lambda d1, d2, dt: round((d1 - d2).total_seconds() / 60.0 / 60.0),  # noqa
             'days': lambda d1, d2, dt: (d1 - d2).days,
             'weeks': lambda d1, d2, dt: round(uom_map['days'](d1, d2, dt) / 7.0),  # noqa
