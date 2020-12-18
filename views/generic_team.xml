@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="generic_team_tree" model="ir.ui.view">
-        <field name="name">generic.team.tree</field>
         <field name="model">generic.team</field>
         <field name="arch" type="xml">
             <tree>
@@ -13,7 +12,6 @@
     </record>
 
     <record id="generic_team_form" model="ir.ui.view">
-        <field name="name">generic.team.form</field>
         <field name="model">generic.team</field>
         <field name="arch" type="xml">
             <form>
@@ -65,7 +63,6 @@
     </record>
 
     <record id="generic_team_kanban" model="ir.ui.view">
-        <field name="name">generic.team.form</field>
         <field name="model">generic.team</field>
         <field name="arch" type="xml">
             <kanban>
