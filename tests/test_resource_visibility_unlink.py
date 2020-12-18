@@ -1,10 +1,9 @@
 from odoo.exceptions import AccessError
-from odoo.tests.common import post_install, at_install
+from odoo.tests.common import tagged
 from .common import TestResourceVisibilityBase
 
 
-@post_install(True)
-@at_install(False)
+@tagged('post_install', '-at_install')
 class TestResourceRoleUnlink(TestResourceVisibilityBase):
 
     def test_internal_resource_unlink_employee(self):
