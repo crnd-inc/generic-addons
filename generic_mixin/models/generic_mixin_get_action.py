@@ -43,10 +43,7 @@ class GenericMixinGetAction(models.AbstractModel):
             :param list domain: apply new domain for action
             :return dict: Data for specified action
         """
-        action = self.env.ref(xmlid)
-        assert isinstance(  # nosec
-            self.env[action._name], type(self.env['ir.actions.actions']))
-        action = action.read()[0]
+        action = self.env['ir.actions.actions']._for_xml_id(xmlid)
         if context is not None:
             action['context'] = context
         if domain is not None:
