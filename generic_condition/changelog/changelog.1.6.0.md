@@ -1,0 +1,2 @@
+- Added support for *Minutes* UoM for *Date Diff* conditions
+- Fix warning *res_currency: The `compute` method is deprecated. Use `_convert` instead*

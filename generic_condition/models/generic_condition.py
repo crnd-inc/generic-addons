@@ -20,8 +20,11 @@ _logger = logging.getLogger(__name__)
 
 class GenericCondition(models.Model):
     _name = "generic.condition"
-    _inherit = 'mail.thread'
-    _order = "sequence"
+    _inherit = [
+        'mail.thread',
+        'generic.mixin.get.action',
+    ]
+    _order = "sequence, name"
     _description = 'Generic Condition'
     _rec_name = 'name'
 
@@ -259,7 +262,8 @@ class GenericCondition(models.Model):
          ('!=', '!=')],
         string='Date diff operator', tracking=True)
     condition_date_diff_uom = fields.Selection(
-        [('hours', 'Hours'),
+        [('minutes', 'Minutes'),
+         ('hours', 'Hours'),
          ('days', 'Days'),
          ('weeks', 'Weeks'),
          ('months', 'Months'),
@@ -589,6 +593,7 @@ class GenericCondition(models.Model):
 
         # used for operators '==' and '!='
         uom_map = {
+            'minutes': lambda d1, d2, dt: dt.minutes,
             'hours': lambda d1, d2, dt: round((d1 - d2).total_seconds() / 60.0 / 60.0),  # noqa
             'days': lambda d1, d2, dt: (d1 - d2).days,
             'weeks': lambda d1, d2, dt: round(uom_map['days'](d1, d2, dt) / 7.0),  # noqa
@@ -766,6 +771,7 @@ class GenericCondition(models.Model):
 
     # signature check_<type> where type is condition type
     def check_monetary_field(self, obj, cache=None, debug_log=None):
+        # pylint: disable=too-many-locals
         field = self.condition_monetary_field_id.sudo()
         currency_field = self.condition_monetary_currency_field_id
         date = self.helper_check_monetary_field_date(obj)
@@ -789,8 +795,13 @@ class GenericCondition(models.Model):
         reference_currency = self.condition_monetary_value_currency_id
 
         # Object value in reference currency
-        test_value = obj_val_currency.with_context(date=date).compute(
-            obj_val, reference_currency)
+        company = (
+            self.env['res.company'].browse(self.env.context['company_id'])
+            if self.env.context.get('company_id')
+            else self.env.company
+        )
+        test_value = obj_val_currency._convert(
+            obj_val, reference_currency, company, date)
 
         return operator(test_value, reference_value)
 
@@ -948,10 +959,9 @@ class GenericCondition(models.Model):
 
     def action_show_test_wizard(self):
         self.ensure_one()
-        action = self.env.ref(
-            'generic_condition'
-            '.action_generic_condition_test_wizard_view').read()[0]
-        action['context'] = dict(
-            self.env.context,
-            default_condition_id=self.id)
-        return action
+        return self.get_action_by_xmlid(
+            'generic_condition.action_generic_condition_test_wizard_view',
+            context=dict(
+                self.env.context,
+                default_condition_id=self.id),
+        )
