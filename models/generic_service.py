@@ -7,6 +7,7 @@ class GenericSerivce(models.Model):
         'mail.thread',
         'generic.mixin.name_with_code',
         'generic.mixin.uniq_name_code',
+        'generic.mixin.get.action',
     ]
     _description = 'Generic Service'
     _order = 'sequence, name'
