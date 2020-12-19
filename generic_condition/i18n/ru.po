@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:37
+#: code:addons/generic_condition/models/generic_condition.py:40
 #, python-format
 msgid "AND"
 msgstr "И"
@@ -79,7 +79,7 @@ msgstr ""
 "                                <br/>"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:909
+#: code:addons/generic_condition/models/generic_condition.py:913
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr "Невозможно проверить условия для пустой выборки данных"
@@ -106,7 +106,7 @@ msgid "Check set of other conditions"
 msgstr "Проверить набор других условий"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:437
+#: code:addons/generic_condition/models/generic_condition.py:440
 #, python-format
 msgid ""
 "Checking condition %s on document %s caused error. Notify administrator to "
@@ -262,7 +262,7 @@ msgid "Currency"
 msgstr "Валюта"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:28
+#: code:addons/generic_condition/models/generic_condition.py:31
 #: selection:generic.condition,condition_monetary_curency_date_type:0
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
@@ -275,7 +275,7 @@ msgid "Current user"
 msgstr "Текущий пользователь"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:30
+#: code:addons/generic_condition/models/generic_condition.py:33
 #: selection:generic.condition,condition_monetary_curency_date_type:0
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_curency_date_date
 #, python-format
@@ -336,7 +336,7 @@ msgid "Date start type"
 msgstr "Дата начала: тип"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:31
+#: code:addons/generic_condition/models/generic_condition.py:34
 #, python-format
 msgid "Datetime"
 msgstr "Дата-время"
@@ -385,7 +385,7 @@ msgid "Error"
 msgstr "Ошибка"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:861
+#: code:addons/generic_condition/models/generic_condition.py:865
 #, python-format
 msgid "Error caught while evaluating condition %s[%d]"
 msgstr "Возникла ошибка при вычислении условия %s[%d]"
@@ -409,7 +409,7 @@ msgid "False"
 msgstr "Фальш"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:29
+#: code:addons/generic_condition/models/generic_condition.py:32
 #: selection:generic.condition,condition_monetary_curency_date_type:0
 #: selection:generic.condition,condition_user_check_type:0
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_curency_date_field_id
@@ -472,7 +472,7 @@ msgid "Generic Conditions"
 msgstr "Универсальные условия"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:811
+#: code:addons/generic_condition/models/generic_condition.py:815
 #, python-format
 msgid ""
 "Generic conditions misconfigured!\n"
@@ -583,7 +583,7 @@ msgstr ""
 "                                <br/>"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:67
+#: code:addons/generic_condition/models/generic_condition.py:70
 #, python-format
 msgid ""
 "Incorrect Condition (condition group) selected!\n"
@@ -595,13 +595,13 @@ msgstr ""
 "Условие с неверной моделью: %s[%s]"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:46
+#: code:addons/generic_condition/models/generic_condition.py:49
 #, python-format
 msgid "Incorrect Conditon field set for condition: %s[%s]"
 msgstr "Установлено некорректное поле условия для: %s[%s]"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:56
+#: code:addons/generic_condition/models/generic_condition.py:59
 #, python-format
 msgid "Incorrect Filter field set for condition: %s[%s]"
 msgstr "Установлено некорректное поле фильтра для условия: %s[%s]"
@@ -725,7 +725,7 @@ msgid "Number of unread messages"
 msgstr "Количество непрочитанных сообщений"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:36
+#: code:addons/generic_condition/models/generic_condition.py:39
 #, python-format
 msgid "OR"
 msgstr "Или"
@@ -1063,7 +1063,7 @@ msgid "Wizard: Test generic condition"
 msgstr "Мастер: Протестировать универсальное условие"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:83
+#: code:addons/generic_condition/models/generic_condition.py:86
 #, python-format
 msgid "Wrong Related Field / Based on combination"
 msgstr "Некорректное сочитание: 'Связанного поля' и 'Основан на'"

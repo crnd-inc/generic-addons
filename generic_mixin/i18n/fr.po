@@ -50,6 +50,7 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__display_name
@@ -63,6 +64,11 @@ msgstr ""
 #: code:addons/generic_mixin/models/generic_parent.py:41
 #, python-format
 msgid "Error ! You cannot create recursive %s."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_get_action
+msgid "Generic Mixin: Get Action"
 msgstr ""
 
 #. module: generic_mixin
@@ -102,6 +108,7 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__id
@@ -127,6 +134,7 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names____last_update

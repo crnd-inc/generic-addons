@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:37
+#: code:addons/generic_condition/models/generic_condition.py:40
 #, python-format
 msgid "AND"
 msgstr ""
@@ -74,7 +74,7 @@ msgid ""
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:909
+#: code:addons/generic_condition/models/generic_condition.py:913
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr ""
@@ -101,7 +101,7 @@ msgid "Check set of other conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:437
+#: code:addons/generic_condition/models/generic_condition.py:440
 #, python-format
 msgid ""
 "Checking condition %s on document %s caused error. Notify administrator to "
@@ -247,7 +247,7 @@ msgid "Currency"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:28
+#: code:addons/generic_condition/models/generic_condition.py:31
 #: selection:generic.condition,condition_monetary_curency_date_type:0
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
@@ -260,7 +260,7 @@ msgid "Current user"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:30
+#: code:addons/generic_condition/models/generic_condition.py:33
 #: selection:generic.condition,condition_monetary_curency_date_type:0
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_curency_date_date
 #, python-format
@@ -321,7 +321,7 @@ msgid "Date start type"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:31
+#: code:addons/generic_condition/models/generic_condition.py:34
 #, python-format
 msgid "Datetime"
 msgstr ""
@@ -370,7 +370,7 @@ msgid "Error"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:861
+#: code:addons/generic_condition/models/generic_condition.py:865
 #, python-format
 msgid "Error caught while evaluating condition %s[%d]"
 msgstr ""
@@ -394,7 +394,7 @@ msgid "False"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:29
+#: code:addons/generic_condition/models/generic_condition.py:32
 #: selection:generic.condition,condition_monetary_curency_date_type:0
 #: selection:generic.condition,condition_user_check_type:0
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_curency_date_field_id
@@ -457,7 +457,7 @@ msgid "Generic Conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:811
+#: code:addons/generic_condition/models/generic_condition.py:815
 #, python-format
 msgid ""
 "Generic conditions misconfigured!\n"
@@ -551,7 +551,7 @@ msgid ""
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:67
+#: code:addons/generic_condition/models/generic_condition.py:70
 #, python-format
 msgid ""
 "Incorrect Condition (condition group) selected!\n"
@@ -560,13 +560,13 @@ msgid ""
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:46
+#: code:addons/generic_condition/models/generic_condition.py:49
 #, python-format
 msgid "Incorrect Conditon field set for condition: %s[%s]"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:56
+#: code:addons/generic_condition/models/generic_condition.py:59
 #, python-format
 msgid "Incorrect Filter field set for condition: %s[%s]"
 msgstr ""
@@ -688,7 +688,7 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:36
+#: code:addons/generic_condition/models/generic_condition.py:39
 #, python-format
 msgid "OR"
 msgstr ""
@@ -1005,7 +1005,7 @@ msgid "Wizard: Test generic condition"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:83
+#: code:addons/generic_condition/models/generic_condition.py:86
 #, python-format
 msgid "Wrong Related Field / Based on combination"
 msgstr ""
