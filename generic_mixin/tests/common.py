@@ -1,5 +1,13 @@
 import logging
 from odoo.tools.misc import mute_logger
+from odoo.tools import config as tools_config
+from odoo.tests import common as tests_common
+
+
+# For compatability with 14.0
+PORT = tools_config['http_port']
+HOST = tests_common.HOST
+TEST_URL = "http://%s:%s" % (HOST, PORT)
 
 
 # pylint: disable=class-camelcase

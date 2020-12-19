@@ -18,8 +18,11 @@ _logger = logging.getLogger(__name__)
 
 class GenericCondition(models.Model):
     _name = "generic.condition"
-    _inherit = 'mail.thread'
-    _order = "sequence"
+    _inherit = [
+        'mail.thread',
+        'generic.mixin.get.action',
+    ]
+    _order = "sequence, name"
     _description = 'Generic Condition'
     _rec_name = 'name'
 
@@ -766,6 +769,7 @@ class GenericCondition(models.Model):
 
     # signature check_<type> where type is condition type
     def check_monetary_field(self, obj, cache=None, debug_log=None):
+        # pylint: disable=too-many-locals
         field = self.condition_monetary_field_id.sudo()
         currency_field = self.condition_monetary_currency_field_id
         date = self.helper_check_monetary_field_date(obj)
@@ -937,10 +941,9 @@ class GenericCondition(models.Model):
 
     def action_show_test_wizard(self):
         self.ensure_one()
-        action = self.env.ref(
-            'generic_condition'
-            '.action_generic_condition_test_wizard_view').read()[0]
-        action['context'] = dict(
-            self.env.context,
-            default_condition_id=self.id)
-        return action
+        return self.get_action_by_xmlid(
+            'generic_condition.action_generic_condition_test_wizard_view',
+            context=dict(
+                self.env.context,
+                default_condition_id=self.id),
+        )
