@@ -662,6 +662,11 @@ msgid "Messages"
 msgstr "Повідомлення"
 
 #. module: generic_condition
+#: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__minutes
+msgid "Minutes"
+msgstr ""
+
+#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__based_on
 msgid "Model"
 msgstr "Модель"
