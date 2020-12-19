@@ -12,12 +12,13 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Team',
-    'version': '12.0.1.7.0',
+    'version': '12.0.1.8.0',
 
     "depends": [
         'base',
         'mail',
         'base_field_m2m_view',
+        'generic_mixin',
     ],
 
     "data": [
