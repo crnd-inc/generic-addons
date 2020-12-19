@@ -8,6 +8,7 @@ class GenericResourceSimple(models.Model):
         'mail.thread',
         'generic.resource.mixin',
         'generic.resource.mixin.inv.number',
+        'generic.mixin.get.action',
     ]
 
     _rec_name = 'name'

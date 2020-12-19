@@ -24,6 +24,9 @@ class GenericResourceResID(int):
 
 class GenericResource(models.Model):
     _name = 'generic.resource'
+    _inherit = [
+        'generic.mixin.get.action',
+    ]
     _description = 'Generic Resource'
     _log_access = False
 
