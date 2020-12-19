@@ -116,12 +116,12 @@ class TestCondition(SavepointCase):
         self.assertFalse(condition.check(self.partner_demo.sudo(user)))
 
     def test_40_test_condition_wizard(self):
-        Wizard = self.env['generic.condition.test_condition']
-
         condition = self.condition_partner_has_only_contacts
 
-        wiz = Wizard.create({
-            'condition_id': condition.id,
+        wiz_act = condition.action_show_test_wizard()
+        wiz = self.env[wiz_act['res_model']].with_context(
+            wiz_act['context']
+        ).create({
             'res_id': self.partner_z_corp.id,
         })
 

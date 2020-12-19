@@ -10,6 +10,7 @@ class GenericLocation(models.Model):
     _inherit = [
         'mail.thread',
         'generic.mixin.parent.names',
+        'generic.mixin.get.action',
     ]
     _parent_name = 'parent_id'
     _parent_store = True
@@ -115,12 +116,13 @@ class GenericLocation(models.Model):
         return super(GenericLocation, self).copy(default)
 
     def action_button_show_sublocations(self):
-        action = self.env.ref(
-            'generic_location.generic_location_action').read()[0]
+        action = self.get_action_by_xmlid(
+            'generic_location.generic_location_action',
+            context={'default_parent_id': self.id},
+            domain=[('parent_id', '=', self.id)],
+        )
         action.update({
             'name': _('Sublocations'),
             'display_name': _('Sublocations'),
-            'domain': [('parent_id', '=', self.id)],
-            'context': {'default_parent_id': self.id},
         })
         return action
