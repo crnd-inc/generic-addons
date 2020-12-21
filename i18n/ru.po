@@ -138,13 +138,13 @@ msgid "Desktops"
 msgstr "Настольные компьютеры"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:164
+#: code:addons/generic_resource/models/generic_resource.py:167
 #, python-format
 msgid "Direct creation of 'generic.resource' records is not allowed!"
 msgstr "Прямое создание объектов 'generic.resource' запрещено!"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:178
+#: code:addons/generic_resource/models/generic_resource.py:181
 #, python-format
 msgid "Direct modification of 'generic.resource:res_id' field is not allowed!"
 msgstr "Прямое изменение поля 'generic.resource:res_id' запрещено!"
@@ -167,7 +167,7 @@ msgid "Equipment"
 msgstr "Оборудование"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:101
+#: code:addons/generic_resource/models/generic_resource.py:104
 #, python-format
 msgid "Error: no model"
 msgstr "Ошибка: не определена модель"
