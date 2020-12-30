@@ -66,7 +66,7 @@ To add tags to your model do the folowing simple steps:
 
 1. Add `generic_tag` module as dependency for your addon.
 
-2. Use inherit from `"res.tag.mixin"` to get *tags* functionality to your model, like:
+2. Use inherit from `"generic.tag.mixin"` to get *tags* functionality to your model, like:
 
     .. code:: python
 

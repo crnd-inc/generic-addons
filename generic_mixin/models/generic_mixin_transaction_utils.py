@@ -76,3 +76,21 @@ class GenericMixinTransactionUtils(models.AbstractModel):
                         new_cr.rollback()
                     else:
                         raise
+
+    def _iter_in_transact(self, lock=False, no_raise=False):
+        """ Iterate over records in self, yield each record wrapped in separate
+            transaction
+
+            :param bool lock: lock records in self for update (nowait)
+            :param bool no_raise: Do not raise errors,
+                                  just roll back transaction instead
+
+            Example of usage:
+
+                for rec in self._iter_in_transact():
+                    rec.do_some_operation()
+
+        """
+        for rec in self:
+            with rec._in_new_transaction(lock=lock, no_raise=no_raise) as nrec:
+                yield nrec
