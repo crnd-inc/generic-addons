@@ -1,6 +1,6 @@
 import logging
 from contextlib import contextmanager
-from odoo import registry, models, api
+from odoo import models, api
 
 _logger = logging.getLogger(__name__)
 
@@ -56,7 +56,7 @@ class GenericMixinTransactionUtils(models.AbstractModel):
         """
 
         with api.Environment.manage():
-            with registry(self.env.cr.dbname).cursor() as new_cr:
+            with self.env.registry.cursor() as new_cr:
                 new_env = api.Environment(
                     new_cr,
                     self.env.uid,
@@ -76,3 +76,21 @@ class GenericMixinTransactionUtils(models.AbstractModel):
                         new_cr.rollback()
                     else:
                         raise
+
+    def _iter_in_transact(self, lock=False, no_raise=False):
+        """ Iterate over records in self, yield each record wrapped in separate
+            transaction
+
+            :param bool lock: lock records in self for update (nowait)
+            :param bool no_raise: Do not raise errors,
+                                  just roll back transaction instead
+
+            Example of usage:
+
+                for rec in self._iter_in_transact():
+                    rec.do_some_operation()
+
+        """
+        for rec in self:
+            with rec._in_new_transaction(lock=lock, no_raise=no_raise) as nrec:
+                yield nrec
