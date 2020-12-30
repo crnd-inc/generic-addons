@@ -1,6 +1,6 @@
 import logging
 from contextlib import contextmanager
-from odoo import registry, models, api
+from odoo import models, api
 
 _logger = logging.getLogger(__name__)
 
@@ -56,7 +56,7 @@ class GenericMixinTransactionUtils(models.AbstractModel):
         """
 
         with api.Environment.manage():
-            with registry(self.env.cr.dbname).cursor() as new_cr:
+            with self.env.registry.cursor() as new_cr:
                 new_env = api.Environment(
                     new_cr,
                     self.env.uid,
