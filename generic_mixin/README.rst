@@ -29,6 +29,7 @@ Following mixins ara available:
 - ``generic.mixin.transaction.utils`` - utility methods to handle transactions in Odoo.
 - ``generic.mixin.no.unlink`` - deny unlink of specific records in model.
 - ``generic.parent.names`` - implement ``name_get`` and ``name_search`` for hierarchial models in generic way
+- ``generic.mixin.refresh.view`` - provides methods to refresh views in browser from python
 - ``generic.mixin.track.changes`` - provides convenient mechanism to handle changes of specific fields.
 
 Also, there are ``pre_write`` and ``post_write`` decoratrors, that could be used

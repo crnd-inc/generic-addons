@@ -9,12 +9,15 @@
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '13.0.1.14.0',
+    'version': '13.0.1.15.0',
 
     # any module necessary for this one to work correctly
     'depends': [
         'base',
         'http_routing',
+    ],
+    'data': [
+        'views/assets.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
