@@ -54,6 +54,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__display_name
@@ -112,6 +113,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__id
@@ -138,6 +140,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code____last_update
@@ -167,4 +170,9 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
 msgid "XML ID for this record."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_refresh_view
+msgid "generic.mixin.refresh.view"
 msgstr ""
