@@ -24,7 +24,6 @@ class GenericMixinRefreshView(models.AbstractModel):
         """
         if not records:
             return False
-        _logger.warning("Triggering view refresh for %s", records)
         self.env['bus.bus'].sendone(
             'generic_mixin_refresh_view',
             {
