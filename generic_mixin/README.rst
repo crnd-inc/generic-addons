@@ -26,6 +26,7 @@ in develompent of other addons.
 Following mixins ara available:
 - ``generic.mixin.name_with_code`` - just add ``name`` and ``code`` fields to model, on name changed - compute code automatically.
 - ``generic.mixin.uniq_name_code`` - add *unique* constraint to name and code fields.
+- ``generic.mixin.name.by.sequence`` - Add *name* field to your model, that will be automatically filled with value based on ``ir.sequence`` (in same way as in sale order, or other odoo models)
 - ``generic.mixin.transaction.utils`` - utility methods to handle transactions in Odoo.
 - ``generic.mixin.no.unlink`` - deny unlink of specific records in model.
 - ``generic.parent.names`` - implement ``name_get`` and ``name_search`` for hierarchial models in generic way
@@ -34,7 +35,6 @@ Following mixins ara available:
 
 Also, there are ``pre_write`` and ``post_write`` decoratrors, that could be used
 together with ``generic.mixin.track.changes``.
-
 
 This module is part of the Bureaucrat ITSM project. 
 You can try it by the references below.

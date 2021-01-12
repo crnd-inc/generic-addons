@@ -13,6 +13,7 @@ class GenericMixinRefreshView(models.AbstractModel):
         attribute '_auto_refresh_view_on_write' to False
     """
     _name = 'generic.mixin.refresh.view'
+    _description = 'Generic Mixin: Refresh view'
 
     _auto_refresh_view_on_write = True
 
@@ -24,7 +25,6 @@ class GenericMixinRefreshView(models.AbstractModel):
         """
         if not records:
             return False
-        _logger.warning("Triggering view refresh for %s", records)
         self.env['bus.bus'].sendone(
             'generic_mixin_refresh_view',
             {
