@@ -6,7 +6,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '14.0.0.4.0',
+    'version': '14.0.0.5.0',
     'depends': [
         'generic_mixin',
     ],
@@ -16,6 +16,7 @@
     'demo': [
         'demo/test_track_changes.xml',
         'demo/test_noupdate_on_write.xml',
+        'demo/ir_sequence.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
