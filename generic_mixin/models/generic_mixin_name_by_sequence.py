@@ -43,23 +43,30 @@ class GenericMixinNameBySequence(models.AbstractModel):
             )
         return res
 
-    @api.model
-    def create(self, vals):
+    def _name_by_sequence_update_name_in_vals(self, vals):
+        """ Set name in values provided to 'create' method
+        """
         if not self._name_by_sequence_name_field:
-            return super(GenericMixinNameBySequence, self).create(vals)
+            return vals
 
         if self._name_by_sequence_name_field not in self._fields:
-            return super(GenericMixinNameBySequence, self).create(vals)
+            return vals
 
         if not self._name_by_sequence_sequence_code:
-            return super(GenericMixinNameBySequence, self).create(vals)
+            return vals
 
         fname = self._name_by_sequence_name_field
         fdefault = self._name_by_sequence_get_default_value()
         fsequence = self._name_by_sequence_sequence_code
 
         if vals.get(fname, fdefault) == fdefault:
+            vals = dict(vals)
             vals[fname] = self.env['ir.sequence'].next_by_code(
                 fsequence) or fdefault
+        return vals
 
+    # TODO: add support for batch create
+    @api.model
+    def create(self, vals):
+        vals = self._name_by_sequence_update_name_in_vals(vals)
         return super(GenericMixinNameBySequence, self).create(vals)
