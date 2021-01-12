@@ -11,6 +11,21 @@
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
 <p>This is technical addon, that contains model mixins, that may be useful in develompent of other addons.</p>
+<p>Following mixins ara available:</p>
+<ul>
+<li><i>generic.mixin.name_with_code</i> - just add <i>name</i> and <i>code</i> fields to model, on name changed - compute code automatically.</li>
+<li><i>generic.mixin.uniq_name_code</i> - add *unique* constraint to name and code fields.</li>
+<li><i>generic.mixin.name.by.sequence</i> - Add *name* field to your model, that will be automatically filled with value based on <i>ir.sequence</i> (in same way as in sale order, or other odoo models)</li>
+<li><i>generic.mixin.transaction.utils</i> - utility methods to handle transactions in Odoo.</li>
+<li><i>generic.mixin.no.unlink</i> - deny unlink of specific records in model.</li>
+<li><i>generic.parent.names</i> - implement <i>name_get</i> and <i>name_search</i> for hierarchial models in generic way</li>
+<li><i>generic.mixin.refresh.view</i> - provides methods to refresh views in browser from python</li>
+<li><i>generic.mixin.track.changes</i> - provides convenient mechanism to handle changes of specific fields.</li>
+</ul>
+
+<p>Also, there are <i>pre_write</i> and <i>post_write</i> decoratrors, that could be used
+together with <i>generic.mixin.track.changes</i>.</p>
+
 </div>
 </section>
 

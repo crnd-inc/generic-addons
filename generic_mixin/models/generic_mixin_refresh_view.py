@@ -13,6 +13,7 @@ class GenericMixinRefreshView(models.AbstractModel):
         attribute '_auto_refresh_view_on_write' to False
     """
     _name = 'generic.mixin.refresh.view'
+    _description = 'Generic Mixin: Refresh view'
 
     _auto_refresh_view_on_write = True
 
