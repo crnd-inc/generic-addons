@@ -1,6 +1,8 @@
 import logging
 
 from odoo import fields, models, api
+from odoo.osv import expression
+
 from .generic_resource import GenericResourceResID
 
 _logger = logging.getLogger(__name__)
@@ -192,3 +194,23 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
                 (rec.id, "%s [%s]" % (name_map[rec.id], rec.inv_number))
             )
         return result
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        if not args:
+            args = []
+        if name:
+            domain = [
+                [('name', operator, name)],
+                [('inv_number', operator, name)]
+            ]
+            if operator in expression.NEGATIVE_TERM_OPERATORS:
+                domain = expression.AND(domain)
+            else:
+                domain = expression.OR(domain)
+
+            domain = expression.AND([domain, args])
+            records = self.search(domain, limit=limit)
+        else:
+            records = self.search(args, limit=limit)
+        return records.name_get()
