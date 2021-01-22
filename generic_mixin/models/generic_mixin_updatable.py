@@ -32,10 +32,12 @@ class GenericMixinDataUpdatable(models.AbstractModel):
     ir_model_data_ids = fields.One2many(
         'ir.model.data', 'res_id',
         domain=lambda self: [('model', '=', self._name)],
-        readonly=True)
+        readonly=True,
+        string="Data records")
     ir_model_data_id = fields.Many2one(
         'ir.model.data', readonly=True, store=False,
-        compute='_compute_ir_model_data')
+        compute='_compute_ir_model_data',
+        string="Data record")
     ir_model_data_no_update = fields.Boolean(
         compute='_compute_ir_model_data',
         inverse='_inverse_ir_model_data_no_update',
