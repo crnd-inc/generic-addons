@@ -8,40 +8,58 @@ from odoo import tools
 
 _logger = logging.getLogger(__name__)
 
-# Jinja template environment
-template_env = SandboxedEnvironment(
-    trim_blocks=True,               # do not output newline after blocks
-    autoescape=True,                # XML/HTML automatic escaping
-)
-template_env.globals.update({
-    'str': str,
-    'quote': urls.url_quote,
-    'urlencode': urls.url_encode,
-    'datetime': datetime,
-    'len': len,
-    'abs': abs,
-    'min': min,
-    'max': max,
-    'sum': sum,
-    'filter': filter,
-    'reduce': functools.reduce,
-    'map': map,
-    'round': round,
 
-    # dateutil.relativedelta is an old-style class and cannot be directly
-    # instanciated wihtin a jinja2 expression, so a lambda "proxy" is
-    # is needed, apparently.
-    # pylint: disable=unnecessary-lambda
-    'relativedelta': lambda *a, **kw: relativedelta.relativedelta(*a, **kw),
-})
+def prepare_jinja_template_env(env_kwargs=None, extra_context=None):
+    env_params = {
+        'trim_blocks': True,               # do not output newline after blocks
+        'autoescape': True,                # XML/HTML automatic escaping
+    }
+    if env_kwargs:
+        env_params.update(env_kwargs)
+
+    env = SandboxedEnvironment(**env_params)
+
+    env_ctx = {
+        'str': str,
+        'quote': urls.url_quote,
+        'urlencode': urls.url_encode,
+        'datetime': datetime,
+        'len': len,
+        'abs': abs,
+        'min': min,
+        'max': max,
+        'sum': sum,
+        'filter': filter,
+        'reduce': functools.reduce,
+        'map': map,
+        'round': round,
+
+        # dateutil.relativedelta is an old-style class and cannot be directly
+        # instanciated wihtin a jinja2 expression, so a lambda "proxy" is
+        # is needed, apparently.
+        # pylint: disable=unnecessary-lambda
+        'relativedelta': lambda *a, **kw: (
+            relativedelta.relativedelta(*a, **kw)),
+    }
+    if extra_context:
+        env_ctx.update(extra_context)
+
+    env.globals.update(env_ctx)
+    return env
 
 
-def render_jinja_string(template_str, context, on_error='empty'):
-    """ on_error values:
+def render_jinja_string(template_str, context, on_error='empty', env=None):
+    """ :param str template_str: Template string to process with jinja
+        :param dict context: Additional context to pass to template
+        :param str on_error: Possible values are:
             raw: return template_str unchanged
             raise: reraise error
             empty: return empty string
+        :param jinja2.sandbox.SandboxedEnvironment env: specific sendbox env
+           if needed
     """
+    template_env = prepare_jinja_template_env() if env is None else env
+
     # Compile template
     try:
         template = template_env.from_string(tools.ustr(template_str))
