@@ -43,6 +43,18 @@ msgid "Created on"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_id
+msgid "Data record"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_ids
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_ids
+msgid "Data records"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__description
 msgid "Description"
 msgstr ""
@@ -80,14 +92,6 @@ msgid ""
 "Indicates whether this record will be updated with module update or not. If "
 "set to True, the record will not be overriden on module update, if set to "
 "False, thenrecord will be overridden by module update"
-msgstr ""
-
-#. module: test_generic_mixin
-#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_id
-#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_ids
-#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_id
-#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_ids
-msgid "Ir Model Data"
 msgstr ""
 
 #. module: test_generic_mixin
