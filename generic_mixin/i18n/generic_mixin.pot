@@ -46,6 +46,16 @@ msgid "Code must be unique."
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_id
+msgid "Data record"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_ids
+msgid "Data records"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence__display_name
@@ -135,12 +145,6 @@ msgid ""
 "Indicates whether this record will be updated with module update or not. If "
 "set to True, the record will not be overriden on module update, if set to "
 "False, thenrecord will be overridden by module update"
-msgstr ""
-
-#. module: generic_mixin
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_ids
-msgid "Ir Model Data"
 msgstr ""
 
 #. module: generic_mixin
