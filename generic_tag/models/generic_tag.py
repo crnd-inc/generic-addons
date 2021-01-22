@@ -19,7 +19,7 @@ class GenericTag(models.Model):
     _inherit = ['generic.tag.model.mixin']
     _description = "Generic Tag"
     _access_log = False
-    _rec_name = 'complete_name'
+    _rec_name = 'name'
     _order = 'category_sequence, category_name, sequence, complete_name'
 
     category_id = fields.Many2one(
@@ -91,6 +91,8 @@ class GenericTag(models.Model):
                     u"Category must be bound to same model as tag"))
 
     def name_get(self):
+        if self.env.context.get('_use_standart_name_get_', False):
+            return super(GenericTag, self).name_get()
         return [(t.id, t.complete_name) for t in self]
 
     @api.model
