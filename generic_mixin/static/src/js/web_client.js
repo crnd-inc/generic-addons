@@ -3,6 +3,22 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
     require('web.WebClient').include({
 
+        init: function () {
+            var self = this;
+            self._super.apply(self, arguments);
+
+            // Variable to store pending refreshes
+            // Structure:  {'model.name': [id1, id2, id3]}
+            // Will be cleaned up on next refresh
+            self._generic_refresh_mixin__pending = {};
+            self._generic_refresh_mixin__debounce_timeout = 2000;
+
+            // Debounced function to be called not more then onece per 1000 ms
+            self._generic_refresh_mixin__refresher = _.debounce(function () {
+                self._generic_mixin_refresh_view__do_refresh();
+            }, self._generic_refresh_mixin__debounce_timeout);
+        },
+
         show_application: function () {
             var shown = this._super(this, arguments);
 
@@ -16,15 +32,19 @@ odoo.define('generic_mixin.WebClient', function (require) {
             return shown;
         },
 
-        _generic_mixin_refresh_view_handle: function (message) {
+        _generic_mixin_refresh_view__do_refresh: function () {
             var self = this;
-            var refresh_model = message.model;
-            var refresh_ids = message.res_ids;
-
             var cur_action = self.action_manager.getCurrentAction();
-            if (!cur_action || cur_action.res_model !== refresh_model) {
+            if (!cur_action) {
                 return;
             }
+
+            var refresh_ids = self._generic_refresh_mixin__pending[
+                cur_action.res_model];
+            if (!refresh_ids) {
+                return;
+            }
+
             var cur_ctl = self.action_manager.getCurrentController();
             if (!cur_ctl || cur_ctl.widget.mode !== 'readonly') {
                 return;
@@ -42,17 +62,25 @@ odoo.define('generic_mixin.WebClient', function (require) {
             }
 
             if (_.intersection(refresh_ids, active_ids)) {
-                // TODO: think about using 'debounce' or 'throttle' to avoid
-                //       too frequent refreshes for view
-                _.delay(
-                    function (controller) {
-                        if (controller && controller.widget) {
-                            controller.widget.reload();
-                        }
-                    },
-                    2000,
-                    cur_ctl);
+                if (cur_ctl && cur_ctl.widget) {
+                    cur_ctl.widget.reload();
+                }
             }
+        },
+
+        _generic_mixin_refresh_view_handle: function (message) {
+            var self = this;
+            var res_model = message.model;
+            var res_ids = message.res_ids;
+
+            if (res_model in self._generic_refresh_mixin__pending) {
+                self._generic_refresh_mixin__pending[res_model] = _.union(
+                    self._generic_refresh_mixin__pending[res_model],
+                    res_ids);
+            } else {
+                self._generic_refresh_mixin__pending[res_model] = res_ids;
+            }
+            self._generic_refresh_mixin__refresher();
         },
 
         // The GMRV infix in name is used to avoid possible name conflicts
