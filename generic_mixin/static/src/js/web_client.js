@@ -41,6 +41,10 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
             var refresh_ids = self._generic_refresh_mixin__pending[
                 cur_action.res_model];
+
+            // Clenaup all pending refresh data, before continueing.
+            self._generic_refresh_mixin__pending = {};
+
             if (!refresh_ids) {
                 return;
             }
