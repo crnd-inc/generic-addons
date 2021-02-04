@@ -8,4 +8,5 @@ from . import (
     generic_mixin_updatable,
     generic_mixin_get_action,
     generic_mixin_refresh_view,
+    generic_mixin_uuid,
 )
