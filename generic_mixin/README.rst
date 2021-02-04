@@ -32,6 +32,7 @@ Following mixins ara available:
 - ``generic.parent.names`` - implement ``name_get`` and ``name_search`` for hierarchial models in generic way
 - ``generic.mixin.refresh.view`` - provides methods to refresh views in browser from python
 - ``generic.mixin.track.changes`` - provides convenient mechanism to handle changes of specific fields.
+- ``generic.mixin.uuid`` - Easy way to generate UUIDs for records in your model
 
 Also, there are ``pre_write`` and ``post_write`` decoratrors, that could be used
 together with ``generic.mixin.track.changes``.
