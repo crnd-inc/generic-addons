@@ -69,6 +69,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -114,6 +115,11 @@ msgid "Generic Mixin: Track Changes"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_uuid
+msgid "Generic Mixin: UUID"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_uniq_name_code
 msgid "Generic Mixin: Unique name and code"
 msgstr ""
@@ -139,6 +145,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__id
 msgid "ID"
 msgstr ""
 
@@ -161,6 +168,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid____last_update
 msgid "Last Modified on"
 msgstr ""
 
