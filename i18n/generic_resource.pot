@@ -176,11 +176,11 @@ msgid "Fields"
 msgstr ""
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_related_mixin.py:94
+#: code:addons/generic_resource/models/generic_resource_related_mixin.py:96
 #, python-format
 msgid "Fields incorrect\n"
-"	Resource type: %s\n"
-"	Resource res_id: %s"
+"	Resource type: %(res_type)s\n"
+"	Resource res_id: %(res_id)s"
 msgstr ""
 
 #. module: generic_resource
@@ -671,8 +671,8 @@ msgstr ""
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:84
 #, python-format
 msgid "Resource does not exists!\n"
-"	Resource type: %s\n"
-"	Resource res_id: %s"
+"	Resource type: %(res_type)s\n"
+"	Resource res_id: %(res_id)s"
 msgstr ""
 
 #. module: generic_resource
@@ -801,6 +801,6 @@ msgstr ""
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_type.py:53
 #, python-format
-msgid "Wrong 'Show Resources Action' for resource type '%s'"
+msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
 

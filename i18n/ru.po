@@ -184,16 +184,13 @@ msgid "Fields"
 msgstr "Поля"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_related_mixin.py:94
+#: code:addons/generic_resource/models/generic_resource_related_mixin.py:96
 #, python-format
 msgid ""
 "Fields incorrect\n"
-"\tResource type: %s\n"
-"\tResource res_id: %s"
+"\tResource type: %(res_type)s\n"
+"\tResource res_id: %(res_id)s"
 msgstr ""
-"Поля некорректны\n"
-"\tТип ресурса: %s\n"
-"\tID ресурса (res_id): %s"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_follower_ids
@@ -684,12 +681,9 @@ msgstr ""
 #, python-format
 msgid ""
 "Resource does not exists!\n"
-"\tResource type: %s\n"
-"\tResource res_id: %s"
+"\tResource type: %(res_type)s\n"
+"\tResource res_id: %(res_id)s"
 msgstr ""
-"Ресурс не существует!\n"
-"\tТип ресурса: %s\n"
-"\tID ресурса (res_id): %s"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_res_model
@@ -820,5 +814,26 @@ msgstr "Поддерживает ли эта модель сообщения и 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_type.py:53
 #, python-format
-msgid "Wrong 'Show Resources Action' for resource type '%s'"
-msgstr "Неправильное 'Действие отображения ресурсов' для типа ресурсов '%s'"
+msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
+msgstr ""
+
+#~ msgid ""
+#~ "Fields incorrect\n"
+#~ "\tResource type: %s\n"
+#~ "\tResource res_id: %s"
+#~ msgstr ""
+#~ "Поля некорректны\n"
+#~ "\tТип ресурса: %s\n"
+#~ "\tID ресурса (res_id): %s"
+
+#~ msgid ""
+#~ "Resource does not exists!\n"
+#~ "\tResource type: %s\n"
+#~ "\tResource res_id: %s"
+#~ msgstr ""
+#~ "Ресурс не существует!\n"
+#~ "\tТип ресурса: %s\n"
+#~ "\tID ресурса (res_id): %s"
+
+#~ msgid "Wrong 'Show Resources Action' for resource type '%s'"
+#~ msgstr "Неправильное 'Действие отображения ресурсов' для типа ресурсов '%s'"
