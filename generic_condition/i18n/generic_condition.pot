@@ -99,10 +99,10 @@ msgstr ""
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid ""
-"Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
+"Checking condition %(cond)s on document %(doc)s caused error. Notify administrator to fix it.\n"
 "\n"
 "---\n"
-"%s"
+"%(error_msg)s"
 msgstr ""
 
 #. module: generic_condition
@@ -363,12 +363,6 @@ msgid "Error"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
-msgid "Error caught while evaluating condition %s[%d]"
-msgstr ""
-
-#. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__eval
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Expression"
@@ -455,8 +449,8 @@ msgstr ""
 msgid ""
 "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"\tcondition: %s [%d]\tobject: %s [%d]\tobject's model: %s\n"
-"\tcondition's model: %s\n"
+"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s [%(object_id)d]\tobject's model: %(object_model)s\n"
+"\tcondition's model: %(condition_model)s\n"
 msgstr ""
 
 #. module: generic_condition
@@ -541,20 +535,22 @@ msgstr ""
 #, python-format
 msgid ""
 "Incorrect Condition (condition group) selected!\n"
-"Base condition: %s[%s]\n"
-"Condition with wrong model: %s[%s]"
+"Base condition: %(base_cond)s [%(base_cond_id)s]\n"
+"Condition with wrong model: %(cond)s [%(cond_id)s]"
 msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
-msgid "Incorrect Conditon field set for condition: %s[%s]"
+msgid ""
+"Incorrect Conditon field set for condition: %(condition)s [%(condition_id)s]"
 msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
-msgid "Incorrect Filter field set for condition: %s[%s]"
+msgid ""
+"Incorrect Filter field set for condition: %(condition)s [%(condition_id)s]"
 msgstr ""
 
 #. module: generic_condition
@@ -682,7 +678,7 @@ msgstr ""
 #. module: generic_condition
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
-msgid "Object (model: %s; id: %s) not found"
+msgid "Object (model: %(model)s; id: %(obj_id)s) not found"
 msgstr ""
 
 #. module: generic_condition
