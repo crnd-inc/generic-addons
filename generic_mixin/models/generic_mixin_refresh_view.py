@@ -43,7 +43,6 @@ class GenericMixinRefreshView(models.AbstractModel):
                 if not f.compute
                 if not f.inverse
                 if not f.related
-                if not f.store
             ))
         return track_fields
 
