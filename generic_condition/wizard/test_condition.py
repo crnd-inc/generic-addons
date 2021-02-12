@@ -29,9 +29,12 @@ class TestGenericCondition(models.TransientModel):
         TestModel = self.env[self.condition_id.model_id.model]
         record = TestModel.browse(self.res_id)
         if not record.exists():
-            raise exceptions.ValidationError(
-                _('Object (model: %s; id: %s) not found'
-                  '') % (self.condition_id.model_id.model, self.res_id))
+            raise exceptions.ValidationError(_(
+                'Object (model: %(model)s; id: %(obj_id)s) not found'
+            ) % {
+                'model': self.condition_id.model_id.model,
+                'obj_id': self.res_id,
+            })
         return record
 
     def _get_record(self):
