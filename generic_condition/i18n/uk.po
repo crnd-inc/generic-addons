@@ -110,17 +110,12 @@ msgstr "Перевірити набір інших умов"
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid ""
-"Checking condition %s on document %s caused error. Notify administrator to "
-"fix it.\n"
+"Checking condition %(cond)s on document %(doc)s caused error. Notify "
+"administrator to fix it.\n"
 "\n"
 "---\n"
-"%s"
+"%(error_msg)s"
 msgstr ""
-"Перевірка %s документу %s спричинила помилку. Повідомте адміністратора щоб "
-"виправити її.\n"
-"\n"
-"---\n"
-"%s"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_user_check_type__checks
@@ -386,12 +381,6 @@ msgid "Error"
 msgstr "Помилка"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
-msgid "Error caught while evaluating condition %s[%d]"
-msgstr "Виникла помилка при обчисленні умови %s[%d]"
-
-#. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__eval
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Expression"
@@ -478,13 +467,10 @@ msgstr "Універсальні умови"
 msgid ""
 "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"\tcondition: %s [%d]\tobject: %s [%d]\tobject's model: %s\n"
-"\tcondition's model: %s\n"
+"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s "
+"[%(object_id)d]\tobject's model: %(object_model)s\n"
+"\tcondition's model: %(condition_model)s\n"
 msgstr ""
-"Неправильно налаштовані універсальні умови!\n"
-"модель обʼєкта та умови не однакові:\n"
-"\tумова: %s [%d]\tобʼєкт: %s [%d]\tмодель обʼєкту: %s\n"
-"\tмодель умови: %s\n"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
@@ -583,24 +569,23 @@ msgstr ""
 #, python-format
 msgid ""
 "Incorrect Condition (condition group) selected!\n"
-"Base condition: %s[%s]\n"
-"Condition with wrong model: %s[%s]"
+"Base condition: %(base_cond)s [%(base_cond_id)s]\n"
+"Condition with wrong model: %(cond)s [%(cond_id)s]"
 msgstr ""
-"Вибрані некоректні умови (група умов)\n"
-"Основна умова: %s[%s]\n"
-"Умова з невірною моделлю: %s[%s]"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
-msgid "Incorrect Conditon field set for condition: %s[%s]"
-msgstr "Вибрано некоректне поле умови: %s[%s]"
+msgid ""
+"Incorrect Conditon field set for condition: %(condition)s [%(condition_id)s]"
+msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
-msgid "Incorrect Filter field set for condition: %s[%s]"
-msgstr "Встановлений неправильний фільтр для умови: %s[%s]"
+msgid ""
+"Incorrect Filter field set for condition: %(condition)s [%(condition_id)s]"
+msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__invert
@@ -728,8 +713,8 @@ msgstr "Або"
 #. module: generic_condition
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
-msgid "Object (model: %s; id: %s) not found"
-msgstr "Об'єкт (model: %s; id: %s) не знайдено"
+msgid "Object (model: %(model)s; id: %(obj_id)s) not found"
+msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__res_id
@@ -1158,6 +1143,51 @@ msgstr "uid - id поточного користувача"
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "user - current user"
 msgstr "user - поточний користувач"
+
+#~ msgid ""
+#~ "Checking condition %s on document %s caused error. Notify administrator "
+#~ "to fix it.\n"
+#~ "\n"
+#~ "---\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Перевірка %s документу %s спричинила помилку. Повідомте адміністратора "
+#~ "щоб виправити її.\n"
+#~ "\n"
+#~ "---\n"
+#~ "%s"
+
+#~ msgid "Error caught while evaluating condition %s[%d]"
+#~ msgstr "Виникла помилка при обчисленні умови %s[%d]"
+
+#~ msgid ""
+#~ "Generic conditions misconfigured!\n"
+#~ "object's model and condition's model does not match:\n"
+#~ "\tcondition: %s [%d]\tobject: %s [%d]\tobject's model: %s\n"
+#~ "\tcondition's model: %s\n"
+#~ msgstr ""
+#~ "Неправильно налаштовані універсальні умови!\n"
+#~ "модель обʼєкта та умови не однакові:\n"
+#~ "\tумова: %s [%d]\tобʼєкт: %s [%d]\tмодель обʼєкту: %s\n"
+#~ "\tмодель умови: %s\n"
+
+#~ msgid ""
+#~ "Incorrect Condition (condition group) selected!\n"
+#~ "Base condition: %s[%s]\n"
+#~ "Condition with wrong model: %s[%s]"
+#~ msgstr ""
+#~ "Вибрані некоректні умови (група умов)\n"
+#~ "Основна умова: %s[%s]\n"
+#~ "Умова з невірною моделлю: %s[%s]"
+
+#~ msgid "Incorrect Conditon field set for condition: %s[%s]"
+#~ msgstr "Вибрано некоректне поле умови: %s[%s]"
+
+#~ msgid "Incorrect Filter field set for condition: %s[%s]"
+#~ msgstr "Встановлений неправильний фільтр для умови: %s[%s]"
+
+#~ msgid "Object (model: %s; id: %s) not found"
+#~ msgstr "Об'єкт (model: %s; id: %s) не знайдено"
 
 #~ msgid "If checked new messages require your attention."
 #~ msgstr "Якщо позначено, то повідомленя потребує вашої уваги"
