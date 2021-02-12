@@ -22,21 +22,16 @@ msgstr ""
 msgid ""
 "Cannot unlink these records. Operation not allowed.\n"
 "It is better to deactivate these records.\n"
-"Model: %s [%s]"
+"Model: %(model)s [%(model_name)s]"
 msgstr ""
-"Не можливо видалити ці записи. Операція не дозволена.\n"
-"Краще деактивуйте ці записи.\n"
-"Модель: %s [%s]"
 
 #. module: generic_mixin
-#: code:addons/generic_mixin/models/generic_no_unlink.py:37
+#: code:addons/generic_mixin/models/generic_no_unlink.py:40
 #, python-format
 msgid ""
 "Cannot unlink these records. Operation not allowed.\n"
-"Model: %s [%s]"
+"Model: %(model)s [%(model_name)s]"
 msgstr ""
-"Не можливо видалити ці записи. Операція не дозволена.\n"
-"Модель: %s [%s]"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__code
@@ -207,3 +202,19 @@ msgstr ""
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
 msgid "XML ID for this record."
 msgstr ""
+
+#~ msgid ""
+#~ "Cannot unlink these records. Operation not allowed.\n"
+#~ "It is better to deactivate these records.\n"
+#~ "Model: %s [%s]"
+#~ msgstr ""
+#~ "Не можливо видалити ці записи. Операція не дозволена.\n"
+#~ "Краще деактивуйте ці записи.\n"
+#~ "Модель: %s [%s]"
+
+#~ msgid ""
+#~ "Cannot unlink these records. Operation not allowed.\n"
+#~ "Model: %s [%s]"
+#~ msgstr ""
+#~ "Не можливо видалити ці записи. Операція не дозволена.\n"
+#~ "Модель: %s [%s]"

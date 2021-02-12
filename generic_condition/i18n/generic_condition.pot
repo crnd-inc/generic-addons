@@ -67,7 +67,7 @@ msgid "By this type you can describe the condition as an expression in the Pytho
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:913
+#: code:addons/generic_condition/models/generic_condition.py:932
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr ""
@@ -94,12 +94,12 @@ msgid "Check set of other conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:440
+#: code:addons/generic_condition/models/generic_condition.py:452
 #, python-format
-msgid "Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
+msgid "Checking condition %(cond)s on document %(doc)s caused error. Notify administrator to fix it.\n"
 "\n"
 "---\n"
-"%s"
+"%(error_msg)s"
 msgstr ""
 
 #. module: generic_condition
@@ -353,15 +353,9 @@ msgid "End Date"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:49
+#: code:addons/generic_condition/wizard/test_condition.py:52
 #, python-format
 msgid "Error"
-msgstr ""
-
-#. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:865
-#, python-format
-msgid "Error caught while evaluating condition %s[%d]"
 msgstr ""
 
 #. module: generic_condition
@@ -372,7 +366,7 @@ msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/tests/test_condition.py:133
-#: code:addons/generic_condition/wizard/test_condition.py:47
+#: code:addons/generic_condition/wizard/test_condition.py:50
 #, python-format
 msgid "Fail"
 msgstr ""
@@ -446,12 +440,12 @@ msgid "Generic Conditions"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:815
+#: code:addons/generic_condition/models/generic_condition.py:833
 #, python-format
 msgid "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"	condition: %s [%d]	object: %s [%d]	object's model: %s\n"
-"	condition's model: %s\n"
+"	condition: %(condition)s [%(condition_id)d]	object: %(object)s [%(object_id)d]	object's model: %(object_model)s\n"
+"	condition's model: %(condition_model)s\n"
 ""
 msgstr ""
 
@@ -530,23 +524,23 @@ msgid "In that case you can select one of the already created conditions (this c
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:70
+#: code:addons/generic_condition/models/generic_condition.py:78
 #, python-format
 msgid "Incorrect Condition (condition group) selected!\n"
-"Base condition: %s[%s]\n"
-"Condition with wrong model: %s[%s]"
+"Base condition: %(base_cond)s [%(base_cond_id)s]\n"
+"Condition with wrong model: %(cond)s [%(cond_id)s]"
 msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:49
 #, python-format
-msgid "Incorrect Conditon field set for condition: %s[%s]"
+msgid "Incorrect Conditon field set for condition: %(condition)s [%(condition_id)s]"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:59
+#: code:addons/generic_condition/models/generic_condition.py:63
 #, python-format
-msgid "Incorrect Filter field set for condition: %s[%s]"
+msgid "Incorrect Filter field set for condition: %(condition)s [%(condition_id)s]"
 msgstr ""
 
 #. module: generic_condition
@@ -672,9 +666,9 @@ msgid "OR"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:33
+#: code:addons/generic_condition/wizard/test_condition.py:32
 #, python-format
-msgid "Object (model: %s; id: %s) not found"
+msgid "Object (model: %(model)s; id: %(obj_id)s) not found"
 msgstr ""
 
 #. module: generic_condition
@@ -689,7 +683,7 @@ msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/tests/test_condition.py:129
-#: code:addons/generic_condition/wizard/test_condition.py:45
+#: code:addons/generic_condition/wizard/test_condition.py:48
 #, python-format
 msgid "Ok"
 msgstr ""
@@ -878,7 +872,7 @@ msgid "Type"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/wizard/test_condition.py:50
+#: code:addons/generic_condition/wizard/test_condition.py:53
 #, python-format
 msgid "Unknown"
 msgstr ""
@@ -967,7 +961,7 @@ msgid "Wizard: Test generic condition"
 msgstr ""
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:86
+#: code:addons/generic_condition/models/generic_condition.py:99
 #, python-format
 msgid "Wrong Related Field / Based on combination"
 msgstr ""

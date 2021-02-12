@@ -22,15 +22,15 @@ msgstr ""
 msgid ""
 "Cannot unlink these records. Operation not allowed.\n"
 "It is better to deactivate these records.\n"
-"Model: %s [%s]"
+"Model: %(model)s [%(model_name)s]"
 msgstr ""
 
 #. module: generic_mixin
-#: code:addons/generic_mixin/models/generic_no_unlink.py:37
+#: code:addons/generic_mixin/models/generic_no_unlink.py:40
 #, python-format
 msgid ""
 "Cannot unlink these records. Operation not allowed.\n"
-"Model: %s [%s]"
+"Model: %(model)s [%(model_name)s]"
 msgstr ""
 
 #. module: generic_mixin
