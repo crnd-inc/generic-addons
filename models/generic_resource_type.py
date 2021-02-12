@@ -51,8 +51,9 @@ class GenericResourceType(models.Model):
                 continue
             if record.model != record.show_resources_action_id.res_model:
                 raise exceptions.ValidationError(_(
-                    "Wrong 'Show Resources Action' for resource type '%s'"
-                    "") % record.name)
+                    "Wrong 'Show Resources Action' for resource type "
+                    "'%(res_type)s'"
+                ) % {'res_type': record.name})
 
     def _create_context_action_for_target_model_single(self):
         if not self.resource_related_res_action_id:

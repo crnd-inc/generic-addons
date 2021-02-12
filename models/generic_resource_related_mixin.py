@@ -83,20 +83,24 @@ class GenericResourceRelatedMixin(models.AbstractModel):
                 else:
                     raise exceptions.ValidationError(_(
                         'Resource does not exists!\n'
-                        '\tResource type: %s\n'
-                        '\tResource res_id: %s') % (
-                            rec.resource_type_id.display_name,
-                            rec.resource_res_id))
+                        '\tResource type: %(res_type)s\n'
+                        '\tResource res_id: %(res_id)s'
+                    ) % {
+                        'res_type': rec.resource_type_id.display_name,
+                        'res_id': rec.resource_res_id,
+                    })
             elif (not rec.resource_type_id and not
                   rec.resource_res_id):
                 rec.resource_id = False
             else:
                 raise exceptions.ValidationError(_(
                     'Fields incorrect\n'
-                    '\tResource type: %s\n'
-                    '\tResource res_id: %s') % (
-                        rec.resource_type_id.display_name,
-                        rec.resource_res_id))
+                    '\tResource type: %(res_type)s\n'
+                    '\tResource res_id: %(res_id)s'
+                ) % {
+                    'res_type': rec.resource_type_id.display_name,
+                    'res_id': rec.resource_res_id,
+                })
 
     @api.onchange('resource_type_id')
     def _onchange_resource_type_id_clean_resource_res_id(self):
