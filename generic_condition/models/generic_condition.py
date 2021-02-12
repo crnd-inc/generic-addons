@@ -49,8 +49,12 @@ class GenericCondition(models.Model):
                 continue
             if record.condition_condition_id.model_id != record.model_id:
                 raise exceptions.ValidationError(_(
-                    "Incorrect Conditon field set for condition: %s[%s]"
-                ) % (record.display_name, record.id))
+                    "Incorrect Conditon field set for condition: "
+                    "%(condition)s [%(condition_id)s]"
+                ) % {
+                    'condition': record.display_name,
+                    'condition_id': record.id,
+                })
 
     @api.constrains('type', 'model_id', 'condition_filter_id')
     def _constrain_condition_filter_id(self):
@@ -59,8 +63,12 @@ class GenericCondition(models.Model):
                 continue
             if record.condition_filter_id.model_id != record.model_id.model:
                 raise exceptions.ValidationError(_(
-                    "Incorrect Filter field set for condition: %s[%s]"
-                ) % (record.display_name, record.id))
+                    "Incorrect Filter field set for condition: "
+                    "%(condition)s [%(condition_id)s]"
+                ) % {
+                    'condition': record.display_name,
+                    'condition_id': record.id,
+                })
 
     @api.constrains('type', 'model_id', 'condition_condition_ids')
     def _constrain_condition_group(self):
@@ -71,9 +79,14 @@ class GenericCondition(models.Model):
                 if c.model_id != record.model_id:
                     raise exceptions.ValidationError(_(
                         "Incorrect Condition (condition group) selected!\n"
-                        "Base condition: %s[%s]\n"
-                        "Condition with wrong model: %s[%s]"
-                    ) % (record.display_name, record.id, c.display_name, c.id))
+                        "Base condition: %(base_cond)s [%(base_cond_id)s]\n"
+                        "Condition with wrong model: %(cond)s [%(cond_id)s]"
+                    ) % {
+                        'base_cond': record.display_name,
+                        'base_cond_id': record.id,
+                        'cond': c.display_name,
+                        'cond_id': c.id,
+                    })
 
     @api.constrains('type', 'model_id', 'condition_rel_field_id')
     def _constrain_condition_rel_field_id(self):
@@ -439,10 +452,15 @@ class GenericCondition(models.Model):
                 "Error was cauht when checking condition %s on document %s. "
                 "condition expression:\n%s\n", condition_name, obj_name,
                 self.condition_eval, exc_info=True)
-            raise exceptions.ValidationError(
-                _("Checking condition %s on document %s caused error. "
-                  "Notify administrator to fix it.\n\n---\n"
-                  "%s") % (condition_name, obj_name, traceback.format_exc()))
+            raise exceptions.ValidationError(_(
+                "Checking condition %(cond)s on document %(doc)s "
+                "caused error. Notify administrator to fix it.\n"
+                "\n---\n%(error_msg)s"
+            ) % {
+                'cond': condition_name,
+                'doc': obj_name,
+                'error_msg': traceback.format_exc(),
+            })
         return res
 
     # signature check_<type> where type is condition type
@@ -818,17 +836,18 @@ class GenericCondition(models.Model):
             raise exceptions.UserError(_(
                 "Generic conditions misconfigured!\n"
                 "object's model and condition's model does not match:\n"
-                "\tcondition: %s [%d]"
-                "\tobject: %s [%d]"
-                "\tobject's model: %s\n"
-                "\tcondition's model: %s\n") % (
-                    self.display_name,
-                    self.id,
-                    obj.display_name,
-                    obj.id,
-                    obj._name,
-                    self.based_on,
-                ))
+                "\tcondition: %(condition)s [%(condition_id)d]"
+                "\tobject: %(object)s [%(object_id)d]"
+                "\tobject's model: %(object_model)s\n"
+                "\tcondition's model: %(condition_model)s\n"
+            ) % {
+                'condition': self.display_name,
+                'condition_id': self.id,
+                'object': obj.display_name,
+                'object_id': obj.id,
+                'object_model': obj._name,
+                'condition_model': self.based_on,
+            })
 
         self._debug_log(debug_log, obj, "Computing...")
 
@@ -865,9 +884,9 @@ class GenericCondition(models.Model):
         try:
             res = check_method(obj, cache=cache, debug_log=debug_log)
         except Exception:
-            msg = _("Error caught while evaluating condition %s[%d]"
-                    "") % (condition.name, condition.id,)
-            _logger.error(msg, exc_info=True)
+            _logger.error(
+                "Error caught while evaluating condition %s[%d]",
+                condition.name, condition.id, exc_info=True)
             raise
 
         # Invert result if required
