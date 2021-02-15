@@ -5,7 +5,7 @@ class TestGenericLocation(SavepointCase):
 
     def test_create_location(self):
         simplelocation = self.env.ref(
-            'generic_location.' 'simple_parent_location_4')
+            'generic_location.simple_parent_location_4')
         self.assertNotEqual(simplelocation.name, simplelocation.copy().name)
         self.assertEqual(simplelocation.name, 'Hostel-3')
         self.assertEqual(simplelocation.child_ids.name, 'Room 9')
@@ -26,6 +26,12 @@ class TestGenericLocation(SavepointCase):
             'parent_id': root.id,
         })
         self.assertEqual(child.display_name, 'Root / Child')
+
+    def test_child_count(self):
+        loc = self.env.ref(
+            'generic_location.simple_parent_location_1')
+        self.assertEqual(loc.child_count, 10)
+        self.assertEqual(loc.child_all_count, 10)
 
     def test_location_parent_ids(self):
         house1 = self.env.ref('generic_location.simple_parent_location_1')
