@@ -111,4 +111,34 @@
         <field name="parent_id" ref="simple_parent_location_3"/>
     </record>
 
+    <!-- location with miltiple siblocations -->
+    <record id="simple_location_root_1" model="generic.location">
+        <field name="name">Root</field>
+    </record>
+    <record id="simple_location_room_1_l1_b1" model="generic.location">
+        <field name="name">L1 Branch 1</field>
+        <field name="parent_id" ref="simple_location_root_1"/>
+    </record>
+    <record id="simple_location_room_1_l1_b2" model="generic.location">
+        <field name="name">L1 Branch 2</field>
+        <field name="parent_id" ref="simple_location_root_1"/>
+    </record>
+    <record id="simple_location_room_1_l2_b1_1" model="generic.location">
+        <field name="name">L2 Branch 1</field>
+        <field name="parent_id" ref="simple_location_room_1_l1_b1"/>
+    </record>
+    <record id="simple_location_room_1_l2_b1_2" model="generic.location">
+        <field name="name">L2 Branch 2</field>
+        <field name="parent_id" ref="simple_location_room_1_l1_b1"/>
+    </record>
+    <record id="simple_location_room_1_l2_b2_1" model="generic.location">
+        <field name="name">L2 Branch 3</field>
+        <field name="parent_id" ref="simple_location_room_1_l1_b2"/>
+    </record>
+    <record id="simple_location_room_1_l3_b1_1" model="generic.location">
+        <field name="name">L3 Branch 1</field>
+        <field name="parent_id" ref="simple_location_room_1_l2_b1_2"/>
+    </record>
+
+
 </odoo>
