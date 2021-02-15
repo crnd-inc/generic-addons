@@ -40,6 +40,11 @@ msgid "Active"
 msgstr "Активно"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__child_all_ids
+msgid "All Childs"
+msgstr ""
+
+#. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Archived"
 msgstr "Архивировано"
@@ -47,6 +52,11 @@ msgstr "Архивировано"
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_attachment_count
 msgid "Attachment Count"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__child_all_count
+msgid "Child All Count"
 msgstr ""
 
 #. module: generic_location
@@ -269,8 +279,8 @@ msgid "Sublocation"
 msgstr ""
 
 #. module: generic_location
-#: code:addons/generic_location/models/generic_location.py:125
-#: code:addons/generic_location/models/generic_location.py:126
+#: code:addons/generic_location/models/generic_location.py:135
+#: code:addons/generic_location/models/generic_location.py:136
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__child_ids
 #, python-format
 msgid "Sublocations"
