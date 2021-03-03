@@ -11,12 +11,13 @@ odoo.define('generic_mixin.WebClient', function (require) {
             // Structure:  {'model.name': [id1, id2, id3]}
             // Will be cleaned up on next refresh
             self._generic_refresh_mixin__pending = {};
-            self._generic_refresh_mixin__debounce_timeout = 2000;
+            self._generic_refresh_mixin__throttle_timeout = 2000;
 
-            // Debounced function to be called not more then onece per 1000 ms
-            self._generic_refresh_mixin__refresher = _.debounce(function () {
+            // Throttled function to execute only once in
+            // throttle timeout time
+            self._generic_refresh_mixin__refresher = _.throttle(function () {
                 self._generic_mixin_refresh_view__do_refresh();
-            }, self._generic_refresh_mixin__debounce_timeout);
+            }, self._generic_refresh_mixin__throttle_timeout);
         },
 
         show_application: function () {
