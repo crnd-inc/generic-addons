@@ -66,7 +66,7 @@ def render_jinja_string(template_str, context, on_error='empty', env=None):
     except Exception:
         _logger.error(
             "Cannot parse template:\n\n---\n\n%s\n\n---\n",
-            template, exc_info=True)
+            template_str, exc_info=True)
         if on_error == 'raw':
             return template_str
         if on_error == 'raise':
@@ -79,7 +79,7 @@ def render_jinja_string(template_str, context, on_error='empty', env=None):
     except Exception:
         _logger.error(
             "Cannot render template:\n\n---\n\n%s\n\n---\n",
-            template, exc_info=True)
+            template_str, exc_info=True)
         if on_error == 'raw':
             return template_str
         if on_error == 'raise':
