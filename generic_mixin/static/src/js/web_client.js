@@ -33,41 +33,76 @@ odoo.define('generic_mixin.WebClient', function (require) {
             return shown;
         },
 
-        _generic_mixin_refresh_view__do_refresh: function () {
+        // Check if need to update controller
+        // :param Controller ctl: controlelr to check
+        _generic_mixin_refresh_view__do_refresh_check: function (ctl) {
             var self = this;
-            var cur_action = self.action_manager.getCurrentAction();
-            if (!cur_action) {
-                return;
+            if (!ctl) {
+                return false;
+            }
+
+            var act = self.action_manager.actions[ctl.actionID];
+            if (!act) {
+                return false;
             }
 
             var refresh_ids = self._generic_refresh_mixin__pending[
-                cur_action.res_model];
-
-            // Clenaup all pending refresh data, before continueing.
-            self._generic_refresh_mixin__pending = {};
+                act.res_model];
 
             if (!refresh_ids) {
-                return;
+                return false;
+            }
+            if (ctl.widget.mode !== 'readonly') {
+                return false;
             }
 
-            var cur_ctl = self.action_manager.getCurrentController();
-            if (!cur_ctl || cur_ctl.widget.mode !== 'readonly') {
-                return;
-            }
             var active_ids = [];
-            if (cur_action.res_id) {
-                active_ids.push(cur_action.res_id);
+            if (act.res_id) {
+                active_ids.push(act.res_id);
             }
 
-            if (cur_ctl.widget.initialState) {
+            if (ctl.widget.initialState) {
                 active_ids = _.union(
-                    active_ids, cur_ctl.widget.initialState.res_ids);
+                    active_ids, ctl.widget.initialState.res_ids);
             }
-
             if (_.intersection(refresh_ids, active_ids)) {
-                if (cur_ctl && cur_ctl.widget) {
-                    cur_ctl.widget.reload();
+                return true;
+            }
+        },
+
+        // Refresh controller
+        // :param Controller ctl: controlelr to check
+        _generic_mixin_refresh_view__do_refresh_ctl: function (ctl) {
+            if (ctl && ctl.widget) {
+                var old_dis_autofocus = ctl.widget.disableAutofocus;
+                if ('disableAutofocus' in ctl.widget) {
+                    // In case of it is form view and has 'disableAutofocus'
+                    // property, we have to set it to True, to ensure,
+                    // that after update form will not scroll to the top.
+                    // This helps a lot in case of frequent (1/sec) refresh
+                    // events for the model
+                    ctl.widget.disableAutofocus = true;
+                    ctl.widget.reload().then(function () {
+                        ctl.widget.disableAutofocus = old_dis_autofocus;
+                    });
+                } else {
+                    // Otherwise, simply reload widget
+                    ctl.widget.reload();
                 }
+            }
+        },
+
+        _generic_mixin_refresh_view__do_refresh: function () {
+            var self = this;
+            var cur_ctl = self.action_manager.getCurrentController();
+            if (self._generic_mixin_refresh_view__do_refresh_check(cur_ctl)) {
+                // Refresh current controller
+                self._generic_mixin_refresh_view__do_refresh_ctl(cur_ctl);
+            }
+            var diag_ctl = self.action_manager.currentDialogController;
+            if (self._generic_mixin_refresh_view__do_refresh_check(diag_ctl)) {
+                // Refresh current dialog controller
+                self._generic_mixin_refresh_view__do_refresh_ctl(diag_ctl);
             }
         },
 
