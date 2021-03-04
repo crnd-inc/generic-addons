@@ -11,7 +11,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
             // Structure:  {'model.name': [id1, id2, id3]}
             // Will be cleaned up on next refresh
             self._generic_refresh_mixin__pending = {};
-            self._generic_refresh_mixin__throttle_timeout = 2000;
+            self._generic_refresh_mixin__throttle_timeout = 4000;
 
             // Throttled function to execute only once in
             // throttle timeout time
@@ -63,10 +63,10 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
             if (act.env.currentId) {
                 active_ids.push(act.env.currentId);
-            }
-            if (!_.isEmpty(act.env.ids)) {
+            } else if (!_.isEmpty(act.env.ids)) {
                 active_ids = _.union(active_ids, act.env.ids);
             }
+
             if (_.intersection(refresh_ids, active_ids)) {
                 return true;
             }
