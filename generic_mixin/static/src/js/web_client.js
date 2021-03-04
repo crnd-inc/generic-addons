@@ -76,7 +76,21 @@ odoo.define('generic_mixin.WebClient', function (require) {
         // :param Controller ctl: controlelr to check
         _generic_mixin_refresh_view__do_refresh_ctl: function (ctl) {
             if (ctl && ctl.widget) {
-                ctl.widget.reload();
+                var old_dis_autofocus = ctl.widget.disableAutofocus;
+                if ('disableAutofocus' in ctl.widget) {
+                    // in case of it is form view and has 'disableAutofocus'
+                    // property, we have to set it to True, to ensure,
+                    // that after update form will not scroll to the top.
+                    // This helps a lot in case of frequent (1/sec) refresh
+                    // events for the model
+                    ctl.widget.disableAutofocus = true;
+                    ctl.widget.reload().then(function () {
+                        ctl.widget.disableAutofocus = old_dis_autofocus;
+                    });
+                } else {
+                    // Otherwise, simply reload widget
+                    ctl.widget.reload();
+                }
             }
         },
 
