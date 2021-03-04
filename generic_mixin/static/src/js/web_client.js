@@ -33,43 +33,64 @@ odoo.define('generic_mixin.WebClient', function (require) {
             return shown;
         },
 
-        _generic_mixin_refresh_view__do_refresh: function () {
+        // Check if need to update controller
+        // :param Controller ctl: controlelr to check
+        _generic_mixin_refresh_view__do_refresh_check: function (ctl) {
             var self = this;
-            var cur_action = self.action_manager.getCurrentAction();
-            if (!cur_action) {
-                return;
+            if (!ctl) {
+                return false;
+            }
+
+            var act = self.action_manager.actions[ctl.actionID];
+            if (!act) {
+                return false;
             }
 
             var refresh_ids = self._generic_refresh_mixin__pending[
-                cur_action.res_model];
-
-            // Clenaup all pending refresh data, before continueing.
-            self._generic_refresh_mixin__pending = {};
+                act.res_model];
 
             if (!refresh_ids) {
-                return;
+                return false;
+            }
+            if (ctl.widget.mode !== 'readonly') {
+                return false;
             }
 
-            var cur_ctl = self.action_manager.getCurrentController();
-            if (!cur_ctl || cur_ctl.widget.mode !== 'readonly') {
-                return;
-            }
             var active_ids = [];
-            if (cur_action.res_id) {
-                active_ids.push(cur_action.res_id);
+            if (act.res_id) {
+                active_ids.push(act.res_id);
             }
 
-            if (cur_action.env.currentId) {
-                active_ids.push(cur_action.env.currentId);
+            if (act.env.currentId) {
+                active_ids.push(act.env.currentId);
             }
-            if (!_.isEmpty(cur_action.env.ids)) {
-                active_ids = _.union(active_ids, cur_action.env.ids);
+            if (!_.isEmpty(act.env.ids)) {
+                active_ids = _.union(active_ids, act.env.ids);
             }
-
             if (_.intersection(refresh_ids, active_ids)) {
-                if (cur_ctl && cur_ctl.widget) {
-                    cur_ctl.widget.reload();
-                }
+                return true;
+            }
+        },
+
+        // Refresh controller
+        // :param Controller ctl: controlelr to check
+        _generic_mixin_refresh_view__do_refresh_ctl: function (ctl) {
+            if (ctl && ctl.widget) {
+                ctl.widget.reload();
+            }
+        },
+
+        _generic_mixin_refresh_view__do_refresh: function () {
+            var self = this;
+            var cur_ctl = self.action_manager.getCurrentController();
+            if (self._generic_mixin_refresh_view__do_refresh_check(cur_ctl)) {
+                // Refresh current controller
+                self._generic_mixin_refresh_view__do_refresh_ctl(cur_ctl);
+            }
+            var diag_ctl = self.action_manager.currentDialogController;
+            if (self._generic_mixin_refresh_view__do_refresh_check(diag_ctl)) {
+                // Refresh current dialog controller
+                self._generic_mixin_refresh_view__do_refresh_ctl(diag_ctl);
             }
         },
 
