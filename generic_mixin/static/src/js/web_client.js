@@ -78,7 +78,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
             if (ctl && ctl.widget) {
                 var old_dis_autofocus = ctl.widget.disableAutofocus;
                 if ('disableAutofocus' in ctl.widget) {
-                    // in case of it is form view and has 'disableAutofocus'
+                    // In case of it is form view and has 'disableAutofocus'
                     // property, we have to set it to True, to ensure,
                     // that after update form will not scroll to the top.
                     // This helps a lot in case of frequent (1/sec) refresh
