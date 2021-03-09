@@ -73,8 +73,8 @@ class ReduceLoggingMixin(unittest.TestCase):
     @mute_logger(
         'odoo.models.unlink',
         'odoo.addons.mail.models.mail_mail')
-    def run(self, **kwargs):
-        return super(ReduceLoggingMixin, self).run(**kwargs)
+    def run(self, result=None):
+        return super(ReduceLoggingMixin, self).run(result=result)
 
 
 class AccessRulesFixMixinST:
