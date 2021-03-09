@@ -79,7 +79,7 @@ msgstr ""
 "                                <br/>"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:932
+#: code:addons/generic_condition/models/generic_condition.py:937
 #, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr "Невозможно проверить условия для пустой выборки данных"
@@ -461,7 +461,7 @@ msgid "Generic Conditions"
 msgstr "Универсальные условия"
 
 #. module: generic_condition
-#: code:addons/generic_condition/models/generic_condition.py:833
+#: code:addons/generic_condition/models/generic_condition.py:838
 #, python-format
 msgid ""
 "Generic conditions misconfigured!\n"
