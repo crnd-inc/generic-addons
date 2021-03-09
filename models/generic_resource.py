@@ -193,3 +193,4 @@ class GenericResource(models.Model):
         """
         if self.resource:
             return self.resource.get_formview_action()
+        return None
