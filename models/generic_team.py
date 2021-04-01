@@ -41,3 +41,15 @@ class GenericTeam(models.Model):
     def _compute_user_count(self):
         for record in self:
             record.user_count = len(record.user_ids)
+
+    def _get_team_users(self):
+        self.ensure_one()
+        return self.leader_id + self.task_manager_id + self.user_ids
+
+    def _check_user_in_team(self, user_id):
+        self.ensure_one()
+        return any([
+            self in user_id.generic_team_ids,
+            self.leader_id == user_id,
+            self.task_manager_id == user_id,
+        ])
