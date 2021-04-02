@@ -44,7 +44,13 @@ class GenericTeam(models.Model):
 
     def _get_team_users(self):
         self.ensure_one()
-        return self.leader_id + self.task_manager_id + self.user_ids
+        team_users = self.user_ids
+        if self.leader_id not in team_users:
+            team_users += self.leader_id
+        if self.task_manager_id not in team_users:
+            team_users += self.task_manager_id
+
+        return team_users
 
     def _check_user_in_team(self, user_id):
         self.ensure_one()
