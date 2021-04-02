@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!-- res_partners ne-->
+    <record id="partner_res_users_user1" model="res.partner">
+        <field name="name">Pietro Abernathy</field>
+        <field name="email">pietro.abernathyn23@example.com</field>
+    </record>
+    <record id="partner_res_users_user2" model="res.partner">
+        <field name="name">Philip Boe</field>
+        <field name="email">philip.boe24@example.com</field>
+    </record>
+    <record id="partner_res_users_user3" model="res.partner">
+        <field name="name">Valentin Odegaard</field>
+        <field name="email">valentin.odegard25@example.com</field>
+    </record>
+    <record id="partner_res_users_user4" model="res.partner">
+        <field name="name">Lana Nilssen</field>
+        <field name="email">lana.nilsen26@example.com</field>
+    </record>
+
     <!-- res_users -->
     <record id="team_res_users_user1" model="res.users"
             context="{'no_reset_password': True}">
+        <field name="partner_id" ref="generic_team.partner_res_users_user1"/>
         <field name="name">Pietro Abernathy</field>
         <field name="login">team_user_pietro</field>
         <field name="password">team_user_pietro</field>
@@ -11,6 +31,7 @@
     </record>
     <record id="team_res_users_user2" model="res.users"
             context="{'no_reset_password': True}">
+        <field name="partner_id" ref="generic_team.partner_res_users_user2"/>
         <field name="name">Philip Boe</field>
         <field name="login">team_user_philip</field>
         <field name="password">team_user_philip</field>
@@ -19,6 +40,7 @@
     </record>
     <record id="team_res_users_user3" model="res.users"
             context="{'no_reset_password': True}">
+        <field name="partner_id" ref="generic_team.partner_res_users_user3"/>
         <field name="name">Valentin Odegaard</field>
         <field name="login">team_user_valentin</field>
         <field name="password">team_user_valentin</field>
@@ -27,6 +49,7 @@
     </record>
     <record id="team_res_users_user4" model="res.users"
             context="{'no_reset_password': True}">
+        <field name="partner_id" ref="generic_team.partner_res_users_user4"/>
         <field name="name">Lana Nilssen</field>
         <field name="login">team_user_lana</field>
         <field name="password">team_user_lana</field>
