@@ -54,6 +54,8 @@ class GenericTeam(models.Model):
 
     def _check_user_in_team(self, user_id):
         self.ensure_one()
+        if not user_id:
+            return False
         return any([
             self in user_id.generic_team_ids,
             self.leader_id == user_id,
