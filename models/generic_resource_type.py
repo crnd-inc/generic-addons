@@ -27,7 +27,7 @@ class GenericResourceType(models.Model):
          ('portal', 'Visible to employees and portal users'),
          ('public', 'Visible for unregistered users')],
         default='internal', required=True)
-    sequence = fields.Integer('Sequence', default=5, index=True)
+    sequence = fields.Integer(default=5, index=True)
 
     _sql_constraints = [
         ('model_id_uniq',
