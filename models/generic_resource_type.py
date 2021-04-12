@@ -4,6 +4,7 @@ from odoo import fields, models, api, tools, exceptions, _
 class GenericResourceType(models.Model):
     _name = 'generic.resource.type'
     _description = "Generic Resource Type"
+    _order = 'sequence asc, name asc, model_id asc'
 
     name = fields.Char(index=True, required=True, translate=True)
     active = fields.Boolean(index=True, default=True)
@@ -26,6 +27,7 @@ class GenericResourceType(models.Model):
          ('portal', 'Visible to employees and portal users'),
          ('public', 'Visible for unregistered users')],
         default='internal', required=True)
+    sequence = fields.Integer('Sequence', default=5, index=True)
 
     _sql_constraints = [
         ('model_id_uniq',

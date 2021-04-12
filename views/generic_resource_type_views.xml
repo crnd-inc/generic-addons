@@ -8,6 +8,7 @@
         <field name="model">generic.resource.type</field>
         <field name="arch" type="xml">
             <tree create="false" delete="false">
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="model_id"/>
                 <field name="active"/>
@@ -47,6 +48,7 @@
                         </group>
                         <group name="group_right">
                             <field name="resource_visibility"/>
+                            <field name="sequence" groups="base.group_no_one"/>
                         </group>
                     </group>
                 </sheet>
