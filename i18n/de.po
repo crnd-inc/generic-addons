@@ -721,6 +721,11 @@ msgid "Resources"
 msgstr "Ressourcen"
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__show_resources_action_id
 msgid "Show Resources Action"
 msgstr ""
@@ -810,7 +815,7 @@ msgstr ""
 "Gibt an, ob dieses Modell Mitteilungen und Benachrichtigungen unterstützt."
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_type.py:53
+#: code:addons/generic_resource/models/generic_resource_type.py:55
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
