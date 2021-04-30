@@ -4,7 +4,7 @@
               inherit_id="web.assets_backend"
               name="Generic Service Assets (backend)">
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href='/generic_service/static/src/less/service_kanban.less'/>
+            <link rel="stylesheet" type="text/scss" href='/generic_service/static/src/scss/service_kanban.scss'/>
         </xpath>
     </template>
 </odoo>

@@ -1,7 +1,3 @@
-@x_odoo-brand-optional: #7c7bad;
-@x_odoo-horizontal-padding: 16px;
-@x_odoo-main-text-color: #4c4c4c;
-
 .o_service_dashboard_kanban {
     padding: 0 !important;
 
@@ -21,7 +17,7 @@
             width: 100%;
             height: 100%;
             color: white;
-            background-color: @x_odoo-brand-optional;
+            background-color: $o-community-color;
             display: flex;
 
             a {
@@ -40,7 +36,7 @@
             }
 
             &:hover {
-                background-color: darken(@x_odoo-brand-optional, 10%);
+                background-color: darken($o-community-color, 10%);
             }
         }
 
@@ -51,7 +47,7 @@
 
         .o_service_dashboard_kanban_box:nth-child(1) {
             color: white;
-            background-color: @x_odoo-brand-optional;
+            background-color: $o-community-color;
         }
 
         .o_service_dashboard_kanban_box:hover:nth-last-child(1) {
@@ -59,13 +55,13 @@
         }
 
         .o_service_dashboard_kanban_box:hover:nth-child(1) {
-            background-color: darken(@x_odoo-brand-optional, 10%);
+            background-color: darken($o-community-color, 10%);
         }
     }
 
     .o_service_dashboard_kanban_main {
         flex: 0 0 auto;
-        padding: @x_odoo-horizontal-padding / 2;
+        padding: $o-horizontal-padding / 2;
         width: 75%;
 
         .o_service_dashboard_content {
@@ -82,10 +78,10 @@
                 a {
                     display: inline-flex;
                     margin: 2px 4px 0 0;
-                    color: @x_odoo-main-text-color;
+                    color: $o-main-text-color;
 
                     &:hover {
-                        color: @x_odoo-brand-optional;
+                        color: $o-community-color;
                     }
 
                     span {
