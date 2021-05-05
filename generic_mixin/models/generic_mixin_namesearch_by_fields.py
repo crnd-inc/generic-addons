@@ -27,14 +27,30 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
             return super().name_search(
                 name=name, args=args, operator=operator, limit=limit)
 
-        if not args:
-            args = []
+        if not name:
+            return super().name_search(
+                name=name, args=args, operator=operator, limit=limit)
 
-        args = expression.AND([
-            args,
-            expression.OR([
+        # In case of negative operator (not ilike), we need to join domains
+        # via AND operator. For example:
+        #     code not ilike 'test' and name not ilike 'test'
+        # Contrary in case of positive term operator, we need to use OR to
+        # join domains. For example:
+        #     code ilike 'test' or name 'ilike' test
+        if operator in expression.NEGATIVE_TERM_OPERATORS:
+            domain = expression.AND([
                 [(fname, operator, name)]
                 for fname in self._generic_namesearch_fields
-            ]),
-        ])
-        return self.search(args, limit=limit).sudo().name_get()
+            ])
+        else:
+            domain = expression.OR([
+                [(fname, operator, name)]
+                for fname in self._generic_namesearch_fields
+            ])
+
+        return self.search(
+            expression.AND([
+                args if args else [],
+                domain]),
+            limit=limit
+        ).sudo().name_get()
