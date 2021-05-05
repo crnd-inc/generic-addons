@@ -19,9 +19,12 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
             // Throttled function to execute only once in
             // throttle timeout time
-            self._generic_refresh_mixin__refresher = _.throttle(function () {
-                self._generic_mixin_refresh_view__do_refresh();
-            }, self._generic_refresh_mixin__throttle_timeout);
+            self._generic_refresh_mixin__refresher = _.throttle(
+                function () {
+                    self._generic_mixin_refresh_view__do_refresh();
+                },
+                self._generic_refresh_mixin__throttle_timeout,
+                {'leading': false});
         },
 
         show_application: function () {
