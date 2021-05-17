@@ -28,6 +28,7 @@ class GenericResourceType(models.Model):
          ('public', 'Visible for unregistered users')],
         default='internal', required=True)
     sequence = fields.Integer(default=5, index=True)
+    image = fields.Binary()
 
     _sql_constraints = [
         ('model_id_uniq',

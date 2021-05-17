@@ -36,6 +36,7 @@
                             <field string="Resources" name="resource_count" widget="statinfo"/>
                         </button>
                     </div>
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Name"/>
@@ -66,12 +67,16 @@
                 <field name="model_id"/>
                 <field name="resource_count"/>
                 <field name="id"/>
+                <field name="image"/>
 
                 <templates>
                      <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click o_resource_dashboard_kanban">
                             <div class="o_resource_dashboard_kanban_main">
                                 <div class="o_resource_dashboard_content">
+                                    <div class="o_kanban_image">
+                                        <img t-att-src="kanban_image('generic.resource.type', 'image', record.id.raw_value)" alt="Resource Type"/>
+                                    </div>
                                     <div class="o_kanban_primary_left">
                                         <div class="o_primary">
                                             <span> <t t-esc="record.display_name.value"/></span>
