@@ -113,8 +113,7 @@ class GenericResourceType(models.Model):
 
     @api.model
     def create(self, vals):
-        for val in vals:
-            tools.image_resize_images(val)
+        tools.image_resize_images(vals)
         record = super(GenericResourceType, self).create(vals)
         self._get_resource_type_id.clear_cache(self)
         record._create_context_action_for_target_model()
