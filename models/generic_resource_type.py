@@ -30,54 +30,15 @@ class GenericResourceType(models.Model):
          ('public', 'Visible for unregistered users')],
         default='internal', required=True)
     sequence = fields.Integer(default=5, index=True)
-    image_variant = fields.Binary(attachment=True)
-    image = fields.Binary(compute='_compute_images',
-                          inverse='_inverse_set_image')
-    image_small = fields.Binary(compute='_compute_images',
-                                inverse='_inverse_set_image_small')
-    image_medium = fields.Binary(compute='_compute_images',
-                                 inverse='_inverse_set_image_medium')
+    image = fields.Binary(attachment=True)
+    image_small = fields.Binary(attachment=True)
+    image_medium = fields.Binary(attachment=True)
 
     _sql_constraints = [
         ('model_id_uniq',
          'UNIQUE (model_id)',
          'For each Odoo model only one Resource Type can be created!'),
     ]
-
-    @api.depends('image_variant')
-    def _compute_images(self):
-        for record in self:
-            if record._context.get('bin_size'):
-                record.image_medium = record.image_variant
-                record.image_small = record.image_variant
-                record.image = record.image_variant
-            else:
-                resized_images = \
-                    tools.image_get_resized_images(record.image_variant,
-                                                   return_big=True,
-                                                   avoid_resize_medium=True)
-                record.image_medium = resized_images['image_medium']
-                record.image_small = resized_images['image_small']
-                record.image = resized_images['image']
-
-    def _inverse_set_image(self):
-        for record in self:
-            record._set_image_value(self.image)
-
-    def _inverse_set_image_medium(self):
-        for record in self:
-            record._set_image_value(self.image_medium)
-
-    def _inverse_set_image_small(self):
-        for record in self:
-            record._set_image_value(self.image_small)
-
-    def _set_image_value(self, value):
-        for record in self:
-            if isinstance(value, pycompat.text_type):
-                value = value.encode('ascii')
-            image = tools.image_resize_image_big(value)
-            record.image_variant = image
 
     @api.depends('resource_ids')
     def _compute_resource_count(self):
@@ -154,10 +115,18 @@ class GenericResourceType(models.Model):
 
     @api.model
     def create(self, vals):
+        for val in vals:
+            tools.image_resize_images(val)
         record = super(GenericResourceType, self).create(vals)
         self._get_resource_type_id.clear_cache(self)
         record._create_context_action_for_target_model()
         return record
+
+    @api.multi
+    def write(self, vals):
+        tools.image_resize_images(vals)
+        res = super(GenericResourceType, self).write(vals)
+        return res
 
     def unlink(self):
         self.mapped('resource_related_res_action_id').unlink()
