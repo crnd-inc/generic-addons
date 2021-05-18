@@ -31,11 +31,12 @@ class GenericResourceType(models.Model):
         default='internal', required=True)
     sequence = fields.Integer(default=5, index=True)
     image_variant = fields.Binary(attachment=True)
-    image = fields.Binary(compute='_compute_images', inverse='_set_image')
+    image = fields.Binary(compute='_compute_images',
+                          inverse='_inverse_set_image')
     image_small = fields.Binary(compute='_compute_images',
-                                inverse='_set_image_small')
+                                inverse='_inverse_set_image_small')
     image_medium = fields.Binary(compute='_compute_images',
-                                 inverse='_set_image_medium')
+                                 inverse='_inverse_set_image_medium')
 
     _sql_constraints = [
         ('model_id_uniq',
@@ -43,40 +44,40 @@ class GenericResourceType(models.Model):
          'For each Odoo model only one Resource Type can be created!'),
     ]
 
-    @api.one
     @api.depends('image_variant')
     def _compute_images(self):
-        if self._context.get('bin_size'):
-            self.image_medium = self.image_variant
-            self.image_small = self.image_variant
-            self.image = self.image_variant
-        else:
-            resized_images = \
-                tools.image_get_resized_images(self.image_variant,
-                                               return_big=True,
-                                               avoid_resize_medium=True)
-            self.image_medium = resized_images['image_medium']
-            self.image_small = resized_images['image_small']
-            self.image = resized_images['image']
+        for record in self:
+            if record._context.get('bin_size'):
+                record.image_medium = record.image_variant
+                record.image_small = record.image_variant
+                record.image = record.image_variant
+            else:
+                resized_images = \
+                    tools.image_get_resized_images(record.image_variant,
+                                                   return_big=True,
+                                                   avoid_resize_medium=True)
+                record.image_medium = resized_images['image_medium']
+                record.image_small = resized_images['image_small']
+                record.image = resized_images['image']
 
-    @api.one
-    def _set_image(self):
-        self._set_image_value(self.image)
+    def _inverse_set_image(self):
+        for record in self:
+            record._set_image_value(self.image)
 
-    @api.one
-    def _set_image_medium(self):
-        self._set_image_value(self.image_medium)
+    def _inverse_set_image_medium(self):
+        for record in self:
+            record._set_image_value(self.image_medium)
 
-    @api.one
-    def _set_image_small(self):
-        self._set_image_value(self.image_small)
+    def _inverse_set_image_small(self):
+        for record in self:
+            record._set_image_value(self.image_small)
 
-    @api.one
     def _set_image_value(self, value):
-        if isinstance(value, pycompat.text_type):
-            value = value.encode('ascii')
-        image = tools.image_resize_image_big(value)
-        self.image_variant = image
+        for record in self:
+            if isinstance(value, pycompat.text_type):
+                value = value.encode('ascii')
+            image = tools.image_resize_image_big(value)
+            record.image_variant = image
 
     @api.depends('resource_ids')
     def _compute_resource_count(self):
