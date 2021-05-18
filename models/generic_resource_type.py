@@ -1,7 +1,5 @@
 from odoo import fields, models, api, tools, exceptions, _
 
-from odoo.tools import pycompat
-
 
 class GenericResourceType(models.Model):
     _name = 'generic.resource.type'
