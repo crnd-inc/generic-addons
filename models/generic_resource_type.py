@@ -1,5 +1,7 @@
 from odoo import fields, models, api, tools, exceptions, _
 
+from odoo.tools import pycompat
+
 
 class GenericResourceType(models.Model):
     _name = 'generic.resource.type'
@@ -28,13 +30,53 @@ class GenericResourceType(models.Model):
          ('public', 'Visible for unregistered users')],
         default='internal', required=True)
     sequence = fields.Integer(default=5, index=True)
-    image = fields.Binary()
+    image_variant = fields.Binary(attachment=True)
+    image = fields.Binary(compute='_compute_images', inverse='_set_image')
+    image_small = fields.Binary(compute='_compute_images',
+                                inverse='_set_image_small')
+    image_medium = fields.Binary(compute='_compute_images',
+                                 inverse='_set_image_medium')
 
     _sql_constraints = [
         ('model_id_uniq',
          'UNIQUE (model_id)',
          'For each Odoo model only one Resource Type can be created!'),
     ]
+
+    @api.one
+    @api.depends('image_variant')
+    def _compute_images(self):
+        if self._context.get('bin_size'):
+            self.image_medium = self.image_variant
+            self.image_small = self.image_variant
+            self.image = self.image_variant
+        else:
+            resized_images = \
+                tools.image_get_resized_images(self.image_variant,
+                                               return_big=True,
+                                               avoid_resize_medium=True)
+            self.image_medium = resized_images['image_medium']
+            self.image_small = resized_images['image_small']
+            self.image = resized_images['image']
+
+    @api.one
+    def _set_image(self):
+        self._set_image_value(self.image)
+
+    @api.one
+    def _set_image_medium(self):
+        self._set_image_value(self.image_medium)
+
+    @api.one
+    def _set_image_small(self):
+        self._set_image_value(self.image_small)
+
+    @api.one
+    def _set_image_value(self, value):
+        if isinstance(value, pycompat.text_type):
+            value = value.encode('ascii')
+        image = tools.image_resize_image_big(value)
+        self.image_variant = image
 
     @api.depends('resource_ids')
     def _compute_resource_count(self):
