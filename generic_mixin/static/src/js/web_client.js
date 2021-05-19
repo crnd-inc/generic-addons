@@ -124,7 +124,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 }
                 // Cleanup pending updates
                 self._generic_refresh_mixin__pending = {};
-                return Promise.all(promises);
+                return $.when.apply($, promises);
             });
         },
 
