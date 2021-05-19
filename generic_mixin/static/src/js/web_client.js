@@ -74,7 +74,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 active_ids = _.union(active_ids, act.env.ids);
             }
 
-            if (_.intersection(refresh_ids, active_ids)) {
+            if (!_.isEmpty(_.intersection(refresh_ids, active_ids))) {
                 return true;
             }
         },
