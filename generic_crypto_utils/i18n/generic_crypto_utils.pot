@@ -46,6 +46,15 @@ msgid ""
 msgstr ""
 
 #. module: generic_crypto_utils
+#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
+#, python-format
+msgid ""
+"It seems that python package 'cryptography' is not installed!Please, install"
+" [cryptography](https://pypi.org/project/cryptography/) package and try "
+"again"
+msgstr ""
+
+#. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__key
 msgid "Key"
 msgstr ""
