@@ -1,6 +1,8 @@
 odoo.define('generic_mixin.WebClient', function (require) {
     "use strict";
 
+    var concurrency = require('web.concurrency');
+
     require('web.WebClient').include({
 
         init: function () {
@@ -11,13 +13,18 @@ odoo.define('generic_mixin.WebClient', function (require) {
             // Structure:  {'model.name': [id1, id2, id3]}
             // Will be cleaned up on next refresh
             self._generic_refresh_mixin__pending = {};
-            self._generic_refresh_mixin__throttle_timeout = 2000;
+            self._generic_refresh_mixin__throttle_timeout = 4000;
+            self._generic_refresh_mixin__mutex =
+                new concurrency.MutexedDropPrevious();
 
             // Throttled function to execute only once in
             // throttle timeout time
-            self._generic_refresh_mixin__refresher = _.throttle(function () {
-                self._generic_mixin_refresh_view__do_refresh();
-            }, self._generic_refresh_mixin__throttle_timeout);
+            self._generic_refresh_mixin__refresher = _.throttle(
+                function () {
+                    self._generic_mixin_refresh_view__do_refresh();
+                },
+                self._generic_refresh_mixin__throttle_timeout,
+                {'leading': false});
         },
 
         show_application: function () {
@@ -65,6 +72,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 active_ids = _.union(
                     active_ids, ctl.widget.initialState.res_ids);
             }
+
             if (_.intersection(refresh_ids, active_ids)) {
                 return true;
             }
@@ -82,28 +90,41 @@ odoo.define('generic_mixin.WebClient', function (require) {
                     // This helps a lot in case of frequent (1/sec) refresh
                     // events for the model
                     ctl.widget.disableAutofocus = true;
-                    ctl.widget.reload().then(function () {
+                    return ctl.widget.reload().then(function () {
                         ctl.widget.disableAutofocus = old_dis_autofocus;
                     });
-                } else {
-                    // Otherwise, simply reload widget
-                    ctl.widget.reload();
                 }
+                // Otherwise, simply reload widget
+                return ctl.widget.reload();
             }
         },
 
         _generic_mixin_refresh_view__do_refresh: function () {
             var self = this;
+
             var cur_ctl = self.action_manager.getCurrentController();
-            if (self._generic_mixin_refresh_view__do_refresh_check(cur_ctl)) {
-                // Refresh current controller
-                self._generic_mixin_refresh_view__do_refresh_ctl(cur_ctl);
-            }
-            var diag_ctl = self.action_manager.currentDialogController;
-            if (self._generic_mixin_refresh_view__do_refresh_check(diag_ctl)) {
-                // Refresh current dialog controller
-                self._generic_mixin_refresh_view__do_refresh_ctl(diag_ctl);
-            }
+            self._generic_refresh_mixin__mutex.exec(function () {
+                var promises = [];
+                if (self._generic_mixin_refresh_view__do_refresh_check(
+                    cur_ctl)) {
+                    // Refresh current controller
+                    promises.push(
+                        self._generic_mixin_refresh_view__do_refresh_ctl(
+                            cur_ctl));
+                }
+                var diag_ctl = self.action_manager.currentDialogController;
+                if (self._generic_mixin_refresh_view__do_refresh_check(
+                    diag_ctl)) {
+                    // Refresh current dialog controller
+                    promises.push(
+                        self._generic_mixin_refresh_view__do_refresh_ctl(
+                            diag_ctl)
+                    );
+                }
+                // Cleanup pending updates
+                self._generic_refresh_mixin__pending = {};
+                return $.when.apply($, promises);
+            });
         },
 
         _generic_mixin_refresh_view_handle: function (message) {

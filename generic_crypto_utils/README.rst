@@ -1,5 +1,5 @@
-Generic Condition Module
-========================
+Generic Crypto Utils
+====================
 
 .. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
     :target: https://github.com/crnd-inc/generic-addons
@@ -14,12 +14,9 @@ Generic Condition Module
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
     
-.. |badge4| image:: https://img.shields.io/badge/docs-Generic_Condition-yellowgreen.png
-    :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Condition_admin_eng
 
 
-
-|badge1| |badge2| |badge4| |badge5|
+|badge1| |badge2| |badge5|
 
 Generic Crypto Utils is technical addon developed by the `Center of Research &
 Development company <https://crnd.pro/>`__. 
