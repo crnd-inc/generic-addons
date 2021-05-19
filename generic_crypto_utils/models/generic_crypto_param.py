@@ -5,7 +5,8 @@ from odoo import models, fields, api, exceptions, tools, _
 try:
     from cryptography.fernet import Fernet
 except (ImportError, IOError):
-    logging.getLogger(__name__).warning("Cannot import gitlab")
+    logging.getLogger(__name__).warning(
+        "Cannot import Fernet from cryptography")
 
 
 class GenericCryptoParam(models.Model):
@@ -41,6 +42,12 @@ class GenericCryptoParam(models.Model):
             raise exceptions.UserError(_(
                 "Invalid 'crypto_token'! "
                 "Ensure it is valid 32-bytes base64-encoded string!"))
+        except ImportError:
+            raise exceptions.UserError(_(
+                "It seems that python package 'cryptography' is not installed!"
+                "Please, install "
+                "[cryptography](https://pypi.org/project/cryptography/) "
+                "package and try again"))
         return fernet
 
     @api.model

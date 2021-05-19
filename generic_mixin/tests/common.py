@@ -1,4 +1,5 @@
 import logging
+import unittest
 from odoo.tools.misc import mute_logger
 from odoo.tools import config as tools_config
 from odoo.tests import common as tests_common
@@ -56,7 +57,7 @@ class hide_log_messages:
         return wrapper
 
 
-class ReduceLoggingMixin:
+class ReduceLoggingMixin(unittest.TestCase):
     """ Simple mixin to remove boring messages from logging ourput.
 
         This class have to be mixed in test cases.
@@ -72,8 +73,8 @@ class ReduceLoggingMixin:
     @mute_logger(
         'odoo.models.unlink',
         'odoo.addons.mail.models.mail_mail')
-    def run(self, *args, **kwargs):
-        return super(ReduceLoggingMixin, self).run(*args, **kwargs)
+    def run(self, result=None):
+        return super(ReduceLoggingMixin, self).run(result=result)
 
 
 class AccessRulesFixMixinST:
