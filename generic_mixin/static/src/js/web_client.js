@@ -69,7 +69,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
             }
 
             if (ctl.widget.initialState.res_id) {
-                    active_ids.push(ctl.widget.initialState.res_id);
+                active_ids.push(ctl.widget.initialState.res_id);
             } else {
                 active_ids = _.union(
                     active_ids, ctl.widget.initialState.res_ids);
