@@ -1,6 +1,6 @@
 {
     "name": "Generic Crypto Utils",
-    "version": "13.0.0.1.0",
+    "version": "13.0.0.2.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -14,6 +14,11 @@
     'data': [
         'security/ir.model.access.csv',
     ],
+    'external_dependencies': {
+        'python': [
+            'cryptography',
+        ],
+    },
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,

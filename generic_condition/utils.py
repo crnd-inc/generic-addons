@@ -20,3 +20,4 @@ def str_to_datetime(ttype, value):
         return datetime.datetime.combine(
             odoo.fields.Date.from_string(value),
             datetime.datetime.min.time())
+    return None
