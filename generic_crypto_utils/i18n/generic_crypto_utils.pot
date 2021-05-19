@@ -39,9 +39,15 @@ msgid "ID"
 msgstr ""
 
 #. module: generic_crypto_utils
-#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:41
+#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:42
 #, python-format
 msgid "Invalid 'crypto_token'! Ensure it is valid 32-bytes base64-encoded string!"
+msgstr ""
+
+#. module: generic_crypto_utils
+#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:46
+#, python-format
+msgid "It seems that python package 'cryptography' is not installed!Please, install [cryptography](https://pypi.org/project/cryptography/) package and try again"
 msgstr ""
 
 #. module: generic_crypto_utils
@@ -75,7 +81,7 @@ msgid "Value"
 msgstr ""
 
 #. module: generic_crypto_utils
-#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:35
+#: code:addons/generic_crypto_utils/models/generic_crypto_param.py:36
 #, python-format
 msgid "You must add 'crypto_token' to 'odoo.conf' to be able to use this feature"
 msgstr ""
