@@ -319,6 +319,21 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Если отмечено, некоторые сообщения имеют ошибку доставки."
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image
+msgid "Image"
+msgstr ""
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_medium
+msgid "Image Medium"
+msgstr ""
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_small
+msgid "Image Small"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__modules
 msgid "In Apps"
 msgstr "В Приложениях"
@@ -655,6 +670,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__res_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__resource_type_id
+#: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resource Type"
 msgstr "Тип ресурса"
 
@@ -817,7 +833,7 @@ msgid "Whether this model supports messages and notifications."
 msgstr "Поддерживает ли эта модель сообщения и уведомления."
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_type.py:55
+#: code:addons/generic_resource/models/generic_resource_type.py:58
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
