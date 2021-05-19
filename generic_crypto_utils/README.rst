@@ -16,7 +16,7 @@ Generic Crypto Utils
     
 
 
-|badge1| |badge2| |badge4| |badge5|
+|badge1| |badge2| |badge5|
 
 Generic Crypto Utils is technical addon developed by the `Center of Research &
 Development company <https://crnd.pro/>`__. 
