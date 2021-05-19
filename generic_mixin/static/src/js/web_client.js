@@ -1,3 +1,4 @@
+/* global Promise*/
 odoo.define('generic_mixin.WebClient', function (require) {
     "use strict";
 
@@ -69,11 +70,14 @@ odoo.define('generic_mixin.WebClient', function (require) {
             }
 
             if (ctl.widget.initialState) {
-                active_ids = _.union(
-                    active_ids, ctl.widget.initialState.res_ids);
+                if (ctl.widget.initialState.res_id) {
+                    active_ids.push(ctl.widget.initialState.res_id);
+                } else {
+                    active_ids = _.union(
+                        active_ids, ctl.widget.initialState.res_ids);
+                }
             }
-
-            if (_.intersection(refresh_ids, active_ids)) {
+            if (!_.isEmpty(_.intersection(refresh_ids, active_ids))) {
                 return true;
             }
         },
@@ -103,6 +107,9 @@ odoo.define('generic_mixin.WebClient', function (require) {
             var self = this;
 
             var cur_ctl = self.action_manager.getCurrentController();
+
+            // TODO: user controller's mutext to avoid errors like
+            //       'undefined has no attr commitChanges
             self._generic_refresh_mixin__mutex.exec(function () {
                 var promises = [];
                 if (self._generic_mixin_refresh_view__do_refresh_check(
@@ -123,7 +130,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 }
                 // Cleanup pending updates
                 self._generic_refresh_mixin__pending = {};
-                return $.when.apply($, promises);
+                return Promise.all(promises);
             });
         },
 
