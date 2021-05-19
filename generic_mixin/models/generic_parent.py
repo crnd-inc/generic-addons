@@ -63,7 +63,7 @@ class GenericMixinParentNames(models.AbstractModel):
                 for rec in self]
 
     @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
         if not args:
             args = []
         if name:

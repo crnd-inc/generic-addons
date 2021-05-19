@@ -566,6 +566,7 @@ class GenericCondition(models.Model):
             field_name = 'condition_date_diff_date_%s_field' % date_type
             field = self.sudo()[field_name]
             return str_to_datetime(field.ttype, obj[field.name])
+        raise AssertionError("Incorrect date source")
 
     # signature check_<type> where type is condition type
     def check_current_user(self, obj, cache=None, debug_log=None):
@@ -641,6 +642,7 @@ class GenericCondition(models.Model):
                 date_end,
                 date_start + relativedelta(**{uom: value})
             )
+        return False
 
     def helper_check_simple_field_number(self, obj_value):
         operator_map = {
@@ -678,6 +680,7 @@ class GenericCondition(models.Model):
         return reference_value, re_flags
 
     def helper_check_simple_field_string(self, obj_value):
+        # pylint: disable=too-many-return-statements
         operator = self.condition_simple_field_string_operator
         if self.condition_simple_field_type == 'html':
             operator = self.condition_simple_field_string_operator_html
@@ -721,6 +724,7 @@ class GenericCondition(models.Model):
                     reference_value,
                     obj_value,
                     re_flags))
+        return False
 
     def helper_check_simple_field_boolean(self, obj_value):
         reference_value = self.condition_simple_field_value_boolean
@@ -743,6 +747,7 @@ class GenericCondition(models.Model):
             return obj_value == reference_value
         if operator == '!=':
             return obj_value != reference_value
+        return False
 
     # signature check_<type> where type is condition type
     def check_simple_field(self, obj, cache=None, debug_log=None):
@@ -975,6 +980,7 @@ class GenericCondition(models.Model):
             # there are no successful check, so all checks are failed, return
             # fail
             return False
+        return False
 
     def action_show_test_wizard(self):
         self.ensure_one()

@@ -3,6 +3,7 @@ from . import (
     generic_no_unlink,
     generic_mixin_name_code,
     generic_mixin_name_by_sequence,
+    generic_mixin_namesearch_by_fields,
     generic_track_changes,
     generic_mixin_transaction_utils,
     generic_mixin_updatable,

@@ -96,7 +96,7 @@ class GenericTag(models.Model):
         return [(t.id, t.complete_name) for t in self]
 
     @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
         if not args:
             args = []
         if name:

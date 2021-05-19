@@ -5,10 +5,6 @@ from odoo.tests.common import SavepointCase
 
 class NameBySequenceTest(SavepointCase):
 
-    @classmethod
-    def setUpClass(cls):
-        super(NameBySequenceTest, cls).setUpClass()
-
     def test_generic_mixin_uuid_1(self):
         Model = self.env['test.generic.mixin.uuid.standard']
         self.assertIn('uuid', Model._fields)
