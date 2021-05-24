@@ -58,6 +58,6 @@ class GenericTeam(models.Model):
             return False
         return any([
             self in user_id.generic_team_ids,
-            self.leader_id == user_id,
-            self.task_manager_id == user_id,
+            self.sudo().leader_id == user_id,
+            self.sudo().task_manager_id == user_id,
         ])

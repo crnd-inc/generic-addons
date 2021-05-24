@@ -1,22 +1,12 @@
 import logging
-from odoo.tests.common import TransactionCase, tagged
+from odoo.tests.common import tagged
+from .common import GenericTeamCase
 
 _logger = logging.getLogger(__name__)
 
 
 @tagged('post_install', '-at_install')
-class TestGenericTeamBase(TransactionCase):
-
-    def setUp(self):
-        super(TestGenericTeamBase, self).setUp()
-        self.team_user_1 = self.env.ref('generic_team.team_res_users_user1')
-        self.team_user_2 = self.env.ref('generic_team.team_res_users_user2')
-        self.team_user_3 = self.env.ref('generic_team.team_res_users_user3')
-        self.team_user_4 = self.env.ref('generic_team.team_res_users_user4')
-
-        self.team_1 = self.env.ref('generic_team.generic_team_team1')
-        self.team_2 = self.env.ref('generic_team.generic_team_team2')
-        self.team_3 = self.env.ref('generic_team.generic_team_team3')
+class TestGenericTeamBase(GenericTeamCase):
 
     def test__get_team_users(self):
         self.assertEqual(
