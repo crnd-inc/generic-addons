@@ -1,0 +1,37 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_tag_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-07 15:22+0000\n"
+"PO-Revision-Date: 2021-06-07 15:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_tag_product
+#: model:generic.tag.model,name:generic_tag_product.generic_tag_model_product_product
+#: model:ir.model,name:generic_tag_product.generic_tag_model_product_product_ir_model
+msgid "Product"
+msgstr ""
+
+#. module: generic_tag_product
+#: model:ir.actions.act_window,name:generic_tag_product.product_product_tags_view_action
+#: model:ir.ui.menu,name:generic_tag_product.menu_product_product_tags_id
+#: model:ir.ui.menu,name:generic_tag_product.menu_product_tags
+msgid "Product Tags"
+msgstr ""
+
+#. module: generic_tag_product
+#: model_terms:ir.ui.view,arch_db:generic_tag_product.view_product_form_tags
+#: model_terms:ir.ui.view,arch_db:generic_tag_product.view_product_kanban_tags
+#: model_terms:ir.ui.view,arch_db:generic_tag_product.view_product_tree_tags
+msgid "Tags..."
+msgstr ""
+
