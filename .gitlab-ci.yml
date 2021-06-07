@@ -143,7 +143,7 @@ update_addons_list_and_trans:
     script:
         - odoo-helper doc-utils addons-list --installable --sys-name --field name --field license --field version --field summary --field price --format csv . > ./ADDONS.csv
         - odoo-helper doc-utils addons-list --installable --sys-name --field name --field license --field version --field summary --field price --format md . > ./ADDONS.md
-        - odoo-helper tr regenerate --lang-file "uk_UA:uk" --lang-file "ru_RU:ru" --lang-file "de_DE:de" --lang-file "fr_FR:fr" --pot --pot-remove-dates --missing-only --pot-update --dir .
+        - odoo-helper tr regenerate --lang-file "uk_UA:uk" --lang-file "ru_RU:ru" --lang-file "de_DE:de" --lang-file "fr_FR:fr" --lang-file "lt_LT:lt" --pot --pot-remove-dates --missing-only --pot-update --dir .
         - git add ./ADDONS.csv ./ADDONS.md "*.po" "*.pot"
         - odoo-helper ci push-changes "[CI-AUTO-UPDATE]"
     <<: *only_stable_branch
