@@ -1,0 +1,211 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* generic_mixin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-07 15:29+0000\n"
+"PO-Revision-Date: 2021-06-07 15:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_no_unlink.py:0
+#, python-format
+msgid ""
+"Cannot unlink these records. Operation not allowed.\n"
+"It is better to deactivate these records.\n"
+"Model: %(model)s [%(model_name)s]"
+msgstr ""
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_no_unlink.py:0
+#, python-format
+msgid ""
+"Cannot unlink these records. Operation not allowed.\n"
+"Model: %(model)s [%(model_name)s]"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__code
+msgid "Code"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_name_with_code_code_ascii_only
+msgid "Code must be ascii only"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_code_uniq
+msgid "Code must be unique."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_id
+msgid "Data record"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_ids
+msgid "Data records"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_parent.py:0
+#, python-format
+msgid "Error ! You cannot create recursive %s."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_get_action
+msgid "Generic Mixin: Get Action"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_name_by_sequence
+msgid "Generic Mixin: Name by Sequence"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_name_with_code
+msgid "Generic Mixin: Name with code"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_no_unlink
+msgid "Generic Mixin: No Unlink"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_parent_names
+msgid "Generic Mixin: Parent Names"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_refresh_view
+msgid "Generic Mixin: Refresh view"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_track_changes
+msgid "Generic Mixin: Track Changes"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_uuid
+msgid "Generic Mixin: UUID"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_uniq_name_code
+msgid "Generic Mixin: Unique name and code"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_data_updatable
+msgid "GenericMixin: Data Updatable"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_transaction_utils
+msgid "GenericMixin: Transaction Utils"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_no_update
+msgid ""
+"Indicates whether this record will be updated with module update or not. If "
+"set to True, the record will not be overriden on module update, if set to "
+"False, thenrecord will be overridden by module update"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__name
+msgid "Name"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_name_uniq
+msgid "Name must be unique."
+msgstr ""
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_mixin_name_by_sequence.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_no_update
+msgid "Non Updatable"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
+msgid "XML ID"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
+msgid "XML ID for this record."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_namesearch_by_fields
+msgid "generic.mixin.namesearch.by.fields"
+msgstr ""
