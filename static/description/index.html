@@ -10,7 +10,73 @@
 
 <section style="margin: 0 auto; max-width: 896px;">
 <div>
-<p>The module provides the ability to create and categorize various resources that can be used in other Odoo modules.</p>
+    <p>The module provides the ability to create and categorize various resources,
+       that can be used in other Odoo modules.</p>
+    <p>In our point of view, the resource - it is anything that could be identified.
+       For example, in average company following things could be resources:
+        <ul>
+            <li>Computer</li>
+            <li>Table</li>
+            <li>Printer</li>
+            <li>Equipment (like CNC Machine)</li>
+            <li>Apartment</li>
+            <li>Etc</li>
+        </ul>
+    </p>
+    <p>This module provides only base functionality for resource,
+       but other modules have to extend it and implement different resource types.
+       Resource Types is responsible for specifying what model in Odoo implements certain kind of resource.
+       It is obvious, that computer and Table have completely different properties,
+       thus it does not have sense to store all of them in same model,
+       instead we encourage to create separate model for each resource type.
+       This way it is possible to easily implement logic specific to that kind of resource.
+       For example, in Yodoo Cockpit, we have implemented resource types like
+       Odoo Server, Odoo Database, Odoo Module, etc. Each of this resource types
+       implemented as separate model inheriting generic.resource, and provides specific functionality.
+    </p>
+    <p>Take a look at screenshots below to get more info about functionality provided by this module.
+    </p>
+    <p style="font-size: 120%;">
+    <b><i>The dashboard for resources, that display list of resource types registered in system and provides some short info about them</i></b>
+    </p>
+    <div align="center">
+        <img src="resource_type_list.png"
+                alt="List if resource types"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p style="font-size: 120%;">
+    <b><i>The list of simple resources - basic resource type implemented by this module</i></b>
+    </p>
+    <div align="center">
+        <img src="list_of_simple_resources.png"
+                alt="List of simple resources"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p style="font-size: 120%;">
+    <b><i>The view of single record of Simple Resource</i></b>
+    </p>
+    <div align="center">
+        <img src="simple_resource_form.png"
+                alt="Simple Resource form"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p style="font-size: 120%;">
+    <b><i>How it could look in real production installations</i></b>
+    </p>
+    <div align="center">
+        <img src="resource_type_list_r1.png"
+                alt="Resource Type list example"
+                style="max-width: 100%">
+        <p><br></p>
+        <img src="resource_type_list_r2.png"
+                alt="Resource Type list example"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p><br></p>
 </div>
 </section>
 

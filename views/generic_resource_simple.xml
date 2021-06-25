@@ -4,14 +4,13 @@
     <menuitem id="menu_simple_resource_root"
               name="Simple Resources"
               parent="generic_resource.menu_generic_resource_toplevel" />
-    <!-- generic.resource.simple -->
-    <!-- Tree view for generic.resource.simple -->
+
     <record id="generic_resource_simple_view_tree" model="ir.ui.view">
-        <field name="name">generic.resource.simple.tree</field>
         <field name="model">generic.resource.simple</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="display_name" string="Name"/>
+                <field name="inv_number"/>
                 <field name="resource_id" string="Resource"/>
                 <field name="category_id"/>
                 <field name="resource_visibility"/>
@@ -19,9 +18,7 @@
         </field>
     </record>
 
-    <!-- Form view for generic.resource.simple -->
     <record id="generic_resource_simple_view_form" model="ir.ui.view">
-        <field name="name">generic.resource.simple.form</field>
         <field name="model">generic.resource.simple</field>
         <field name="inherit_id" ref="generic_resource_view_form_base"/>
         <field name="mode">primary</field>
@@ -31,10 +28,13 @@
             </xpath>
             <xpath expr="//page[@name='page_resource_info']" position="before">
                 <page name="page_info" string="Info">
-                    <group>
-                        <group>
+                    <group name="group_info_root">
+                        <group name="group_info_left">
                             <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
                             <field name="category_id" placeholder="Category"/>
+                        </group>
+                        <group name="group_info_right">
+                            <field name="inv_number"/>
                         </group>
                     </group>
                 </page>
