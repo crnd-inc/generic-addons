@@ -34,7 +34,9 @@
                             <field name="category_id" placeholder="Category"/>
                         </group>
                         <group name="group_info_right">
-                            <field name="inv_number"/>
+                            <field name="inv_number"
+                                   required="0"
+                                   widget="CopyClipboardChar"/>
                         </group>
                     </group>
                 </page>
