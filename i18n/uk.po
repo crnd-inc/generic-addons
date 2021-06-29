@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-16 11:43+0000\n"
 "PO-Revision-Date: 2021-04-27 07:55+0000\n"
 "Last-Translator: Ostap Yakovenko <ceo@crnd.pro>\n"
-"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
-"bureaucrat-itsm-12/generic_team/uk/>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/bureaucrat-"
+"itsm-12/generic_team/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,53 +50,6 @@ msgid ""
 msgstr ""
 "\n"
 "            Користувач - доступ лише для читання, доступ до меню\n"
-"        "
-
-#. module: generic_team
-#: model:generic.team,description:generic_team.generic_team_team1
-msgid ""
-"\n"
-"        A Functional Team is a group\n"
-"        of people with a common functional expertise working\n"
-"        toward shared objectives.\n"
-"        "
-msgstr ""
-"\n"
-"        Функціональна команда - це група\n"
-"        людей із загальним функціональним досвідом, що працюють\n"
-"        заради спільних цілей.\n"
-"        "
-
-#. module: generic_team
-#: model:generic.team,description:generic_team.generic_team_team2
-msgid ""
-"\n"
-"        A self-organizing, cross-functional team\n"
-"        of people who collectively are responsible for all of the work\n"
-"        necessary to produce working, validated assets.\n"
-"        "
-msgstr ""
-"\n"
-"        Самоорганізуюча, багатофункціональна команда\n"
-"        людей, які колективно відповідають за всю роботу\n"
-"        необхідні для виробництва робочих, перевірених активів.\n"
-"        "
-
-#. module: generic_team
-#: model:generic.team,description:generic_team.generic_team_team3
-msgid ""
-"\n"
-"        DevOps as a Service is a delivery model\n"
-"        for a set of tools that facilitates collaboration between\n"
-"        an organization's software development team and the operations "
-"team.\n"
-"        "
-msgstr ""
-"\n"
-"        DevOps як послуга є моделлю доставки\n"
-"        для набору інструментів, що полегшує співпрацю між\n"
-"        команда розробників програмного забезпечення організації та "
-"операційна команда.\n"
 "        "
 
 #. module: generic_team
@@ -145,11 +98,6 @@ msgstr "Опис"
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Description..."
 msgstr "Опис..."
-
-#. module: generic_team
-#: model:generic.team,name:generic_team.generic_team_team3
-msgid "DevOps team"
-msgstr "Команда DevOps"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
@@ -292,16 +240,6 @@ msgid "Number of unread messages"
 msgstr "Кількість непрочитаних повідомлень"
 
 #. module: generic_team
-#: model:generic.team,name:generic_team.generic_team_team2
-msgid "Odoo development team"
-msgstr "Команда розробників Odoo"
-
-#. module: generic_team
-#: model:generic.team,name:generic_team.generic_team_team1
-msgid "Odoo functional team"
-msgstr "Функціональна команда Odoo"
-
-#. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__leader_image
 msgid ""
 "Small-sized image of this contact. It is automatically resized as a 64x64px "
@@ -401,6 +339,56 @@ msgstr "Користувачі"
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__user_count
 msgid "Users count"
 msgstr "К-сть користувачів"
+
+#~ msgid ""
+#~ "\n"
+#~ "        A Functional Team is a group\n"
+#~ "        of people with a common functional expertise working\n"
+#~ "        toward shared objectives.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "        Функціональна команда - це група\n"
+#~ "        людей із загальним функціональним досвідом, що працюють\n"
+#~ "        заради спільних цілей.\n"
+#~ "        "
+
+#~ msgid ""
+#~ "\n"
+#~ "        A self-organizing, cross-functional team\n"
+#~ "        of people who collectively are responsible for all of the work\n"
+#~ "        necessary to produce working, validated assets.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "        Самоорганізуюча, багатофункціональна команда\n"
+#~ "        людей, які колективно відповідають за всю роботу\n"
+#~ "        необхідні для виробництва робочих, перевірених активів.\n"
+#~ "        "
+
+#~ msgid ""
+#~ "\n"
+#~ "        DevOps as a Service is a delivery model\n"
+#~ "        for a set of tools that facilitates collaboration between\n"
+#~ "        an organization's software development team and the operations "
+#~ "team.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "        DevOps як послуга є моделлю доставки\n"
+#~ "        для набору інструментів, що полегшує співпрацю між\n"
+#~ "        команда розробників програмного забезпечення організації та "
+#~ "операційна команда.\n"
+#~ "        "
+
+#~ msgid "DevOps team"
+#~ msgstr "Команда DevOps"
+
+#~ msgid "Odoo development team"
+#~ msgstr "Команда розробників Odoo"
+
+#~ msgid "Odoo functional team"
+#~ msgstr "Функціональна команда Odoo"
 
 #~ msgid "Small-sized image"
 #~ msgstr "Зменшене зображення"
