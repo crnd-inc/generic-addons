@@ -228,26 +228,6 @@ msgid "Last Updated on"
 msgstr "Последнее обновление"
 
 #. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_1
-msgid "Level 1"
-msgstr "Уровень 1"
-
-#. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_2
-msgid "Level 2"
-msgstr "Уровень 2"
-
-#. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_3
-msgid "Level 3"
-msgstr "Уровень 3"
-
-#. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_4
-msgid "Level 4"
-msgstr "Уровень 4"
-
-#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_main_attachment_id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_main_attachment_id
 msgid "Main Attachment"
@@ -313,11 +293,6 @@ msgid "Number of unread messages"
 msgstr "Количество непрочитанных сообщений"
 
 #. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_rent_notebook
-msgid "Rent of notebook"
-msgstr "Аренда ноутбука"
-
-#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__sequence
 msgid "Sequence"
@@ -341,26 +316,6 @@ msgid "Service Levels"
 msgstr "Уровни сервиса"
 
 #. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_4
-msgid "Service level for our Bronze clients."
-msgstr "Уровень сервиса для наших Бронзовых клиентов."
-
-#. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_2
-msgid "Service level for our Gold clients."
-msgstr "Уровень сервиса для наших Золотых клиентов."
-
-#. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_1
-msgid "Service level for our Platinum clients."
-msgstr "Уровень сервиса для наших Платиновых клиентов."
-
-#. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_3
-msgid "Service level for our Silver clients."
-msgstr "Уровень сервиса для наших Серебрянных клиентов."
-
-#. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action
 #: model:ir.ui.menu,name:generic_service.generic_service_menu_item
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_root
@@ -373,31 +328,6 @@ msgstr "Сервисы"
 #: model:ir.ui.menu,name:generic_service.menu_settings_service
 msgid "Settings"
 msgstr "Настройки"
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_administration
-msgid "Support / Administration"
-msgstr "Поддержка / Администрирование"
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_configuration
-msgid "Support / Configuration"
-msgstr "Поддержка / Конфигурация"
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_consulting
-msgid "Support / Consulting"
-msgstr "Поддержка / Консультация"
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_development
-msgid "Support / Development"
-msgstr "Поддержка / Разработка"
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_hosting
-msgid "Support / Hosting"
-msgstr "Поддержка / Хостинг"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_unread
@@ -421,3 +351,45 @@ msgstr ""
 #: model:res.groups,name:generic_service.group_use_service_level
 msgid "Use service level"
 msgstr ""
+
+#~ msgid "Level 1"
+#~ msgstr "Уровень 1"
+
+#~ msgid "Level 2"
+#~ msgstr "Уровень 2"
+
+#~ msgid "Level 3"
+#~ msgstr "Уровень 3"
+
+#~ msgid "Level 4"
+#~ msgstr "Уровень 4"
+
+#~ msgid "Rent of notebook"
+#~ msgstr "Аренда ноутбука"
+
+#~ msgid "Service level for our Bronze clients."
+#~ msgstr "Уровень сервиса для наших Бронзовых клиентов."
+
+#~ msgid "Service level for our Gold clients."
+#~ msgstr "Уровень сервиса для наших Золотых клиентов."
+
+#~ msgid "Service level for our Platinum clients."
+#~ msgstr "Уровень сервиса для наших Платиновых клиентов."
+
+#~ msgid "Service level for our Silver clients."
+#~ msgstr "Уровень сервиса для наших Серебрянных клиентов."
+
+#~ msgid "Support / Administration"
+#~ msgstr "Поддержка / Администрирование"
+
+#~ msgid "Support / Configuration"
+#~ msgstr "Поддержка / Конфигурация"
+
+#~ msgid "Support / Consulting"
+#~ msgstr "Поддержка / Консультация"
+
+#~ msgid "Support / Development"
+#~ msgstr "Поддержка / Разработка"
+
+#~ msgid "Support / Hosting"
+#~ msgstr "Поддержка / Хостинг"

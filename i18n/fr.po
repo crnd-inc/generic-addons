@@ -225,26 +225,6 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_1
-msgid "Level 1"
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_2
-msgid "Level 2"
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_3
-msgid "Level 3"
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service.level,name:generic_service.generic_service_level_4
-msgid "Level 4"
-msgstr ""
-
-#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_main_attachment_id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_main_attachment_id
 msgid "Main Attachment"
@@ -310,11 +290,6 @@ msgid "Number of unread messages"
 msgstr "Nombre de messages non lus"
 
 #. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_rent_notebook
-msgid "Rent of notebook"
-msgstr ""
-
-#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__sequence
 msgid "Sequence"
@@ -338,26 +313,6 @@ msgid "Service Levels"
 msgstr ""
 
 #. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_4
-msgid "Service level for our Bronze clients."
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_2
-msgid "Service level for our Gold clients."
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_1
-msgid "Service level for our Platinum clients."
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service.level,description:generic_service.generic_service_level_3
-msgid "Service level for our Silver clients."
-msgstr ""
-
-#. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action
 #: model:ir.ui.menu,name:generic_service.generic_service_menu_item
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_root
@@ -370,31 +325,6 @@ msgstr ""
 #: model:ir.ui.menu,name:generic_service.menu_settings_service
 msgid "Settings"
 msgstr "Configuration"
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_administration
-msgid "Support / Administration"
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_configuration
-msgid "Support / Configuration"
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_consulting
-msgid "Support / Consulting"
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_development
-msgid "Support / Development"
-msgstr ""
-
-#. module: generic_service
-#: model:generic.service,name:generic_service.generic_service_support_hosting
-msgid "Support / Hosting"
-msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_unread
