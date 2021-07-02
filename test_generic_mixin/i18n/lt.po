@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* test_generic_mixin
+# 	* test_generic_mixin
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2021-06-07 15:22+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -100,7 +101,10 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_no_update
-msgid "Indicates whether this record will be updated with module update or not. If set to True, the record will not be overriden on module update, if set to False, thenrecord will be overridden by module update"
+msgid ""
+"Indicates whether this record will be updated with module update or not. If "
+"set to True, the record will not be overriden on module update, if set to "
+"False, thenrecord will be overridden by module update"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -302,4 +306,3 @@ msgstr ""
 #: model:ir.model,name:test_generic_mixin.model_test_mixin_name_search_by_fields
 msgid "test.mixin.name.search.by.fields"
 msgstr ""
-

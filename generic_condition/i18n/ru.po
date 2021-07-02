@@ -151,11 +151,6 @@ msgstr ""
 "условиям проверки."
 
 #. module: generic_condition
-#: model:ir.filters,name:generic_condition.demo_filter_partner_city_kyiv
-msgid "City: Kyiv"
-msgstr "Город: Киев"
-
-#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__color
 msgid "Color"
 msgstr "Цвет"
@@ -231,11 +226,6 @@ msgstr ""
 #: selection:generic.condition,condition_simple_field_string_operator_html:0
 msgid "Contains"
 msgstr "Включает"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_parenter_country_is_ukraine
-msgid "Country: Ukraine"
-msgstr "Страна: Украина"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__create_uid
@@ -475,16 +465,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Group by..."
 msgstr "Группировать по…"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_has_contact_green
-msgid "Has contact 'Green'"
-msgstr "Содержит контакт 'Green'"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_has_only_contacts
-msgid "Has only contacts"
-msgstr "Содержит только контакты"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1064,12 +1044,6 @@ msgid "_Cancel"
 msgstr "_Cancel"
 
 #. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_city_kyiv
-#: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp_but_kyiv
-msgid "city: Kyiv"
-msgstr "город: Киев"
-
-#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "datetime - python module \"datetime\""
 msgstr "datetime - python модуль \"datetime\""
@@ -1085,39 +1059,9 @@ msgid "env - environment"
 msgstr "env - environment"
 
 #. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_blue
-msgid "eval [name: Blue]"
-msgstr "eval [название: Blue]"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_green
-msgid "eval [name: Green]"
-msgstr "eval [название: Green]"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_sx_corp
-msgid "eval [name: SX Corp]"
-msgstr "eval [название: SX Corp]"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_contact
-msgid "eval [type: contact]"
-msgstr "eval [тип: contact]"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_eval_error
-msgid "eval with error"
-msgstr "eval с ошибкой"
-
-#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "model - model"
 msgstr "model - модель"
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp
-msgid "not [name: SX Corp]"
-msgstr "не [название: SX Corp]"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1148,6 +1092,39 @@ msgstr "uid - id текущего пользователя"
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "user - current user"
 msgstr "user - текущий пользователь"
+
+#~ msgid "City: Kyiv"
+#~ msgstr "Город: Киев"
+
+#~ msgid "Country: Ukraine"
+#~ msgstr "Страна: Украина"
+
+#~ msgid "Has contact 'Green'"
+#~ msgstr "Содержит контакт 'Green'"
+
+#~ msgid "Has only contacts"
+#~ msgstr "Содержит только контакты"
+
+#~ msgid "city: Kyiv"
+#~ msgstr "город: Киев"
+
+#~ msgid "eval [name: Blue]"
+#~ msgstr "eval [название: Blue]"
+
+#~ msgid "eval [name: Green]"
+#~ msgstr "eval [название: Green]"
+
+#~ msgid "eval [name: SX Corp]"
+#~ msgstr "eval [название: SX Corp]"
+
+#~ msgid "eval [type: contact]"
+#~ msgstr "eval [тип: contact]"
+
+#~ msgid "eval with error"
+#~ msgstr "eval с ошибкой"
+
+#~ msgid "not [name: SX Corp]"
+#~ msgstr "не [название: SX Corp]"
 
 #~ msgid ""
 #~ "Checking condition %s on document %s caused error. Notify administrator "

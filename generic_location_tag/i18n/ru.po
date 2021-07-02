@@ -17,11 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_1
-msgid "Darnitsa"
-msgstr "Дарница"
-
-#. module: generic_location_tag
 #: model:generic.tag.model,name:generic_location_tag.generic_location_tag_model
 #: model:ir.model,name:generic_location_tag.generic_location_tag_model_ir_model
 msgid "Location"
@@ -36,22 +31,19 @@ msgid "Location Tags"
 msgstr "Теги локации"
 
 #. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_3
-msgid "Osocorki"
-msgstr "Осокорки"
-
-#. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_2
-msgid "Poznyaki"
-msgstr "Позняки"
-
-#. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_4
-msgid "Rusanovka"
-msgstr "Русановка"
-
-#. module: generic_location_tag
 #: model_terms:ir.ui.view,arch_db:generic_location_tag.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location_tag.generic_location_tree_view
 msgid "Tags..."
 msgstr "Теги..."
+
+#~ msgid "Darnitsa"
+#~ msgstr "Дарница"
+
+#~ msgid "Osocorki"
+#~ msgstr "Осокорки"
+
+#~ msgid "Poznyaki"
+#~ msgstr "Позняки"
+
+#~ msgid "Rusanovka"
+#~ msgstr "Русановка"

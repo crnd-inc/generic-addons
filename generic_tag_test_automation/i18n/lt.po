@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* generic_tag_test_automation
+# 	* generic_tag_test_automation
 #
 msgid ""
 msgstr ""
@@ -10,20 +10,8 @@ msgstr ""
 "PO-Revision-Date: 2021-06-07 15:22+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: generic_tag_test_automation
-#: model:base.automation,name:generic_tag_test_automation.automation_add_tag
-#: model:ir.actions.server,name:generic_tag_test_automation.automation_add_tag_ir_actions_server
-msgid "Rule auto add tag"
-msgstr ""
-
-#. module: generic_tag_test_automation
-#: model:base.automation,name:generic_tag_test_automation.automation_rem_tag
-#: model:ir.actions.server,name:generic_tag_test_automation.automation_rem_tag_ir_actions_server
-msgid "Rule auto remove tag"
-msgstr ""
-

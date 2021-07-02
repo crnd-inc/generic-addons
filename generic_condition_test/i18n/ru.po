@@ -79,11 +79,6 @@ msgid "Last Updated on"
 msgstr "Последнее обновление"
 
 #. module: generic_condition_test
-#: model:generic.condition,name:generic_condition_test.test_condition_monetary_equal_150_usd
-msgid "Monetary field equal 150 USD"
-msgstr ""
-
-#. module: generic_condition_test
 #: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation__name
 msgid "Name"
 msgstr "Название"
