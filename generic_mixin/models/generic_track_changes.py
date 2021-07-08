@@ -9,14 +9,17 @@ _logger = logging.getLogger(__name__)
 
 DEFAULT_TRACKING_HANDLER_PRIORITY = 10
 
+FieldChange = collections.namedtuple('FieldChange', ['old_val', 'new_val'])
+
 
 def pre_write(*track_fields, priority=None):
     """ Declare pre_write hook that will be called on any of specified fields
         changed.
 
         The decorated method must receive 'changes' param, that is dict, where
-        keys are names of fields, and values are tuples of two elements
-        (old_value, new_value).
+        keys are names of fields, and values are namedtuples of two elements
+        (old_val, new_val), so you can access new or old value as attributes,
+        like ``changes['myfield'].new_val``
 
         If return value is dict, then this values will be used to update
         record before calling post processing.
@@ -46,8 +49,9 @@ def post_write(*track_fields, priority=None):
         changed.
 
         The decorated method must receive 'changes' param, that is dict, where
-        keys are names of fields, and values are tuples of two elements
-        (old_value, new_value).
+        keys are names of fields, and values are namedtuples of two elements
+        (old_val, new_val), so you can access new or old value as attributes,
+        like ``changes['myfield'].new_val``
 
         Return value is ignored.
 
@@ -71,12 +75,13 @@ def post_write(*track_fields, priority=None):
     return decorator
 
 
-def pre_create(priority=None):
+def pre_create(*track_fields, priority=None):
     """ Declare pre_create hook that will be called before creation of record.
 
         The decorated method must receive 'changes' param, that is dict, where
-        keys are names of fields, and values are tuples of two elements
-        (old_value, new_value).
+        keys are names of fields, and values are namedtuples of two elements
+        (old_val, new_val), so you can access new or old value as attributes,
+        like ``changes['myfield'].new_val``
 
         If return value is dict, then this values will be used to update
         the data provided to 'create' method of object.
@@ -96,22 +101,27 @@ def pre_create(priority=None):
         Especially if you want to decorate method with both:
         @pre_create and @pre_write decorators.
 
+        If track fields specified, then, this method will be called only when
+        one of that fields changed.
+        If track fields not specified, method will be called in all cases.
     """
     if priority is not None and not isinstance(priority, int):
         raise AssertionError("priority must be int")
 
     def decorator(func):
+        func._pre_create_fields = track_fields
         func._pre_create_priority = priority
         return func
     return decorator
 
 
-def post_create(priority=None):
+def post_create(*track_fields, priority=None):
     """ Declare post_create hook that will be called after record was created.
 
         The decorated method must receive 'changes' param, that is dict, where
-        keys are names of fields, and values are tuples of two elements
-        (old_value, new_value).
+        keys are names of fields, and values are namedtuples of two elements
+        (old_val, new_val), so you can access new or old value as attributes,
+        like ``changes['myfield'].new_val``
 
         Return value is ignored.
 
@@ -125,12 +135,25 @@ def post_create(priority=None):
                 if fnew == 'my value':
                     # do something.
 
+        Or we can specify the list of fields that have to be present in vals,
+        to call this method. For example:
+
+            @post_create('field1')
+            def _post_create_do_smthng(self, changes):
+                if changes['field1'].new_val == 'my value':
+                    # do something.
+
         In case of @post_create method, self will be single just created record
+
+        If track fields specified, then, this method will be called only when
+        one of that fields changed.
+        If track fields not specified, method will be called in all cases.
     """
     if priority is not None and not isinstance(priority, int):
         raise AssertionError("priority must be int")
 
     def decorator(func):
+        func._post_create_fields = track_fields
         func._post_create_priority = priority
         return func
     return decorator
@@ -269,6 +292,10 @@ class GenericMixInTrackChanges(models.AbstractModel):
                 self, method_name, '_pre_create_priority')
             is_post_create = check_method_has_attr_via_mro(
                 self, method_name, '_post_create_priority')
+            pre_create_fields = get_method_fields_via_mro(
+                self, method_name, '_pre_create_fields')
+            post_create_fields = get_method_fields_via_mro(
+                self, method_name, '_post_create_fields')
 
             if pre_write_fields and post_write_fields:
                 _logger.warning(
@@ -296,6 +323,22 @@ class GenericMixInTrackChanges(models.AbstractModel):
                         "field name (%s)",
                         tuple(post_write_fields), method_name, name)
 
+            # Validate pre_create_fields
+            for name in pre_create_fields:
+                if name not in self._fields:
+                    _logger.warning(
+                        "@pre_create%r (%s) parameters must be "
+                        "field name (%s)",
+                        tuple(pre_write_fields), method_name, name)
+
+            # Validate post_create_fields
+            for name in post_create_fields:
+                if name not in self._fields:
+                    _logger.warning(
+                        "@post_create%r (%s) parameters must be "
+                        "field name (%s)",
+                        tuple(post_write_fields), method_name, name)
+
             if pre_write_fields:
                 pre_write_handlers += [{
                     'method': method_name,
@@ -320,6 +363,7 @@ class GenericMixInTrackChanges(models.AbstractModel):
                     'priority': get_method_priority_via_mro(
                         self, method_name, '_pre_create_priority',
                         DEFAULT_TRACKING_HANDLER_PRIORITY),
+                    'fields': tuple(pre_create_fields),
                 }]
             if is_post_create:
                 post_create_handlers += [{
@@ -327,6 +371,7 @@ class GenericMixInTrackChanges(models.AbstractModel):
                     'priority': get_method_priority_via_mro(
                         self, method_name, '_post_create_priority',
                         DEFAULT_TRACKING_HANDLER_PRIORITY),
+                    'fields': tuple(post_create_fields),
                 }]
 
             track_fields |= pre_write_fields
@@ -370,8 +415,8 @@ class GenericMixInTrackChanges(models.AbstractModel):
                             vals[field], self),
                         self)
                     if old_value != new_value:
-                        changes[record.id][field] = (old_value,
-                                                     new_value)
+                        changes[record.id][field] = FieldChange(old_value,
+                                                                new_value)
         return dict(changes)
 
     def _preprocess_write_changes(self, changes):
@@ -455,19 +500,21 @@ class GenericMixInTrackChanges(models.AbstractModel):
                 self._fields[field].convert_to_cache(vals[field], self),
                 self)
             if old_value != new_value:
-                changes[field] = (old_value, new_value)
+                changes[field] = FieldChange(old_value, new_value)
 
         # Run pre-create hooks and update vals with new changes (if needed)
         vals = dict(vals)
         for hdl in self._generic_tracking_handler_data['pre_create_handlers']:
-            handler_res = getattr(self, hdl['method'])(changes)
-            if handler_res and isinstance(handler_res, dict):
-                vals.update(handler_res)
+            if not hdl['fields'] or set(hdl['fields']) & set(changes):
+                handler_res = getattr(self, hdl['method'])(changes)
+                if handler_res and isinstance(handler_res, dict):
+                    vals.update(handler_res)
 
         record = super(GenericMixInTrackChanges, self).create(vals)
 
         # Run post-create handlers
         for hdl in self._generic_tracking_handler_data['post_create_handlers']:
-            getattr(record, hdl['method'])(changes)
+            if not hdl['fields'] or set(hdl['fields']) & set(changes):
+                getattr(record, hdl['method'])(changes)
 
         return record
