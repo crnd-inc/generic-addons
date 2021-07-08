@@ -18,6 +18,7 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
             ]
     """
     _name = 'generic.mixin.namesearch.by.fields'
+    _description = 'Generic Mixin: Name search by fields'
 
     _generic_namesearch_fields = []
 
