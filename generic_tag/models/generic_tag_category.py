@@ -29,7 +29,7 @@ class GenericTagCategory(models.Model):
              "may be present on a single object. "
              "On attempt to add second tag from this category to object, "
              "error will be raised")
-    tags_count = fields.Float(
+    tags_count = fields.Integer(
         compute="_compute_tags_count", store=True,
         readonly=True, tracking=True,
         help="How many tags related to this catgory")
