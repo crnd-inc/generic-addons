@@ -1,6 +1,6 @@
 import logging
 from psycopg2 import sql
-from odoo import models, fields, api, tools, _
+from odoo import models, fields, tools, _
 
 from odoo.addons.generic_mixin import post_create, post_write
 
