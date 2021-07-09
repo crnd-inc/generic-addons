@@ -1,6 +1,11 @@
 # pylint: disable=consider-merging-classes-inherited
 from odoo import models, fields
-from odoo.addons.generic_mixin import pre_write, post_write
+from odoo.addons.generic_mixin import (
+    pre_write,
+    post_write,
+    pre_create,
+    post_create,
+)
 
 
 class TestTrackChangesModel(models.Model):
@@ -20,6 +25,10 @@ class TestTrackChangesModel(models.Model):
     value7 = fields.Integer()
     value8 = fields.Integer()
     description = fields.Text()
+    create_dbg = fields.Char()
+    create_dbg2 = fields.Char()
+    create_dbg3 = fields.Char()
+    create_dbg4 = fields.Char()
 
     @pre_write('value1', 'value2')
     def _pre_write_values_12(self, changes):
@@ -61,6 +70,22 @@ class TestTrackChangesModel(models.Model):
     def _pre_write_priority_8_5(self, changes):
         return {'description': 'Priority 8-5'}
 
+    @pre_create()
+    def _pre_create_set_dbg(self, changes):
+        return {'create_dbg': 'pre-create-1'}
+
+    @post_create()
+    def _post_create_set_dbg(self, changes):
+        self.create_dbg2 = 'post-create-1'
+
+    @pre_create()
+    def _precreate_set_dbg_3(self, changes):
+        return {'create_dbg3': 'pre-create-3'}
+
+    @post_create()
+    def _post_create_set_dbg_4(self, changes):
+        self.create_dbg4 = 'post-create-4'
+
 
 class TestTrackChangesModelS1(models.Model):
     _inherit = 'test.generic.mixin.track.changes.model'
@@ -88,6 +113,10 @@ class TestTrackChangesModelS1(models.Model):
         res['description'] += '-x'
         return res
 
+    @pre_write('value11')
+    def _pre_create_set_dbg(self, changes):
+        return super()._pre_create_set_dbg(changes)
+
 
 class TestTrackChangesModelS2(models.Model):
     _inherit = 'test.generic.mixin.track.changes.model'
@@ -103,3 +132,7 @@ class TestTrackChangesModelS2(models.Model):
     @pre_write('value8')
     def _pre_write_priority_8_None(self, changes):
         return {'description': 'Priority 8-None'}
+
+    @post_write('value21')
+    def _post_create_set_dbg(self, changes):
+        return super()._post_create_set_dbg(changes)
