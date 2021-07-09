@@ -86,6 +86,11 @@ msgid "Generic Mixin: Name by Sequence"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_namesearch_by_fields
+msgid "Generic Mixin: Name search by fields"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_name_with_code
 msgid "Generic Mixin: Name with code"
 msgstr ""
@@ -196,10 +201,5 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
 msgid "XML ID for this record."
-msgstr ""
-
-#. module: generic_mixin
-#: model:ir.model,name:generic_mixin.model_generic_mixin_namesearch_by_fields
-msgid "generic.mixin.namesearch.by.fields"
 msgstr ""
 
