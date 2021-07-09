@@ -20,6 +20,10 @@ class TrackChangesTest(SavepointCase):
         self.assertEqual(rec.value3, 0)
         self.assertEqual(rec.value4, 0)
         self.assertFalse(rec.description)
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+        self.assertEqual(rec.create_dbg3, 'pre-create-3')
+        self.assertEqual(rec.create_dbg4, 'post-create-4')
 
         rec.value2 = 2
 
@@ -29,6 +33,10 @@ class TrackChangesTest(SavepointCase):
         self.assertEqual(rec.value3, 0)
         self.assertEqual(rec.value4, 0)
         self.assertEqual(rec.description, "v2: 0 -> 2\n")
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+        self.assertEqual(rec.create_dbg3, 'pre-create-3')
+        self.assertEqual(rec.create_dbg4, 'post-create-4')
 
         rec.value1 = 3
 
@@ -118,10 +126,16 @@ class TrackChangesTest(SavepointCase):
         self.assertEqual(rec.value11, 0)
         self.assertEqual(rec.value21, 0)
         self.assertFalse(rec.description)
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+        self.assertEqual(rec.create_dbg3, 'pre-create-3')
+        self.assertEqual(rec.create_dbg4, 'post-create-4')
 
         rec.value5 = 53
 
         self.assertEqual(rec.description, "Test V5 change Overriden")
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
 
     def test_track_changes_3(self):
         Model = self.env['test.generic.mixin.track.changes.model']
@@ -134,10 +148,31 @@ class TrackChangesTest(SavepointCase):
         self.assertEqual(rec.value11, 0)
         self.assertEqual(rec.value21, 0)
         self.assertFalse(rec.description)
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+        self.assertEqual(rec.create_dbg3, 'pre-create-3')
+        self.assertEqual(rec.create_dbg4, 'post-create-4')
 
         rec.value21 = 243
 
         self.assertEqual(rec.description, "Test V5 change Overriden")
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+
+        rec.write({
+            'create_dbg': 'test',
+            'description': 'test',
+            'create_dbg2': 'test',
+        })
+        self.assertEqual(rec.description, "test")
+        self.assertEqual(rec.create_dbg, 'test')
+        self.assertEqual(rec.create_dbg2, 'test')
+
+        rec.value21 = 74
+
+        self.assertEqual(rec.description, "Test V5 change Overriden")
+        self.assertEqual(rec.create_dbg, 'test')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
 
     def test_track_changes_4(self):
         Model = self.env['test.generic.mixin.track.changes.model']
@@ -150,10 +185,31 @@ class TrackChangesTest(SavepointCase):
         self.assertEqual(rec.value11, 0)
         self.assertEqual(rec.value21, 0)
         self.assertFalse(rec.description)
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+        self.assertEqual(rec.create_dbg3, 'pre-create-3')
+        self.assertEqual(rec.create_dbg4, 'post-create-4')
 
         rec.value11 = 28
 
         self.assertEqual(rec.description, "Test V5 change Overriden")
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+
+        rec.write({
+            'create_dbg': 'test',
+            'description': 'test',
+            'create_dbg2': 'test',
+        })
+        self.assertEqual(rec.description, "test")
+        self.assertEqual(rec.create_dbg, 'test')
+        self.assertEqual(rec.create_dbg2, 'test')
+
+        rec.value11 = 31
+
+        self.assertEqual(rec.description, "Test V5 change Overriden")
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'test')
 
     def test_track_changes_priority_1(self):
         Model = self.env['test.generic.mixin.track.changes.model']

@@ -2,6 +2,8 @@ import logging
 from psycopg2 import sql
 from odoo import models, fields, api, tools, _
 
+from odoo.addons.generic_mixin import post_create, post_write
+
 _logger = logging.getLogger(__name__)
 
 
@@ -11,6 +13,7 @@ class GenericLocation(models.Model):
         'mail.thread',
         'generic.mixin.parent.names',
         'generic.mixin.get.action',
+        'generic.mixin.track.changes',
     ]
     _parent_name = 'parent_id'
     _parent_store = True
@@ -92,21 +95,16 @@ class GenericLocation(models.Model):
     @api.model
     def create(self, vals):
         tools.image_resize_images(vals)
-        res = super(GenericLocation, self).create(vals)
-
-        # Invalidate cache for 'parent_ids' field
-        if 'parent_id' in vals:
-            self.invalidate_cache(['parent_ids'])
-        return res
+        return super(GenericLocation, self).create(vals)
 
     def write(self, vals):
         tools.image_resize_images(vals)
-        res = super(GenericLocation, self).write(vals)
+        return super(GenericLocation, self).write(vals)
 
-        # Invalidate cache for 'parent_ids' field
-        if 'parent_id' in vals:
-            self.invalidate_cache(['parent_ids'])
-        return res
+    @post_create('parent_id')
+    @post_write('parent_id')
+    def _post_write_invalidate_childs_cache(self, changes):
+        self.invalidate_cache(['parent_ids'])
 
     # TODO rewrite method
     # @api.multi
