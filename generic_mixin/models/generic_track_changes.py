@@ -207,6 +207,95 @@ def check_method_has_attr_via_mro(obj, method_name, attr_name):
     return False
 
 
+class FieldChangeHandler:
+    """ Representation of field change handler method.
+
+        This class is used only during model-creation process,
+        to simplify code responsible for analysing methods
+    """
+    def __init__(self, obj, method_name):
+        self._obj = obj
+        self._method_name = method_name
+
+        # Parse fields info
+        self.pre_write_fields = self._get_tracking_fields('_pre_write_fields')
+        self.post_write_fields = self._get_tracking_fields(
+            '_post_write_fields')
+        self.pre_create_fields = self._get_tracking_fields(
+            '_pre_create_fields')
+        self.post_create_fields = self._get_tracking_fields(
+            '_post_create_fields')
+
+        # Pars flags pre/post create
+        self.is_pre_create = check_method_has_attr_via_mro(
+            self._obj, self._method_name, '_pre_create_priority')
+        self.is_post_create = check_method_has_attr_via_mro(
+            self._obj, self._method_name, '_post_create_priority')
+
+    def _get_tracking_fields(self, fields_attr):
+        return get_method_fields_via_mro(
+            self._obj, self._method_name, fields_attr)
+
+    @property
+    def name(self):
+        """ Return method name
+        """
+        return self._method_name
+
+    def get_priority(self, priority_attr):
+        """ Could be called to get priority from method attr
+        """
+        return get_method_priority_via_mro(
+            self._obj, self._method_name, priority_attr,
+            DEFAULT_TRACKING_HANDLER_PRIORITY)
+
+    def validate(self):
+        """ Validate the handler.
+            At this moment just prints warnings to the log.
+        """
+        if self.pre_write_fields and self.post_write_fields:
+            _logger.warning(
+                "Method must not be decorated as @pre_write and "
+                "@post_write at same time! Method: %s", self._method_name)
+
+        if self.is_pre_create and self.is_post_create:
+            _logger.warning(
+                "Method must not be decorated as @pre_create and "
+                "@post_create at same time! Method: %s", self._method_name)
+
+        # Validate pre_write_fields
+        for name in self.pre_write_fields:
+            if name not in self._obj._fields:
+                _logger.warning(
+                    "@pre_write%r (%s) parameters must be "
+                    "field name (%s)",
+                    tuple(self.pre_write_fields), self._method_name, name)
+
+        # Validate post_write_fields
+        for name in self.post_write_fields:
+            if name not in self._obj._fields:
+                _logger.warning(
+                    "@post_write%r (%s) parameters must be "
+                    "field name (%s)",
+                    tuple(self.post_write_fields), self._method_name, name)
+
+        # Validate pre_create_fields
+        for name in self.pre_create_fields:
+            if name not in self._obj._fields:
+                _logger.warning(
+                    "@pre_create%r (%s) parameters must be "
+                    "field name (%s)",
+                    tuple(self.pre_write_fields), self._method_name, name)
+
+        # Validate post_create_fields
+        for name in self.post_create_fields:
+            if name not in self._obj._fields:
+                _logger.warning(
+                    "@post_create%r (%s) parameters must be "
+                    "field name (%s)",
+                    tuple(self.post_write_fields), self._method_name, name)
+
+
 class GenericMixInTrackChanges(models.AbstractModel):
     """ Simple mixin to provide mechanism to track changes of objects
 
@@ -283,99 +372,38 @@ class GenericMixInTrackChanges(models.AbstractModel):
         track_fields = write_handlers['track_fields'] = set()
 
         for method_name, __ in getmembers(cls, is_tracking_handler):
-            # TODO: do only one iteration over method overrides
-            pre_write_fields = get_method_fields_via_mro(
-                self, method_name, '_pre_write_fields')
-            post_write_fields = get_method_fields_via_mro(
-                self, method_name, '_post_write_fields')
-            is_pre_create = check_method_has_attr_via_mro(
-                self, method_name, '_pre_create_priority')
-            is_post_create = check_method_has_attr_via_mro(
-                self, method_name, '_post_create_priority')
-            pre_create_fields = get_method_fields_via_mro(
-                self, method_name, '_pre_create_fields')
-            post_create_fields = get_method_fields_via_mro(
-                self, method_name, '_post_create_fields')
+            handler = FieldChangeHandler(self, method_name)
+            handler.validate()
 
-            if pre_write_fields and post_write_fields:
-                _logger.warning(
-                    "Method must not be decorated as @pre_write and "
-                    "@post_write at same time! Method: %s", method_name)
-
-            if is_pre_create and is_post_create:
-                _logger.warning(
-                    "Method must not be decorated as @pre_create and "
-                    "@post_create at same time! Method: %s", method_name)
-
-            # Validate pre_write_fields
-            for name in pre_write_fields:
-                if name not in self._fields:
-                    _logger.warning(
-                        "@pre_write%r (%s) parameters must be "
-                        "field name (%s)",
-                        tuple(pre_write_fields), method_name, name)
-
-            # Validate post_write_fields
-            for name in post_write_fields:
-                if name not in self._fields:
-                    _logger.warning(
-                        "@post_write%r (%s) parameters must be "
-                        "field name (%s)",
-                        tuple(post_write_fields), method_name, name)
-
-            # Validate pre_create_fields
-            for name in pre_create_fields:
-                if name not in self._fields:
-                    _logger.warning(
-                        "@pre_create%r (%s) parameters must be "
-                        "field name (%s)",
-                        tuple(pre_write_fields), method_name, name)
-
-            # Validate post_create_fields
-            for name in post_create_fields:
-                if name not in self._fields:
-                    _logger.warning(
-                        "@post_create%r (%s) parameters must be "
-                        "field name (%s)",
-                        tuple(post_write_fields), method_name, name)
-
-            if pre_write_fields:
+            if handler.pre_write_fields:
                 pre_write_handlers += [{
-                    'method': method_name,
-                    'priority': get_method_priority_via_mro(
-                        self, method_name, '_pre_write_priority',
-                        DEFAULT_TRACKING_HANDLER_PRIORITY),
-                    'fields': tuple(pre_write_fields),
+                    'method': handler.name,
+                    'priority': handler.get_priority('_pre_write_priority'),
+                    'fields': tuple(handler.pre_write_fields),
                 }]
 
-            if post_write_fields:
+            if handler.post_write_fields:
                 post_write_handlers += [{
-                    'method': method_name,
-                    'priority': get_method_priority_via_mro(
-                        self, method_name, '_post_write_priority',
-                        DEFAULT_TRACKING_HANDLER_PRIORITY),
-                    'fields': tuple(post_write_fields),
+                    'method': handler.name,
+                    'priority': handler.get_priority('_post_write_priority'),
+                    'fields': tuple(handler.post_write_fields),
                 }]
 
-            if is_pre_create:
+            if handler.is_pre_create:
                 pre_create_handlers += [{
-                    'method': method_name,
-                    'priority': get_method_priority_via_mro(
-                        self, method_name, '_pre_create_priority',
-                        DEFAULT_TRACKING_HANDLER_PRIORITY),
-                    'fields': tuple(pre_create_fields),
+                    'method': handler.name,
+                    'priority': handler.get_priority('_pre_create_priority'),
+                    'fields': tuple(handler.pre_create_fields),
                 }]
-            if is_post_create:
+            if handler.is_post_create:
                 post_create_handlers += [{
-                    'method': method_name,
-                    'priority': get_method_priority_via_mro(
-                        self, method_name, '_post_create_priority',
-                        DEFAULT_TRACKING_HANDLER_PRIORITY),
-                    'fields': tuple(post_create_fields),
+                    'method': handler.name,
+                    'priority': handler.get_priority('_post_create_priority'),
+                    'fields': tuple(handler.post_create_fields),
                 }]
 
-            track_fields |= pre_write_fields
-            track_fields |= post_write_fields
+            track_fields |= handler.pre_write_fields
+            track_fields |= handler.post_write_fields
 
         # Sort handlers
         pre_write_handlers.sort(key=itemgetter('priority'))
