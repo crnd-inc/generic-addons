@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2021-06-07 15:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -18,6 +19,26 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__code
 msgid "Code"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_dbg
+msgid "Create Dbg"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_dbg2
+msgid "Create Dbg2"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_dbg3
+msgid "Create Dbg3"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_dbg4
+msgid "Create Dbg4"
 msgstr ""
 
 #. module: test_generic_mixin

@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2021-06-07 15:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -59,14 +60,16 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can create the condition to compare monetary indicators. <br/>\n"
+"By this type you can create the condition to compare monetary indicators. "
+"<br/>\n"
 "                                <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
+"By this type you can describe the condition as an expression in the Python "
+"programming language. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -101,7 +104,8 @@ msgstr ""
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid ""
-"Checking condition %(cond)s on document %(doc)s caused error. Notify administrator to fix it.\n"
+"Checking condition %(cond)s on document %(doc)s caused error. Notify "
+"administrator to fix it.\n"
 "\n"
 "---\n"
 "%(error_msg)s"
@@ -132,12 +136,8 @@ msgstr ""
 msgid ""
 "Choose way related record will be checked:\n"
 "- Match: return True if all filtered records match condition.\n"
-"- Contains: return True if at least one of filtered records match 'check' conditions"
-msgstr ""
-
-#. module: generic_condition
-#: model:ir.filters,name:generic_condition.demo_filter_partner_city_kyiv
-msgid "City: Kyiv"
+"- Contains: return True if at least one of filtered records match 'check' "
+"conditions"
 msgstr ""
 
 #. module: generic_condition
@@ -215,11 +215,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator__contains
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator_html__contains
 msgid "Contains"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_parenter_country_is_ukraine
-msgid "Country: Ukraine"
 msgstr ""
 
 #. module: generic_condition
@@ -451,7 +446,8 @@ msgstr ""
 msgid ""
 "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s [%(object_id)d]\tobject's model: %(object_model)s\n"
+"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s "
+"[%(object_id)d]\tobject's model: %(object_model)s\n"
 "\tcondition's model: %(condition_model)s\n"
 msgstr ""
 
@@ -461,19 +457,10 @@ msgid "Group by..."
 msgstr ""
 
 #. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_has_contact_green
-msgid "Has contact 'Green'"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_has_only_contacts
-msgid "Has only contacts"
-msgstr ""
-
-#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"Here you can create a condition that relates to the simple field of the Odoo object. <br/>\n"
+"Here you can create a condition that relates to the simple field of the Odoo "
+"object. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -528,7 +515,9 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br/>\n"
+"In that case you can select one of the already created conditions (this "
+"could be useful if you use the same condition but with inversion or as a "
+"superuser). <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -858,7 +847,8 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of condition is used to check the properties of related objects. <br/>\n"
+"This type of condition is used to check the properties of related objects. "
+"<br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -872,7 +862,8 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of the condition allows you to estimate the date difference between certain events. <br/>\n"
+"This type of the condition allows you to estimate the date difference "
+"between certain events. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -976,7 +967,8 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"With this type of condition you can use multiple conditions simultaneously. <br/>\n"
+"With this type of condition you can use multiple conditions simultaneously. "
+"<br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1002,12 +994,6 @@ msgid "_Cancel"
 msgstr ""
 
 #. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_city_kyiv
-#: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp_but_kyiv
-msgid "city: Kyiv"
-msgstr ""
-
-#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "datetime - python module \"datetime\""
 msgstr ""
@@ -1023,38 +1009,8 @@ msgid "env - environment"
 msgstr ""
 
 #. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_blue
-msgid "eval [name: Blue]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_green
-msgid "eval [name: Green]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_sx_corp
-msgid "eval [name: SX Corp]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_contact
-msgid "eval [type: contact]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_eval_error
-msgid "eval with error"
-msgstr ""
-
-#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "model - model"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp
-msgid "not [name: SX Corp]"
 msgstr ""
 
 #. module: generic_condition
