@@ -134,11 +134,6 @@ msgid ""
 msgstr ""
 
 #. module: generic_condition
-#: model:ir.filters,name:generic_condition.demo_filter_partner_city_kyiv
-msgid "City: Kyiv"
-msgstr ""
-
-#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__color
 msgid "Color"
 msgstr ""
@@ -213,11 +208,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator__contains
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator_html__contains
 msgid "Contains"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_parenter_country_is_ukraine
-msgid "Country: Ukraine"
 msgstr ""
 
 #. module: generic_condition
@@ -456,16 +446,6 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Group by..."
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_has_contact_green
-msgid "Has contact 'Green'"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_has_only_contacts
-msgid "Has only contacts"
 msgstr ""
 
 #. module: generic_condition
@@ -1000,12 +980,6 @@ msgid "_Cancel"
 msgstr ""
 
 #. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_city_kyiv
-#: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp_but_kyiv
-msgid "city: Kyiv"
-msgstr ""
-
-#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "datetime - python module \"datetime\""
 msgstr ""
@@ -1021,38 +995,8 @@ msgid "env - environment"
 msgstr ""
 
 #. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_blue
-msgid "eval [name: Blue]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_green
-msgid "eval [name: Green]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_sx_corp
-msgid "eval [name: SX Corp]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_contact
-msgid "eval [type: contact]"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_eval_error
-msgid "eval with error"
-msgstr ""
-
-#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "model - model"
-msgstr ""
-
-#. module: generic_condition
-#: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp
-msgid "not [name: SX Corp]"
 msgstr ""
 
 #. module: generic_condition

@@ -17,11 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_1
-msgid "Darnitsa"
-msgstr ""
-
-#. module: generic_location_tag
 #: model:ir.model.fields,field_description:generic_location_tag.field_generic_location__display_name
 msgid "Display Name"
 msgstr ""
@@ -63,21 +58,6 @@ msgstr "Теги локації"
 #. module: generic_location_tag
 #: model:ir.model.fields,field_description:generic_location_tag.field_generic_location__search_no_tag_id
 msgid "No tag"
-msgstr ""
-
-#. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_3
-msgid "Osocorki"
-msgstr ""
-
-#. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_2
-msgid "Poznyaki"
-msgstr ""
-
-#. module: generic_location_tag
-#: model:generic.tag,name:generic_location_tag.simple_tag_location_4
-msgid "Rusanovka"
 msgstr ""
 
 #. module: generic_location_tag

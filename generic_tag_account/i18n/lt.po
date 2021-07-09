@@ -1,0 +1,79 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* generic_tag_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-09 11:05+0000\n"
+"PO-Revision-Date: 2021-07-09 11:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_tag_account
+#: model:ir.ui.menu,name:generic_tag_account.menu_account_tags
+msgid "Account Tags"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,field_description:generic_tag_account.field_account_move__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,help:generic_tag_account.field_account_move__search_tag_id
+msgid "Find all records that contain this tag"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,help:generic_tag_account.field_account_move__search_no_tag_id
+msgid "Find all records that have no this tag"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,field_description:generic_tag_account.field_account_move__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.actions.act_window,name:generic_tag_account.account_move_tags_view_action
+#: model:ir.ui.menu,name:generic_tag_account.menu_account_move_tags_id
+msgid "Invoice Tags"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:generic.tag.model,name:generic_tag_account.generic_tag_model_account_move
+#: model:ir.model,name:generic_tag_account.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,field_description:generic_tag_account.field_account_move____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,field_description:generic_tag_account.field_account_move__search_no_tag_id
+msgid "No tag"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,field_description:generic_tag_account.field_account_move__search_tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: generic_tag_account
+#: model:ir.model.fields,field_description:generic_tag_account.field_account_move__tag_ids
+msgid "Tags"
+msgstr ""
+
+#. module: generic_tag_account
+#: model_terms:ir.ui.view,arch_db:generic_tag_account.account_invoice_tree_view
+#: model_terms:ir.ui.view,arch_db:generic_tag_account.view_account_move_tag_form
+msgid "Tags..."
+msgstr ""
