@@ -11,7 +11,9 @@ _logger = logging.getLogger(__name__)
 class GenericResourceMixin(models.AbstractModel):
     _name = 'generic.resource.mixin'
     _description = 'Generic Resource MixIn'
-    _inherit = 'generic.mixin.track.changes'
+    _inherit = [
+        'generic.mixin.track.changes',
+    ]
 
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True,
@@ -197,13 +199,17 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
 
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
+        # TODO: replace by 'generic.mixin.namesearch.by.fields' mixin
         if not args:
             args = []
         if name:
             domain = [
-                [('name', operator, name)],
                 [('inv_number', operator, name)]
             ]
+            if self._rec_name:
+                domain += [
+                    [(self._rec_name, operator, name)],
+                ]
             if operator in expression.NEGATIVE_TERM_OPERATORS:
                 domain = expression.AND(domain)
             else:
