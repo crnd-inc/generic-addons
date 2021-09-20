@@ -426,7 +426,7 @@
                                     </td>
                                     <td>
                                         <field name="condition_simple_field_value_char"
-                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text', 'html'))], 'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')), ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}"/>
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text', 'html')), ('condition_simple_field_string_operator', 'not in', ('set', 'not set'))], 'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')), ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}"/>
                                         <field name="condition_simple_field_value_integer"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'integer')], 'invisible': [('condition_simple_field_type', '!=', 'integer')]}"/>
                                         <field name="condition_simple_field_value_float"
