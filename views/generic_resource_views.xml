@@ -16,7 +16,6 @@
         parent="menu_generic_resource_toplevel"/>
 
     <!-- generic.resource -->
-    <!-- Search view for generic.resource -->
     <record id="generic_resource_view_search" model="ir.ui.view">
         <field name="model">generic.resource</field>
         <field name="mode">primary</field>
@@ -34,7 +33,6 @@
             </search>
         </field>
     </record>
-    <!-- Tree view for generic.resource -->
     <record id="generic_resource_view_tree" model="ir.ui.view">
         <field name="model">generic.resource</field>
         <field name="mode">primary</field>
@@ -51,7 +49,6 @@
         </field>
     </record>
 
-    <!-- base view for resources -->
     <record id="generic_resource_view_form_base" model="ir.ui.view">
         <field name="model">generic.resource</field>
         <field name="mode">primary</field>
