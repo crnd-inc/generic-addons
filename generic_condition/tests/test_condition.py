@@ -120,7 +120,7 @@ class TestCondition(SavepointCase):
 
         wiz_act = condition.action_show_test_wizard()
         wiz = self.env[wiz_act['res_model']].with_context(
-            wiz_act['context']
+            **wiz_act['context']
         ).create({
             'res_id': self.partner_z_corp.id,
         })

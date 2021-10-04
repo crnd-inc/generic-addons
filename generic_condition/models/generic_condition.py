@@ -434,7 +434,7 @@ class GenericCondition(models.Model):
 
         ctx = self.env.context.copy()
         ctx.update(safe_eval(filter_obj.context, ctx))
-        return bool(Model.with_context(ctx).search(domain, count=True))
+        return bool(Model.with_context(**ctx).search(domain, count=True))
 
     # signature check_<type> where type is condition type
     def check_eval(self, obj, cache=None, debug_log=None):
@@ -945,7 +945,7 @@ class GenericCondition(models.Model):
 
         # Do actual condition processing
         for cond in self:
-            res = cond.with_context(ctx)._check(
+            res = cond.with_context(**ctx)._check(
                 obj, cache=cache, debug_log=debug_log)
             if operator == 'and' and not res:
                 # if operator is and, then fail on first failed condition
