@@ -29,14 +29,16 @@ class GenericMixinTransactionUtils(models.AbstractModel):
         """
         if self:
             # pylint: disable=sql-injection
-            self.env.cr.execute("""
-                SELECT id
-                FROM "{table_name}"
-                WHERE id IN %(ids)s
-                FOR UPDATE NOWAIT;
-            """.format(table_name=self._table), {  # nosec
-                'ids': tuple(self.ids),
-            })
+            self.env.cr.execute(  # nosec
+                """
+                    SELECT id
+                    FROM "{table_name}"
+                    WHERE id IN %(ids)s
+                    FOR UPDATE NOWAIT;
+                """.format(table_name=self._table), {
+                    'ids': tuple(self.ids),
+                }
+            )
 
     @contextmanager
     def _in_new_transaction(self, lock=False, no_raise=False):
