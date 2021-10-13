@@ -152,22 +152,21 @@ update_addons_list_and_trans:
 
 .deploy_review_definition: &deploy_review_definition
     stage: deploy
-    variables:
-        CI_REVIEW_INSTALL_APT_DEPS: "poppler-utils"
     before_script:
         - ci-review-app init
     script:
         - ci-review-app start
     tags:
-        - traefic
-        - review-apps
         - deploy
+        - odoo-review-ci4-shared
+        - review-apps
+
 
 deploy_review_dev:
     <<: *deploy_review_definition
     environment:
         name: review/$CI_COMMIT_REF_NAME
-        url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci3.crnd.pro
+        url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci4.crnd.pro
         on_stop: stop_review_dev
     <<: *only_dev_branch
     when: manual
@@ -176,7 +175,7 @@ deploy_review_stable:
     <<: *deploy_review_definition
     environment:
         name: stable/$CI_COMMIT_REF_NAME
-        url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci3.crnd.pro
+        url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci4.crnd.pro
     <<: *only_stable_branch
 
 stop_review_dev:
@@ -190,7 +189,7 @@ stop_review_dev:
         - ci-review-app stop
     when: manual
     tags:
-        - traefic
-        - review-apps
         - deploy
+        - odoo-review-ci4-shared
+        - review-apps
     <<: *only_dev_branch
