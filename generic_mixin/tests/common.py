@@ -57,6 +57,22 @@ class hide_log_messages:
         return wrapper
 
 
+def deactivate_records_for_model(env, model):
+    """ Deactivate records from uninstalled modules for specified model.
+
+        This could be used to deactivate ir.rules
+        from unknown (at moment of test) modules.
+
+        Or it could be used to deactivate menus that references actions
+        for unexisting (not registered yet) models.
+    """
+    record_ids = env['ir.model.data'].search([
+        ('model', '=', model),
+        ('module', 'not in', tuple(env.registry._init_modules)),
+    ]).mapped('res_id')
+    env[model].browse(record_ids).write({'active': False})
+
+
 class ReduceLoggingMixin(unittest.TestCase):
     """ Simple mixin to remove boring messages from logging ourput.
 
@@ -90,12 +106,7 @@ class AccessRulesFixMixinST:
     @classmethod
     def setUpClass(cls):
         super(AccessRulesFixMixinST, cls).setUpClass()
-
-        rule_ids = cls.env['ir.model.data'].search([
-            ('model', '=', 'ir.rule'),
-            ('module', 'not in', tuple(cls.env.registry._init_modules)),
-        ]).mapped('res_id')
-        cls.env['ir.rule'].browse(rule_ids).write({'active': False})
+        deactivate_records_for_model(cls.env, 'ir.rule')
 
 
 class AccessRulesFixMixinMT:
@@ -110,9 +121,4 @@ class AccessRulesFixMixinMT:
 
     def setUp(self):
         super(AccessRulesFixMixinMT, self).setUp()
-
-        rule_ids = self.env['ir.model.data'].search([
-            ('model', '=', 'ir.rule'),
-            ('module', 'not in', tuple(self.env.registry._init_modules)),
-        ]).mapped('res_id')
-        self.env['ir.rule'].browse(rule_ids).write({'active': False})
+        deactivate_records_for_model(self.env, 'ir.rule')
