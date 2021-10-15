@@ -3,6 +3,9 @@ from odoo import fields, models, api, tools, exceptions, _
 
 class GenericResourceType(models.Model):
     _name = 'generic.resource.type'
+    _inherit = [
+        'generic.mixin.track.changes',
+    ]
     _description = "Generic Resource Type"
     _order = 'sequence asc, name asc, model_id asc'
 
@@ -110,6 +113,15 @@ class GenericResourceType(models.Model):
         """
         self.ensure_one()
         return self.env[self.sudo().model_id.model].browse(res_id).exists()
+
+    def _get_resource_defaults(self):
+        """ Return dict with default values for resources
+        """
+        self.ensure_one()
+        return {
+            'res_type_id': self.id,
+            'resource_visibility': self.resource_visibility,
+        }
 
     @api.model
     def create(self, vals):

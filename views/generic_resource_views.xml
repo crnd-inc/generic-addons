@@ -63,7 +63,7 @@
                                 options='{"terminology": "archive"}'/>
                         </button>
                     </div>
-                    <div class="oe_title">
+                    <div name="div_title" class="oe_title">
                         <h1 name="h1_title">
                         </h1>
                     </div>

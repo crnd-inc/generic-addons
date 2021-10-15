@@ -109,11 +109,14 @@ class GenericResource(models.Model):
     @api.model
     def _get_resource_type_defaults(self, resource_type):
         """ Get default values for resource from resource type
+
+            DEPRECATION: This method is deprecated.
+                         Use generic.resource.type._get_resource_defaults
+                         instead
         """
-        return {
-            'res_type_id': resource_type.id,
-            'resource_visibility': resource_type.resource_visibility,
-        }
+        # TODO: Remove this method in future in favor of
+        # generic.resource.type._get_resource_defaults
+        return resource_type._get_resource_defaults()
 
     def _preprocess_resource_changes(self, changes):
         """ This method is called before write on resource implementation and
