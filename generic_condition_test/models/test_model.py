@@ -3,6 +3,7 @@ from odoo import models, fields
 
 class TestConditionModel(models.Model):
     _name = 'test.generic.condition.test.model'
+    _description = "Test Model for Generic Condition"
 
     # date diff fields
     date_start = fields.Datetime()
@@ -36,5 +37,6 @@ class TestConditionModel(models.Model):
 
 class TestConditionModelRelation(models.Model):
     _name = 'test.generic.condition.test.model.relation'
+    _description = "Test Model Relation for Generic Condition"
 
     name = fields.Char()
