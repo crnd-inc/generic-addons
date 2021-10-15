@@ -2,8 +2,6 @@ import logging
 
 from odoo import fields, models, api
 
-from odoo.osv import expression
-
 _logger = logging.getLogger(__name__)
 
 
@@ -35,7 +33,14 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
       'your_addon.id_for_your_sequence'.
      '''
     _name = 'generic.resource.mixin.inv.number'
+    _inherit = [
+        'generic.mixin.namesearch.by.fields',
+    ]
     _description = 'Generic Resource Mixin Inv Number'
+
+    _generic_namesearch_fields = ['inv_number']
+    _generic_namesearch_search_by_rec_name = True
+
     _inv_number_seq_code = None
     _inv_number_in_display_name = False
 
@@ -64,27 +69,3 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
                 (rec.id, "%s [%s]" % (name_map[rec.id], rec.inv_number))
             )
         return result
-
-    @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
-        # TODO: replace by 'generic.mixin.namesearch.by.fields' mixin
-        if not args:
-            args = []
-        if name:
-            domain = [
-                [('inv_number', operator, name)]
-            ]
-            if self._rec_name:
-                domain += [
-                    [(self._rec_name, operator, name)],
-                ]
-            if operator in expression.NEGATIVE_TERM_OPERATORS:
-                domain = expression.AND(domain)
-            else:
-                domain = expression.OR(domain)
-
-            domain = expression.AND([domain, args])
-            records = self.search(domain, limit=limit)
-        else:
-            records = self.search(args, limit=limit)
-        return records.name_get()
