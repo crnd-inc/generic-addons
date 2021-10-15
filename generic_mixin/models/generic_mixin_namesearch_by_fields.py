@@ -22,6 +22,10 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
 
     _generic_namesearch_fields = []
 
+    # This param could be used in by other mixins to include '_rec_name' in
+    # search
+    _generic_namesearch_search_by_rec_name = False
+
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         if not self._generic_namesearch_fields:
@@ -32,6 +36,16 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
             return super().name_search(
                 name=name, args=args, operator=operator, limit=limit)
 
+        # List of domains to search record via
+        domains = [
+            [(fname, operator, name)]
+            for fname in self._generic_namesearch_fields
+        ]
+
+        # Optionaly search via rec_name too
+        if self._generic_namesearch_search_by_rec_name and self._rec_name:
+            domains += [[(self._rec_name, operator, name)]]
+
         # In case of negative operator (not ilike), we need to join domains
         # via AND operator. For example:
         #     code not ilike 'test' and name not ilike 'test'
@@ -39,15 +53,9 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
         # join domains. For example:
         #     code ilike 'test' or name 'ilike' test
         if operator in expression.NEGATIVE_TERM_OPERATORS:
-            domain = expression.AND([
-                [(fname, operator, name)]
-                for fname in self._generic_namesearch_fields
-            ])
+            domain = expression.AND(domains)
         else:
-            domain = expression.OR([
-                [(fname, operator, name)]
-                for fname in self._generic_namesearch_fields
-            ])
+            domain = expression.OR(domains)
 
         return self.search(
             expression.AND([
