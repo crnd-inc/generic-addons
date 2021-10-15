@@ -217,7 +217,7 @@ msgid "Find all records that have no this tag"
 msgstr ""
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag.py:0
+#: code:addons/generic_tag/models/generic_tag_mixin.py:0
 #, python-format
 msgid ""
 "Following (category - tags) pairs, break category XOR restriction:\n"

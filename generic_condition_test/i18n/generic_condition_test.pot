@@ -116,6 +116,16 @@ msgid "Test M2O"
 msgstr ""
 
 #. module: generic_condition_test
+#: model:ir.model,name:generic_condition_test.model_test_generic_condition_test_model_relation
+msgid "Test Model Relation for Generic Condition"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model,name:generic_condition_test.model_test_generic_condition_test_model
+msgid "Test Model for Generic Condition"
+msgstr ""
+
+#. module: generic_condition_test
 #: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model__test_monetary
 msgid "Test Monetary"
 msgstr ""
@@ -153,14 +163,4 @@ msgstr ""
 #. module: generic_condition_test
 #: model:ir.model.fields.selection,name:generic_condition_test.selection__test_generic_condition_test_model__test_selection__val2
 msgid "Value 2"
-msgstr ""
-
-#. module: generic_condition_test
-#: model:ir.model,name:generic_condition_test.model_test_generic_condition_test_model
-msgid "test.generic.condition.test.model"
-msgstr ""
-
-#. module: generic_condition_test
-#: model:ir.model,name:generic_condition_test.model_test_generic_condition_test_model_relation
-msgid "test.generic.condition.test.model.relation"
 msgstr ""
