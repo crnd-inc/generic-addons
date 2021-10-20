@@ -117,13 +117,13 @@ msgid "Default"
 msgstr "За замовчаннями"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:167
+#: code:addons/generic_resource/models/generic_resource.py:170
 #, python-format
 msgid "Direct creation of 'generic.resource' records is not allowed!"
 msgstr "Пряме створення об'єктів 'generic.resource' заборонено!"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:181
+#: code:addons/generic_resource/models/generic_resource.py:184
 #, python-format
 msgid "Direct modification of 'generic.resource:res_id' field is not allowed!"
 msgstr "Пряма модифікація 'generic.resource:res_id' заборонена!"
@@ -475,6 +475,11 @@ msgid "Open Resource"
 msgstr "Відкрити ресурс"
 
 #. module: generic_resource
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
+msgid "Parameters"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_id
 msgid "Parent Category"
 msgstr "Батьківська категорія"
@@ -639,6 +644,11 @@ msgid "Simple resources"
 msgstr "Прості ресурси"
 
 #. module: generic_resource
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
+msgid "System Info"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "The list of models that extends the current model."
 msgstr "Список моделей, що розширюють поточну."
@@ -706,7 +716,7 @@ msgid "Whether this model supports messages and notifications."
 msgstr "Чи підтримує ця модель повідомлення та сповіщення."
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_type.py:58
+#: code:addons/generic_resource/models/generic_resource_type.py:61
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
