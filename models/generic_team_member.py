@@ -5,8 +5,10 @@ class GenericTeamMember(models.Model):
     _name = 'generic.team.member'
     _description = 'Generic team member'
 
-    user_id = fields.Many2one('res.users', index=True, required=True)
-    team_id = fields.Many2one('generic.team', index=True, required=True)
+    user_id = fields.Many2one(
+        'res.users', index=True, required=True, ondelete='cascade')
+    team_id = fields.Many2one(
+        'generic.team', index=True, required=True, ondelete='cascade')
 
     _sql_constraints = [
         ('user_team_unique',
