@@ -269,8 +269,8 @@ msgid "Sublocation"
 msgstr ""
 
 #. module: generic_location
-#: code:addons/generic_location/models/generic_location.py:133
-#: code:addons/generic_location/models/generic_location.py:134
+#: code:addons/generic_location/models/generic_location.py:130
+#: code:addons/generic_location/models/generic_location.py:131
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__child_ids
 #, python-format
 msgid "Sublocations"
