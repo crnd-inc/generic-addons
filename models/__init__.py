@@ -4,6 +4,7 @@ from . import (
     generic_resource_related_mixin,
     generic_resource_mixin,
     generic_resource_mixin_inv_number,
+    generic_resource_permission,
     generic_resource_simple,
     generic_resource_simple_category,
     generic_resource_wizard_mixin,
