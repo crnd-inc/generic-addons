@@ -35,6 +35,12 @@ class GenericResourceType(models.Model):
     image_small = fields.Binary(attachment=True)
     image_medium = fields.Binary(attachment=True)
 
+    permission_ids = fields.One2many(
+        'generic.resource.role', 'resource_type_id',
+        string='Permissions')
+    permission_count = fields.Integer(
+        'Permissions', compute='_compute_role_count', readonly=True)
+
     _sql_constraints = [
         ('model_id_uniq',
          'UNIQUE (model_id)',
