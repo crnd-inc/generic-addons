@@ -29,6 +29,7 @@ class TestTrackChangesModel(models.Model):
     create_dbg2 = fields.Char()
     create_dbg3 = fields.Char()
     create_dbg4 = fields.Char()
+    dt_value = fields.Datetime()
 
     @pre_write('value1', 'value2')
     def _pre_write_values_12(self, changes):

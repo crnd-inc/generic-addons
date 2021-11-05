@@ -1,8 +1,8 @@
 import logging
-from psycopg2 import sql
-from odoo import models, fields, tools, _
+from odoo import models, fields, _
 
 from odoo.addons.generic_mixin import post_create, post_write
+from odoo.addons.generic_mixin.tools.sql import create_sql_view
 
 _logger = logging.getLogger(__name__)
 
@@ -62,11 +62,9 @@ class GenericLocation(models.Model):
     def init(self):
         # Create relation (location_id <-> parent_location_id) as PG View
         # This relation is used to compute field parent_ids
-
-        tools.drop_view_if_exists(
-            self.env.cr, 'generic_location_parents_rel_view')
-        self.env.cr.execute(sql.SQL("""
-            CREATE or REPLACE VIEW generic_location_parents_rel_view AS (
+        create_sql_view(
+            self.env.cr, 'generic_location_parents_rel_view',
+            """
                 SELECT c.id AS child_id,
                        p.id AS parent_id
                 FROM generic_location AS c
@@ -75,8 +73,7 @@ class GenericLocation(models.Model):
                         SELECT * FROM unnest(regexp_split_to_array(
                             c.parent_path, '/')))
                     AND p.id != c.id)
-            )
-        """))
+            """)
 
     @post_create('parent_id')
     @post_write('parent_id')
