@@ -48,6 +48,8 @@ class GenericMixinUUID(models.AbstractModel):
     _generic_mixin_uuid_field_name = 'uuid'
     _generic_mixin_uuid_auto_add_field = False
 
+    # TODO: Add optional validation of UUIDs
+
     @api.model
     def _add_magic_fields(self):
         res = super(GenericMixinUUID, self)._add_magic_fields()
@@ -55,6 +57,7 @@ class GenericMixinUUID(models.AbstractModel):
         if not self._generic_mixin_uuid_auto_add_field:
             return res
 
+        # Add uuid field if needed
         if self._generic_mixin_uuid_field_name not in self._fields:
             self._add_field(
                 self._generic_mixin_uuid_field_name,
@@ -76,6 +79,10 @@ class GenericMixinUUID(models.AbstractModel):
 
     @api.model
     def create(self, vals):
-        vals[self._generic_mixin_uuid_field_name] = (
-            self._generic_mixin_uuid__generate_new())
+        vals_uuid = vals.get(self._generic_mixin_uuid_field_name, '/')
+        if not vals_uuid or vals_uuid == '/':
+            # If uuid is not provided in vals, or is equeal to '/', then we
+            # have to generate new uuid
+            vals[self._generic_mixin_uuid_field_name] = (
+                self._generic_mixin_uuid__generate_new())
         return super(GenericMixinUUID, self).create(vals)
