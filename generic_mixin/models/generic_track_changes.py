@@ -1,9 +1,10 @@
 import logging
+import datetime
 import collections
 from operator import itemgetter
 from inspect import getmembers
-from odoo import models, api
-from odoo.fields import resolve_mro
+from odoo import models, api, fields
+from odoo.fields import resolve_mro, DATETIME_LENGTH
 
 _logger = logging.getLogger(__name__)
 
@@ -511,24 +512,48 @@ class GenericMixInTrackChanges(models.AbstractModel):
                 record._postprocess_write_changes(changes[record.id])
         return res
 
-    @api.model
-    def create(self, vals):
-        # Generate changes, using empty record as old value
-        # TODO: may be it have sense to handle defaults here
+    def _create__get_changed_fields(self, vals):
+        """ Prepare dict with changes, computed from 'create' method
 
+            Similar to 'get_changed_fields', but use empty record to
+            compute old_val.
+        """
         # Prepare dict with changes
         # changes = {
         #     field1: (old_value, new_value),
         # }
+
+        # Generate changes, using empty record as old value
+        # TODO: may be it have sense to handle default values here
         changes = {}
         dummy_record = self.browse()
-        for field in vals.keys():
-            old_value = dummy_record[field]
-            new_value = self._fields[field].convert_to_record(
-                self._fields[field].convert_to_cache(vals[field], self),
+        for fname, fval in vals.items():
+            old_value = dummy_record[fname]
+            field = self._fields[fname]
+
+            # Workaround to handle incorrect datetime values in 'mail' module's
+            # demo data. For example, if value for datetime field looks like:
+            # '2021-10-20 11:04' (without seconds block)
+            if (fval and field.type == 'datetime' and
+                    isinstance(fval, str) and
+                    len(fval) <= DATETIME_LENGTH):
+                try:
+                    # At first try to do it in standard way
+                    fval = fields.Datetime.to_datetime(fval)
+                except ValueError:
+                    # And if not working, apply special case
+                    fval = datetime.datetime.strptime(fval, '%Y-%m-%d %H:%M')
+
+            new_value = self._fields[fname].convert_to_record(
+                self._fields[fname].convert_to_cache(fval, self),
                 self)
             if old_value != new_value:
-                changes[field] = FieldChange(old_value, new_value)
+                changes[fname] = FieldChange(old_value, new_value)
+        return changes
+
+    @api.model
+    def create(self, vals):
+        changes = self._create__get_changed_fields(vals)
 
         # Run pre-create hooks and update vals with new changes (if needed)
         vals = dict(vals)

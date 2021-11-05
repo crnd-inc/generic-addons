@@ -1,3 +1,4 @@
+from odoo import fields
 from odoo.tests.common import SavepointCase
 
 
@@ -247,3 +248,23 @@ class TrackChangesTest(SavepointCase):
 
         # None - means priority 10, and have to be executed after priority 5
         self.assertEqual(rec.description, 'Priority 8-None')
+
+    def test_track_changes_datetime(self):
+
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        rec = Model.create({
+            'name': 'Test',
+            'dt_value': '2021-11-13 12:13:14',
+        })
+
+        self.assertEqual(rec.dt_value, fields.Datetime.to_datetime(
+            '2021-11-13 12:13:14'))
+
+        rec = Model.create({
+            'name': 'Test',
+            'dt_value': '2021-11-13 12:13',
+        })
+
+        self.assertEqual(rec.dt_value, fields.Datetime.to_datetime(
+            '2021-11-13 12:13:00'))
