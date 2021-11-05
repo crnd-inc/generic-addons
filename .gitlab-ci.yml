@@ -61,6 +61,7 @@ stylelint:
     stage: static-test
     script:
         - odoo-helper lint style .
+    allow_failure: true
     <<: *except_auto_commits
 
 bandit:
