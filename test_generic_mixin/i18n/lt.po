@@ -52,6 +52,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__create_uid
@@ -68,6 +69,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__create_date
@@ -101,10 +103,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__dt_value
+msgid "Dt Value"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -117,6 +125,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__id
@@ -142,6 +151,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields____last_update
@@ -158,6 +168,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__write_uid
@@ -174,6 +185,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__write_date
@@ -191,12 +203,18 @@ msgid "My Name Field"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__myuuid
+msgid "Myuuid"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nfcf__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_ns__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nsnfcf__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__name
@@ -325,6 +343,11 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_track_changes_model
 msgid "test.generic.mixin.track.changes.model"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_uuid_named_field
+msgid "test.generic.mixin.uuid.named.field"
 msgstr ""
 
 #. module: test_generic_mixin
