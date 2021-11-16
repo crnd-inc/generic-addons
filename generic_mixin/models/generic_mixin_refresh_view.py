@@ -78,3 +78,13 @@ class GenericMixinRefreshView(models.AbstractModel):
         if refresh_fields & set(vals):
             self.trigger_refresh_view()
         return res
+
+    def unlink(self):
+        res = super(GenericMixinRefreshView, self).unlink()
+
+        if not self._auto_refresh_view_on_write:
+            return res
+
+        self.trigger_refresh_view()
+
+        return res

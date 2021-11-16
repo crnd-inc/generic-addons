@@ -74,7 +74,8 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 active_ids = _.union(active_ids, act.env.ids);
             }
 
-            if (!_.isEmpty(_.intersection(refresh_ids, active_ids))) {
+            if (!_.isEmpty(_.intersection(refresh_ids, active_ids)) ||
+                ctl.viewType === 'list' || ctl.viewType === 'kanban') {
                 return true;
             }
         },
