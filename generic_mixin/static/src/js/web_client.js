@@ -3,6 +3,9 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
     var concurrency = require('web.concurrency');
 
+    var WRITE_ACTION = 1;
+    var CREATE_UNLINK_ACTION = 2;
+
     require('web.WebClient').include({
 
         init: function () {
@@ -13,6 +16,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
             // Structure:  {'model.name': [id1, id2, id3]}
             // Will be cleaned up on next refresh
             self._generic_refresh_mixin__pending = {};
+            self._generic_refresh_mixin__pending_action = {};
             self._generic_refresh_mixin__throttle_timeout = 4000;
             self._generic_refresh_mixin__mutex =
                 new concurrency.MutexedDropPrevious();
@@ -55,10 +59,17 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
             var refresh_ids = self._generic_refresh_mixin__pending[
                 act.res_model];
-
             if (!refresh_ids) {
                 return false;
             }
+
+            var actions =
+                self._generic_refresh_mixin__pending_action[
+                    act.res_model];
+            if (!actions) {
+                return false;
+            }
+
             if (ctl.widget.mode !== 'readonly') {
                 return false;
             }
@@ -74,9 +85,21 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 active_ids = _.union(active_ids, act.env.ids);
             }
 
-            if (!_.isEmpty(_.intersection(refresh_ids, active_ids)) ||
-                ctl.viewType === 'list' || ctl.viewType === 'kanban') {
-                return true;
+            var ids_is_intersection = false;
+            if (!_.isEmpty(_.intersection(refresh_ids, active_ids))) {
+                ids_is_intersection = true;
+            }
+
+            if (actions.includes(WRITE_ACTION) &&
+                !actions.includes(CREATE_UNLINK_ACTION)) {
+                return ids_is_intersection;
+            } else if (!actions.includes(WRITE_ACTION) &&
+                actions.includes(CREATE_UNLINK_ACTION)) {
+                return ctl.widget.isMultiRecord;
+            } else if (actions.includes(WRITE_ACTION) &&
+                actions.includes(CREATE_UNLINK_ACTION)) {
+                return (ids_is_intersection && !ctl.widget.isMultiRecord) ||
+                    (!ids_is_intersection && ctl.widget.isMultiRecord);
             }
         },
 
@@ -125,6 +148,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 }
                 // Cleanup pending updates
                 self._generic_refresh_mixin__pending = {};
+                self._generic_refresh_mixin__pending_action = {};
                 return $.when.apply($, promises);
             });
         },
@@ -133,6 +157,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
             var self = this;
             var res_model = message.model;
             var res_ids = message.res_ids;
+            var action = message.write_action ? WRITE_ACTION : CREATE_UNLINK_ACTION;
 
             if (res_model in self._generic_refresh_mixin__pending) {
                 self._generic_refresh_mixin__pending[res_model] = _.union(
@@ -141,6 +166,17 @@ odoo.define('generic_mixin.WebClient', function (require) {
             } else {
                 self._generic_refresh_mixin__pending[res_model] = res_ids;
             }
+
+            if (res_model in self._generic_refresh_mixin__pending_action) {
+                self._generic_refresh_mixin__pending_action[res_model] =
+                    _.union(
+                        self._generic_refresh_mixin__pending_action[res_model],
+                        action);
+            } else {
+                self._generic_refresh_mixin__pending_action[res_model] = [
+                    action];
+            }
+
             self._generic_refresh_mixin__refresher();
         },
 

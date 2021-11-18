@@ -47,7 +47,7 @@ class GenericMixinRefreshView(models.AbstractModel):
         return track_fields
 
     @api.model
-    def trigger_refresh_view_for(self, records):
+    def trigger_refresh_view_for(self, records, write_action):
         """ Triggre refresh of views for arbitary recordset.
             This method will send to webclient suggestion to reload view
             that contains this records
@@ -59,14 +59,17 @@ class GenericMixinRefreshView(models.AbstractModel):
             {
                 'model': records._name,
                 'res_ids': list(records.ids),
+                'write_action': write_action,
             },
         )
         return True
 
-    def trigger_refresh_view(self):
+    def trigger_refresh_view(self, records=None, write_action=False):
         """ The shortcut method to refresh views that display current recordset
         """
-        return self.trigger_refresh_view_for(self)
+        if not records:
+            records = self
+        return self.trigger_refresh_view_for(records, write_action)
 
     def write(self, vals):
         res = super(GenericMixinRefreshView, self).write(vals)
@@ -76,15 +79,27 @@ class GenericMixinRefreshView(models.AbstractModel):
 
         refresh_fields = self._auto_refresh_view_on_field_changes_system()
         if refresh_fields & set(vals):
-            self.trigger_refresh_view()
+            self.trigger_refresh_view(write_action=True)
         return res
 
-    def unlink(self):
-        res = super(GenericMixinRefreshView, self).unlink()
+    @api.model
+    def create(self, vals):
+        res = super(GenericMixinRefreshView, self).create(vals)
 
         if not self._auto_refresh_view_on_write:
             return res
 
         self.trigger_refresh_view()
+
+        return res
+
+    def unlink(self):
+        records = self;
+        res = super(GenericMixinRefreshView, self).unlink()
+
+        if not self._auto_refresh_view_on_write:
+            return res
+
+        self.trigger_refresh_view(records=records)
 
         return res
