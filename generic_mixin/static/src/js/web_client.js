@@ -171,13 +171,11 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 self._generic_refresh_mixin__pending_action[res_model] =
                     _.union(
                         self._generic_refresh_mixin__pending_action[res_model],
-                        action);
+                        [action]);
             } else {
                 self._generic_refresh_mixin__pending_action[res_model] = [
                     action];
             }
-
-            self._generic_refresh_mixin__refresher();
         },
 
         // The GMRV infix in name is used to avoid possible name conflicts
@@ -192,6 +190,10 @@ odoo.define('generic_mixin.WebClient', function (require) {
                     }
                 }
             });
+
+            if (!_.isEmpty(self._generic_refresh_mixin__pending_action)) {
+                self._generic_refresh_mixin__refresher();
+            }
         },
     });
 });

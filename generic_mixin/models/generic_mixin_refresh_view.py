@@ -89,7 +89,7 @@ class GenericMixinRefreshView(models.AbstractModel):
         if not self._auto_refresh_view_on_write:
             return res
 
-        self.trigger_refresh_view()
+        self.trigger_refresh_view(res)
 
         return res
 
