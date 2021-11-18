@@ -94,7 +94,7 @@ class GenericMixinRefreshView(models.AbstractModel):
         return res
 
     def unlink(self):
-        records = self;
+        records = self
         res = super(GenericMixinRefreshView, self).unlink()
 
         if not self._auto_refresh_view_on_write:

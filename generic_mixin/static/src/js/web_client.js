@@ -90,16 +90,20 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 ids_is_intersection = true;
             }
 
-            if (actions.includes(WRITE_ACTION) &&
-                !actions.includes(CREATE_UNLINK_ACTION)) {
+            var only_write_action = actions.includes(WRITE_ACTION) &&
+                !actions.includes(CREATE_UNLINK_ACTION);
+            var only_create_unlink_action = !actions.includes(WRITE_ACTION) &&
+                actions.includes(CREATE_UNLINK_ACTION)
+            var write_and_create_unlink_action = actions.includes(WRITE_ACTION) &&
+                actions.includes(CREATE_UNLINK_ACTION)
+
+            if (only_write_action) {
                 return ids_is_intersection;
-            } else if (!actions.includes(WRITE_ACTION) &&
-                actions.includes(CREATE_UNLINK_ACTION)) {
+            } else if (only_create_unlink_action) {
                 return ctl.widget.isMultiRecord;
-            } else if (actions.includes(WRITE_ACTION) &&
-                actions.includes(CREATE_UNLINK_ACTION)) {
-                return (ids_is_intersection && !ctl.widget.isMultiRecord) ||
-                    (!ids_is_intersection && ctl.widget.isMultiRecord);
+            } else if (write_and_create_unlink_action) {
+                return ids_is_intersection && !ctl.widget.isMultiRecord ||
+                    !ids_is_intersection && ctl.widget.isMultiRecord;
             }
         },
 
@@ -157,7 +161,8 @@ odoo.define('generic_mixin.WebClient', function (require) {
             var self = this;
             var res_model = message.model;
             var res_ids = message.res_ids;
-            var action = message.write_action ? WRITE_ACTION : CREATE_UNLINK_ACTION;
+            var action = message.write_action
+                ? WRITE_ACTION : CREATE_UNLINK_ACTION;
 
             if (res_model in self._generic_refresh_mixin__pending) {
                 self._generic_refresh_mixin__pending[res_model] = _.union(
