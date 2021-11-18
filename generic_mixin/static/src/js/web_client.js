@@ -90,21 +90,24 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 ids_is_intersection = true;
             }
 
-            var only_write_action = actions.includes(WRITE_ACTION) &&
-                !actions.includes(CREATE_UNLINK_ACTION);
-            var only_create_unlink_action = !actions.includes(WRITE_ACTION) &&
-                actions.includes(CREATE_UNLINK_ACTION)
-            var write_and_create_unlink_action = actions.includes(WRITE_ACTION) &&
-                actions.includes(CREATE_UNLINK_ACTION)
+            return self._generic_mixin_refresh_view__check_view_type(
+                actions, ids_is_intersection, ctl);
+        },
 
-            if (only_write_action) {
+        _generic_mixin_refresh_view__check_view_type: function(
+            actions, ids_is_intersection, ctl) {
+            if (actions.includes(WRITE_ACTION) &&
+                !actions.includes(CREATE_UNLINK_ACTION)) {
                 return ids_is_intersection;
-            } else if (only_create_unlink_action) {
+            } else if (!actions.includes(WRITE_ACTION) &&
+                actions.includes(CREATE_UNLINK_ACTION)) {
                 return ctl.widget.isMultiRecord;
-            } else if (write_and_create_unlink_action) {
-                return ids_is_intersection && !ctl.widget.isMultiRecord ||
-                    !ids_is_intersection && ctl.widget.isMultiRecord;
+            } else if (actions.includes(WRITE_ACTION) &&
+                actions.includes(CREATE_UNLINK_ACTION)) {
+                return (ids_is_intersection && !ctl.widget.isMultiRecord) ||
+                    (!ids_is_intersection && ctl.widget.isMultiRecord);
             }
+            return false;
         },
 
         // Refresh controller
