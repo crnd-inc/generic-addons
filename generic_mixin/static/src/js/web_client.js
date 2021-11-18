@@ -94,6 +94,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 actions, ids_is_intersection, ctl);
         },
 
+        /* eslint-disable */
         _generic_mixin_refresh_view__check_view_type: function (
             actions, ids_is_intersection, ctl) {
             if (actions.includes(WRITE_ACTION) &&
@@ -104,11 +105,12 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 return ctl.widget.isMultiRecord;
             } else if (actions.includes(WRITE_ACTION) &&
                 actions.includes(CREATE_UNLINK_ACTION)) {
-                return ids_is_intersection && !ctl.widget.isMultiRecord ||
-                    !ids_is_intersection && ctl.widget.isMultiRecord;
+                return (ids_is_intersection && !ctl.widget.isMultiRecord) ||
+                    (!ids_is_intersection && ctl.widget.isMultiRecord);
             }
             return false;
         },
+        /* eslint-enable */
 
         // Refresh controller
         // :param Controller ctl: controlelr to check
