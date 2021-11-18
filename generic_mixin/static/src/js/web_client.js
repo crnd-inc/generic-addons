@@ -106,7 +106,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
             } else if (actions.includes(WRITE_ACTION) &&
                 actions.includes(CREATE_UNLINK_ACTION)) {
                 return (ids_is_intersection && !ctl.widget.isMultiRecord) ||
-                    (!ids_is_intersection && ctl.widget.isMultiRecord);
+                    ctl.widget.isMultiRecord;
             }
             return false;
         },
