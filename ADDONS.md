@@ -14,7 +14,7 @@
 | generic_location_google_maps_tag | Generic Location (Google Maps + Tags) | AGPL-3 | 12.0.1.2.0 | Generic Location (Techinical addon that         shows location tags on map view) |  |
 | generic_location_tag | Generic Location Tag | LGPL-3 | 12.0.1.2.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 12.0.1.3.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 12.0.1.39.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 12.0.1.40.0 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_rule | Generic Rule | LGPL-3 | 12.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_tag | Generic Tag | LGPL-3 | 12.0.2.5.0 | Generic tag management. |  |
 | generic_tag_account | Generic Tag (Account) | LGPL-3 | 12.0.1.2.0 | Generic tag integration with account addon |  |
