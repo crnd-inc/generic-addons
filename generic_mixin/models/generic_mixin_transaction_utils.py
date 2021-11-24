@@ -59,10 +59,7 @@ class GenericMixinTransactionUtils(models.AbstractModel):
 
         with api.Environment.manage():
             with self.env.registry.cursor() as new_cr:
-                new_env = api.Environment(
-                    new_cr,
-                    self.env.uid,
-                    self.env.context.copy())
+                new_env = self.env(cr=new_cr)
                 nself = self.with_env(new_env)
 
                 if lock:
