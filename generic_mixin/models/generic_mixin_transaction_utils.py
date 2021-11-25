@@ -75,6 +75,10 @@ class GenericMixinTransactionUtils(models.AbstractModel):
                         new_cr.rollback()
                     else:
                         raise
+                else:
+                    # We need to flush, to ensure all pending computations are
+                    # saved into DB before commiting and closing cursor
+                    nself.flush()
 
     def _iter_in_transact(self, lock=False, no_raise=False):
         """ Iterate over records in self, yield each record wrapped in separate
