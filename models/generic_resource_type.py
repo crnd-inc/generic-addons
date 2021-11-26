@@ -8,6 +8,7 @@ class GenericResourceType(models.Model):
     ]
     _description = "Generic Resource Type"
     _order = 'sequence asc, name asc, model_id asc'
+    _log_access = False
 
     name = fields.Char(index=True, required=True, translate=True)
     active = fields.Boolean(index=True, default=True)
