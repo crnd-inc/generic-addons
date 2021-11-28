@@ -3,7 +3,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'license': 'Other proprietary',
-    'version': '14.0.0.2.0',
+    'version': '15.0.0.2.0',
 
     'depends': [
         'base_geolocalize',
@@ -13,7 +13,7 @@
         'template/template.xml',
     ],
 
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': True,
 }

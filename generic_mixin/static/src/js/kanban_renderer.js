@@ -1,28 +1,23 @@
-odoo.define('generic_mixin.KanbanRenderer', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var RefreshViewMixin = require('generic_mixin.RefreshViewMixin');
+import KanbanRenderer from 'web.KanbanRenderer';
+import RefreshViewMixin from './refresh_view_mixin';
 
-    require('web.KanbanRenderer').include(RefreshViewMixin);
+KanbanRenderer.include(RefreshViewMixin);
 
-    require('web.KanbanRenderer').include({
-        _renderView: function () {
-            var self = this;
-            _.each(self.state.data, function (record) {
-                if (self._generic_refresh_mixin__refresh_ids.create &&
-                    self._generic_refresh_mixin__refresh_ids.write) {
-                    if (self._generic_refresh_mixin__refresh_ids.create
-                        .includes(record.res_id)) {
-                        record.generic_refresh_view__visualize = 'create';
-                    } else if (self._generic_refresh_mixin__refresh_ids.write
-                        .includes(record.res_id)) {
-                        record.generic_refresh_view__visualize = 'write';
-                    }
+KanbanRenderer.include({
+    _renderView: function () {
+        this.state.data.forEach((record) => {
+            if (this._gmrvRefreshIds.create || this._gmrvRefreshIds.write) {
+                if (this._gmrvRefreshIds.create .includes(record.res_id)) {
+                    record.gmrvVisualize = 'create';
+                } else if (this._gmrvRefreshIds.write .includes(record.res_id)) {
+                    record.gmrvVisualize = 'write';
                 }
-            });
-            this.generic_refresh_view__clear_refresh_ids();
+            }
+        });
+        this.gmrvClearRefreshIds();
 
-            return this._super.apply(this, arguments);
-        },
-    });
+        return this._super.apply(this, arguments);
+    },
 });

@@ -1,11 +1,11 @@
 import logging
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.exceptions import AccessError
 
 _logger = logging.getLogger(__name__)
 
 
-class TestSecurity(SavepointCase):
+class TestSecurity(TransactionCase):
     """ Check basic tag logic
     """
 

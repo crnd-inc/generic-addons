@@ -1,10 +1,10 @@
 from odoo.tools.misc import mute_logger
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.tools.translate import _
 from odoo.exceptions import ValidationError, UserError
 
 
-class TestCondition(SavepointCase):
+class TestCondition(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestCondition, cls).setUpClass()

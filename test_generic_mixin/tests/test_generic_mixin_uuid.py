@@ -2,12 +2,12 @@ import uuid
 import logging
 
 from odoo import fields
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 _logger = logging.getLogger(__name__)
 
 
-class UUIDMixinTest(SavepointCase):
+class UUIDMixinTest(TransactionCase):
 
     def test_generic_mixin_uuid_1(self):
         Model = self.env['test.generic.mixin.uuid.standard']

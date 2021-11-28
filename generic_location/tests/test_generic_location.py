@@ -1,8 +1,8 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.addons.generic_mixin.tests.common import ReduceLoggingMixin
 
 
-class TestGenericLocation(ReduceLoggingMixin, SavepointCase):
+class TestGenericLocation(ReduceLoggingMixin, TransactionCase):
 
     def test_create_location(self):
         simplelocation = self.env.ref(

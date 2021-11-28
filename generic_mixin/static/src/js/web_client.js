@@ -1,92 +1,81 @@
-/* global Promise*/
-odoo.define('generic_mixin.WebClient', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var concurrency = require('web.concurrency');
+import concurrency from 'web.concurrency';
+import { patch } from "@web/core/utils/patch";
+import { WebClient } from "@web/webclient/webclient";
+import { useService } from "@web/core/utils/hooks";
 
-    require('web.WebClient').include({
-
-        init: function () {
-            var self = this;
-            self._super.apply(self, arguments);
+patch(
+    WebClient.prototype,
+    'Add refresh view after changed on the records',
+    {
+        setup() {
+            this._super(...arguments);
 
             // Variable to store pending refreshes
             // Structure:  {'model.name': [id1, id2, id3]}
             // Will be cleaned up on next refresh
-            self._generic_refresh_mixin__pending = {};
-
+            this._gmrvPending = {};
             // Variable to store pending actions (create, write, unlink)
             // Structure: {'model.name': ['create', 'write']}
             // Will be cleaned on next refresh
-            self._generic_refresh_mixin__pending_action = {};
-
+            this._gmrvPendingAction = {};
             // Variable to store ids for transmission to ListRenderer
             // Structure: {'model.name': {'create': [id1]}, {'write': [id1]}}
             // Will be cleaned on next refresh
-            self._generic_refresh_mixin__refresh_ids = {};
-
-            // Throttle timeout for refresh
-            // TODO: first refresh we have to do after 200 ms after message.
-            self._generic_refresh_mixin__throttle_timeout = 4000;
-
-            self._generic_refresh_mixin__mutex =
-                new concurrency.MutexedDropPrevious();
+            this._gmrvRefreshIds = {};
+            this._gmrvMutex = new concurrency.MutexedDropPrevious();
 
             // Throttled function to execute only once in
             // throttle timeout time
-            self._generic_refresh_mixin__refresher = _.throttle(
-                function () {
-                    self._generic_mixin_refresh_view__do_refresh();
-                },
-                self._generic_refresh_mixin__throttle_timeout,
-                {'leading': false});
+            this._gmrvRefresher = _.throttle(
+                this._gmrvDoRefresher.bind(this),
+                4000,
+                {'leading': false},
+            );
         },
 
-        show_application: function () {
-            var shown = this._super(this, arguments);
-
-            // Register channeld for refresh events
-            this.call(
-                'bus_service', 'addChannel', 'generic_mixin_refresh_view');
-
-            // Register notification handler
-            this.call('bus_service', 'onNotification',
-                this, this.onBusGMRVNotification);
-            return shown;
+        mounted() {
+            this._super(...arguments);
+            let busService = useService('bus_service');
+            busService.addChannel('generic_mixin_refresh_view');
+            busService.onNotification(
+                null, this._onBusGMRVNotification.bind(this));
         },
 
-        // Check if need to update controller
-        // :param Controller ctl: controlelr to check
-        /* eslint-disable complexity */
-        _generic_mixin_refresh_view__do_refresh_check: function (ctl) {
-            var self = this;
-            if (!ctl) {
+        _gmrvDoRefreshCheck (controller) {
+            if (controller.view.isLegacy) {
+                return this._gmrvDoRefreshCheckLegacy(controller);
+            }
+
+            return  false;
+        },
+
+        _gmrvDoRefreshCheckLegacy (controller) {
+            if (!controller) {
                 return false;
             }
 
-            var act = self.action_manager.actions[ctl.actionID];
-            if (!act) {
+            if (!controller.action) {
                 return false;
             }
 
-            var refresh_ids = self._generic_refresh_mixin__pending[
-                act.res_model];
-            if (!refresh_ids) {
+            let refreshIds = this._gmrvPending[controller.action.res_model];
+            if (!refreshIds) {
                 return false;
             }
 
-            var actions =
-                self._generic_refresh_mixin__pending_action[
-                    act.res_model];
+            let actions = this._gmrvPendingAction[controller.action.res_model];
             if (!actions) {
                 return false;
             }
 
-            if (ctl.widget.mode !== 'readonly') {
+            let localState = controller.getLocalState();
+            if (localState.__legacy_widget__.mode !== 'readonly') {
                 return false;
             }
 
-            if (ctl.widget.generic_mixin__is_multi_record &&
+            if (controller.view.multiRecord &&
                 (actions.includes('create') || actions.includes('unlink'))) {
                 // Always refresh multirecord view on create or unlink.
                 // There is no need to compare changed ids and displayed ids
@@ -95,175 +84,153 @@ odoo.define('generic_mixin.WebClient', function (require) {
             }
 
             // Find ids of records displayed by current action
-            var active_ids = [];
-            if (act.res_id) {
-                active_ids.push(act.res_id);
+            let activeIds = [];
+            if (controller.action.res_id) {
+                activeIds.push(controller.action.res_id);
             }
 
-            if (!ctl.widget.generic_mixin__is_multi_record &&
-                ctl.widget.renderer.state.res_id) {
-                active_ids = _.union(
-                    active_ids, [ctl.widget.renderer.state.res_id]);
-            } else if (ctl.widget.generic_mixin__is_multi_record &&
-                ctl.widget.renderer.state.res_ids) {
-                active_ids = _.union(
-                    active_ids, ctl.widget.renderer.state.res_ids);
-            } else if (ctl.widget.initialState) {
-                if (ctl.widget.initialState.res_id) {
-                    active_ids = _.union(
-                        active_ids, [ctl.widget.initialState.res_id]);
-                } else {
-                    active_ids = _.union(
-                        active_ids, ctl.widget.initialState.res_ids);
-                }
+            let globalState = controller.getGlobalState();
+            if (!controller.view.multiRecord && localState.currentId) {
+                activeIds = [
+                    ...new Set([
+                        ...activeIds,
+                        ...[localState.currentId],
+                    ]),
+                ];
+            } else if (controller.view.multiRecord && globalState.resIds) {
+                activeIds = [
+                    ...new Set([
+                        ...activeIds,
+                        ...globalState.resIds,
+                    ]),
+                ];
             }
 
-            if (!_.isEmpty(_.intersection(refresh_ids, active_ids))) {
-                // Need refresh only is refreshed id is displayed in the view.
-                // This is true for both, write and unlink operation.
+            if (activeIds.filter(e => refreshIds.includes(e)).length) {
                 return true;
             }
 
             return false;
         },
+
+        _gmrvDoRefreshController (controller) {
+            if (controller.view.isLegacy) {
+                return this._gmrvDoRefreshControllerLegacy(controller);
+            }
+        },
         /* eslint-enable complexity */
 
         // Refresh controller
-        // :param Controller ctl: controlelr to check
-        _generic_mixin_refresh_view__do_refresh_ctl: function (ctl) {
-            if (ctl && ctl.widget) {
-                var old_dis_autofocus = ctl.widget.disableAutofocus;
+        _gmrvDoRefreshControllerLegacy (controller) {
+            let localState = controller.getLocalState();
+            if (localState && localState.__legacy_widget__) {
+                let widget = localState.__legacy_widget__;
+                var oldDisAutofocus = widget.disableAutofocus;
 
-                if (ctl.widget.renderer.generic_refresh_view__is_compatible) {
-                    var refresh_ids = this._generic_refresh_mixin__refresh_ids[
-                        ctl.widget.modelName];
-                    ctl.widget.renderer.generic_refresh_view__set_refresh_ids(
-                        refresh_ids);
+                if (widget.renderer.gmrvIsCompatible) {
+                    widget.renderer.gmrvSetRefreshIds(
+                        this._gmrvRefreshIds[widget.modelName]);
                 }
 
-                if ('disableAutofocus' in ctl.widget) {
+                if ('disableAutofocus' in widget) {
                     // In case of it is form view and has 'disableAutofocus'
                     // property, we have to set it to True, to ensure,
                     // that after update form will not scroll to the top.
                     // This helps a lot in case of frequent (1/sec) refresh
                     // events for the model
-                    ctl.widget.disableAutofocus = true;
-                    return ctl.widget.reload().then(function () {
-                        ctl.widget.disableAutofocus = old_dis_autofocus;
+                    widget.disableAutofocus = true;
+                    return widget.reload().then(function () {
+                        widget.disableAutofocus = oldDisAutofocus;
                     });
                 }
 
                 // Otherwise, simply reload widget
-                return ctl.widget.reload();
+                return widget.reload();
             }
         },
 
-        _generic_mixin_refresh_view__do_refresh: function () {
-            var self = this;
-
-            var cur_ctl = self.action_manager.getCurrentController();
+        _gmrvDoRefresher () {
+            let self = this;
+            let currentController = this.actionService.currentController;
 
             // TODO: user controller's mutext to avoid errors like
             //       'undefined has no attr commitChanges
-            self._generic_refresh_mixin__mutex.exec(function () {
+            this._gmrvMutex.exec(function () {
                 var promises = [];
-                if (self._generic_mixin_refresh_view__do_refresh_check(
-                    cur_ctl)) {
+                if (self._gmrvDoRefreshCheck(currentController)) {
                     // Refresh current controller
                     promises.push(
-                        self._generic_mixin_refresh_view__do_refresh_ctl(
-                            cur_ctl));
+                        self._gmrvDoRefreshController(currentController));
                 }
-                var diag_ctl = self.action_manager.currentDialogController;
-                if (self._generic_mixin_refresh_view__do_refresh_check(
-                    diag_ctl)) {
-                    // Refresh current dialog controller
-                    promises.push(
-                        self._generic_mixin_refresh_view__do_refresh_ctl(
-                            diag_ctl)
-                    );
-                }
+
                 // Cleanup pending updates
-                self._generic_refresh_mixin__pending = {};
-                self._generic_refresh_mixin__pending_action = {};
-                self._generic_refresh_mixin__refresh_ids = {};
+                self._gmrvPending = {};
+                self._gmrvPendingAction = {};
+                self._gmrvRefreshIds = {};
+
                 return Promise.all(promises);
             });
         },
 
-        // Param message: object/dict with following format:
-        // {
-        //     'res_model': {
-        //         'action': [res_ids],
-        //     },
-        // }
-        _generic_mixin_refresh_view_handle: function (message) {
-            var self = this;
-            _.each(message, function (action_data, res_model) {
-                _.each(action_data, function (res_ids, action) {
+        _gmrvHandle (message) {
+            for (let [resModel, actionData] of Object.entries(message)) {
+                for (let [action, resIds] of Object.entries(actionData)) {
                     // Store changed ids
-                    if (res_model in self._generic_refresh_mixin__pending) {
-                        self._generic_refresh_mixin__pending[res_model] =
-                            _.union(
-                                self._generic_refresh_mixin__pending[res_model],
-                                res_ids);
+                    if (resModel in this._gmrvPending) {
+                        this._gmrvPending[resModel] = [
+                            ...new Set([
+                                ...this._gmrvPending[resModel],
+                                ...resIds,
+                            ]),
+                        ];
                     } else {
-                        self._generic_refresh_mixin__pending[res_model] =
-                            res_ids;
+                        this._gmrvPending[resModel] = resIds;
                     }
 
                     // Store received action
-                    if (res_model in
-                        self._generic_refresh_mixin__pending_action) {
-                        self._generic_refresh_mixin__pending_action[res_model] =
-                            _.union(
-                                self._generic_refresh_mixin__pending_action[
-                                    res_model],
-                                [action]);
+                    if (resModel in this._gmrvPendingAction) {
+                        this._gmrvPendingAction[resModel] = [
+                            ...new Set([
+                                ...this._gmrvPendingAction[resModel],
+                                ...[action],
+                            ]),
+                        ];
                     } else {
-                        self._generic_refresh_mixin__pending_action[res_model] =
-                            [action];
+                        this._gmrvPendingAction[resModel] = [action];
                     }
 
                     // Store changed ids for ListRenderer
                     if (action !== 'unlink') {
-                        if (!(res_model in
-                            self._generic_refresh_mixin__refresh_ids)) {
-                            self._generic_refresh_mixin__refresh_ids[
-                                res_model] = {
+                        if (!(resModel in this._gmrvRefreshIds)) {
+                            this._gmrvRefreshIds[resModel] = {
                                 create: [],
                                 write: [],
                             };
                         }
-                        self._generic_refresh_mixin__refresh_ids[
-                            res_model][action] =
-                            _.union(
-                                self._generic_refresh_mixin__refresh_ids[
-                                    res_model][action],
-                                res_ids);
+                        this._gmrvRefreshIds[resModel][action] = [
+                            ...new Set([
+                                ...this._gmrvRefreshIds[resModel][action],
+                                ...resIds,
+                            ]),
+                        ];
                     }
-                });
-            });
+                }
+            }
         },
 
-        // The GMRV infix in name is used to avoid possible name conflicts
-        onBusGMRVNotification: function (notifications) {
-            var self = this;
-            _.each(notifications, function (notif) {
-                if (notif[0] === 'generic_mixin_refresh_view') {
+        _onBusGMRVNotification (notifications) {
+            notifications.forEach((notif) => {
+                if (notif.type === 'generic_mixin_refresh_view') {
                     try {
-                        self._generic_mixin_refresh_view_handle(notif[1]);
+                        this._gmrvHandle(notif.payload);
                     } catch (e) {
                         console.log("Cannot refresh view", e);
                     }
                 }
             });
 
-            if (!_.isEmpty(self._generic_refresh_mixin__pending_action)) {
-                self._generic_refresh_mixin__refresher();
-            }
+           if (Object.keys(this._gmrvPendingAction).length) {
+               this._gmrvRefresher();
+           }
         },
     });
-});
-
-

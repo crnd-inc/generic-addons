@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class NamesearchByFieldsTest(SavepointCase):
+class NamesearchByFieldsTest(TransactionCase):
 
     def test_name_search_by_fields(self):
         Model = self.env['test.mixin.name.search.by.fields']

@@ -142,7 +142,11 @@ class GenericMixinRefreshView(models.AbstractModel):
                 }
             }
         """
-        self.env['bus.bus'].sendone('generic_mixin_refresh_view', refresh_data)
+        self.env['bus.bus']._sendone(
+            'generic_mixin_refresh_view',
+            'generic_mixin_refresh_view',
+            refresh_data,
+        )
 
     @api.model
     def trigger_refresh_view_for(self, records=None, record_ids=None,

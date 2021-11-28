@@ -1,8 +1,8 @@
 from odoo import fields
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TrackChangesTest(SavepointCase):
+class TrackChangesTest(TransactionCase):
 
     @classmethod
     def setUpClass(cls):

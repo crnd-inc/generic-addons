@@ -1,4 +1,4 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
 class TestSimpleFieldStringBase:
@@ -231,7 +231,7 @@ class TestConditionSimpleFieldStringChar(TestSimpleFieldStringBase,
                                          TestSimpleFieldStringBaseOpSet,
                                          TestSimpleFieldStringBaseOpEq,
                                          TestSimpleFieldStringBaseOpContains,
-                                         SavepointCase):
+                                         TransactionCase):
     _test_field_name = 'test_char'
 
 
@@ -239,7 +239,7 @@ class TestConditionSimpleFieldStringText(TestSimpleFieldStringBase,
                                          TestSimpleFieldStringBaseOpSet,
                                          TestSimpleFieldStringBaseOpEq,
                                          TestSimpleFieldStringBaseOpContains,
-                                         SavepointCase):
+                                         TransactionCase):
 
     _test_field_name = 'test_text'
 
@@ -247,7 +247,7 @@ class TestConditionSimpleFieldStringText(TestSimpleFieldStringBase,
 class TestConditionSimpleFieldStringHtml(TestSimpleFieldStringBase,
                                          TestSimpleFieldStringBaseOpSet,
                                          TestSimpleFieldStringBaseOpContains,
-                                         SavepointCase):
+                                         TransactionCase):
     _test_field_name = 'test_html'
 
     def test_101_test_html_empty_field(self):

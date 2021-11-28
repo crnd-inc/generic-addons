@@ -51,8 +51,8 @@ class GenericMixinUUID(models.AbstractModel):
     # TODO: Add optional validation of UUIDs
 
     @api.model
-    def _add_magic_fields(self):
-        res = super(GenericMixinUUID, self)._add_magic_fields()
+    def _setup_base(self):
+        res = super(GenericMixinUUID, self)._setup_base()
 
         if not self._generic_mixin_uuid_auto_add_field:
             return res

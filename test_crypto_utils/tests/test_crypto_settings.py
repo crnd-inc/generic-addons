@@ -1,8 +1,8 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.tools import config
 
 
-class TestCryptoSettings(SavepointCase):
+class TestCryptoSettings(TransactionCase):
 
     @classmethod
     def setUpClass(cls):

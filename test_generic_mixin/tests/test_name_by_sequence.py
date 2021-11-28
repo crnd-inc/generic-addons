@@ -1,8 +1,8 @@
 from odoo import fields
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class NameBySequenceTest(SavepointCase):
+class NameBySequenceTest(TransactionCase):
 
     @classmethod
     def setUpClass(cls):

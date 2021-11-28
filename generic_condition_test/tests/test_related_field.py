@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestConditionRelatedField(SavepointCase):
+class TestConditionRelatedField(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestConditionRelatedField, cls).setUpClass()

@@ -1,53 +1,46 @@
-odoo.define('generic_mixin.ListRenderer', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var RefreshViewMixin = require('generic_mixin.RefreshViewMixin');
+import ListRenderer from 'web.ListRenderer';
+import RefreshViewMixin from './refresh_view_mixin';
 
-    require('web.ListRenderer').include(RefreshViewMixin);
+ListRenderer.include(RefreshViewMixin);
 
-    require('web.ListRenderer').include({
+ListRenderer.include({
+   init: function () {
+       this._super.apply(this, arguments);
+       this._gmrvVisualizationOnTimeout = 100;
+       this._gmrvVisualizationOffTimeout = 1200;
+   },
 
-        init: function () {
-            this._super.apply(this, arguments);
-            this._generic_refresh_mixin__visualization_on_timeout = 100;
-            this._generic_refresh_mixin__visualization_off_timeout = 1200;
-        },
+    _renderRows: function () {
+        let rows = this._super.apply(this, arguments);
+        this.gmrvClearRefreshIds();
+        return rows;
+    },
 
-        _renderRows: function () {
-            var rows = this._super.apply(this, arguments);
-            this.generic_refresh_view__clear_refresh_ids();
-            return rows;
-        },
+    _renderRow: function (record) {
+        let $tr = this._super.apply(this, arguments);
+        this.gmrvVisualizeListRowChanges($tr, record.res_id);
+        return $tr;
+    },
 
-        _renderRow: function (record) {
-            var $tr = this._super.apply(this, arguments);
-            this._generic_mixin_refresh_view__visualize_changes(
-                $tr, record.res_id);
-            return $tr;
-        },
-
-        _generic_mixin_refresh_view__visualize_changes: function (
-            $tr, res_id) {
-            if (this._generic_refresh_mixin__refresh_ids.create &&
-                this._generic_refresh_mixin__refresh_ids.write) {
-                if (this._generic_refresh_mixin__refresh_ids.create.includes(
-                    res_id)) {
-                    setTimeout(function () {
-                        $tr.addClass('gmrv_highlighting_record_create');
-                    }, this._generic_refresh_mixin__visualization_on_timeout);
-                    setTimeout(function () {
-                        $tr.removeClass('gmrv_highlighting_record_create');
-                    }, this._generic_refresh_mixin__visualization_off_timeout);
-                } else if (this._generic_refresh_mixin__refresh_ids.write
-                    .includes(res_id)) {
-                    setTimeout(function () {
-                        $tr.addClass('gmrv_highlighting_record_write');
-                    }, this._generic_refresh_mixin__visualization_on_timeout);
-                    setTimeout(function () {
-                        $tr.removeClass('gmrv_highlighting_record_write');
-                    }, this._generic_refresh_mixin__visualization_off_timeout);
-                }
+    gmrvVisualizeListRowChanges: function ($tr, resId) {
+        if (this._gmrvRefreshIds.create && this._gmrvRefreshIds.write) {
+            if (this._gmrvRefreshIds.create.includes(resId)) {
+                setTimeout(function () {
+                    $tr.addClass('gmrv_highlighting_record_create');
+                }, this._gmrvVisualizationOnTimeout);
+                setTimeout(function () {
+                    $tr.removeClass('gmrv_highlighting_record_create');
+                }, this._gmrvVisualizationOffTimeout);
+            } else if (this._gmrvRefreshIds.write.includes(resId)) {
+                setTimeout(function () {
+                    $tr.addClass('gmrv_highlighting_record_write');
+                }, this._gmrvVisualizationOnTimeout);
+                setTimeout(function () {
+                    $tr.removeClass('gmrv_highlighting_record_write');
+                }, this._gmrvVisualizationOffTimeout);
             }
-        },
-    });
+        }
+    },
 });

@@ -1,9 +1,9 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.exceptions import AccessError
 from odoo.tools.misc import mute_logger
 
 
-class TestConditionRelatedCondition(SavepointCase):
+class TestConditionRelatedCondition(TransactionCase):
 
     @classmethod
     def _get_model_field(cls, model, field):

@@ -1,8 +1,8 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.tools import config
 
 
-class TestCryptoParam(SavepointCase):
+class TestCryptoParam(TransactionCase):
 
     def test_crypto_param(self):
         old_token = config.options.get('crypto_token', None)

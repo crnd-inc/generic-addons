@@ -1,86 +1,86 @@
-odoo.define('web.widgets.fake_selection_widget', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    // Modify basic model with extra methods to fetch special data
-    var BasicModel = require('web.BasicModel');
-    BasicModel.include({
-        _fetchSpecialFakeSelection: function (record, fieldName, fieldInfo) {
-            var def = this._fetchFakeSelection(
-                record, fieldName, fieldInfo.selection_field);
-            return $.when(def);
-        },
-        _fetchFakeSelection: function (
-            record, fieldName, selection_field_name) {
-            var self = this;
+import BasicModel from 'web.BasicModel';
+import fieldRegistry from 'web.field_registry';
+import { FieldSelection } from 'web.relational_fields';
 
-            var selection_field = null;
+// Modify basic model with extra methods to fetch special data
+BasicModel.include({
+    _fetchSpecialFakeSelection: function (record, fieldName, fieldInfo) {
+        var def = this._fetchFakeSelection(
+            record, fieldName, fieldInfo.selection_field);
+        return $.when(def);
+    },
+    _fetchFakeSelection: function (
+        record, fieldName, selection_field_name) {
+        var self = this;
 
-            if (record._changes) {
-                selection_field = record._changes[selection_field_name];
-            } else {
-                selection_field = record.data[selection_field_name];
-            }
+        var selection_field = null;
 
-            var selection_field_data = self.localData[selection_field];
+        if (record._changes) {
+            selection_field = record._changes[selection_field_name];
+        } else {
+            selection_field = record.data[selection_field_name];
+        }
 
-            if (selection_field) {
-                return self._rpc({
-                    model: 'ir.model.fields',
-                    method: 'read',
-                    args: [[selection_field_data.res_id], ['name', 'model']],
-                    context: record.getContext({fieldName: fieldName}),
-                }).then(function (result) {
-                    if (result.length === 1) {
-                        var model = result[0].model;
-                        var model_field_name = result[0].name;
-                        return self._rpc({
-                            model: model,
-                            method: 'fields_get',
-                            args: [[model_field_name], ['selection']],
-                            context: record.getContext({fieldName: fieldName}),
-                        }).then(function (fields_data) {
-                            return fields_data[model_field_name].selection;
-                        });
-                    }
-                });
-            }
-            return $.when();
-        },
-    });
+        var selection_field_data = self.localData[selection_field];
 
-    // This widget allows to render selection for other field
-    // It is useful in case, when we have one many2one('ir.model.fields') field
-    // and want to display selection for selected field.
-    var FieldSelection = require('web.relational_fields').FieldSelection;
-    var FieldFakeSelection = FieldSelection.extend({
-
-        // ResetOnAnyFieldChange: true,
-        template: 'FieldSelection',
-        specialData: "_fetchSpecialFakeSelection",
-        supportedFieldTypes: ['selection'],
-
-        _formatValue: function (value) {
-            var val = _.find(this.values, function (option) {
-                return option[0] === value;
+        if (selection_field) {
+            return self._rpc({
+                model: 'ir.model.fields',
+                method: 'read',
+                args: [[selection_field_data.res_id], ['name', 'model']],
+                context: record.getContext({fieldName: fieldName}),
+            }).then(function (result) {
+                if (result.length === 1) {
+                    var model = result[0].model;
+                    var model_field_name = result[0].name;
+                    return self._rpc({
+                        model: model,
+                        method: 'fields_get',
+                        args: [[model_field_name], ['selection']],
+                        context: record.getContext({fieldName: fieldName}),
+                    }).then(function (fields_data) {
+                        return fields_data[model_field_name].selection;
+                    });
+                }
             });
-            if (!val) {
-                // If value not in selection, just show it
-                return value;
-            }
-            return val[1];
-        },
-
-        _setValues: function () {
-            this.values = this.record.specialData[this.name];
-            if (!this.values) {
-                this.values = [];
-            }
-            this.values = [
-                [false, this.attrs.placeholder || '']].concat(this.values);
-        },
-    });
-
-    require('web.field_registry').add('fake_selection', FieldFakeSelection);
-
-    return FieldFakeSelection;
+        }
+        return $.when();
+    },
 });
+
+// This widget allows to render selection for other field
+// It is useful in case, when we have one many2one('ir.model.fields') field
+// and want to display selection for selected field.
+var FieldFakeSelection = FieldSelection.extend({
+
+    // ResetOnAnyFieldChange: true,
+    template: 'FieldSelection',
+    specialData: "_fetchSpecialFakeSelection",
+    supportedFieldTypes: ['selection'],
+
+    _formatValue: function (value) {
+        var val = _.find(this.values, function (option) {
+            return option[0] === value;
+        });
+        if (!val) {
+            // If value not in selection, just show it
+            return value;
+        }
+        return val[1];
+    },
+
+    _setValues: function () {
+        this.values = this.record.specialData[this.name];
+        if (!this.values) {
+            this.values = [];
+        }
+        this.values = [
+            [false, this.attrs.placeholder || '']].concat(this.values);
+    },
+});
+
+fieldRegistry.add('fake_selection', FieldFakeSelection);
+
+export default FieldFakeSelection;

@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class ProxyMethodsMixinTest(SavepointCase):
+class ProxyMethodsMixinTest(TransactionCase):
 
     def test_proxy_method_single_rec(self):
         rec1 = self.env['test.proxy.method.my.specific.model.1'].create({

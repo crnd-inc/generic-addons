@@ -1,8 +1,8 @@
 import datetime
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestConditionMonetaryField(SavepointCase):
+class TestConditionMonetaryField(TransactionCase):
 
     @classmethod
     def setUpClass(cls):

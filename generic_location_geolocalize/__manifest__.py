@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '14.0.1.4.0',
+    'version': '15.0.1.4.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -32,7 +32,7 @@
         'static/src/xml/map_field_widget.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': True,
+    'installable': False,
     'application': False,
     'license': 'LGPL-3',
 }

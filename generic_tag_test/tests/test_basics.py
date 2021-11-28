@@ -1,14 +1,14 @@
 import logging
 from psycopg2 import IntegrityError
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.exceptions import ValidationError
 from odoo.tools.misc import mute_logger
 
 _logger = logging.getLogger(__name__)
 
 
-class TestBasics(SavepointCase):
+class TestBasics(TransactionCase):
     """ Check basic tag logic
     """
 

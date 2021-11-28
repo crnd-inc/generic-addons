@@ -1,8 +1,8 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.exceptions import ValidationError
 
 
-class TestCondition(SavepointCase):
+class TestCondition(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestCondition, cls).setUpClass()

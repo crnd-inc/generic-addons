@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestGenericLocationAddress(SavepointCase):
+class TestGenericLocationAddress(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestGenericLocationAddress, cls).setUpClass()

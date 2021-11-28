@@ -1,6 +1,6 @@
 import logging
 from contextlib import contextmanager
-from odoo import models, api
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -57,28 +57,27 @@ class GenericMixinTransactionUtils(models.AbstractModel):
             then changes will be automatically commited.
         """
 
-        with api.Environment.manage():
-            with self.env.registry.cursor() as new_cr:
-                new_env = self.env(cr=new_cr)
-                nself = self.with_env(new_env)
+        with self.env.registry.cursor() as new_cr:
+            new_env = self.env(cr=new_cr)
+            nself = self.with_env(new_env)
 
-                if lock:
-                    nself._lock_for_update()
+            if lock:
+                nself._lock_for_update()
 
-                try:
-                    yield nself
-                except Exception:
-                    if no_raise:
-                        _logger.warning(
-                            "Error caught while processing %s in transaction",
-                            self, exc_info=True)
-                        new_cr.rollback()
-                    else:
-                        raise
+            try:
+                yield nself
+            except Exception:
+                if no_raise:
+                    _logger.warning(
+                        "Error caught while processing %s in transaction",
+                        self, exc_info=True)
+                    new_cr.rollback()
                 else:
-                    # We need to flush, to ensure all pending computations are
-                    # saved into DB before commiting and closing cursor
-                    nself.flush()
+                    raise
+            else:
+                # We need to flush, to ensure all pending computations are
+                # saved into DB before commiting and closing cursor
+                nself.flush()
 
     def _iter_in_transact(self, lock=False, no_raise=False):
         """ Iterate over records in self, yield each record wrapped in separate

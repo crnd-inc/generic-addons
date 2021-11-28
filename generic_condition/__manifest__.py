@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition",
-    "version": "14.0.1.12.0",
+    "version": "15.0.1.12.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -24,9 +24,15 @@
 
         'data/generic_condition.xml',
         'views/generic_condition_view.xml',
-        'views/assets.xml',
         'wizard/test_condition_view.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            '/generic_condition/static/src/css/style.css',
+
+            '/generic_condition/static/src/js/fake_selection.js',
+        ],
+    },
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': False,

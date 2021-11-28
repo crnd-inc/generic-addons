@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class UpdatableMixinTest(SavepointCase):
+class UpdatableMixinTest(TransactionCase):
 
     @classmethod
     def setUpClass(cls):

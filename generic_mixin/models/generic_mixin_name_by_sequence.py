@@ -26,8 +26,8 @@ class GenericMixinNameBySequence(models.AbstractModel):
         return _('New')
 
     @api.model
-    def _add_magic_fields(self):
-        res = super(GenericMixinNameBySequence, self)._add_magic_fields()
+    def _setup_base(self):
+        res = super(GenericMixinNameBySequence, self)._setup_base()
 
         if not self._name_by_sequence_auto_add_field:
             return res
