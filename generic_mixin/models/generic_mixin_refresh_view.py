@@ -112,6 +112,6 @@ class GenericMixinRefreshView(models.AbstractModel):
         if not self._auto_refresh_view_on_write:
             return res
 
-        self.trigger_refresh_view_for(record_ids=record_ids)
+        self.trigger_refresh_view_for(record_ids=record_ids, action='unlink')
 
         return res
