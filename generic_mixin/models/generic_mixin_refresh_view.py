@@ -47,26 +47,40 @@ class GenericMixinRefreshView(models.AbstractModel):
         return track_fields
 
     @api.model
-    def trigger_refresh_view_for(self, records):
-        """ Triggre refresh of views for arbitary recordset.
+    def trigger_refresh_view_for(self, records=None, record_ids=None,
+                                 action='write'):
+        """ Trigger refresh of views for arbitrary recordset.
             This method will send to webclient suggestion to reload view
             that contains this records
+
+            :param RecordSet records: recordset with records that were updated
+            :param list[int] record_ids: list of IDs of records that were
+                updated.
+            :param str action: action with which records were updated
         """
-        if not records:
+        res_ids = set()
+        if records:
+            res_ids |= set(records.ids)
+        if record_ids:
+            res_ids |= set(record_ids)
+
+        if not res_ids:
             return False
+
         self.env['bus.bus'].sendone(
             'generic_mixin_refresh_view',
             {
-                'model': records._name,
-                'res_ids': list(records.ids),
+                'model': self._name,
+                'res_ids': list(res_ids),
+                'action': action,
             },
         )
         return True
 
-    def trigger_refresh_view(self):
+    def trigger_refresh_view(self, action='write'):
         """ The shortcut method to refresh views that display current recordset
         """
-        return self.trigger_refresh_view_for(self)
+        return self.trigger_refresh_view_for(self, action=action)
 
     def write(self, vals):
         res = super(GenericMixinRefreshView, self).write(vals)
@@ -76,5 +90,27 @@ class GenericMixinRefreshView(models.AbstractModel):
 
         refresh_fields = self._auto_refresh_view_on_field_changes_system()
         if refresh_fields & set(vals):
-            self.trigger_refresh_view()
+            self.trigger_refresh_view(action='write')
+        return res
+
+    @api.model_create_multi
+    def create(self, vals):
+        records = super(GenericMixinRefreshView, self).create(vals)
+
+        if not self._auto_refresh_view_on_write:
+            return records
+
+        records.trigger_refresh_view(action='create')
+
+        return records
+
+    def unlink(self):
+        record_ids = self.ids
+        res = super(GenericMixinRefreshView, self).unlink()
+
+        if not self._auto_refresh_view_on_write:
+            return res
+
+        self.trigger_refresh_view_for(record_ids=record_ids, action='unlink')
+
         return res
