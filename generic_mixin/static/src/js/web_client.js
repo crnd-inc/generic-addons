@@ -79,8 +79,9 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 return false;
             }
 
-            if (ctl.widget.isMultiRecord && actions.includes('create')) {
-                // Always refresh multirecord view on create.
+            if (ctl.widget.isMultiRecord &&
+                (actions.includes('create') || actions.includes('unlink'))) {
+                // Always refresh multirecord view on create or unlink.
                 // There is no need to compare changed ids and displayed ids
                 // in this case.
                 return true;

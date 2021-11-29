@@ -70,9 +70,8 @@ class GenericMixinRefreshView(models.AbstractModel):
         self.env['bus.bus'].sendone(
             'generic_mixin_refresh_view',
             {
-                'model': records._name,
+                'model': self._name,
                 'res_ids': list(res_ids),
-                'write_action': action == 'write',
                 'action': action,
             },
         )
