@@ -52,6 +52,9 @@ class GenericCryptoParam(models.Model):
 
     @api.model
     def set_param(self, key, value):
+        """ Set the crypto param 'key' to value 'value'
+            Always return True
+        """
         fernet = self._get_ecnryption_context()
         param = self.search([('key', '=', key)])
 
@@ -66,9 +69,12 @@ class GenericCryptoParam(models.Model):
                 self.create({
                     'key': key,
                     'value': fernet.encrypt(value.encode('utf8'))})
+        return True
 
     @api.model
     def get_param(self, key, default=False):
+        """ Return the value of crypto param 'key'
+        """
         fernet = self._get_ecnryption_context()
 
         params = self.search_read(
