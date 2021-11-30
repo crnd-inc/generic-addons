@@ -89,13 +89,26 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
             // Find ids of records displayed by current action
             var active_ids = [];
-            if (ctl.widget.renderer.state.res_id) {
-                active_ids.push(ctl.widget.renderer.state.res_id);
-            } else if (ctl.widget.renderer.state.res_ids) {
+            if (act.res_id) {
+                active_ids.push(act.res_id);
+            }
+
+            if (!ctl.widget.isMultiRecord &&
+                ctl.widget.renderer.state.res_id) {
+                active_ids = _.union(
+                    active_ids, [ctl.widget.renderer.state.res_id]);
+            } else if (ctl.widget.isMultiRecord &&
+                ctl.widget.renderer.state.res_ids) {
                 active_ids = _.union(
                     active_ids, ctl.widget.renderer.state.res_ids);
-            } else {
-                return false;
+            } else if (ctl.widget.initialState) {
+                if (ctl.widget.initialState.res_id) {
+                    active_ids = _.union(
+                        active_ids, [ctl.widget.initialState.res_id]);
+                } else {
+                    active_ids = _.union(
+                        active_ids, ctl.widget.initialState.res_ids);
+                }
             }
 
             if (!_.isEmpty(_.intersection(refresh_ids, active_ids))) {
