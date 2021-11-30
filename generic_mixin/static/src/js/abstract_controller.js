@@ -1,4 +1,3 @@
-/* global Promise*/
 odoo.define('generic_mixin.AbstractController', function (require) {
     "use strict";
 
