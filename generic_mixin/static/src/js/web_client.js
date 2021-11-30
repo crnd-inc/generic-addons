@@ -51,6 +51,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
         // Check if need to update controller
         // :param Controller ctl: controlelr to check
+        /* eslint-disable complexity */
         _generic_mixin_refresh_view__do_refresh_check: function (ctl) {
             var self = this;
             if (!ctl) {
@@ -119,6 +120,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
 
             return false;
         },
+        /* eslint-enable complexity */
 
         // Refresh controller
         // :param Controller ctl: controlelr to check
