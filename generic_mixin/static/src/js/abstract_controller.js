@@ -6,7 +6,8 @@ odoo.define('generic_mixin.AbstractController', function (require) {
         init: function (parent, model, renderer, params) {
             this._super.apply(this, arguments);
 
-            this.isMultiRecord = params.isMultiRecord;
+            this.generic_mixin__is_multi_record
+                = params.generic_mixin__is_multi_record;
         },
     });
 });

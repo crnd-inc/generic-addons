@@ -81,7 +81,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 return false;
             }
 
-            if (ctl.widget.isMultiRecord &&
+            if (ctl.widget.generic_mixin__is_multi_record &&
                 (actions.includes('create') || actions.includes('unlink'))) {
                 // Always refresh multirecord view on create or unlink.
                 // There is no need to compare changed ids and displayed ids
@@ -95,11 +95,11 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 active_ids.push(act.res_id);
             }
 
-            if (!ctl.widget.isMultiRecord &&
+            if (!ctl.widget.generic_mixin__is_multi_record &&
                 ctl.widget.renderer.state.res_id) {
                 active_ids = _.union(
                     active_ids, [ctl.widget.renderer.state.res_id]);
-            } else if (ctl.widget.isMultiRecord &&
+            } else if (ctl.widget.generic_mixin__is_multi_record &&
                 ctl.widget.renderer.state.res_ids) {
                 active_ids = _.union(
                     active_ids, ctl.widget.renderer.state.res_ids);
