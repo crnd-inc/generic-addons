@@ -6,9 +6,7 @@ class TestCryptoParam(SavepointCase):
 
     def test_crypto_param(self):
         old_token = config.options.get('crypto_token', None)
-        config.option.update({
-            'crypto_token': 'EOjtljxNLRoalHgfIb7LIg0jg0iUQLOZLnuGx8zXPC0='
-        })
+        config['crypto_token'] = 'EOjtljxNLRoalHgfIb7LIg0jg0iUQLOZLnuGx8zXPC0='
         value = 'Super secred param'
 
         gval = self.env['generic.crypto.param'].get_param('my.value')
@@ -25,9 +23,4 @@ class TestCryptoParam(SavepointCase):
         self.assertIsInstance(xval, str)
         self.assertNotEqual(xval, value)
 
-        if old_token is None:
-            config.option.pop('crypto_token', None)
-        else:
-            config.option.update({
-                'crypto_token': old_token,
-            })
+        config['crypto_token'] = old_token
