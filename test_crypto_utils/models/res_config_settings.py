@@ -6,5 +6,3 @@ class ResConfigSettings(models.TransientModel):
 
     my_super_secret_42 = fields.Char(
         crypto_param='my.super.secret.42')
-
-

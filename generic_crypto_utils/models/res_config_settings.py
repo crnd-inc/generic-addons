@@ -28,7 +28,8 @@ class ResConfigSettings(models.TransientModel):
         for name, field in self._fields.items():
             if hasattr(field, 'crypto_param'):
                 if field.type not in ('char', 'text'):
-                    raise Exception("Field %s must have type 'char' or 'text'" % field)
+                    raise Exception(
+                        "Field %s must have type 'char' or 'text'" % field)
                 crypto_params.append((name, field.crypto_param))
                 others.remove(name)
 
@@ -55,9 +56,10 @@ class ResConfigSettings(models.TransientModel):
         """
         Set values for the fields other that `default`, `group` and `module`
         """
-        super().set_values()
+        res = super().set_values()
         classified = self._get_classified_fields()
         for name, param_name in classified['crypto']:
             if self[name] != CRYPTO_PLACEHOLDER:
                 self.env['generic.crypto.param'].set_param(
                     param_name, self[name])
+        return res

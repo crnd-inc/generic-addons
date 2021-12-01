@@ -6,7 +6,8 @@ class TestCryptoParam(SavepointCase):
 
     def test_crypto_param(self):
         old_token = config.options.get('crypto_token', None)
-        config['crypto_token'] = 'EOjtljxNLRoalHgfIb7LIg0jg0iUQLOZLnuGx8zXPC0='
+        config['crypto_token'] = (  # nosec
+            'EOjtljxNLRoalHgfIb7LIg0jg0iUQLOZLnuGx8zXPC0=')
         value = 'Super secred param'
 
         gval = self.env['generic.crypto.param'].get_param('my.value')

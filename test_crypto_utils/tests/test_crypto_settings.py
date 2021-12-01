@@ -9,20 +9,22 @@ class TestCryptoSettings(SavepointCase):
         super(TestCryptoSettings, cls).setUpClass()
 
         cls.old_token = config.options.get('crypto_token', None)
-        config['crypto_token'] = 'EOjtljxNLRoalHgfIb7LIg0jg0iUQLOZLnuGx8zXPC0='
+        config['crypto_token'] = (  # nosec
+            'EOjtljxNLRoalHgfIb7LIg0jg0iUQLOZLnuGx8zXPC0=')
 
     @classmethod
     def tearDownClass(cls):
-        super(TestCryptoSettings, cls).setUpClass()
+        res = super(TestCryptoSettings, cls).setUpClass()
 
         config['crypto_token'] = cls.old_token
 
+        return res
+
     def _search_param(self, key):
-        return  self.env['generic.crypto.param'].search(
+        return self.env['generic.crypto.param'].search(
             [('key', '=', key)], limit=1)
 
     def test_crypto_settings(self):
-        value = 'Super secred param'
         key = 'my.super.secret.42'
 
         # No param with such key
@@ -35,18 +37,18 @@ class TestCryptoSettings(SavepointCase):
         self.assertEqual(config_default['my_super_secret_42'], '******')
 
         # Save config without no changes
-        config = self.env['res.config.settings'].create(config_default)
-        config.execute()
+        config_wiz = self.env['res.config.settings'].create(config_default)
+        config_wiz.execute()
 
         # Parameter is not set
         self.assertFalse(self._search_param(key))
 
         # Save with updated secret
-        config = self.env['res.config.settings'].create(dict(
+        config_wiz = self.env['res.config.settings'].create(dict(  # nosec
             config_default,
             my_super_secret_42='secret-42',
         ))
-        config.execute()
+        config_wiz.execute()
 
         # Check that parma was saved
         self.assertTrue(self._search_param(key))
@@ -61,11 +63,11 @@ class TestCryptoSettings(SavepointCase):
         self.assertEqual(config_default['my_super_secret_42'], '******')
 
         # Try to unset param
-        config = self.env['res.config.settings'].create(dict(
+        config_wiz = self.env['res.config.settings'].create(dict(  # nosec
             config_default,
             my_super_secret_42='',
         ))
-        config.execute()
+        config_wiz.execute()
 
         # Ensure param was unset
         self.assertFalse(self._search_param(key))
