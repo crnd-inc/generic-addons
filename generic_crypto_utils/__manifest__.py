@@ -1,6 +1,6 @@
 {
     "name": "Generic Crypto Utils",
-    "version": "12.0.0.3.0",
+    "version": "12.0.0.4.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",

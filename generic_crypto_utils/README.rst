@@ -31,6 +31,23 @@ To do this, add following line to config file: ``crypto_token = <key>``
 Run following command to generate new key:
 ``python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key())"``
 
+This module allows you to easily encrypt fields in ``res.config.settings``.
+To do this, all you need is to set attribute ``config_param=param_name`` to
+such field, and this field will be encrypted. For example:
+
+    .. code:: python
+
+        class ResConfigSettings(models.TransientModel):
+            _inherit = 'res.config.settings'
+
+            my_secret_field = fields.Char(crypto_param='my.secret')
+
+After this, you can access this param inside your python code like this:
+
+    .. code:: python
+
+        secret = self.env['generic.crypto.param'].get_param('my.secret')
+
 
 Launch your own ITSM system in 60 seconds:
 ''''''''''''''''''''''''''''''''''''''''''
