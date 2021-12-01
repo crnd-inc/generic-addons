@@ -50,25 +50,30 @@ class GenericCryptoParam(models.Model):
                 "package and try again"))
         return fernet
 
+    def _encrypt_value(self, value):
+        """ Encrypt value and return result
+
+            :param str value: Value to encrypt
+            :retrun str: encrypted value
+        """
+        fernet = self._get_ecnryption_context()
+        return fernet.encrypt(value.encode('utf8'))
+
     @api.model
     def set_param(self, key, value):
         """ Set the crypto param 'key' to value 'value'
             Always return True
         """
-        fernet = self._get_ecnryption_context()
         param = self.search([('key', '=', key)])
 
-        if param:
-            if value is not False and value is not None:
-                param.write({
-                    'value': fernet.encrypt(value.encode('utf8'))})
-            else:
-                param.unlink()
-        else:
-            if value is not False and value is not None:
-                self.create({
-                    'key': key,
-                    'value': fernet.encrypt(value.encode('utf8'))})
+        if param and value:
+            param.write({'value': self._encrypt_value(value)})
+        elif param and not value:
+            param.unlink()
+        elif not param and value:
+            self.create({
+                'key': key,
+                'value': self._encrypt_value(value)})
         return True
 
     @api.model
