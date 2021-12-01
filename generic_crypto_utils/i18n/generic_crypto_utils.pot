@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_crypto_utils
+#: model:ir.model,name:generic_crypto_utils.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__create_uid
 msgid "Created by"
 msgstr ""
@@ -25,6 +30,7 @@ msgstr ""
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__display_name
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -35,6 +41,7 @@ msgstr ""
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__id
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_res_config_settings__id
 msgid "ID"
 msgstr ""
 
@@ -61,6 +68,7 @@ msgstr ""
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param____last_update
+#: model:ir.model.fields,field_description:generic_crypto_utils.field_res_config_settings____last_update
 msgid "Last Modified on"
 msgstr ""
 
