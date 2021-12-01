@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_crypto_utils
+#: model:ir.model,name:generic_crypto_utils.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__create_uid
 msgid "Created by"
 msgstr ""
