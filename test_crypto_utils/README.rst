@@ -1,5 +1,5 @@
-Generic Crypto Utils
-====================
+Generic Crypto Utils (Tests)
+============================
 
 .. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
     :target: https://github.com/crnd-inc/generic-addons
@@ -13,41 +13,14 @@ Generic Crypto Utils
     
 .. |badge5| image:: https://img.shields.io/badge/maintainer-CR&D-purple.png
     :target: https://crnd.pro/
-    
 
 
 |badge1| |badge2| |badge5|
 
-Generic Crypto Utils is technical addon developed by the `Center of Research &
-Development company <https://crnd.pro/>`__. 
+This is technical addon, that contains tests for ``generic_crypto_utils`` module
 
-The goal of this addon is to provide generic utilities to add encryption to other addons.
-Currently it implements ``generic.crypto.param`` model, wich works same
-as ``ir.config_parameter`` but values stored are encrypted.
-
-It is required to place *encryption key* in odoo configuration file (``odoo.conf``).
-To do this, add following line to config file: ``crypto_token = <key>``
-
-Run following command to generate new key:
-``python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key())"``
-
-This module allows you to easily encrypt fields in ``res.config.settings``.
-To do this, all you need is to set attribute ``config_param=param_name`` to
-such field, and this field will be encrypted. For example:
-
-    .. code:: python
-
-        class ResConfigSettings(models.TransientModel):
-            _inherit = 'res.config.settings'
-
-            my_secret_field = fields.Char(crypto_param='my.secret')
-
-After this, you can access this param inside your python code like this:
-
-    .. code:: python
-
-        secret = self.env['generic.crypto.param'].get_param('my.secret')
-
+This module is part of the Bureaucrat ITSM project. 
+You can try it by the references below.
 
 Launch your own ITSM system in 60 seconds:
 ''''''''''''''''''''''''''''''''''''''''''
@@ -75,8 +48,4 @@ This module is maintained by the Center of Research & Development company.
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
 
 For any questions `contact us <mailto:info@crnd.pro>`__.
-
-
-
-
 
