@@ -131,7 +131,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 }
 
                 if (ctl.viewType === 'list') {
-                    ctl.widget.renderer._generic_refresh_mixin__refresh_ids =
+                    ctl.widget.renderer.generic_refresh_mixin__refresh_ids =
                         this._generic_refresh_mixin__refresh_ids[
                             ctl.widget.modelName];
                 }

@@ -5,23 +5,23 @@ odoo.define('generic_mixin.ListRenderer', function (require) {
 
         init: function () {
             this._super.apply(this, arguments);
-            this._generic_refresh_mixin__refresh_ids = {};
+            this.generic_refresh_mixin__refresh_ids = {};
             this._generic_refresh_mixin__highlighting_on_timeout = 100;
             this._generic_refresh_mixin__highlighting_off_timeout = 1200;
         },
 
         _renderRows: function () {
             var rows = this._super.apply(this, arguments);
-            this._generic_refresh_mixin__refresh_ids = {};
+            this.generic_refresh_mixin__refresh_ids = {};
             return rows;
         },
 
         _renderRow: function (record) {
             var $tr = this._super.apply(this, arguments);
 
-            if (this._generic_refresh_mixin__refresh_ids.create &&
-                this._generic_refresh_mixin__refresh_ids.write) {
-                if (this._generic_refresh_mixin__refresh_ids.create.includes(
+            if (this.generic_refresh_mixin__refresh_ids.create &&
+                this.generic_refresh_mixin__refresh_ids.write) {
+                if (this.generic_refresh_mixin__refresh_ids.create.includes(
                     record.res_id)) {
                     setTimeout(function () {
                         $tr.addClass('gmrv_highlighting_record_create');
@@ -29,7 +29,7 @@ odoo.define('generic_mixin.ListRenderer', function (require) {
                     setTimeout(function () {
                         $tr.removeClass('gmrv_highlighting_record_create');
                     }, this._generic_refresh_mixin__highlighting_off_timeout);
-                } else if (this._generic_refresh_mixin__refresh_ids.write
+                } else if (this.generic_refresh_mixin__refresh_ids.write
                     .includes(record.res_id)) {
                     setTimeout(function () {
                         $tr.addClass('gmrv_highlighting_record_write');
