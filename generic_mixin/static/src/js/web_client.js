@@ -19,6 +19,11 @@ odoo.define('generic_mixin.WebClient', function (require) {
             // Will be cleaned on next refresh
             self._generic_refresh_mixin__pending_action = {};
 
+            // Variable to store ids for transmission to ListRenderer
+            // Structure: {'model.name': {'create': [id1, id2, id3]}, {'write': [id1, id2, id3]}}
+            // Will be cleaned on next refresh
+            self._generic_refresh_mixin__refresh_ids = {};
+
             // Throttle timeout for refresh
             // TODO: first refresh we have to do after 200 ms after message.
             self._generic_refresh_mixin__throttle_timeout = 4000;
@@ -124,6 +129,13 @@ odoo.define('generic_mixin.WebClient', function (require) {
                         ctl.widget.disableAutofocus = old_dis_autofocus;
                     });
                 }
+
+                if (ctl.viewType === 'list') {
+                    ctl.widget.renderer._generic_refresh_mixin__refresh_ids =
+                        this._generic_refresh_mixin__refresh_ids[
+                            ctl.widget.modelName];
+                }
+
                 // Otherwise, simply reload widget
                 return ctl.widget.reload();
             }
@@ -154,6 +166,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 // Cleanup pending updates
                 self._generic_refresh_mixin__pending = {};
                 self._generic_refresh_mixin__pending_action = {};
+                self._generic_refresh_mixin__refresh_ids = {};
                 return $.when.apply($, promises);
             });
         },
@@ -183,6 +196,18 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 self._generic_refresh_mixin__pending_action[res_model] = [
                     action];
             }
+
+            // Store changed ids for ListRenderer
+            if (!(res_model in self._generic_refresh_mixin__refresh_ids)) {
+                self._generic_refresh_mixin__refresh_ids[res_model] = {
+                    create: [],
+                    write: [],
+                };
+            }
+            self._generic_refresh_mixin__refresh_ids[res_model][action] =
+                _.union(
+                    self._generic_refresh_mixin__refresh_ids[res_model][action],
+                    res_ids);
         },
 
         // The GMRV infix in name is used to avoid possible name conflicts
