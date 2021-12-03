@@ -20,7 +20,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
             self._generic_refresh_mixin__pending_action = {};
 
             // Variable to store ids for transmission to ListRenderer
-            // Structure: {'model.name': {'create': [id1, id2, id3]}, {'write': [id1, id2, id3]}}
+            // Structure: {'model.name': {'create': [id1]}, {'write': [id1]}}
             // Will be cleaned on next refresh
             self._generic_refresh_mixin__refresh_ids = {};
 

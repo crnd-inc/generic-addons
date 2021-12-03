@@ -29,8 +29,8 @@ odoo.define('generic_mixin.ListRenderer', function (require) {
                     setTimeout(function () {
                         $tr.removeClass('gmrv_highlighting_record_create');
                     }, this._generic_refresh_mixin__highlighting_off_timeout);
-                } else if (this._generic_refresh_mixin__refresh_ids.write.
-                    includes(record.res_id)) {
+                } else if (this._generic_refresh_mixin__refresh_ids.write
+                    .includes(record.res_id)) {
                     setTimeout(function () {
                         $tr.addClass('gmrv_highlighting_record_write');
                     }, this._generic_refresh_mixin__highlighting_on_timeout);
