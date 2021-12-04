@@ -130,10 +130,11 @@ odoo.define('generic_mixin.WebClient', function (require) {
                     });
                 }
 
-                if (ctl.viewType === 'list') {
+                var refresh_ids = this._generic_refresh_mixin__refresh_ids[
+                    ctl.widget.modelName];
+                if (ctl.viewType === 'list' && refresh_ids) {
                     ctl.widget.renderer.generic_refresh_mixin__refresh_ids =
-                        this._generic_refresh_mixin__refresh_ids[
-                            ctl.widget.modelName];
+                        refresh_ids;
                 }
 
                 // Otherwise, simply reload widget
@@ -198,16 +199,18 @@ odoo.define('generic_mixin.WebClient', function (require) {
             }
 
             // Store changed ids for ListRenderer
-            if (!(res_model in self._generic_refresh_mixin__refresh_ids)) {
-                self._generic_refresh_mixin__refresh_ids[res_model] = {
-                    create: [],
-                    write: [],
-                };
+            if (action !== 'unlink') {
+                if (!(res_model in self._generic_refresh_mixin__refresh_ids)) {
+                    self._generic_refresh_mixin__refresh_ids[res_model] = {
+                        create: [],
+                        write: [],
+                    };
+                }
+                self._generic_refresh_mixin__refresh_ids[res_model][action] =
+                    _.union(
+                        self._generic_refresh_mixin__refresh_ids[res_model][action],
+                        res_ids);
             }
-            self._generic_refresh_mixin__refresh_ids[res_model][action] =
-                _.union(
-                    self._generic_refresh_mixin__refresh_ids[res_model][action],
-                    res_ids);
         },
 
         // The GMRV infix in name is used to avoid possible name conflicts
