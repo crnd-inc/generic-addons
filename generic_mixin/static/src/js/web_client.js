@@ -208,8 +208,8 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 }
                 self._generic_refresh_mixin__refresh_ids[res_model][action] =
                     _.union(
-                        self._generic_refresh_mixin__refresh_ids[res_model][action],
-                        res_ids);
+                        self._generic_refresh_mixin__refresh_ids[res_model][
+                            action], res_ids);
             }
         },
 
