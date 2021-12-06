@@ -20,7 +20,8 @@ odoo.define('generic_mixin.RefreshViewMixin', function () {
             this.generic_refresh_mixin__refresh_ids = {};
         },
 
-        _generic_mixin_refresh_view__visualize_list_row: function ($tr, res_id) {
+        _generic_mixin_refresh_view__visualize_list_row: function (
+            $tr, res_id) {
             if (this.generic_refresh_mixin__refresh_ids.create &&
                 this.generic_refresh_mixin__refresh_ids.write) {
                 if (this.generic_refresh_mixin__refresh_ids.create.includes(
