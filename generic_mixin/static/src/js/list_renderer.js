@@ -15,7 +15,7 @@ odoo.define('generic_mixin.ListRenderer', function (require) {
 
         _renderRow: function (record) {
             var $tr = this._super.apply(this, arguments);
-            this._generic_mixin_refresh_view_visualize_list_row(
+            this._generic_mixin_refresh_view__visualize_list_row(
                 $tr, record.res_id);
             return $tr;
         },
