@@ -1,45 +1,22 @@
 odoo.define('generic_mixin.ListRenderer', function (require) {
     "use strict";
 
-    require('web.ListRenderer').include({
+    var RefreshViewMixin = require('generic_mixin.RefreshViewMixin');
 
-        init: function () {
-            this._super.apply(this, arguments);
-            this.generic_refresh_mixin__refresh_ids = {};
-            this._generic_refresh_mixin__highlighting_on_timeout = 100;
-            this._generic_refresh_mixin__highlighting_off_timeout = 1200;
-        },
+    require('web.ListRenderer').include(RefreshViewMixin);
+
+    require('web.ListRenderer').include({
 
         _renderRows: function () {
             var rows = this._super.apply(this, arguments);
-            this.generic_refresh_mixin__refresh_ids = {};
+            this._generic_refresh_view__clear_refresh_ids();
             return rows;
         },
 
         _renderRow: function (record) {
             var $tr = this._super.apply(this, arguments);
-
-            if (this.generic_refresh_mixin__refresh_ids.create &&
-                this.generic_refresh_mixin__refresh_ids.write) {
-                if (this.generic_refresh_mixin__refresh_ids.create.includes(
-                    record.res_id)) {
-                    setTimeout(function () {
-                        $tr.addClass('gmrv_highlighting_record_create');
-                    }, this._generic_refresh_mixin__highlighting_on_timeout);
-                    setTimeout(function () {
-                        $tr.removeClass('gmrv_highlighting_record_create');
-                    }, this._generic_refresh_mixin__highlighting_off_timeout);
-                } else if (this.generic_refresh_mixin__refresh_ids.write
-                    .includes(record.res_id)) {
-                    setTimeout(function () {
-                        $tr.addClass('gmrv_highlighting_record_write');
-                    }, this._generic_refresh_mixin__highlighting_on_timeout);
-                    setTimeout(function () {
-                        $tr.removeClass('gmrv_highlighting_record_write');
-                    }, this._generic_refresh_mixin__highlighting_off_timeout);
-                }
-            }
-
+            this._generic_mixin_refresh_view_visualize_list_row(
+                $tr, record.res_id);
             return $tr;
         },
     });
