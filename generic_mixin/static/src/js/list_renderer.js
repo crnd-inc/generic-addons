@@ -9,13 +9,13 @@ odoo.define('generic_mixin.ListRenderer', function (require) {
 
         _renderRows: function () {
             var rows = this._super.apply(this, arguments);
-            this._generic_refresh_view__clear_refresh_ids();
+            this.generic_refresh_view__clear_refresh_ids();
             return rows;
         },
 
         _renderRow: function (record) {
             var $tr = this._super.apply(this, arguments);
-            this._generic_mixin_refresh_view__visualize_list_row(
+            this.generic_mixin_refresh_view__visualize_list_row_changes(
                 $tr, record.res_id);
             return $tr;
         },

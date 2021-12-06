@@ -130,10 +130,12 @@ odoo.define('generic_mixin.WebClient', function (require) {
                     });
                 }
 
-                var refresh_ids = this._generic_refresh_mixin__refresh_ids[
-                    ctl.widget.modelName];
-                ctl.widget.renderer._generic_refresh_view__set_refresh_ids(
-                    refresh_ids);
+                if (ctl.widget.renderer.generic_refresh_view__is_compatible) {
+                    var refresh_ids = this._generic_refresh_mixin__refresh_ids[
+                        ctl.widget.modelName];
+                    ctl.widget.renderer.generic_refresh_view__set_refresh_ids(
+                        refresh_ids);
+                }
 
                 // Otherwise, simply reload widget
                 return ctl.widget.reload();
