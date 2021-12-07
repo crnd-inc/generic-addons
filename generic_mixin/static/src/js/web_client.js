@@ -118,6 +118,14 @@ odoo.define('generic_mixin.WebClient', function (require) {
         _generic_mixin_refresh_view__do_refresh_ctl: function (ctl) {
             if (ctl && ctl.widget) {
                 var old_dis_autofocus = ctl.widget.disableAutofocus;
+                
+                if (ctl.widget.renderer.generic_refresh_view__is_compatible) {
+                    var refresh_ids = this._generic_refresh_mixin__refresh_ids[
+                        ctl.widget.modelName];
+                    ctl.widget.renderer.generic_refresh_view__set_refresh_ids(
+                        refresh_ids);
+                }
+
                 if ('disableAutofocus' in ctl.widget) {
                     // In case of it is form view and has 'disableAutofocus'
                     // property, we have to set it to True, to ensure,
@@ -128,13 +136,6 @@ odoo.define('generic_mixin.WebClient', function (require) {
                     return ctl.widget.reload().then(function () {
                         ctl.widget.disableAutofocus = old_dis_autofocus;
                     });
-                }
-
-                if (ctl.widget.renderer.generic_refresh_view__is_compatible) {
-                    var refresh_ids = this._generic_refresh_mixin__refresh_ids[
-                        ctl.widget.modelName];
-                    ctl.widget.renderer.generic_refresh_view__set_refresh_ids(
-                        refresh_ids);
                 }
 
                 // Otherwise, simply reload widget
