@@ -16,7 +16,7 @@ odoo.define('generic_mixin.KanbanRenderer', function (require) {
                         record.generic_refresh_view__visualize = 'create';
                     } else if (self._generic_refresh_mixin__refresh_ids.write
                         .includes(record.res_id)) {
-                        record.generic_refresh_view__visualize = 'write'
+                        record.generic_refresh_view__visualize = 'write';
                     }
                 }
             });
