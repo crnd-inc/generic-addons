@@ -1,0 +1,29 @@
+.o_list_view {
+  .o_data_row {
+    transition: background-color 1000ms;
+  }
+
+  .gmrv_highlighting_record_create {
+    background-color: #a5f1c0 !important;
+  }
+
+  .gmrv_highlighting_record_write {
+    background-color: #a9e2ea !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .o_kanban_view {
+    .o_kanban_record {
+      transition: box-shadow 1000ms;
+    }
+
+    .gmrv_highlighting_record_create {
+      box-shadow: 0 0 0.5rem #0ab547 !important;
+    }
+
+    .gmrv_highlighting_record_write {
+      box-shadow: 0 0 0.5rem #06c2dd !important;
+    }
+  }
+}
