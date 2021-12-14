@@ -19,6 +19,11 @@ odoo.define('generic_mixin.WebClient', function (require) {
             // Will be cleaned on next refresh
             self._generic_refresh_mixin__pending_action = {};
 
+            // Variable to store ids for transmission to ListRenderer
+            // Structure: {'model.name': {'create': [id1]}, {'write': [id1]}}
+            // Will be cleaned on next refresh
+            self._generic_refresh_mixin__refresh_ids = {};
+
             // Throttle timeout for refresh
             // TODO: first refresh we have to do after 200 ms after message.
             self._generic_refresh_mixin__throttle_timeout = 4000;
@@ -127,6 +132,14 @@ odoo.define('generic_mixin.WebClient', function (require) {
         _generic_mixin_refresh_view__do_refresh_ctl: function (ctl) {
             if (ctl && ctl.widget) {
                 var old_dis_autofocus = ctl.widget.disableAutofocus;
+
+                if (ctl.widget.renderer.generic_refresh_view__is_compatible) {
+                    var refresh_ids = this._generic_refresh_mixin__refresh_ids[
+                        ctl.widget.modelName];
+                    ctl.widget.renderer.generic_refresh_view__set_refresh_ids(
+                        refresh_ids);
+                }
+
                 if ('disableAutofocus' in ctl.widget) {
                     // In case of it is form view and has 'disableAutofocus'
                     // property, we have to set it to True, to ensure,
@@ -138,6 +151,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                         ctl.widget.disableAutofocus = old_dis_autofocus;
                     });
                 }
+
                 // Otherwise, simply reload widget
                 return ctl.widget.reload();
             }
@@ -168,6 +182,7 @@ odoo.define('generic_mixin.WebClient', function (require) {
                 // Cleanup pending updates
                 self._generic_refresh_mixin__pending = {};
                 self._generic_refresh_mixin__pending_action = {};
+                self._generic_refresh_mixin__refresh_ids = {};
                 return $.when.apply($, promises);
             });
         },
@@ -196,6 +211,20 @@ odoo.define('generic_mixin.WebClient', function (require) {
             } else {
                 self._generic_refresh_mixin__pending_action[res_model] = [
                     action];
+            }
+
+            // Store changed ids for ListRenderer
+            if (action !== 'unlink') {
+                if (!(res_model in self._generic_refresh_mixin__refresh_ids)) {
+                    self._generic_refresh_mixin__refresh_ids[res_model] = {
+                        create: [],
+                        write: [],
+                    };
+                }
+                self._generic_refresh_mixin__refresh_ids[res_model][action] =
+                    _.union(
+                        self._generic_refresh_mixin__refresh_ids[res_model][
+                            action], res_ids);
             }
         },
 
