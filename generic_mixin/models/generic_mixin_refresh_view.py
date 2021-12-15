@@ -1,7 +1,73 @@
 import logging
+import threading
+import functools
+import collections
+
 from odoo import models, api, tools
 
 _logger = logging.getLogger(__name__)
+
+
+class RefreshViewContext:
+    """ Simple context manager, that could be used to send all refresh
+        notification with single message. This could be used for optimization
+        purposes. Also, it could help, to avoid multiple notification sent to
+        browser during long-running transaction.
+
+        :param api.Environment env: the environment to use to send
+             notifications
+    """
+    def __init__(self, env):
+        self.env = env
+        self.nested = None
+
+    def __enter__(self):
+        if hasattr(threading.current_thread(), 'gmrv_refresh_cache'):
+            # It seems that this block is executed inside another one.
+            # Save the flag on self
+            self.nested = True
+        else:
+            # We have to create thread-level cache, to store all refresh calls
+            # Format of cache is:
+            # cache = {
+            #     'model': {
+            #         'action': set(refresh_ids),
+            #     },
+            # }
+            setattr(
+                threading.current_thread(),
+                'gmrv_refresh_cache',
+                collections.defaultdict(
+                    functools.partial(
+                        collections.defaultdict, set)
+                ),
+            )
+
+            # We just have created the cache, thus this is top-level block,
+            # that needs refresh and cleanup on exit
+            self.nested = False
+
+        return self
+
+    def __exit__(self, etype, value, tracback):
+        if self.nested:
+            # We do not need to do anything if it is not top-level block.
+            return False
+
+        gmrv_cache = getattr(threading.current_thread(), 'gmrv_refresh_cache')
+        if not etype and gmrv_cache:
+            # We have to send notifications only when top-level context
+            # manager closed, and there were no errors raised during execution
+            # of 'with' body
+            self.env['generic.mixin.refresh.view']._gmrv_refresh_view__notify(
+                gmrv_cache)
+
+        # Finally cleanup cache, thus notifications will go standard way
+        delattr(threading.current_thread(), 'gmrv_refresh_cache')
+
+        # Do not suppress exceptions. If any exception was raised during
+        # execution of with bloc, then it will be reraised as is
+        return False
 
 
 class GenericMixinRefreshView(models.AbstractModel):
@@ -46,6 +112,21 @@ class GenericMixinRefreshView(models.AbstractModel):
             ))
         return track_fields
 
+    def _gmrv_refresh_view__notify(self, refresh_data):
+        """ Notify web client about refreshed records
+
+            :param dict refresh_data: refresh data to be sent ot web client
+
+            Format of refresh_data is following:
+            {
+                model: {
+                    action: set(ids),
+                }
+            }
+        """
+        _logger.info("sending refresh data: %s", refresh_data)
+        self.env['bus.bus'].sendone('generic_mixin_refresh_view', refresh_data)
+
     @api.model
     def trigger_refresh_view_for(self, records=None, record_ids=None,
                                  action='write'):
@@ -67,14 +148,24 @@ class GenericMixinRefreshView(models.AbstractModel):
         if not res_ids:
             return False
 
-        self.env['bus.bus'].sendone(
-            'generic_mixin_refresh_view',
-            {
-                'model': self._name,
-                'res_ids': list(res_ids),
-                'action': action,
-            },
-        )
+        thread_cache = getattr(
+            threading.current_thread(),
+            'gmrv_refresh_cache',
+            None)
+        if thread_cache is not None:
+            # If there is defined thread-level cache, then we have to add
+            # changes there, instead of sending to bus.bus directly.
+            thread_cache[self._name][action] |= res_ids
+        else:
+            # If there is no cache defined on thread-level, then we send
+            # notification to bus.bus directly.
+            self._gmrv_refresh_view__notify(
+                {
+                    self._name: {
+                        action: list(res_ids),
+                    }
+                },
+            )
         return True
 
     def trigger_refresh_view(self, action='write'):
@@ -114,3 +205,16 @@ class GenericMixinRefreshView(models.AbstractModel):
         self.trigger_refresh_view_for(record_ids=record_ids, action='unlink')
 
         return res
+
+    def with_delay_refresh(self):
+        """ Use this as context manager, to send refresh notifications issued
+            during execution of with block as single message.
+
+            :return RefreshViewContext: context manager
+
+            Example of usage:
+
+                with self.with_delay_refresh():
+                    # do some operations that issue multiple refresh messages
+        """
+        return RefreshViewContext(self.env)
