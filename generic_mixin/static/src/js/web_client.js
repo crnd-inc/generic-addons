@@ -187,45 +187,59 @@ odoo.define('generic_mixin.WebClient', function (require) {
             });
         },
 
+        // Param message: object/dict with following format:
+        // {
+        //     'res_model': {
+        //         'action': [res_ids],
+        //     },
+        // }
         _generic_mixin_refresh_view_handle: function (message) {
             var self = this;
-            var res_model = message.model;
-            var res_ids = message.res_ids;
-            var action = message.action;
+            _.each(message, function (action_data, res_model) {
+                _.each(action_data, function (res_ids, action) {
+                    // Store changed ids
+                    if (res_model in self._generic_refresh_mixin__pending) {
+                        self._generic_refresh_mixin__pending[res_model] =
+                            _.union(
+                                self._generic_refresh_mixin__pending[res_model],
+                                res_ids);
+                    } else {
+                        self._generic_refresh_mixin__pending[res_model] =
+                            res_ids;
+                    }
 
-            // Store changed ids
-            if (res_model in self._generic_refresh_mixin__pending) {
-                self._generic_refresh_mixin__pending[res_model] = _.union(
-                    self._generic_refresh_mixin__pending[res_model],
-                    res_ids);
-            } else {
-                self._generic_refresh_mixin__pending[res_model] = res_ids;
-            }
+                    // Store received action
+                    if (res_model in
+                        self._generic_refresh_mixin__pending_action) {
+                        self._generic_refresh_mixin__pending_action[res_model] =
+                            _.union(
+                                self._generic_refresh_mixin__pending_action[
+                                    res_model],
+                                [action]);
+                    } else {
+                        self._generic_refresh_mixin__pending_action[res_model] =
+                            [action];
+                    }
 
-            // Store received action
-            if (res_model in self._generic_refresh_mixin__pending_action) {
-                self._generic_refresh_mixin__pending_action[res_model] =
-                    _.union(
-                        self._generic_refresh_mixin__pending_action[res_model],
-                        [action]);
-            } else {
-                self._generic_refresh_mixin__pending_action[res_model] = [
-                    action];
-            }
-
-            // Store changed ids for ListRenderer
-            if (action !== 'unlink') {
-                if (!(res_model in self._generic_refresh_mixin__refresh_ids)) {
-                    self._generic_refresh_mixin__refresh_ids[res_model] = {
-                        create: [],
-                        write: [],
-                    };
-                }
-                self._generic_refresh_mixin__refresh_ids[res_model][action] =
-                    _.union(
-                        self._generic_refresh_mixin__refresh_ids[res_model][
-                            action], res_ids);
-            }
+                    // Store changed ids for ListRenderer
+                    if (action !== 'unlink') {
+                        if (!(res_model in
+                            self._generic_refresh_mixin__refresh_ids)) {
+                            self._generic_refresh_mixin__refresh_ids[
+                                res_model] = {
+                                create: [],
+                                write: [],
+                            };
+                        }
+                        self._generic_refresh_mixin__refresh_ids[
+                            res_model][action] =
+                            _.union(
+                                self._generic_refresh_mixin__refresh_ids[
+                                    res_model][action],
+                                res_ids);
+                    }
+                });
+            });
         },
 
         // The GMRV infix in name is used to avoid possible name conflicts
