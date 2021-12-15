@@ -124,7 +124,6 @@ class GenericMixinRefreshView(models.AbstractModel):
                 }
             }
         """
-        _logger.info("sending refresh data: %s", refresh_data)
         self.env['bus.bus'].sendone('generic_mixin_refresh_view', refresh_data)
 
     @api.model
