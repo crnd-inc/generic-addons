@@ -9,12 +9,13 @@
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '12.0.1.42.0',
+    'version': '12.0.1.43.0',
 
     # any module necessary for this one to work correctly
     'depends': [
         'base',
         'http_routing',
+        'bus',
     ],
     'data': [
         'views/assets.xml',
