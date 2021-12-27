@@ -5,4 +5,5 @@ from .models.generic_track_changes import (
     pre_create,
     post_create,
 )
+from .models.generic_mixin_refresh_view import with_delay_refresh
 from .tools.jinja import render_jinja_string
