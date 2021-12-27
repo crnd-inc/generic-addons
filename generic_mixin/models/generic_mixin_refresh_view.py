@@ -8,6 +8,24 @@ from odoo import models, api, tools
 _logger = logging.getLogger(__name__)
 
 
+def with_delay_refresh(fn):
+    """ Decorator, that automatically wraps method with RefreshViewContext
+        context manager
+
+        For example:
+
+            @with_delay_refresh
+            def action_do_some_long_running_action(self):
+                pass
+    """
+    @functools.wraps(fn)
+    def wrapped(self, *args, **kwargs):
+        with RefreshViewContext(self.env):
+            return fn(self, *args, **kwargs)
+
+    return wrapped
+
+
 class RefreshViewContext:
     """ Simple context manager, that could be used to send all refresh
         notification with single message. This could be used for optimization
