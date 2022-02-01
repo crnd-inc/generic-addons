@@ -1,4 +1,4 @@
-from odoo import models
+from odoo import models, api
 from odoo.addons.base_geolocalize.models.res_partner import (
     geo_find,
     geo_query_address,
@@ -8,9 +8,11 @@ from odoo.addons.base_geolocalize.models.res_partner import (
 class GenericLocation(models.Model):
     _inherit = 'generic.location'
 
-    @classmethod
-    def _geo_localize(cls, apikey, street='', zip_code='', city='',
+    @api.model
+    def _geo_localize(self, street='', zip_code='', city='',
                       state='', country=''):
+        apikey = self.env['ir.config_parameter'].sudo().get_param(
+            'google.api_key_geocode')
         search = geo_query_address(
             street=street, zip=zip_code, city=city,
             state=state, country=country)
@@ -21,18 +23,16 @@ class GenericLocation(models.Model):
         return result
 
     def geo_localize(self):
-        apikey = self.env['ir.config_parameter'].sudo().get_param(
-            'google.api_key_geocode')
-        for record in self.with_context(lang='en_US'):
-            result = record._geo_localize(
-                apikey,
-                street=record.street,
-                zip_code=record.zip,
-                city=record.city,
-                state=record.state_id.name,
-                country=record.country_id.name)
+        for rec in self.with_context(lang='en_US'):
+            street = (rec.street, rec.street2) if rec.street2 else rec.street
+            result = self._geo_localize(
+                street=street,
+                zip_code=rec.zip,
+                city=rec.city,
+                state=rec.state_id.name,
+                country=rec.country_id.name)
             if result:
-                record.write({
+                rec.write({
                     'latitude': result[0],
                     'longitude': result[1]
                 })
