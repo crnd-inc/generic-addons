@@ -1,8 +1,4 @@
 from odoo import models, api
-from odoo.addons.base_geolocalize.models.res_partner import (
-    geo_find,
-    geo_query_address,
-)
 
 
 class GenericLocation(models.Model):
@@ -11,20 +7,30 @@ class GenericLocation(models.Model):
     @api.model
     def _geo_localize(self, street='', zip_code='', city='',
                       state='', country=''):
-        apikey = self.env['ir.config_parameter'].sudo().get_param(
-            'google.api_key_geocode')
-        search = geo_query_address(
-            street=street, zip=zip_code, city=city,
-            state=state, country=country)
-        result = geo_find(search, apikey)
+        geo_obj = self.env['base.geocoder']
+        search = geo_obj.geo_query_address(
+            street=street,
+            zip=zip_code,
+            city=city,
+            state=state,
+            country=country)
+        result = geo_obj.geo_find(search, force_country=country)
         if result is None:
-            search = geo_query_address(city=city, state=state, country=country)
-            result = geo_find(search, apikey)
+            search = geo_obj.geo_query_address(
+                city=city,
+                state=state,
+                country=country)
+            result = geo_obj.geo_find(
+                search,
+                force_country=country)
         return result
 
     def geo_localize(self):
         for rec in self.with_context(lang='en_US'):
-            street = (rec.street, rec.street2) if rec.street2 else rec.street
+            street = (
+                "%s, %s" % (rec.street, rec.street2)
+                if rec.street2 else rec.street
+            )
             result = self._geo_localize(
                 street=street,
                 zip_code=rec.zip,
