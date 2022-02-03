@@ -14,12 +14,73 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__city
+msgid "City"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__country_id
+msgid "Country"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: generic_location_geolocalize
 #: model_terms:ir.ui.view,arch_db:generic_location_geolocalize.generic_location_form_view
 msgid "Geolocalize"
 msgstr ""
 
 #. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__id
+msgid "ID"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__latitude
+msgid "Latitude"
+msgstr ""
+
+#. module: generic_location_geolocalize
 #: model:ir.model,name:generic_location_geolocalize.model_generic_location
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__location_id
 msgid "Location"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__longitude
+msgid "Longitude"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__state_id
+msgid "State"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__street
+msgid "Street"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__street2
+msgid "Street2"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__zip
+msgid "Zip"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#: model:ir.model,name:generic_location_geolocalize.model_generic_location_geolocalize_mixin
+msgid "generic.location.geolocalize.mixin"
 msgstr ""
 
