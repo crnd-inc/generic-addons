@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record model="ir.ui.view" id="generic_location_form_view">
-        <field name="name">generic.location.form</field>
         <field name="model">generic.location</field>
         <field name="arch" type="xml">
             <form string="Generic Location">
@@ -48,9 +47,7 @@
         </field>
     </record>
     
-    <!-- list view for location -->
     <record model="ir.ui.view" id="generic_location_tree_view">
-        <field name="name">generic.location.tree</field>
         <field name="model">generic.location</field>
         <field name="arch" type="xml">
             <tree>
@@ -61,9 +58,7 @@
         </field>
     </record>
     
-    <!-- search views location -->
     <record model="ir.ui.view" id="generic_location_search_view">
-        <field name="name">generic.location.search</field>
         <field name="model">generic.location</field>
         <field name="arch" type="xml">
             <search>
