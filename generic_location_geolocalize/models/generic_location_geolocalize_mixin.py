@@ -1,6 +1,4 @@
-import json
-
-from odoo import models, fields, api
+from odoo import models, fields
 
 
 class GenericLocationGeolocalizeMixin(models.AbstractModel):

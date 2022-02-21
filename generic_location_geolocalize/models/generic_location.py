@@ -17,7 +17,6 @@ class GenericLocation(models.Model):
                 'lng': round(rec.longitude, 5)
             }, ensure_ascii=False)
 
-    @api.onchange('geolocation_json')
     def _inverse_geolocation_json(self):
         for rec in self:
             geolocation = json.loads(rec.geolocation_json)
