@@ -6,7 +6,18 @@
         <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='page_info']//group[@name='group_geolocation']/div[@name='geo_coordinates']" position="before">
-                <button string="Geolocalize" name="geo_localize" type="object" icon="fa-check" colspan="2"/>
+                <div colspan="2" class="d-flex">
+                    <button string="Geolocalize"
+                            name="geo_localize"
+                            type="object"
+                            style="display: flex; align-items: center;"
+                            icon="fa-check"/>
+                    <field name="geolocation_json"
+                           widget="map_widget"
+                           class="mb-0 ml-2"
+                           nolabel="1"
+                           options="{'zoom': 18, 'maxZoom': 20}"/>
+                </div>
             </xpath>
         </field>
     </record>
