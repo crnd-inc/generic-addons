@@ -35,6 +35,12 @@ msgid "Geolocalize"
 msgstr ""
 
 #. module: generic_location_geolocalize
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location__geolocation_json
+#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__geolocation_json
+msgid "Geolocation Json"
+msgstr ""
+
+#. module: generic_location_geolocalize
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location__id
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__id
 msgid "ID"
@@ -60,6 +66,13 @@ msgstr ""
 #. module: generic_location_geolocalize
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__longitude
 msgid "Longitude"
+msgstr ""
+
+#. module: generic_location_geolocalize
+#. openerp-web
+#: code:addons/generic_location_geolocalize/static/src/xml/map_field_widget.xml:0
+#, python-format
+msgid "Select on the map"
 msgstr ""
 
 #. module: generic_location_geolocalize
