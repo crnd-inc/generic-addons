@@ -7,7 +7,7 @@ from odoo.tests.common import SavepointCase
 _logger = logging.getLogger(__name__)
 
 
-class NameBySequenceTest(SavepointCase):
+class UUIDMixinTest(SavepointCase):
 
     def test_generic_mixin_uuid_1(self):
         Model = self.env['test.generic.mixin.uuid.standard']
