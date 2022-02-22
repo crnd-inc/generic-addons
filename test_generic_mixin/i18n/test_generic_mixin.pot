@@ -14,6 +14,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__base_field
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__base_field
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__base_field
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__base_field
+msgid "Base Field"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__base_record_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__base_record_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__base_record_id
+msgid "Base Record"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__code
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__code
 msgid "Code"
@@ -53,6 +68,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__create_uid
 msgid "Created by"
 msgstr ""
 
@@ -70,6 +89,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__create_date
 msgid "Created on"
 msgstr ""
 
@@ -104,6 +127,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -126,6 +153,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__id
 msgid "ID"
 msgstr ""
 
@@ -149,6 +180,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -166,6 +201,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__write_uid
 msgid "Last Updated by"
 msgstr ""
 
@@ -183,6 +222,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -219,6 +262,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_no_update
 msgid "Non Updatable"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__specific_field_1
+msgid "Specific Field 1"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__specific_field_2
+msgid "Specific Field 2"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -357,5 +410,25 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_mixin_name_search_by_fields_2
 msgid "test.mixin.name.search.by.fields.2"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_base_model
+msgid "test.proxy.method.my.base.model"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_1
+msgid "test.proxy.method.my.specific.model.1"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_2
+msgid "test.proxy.method.my.specific.model.2"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_mixin
+msgid "test.proxy.method.my.specific.model.mixin"
 msgstr ""
 
