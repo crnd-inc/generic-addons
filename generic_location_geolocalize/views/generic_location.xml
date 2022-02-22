@@ -3,9 +3,9 @@
     <record id="generic_location_form_view" model="ir.ui.view">
         <field name="name">generic.location.form</field>
         <field name="model">generic.location</field>
-        <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
+        <field name="inherit_id" ref="generic_location_geo.generic_location_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='page_info']//group[@name='group_geolocation']/div[@name='geo_coordinates']" position="before">
+            <xpath expr="//div[@name='geo_coordinates']" position="before">
                 <div colspan="2" class="d-flex">
                     <button string="Geolocalize"
                             name="geo_localize"
