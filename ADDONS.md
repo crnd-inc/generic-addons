@@ -21,6 +21,6 @@
 | generic_tag_purchase | Generic Tag (Purchase) | LGPL-3 | 14.0.1.2.0 | Generic tag integration with purchase addon |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 14.0.1.4.0 | Generic Tag - Tests (do not install manualy) |  |
 | generic_tag_test_automation | Generic Tag (Automation) - Test | LGPL-3 | 14.0.1.1.0 |  |  |
-| google_maps_api_js | CR&D Map View | Other proprietary | 14.0.0.1.0 |  |  |
+| google_maps_api_js | CR&D Google Maps API JS | Other proprietary | 14.0.0.2.0 |  |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 14.0.0.10.0 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 14.0.0.10.0 | Technical module that have to be used to test Generic Mixin module |  |
