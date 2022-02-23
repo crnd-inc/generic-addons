@@ -1,19 +1,14 @@
 import logging
-from inspect import getmembers, isfunction
 from odoo import fields, models, api, exceptions, _
+
+from odoo.addons.generic_mixin import generate_proxy_decorator
 
 _logger = logging.getLogger(__name__)
 
 
-def method_wrapper(method_name):
-    """ Generate proxy method for resource methods.
-
-        :param method_name: name of method in resource model.
-    """
-    def method(self, *args, **kwargs):
-        return getattr(
-            self.resource_id, method_name)(*args, **kwargs)
-    return method
+# resource_proxy decorator, that have to be used to mark methods that have
+# to be added to resource implementation model.
+resource_proxy = generate_proxy_decorator('__resource_proxy__')
 
 
 class GenericResourceResID(int):
@@ -26,9 +21,14 @@ class GenericResource(models.Model):
     _name = 'generic.resource'
     _inherit = [
         'generic.mixin.get.action',
+        'generic.mixin.proxy.methods',
     ]
     _description = 'Generic Resource'
     _log_access = False
+
+    _generic_mixin_proxy_methods__dest_model = 'generic.resource.mixin'
+    _generic_mixin_proxy_methods__link_field = 'resource_id'
+    _generic_mixin_proxy_methods__method_attr = '__resource_proxy__'
 
     active = fields.Boolean(default=True, index=True)
     res_type_id = fields.Many2one(
@@ -51,28 +51,6 @@ class GenericResource(models.Model):
         ('unique_model', 'UNIQUE(res_model, res_id)',
          'Model instance must be unique')
     ]
-
-    # Overridden to add resource-proxy methods
-    @api.model
-    def _setup_complete(self):
-        """ Setup recomputation triggers, and complete the model setup. """
-        res = super(GenericResource, self)._setup_complete()
-
-        mixin_cls = type(self.env['generic.resource.mixin'])
-
-        def is_resource_proxy(func):
-            """ Check if function is decorated with resource-proxy
-            """
-            return isfunction(func) and hasattr(func, '__resource_proxy__')
-
-        # Proxy methods decorated with resource_proxy to resource
-        # implementation model (via generic.resource.mixin)
-        for attrname, __ in getmembers(type(self), is_resource_proxy):
-            if hasattr(mixin_cls, attrname):
-                continue
-            setattr(mixin_cls, attrname, method_wrapper(attrname))
-
-        return res
 
     @property
     def resource(self):
