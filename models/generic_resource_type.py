@@ -1,4 +1,5 @@
 from odoo import fields, models, api, tools, exceptions, _
+from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 
 
 class GenericResourceType(models.Model):
@@ -44,8 +45,10 @@ class GenericResourceType(models.Model):
 
     @api.depends('resource_ids')
     def _compute_resource_count(self):
+        mapped_data = read_counts_for_o2m(
+            records=self, field_name='resource_ids')
         for rec in self:
-            rec.resource_count = len(rec.resource_ids)
+            rec.resource_count = mapped_data.get(rec.id, 0)
 
     @api.onchange('model_id')
     def _onchange_model_id(self):
