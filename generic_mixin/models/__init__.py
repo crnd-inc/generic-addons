@@ -10,4 +10,5 @@ from . import (
     generic_mixin_get_action,
     generic_mixin_refresh_view,
     generic_mixin_uuid,
+    generic_mixin_proxy_methods,
 )
