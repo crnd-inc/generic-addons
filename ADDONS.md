@@ -12,7 +12,7 @@
 | generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 14.0.1.4.0 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
 | generic_location_tag | Generic Location Tag | LGPL-3 | 14.0.1.2.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 14.0.1.3.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 14.0.1.49.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 14.0.1.50.0 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_rule | Generic Rule | LGPL-3 | 14.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_tag | Generic Tag | LGPL-3 | 14.0.2.6.0 | Generic tag management. |  |
 | generic_tag_account | Generic Tag (Account) | LGPL-3 | 14.0.1.2.0 | Generic tag integration with account addon |  |
