@@ -117,13 +117,13 @@ msgid "Default"
 msgstr "По умолчанию"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:170
+#: code:addons/generic_resource/models/generic_resource.py:148
 #, python-format
 msgid "Direct creation of 'generic.resource' records is not allowed!"
 msgstr "Прямое создание объектов 'generic.resource' запрещено!"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:184
+#: code:addons/generic_resource/models/generic_resource.py:162
 #, python-format
 msgid "Direct modification of 'generic.resource:res_id' field is not allowed!"
 msgstr "Прямое изменение поля 'generic.resource:res_id' запрещено!"
@@ -141,7 +141,7 @@ msgid "Display Name"
 msgstr "Отображаемое название"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:104
+#: code:addons/generic_resource/models/generic_resource.py:82
 #, python-format
 msgid "Error: no model"
 msgstr "Ошибка: не определена модель"
@@ -716,7 +716,7 @@ msgid "Whether this model supports messages and notifications."
 msgstr "Поддерживает ли эта модель сообщения и уведомления."
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_type.py:62
+#: code:addons/generic_resource/models/generic_resource_type.py:65
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
