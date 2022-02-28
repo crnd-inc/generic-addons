@@ -46,7 +46,7 @@ class GenericResourceType(models.Model):
     @api.depends('resource_ids')
     def _compute_resource_count(self):
         mapped_data = read_counts_for_o2m(
-            records=self, field_name='resource_ids')
+            records=self, field_name='resource_ids', sudo=True)
         for rec in self:
             rec.resource_count = mapped_data.get(rec.id, 0)
 
