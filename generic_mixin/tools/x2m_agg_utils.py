@@ -31,8 +31,13 @@ def read_counts_for(records, related_model, search_field, value_field):
                     record.other_count = mapped_data.get(record.id, 0)
     """
     if records.ids:
+        check_values = (
+            records.ids
+            if value_field == 'id'
+            else records.mapped(value_field)
+        )
         data = records.env[related_model].sudo().read_group([
-            (search_field, 'in', records.mapped(value_field))
+            (search_field, 'in', check_values)
         ], [search_field], [search_field])
         mapped_data = {}
         for m in data:
@@ -45,3 +50,39 @@ def read_counts_for(records, related_model, search_field, value_field):
         # For case, if record is not written in db
         mapped_data = dict()
     return mapped_data
+
+
+def read_counts_for_o2m(records, field_name):
+    """ Read counds for specified one2many field.
+
+        :param records: recordset with records to compute counts for
+        :param str field_name: name of one2many field to compute counts for
+        :return dict: Mapping of values of search fields, and counts of recods.
+
+        Typical usecase would be to compute counts for one2many fields.
+
+        class MyModel(models.Model):
+            _name = 'my.model'
+
+            other_ids = fields.One2many('other.model', 'my_model_id')
+            other_count = fields.Integer(
+                compute='_compute_other_count')
+
+            @api.depends()
+            def _compute_other_count(self):
+                mapped_data = read_counts_for_o2m(records=self, 'other_ids')
+                for record in self:
+                    record.other_count = mapped_data.get(record.id, 0)
+    """
+    field = records._fields[field_name]
+    if field.type != 'one2many':
+        raise ValueError(
+            "Incorrect type of field %s. Expected: %s. Got: %s"
+            "" % (field_name, 'one2many', field.type))
+
+    return read_counts_for(
+        records=records,
+        related_model=field.comodel_name,
+        search_field=field.inverse_name,
+        value_field='id',
+    )
