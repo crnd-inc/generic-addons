@@ -1,4 +1,8 @@
-def read_counts_for(records, related_model, search_field, value_field):
+from odoo.osv import expression
+
+
+def read_counts_for(records, related_model, search_field, value_field,
+                    domain=None, sudo=False):
     """ Read counts of if records in *related_model* for *records*,
         searching via *search_field* equal to *value_field*
 
@@ -9,6 +13,8 @@ def read_counts_for(records, related_model, search_field, value_field):
             that will be used to search for related records
         :param str value_field: name of field in *records* model,
             that will be used as value for search field.
+        :param list domain: Additional domain to apply to records found
+        :param bool sudo: Use sudo to search records. Default: False
         :return dict: Mapping of values of search fields, and counts of recods.
 
         Typical usecase would be to compute counts for one2many fields.
@@ -36,9 +42,15 @@ def read_counts_for(records, related_model, search_field, value_field):
             if value_field == 'id'
             else records.mapped(value_field)
         )
-        data = records.env[related_model].sudo().read_group([
-            (search_field, 'in', check_values)
-        ], [search_field], [search_field])
+        RelatedModel = records.env[related_model]
+        if sudo:
+            RelatedModel = RelatedModel.sudo()
+
+        search_domain = [(search_field, 'in', check_values)]
+        if domain:
+            search_domain = expression.AND([search_domain, domain])
+        data = RelatedModel.read_group(
+            search_domain, [search_field], [search_field])
         mapped_data = {}
         for m in data:
             key = m[search_field]
@@ -52,11 +64,13 @@ def read_counts_for(records, related_model, search_field, value_field):
     return mapped_data
 
 
-def read_counts_for_o2m(records, field_name):
+def read_counts_for_o2m(records, field_name, domain=None, sudo=False):
     """ Read counds for specified one2many field.
 
         :param records: recordset with records to compute counts for
         :param str field_name: name of one2many field to compute counts for
+        :param list domain: Additional domain to apply to records found
+        :param bool sudo: Use sudo to search records. Default: False
         :return dict: Mapping of values of search fields, and counts of recods.
 
         Typical usecase would be to compute counts for one2many fields.
@@ -85,4 +99,6 @@ def read_counts_for_o2m(records, field_name):
         related_model=field.comodel_name,
         search_field=field.inverse_name,
         value_field='id',
+        domain=domain,
+        sudo=sudo,
     )
