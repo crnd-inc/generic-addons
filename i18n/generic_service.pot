@@ -24,6 +24,11 @@ msgid "Access generic services (no access to menu)"
 msgstr ""
 
 #. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__access_group_ids
+msgid "Access groups"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction
 msgid "Action Needed"
@@ -284,6 +289,11 @@ msgstr ""
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_unread_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_unread_counter
 msgid "Number of unread messages"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,help:generic_service.field_generic_service__access_group_ids
+msgid "Restrict access to this service by specified groups only"
 msgstr ""
 
 #. module: generic_service

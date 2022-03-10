@@ -30,6 +30,11 @@ msgid "Access generic services (no access to menu)"
 msgstr "Має доступ до універсальних сервісів (не має доступу до меню)"
 
 #. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__access_group_ids
+msgid "Access groups"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction
 msgid "Action Needed"
@@ -291,6 +296,11 @@ msgstr "Кількість повідомлень з помилковою дст
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_unread_counter
 msgid "Number of unread messages"
 msgstr "Кількість непрочитаних повідомлень"
+
+#. module: generic_service
+#: model:ir.model.fields,help:generic_service.field_generic_service__access_group_ids
+msgid "Restrict access to this service by specified groups only"
+msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__sequence
