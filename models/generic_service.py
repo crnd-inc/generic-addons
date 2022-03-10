@@ -18,3 +18,8 @@ class GenericSerivce(models.Model):
     description = fields.Text(translate=True)
     sequence = fields.Integer(index=True, default=5)
     change_manager_id = fields.Many2one('res.users', ondelete='restrict')
+
+    # Access rignts
+    access_group_ids = fields.Many2many(
+        'res.groups', string='Access groups',
+        help="Restrict access to this service by specified groups only")

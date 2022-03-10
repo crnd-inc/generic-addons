@@ -49,6 +49,16 @@
         <field eval="1" name="perm_read"/>
         <field eval="0" name="perm_create"/>
     </record>
+    <record id="rule_service_access_group" model="ir.rule">
+        <field name="name">Service Access Rignts for Access Groups</field>
+        <field name="model_id" ref="model_generic_service"/>
+        <field name="domain_force">[('access_group_ids.users.id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('generic_service.group_generic_service_user_implicit'))]"/>
+        <field eval="0" name="perm_unlink"/>
+        <field eval="0" name="perm_write"/>
+        <field eval="1" name="perm_read"/>
+        <field eval="0" name="perm_create"/>
+    </record>
 
     <record id="rule_generic_service_manager" model="ir.rule">
         <field name="name">Manager generic services</field>
@@ -61,4 +71,3 @@
         <field eval="1" name="perm_create"/>
     </record>
 </odoo>
-
