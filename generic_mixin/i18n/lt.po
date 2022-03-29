@@ -59,8 +59,16 @@ msgid "Data records"
 msgstr ""
 
 #. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_mixin_guard_fields.py:0
+#, python-format
+msgid ""
+"Direct modification of '%(model)s:%(field_name)s' field is is not allowed!"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__display_name
@@ -149,6 +157,7 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__id
@@ -174,6 +183,7 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields____last_update
@@ -217,4 +227,9 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
 msgid "XML ID for this record."
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_guard_fields
+msgid "generic.mixin.guard.fields"
 msgstr ""
