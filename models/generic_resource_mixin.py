@@ -2,8 +2,6 @@ import logging
 
 from odoo import fields, models, api
 
-from .generic_resource import GenericResourceResID
-
 _logger = logging.getLogger(__name__)
 
 
@@ -12,7 +10,10 @@ class GenericResourceMixin(models.AbstractModel):
     _description = 'Generic Resource MixIn'
     _inherit = [
         'generic.mixin.track.changes',
+        'generic.mixin.guard.fields',
     ]
+
+    _generic_mixin_deny_write_fields = ['resource_id']
 
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True,
@@ -23,17 +24,6 @@ class GenericResourceMixin(models.AbstractModel):
         ('unique_resource_id', 'UNIQUE(resource_id)',
          'Resource must be unique')
     ]
-
-    def _resource_mixin__protect_resource_id(self, vals):
-        """ Guard to deny changes of 'resource_id' field
-        """
-        if vals.get('resource_id', None):
-            _logger.warning(
-                "Trying update / create object with 'resource_id' "
-                "field specified. No need for this, resource will be created "
-                "automatically")
-            del vals['resource_id']
-        return vals
 
     @api.model
     def _get_generic_tracking_fields(self):
@@ -87,14 +77,8 @@ class GenericResourceMixin(models.AbstractModel):
             self.with_context(generic_resource_type_model=self._name)
         ).default_get(fields_list)
 
-    def write(self, vals):
-        vals = self._resource_mixin__protect_resource_id(vals)
-        return super(GenericResourceMixin, self).write(vals)
-
     @api.model
     def create(self, vals):
-        vals = self._resource_mixin__protect_resource_id(vals)
-
         values = self.env['generic.resource']._get_resource_type_defaults(
             self._get_resource_type())
         values.update(vals)
@@ -102,14 +86,20 @@ class GenericResourceMixin(models.AbstractModel):
         # Add fake resource id to values. This is required to create
         # 'generic.resource' record, because 'res_id' field is required
         # This field will be updated after record creation
-        values['res_id'] = GenericResourceResID(-1)
+        values['res_id'] = self.env[
+            'generic.resource'
+        ]._generic_mixin_guard__wrap_field('res_id', -1)
 
         # Create record
         # TODO: this create call somehow triggers write on self. Review.
         rec = super(GenericResourceMixin, self).create(values)
 
         # Update res_id with created id
-        rec.resource_id.write({'res_id': GenericResourceResID(rec.id)})
+        rec.resource_id.write({
+            'res_id': self.env[
+                'generic.resource'
+            ]._generic_mixin_guard__wrap_field('res_id', rec.id),
+        })
 
         # Call 'on_resource_created' hook
         rec.resource_id.on_resource_created()

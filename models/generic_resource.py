@@ -2,6 +2,7 @@ import logging
 from odoo import fields, models, api, exceptions, _
 
 from odoo.addons.generic_mixin import generate_proxy_decorator
+from odoo.addons.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
 
@@ -11,17 +12,12 @@ _logger = logging.getLogger(__name__)
 resource_proxy = generate_proxy_decorator('__resource_proxy__')
 
 
-class GenericResourceResID(int):
-    """ Simple class to ensure that 'generic.resource' being created
-        from 'generic.resource.mixin' code
-    """
-
-
 class GenericResource(models.Model):
     _name = 'generic.resource'
     _inherit = [
         'generic.mixin.get.action',
         'generic.mixin.proxy.methods',
+        'generic.mixin.guard.fields',
     ]
     _description = 'Generic Resource'
     _log_access = False
@@ -29,6 +25,8 @@ class GenericResource(models.Model):
     _generic_mixin_proxy_methods__dest_model = 'generic.resource.mixin'
     _generic_mixin_proxy_methods__link_field = 'resource_id'
     _generic_mixin_proxy_methods__method_attr = '__resource_proxy__'
+
+    _generic_mixin_guard_fields = ['res_id']
 
     active = fields.Boolean(default=True, index=True)
     res_type_id = fields.Many2one(
@@ -56,21 +54,8 @@ class GenericResource(models.Model):
     def resource(self):
         """ Property to easily access implementation of this generic resource
         """
-        self.ensure_one()
-        # This case, when resource model is not present in pool, may
-        # happen, when addon that implements resource was uninstalled.
-        # TODO: handle this in better way
-        try:
-            ResourceModel = self.env[self.res_model]
-        except KeyError:
-            return False
-        resource = ResourceModel.browse(self.res_id)
-        # Resource implementation record may not exist,
-        # when resource implementation record was deleted
-        # with ondelete='cascade' on related model
-        if resource.exists():
-            return resource
-        return False
+        return generic_m2o_get(
+            self, field_res_model='res_model', field_res_id='res_id')
 
     def name_get(self):
         result = []
@@ -138,32 +123,6 @@ class GenericResource(models.Model):
                 if k in fields_list
             })
         return res
-
-    @api.model
-    def create(self, vals):
-        res_id = vals.get('res_id')
-        if res_id and isinstance(res_id, GenericResourceResID):
-            vals['res_id'] = int(res_id)
-        elif res_id:
-            raise exceptions.ValidationError(_(
-                "Direct creation of 'generic.resource' records "
-                "is not allowed!"))
-
-        return super(GenericResource, self).create(vals)
-
-    def write(self, vals):
-        res_id = vals.get('res_id')
-        if res_id and isinstance(
-                res_id, GenericResourceResID) and len(vals) == 1:
-            vals['res_id'] = int(res_id)
-            return super(GenericResource, self.sudo()).write(vals)
-
-        if res_id:
-            raise exceptions.ValidationError(_(
-                "Direct modification of 'generic.resource:res_id' field "
-                "is not allowed!"))
-
-        return super(GenericResource, self).write(vals)
 
     def on_resource_created(self):
         """ Hook to be called when resource creation completed
