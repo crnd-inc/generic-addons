@@ -60,7 +60,7 @@ class GenericMixinGuardFields(models.AbstractModel):
                 _logger.warning(
                     "Trying update / create object with '%s' "
                     "field specified, but this field will be computed "
-                    "automatically." % field_name)
+                    "automatically.", field_name)
                 del res[field_name]
 
         for field_name in self._generic_mixin_guard_fields:
