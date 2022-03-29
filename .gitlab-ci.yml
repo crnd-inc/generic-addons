@@ -169,6 +169,7 @@ deploy_review_dev:
         name: review/$CI_COMMIT_REF_NAME
         url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci4.crnd.pro
         on_stop: stop_review_dev
+        auto_stop_in: 1 week
     <<: *only_dev_branch
     when: manual
 
