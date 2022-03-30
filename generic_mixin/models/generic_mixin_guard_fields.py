@@ -27,6 +27,12 @@ class GenericMixinGuardFields(models.AbstractModel):
         def unwrap(self):
             return int(self)
 
+    class GuardMany2oneReference(int):
+        """ Guard class for many2one_reference fields.
+        """
+        def unwrap(self):
+            return int(self)
+
     def _generic_mixin_guard__get_guard_class(self, field_name):
         """ This method will return Guard class for specified field.
 
@@ -37,6 +43,8 @@ class GenericMixinGuardFields(models.AbstractModel):
         """
         if self._fields[field_name].type == 'integer':
             return self.GuardInteger
+        if self._fields[field_name].type == 'many2one_reference':
+            return self.GuardMany2oneReference
         raise TypeError(
             "Field %s could not be guarded. Type %s is not supported." % (
                 field_name, self._fields[field_name].type
