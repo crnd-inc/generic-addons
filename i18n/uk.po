@@ -117,18 +117,6 @@ msgid "Default"
 msgstr "За замовчаннями"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:148
-#, python-format
-msgid "Direct creation of 'generic.resource' records is not allowed!"
-msgstr "Пряме створення об'єктів 'generic.resource' заборонено!"
-
-#. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:162
-#, python-format
-msgid "Direct modification of 'generic.resource:res_id' field is not allowed!"
-msgstr "Пряма модифікація 'generic.resource:res_id' заборонена!"
-
-#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__display_name
@@ -141,7 +129,7 @@ msgid "Display Name"
 msgstr "Назва для відображення"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:82
+#: code:addons/generic_resource/models/generic_resource.py:67
 #, python-format
 msgid "Error: no model"
 msgstr "Помилка: не визначена модель"
@@ -720,6 +708,13 @@ msgstr "Чи підтримує ця модель повідомлення та 
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
+
+#~ msgid "Direct creation of 'generic.resource' records is not allowed!"
+#~ msgstr "Пряме створення об'єктів 'generic.resource' заборонено!"
+
+#~ msgid ""
+#~ "Direct modification of 'generic.resource:res_id' field is not allowed!"
+#~ msgstr "Пряма модифікація 'generic.resource:res_id' заборонена!"
 
 #~ msgid "Computers"
 #~ msgstr "Комп'ютери"
