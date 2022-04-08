@@ -95,7 +95,7 @@ class GenericResourceMixin(models.AbstractModel):
         rec = super(GenericResourceMixin, self).create(values)
 
         # Update res_id with created id
-        rec.resource_id.write({
+        rec.sudo().resource_id.write({
             'res_id': self.env[
                 'generic.resource'
             ]._generic_mixin_guard__wrap_field('res_id', rec.id),
