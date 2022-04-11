@@ -430,11 +430,6 @@ msgid "Followers"
 msgstr "Подписчики"
 
 #. module: generic_condition
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Подписчики (Каналы)"
-
-#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Подписчики (Партнеры)"
@@ -465,6 +460,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Group by..."
 msgstr "Группировать по…"
+
+#. module: generic_condition
+#: model:ir.model.fields,field_description:generic_condition.field_generic_condition__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1088,6 +1088,9 @@ msgstr "uid - id текущего пользователя"
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "user - current user"
 msgstr "user - текущий пользователь"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Подписчики (Каналы)"
 
 #~ msgid "City: Kyiv"
 #~ msgstr "Город: Киев"

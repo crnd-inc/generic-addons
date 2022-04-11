@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,11 +19,6 @@ msgid "Account Tags"
 msgstr ""
 
 #. module: generic_tag_account
-#: model:ir.model.fields,field_description:generic_tag_account.field_account_move__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: generic_tag_account
 #: model:ir.model.fields,help:generic_tag_account.field_account_move__search_tag_id
 msgid "Find all records that contain this tag"
 msgstr ""
@@ -31,11 +26,6 @@ msgstr ""
 #. module: generic_tag_account
 #: model:ir.model.fields,help:generic_tag_account.field_account_move__search_no_tag_id
 msgid "Find all records that have no this tag"
-msgstr ""
-
-#. module: generic_tag_account
-#: model:ir.model.fields,field_description:generic_tag_account.field_account_move__id
-msgid "ID"
 msgstr ""
 
 #. module: generic_tag_account
@@ -48,11 +38,6 @@ msgstr ""
 #: model:generic.tag.model,name:generic_tag_account.generic_tag_model_account_move
 #: model:ir.model,name:generic_tag_account.model_account_move
 msgid "Journal Entry"
-msgstr ""
-
-#. module: generic_tag_account
-#: model:ir.model.fields,field_description:generic_tag_account.field_account_move____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: generic_tag_account

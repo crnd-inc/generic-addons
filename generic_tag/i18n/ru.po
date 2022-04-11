@@ -211,9 +211,7 @@ msgstr "Опишите тег"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__display_name
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__display_name
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__display_name
 msgid "Display Name"
 msgstr "Отображаемое название"
@@ -313,9 +311,7 @@ msgstr "Сколько тегов относится к этой модели"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__id
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__id
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__id
 msgid "ID"
 msgstr "ID"
@@ -338,9 +334,7 @@ msgstr "Унаследованные Модели"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag____last_update
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin____last_update
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin____last_update
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags____last_update
 msgid "Last Modified on"
 msgstr "Последнее изменение"

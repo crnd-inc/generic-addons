@@ -29,24 +29,14 @@ msgid "<span> : Long : </span>"
 msgstr ""
 
 #. module: generic_location_geo
-#: model:ir.model.fields,field_description:generic_location_geo.field_generic_location__display_name
-msgid "Display Name"
+#: model_terms:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
+msgid "<span>) </span>"
 msgstr ""
 
 #. module: generic_location_geo
 #: model_terms:ir.ui.view,arch_db:generic_location_geo.generic_location_form_view
 msgid "Geolocation"
 msgstr "Геопозиционирование"
-
-#. module: generic_location_geo
-#: model:ir.model.fields,field_description:generic_location_geo.field_generic_location__id
-msgid "ID"
-msgstr ""
-
-#. module: generic_location_geo
-#: model:ir.model.fields,field_description:generic_location_geo.field_generic_location____last_update
-msgid "Last Modified on"
-msgstr ""
 
 #. module: generic_location_geo
 #: model:ir.model.fields,field_description:generic_location_geo.field_generic_location__latitude

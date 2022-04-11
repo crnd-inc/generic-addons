@@ -22,21 +22,6 @@ msgid "Automated Action"
 msgstr "Автоматизированное действие"
 
 #. module: generic_condition_automation
-#: model:ir.model.fields,field_description:generic_condition_automation.field_base_automation__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: generic_condition_automation
-#: model:ir.model.fields,field_description:generic_condition_automation.field_base_automation__id
-msgid "ID"
-msgstr ""
-
-#. module: generic_condition_automation
-#: model:ir.model.fields,field_description:generic_condition_automation.field_base_automation____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: generic_condition_automation
 #: model:ir.model.fields,field_description:generic_condition_automation.field_base_automation__post_condition_ids
 msgid "Post Conditions"
 msgstr ""

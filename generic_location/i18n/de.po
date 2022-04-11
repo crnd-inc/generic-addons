@@ -86,18 +86,12 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__display_name
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_follower_ids
 msgid "Followers"
-msgstr ""
-
-#. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location__message_channel_ids
-msgid "Followers (Channels)"
 msgstr ""
 
 #. module: generic_location
@@ -127,8 +121,12 @@ msgid "Generic location user (implicit)"
 msgstr ""
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__id
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__id
 msgid "ID"
 msgstr ""
 
@@ -180,7 +178,6 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location____last_update
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin____last_update
 msgid "Last Modified on"
 msgstr ""
 

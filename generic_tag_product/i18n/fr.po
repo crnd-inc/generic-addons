@@ -17,11 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: generic_tag_product
 #: model:ir.model.fields,help:generic_tag_product.field_product_product__search_tag_id
 msgid "Find all records that contain this tag"
 msgstr ""
@@ -29,16 +24,6 @@ msgstr ""
 #. module: generic_tag_product
 #: model:ir.model.fields,help:generic_tag_product.field_product_product__search_no_tag_id
 msgid "Find all records that have no this tag"
-msgstr ""
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product__id
-msgid "ID"
-msgstr ""
-
-#. module: generic_tag_product
-#: model:ir.model.fields,field_description:generic_tag_product.field_product_product____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: generic_tag_product

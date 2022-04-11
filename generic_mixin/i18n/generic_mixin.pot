@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -60,24 +60,6 @@ msgstr ""
 #, python-format
 msgid ""
 "Direct modification of '%(model)s:%(field_name)s' field is is not allowed!"
-msgstr ""
-
-#. module: generic_mixin
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_proxy_methods__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__display_name
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__display_name
-msgid "Display Name"
 msgstr ""
 
 #. module: generic_mixin
@@ -152,47 +134,11 @@ msgid "GenericMixin: Transaction Utils"
 msgstr ""
 
 #. module: generic_mixin
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_proxy_methods__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__id
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__id
-msgid "ID"
-msgstr ""
-
-#. module: generic_mixin
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_no_update
 msgid ""
 "Indicates whether this record will be updated with module update or not. If "
 "set to True, the record will not be overriden on module update, if set to "
 "False, thenrecord will be overridden by module update"
-msgstr ""
-
-#. module: generic_mixin
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_by_sequence____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_proxy_methods____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code____last_update
-#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: generic_mixin

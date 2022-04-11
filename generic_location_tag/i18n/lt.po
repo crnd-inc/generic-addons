@@ -17,11 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location_tag
-#: model:ir.model.fields,field_description:generic_location_tag.field_generic_location__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: generic_location_tag
 #: model:ir.model.fields,help:generic_location_tag.field_generic_location__search_tag_id
 msgid "Find all records that contain this tag"
 msgstr ""
@@ -29,16 +24,6 @@ msgstr ""
 #. module: generic_location_tag
 #: model:ir.model.fields,help:generic_location_tag.field_generic_location__search_no_tag_id
 msgid "Find all records that have no this tag"
-msgstr ""
-
-#. module: generic_location_tag
-#: model:ir.model.fields,field_description:generic_location_tag.field_generic_location__id
-msgid "ID"
-msgstr ""
-
-#. module: generic_location_tag
-#: model:ir.model.fields,field_description:generic_location_tag.field_generic_location____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: generic_location_tag
