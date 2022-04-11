@@ -11,7 +11,7 @@ class TestSecurity(TransactionCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestSecurity, cls).setUpClass()
+        super().setUpClass()
 
         cls.test_model = cls.env.ref('generic_tag_test.test_tag_model')
         cls.test_record_1 = cls.env.ref('generic_tag_test.taggable_object_1')
@@ -24,7 +24,7 @@ class TestSecurity(TransactionCase):
         cls.test_tag_4 = cls.env.ref('generic_tag_test.test_tag_4')
 
         cls.demo_user = cls.env.ref('base.user_demo')
-        cls.uenv = cls.env(user=cls.demo_user)
+        cls.uenv = cls.env(user=cls.demo_user)  # pylint: disable=not-callable
 
         cls.group_tags_test_group = cls.env.ref(
             'generic_tag_test.group_tags_test_group')

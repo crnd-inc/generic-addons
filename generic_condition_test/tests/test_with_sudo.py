@@ -14,7 +14,7 @@ class TestConditionRelatedCondition(TransactionCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestConditionRelatedCondition, cls).setUpClass()
+        super().setUpClass()
         cls.test_model_name = 'test.generic.condition.test.model'
         cls.test_model_relation_name = (
             'test.generic.condition.test.model.relation')
@@ -36,7 +36,7 @@ class TestConditionRelatedCondition(TransactionCase):
         cls.demo_user = cls.env.ref('base.user_demo')
         cls.demo_user.groups_id = cls.env.ref(
             'generic_condition_test.group_condition_no_access')
-        cls.uenv = cls.env(user=cls.demo_user)
+        cls.uenv = cls.env(user=cls.demo_user)  # pylint: disable=not-callable
 
         # Example condition
         # TODO: move this condition definition to demo-data
