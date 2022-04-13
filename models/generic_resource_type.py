@@ -149,12 +149,12 @@ class GenericResourceType(models.Model):
 
     def action_show_resources(self):
         self.ensure_one()
-        if self.show_resources_action_id:
-            return self.show_resources_action_id.read()[0]
+        if self.sudo().show_resources_action_id:
+            return self.sudo().show_resources_action_id.read()[0]
         return {
             'type': 'ir.actions.act_window',
-            'name': self.model_id.name,
-            'res_model': self.model_id.model,
+            'name': self.sudo().model_id.name,
+            'res_model': self.sudo().model_id.model,
             'view_mode': 'tree,form',
             'target': 'current',
         }
