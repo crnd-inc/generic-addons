@@ -15,7 +15,6 @@ class GenericLocation(models.Model):
         'generic.mixin.parent.names',
         'generic.mixin.get.action',
         'generic.mixin.track.changes',
-        'generic.mixin.track.changes',
     ]
     _parent_name = 'parent_id'
     _parent_store = True
@@ -134,20 +133,18 @@ class GenericLocation(models.Model):
         })
         return action
 
-    def _request_helper_m2o_info_get_fields(self):
-        """ Find list of fields, that have to be displayed as partner info
+    def _helper_m2o_info_get_fields(self):
+        """ Find list of fields, that have to be displayed as location info
             on request form view in 'm2o_info' fields.
-
-            Could be overridden by third-party modules.
         """
         return [
-            'name', 'description'
+            'name',
         ]
 
-    def request_helper_m2o_info(self):
-        """ Technical method, that is used to perepear data for
+    def helper_m2o_info_data(self):
+        """ Technical method, that is used to prepare data for
             m2o_info fields.
         """
         return helper_get_many2one_info_data(
             self,
-            self._request_helper_m2o_info_get_fields())
+            self._helper_m2o_info_get_fields())
