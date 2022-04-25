@@ -15,6 +15,7 @@ class GenericLocation(models.Model):
         'generic.mixin.parent.names',
         'generic.mixin.get.action',
         'generic.mixin.track.changes',
+        'generic.mixin.track.changes',
     ]
     _parent_name = 'parent_id'
     _parent_store = True

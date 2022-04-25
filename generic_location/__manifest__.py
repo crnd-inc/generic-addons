@@ -17,6 +17,7 @@
         'base_field_m2m_view',
         'generic_mixin',
         'mail',
+        'crnd_web_m2o_info_widget',
     ],
 
     # always loaded
