@@ -129,7 +129,7 @@ class GenericLocation(models.Model):
                 record.country_id_use_parent = False
 
     def _helper_m2o_info_get_fields(self):
-        fields = super()._helper_m2o_info_get_fields()
+        location_fields = super()._helper_m2o_info_get_fields()
         address_fields = ['street', 'street2', 'city', 'zip']
-        fields.extend(address_fields)
-        return fields
+        location_fields.extend(address_fields)
+        return location_fields
