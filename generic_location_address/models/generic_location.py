@@ -92,6 +92,7 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('state_id'),
         store=False,
     )
+    state_name = fields.Char(related='state_id.name', string='State')
     _state_id = fields.Many2one('res.country.state', string='State')
     state_id_use_parent = fields.Boolean(
         string="Use Parent State"
@@ -104,6 +105,7 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('country_id'),
         store=False,
     )
+    country_name = fields.Char(related='country_id.name', string='Country')
     _country_id = fields.Many2one(
         'res.country', string='Country')
     country_id_use_parent = fields.Boolean(
@@ -130,6 +132,7 @@ class GenericLocation(models.Model):
 
     def _helper_m2o_info_get_fields(self):
         location_fields = super()._helper_m2o_info_get_fields()
-        address_fields = ['street', 'street2', 'city', 'zip']
+        address_fields = \
+            ['street', 'street2', 'city', 'zip', 'country_name', 'state_name']
         location_fields.extend(address_fields)
         return location_fields
