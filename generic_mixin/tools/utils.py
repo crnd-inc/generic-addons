@@ -1,4 +1,4 @@
-import time
+import datetime
 import math
 from odoo.tools.float_utils import float_round
 
@@ -24,8 +24,8 @@ def removesuffix(s, suffix):
 def float_to_time(hours):
     """ Convert a number of hours into a time object. """
     if hours == 24.0:
-        return time.max
+        return datetime.time.max
     fractional, integral = math.modf(hours)
-    return time(
+    return datetime.time(
         int(integral),
         int(float_round(60 * fractional, precision_digits=0)), 0)
