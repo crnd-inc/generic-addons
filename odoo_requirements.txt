@@ -1,0 +1,1 @@
+--repo https://gitlab.crnd.pro/crnd-opensource/crnd-web.git
