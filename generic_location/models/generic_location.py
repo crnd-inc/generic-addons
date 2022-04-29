@@ -3,6 +3,7 @@ from odoo import models, fields, _
 
 from odoo.addons.generic_mixin import post_create, post_write
 from odoo.addons.generic_mixin.tools.sql import create_sql_view
+from odoo.addons.crnd_web_m2o_info_widget import helper_get_many2one_info_data
 
 _logger = logging.getLogger(__name__)
 
@@ -107,3 +108,19 @@ class GenericLocation(models.Model):
             'display_name': _('Sublocations'),
         })
         return action
+
+    def _helper_m2o_info_get_fields(self):
+        """ Find list of fields, that have to be displayed as location info
+            on request form view in 'm2o_info' fields.
+        """
+        return [
+            'name',
+        ]
+
+    def helper_m2o_info_data(self):
+        """ Technical method, that is used to prepare data for
+            m2o_info fields.
+        """
+        return helper_get_many2one_info_data(
+            self,
+            self._helper_m2o_info_get_fields())

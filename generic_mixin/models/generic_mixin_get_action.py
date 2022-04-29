@@ -30,7 +30,8 @@ class GenericMixinGetAction(models.AbstractModel):
     # Note: this mixin is developed primaraly for compatability with 14.0
 
     @api.model
-    def get_action_by_xmlid(self, xmlid, context=None, domain=None):
+    def get_action_by_xmlid(self, xmlid, context=None, domain=None,
+                            name=None):
         """ Simple method to get action by xmlid and update resulting dict with
             provided "update_data".
 
@@ -41,6 +42,8 @@ class GenericMixinGetAction(models.AbstractModel):
             :param str xmlid: XML (external) ID of action ir.actions.* to read
             :param dict context: apply new context for action
             :param list domain: apply new domain for action
+            :param str name: apply new name for action
+                (also changes display name)
             :return dict: Data for specified action
         """
         action = self.env['ir.actions.actions']._for_xml_id(xmlid)
@@ -48,5 +51,8 @@ class GenericMixinGetAction(models.AbstractModel):
             action['context'] = context
         if domain is not None:
             action['domain'] = domain
+        if name is not None:
+            action['name'] = name
+            action['display_name'] = name
 
         return action
