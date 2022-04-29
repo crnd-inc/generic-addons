@@ -1,1 +1,0 @@
---repo https://gitlab.crnd.pro/crnd-opensource/crnd-web.git --branch 12.0 --name crnd_web_m2o_info_widget
