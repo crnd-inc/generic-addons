@@ -12,8 +12,10 @@
 | generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 13.0.1.2.0 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
 | generic_location_tag | Generic Location Tag | LGPL-3 | 13.0.1.2.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 13.0.1.4.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 13.0.1.52.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 13.0.1.53.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_resource | Generic Resource | LGPL-3 | 13.0.1.33.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 13.0.1.1.1 | Adds new top-level menu 'rules' |  |
+| generic_service | Generic Service | LGPL-3 | 13.0.1.14.0 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 13.0.2.5.0 | Generic tag management. |  |
 | generic_tag_account | Generic Tag (Account) | LGPL-3 | 13.0.1.2.0 | Generic tag integration with account addon |  |
 | generic_tag_automation | Generic Tag (Automation) | LGPL-3 | 13.0.1.1.1 |  |  |
@@ -21,5 +23,6 @@
 | generic_tag_purchase | Generic Tag (Purchase) | LGPL-3 | 13.0.1.2.0 | Generic tag integration with purchase addon |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 13.0.1.4.0 | Generic Tag - Tests (do not install manualy) |  |
 | generic_tag_test_automation | Generic Tag (Automation) - Test | LGPL-3 | 13.0.1.1.0 |  |  |
+| generic_team | Generic team | LGPL-3 | 13.0.1.13.0 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 13.0.0.10.0 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 13.0.0.11.0 | Technical module that have to be used to test Generic Mixin module |  |
