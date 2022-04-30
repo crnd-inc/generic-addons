@@ -10,13 +10,14 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '15.0.1.10.0',
+    'version': '15.0.1.12.0',
 
     # any module necessary for this one to work correctly
     'depends': [
         'base_field_m2m_view',
         'generic_mixin',
         'mail',
+        'crnd_web_m2o_info_widget',
     ],
 
     # always loaded
