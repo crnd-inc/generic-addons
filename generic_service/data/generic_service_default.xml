@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_service_default" model="generic.service">
+        <field name="name">Default</field>
+        <field name="code">default</field>
+        <field name="description">Default service</field>
+    </record>
+</odoo>

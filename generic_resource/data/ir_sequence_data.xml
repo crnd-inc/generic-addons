@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Sequences for generic resource simple inv_number -->
+    <record id="generic_resource_simple_sequence" model="ir.sequence">
+        <field name="name">Generic resource simple sequence</field>
+        <field name="code">generic.resource.simple.sequence</field>
+        <field name="prefix">SR-</field>
+        <field name="padding">4</field>
+    </record>
+
+</odoo>

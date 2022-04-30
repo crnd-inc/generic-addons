@@ -1,0 +1,395 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* generic_team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-16 11:54+0000\n"
+"PO-Revision-Date: 2020-07-28 12:23+0000\n"
+"Last-Translator: Ostap Yakovenko <ceo@crnd.pro>\n"
+"Language-Team: Russian <http://weblate.crnd.pro/projects/bureaucrat-itsm-13/"
+"generic_team/ru/>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.10.3\n"
+
+#. module: generic_team
+#: model:res.groups,comment:generic_team.group_generic_team_user_implicit
+msgid ""
+"\n"
+"            Imlicit user for generic team\n"
+"        "
+msgstr ""
+"\n"
+"            Неявный пользователь универсальных команд\n"
+"        "
+
+#. module: generic_team
+#: model:res.groups,comment:generic_team.group_generic_team_manager
+msgid ""
+"\n"
+"            Manager - full access\n"
+"        "
+msgstr ""
+"\n"
+"            Менеджер - полный доступ\n"
+"        "
+
+#. module: generic_team
+#: model:res.groups,comment:generic_team.group_generic_team_user
+msgid ""
+"\n"
+"            User - readonly access, menu access\n"
+"        "
+msgstr ""
+"\n"
+"            Пользователь - доступ только на чтение, доступ к меню\n"
+"        "
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction
+msgid "Action Needed"
+msgstr "Требуется действие"
+
+#. module: generic_team
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_search
+msgid "Active"
+msgstr "Активно"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__active
+msgid "Active?"
+msgstr "Активно?"
+
+#. module: generic_team
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_search
+msgid "Archived"
+msgstr "Заархивировано"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_attachment_count
+msgid "Attachment Count"
+msgstr "Количество вложений"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__create_uid
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__create_uid
+msgid "Created by"
+msgstr "Создан"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__create_date
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__create_date
+msgid "Created on"
+msgstr "Создан"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__description
+msgid "Description"
+msgstr "Описание"
+
+#. module: generic_team
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
+msgid "Description..."
+msgstr "Описание..."
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
+msgid "Display Name"
+msgstr "Отображаемое название"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_follower_ids
+msgid "Followers"
+msgstr "Подписчики"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Подписчики (Каналы)"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Подписчики (Партнеры)"
+
+#. module: generic_team
+#: model:ir.model,name:generic_team.model_generic_team
+msgid "Generic Team"
+msgstr "Универсальная команда"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_res_users__generic_team_member_ids
+msgid "Generic Team Member"
+msgstr "Участник универсальной команды"
+
+#. module: generic_team
+#: model:ir.model,name:generic_team.model_generic_team_member
+msgid "Generic team member"
+msgstr "Участник универсальной команды"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__id
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__id
+msgid "ID"
+msgstr "ID"
+
+#. module: generic_team
+#: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction
+#: model:ir.model.fields,help:generic_team.field_generic_team__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Если отмечено - новые сообщения требуют Вашего внимания."
+
+#. module: generic_team
+#: model:ir.model.fields,help:generic_team.field_generic_team__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Если отмечено, некоторые сообщения имеют ошибку доставки."
+
+#. module: generic_team
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
+msgid "Info"
+msgstr "Информация"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_is_follower
+msgid "Is Follower"
+msgstr "Подписчик"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team____last_update
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member____last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__write_uid
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__write_uid
+msgid "Last Updated by"
+msgstr "Последний раз обновил"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__write_date
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_image
+msgid "Leader Image"
+msgstr ""
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_name
+msgid "Leader Name"
+msgstr ""
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Основное вложение"
+
+#. module: generic_team
+#: model:res.groups,name:generic_team.group_generic_team_manager
+msgid "Manager"
+msgstr "Руководитель"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_has_error
+msgid "Message Delivery error"
+msgstr "Ошибка доставки сообщения"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_ids
+msgid "Messages"
+msgstr "Сообщения"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Количество действий"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: generic_team
+#: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Количество сообщений, требующих внимания"
+
+#. module: generic_team
+#: model:ir.model.fields,help:generic_team.field_generic_team__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кол-во сообщений с ошибкой доставки"
+
+#. module: generic_team
+#: model:ir.model.fields,help:generic_team.field_generic_team__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Количество непрочитанных сообщений"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__task_manager_id
+msgid "Task manager"
+msgstr "Диспетчер заданий"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__team_id
+msgid "Team"
+msgstr "Команда"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__team_member_ids
+msgid "Team Members"
+msgstr "Участники команды"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_id
+msgid "Team leader"
+msgstr "Лидер команды"
+
+#. module: generic_team
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
+msgid "Team members"
+msgstr "Участники команды"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__user_ids
+msgid "Team members (Users)"
+msgstr "Участники команды (Пользователи)"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__name
+msgid "Team name"
+msgstr "Название команды"
+
+#. module: generic_team
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
+msgid "Team name..."
+msgstr "Название команды..."
+
+#. module: generic_team
+#: model:ir.actions.act_window,name:generic_team.generic_team_action
+#: model:ir.model.fields,field_description:generic_team.field_res_users__generic_team_ids
+#: model:ir.ui.menu,name:generic_team.menu_generic_team
+#: model:ir.ui.menu,name:generic_team.menu_generic_team_root
+#: model_terms:ir.ui.view,arch_db:generic_team.view_users_form
+msgid "Teams"
+msgstr "Команды"
+
+#. module: generic_team
+#: model:ir.model.fields,help:generic_team.field_res_users__generic_team_ids
+msgid "This user is member of following generic teams"
+msgstr "Этот пользователь участник следующей универсальной команды"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_unread
+msgid "Unread Messages"
+msgstr "Непрочитанные Сообщения"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Счетчик непрочитанных сообщений"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team_member__user_id
+#: model:res.groups,name:generic_team.group_generic_team_user
+msgid "User"
+msgstr "Пользователь"
+
+#. module: generic_team
+#: model:res.groups,name:generic_team.group_generic_team_user_implicit
+msgid "User implicit"
+msgstr "Пользователь (неявный)"
+
+#. module: generic_team
+#: model:ir.model.constraint,message:generic_team.constraint_generic_team_member_user_team_unique
+msgid "User may be added to team only once."
+msgstr "Пользователь может быть добавлен в команду лишь однажды."
+
+#. module: generic_team
+#: model:ir.model,name:generic_team.model_res_users
+msgid "Users"
+msgstr "Пользователи"
+
+#. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__user_count
+msgid "Users count"
+msgstr "Количество пользователей"
+
+#~ msgid ""
+#~ "\n"
+#~ "        A Functional Team is a group\n"
+#~ "        of people with a common functional expertise working\n"
+#~ "        toward shared objectives.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "        Функциональная команда это группа\n"
+#~ "        людей одной компетенции, работающая \n"
+#~ "        в направлении общих целей.\n"
+#~ "        "
+
+#~ msgid ""
+#~ "\n"
+#~ "        A self-organizing, cross-functional team\n"
+#~ "        of people who collectively are responsible for all of the work\n"
+#~ "        necessary to produce working, validated assets.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "        Самоорганизованная, многофункциональная команда\n"
+#~ "        людей, которые коллективно отвечают за всю работу,\n"
+#~ "        необходимую для производства работающих, проверенных активов.\n"
+#~ "        "
+
+#~ msgid ""
+#~ "\n"
+#~ "        DevOps as a Service is a delivery model\n"
+#~ "        for a set of tools that facilitates collaboration between\n"
+#~ "        an organization's software development team and the operations "
+#~ "team.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "        DevOps как сервис - это модель доставки\n"
+#~ "        для набора инструментов, который облегчает сотрудничество между\n"
+#~ "        командой разработчиков программного обеспечения организации и "
+#~ "операционной командой.\n"
+#~ "        "
+
+#~ msgid "DevOps team"
+#~ msgstr "Команда DevOps"
+
+#~ msgid "Odoo development team"
+#~ msgstr "Команда разработчиков Odoo"
+
+#~ msgid "Odoo functional team"
+#~ msgstr "Функциональная команда Odoo"
+
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Если отмечено, новые сообщения будут требовать вашего внимания."
+
+#~ msgid "Number of error"
+#~ msgstr "Кол-вро ошибок"
+
+#~ msgid "Small-sized image"
+#~ msgstr "Уменьшенное изображение"
+
+#~ msgid ""
+#~ "Small-sized image of this contact. It is automatically resized as a "
+#~ "64x64px image, with aspect ratio preserved. Use this field anywhere a "
+#~ "small image is required."
+#~ msgstr ""
+#~ "Маленькое изображение контакта. Автоматически преобразуется в изображение "
+#~ "64x64px, с сохранением пропорций. Используйте это поле там, где требуется "
+#~ "маленькое изображение."

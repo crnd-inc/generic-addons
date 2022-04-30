@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_service_level_1" model="generic.service.level">
+        <field name="name">Level 1</field>
+        <field name="code">level-1</field>
+        <field name="description">Service level for our Platinum clients.</field>
+    </record>
+
+    <record id="generic_service_level_2" model="generic.service.level">
+        <field name="name">Level 2</field>
+        <field name="code">level-2</field>
+        <field name="description">Service level for our Gold clients.</field>
+    </record>
+
+    <record id="generic_service_level_3" model="generic.service.level">
+        <field name="name">Level 3</field>
+        <field name="code">level-3</field>
+        <field name="description">Service level for our Silver clients.</field>
+    </record>
+
+    <record id="generic_service_level_4" model="generic.service.level">
+        <field name="name">Level 4</field>
+        <field name="code">level-4</field>
+        <field name="description">Service level for our Bronze clients.</field>
+    </record>
+</odoo>
