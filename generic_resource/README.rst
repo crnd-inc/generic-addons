@@ -1,9 +1,12 @@
 Generic Resource
 ================
 
-.. |badge2| image:: https://img.shields.io/badge/license-OPL--1-blue.png
-    :target: https://www.odoo.com/documentation/user/12.0/legal/licenses/licenses.html#odoo-apps
-    :alt: License: OPL-1
+.. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
+    :target: https://github.com/crnd-inc/generic-addons
+
+.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
 
 .. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
     :target: https://yodoo.systems
@@ -15,7 +18,7 @@ Generic Resource
     :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Resource_admin_eng
 
 
-|badge2| |badge4| |badge5|
+|badge1| |badge2| |badge4| |badge5|
 
 The module provides the ability to create and categorize various resources that can be used in other Odoo modules.
 
@@ -49,4 +52,3 @@ This module is maintained by the Center of Research & Development company.
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
 
 For any questions `contact us <mailto:info@crnd.pro>`__.
-

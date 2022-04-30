@@ -1,9 +1,12 @@
 Generic Team
 =======================
 
-.. |badge2| image:: https://img.shields.io/badge/license-OPL--1-blue.png
-    :target: https://www.odoo.com/documentation/user/12.0/legal/licenses/licenses.html#odoo-apps
-    :alt: License: OPL-1
+.. |badge1| image:: https://img.shields.io/badge/pipeline-pass-brightgreen.png
+    :target: https://github.com/crnd-inc/generic-addons
+
+.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
 
 .. |badge3| image:: https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png
     :target: https://yodoo.systems
@@ -15,7 +18,7 @@ Generic Team
     :target: https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Team_admin_eng
 
 
-|badge2| |badge4| |badge5|
+|badge1| |badge2| |badge4| |badge5|
 
 With this module you can create teams and add users to them, which allows you to perform group actions (such as assigning a responsible team instead of one person) while working with Odoo applications. The teams can be used in other Odoo applications with the help of additional communication modules.
 
