@@ -29,12 +29,16 @@
         'views/generic_team.xml',
         'views/generic_team_member_view.xml',
         'views/res_users.xml',
-        'views/templates.xml',
     ],
 
     "demo": [
         'demo/generic_team_demo.xml'
     ],
+    'assets': {
+        'web.assets_backend': [
+            'generic_team/static/src/scss/generic_team.scss',
+        ],
+    },
     'images': ['static/description/banner.png'],
     "installable": True,
     "application": False,

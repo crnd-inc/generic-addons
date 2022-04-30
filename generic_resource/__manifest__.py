@@ -34,10 +34,14 @@
         'views/generic_resource_type_views.xml',
         'views/generic_resource_simple.xml',
         'views/generic_resource_simple_category.xml',
-        'views/assets.xml',
 
         'data/generic_resource_type_data.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'generic_resource/static/src/scss/resource_kanban.scss',
+        ],
+    },
     'demo': [
         'demo/demo_resource.xml',
     ],
