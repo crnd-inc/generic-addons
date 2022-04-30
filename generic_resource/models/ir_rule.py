@@ -1,5 +1,8 @@
-from odoo import api, models, SUPERUSER_ID
+import logging
+from odoo import api, models
 from odoo.osv import expression
+
+_logger = logging.getLogger(__name__)
 
 
 class IrRule(models.Model):
@@ -37,9 +40,9 @@ class IrRule(models.Model):
         # For creation standard odoo rules have to be applied
         # Write/Unlink checked in 'check_access_rule' method of
         # generic.resource.
-        if model_name == 'generic.resource' and mode == 'read':
+        if model_name == 'generic.resource' and mode in ('read', 'create'):
             # Do not apply domain for superuser
-            if self.env.user.id == SUPERUSER_ID:
+            if self.env.su:
                 return clauses, params, tables
 
             # Do not apply restrictions for Resource Manager

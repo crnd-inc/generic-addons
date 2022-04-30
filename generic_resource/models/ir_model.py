@@ -1,5 +1,4 @@
 from odoo import models, fields, api, exceptions, _
-from odoo.tools import pycompat
 
 
 class IrModel(models.Model):
@@ -74,6 +73,7 @@ class IrModel(models.Model):
                     "to 'False'."))
 
             res = super(IrModel, self).write(vals)
+            self.flush()
             # setup models; this reloads custom models in registry
             self.pool.setup_models(self._cr)
             # update database schema of models
@@ -104,7 +104,7 @@ class IrModel(models.Model):
         if (model_data.get('is_generic_resource') and
                 model_class._name != 'generic.resource.mixin'):
             parents = model_class._inherit or []
-            if isinstance(parents, pycompat.string_types):
+            if isinstance(parents, str):
                 parents = [parents]
             model_class._inherit = parents + ['generic.resource.mixin']
         return model_class

@@ -13,7 +13,8 @@ class TestResourceRoleRead(TestResourceVisibilityBase):
         self.assertTrue(self.public_user.share)
         self.assertTrue(self.public_user.has_group('base.group_public'))
 
-        self.assertTrue(self.resource_internal.with_user(self.user).read())
+        self.assertTrue(
+            self.resource_internal.with_user(self.user).read(['name']))
 
         with self.assertRaises(AccessError):
             self.resource_internal.with_user(self.portal_user).read(['name'])
@@ -28,7 +29,8 @@ class TestResourceRoleRead(TestResourceVisibilityBase):
         self.assertTrue(self.public_user.share)
         self.assertTrue(self.public_user.has_group('base.group_public'))
 
-        self.assertTrue(self.resource_portal.with_user(self.user).read())
+        self.assertTrue(
+            self.resource_portal.with_user(self.user).read(['name']))
         self.assertTrue(
             self.resource_portal.with_user(self.portal_user).read(['name']))
 
@@ -50,7 +52,8 @@ class TestResourceRoleRead(TestResourceVisibilityBase):
         self.assertTrue(self.public_user.share)
         self.assertTrue(self.public_user.has_group('base.group_public'))
 
-        self.assertTrue(self.resource_public.with_user(self.user).read())
+        self.assertTrue(
+            self.resource_public.with_user(self.user).read(['name']))
         self.assertTrue(
             self.resource_public.with_user(self.portal_user).read(['name']))
 

@@ -18,9 +18,6 @@ class GenericResourceRelatedMixin(models.AbstractModel):
         Use following UI workflow to select relate resource
         1. user selects resource type
         2. user selects object that implements resource (resource_res_id)
-           use here generic_m2o widget, to make user able to search records
-           in resource model, selected by type (use related resource_res_model)
-           field
         4. resource_id will be computed automaticly based on type and res_id
 
         Example usage in view:
@@ -28,8 +25,7 @@ class GenericResourceRelatedMixin(models.AbstractModel):
         <field name="resource_type_id"
                options="{'no_create': true, 'no_quick_create': true}"/>
         <field name="resource_res_model" invisible="1"/>
-        <field name="resource_res_id" widget="generic_m2o"
-               model_field="resource_res_model"
+        <field name="resource_res_id"
                attrs="{'invisible': [('resource_res_model', '=', False)]}"/>
 
         If you want to set default resource ID via context, use following
@@ -48,8 +44,9 @@ class GenericResourceRelatedMixin(models.AbstractModel):
     resource_res_model = fields.Char(
         related="resource_type_id.model_id.model",
         string="Resource model", readonly=True)
-    resource_res_id = fields.Integer(
-        string="Resource", store=True,
+    resource_res_id = fields.Many2oneReference(
+        string="Resource",
+        model_field='resource_res_model', store=True,
         compute="_compute_resource_res_fields",
         inverse="_inverse_resource_res_id", compute_sudo=True)
     resource_id = fields.Many2one(
@@ -59,7 +56,7 @@ class GenericResourceRelatedMixin(models.AbstractModel):
     @api.depends('resource_id', 'resource_id.res_id',
                  'resource_id.res_type_id')
     def _compute_resource_res_fields(self):
-        for rec in self:
+        for rec in self.exists():
             if rec.resource_id:
                 rec.update({
                     'resource_res_id': rec.resource_id.res_id,

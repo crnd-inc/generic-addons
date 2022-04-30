@@ -6,6 +6,7 @@ class GenericResourceType(models.Model):
     _name = 'generic.resource.type'
     _inherit = [
         'generic.mixin.track.changes',
+        'image.mixin',
     ]
     _description = "Generic Resource Type"
     _order = 'sequence asc, name asc, model_id asc'
@@ -33,9 +34,6 @@ class GenericResourceType(models.Model):
          ('public', 'Visible for unregistered users')],
         default='internal', required=True)
     sequence = fields.Integer(default=5, index=True)
-    image = fields.Binary(attachment=True)
-    image_small = fields.Binary(attachment=True)
-    image_medium = fields.Binary(attachment=True)
 
     _sql_constraints = [
         ('model_id_uniq',
@@ -74,7 +72,6 @@ class GenericResourceType(models.Model):
                 'binding_type': 'action',
                 'binding_model_id': self.model_id.id,
                 'res_model': 'generic.resource',
-                'src_model': self.model,
                 'view_mode': 'tree,form',
                 'target': 'current',
                 'domain': (
@@ -129,16 +126,10 @@ class GenericResourceType(models.Model):
 
     @api.model
     def create(self, vals):
-        tools.image_resize_images(vals)
         record = super(GenericResourceType, self).create(vals)
         self._get_resource_type_id.clear_cache(self)
         record._create_context_action_for_target_model()
         return record
-
-    def write(self, vals):
-        tools.image_resize_images(vals)
-        res = super(GenericResourceType, self).write(vals)
-        return res
 
     def unlink(self):
         self.mapped('resource_related_res_action_id').unlink()

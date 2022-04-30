@@ -10,21 +10,24 @@ class TestResourceRoleWrite(TestResourceVisibilityBase):
         self.assertFalse(self.user.share)
 
         with self.assertRaises(AccessError):
-            self.resource_internal.with_user(self.user).name = 'Test 1234'
+            self.resource_internal.with_user(
+                self.user).name = 'Test 1234'
 
     def test_internal_resource_write_portal(self):
         self.assertTrue(self.portal_user.share)
         self.assertTrue(self.portal_user.has_group('base.group_portal'))
 
         with self.assertRaises(AccessError):
-            self.resource_internal.with_user(self.portal_user).name = 'Test 1234'
+            self.resource_internal.with_user(
+                self.portal_user).name = 'Test 1234'
 
     def test_internal_resource_write_public(self):
         self.assertTrue(self.public_user.share)
         self.assertTrue(self.public_user.has_group('base.group_public'))
 
         with self.assertRaises(AccessError):
-            self.resource_internal.with_user(self.public_user).name = 'Test 1235'
+            self.resource_internal.with_user(
+                self.public_user).name = 'Test 1235'
 
     def test_internal_resource_write_no_portal_no_employee(self):
         # Remove group 'Portal' from portal user
@@ -34,7 +37,8 @@ class TestResourceRoleWrite(TestResourceVisibilityBase):
         self.assertTrue(self.portal_user.share)
 
         with self.assertRaises(AccessError):
-            self.resource_internal.with_user(self.portal_user).name = 'Test 1234'
+            self.resource_internal.with_user(
+                self.portal_user).name = 'Test 1234'
 
     def test_portal_resource_write_employee(self):
         self.assertFalse(self.user.share)
@@ -47,7 +51,8 @@ class TestResourceRoleWrite(TestResourceVisibilityBase):
         self.assertTrue(self.portal_user.has_group('base.group_portal'))
 
         with self.assertRaises(AccessError):
-            self.resource_portal.with_user(self.portal_user).name = 'Test 1234'
+            self.resource_portal.with_user(
+                self.portal_user).name = 'Test 1234'
 
         # Remove group 'Portal' from portal user
         self.portal_user.groups_id -= self.env.ref('base.group_portal')

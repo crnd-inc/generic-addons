@@ -12,6 +12,7 @@ class TestCustomResource(ReduceLoggingMixin, TransactionCase):
     def setUp(self):
         super(TestCustomResource, self).setUp()
 
+        # Deactivate views not related to installed models
         self.env['ir.ui.view'].search([
             ('model', 'not in', list(self.registry.models))
         ]).write({

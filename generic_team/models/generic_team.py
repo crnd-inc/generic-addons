@@ -21,7 +21,7 @@ class GenericTeam(models.Model):
         related='leader_id.display_name', readonly=True,
         string="Leader Name")
     leader_image = fields.Binary(  # pylint: disable=attribute-string-redundant
-        related='leader_id.image_small', readonly=True,
+        related='leader_id.image_128', readonly=True,
         string="Leader Image")
     task_manager_id = fields.Many2one(
         'res.users', index=True, string='Task manager')

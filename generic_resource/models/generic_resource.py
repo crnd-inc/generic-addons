@@ -35,8 +35,9 @@ class GenericResource(models.Model):
     res_model = fields.Char(
         related='res_type_id.model_id.model', readonly=True, store=True,
         string="Resource Model", compute_sudo=True, index=True)
-    res_id = fields.Integer(
-        string="Resource", required=True, index=True, readonly=True)
+    res_id = fields.Many2oneReference(
+        string="Resource", required=True, index=True, readonly=True,
+        model_field='res_model')
     resource_visibility = fields.Selection(
         [('internal', 'Visible only to employees'),
          ('portal', 'Visible to employees and portal users'),
@@ -123,6 +124,25 @@ class GenericResource(models.Model):
                 if k in fields_list
             })
         return res
+
+    def _filter_access_rules_python(self, operation):
+        recs = super(GenericResource, self)._filter_access_rules_python(
+            operation)
+
+        if operation != 'read':
+            return recs
+        # Do not apply domain for superuser
+        if self.env.su:
+            return recs
+
+        # Do not apply restrictions for Resource Manager
+        if self.env.user.has_group(
+                'generic_resource.group_generic_resource_manager'):
+            return recs
+
+        # Apply resource-specific domain for filtered records
+        return recs.sudo().filtered_domain(
+            self.env['ir.rule']._generic_res__get_domain(operation))
 
     def on_resource_created(self):
         """ Hook to be called when resource creation completed
