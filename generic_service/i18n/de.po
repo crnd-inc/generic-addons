@@ -27,6 +27,11 @@ msgid "Access generic services (no access to menu)"
 msgstr ""
 
 #. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__access_group_ids
+msgid "Access groups"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction
 msgid "Action Needed"
@@ -121,8 +126,6 @@ msgstr ""
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__display_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__display_name
-#: model:ir.model.fields,field_description:generic_service.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:generic_service.field_res_partner__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -130,12 +133,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_follower_ids
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_follower_ids
 msgid "Followers"
-msgstr ""
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service__message_channel_ids
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_channel_ids
-msgid "Followers (Channels)"
 msgstr ""
 
 #. module: generic_service
@@ -175,10 +172,14 @@ msgid "Generic service user (implicit)"
 msgstr ""
 
 #. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__has_message
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_level__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__id
-#: model:ir.model.fields,field_description:generic_service.field_res_config_settings__id
-#: model:ir.model.fields,field_description:generic_service.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -211,8 +212,6 @@ msgstr ""
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service____last_update
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level____last_update
-#: model:ir.model.fields,field_description:generic_service.field_res_config_settings____last_update
-#: model:ir.model.fields,field_description:generic_service.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -291,6 +290,11 @@ msgstr ""
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_unread_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_unread_counter
 msgid "Number of unread messages"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,help:generic_service.field_generic_service__access_group_ids
+msgid "Restrict access to this service by specified groups only"
 msgstr ""
 
 #. module: generic_service

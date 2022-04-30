@@ -40,11 +40,15 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_name_with_code_code_ascii_only
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_ascii_only
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_ascii_only
 msgid "Code must be ascii only"
 msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_code_uniq
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_uniq
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_uniq
 msgid "Code must be unique."
 msgstr ""
 
@@ -151,6 +155,8 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_name_uniq
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_name_uniq
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_name_uniq
 msgid "Name must be unique."
 msgstr ""
 

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,7 +26,6 @@ msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__active
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__active
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__active
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__active
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__active
@@ -108,28 +107,10 @@ msgid "Default"
 msgstr ""
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:0
-#, python-format
-msgid "Direct creation of 'generic.resource' records is not allowed!"
-msgstr ""
-
-#. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:0
-#, python-format
-msgid "Direct modification of 'generic.resource:res_id' field is not allowed!"
-msgstr ""
-
-#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__display_name
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__display_name
-#: model:ir.model.fields,field_description:generic_resource.field_ir_model__display_name
-#: model:ir.model.fields,field_description:generic_resource.field_ir_rule__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -163,12 +144,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_follower_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_follower_ids
 msgid "Followers"
-msgstr ""
-
-#. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_channel_ids
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_channel_ids
-msgid "Followers (Channels)"
 msgstr ""
 
 #. module: generic_resource
@@ -256,16 +231,16 @@ msgid "Generic resource user (imlicit)"
 msgstr ""
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__has_message
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__id
-#: model:ir.model.fields,field_description:generic_resource.field_ir_model__id
-#: model:ir.model.fields,field_description:generic_resource.field_ir_rule__id
 msgid "ID"
 msgstr ""
 
@@ -349,15 +324,9 @@ msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin____last_update
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple____last_update
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category____last_update
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_ir_model____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_ir_rule____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -529,7 +498,6 @@ msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__res_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_res_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__resource_ids
@@ -550,7 +518,6 @@ msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_model
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model_id
 msgid "Resource Model"
@@ -563,7 +530,6 @@ msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_type_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__res_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__resource_type_id
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
@@ -577,7 +543,6 @@ msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__resource_visibility
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__resource_visibility
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__resource_visibility
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_visibility
 msgid "Resource Visibility"
@@ -605,9 +570,6 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_mixin_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_unique_resource_id
-#: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_2_unique_resource_id
-#: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_unique_resource_id
-#: model:ir.model.constraint,message:generic_resource.constraint_stock_warehouse_unique_resource_id
 msgid "Resource must be unique"
 msgstr ""
 
@@ -618,7 +580,6 @@ msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource__resource_visibility
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_mixin__resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__resource_visibility
 msgid ""
 "Resource visibility determines users that have read access for this "

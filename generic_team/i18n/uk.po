@@ -103,7 +103,6 @@ msgstr "Опис..."
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
-#: model:ir.model.fields,field_description:generic_team.field_res_users__display_name
 msgid "Display Name"
 msgstr "Назва для відображення"
 
@@ -111,11 +110,6 @@ msgstr "Назва для відображення"
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_follower_ids
 msgid "Followers"
 msgstr "Підписники"
-
-#. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Підписники (Канали)"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_partner_ids
@@ -138,9 +132,13 @@ msgid "Generic team member"
 msgstr "Учасник універсаьної команди"
 
 #. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__id
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__id
-#: model:ir.model.fields,field_description:generic_team.field_res_users__id
 msgid "ID"
 msgstr "ID"
 
@@ -168,7 +166,6 @@ msgstr "Підписник"
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team____last_update
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member____last_update
-#: model:ir.model.fields,field_description:generic_team.field_res_users____last_update
 msgid "Last Modified on"
 msgstr "Остання модифікація"
 
@@ -328,6 +325,9 @@ msgstr "Користувачі"
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__user_count
 msgid "Users count"
 msgstr "К-сть користувачів"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Підписники (Канали)"
 
 #~ msgid "DevOps team"
 #~ msgstr "Команда DevOps"

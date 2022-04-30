@@ -91,18 +91,12 @@ msgstr ""
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
-#: model:ir.model.fields,field_description:generic_team.field_res_users__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_follower_ids
 msgid "Followers"
-msgstr ""
-
-#. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_channel_ids
-msgid "Followers (Channels)"
 msgstr ""
 
 #. module: generic_team
@@ -126,9 +120,13 @@ msgid "Generic team member"
 msgstr ""
 
 #. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__id
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__id
-#: model:ir.model.fields,field_description:generic_team.field_res_users__id
 msgid "ID"
 msgstr ""
 
@@ -156,7 +154,6 @@ msgstr ""
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team____last_update
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member____last_update
-#: model:ir.model.fields,field_description:generic_team.field_res_users____last_update
 msgid "Last Modified on"
 msgstr ""
 

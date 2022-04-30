@@ -103,7 +103,6 @@ msgstr "Описание..."
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
-#: model:ir.model.fields,field_description:generic_team.field_res_users__display_name
 msgid "Display Name"
 msgstr "Отображаемое название"
 
@@ -111,11 +110,6 @@ msgstr "Отображаемое название"
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_follower_ids
 msgid "Followers"
 msgstr "Подписчики"
-
-#. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Подписчики (Каналы)"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_partner_ids
@@ -138,9 +132,13 @@ msgid "Generic team member"
 msgstr "Участник универсальной команды"
 
 #. module: generic_team
+#: model:ir.model.fields,field_description:generic_team.field_generic_team__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__id
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__id
-#: model:ir.model.fields,field_description:generic_team.field_res_users__id
 msgid "ID"
 msgstr "ID"
 
@@ -168,7 +166,6 @@ msgstr "Подписчик"
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team____last_update
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member____last_update
-#: model:ir.model.fields,field_description:generic_team.field_res_users____last_update
 msgid "Last Modified on"
 msgstr "Последнее изменение"
 
@@ -328,6 +325,9 @@ msgstr "Пользователи"
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__user_count
 msgid "Users count"
 msgstr "Количество пользователей"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Подписчики (Каналы)"
 
 #~ msgid ""
 #~ "\n"
