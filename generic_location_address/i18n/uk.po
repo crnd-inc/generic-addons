@@ -47,6 +47,12 @@ msgid "Address Configuration"
 msgstr ""
 
 #. module: generic_location_address
+#: model:ir.model.fields,help:generic_location_address.field_generic_location__state_name
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr ""
+
+#. module: generic_location_address
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__city
 #: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
@@ -56,6 +62,7 @@ msgstr "Місто"
 #. module: generic_location_address
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location___country_id
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_name
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__country_id
 #: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "Country"
@@ -70,6 +77,7 @@ msgstr "Локація"
 #. module: generic_location_address
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location___state_id
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_name
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__state_id
 #: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
 msgid "State"
@@ -96,6 +104,11 @@ msgstr "Вулиця..."
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__street2
 msgid "Street2"
 msgstr "Вулиця 2"
+
+#. module: generic_location_address
+#: model:ir.model.fields,help:generic_location_address.field_generic_location__country_name
+msgid "The full name of the country."
+msgstr ""
 
 #. module: generic_location_address
 #: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city_use_parent
