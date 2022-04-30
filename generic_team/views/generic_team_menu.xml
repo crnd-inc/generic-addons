@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_team_action" model="ir.actions.act_window">
+        <field name="name">Teams</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.team</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_generic_team_root"
+        name="Teams"
+        groups="group_generic_team_user"
+        web_icon="generic_team,static/description/menu.png"
+        sequence="75"/>
+
+    <menuitem
+        id="menu_generic_team"
+        name="Teams"
+        parent="menu_generic_team_root"
+        action="generic_team_action"
+        sequence="0"/>
+
+</odoo>

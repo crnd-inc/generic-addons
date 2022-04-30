@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Look at Odoo code (openepr|odoo)/modules/db.py:create_categories
+         for info abuto a way module categories are generated.
+         This xmlid is used to avoid duplication of module category -->
+    <record model="ir.module.category" id="base.module_category_generic_resource">
+        <field name="name">Generic Resource</field>
+        <field name="sequence">100</field>
+        <field name="visible" eval="1" />
+    </record>
+</odoo>

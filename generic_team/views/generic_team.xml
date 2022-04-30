@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_team_tree" model="ir.ui.view">
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_count"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_team_form" model="ir.ui.view">
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived"
+                            bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div name="title" class="oe_title">
+                        <h1 name="header_team_name">
+                            <field name="name" placeholder="Team name..."/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="Info" name="page_info">
+                            <field name="leader_image"
+                                   widget='image'
+                                   class="oe_avatar mr16 ml8"
+                                   nolabel="1"/>
+                            <group style="display: block">
+                                <field name="leader_id"/>
+                                <field name="task_manager_id"/>
+                            </group>
+                            <group name="description">
+                                <field name="description"
+                                       placeholder="Description..."
+                                       nolabel="1"/>
+                            </group>
+                        </page>
+                        <page string="Team members" name="page_team_members">
+                            <field name="team_member_ids">
+                                <tree editable="bottom">
+                                    <field name="user_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_team_kanban" model="ir.ui.view">
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="leader_id"/>
+                <field name="leader_name"/>
+                <field name="description"/>
+                <field name="user_count"/>
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click gt-kanban-team-global">
+                            <h2><t t-esc="record.name.raw_value"/></h2>
+                            <div>
+                                <span t-if="record.description.raw_value" t-esc="record.description.raw_value"></span>
+                            </div>
+                            <div class="oe_kanban_details gt-kanban-team">
+                                <div class="gt-kanban-team-left"><field name="leader_image" widget='image' class="oe_avatar" nolabel="1"/></div>
+                                <div class="gt-kanban-team-center"><t t-esc="record.leader_name.raw_value"/></div>
+                                <div t-if="record.user_count.raw_value" class="text-muted gt-kanban-team-right" >
+                                    <span><i class="fa fa-users mr4"/><span t-esc="record.user_count.raw_value"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="generic_team_search" model="ir.ui.view">
+        <field name="model">generic.team</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="leader_id"/>
+                <filter name="filter_active"
+                        string="Active"
+                        domain="[('active','=',True)]"/>
+                <filter name="filter_archived"
+                        string="Archived"
+                        domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+</odoo>
