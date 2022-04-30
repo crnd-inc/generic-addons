@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_simple_resource_root"
+              name="Simple Resources"
+              parent="generic_resource.menu_generic_resource_toplevel" />
+
+    <record id="generic_resource_simple_view_tree" model="ir.ui.view">
+        <field name="model">generic.resource.simple</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="display_name" string="Name"/>
+                <field name="inv_number"/>
+                <field name="resource_id" string="Resource"/>
+                <field name="category_id"/>
+                <field name="resource_visibility"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_resource_simple_view_form" model="ir.ui.view">
+        <field name="model">generic.resource.simple</field>
+        <field name="inherit_id" ref="generic_resource_view_form_base"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="/form" position="attributes">
+                <attribute name="create">true</attribute>
+                <attribute name="delete">true</attribute>
+            </xpath>
+            <xpath expr="//h1[@name='h1_title']" position="inside">
+                <field name="name" string="Name" placeholder="Name"/>
+            </xpath>
+            <xpath expr="//page[@name='page_resource_info']" position="before">
+                <page name="page_info" string="Info">
+                    <group name="group_info_root">
+                        <group name="group_info_left">
+                            <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
+                            <field name="category_id" placeholder="Category"/>
+                        </group>
+                        <group name="group_info_right">
+                            <field name="inv_number"
+                                   required="0"
+                                   widget="CopyClipboardChar"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="/form/sheet" position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Define search view generic.resource.simple-->
+    <record model="ir.ui.view" id="generic_resource_simple_search">
+        <field name="name">generic.resource.simple.search</field>
+        <field name="model">generic.resource.simple</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="category_id"/>
+                <group>
+                    <filter name="group_by_category_id" string="Category"
+                            context="{'group_by': 'category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="generic_resource_simple_action" model="ir.actions.act_window">
+        <field name="name">Simple Resources</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.simple</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu for Simple Resources -->
+    <menuitem id="generic_resource_simple_menu_item"
+                name="Resources"
+                parent="menu_simple_resource_root" sequence="0"
+                action="generic_resource_simple_action"/>
+</odoo>

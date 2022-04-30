@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_generic_service_root"
+              name="Services"
+              groups="generic_service.group_generic_service_user"
+              web_icon="generic_service,static/description/icon.png"/>
+
+    <menuitem id="menu_generic_service_configuration_menu_item"
+              name="Configurations"
+              sequence="10"
+              parent="menu_generic_service_root"/>
+
+    <!-- generic.service -->
+    <!-- Tree view for generic.service -->
+    <record id="generic_service_view_tree" model="ir.ui.view">
+        <field name="name">generic.service.tree</field>
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view for generic.service -->
+    <record id="generic_service_view_form" model="ir.ui.view">
+        <field name="name">generic.service.form</field>
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived"
+                            bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                        <h2>
+                            <field name="code" placeholder="Code..."/>
+                        </h2>
+                    </div>
+                    <notebook>
+                        <page string="Info" name="page_info">
+                            <group>
+                                <group name="group_info_left">
+                                    <field name="change_manager_id"/>
+                                    <field name="sequence"/>
+                                </group>
+                                <group name="group_info_right">
+                                    <field name="access_group_ids"
+                                           widget="many2many_tags"
+                                           options="{'no_create': true, 'no_quick_create': true}"/>
+                                </group>
+                            </group>
+                            <field name="description" placeholder="Description..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban view for generic.service -->
+        <record id="view_generic_service_kanban" model="ir.ui.view">
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_service_dashboard_kanban">
+                <field name="display_name"/>
+                <field name="description"/>
+                <field name="code"/>
+
+                <templates>
+                     <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_service_dashboard_kanban">
+                            <div class="o_service_dashboard_kanban_main">
+                                <div class="o_service_dashboard_content">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <span> <t t-esc="record.display_name.value"/></span>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span> <t t-esc="record.code.value"/></span>
+                                        </div>
+                                        <div class="o_buttons">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_service_dashboard_kanban_boxes">
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search for generic.service -->
+    <record model="ir.ui.view" id="generic_service_view_search">
+        <field name="name">generic.service.search</field>
+        <field name="model">generic.service</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <separator/>
+                <filter name="filter_archived"
+                        string="Archived"
+                        domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="generic_service_action" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.service</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- Menus for Generic Resource -->
+    <menuitem id="generic_service_menu_item"
+                name="Services"
+                parent="menu_generic_service_root" sequence="5"
+                action="generic_service_action"/>
+</odoo>
