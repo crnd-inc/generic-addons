@@ -1,0 +1,28 @@
+.o_kanban_view {
+    .gt-kanban-team-global {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        .gt-kanban-team {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            border-top: 1px solid;
+            padding-top: 5px;
+            margin-top: 5px;
+
+            .gt-kanban-team-left {
+                width: 30%;
+            }
+
+            .gt-kanban-team-center {
+                width: 60%;
+            }
+
+            .gt-kanban-team-right {
+                width: 10%;
+            }
+        }
+    }
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_generic_resource_toplevel"
+        name="Resources"
+        groups="generic_resource.group_generic_resource_user"
+        web_icon="generic_resource,static/description/icon.png"/>
+
+    <menuitem id="menu_generic_resource_root"
+        name="Generic Resources"
+        sequence="30"
+        parent="menu_generic_resource_toplevel"/>
+
+    <menuitem id="menu_generic_resource_config_root"
+        name="Configuration"
+        sequence="100"
+        parent="menu_generic_resource_toplevel"/>
+
+    <!-- generic.resource -->
+    <record id="generic_resource_view_search" model="ir.ui.view">
+        <field name="model">generic.resource</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="res_type_id"/>
+
+                <separator/>
+                <filter name="filter_active"
+                        string="Active"
+                        domain="[('active', '=', True)]"/>
+                <filter name="filter_archived"
+                        string="Archived"
+                        domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+    <record id="generic_resource_view_tree" model="ir.ui.view">
+        <field name="model">generic.resource</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false">
+                <field name="display_name" string="Name"/>
+                <field name="active" invisible="1"/>
+                <field name="res_type_id"/>
+                <button name="action_open_resource_object"
+                        type="object"
+                        string="Open Resource"
+                        icon="fa-external-link"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_resource_view_form_base" model="ir.ui.view">
+        <field name="model">generic.resource</field>
+        <field name="mode">primary</field>
+        <field name="priority" eval="150"/>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div name="div_title" class="oe_title">
+                        <h1 name="h1_title">
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page name="page_resource_info" string="Resource Info">
+                            <group name="group_resource_info">
+                                <group name="group_resource_info_left">
+                                    <field name="resource_visibility"/>
+                                </group>
+                                <group name="group_resource_info_right">
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Form view for generic.resource -->
+    <record id="generic_resource_view_form" model="ir.ui.view">
+        <field name="model">generic.resource</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="generic_resource_view_form_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h1[@name='h1_title']" position="inside">
+                <field name="display_name" string="Name"/>
+            </xpath>
+            <xpath expr="//group[@name='group_resource_info_left']" position="inside">
+                <field name="res_type_id"
+                       options="{'no_create': true, 'no_quick_create': true}"/>
+                <field name="res_model" invisible="1"/>
+                <field name="res_id"
+                       widget="generic_m2o"
+                       model_field="res_model"
+                       attrs="{'invisible': [('res_model', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="generic_resource_action" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus for Generic Resource -->
+    <menuitem id="generic_resource_menu_item"
+              parent="menu_generic_resource_root" sequence="5"
+              action="generic_resource_action"/>
+
+</odoo>

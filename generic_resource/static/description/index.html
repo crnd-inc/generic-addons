@@ -1,0 +1,131 @@
+<section style="max-width: 896px; margin: 0 auto;">
+<div align="center">
+<h1 style="color:#875A7B;">Generic Resource</h1>
+</div>
+<div align="center">
+<p>
+    <a href="https://github.com/crnd-inc/generic-addons">
+        <img alt="pipeline-pass" src="https://img.shields.io/badge/pipeline-pass-brightgreen.png" /></a>
+    <a href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html">
+        <img alt="License: LGPL-3" src="https://img.shields.io/badge/license-LGPL--3-blue.png" /></a>
+    <a href="https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Resource_admin_eng">
+        <img alt="docs" src="https://img.shields.io/badge/docs-Generic_Resource-yellowgreen.png" /></a>
+    <a href="https://crnd.pro/">
+        <img alt="CR&amp;D" src="https://img.shields.io/badge/maintainer-CR&amp;D-purple.png" /></a>
+</p>
+<p><br></p>
+</div>
+</section>
+
+<section style="margin: 0 auto; max-width: 896px;">
+<div>
+    <p>The module provides the ability to create and categorize various resources,
+       that can be used in other Odoo modules.</p>
+    <p>In our point of view, the resource - it is anything that could be identified.
+       For example, in average company following things could be resources:
+        <ul>
+            <li>Computer</li>
+            <li>Table</li>
+            <li>Printer</li>
+            <li>Equipment (like CNC Machine)</li>
+            <li>Apartment</li>
+            <li>Etc</li>
+        </ul>
+    </p>
+    <p>This module provides only base functionality for resource,
+       but other modules have to extend it and implement different resource types.
+       Resource Types is responsible for specifying what model in Odoo implements certain kind of resource.
+       It is obvious, that computer and Table have completely different properties,
+       thus it does not have sense to store all of them in same model,
+       instead we encourage to create separate model for each resource type.
+       This way it is possible to easily implement logic specific to that kind of resource.
+       For example, in Yodoo Cockpit, we have implemented resource types like
+       Odoo Server, Odoo Database, Odoo Module, etc. Each of this resource types
+       implemented as separate model inheriting generic.resource, and provides specific functionality.
+    </p>
+    <p>Take a look at screenshots below to get more info about functionality provided by this module.
+    </p>
+    <p style="font-size: 120%;">
+    <b><i>The dashboard for resources, that display list of resource types registered in system and provides some short info about them</i></b>
+    </p>
+    <div align="center">
+        <img src="resource_type_list.png"
+                alt="List if resource types"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p style="font-size: 120%;">
+    <b><i>The list of simple resources - basic resource type implemented by this module</i></b>
+    </p>
+    <div align="center">
+        <img src="list_of_simple_resources.png"
+                alt="List of simple resources"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p style="font-size: 120%;">
+    <b><i>The view of single record of Simple Resource</i></b>
+    </p>
+    <div align="center">
+        <img src="simple_resource_form.png"
+                alt="Simple Resource form"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p style="font-size: 120%;">
+    <b><i>How it could look in real production installations</i></b>
+    </p>
+    <div align="center">
+        <img src="resource_type_list_r1.png"
+                alt="Resource Type list example"
+                style="max-width: 100%">
+        <p><br></p>
+        <img src="resource_type_list_r2.png"
+                alt="Resource Type list example"
+                style="max-width: 100%">
+        <p><br></p>
+    </div>
+    <p><br></p>
+</div>
+</section>
+
+<section style="max-width: 896px; margin: 0 auto;">
+<p>Read the <a href="https://crnd.pro/doc-bureaucrat-itsm/11.0/en/Generic_Resource_admin_eng">Generic Resource</a> module guide for more information.</p>
+<p>This module is part of the Bureaucrat ITSM project. You can try it by the links below.</p>
+</section>
+
+<section style="max-width: 896px; margin: 0 auto;">
+<div>
+<h3>Bug Tracker</h3>
+<p>Bugs are tracked on <a href="https://crnd.pro/requests">https://crnd.pro/requests</a>. In case of trouble, please report there.
+</p>
+<p><br></p>
+</div>
+</section>
+
+<section align="center" style="max-width: 896px; margin: 0 auto;">
+<div>
+<h2 style="color:#875A7B;">Launch your own ITSM system in 60 seconds:</h2>
+<p>Create your own <a href="https://yodoo.systems/saas/template/bureaucrat-itsm-demo-data-95">Bureaucrat ITSM</a> database
+<a href="https://yodoo.systems"><img alt="yodoo.systems" src="https://img.shields.io/badge/powered%20by-yodoo.systems-00a09d.png"/></a>
+</p> 
+</div>
+</section>
+
+<section align="center" style="max-width: 896px; margin: 0 auto;">
+<div>
+<h2 style="color: #138c33">Maintainer</h2>
+<a href="https://crnd.pro/"><img alt="CR&amp;D" src="https://crnd.pro/web/image/3699/300x140/crnd.png" /></a>
+<p>Our web site: <a href="https://crnd.pro">https://crnd.pro</a>
+</p>
+<p>This module is maintained by the <a href="https://crnd.pro/">Center of Research &amp; Development</a>
+company.
+</p>
+<p>
+We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
+</p>
+<p>
+For any questions <a href="mailto:info@crnd.pro">contact us</a>.
+</p>
+</div>
+</section>

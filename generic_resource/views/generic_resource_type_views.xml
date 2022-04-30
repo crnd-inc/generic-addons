@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="generic_resource_type_view_tree" model="ir.ui.view">
+        <field name="model">generic.resource.type</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="active"/>
+                <field name="resource_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_resource_type_view_from" model="ir.ui.view">
+        <field name="model">generic.resource.type</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                        <button class="oe_stat_button"
+                                type="object"
+                                name="action_show_resources"
+                                icon="fa-bars">
+                            <field string="Resources" name="resource_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <field name="image_medium" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group name="group_root">
+                        <group name="group_left"
+                               string="System Info"
+                               groups="base.group_no_one">
+                            <field name="model_id" readonly="1"/>
+                            <field name="resource_related_res_action_id" readonly="1"/>
+                        </group>
+                        <group name="group_right" string="Parameters">
+                            <field name="resource_visibility"/>
+                            <field name="sequence" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_generic_resource_type_kanban" model="ir.ui.view">
+        <field name="model">generic.resource.type</field>
+        <field name="arch" type="xml">
+            <kanban create="false" delete="false"
+                    class="oe_background_grey o_resource_dashboard_kanban">
+                <field name="name"/>
+                <field name="display_name"/>
+                <field name="model_id"/>
+                <field name="resource_count"/>
+                <field name="id"/>
+                <field name="image_small"/>
+
+                <templates>
+                     <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_resource_dashboard_kanban">
+                            <div class="o_resource_dashboard_kanban_main">
+                                <div class="o_resource_dashboard_content">
+                                    <div class="o_kanban_image">
+                                        <img t-att-src="kanban_image('generic.resource.type', 'image_small', record.id.raw_value)" alt="Resource Type"/>
+                                    </div>
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <span> <t t-esc="record.display_name.value"/></span>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span> <t t-esc="record.model_id.value"/></span>
+                                        </div>
+                                        <div class="o_buttons">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="o_resource_dashboard_kanban_boxes">
+                                <div class="o_resource_dashboard_kanban_box" title="Resources">
+                                    <a name="action_show_resources" type="object">
+                                        <span class="o_value"><t t-esc="record.resource_count.value"/></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+
+    </record>
+
+    <record id="generic_resource_type_action" model="ir.actions.act_window">
+        <field name="name">Resource Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.type</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem id="generic_resource_type_menu_item"
+              name="Dashboard"
+              parent="menu_generic_resource_toplevel"
+              sequence="5"
+              action="generic_resource_type_action"/>
+
+</odoo>
