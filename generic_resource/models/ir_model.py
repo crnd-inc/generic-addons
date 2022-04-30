@@ -38,10 +38,13 @@ class IrModel(models.Model):
 
         res = super(IrModel, self).unlink()
 
-        if res_model_names:
-            self.env['generic.resource']._inherits_children -= res_model_names
-            self.env['generic.resource.mixin']._inherit_children -= (
-                res_model_names)
+        # TODO: Check if this code is required in 14.0.
+        #       AttributeError: 'generic.resource' object attribute
+        #                       '_inherits_children' is read-only
+        # if res_model_names:
+        #    self.env['generic.resource']._inherits_children -= res_model_names
+        #    self.env['generic.resource.mixin']._inherit_children -= (
+        #        res_model_names)
 
         self.pool.setup_models(self._cr)
         return res

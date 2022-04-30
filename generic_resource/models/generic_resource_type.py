@@ -94,9 +94,9 @@ class GenericResourceType(models.Model):
     @api.model
     @tools.ormcache('model_name')
     def _get_resource_type_id(self, model_name):
-        res_type_ids = self._search(
-            [('model_id.model', '=', model_name)], limit=1)
-        return res_type_ids[0] if res_type_ids else False
+        res_type_id = self.search(
+            [('model_id.model', '=', model_name)], limit=1).id
+        return res_type_id
 
     @api.model
     def get_resource_type(self, model_name):

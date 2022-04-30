@@ -1,5 +1,5 @@
 import logging
-from odoo import api, models
+from odoo import api, models, tools
 from odoo.osv import expression
 
 _logger = logging.getLogger(__name__)
@@ -32,9 +32,13 @@ class IrRule(models.Model):
         ])
 
     @api.model
-    def domain_get(self, model_name, mode='read'):
-        clauses, params, tables = super(IrRule, self).domain_get(
-            model_name, mode=mode)
+    @tools.conditional(
+        'xml' not in tools.config['dev_mode'],
+        tools.ormcache('self.env.uid', 'self.env.su', 'model_name', 'mode',
+                       'tuple(self._compute_domain_context_values())'),
+    )
+    def _compute_domain(self, model_name, mode="read"):
+        domain = super(IrRule, self)._compute_domain(model_name, mode=mode)
 
         # Here we apply custom domain only for mode 'read'
         # For creation standard odoo rules have to be applied
@@ -43,21 +47,16 @@ class IrRule(models.Model):
         if model_name == 'generic.resource' and mode in ('read', 'create'):
             # Do not apply domain for superuser
             if self.env.su:
-                return clauses, params, tables
+                return domain
 
             # Do not apply restrictions for Resource Manager
             if self.env.user.has_group(
                     'generic_resource.group_generic_resource_manager'):
-                return clauses, params, tables
+                return domain
 
-            res_domain = self._generic_res__get_domain(mode)
-            res_query = self.env['generic.resource'].sudo()._where_calc(
-                res_domain, active_test=False)
+            domain = expression.AND([
+                domain,
+                self._generic_res__get_domain(mode)
+            ])
 
-            clauses += res_query.where_clause
-            params += res_query.where_clause_params
-            for res_table in res_query.tables:
-                if res_table not in res_query.tables:
-                    tables += res_table
-
-        return clauses, params, tables
+        return domain
