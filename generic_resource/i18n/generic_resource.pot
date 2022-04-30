@@ -19,12 +19,6 @@ msgid "Access"
 msgstr ""
 
 #. module: generic_resource
-#: selection:generic.resource,resource_visibility:0
-#: selection:generic.resource.type,resource_visibility:0
-msgid "Access restricted by roles"
-msgstr ""
-
-#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction
 msgid "Action Needed"

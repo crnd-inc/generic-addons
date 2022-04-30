@@ -1,16 +1,15 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* generic_resource
+#	* generic_resource
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0+e\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-21 16:29+0000\n"
-"PO-Revision-Date: 2020-05-21 16:29+0000\n"
+"POT-Creation-Date: 2022-04-30 20:18+0000\n"
+"PO-Revision-Date: 2022-04-30 20:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,13 +18,13 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__access_ids
 msgid "Access"
-msgstr "Zugriff"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction
 msgid "Action Needed"
-msgstr "Aktion notwendig"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__active
@@ -35,25 +34,23 @@ msgstr "Aktion notwendig"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__active
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Active"
-msgstr "Aktiv"
+msgstr ""
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Archived"
-msgstr "Archiviert"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_attachment_count
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_attachment_count
 msgid "Attachment Count"
-msgstr "# Anhänge"
+msgstr ""
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_wizard_mixin.py:33
 #, python-format
-msgid ""
-"Cannot apply this action to resources with different types! Please, select "
-"resources of single resource type"
+msgid "Cannot apply this action to resources with different types! Please, select resources of single resource type"
 msgstr ""
 
 #. module: generic_resource
@@ -66,7 +63,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_search
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 msgid "Category"
-msgstr "Kategorie"
+msgstr ""
 
 #. module: generic_resource
 #: sql_constraint:generic.resource.simple.category:0
@@ -76,26 +73,26 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_config_root
 msgid "Configuration"
-msgstr "Konfiguration"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__count
 msgid "Count (incl. archived)"
-msgstr "Anzahl (einschl. archiviert)"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_uid
 msgid "Created by"
-msgstr "Erstellt von"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_date
 msgid "Created on"
-msgstr "Erstellt am"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_type_menu_item
@@ -117,7 +114,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__display_name
 msgid "Display Name"
-msgstr "Anzeigename"
+msgstr ""
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource.py:67
@@ -134,34 +131,33 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__field_id
 msgid "Fields"
-msgstr "Felder"
+msgstr ""
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:96
 #, python-format
-msgid ""
-"Fields incorrect\n"
-"\tResource type: %(res_type)s\n"
-"\tResource res_id: %(res_id)s"
+msgid "Fields incorrect\n"
+"	Resource type: %(res_type)s\n"
+"	Resource res_id: %(res_id)s"
 msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_follower_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_follower_ids
 msgid "Followers"
-msgstr "Abonnenten"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_channel_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Abonnenten (Kanäle)"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_partner_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Abonnenten (Partner)"
+msgstr ""
 
 #. module: generic_resource
 #: sql_constraint:generic.resource.type:0
@@ -257,21 +253,19 @@ msgstr ""
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_unread
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_needaction
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
-"Das Senden mancher Nachrichten ist fehlgeschlagen wenn dieses Fenster "
-"angekreuzt ist."
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image
@@ -291,7 +285,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__modules
 msgid "In Apps"
-msgstr "In Modulen"
+msgstr ""
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
@@ -306,7 +300,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "Inherited models"
-msgstr "Vererbte Modelle"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__inv_number
@@ -318,7 +312,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_is_follower
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_is_follower
 msgid "Is Follower"
-msgstr "Ist ein Abonnent"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_generic_resource
@@ -337,37 +331,37 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type____last_update
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin____last_update
 msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_uid
 msgid "Last Updated by"
-msgstr "Zuletzt aktualisiert durch"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_date
 msgid "Last Updated on"
-msgstr "Zuletzt aktualisiert am"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__modules
 msgid "List of modules in which the object is defined or inherited"
-msgstr "List der Module, in denen ein Objekt definiert oder geerbt wird."
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Mail Thread"
-msgstr "E-Mail-Thread"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_main_attachment_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_main_attachment_id
 msgid "Main Attachment"
-msgstr "Hauptanhänge"
+msgstr ""
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_manager
@@ -378,18 +372,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error
 msgid "Message Delivery error"
-msgstr "Error beim senden der Nachricht"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_ids
 msgid "Messages"
-msgstr "Nachrichten"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model
 msgid "Model"
-msgstr "Modell"
+msgstr ""
 
 #. module: generic_resource
 #: sql_constraint:generic.resource:0
@@ -399,7 +393,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_ir_model
 msgid "Models"
-msgstr "Datenmodelle"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__name
@@ -418,31 +412,31 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction_counter
 msgid "Number of Actions"
-msgstr "Anzahl der Aktionen"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error_counter
 msgid "Number of error"
-msgstr "Fehlernummer"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_needaction_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Anzahl der Nachrichten mit einem Fehler beim Senden."
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_unread_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_unread_counter
 msgid "Number of unread messages"
-msgstr "Anzahl ungelesener Nachrichten"
+msgstr ""
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/ir_model.py:66
@@ -463,12 +457,12 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_id
 msgid "Parent Category"
-msgstr "Oberkategorie"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_path
 msgid "Parent Path"
-msgstr "Übergeordneter Pfad"
+msgstr ""
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_user
@@ -488,7 +482,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__rule_ids
 msgid "Record Rules"
-msgstr "Rechte für Daten"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_id
@@ -499,7 +493,7 @@ msgstr "Rechte für Daten"
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
 msgid "Resource"
-msgstr "Ressource (Objekt)"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_count
@@ -517,7 +511,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model_id
 msgid "Resource Model"
-msgstr "Datenmodell"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_related_res_action_id
@@ -531,7 +525,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__resource_type_id
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resource Type"
-msgstr "Ressource Typ"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_type_action
@@ -554,10 +548,9 @@ msgstr ""
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:84
 #, python-format
-msgid ""
-"Resource does not exists!\n"
-"\tResource type: %(res_type)s\n"
-"\tResource res_id: %(res_id)s"
+msgid "Resource does not exists!\n"
+"	Resource type: %(res_type)s\n"
+"	Resource res_id: %(res_id)s"
 msgstr ""
 
 #. module: generic_resource
@@ -580,8 +573,7 @@ msgstr ""
 #: model:ir.model.fields,help:generic_resource.field_generic_resource__resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_mixin__resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__resource_visibility
-msgid ""
-"Resource visibility determines users that have read access for this resource."
+msgid "Resource visibility determines users that have read access for this resource."
 msgstr ""
 
 #. module: generic_resource
@@ -594,7 +586,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resources"
-msgstr "Ressourcen"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__sequence
@@ -630,39 +622,39 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "The list of models that extends the current model."
-msgstr "Die Liste der Modelle, die das aktuelle Modell erweitern."
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__count
 msgid "Total number of records in this model"
-msgstr "Gesamtzahl der Datensätze in diesem Modell"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__transient
 msgid "Transient Model"
-msgstr "Übergabemodelle"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__state
 msgid "Type"
-msgstr "Typ"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_unread
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_unread
 msgid "Unread Messages"
-msgstr "Ungelesene Nachrichten"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_unread_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr "Zähler der ungelesenen Nachrichten"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__view_ids
 msgid "Views"
-msgstr "Ansichten"
+msgstr ""
 
 #. module: generic_resource
 #: selection:generic.resource,resource_visibility:0
@@ -693,10 +685,10 @@ msgstr ""
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Whether this model supports messages and notifications."
 msgstr ""
-"Gibt an, ob dieses Modell Mitteilungen und Benachrichtigungen unterstützt."
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_type.py:65
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
+

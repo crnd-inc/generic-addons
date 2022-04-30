@@ -25,12 +25,6 @@ msgid "Access"
 msgstr "Доступ"
 
 #. module: generic_resource
-#: selection:generic.resource,resource_visibility:0
-#: selection:generic.resource.type,resource_visibility:0
-msgid "Access restricted by roles"
-msgstr "Доступ заборонено ролями"
-
-#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction
 msgid "Action Needed"
@@ -708,6 +702,9 @@ msgstr "Чи підтримує ця модель повідомлення та 
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
+
+#~ msgid "Access restricted by roles"
+#~ msgstr "Доступ заборонено ролями"
 
 #~ msgid "Direct creation of 'generic.resource' records is not allowed!"
 #~ msgstr "Пряме створення об'єктів 'generic.resource' заборонено!"
