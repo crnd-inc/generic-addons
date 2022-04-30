@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Creating categories-->
+
+    <record id="simple_resource_category_equipment"
+            model="generic.resource.simple.category">
+        <field name='name'>Equipment</field>
+    </record>
+
+    <record id="simple_resource_category_equipment_computers"
+            model="generic.resource.simple.category">
+        <field name='name'>Computers</field>
+        <field name="parent_id" ref="simple_resource_category_equipment"/>
+    </record>
+
+    <record id="simple_resource_category_equipment_computers_desktops"
+            model="generic.resource.simple.category">
+        <field name='name'>Desktops</field>
+        <field name="parent_id" ref="simple_resource_category_equipment_computers"/>
+    </record>
+    <record id="simple_resource_category_equipment_computers_notebooks"
+            model="generic.resource.simple.category">
+        <field name='name'>Notebooks</field>
+        <field name="parent_id" ref="simple_resource_category_equipment_computers"/>
+    </record>
+
+    <record id="simple_resource_category_equipment_printers"
+            model="generic.resource.simple.category">
+        <field name='name'>Printers</field>
+        <field name="parent_id" ref="simple_resource_category_equipment"/>
+    </record>
+
+    <record id="simple_resource_category_equipment_printers_inkjet"
+            model="generic.resource.simple.category">
+        <field name='name'>InkJet</field>
+        <field name="parent_id" ref="simple_resource_category_equipment_printers"/>
+    </record>
+    <record id="simple_resource_category_equipment_printers_laserjet"
+            model="generic.resource.simple.category">
+        <field name='name'>LaserJet</field>
+        <field name="parent_id" ref="simple_resource_category_equipment_printers"/>
+    </record>
+
+
+    <!--Creating simple resources-->
+
+    <record id="simple_resource_computer_1" model="generic.resource.simple">
+        <field name="name">Desktop Computer</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+    <record id="simple_resource_computer_2" model="generic.resource.simple">
+        <field name="name">Desktop Computer</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+    <record id="simple_resource_computer_3" model="generic.resource.simple">
+        <field name="name">Desktop Computer</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+    <record id="simple_resource_computer_4" model="generic.resource.simple">
+        <field name="name">Desktop Computer</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+    <record id="simple_resource_computer_5" model="generic.resource.simple">
+        <field name="name">Desktop Computer</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+    <record id="simple_resource_computer_6" model="generic.resource.simple">
+        <field name="name">Desktop Computer</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+    <record id="simple_resource_computer_7" model="generic.resource.simple">
+        <field name="name">Desktop Computer</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+
+    <record id="simple_resource_notebook_1" model="generic.resource.simple">
+        <field name="name">Notebook</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_desktops"/>
+    </record>
+    <record id="simple_resource_notebook_2" model="generic.resource.simple">
+        <field name="name">Notebook</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_notebooks"/>
+    </record>
+    <record id="simple_resource_notebook_3" model="generic.resource.simple">
+        <field name="name">Notebook</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_notebooks"/>
+    </record>
+    <record id="simple_resource_notebook_4" model="generic.resource.simple">
+        <field name="name">Notebook</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_notebooks"/>
+    </record>
+    <record id="simple_resource_notebook_5" model="generic.resource.simple">
+        <field name="name">Notebook</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_notebooks"/>
+    </record>
+    <record id="simple_resource_notebook_6" model="generic.resource.simple">
+        <field name="name">Notebook</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_notebooks"/>
+    </record>
+    <record id="simple_resource_notebook_7" model="generic.resource.simple">
+        <field name="name">Notebook</field>
+        <field name="category_id" ref="simple_resource_category_equipment_computers_notebooks"/>
+        <field name="resource_visibility">portal</field>
+    </record>
+
+    <record id="simple_resource_inkprinter_1" model="generic.resource.simple">
+        <field name="name">Printer Canon i233</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+    </record>
+    <record id="simple_resource_inkprinter_2" model="generic.resource.simple">
+        <field name="name">Printer Canon i255</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+    </record>
+    <record id="simple_resource_inkprinter_3" model="generic.resource.simple">
+        <field name="name">Printer Canon i123</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+    </record>
+    <record id="simple_resource_inkprinter_4" model="generic.resource.simple">
+        <field name="name">Printer Epson foto 235</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+    </record>
+    <record id="simple_resource_inkprinter_5" model="generic.resource.simple">
+        <field name="name">Printer Epson stylus 15</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+    </record>
+    <record id="simple_resource_inkprinter_6" model="generic.resource.simple">
+        <field name="name">Printer Canon i569</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+        <field name="resource_visibility">public</field>
+    </record>
+    <record id="simple_resource_inkprinter_7" model="generic.resource.simple">
+        <field name="name">Printer Lexmark LS45</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_inkjet"/>
+    </record>
+
+    <record id="simple_resource_laserprinter_1" model="generic.resource.simple">
+        <field name="name">Printer Canon i-sensys 233</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_laserjet"/>
+    </record>
+    <record id="simple_resource_laserprinter_2" model="generic.resource.simple">
+        <field name="name">Printer Canon i-sensys 255</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_laserjet"/>
+    </record>
+    <record id="simple_resource_laserprinter_3" model="generic.resource.simple">
+        <field name="name">Printer Canon i-sensys 123</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_laserjet"/>
+    </record>
+    <record id="simple_resource_laserprinter_4" model="generic.resource.simple">
+        <field name="name">Printer Xerox 235</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_laserjet"/>
+    </record>
+    <record id="simple_resource_laserprinter_5" model="generic.resource.simple">
+        <field name="name">Printer Xerox 15</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_laserjet"/>
+    </record>
+    <record id="simple_resource_laserprinter_6" model="generic.resource.simple">
+        <field name="name">Printer Canon i-sensys 569</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_laserjet"/>
+    </record>
+    <record id="simple_resource_laserprinter_7" model="generic.resource.simple">
+        <field name="name">Printer Panasonic LS45</field>
+        <field name="category_id" ref="simple_resource_category_equipment_printers_laserjet"/>
+    </record>
+
+</odoo>
