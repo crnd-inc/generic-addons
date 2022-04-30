@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="generic_team_member_tree" model="ir.ui.view">
+        <field name="name">generic.team.member.tree</field>
+        <field name="model">generic.team.member</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="team_id"
+                       readonly="context.get('default_team_id')"
+                       invisible="context.get('default_team_id')"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_team_member_form" model="ir.ui.view">
+        <field name="name">generic.team.member.form</field>
+        <field name="model">generic.team.member</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div name="title" class="oe_title">
+                        <h1>
+                            <field name="display_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="group_left">
+                            <field name="team_id"
+                                   readonly="context.get('default_team_id')"
+                                   invisible="context.get('default_team_id')"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group name="group_right"></group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
