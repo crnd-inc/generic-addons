@@ -1,13 +1,13 @@
 from odoo import exceptions
 from odoo.tools.misc import mute_logger
-from odoo.tests.common import SavepointCase, tagged
+from odoo.tests.common import TransactionCase, tagged
 from odoo.addons.generic_mixin.tests.common import (
     ReduceLoggingMixin
 )
 
 
 @tagged('post_install', '-at_install')
-class TestResource(ReduceLoggingMixin, SavepointCase):
+class TestResource(ReduceLoggingMixin, TransactionCase):
 
     @classmethod
     def setUpClass(cls):

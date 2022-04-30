@@ -1,7 +1,7 @@
 import logging
 import psycopg2
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 from odoo.tools import mute_logger
 from odoo.addons.generic_mixin.tests.common import (
     ReduceLoggingMixin
@@ -10,7 +10,7 @@ from odoo.addons.generic_mixin.tests.common import (
 _logger = logging.getLogger(__name__)
 
 
-class TestGenericServiceLevel(ReduceLoggingMixin, SavepointCase):
+class TestGenericServiceLevel(ReduceLoggingMixin, TransactionCase):
 
     @classmethod
     def setUpClass(cls):
