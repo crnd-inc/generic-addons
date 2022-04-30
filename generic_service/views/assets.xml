@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="generic_service_assets_backend"
+              inherit_id="web.assets_backend"
+              name="Generic Service Assets (backend)">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href='/generic_service/static/src/scss/service_kanban.scss'/>
+        </xpath>
+    </template>
+</odoo>
