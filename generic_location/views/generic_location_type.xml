@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <record id="action_location_type_locations" model="ir.actions.act_window">
-        <field name="name">Locations</field>
-        <field name="res_model">generic.location</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('type_id', '=', active_id)]</field>
-        <field name="context">{'default_type_id': active_id}</field>
-    </record>
-
     <record model="ir.ui.view" id="generic_location_typeform_view">
         <field name="model">generic.location.type</field>
         <field name="arch" type="xml">
             <form string="Generic Location">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="%(action_location_type_locations)d"
-                                type="action"
+                        <button name="action_location_type_show_locations"
+                                type="object"
                                 class="oe_stat_button" icon="fa-tasks">
                             <field string="Location" 
                                    name="location_count" 
@@ -39,10 +31,6 @@
                         </h3>
                     </div>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="message_ids"/>
-                </div>
             </form>
         </field>
     </record>
