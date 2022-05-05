@@ -21,6 +21,10 @@ class GenericLocation(models.Model):
     _description = 'Location'
 
     name = fields.Char(required=True, index=True)
+    type_id = fields.Many2one(
+        'generic.location.type',
+        ondelete='restrict', index=True, track_visibility=True,
+        help="Type of Location")
     description = fields.Text()
     parent_id = fields.Many2one(
         'generic.location', index=True, ondelete='cascade',
