@@ -6,7 +6,7 @@
         <field name="model">generic.location</field>
         <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//notebook//page[@name='page_info']/group" position="inside">
+            <xpath expr="//sheet//field[@name='parent_id']" position="after">
                 <field name="uuid"/>
             </xpath>
         </field>
