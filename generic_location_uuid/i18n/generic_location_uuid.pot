@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* generic_location_uuid
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: generic_location_uuid
+#: model:ir.model,name:generic_location_uuid.model_generic_location
+msgid "Location"
+msgstr ""
+
+#. module: generic_location_uuid
+#: model:ir.model.fields,field_description:generic_location_uuid.field_generic_location__uuid
+msgid "Uuid"
+msgstr ""
+
+#. module: generic_location_uuid
+#: sql_constraint:generic.location:0
+msgid "uuid must be unique."
+msgstr ""
+
