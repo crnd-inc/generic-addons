@@ -1,2 +1,5 @@
-from . import generic_location
-from . import generic_location_mixin
+from . import (
+    generic_location,
+    generic_location_mixin,
+    generic_location_type,
+)

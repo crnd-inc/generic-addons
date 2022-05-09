@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '13.0.1.12.0',
+    'version': '13.0.1.13.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -24,7 +24,8 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/generic_location.xml'
+        'views/generic_location.xml',
+        'views/generic_location_type.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
