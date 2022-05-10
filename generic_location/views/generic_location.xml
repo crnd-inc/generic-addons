@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
     <record model="ir.ui.view" id="generic_location_form_view">
         <field name="model">generic.location</field>
         <field name="arch" type="xml">
@@ -29,6 +30,7 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="type_id" placeholder="Location Type"/>
                         <field name="parent_id" placeholder="Parent Location"/>
                     </group>
                     <notebook>
@@ -77,6 +79,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.location</field>
     </record>
+
     <record id="generic_location_action_view_tree"
             model="ir.actions.act_window.view">
         <field eval="5" name="sequence"/>
@@ -84,6 +87,7 @@
         <field name="view_id"  ref="generic_location_tree_view"/>
         <field name="act_window_id" ref="generic_location_action"/>
     </record>
+
     <record id="generic_location_action_view_from"
             model="ir.actions.act_window.view">
         <field eval="10" name="sequence"/>
@@ -93,13 +97,21 @@
     </record>
 
 
-    <menuitem id="menu_generic_location"
+    <menuitem id="menu_generic_location_root"
               name="Generic Location"
               groups="generic_location.group_generic_location_user"
               web_icon="generic_location,static/description/menu.png"/>
-    <menuitem id="archive_generic_location"
+
+    <menuitem id="menu_generic_location"
               name="Location"
-              parent="menu_generic_location"
+              parent="menu_generic_location_root"
               sequence="10"
               action="generic_location_action"/>
+
+    <menuitem id="menu_configuration"
+              name="Configuration"
+              parent="menu_generic_location_root"
+              groups="generic_location.group_generic_location_manager"
+              sequence="60"/>
+
 </odoo>
