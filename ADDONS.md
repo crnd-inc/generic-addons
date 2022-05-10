@@ -6,11 +6,12 @@
 | generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 13.0.1.1.1 | Generic Conditions (Integration with Action Rules) |  |
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 13.0.1.6.0 | Generic Conditions - Tests (do not install manualy) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 13.0.0.4.0 | Technical utils to add encryption to other addons |  |
-| generic_location | Generic Location | LGPL-3 | 13.0.1.12.0 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
+| generic_location | Generic Location | LGPL-3 | 13.0.1.13.0 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
 | generic_location_address | Generic Location (Address) | LGPL-3 | 13.0.1.4.0 | Generic Location (Add address fields to *Generic Locations*) |  |
 | generic_location_geo | Generic Location (Geo Coordinates) | LGPL-3 | 13.0.1.2.0 | Generic Location (Add geocoordinates to generic locations) |  |
 | generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 13.0.1.2.0 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
 | generic_location_tag | Generic Location Tag | LGPL-3 | 13.0.1.2.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
+| generic_location_uuid | Generic Location (UUID) | LGPL-3 | 13.0.1.2.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 13.0.1.4.0 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 13.0.1.53.0 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 13.0.1.33.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
