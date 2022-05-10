@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="generic_location_typeform_view">
+        <field name="model">generic.location.type</field>
+        <field name="arch" type="xml">
+            <form string="Generic Location">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_location_type_show_locations"
+                                type="object"
+                                class="oe_stat_button" icon="fa-tasks">
+                            <field string="Location" 
+                                   name="location_count" 
+                                   widget="statinfo"/>
+                        </button>
+                        <button name="toggle_active" 
+                                type="object"
+                                class="oe_stat_button" 
+                                icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title" name="location_type_name">
+                        <h1>
+                            <field name="name"/>                          
+                        </h1>
+                        <h3 name="header_code">
+                            <field name="code" placeholder="Location type code..."/>
+                        </h3>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="generic_location_type_tree_view">
+        <field name="model">generic.location.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+                <field name="location_count"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="generic_location_type_search_view">
+        <field name="model">generic.location.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <separator/>
+                <filter name="filter_archived"
+                        string="Archived"
+                        domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+     </record>
+
+    <record id="generic_location_type_action" model="ir.actions.act_window">
+        <field name="name">Location Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.location.type</field>
+    </record>
+
+    <menuitem name="Location Type"
+              id="menu_generic_location_type"
+              parent="menu_configuration"
+              action="generic_location_type_action"/>
+
+</odoo>
