@@ -1,4 +1,4 @@
-from inspect import getmembers, isfunction
+import inspect
 from odoo import models, api
 
 
@@ -11,6 +11,25 @@ def generate_proxy_decorator(attr_name):
         setattr(fn, attr_name, True)
         return fn
     return proxy
+
+
+def proxy_method_wrapper(method_name, link_field):
+    """ Generate proxy method for destination model, to call
+        original method in original model
+
+        :param str method_name: name of method in original model
+            to call.
+        :param str link_field: name of field to use to call
+            original method
+        :return callable: wrapped method, that will call original meth.
+    """
+
+    def method(self, *args, **kwargs):
+        original_method = getattr(
+            self.mapped(link_field), method_name)
+        return original_method(*args, **kwargs)
+
+    return method
 
 
 class GenericMixinProxyMethods(models.AbstractModel):
@@ -140,37 +159,25 @@ class GenericMixinProxyMethods(models.AbstractModel):
         mixin_cls = type(
             self.env[self._generic_mixin_proxy_methods__dest_model])
 
-        def method_wrapper(method_name):
-            """ Generate proxy method for destination model, to call
-                original method in original model
-
-                :param method_name: name of method in original model to call.
-            """
-
-            def method(method_self, *args, **kwargs):
-                original_method = getattr(
-                    method_self.mapped(
-                        self._generic_mixin_proxy_methods__link_field),
-                    method_name
-                )
-                return original_method(*args, **kwargs)
-
-            return method
-
         def is_proxy_method(func):
             """ Check if function is marked as proxy
             """
-            if not isfunction(func):
+            if not inspect.isfunction(func):
                 return False
             return getattr(
                 func, self._generic_mixin_proxy_methods__method_attr, False)
 
         # Find all proxy methods, and proxy them to dest model
-        for attrname, __ in getmembers(type(self), is_proxy_method):
+        for attrname, __ in inspect.getmembers(type(self), is_proxy_method):
             if hasattr(mixin_cls, attrname):
                 # We do not want to do anything if corresponding method
                 # already exists on destination model
                 continue
-            setattr(mixin_cls, attrname, method_wrapper(attrname))
+            setattr(
+                mixin_cls,
+                attrname,
+                proxy_method_wrapper(
+                    attrname,
+                    self._generic_mixin_proxy_methods__link_field))
 
         return res
