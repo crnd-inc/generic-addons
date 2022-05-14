@@ -17,6 +17,7 @@ class GenericMixinGuardFields(models.AbstractModel):
         fields only if value was wrapped with correct wrapper.
     """
     _name = 'generic.mixin.guard.fields'
+    _description = 'Generic Mixin: Guard Fields'
 
     _generic_mixin_guard_fields = []
     _generic_mixin_deny_write_fields = []
