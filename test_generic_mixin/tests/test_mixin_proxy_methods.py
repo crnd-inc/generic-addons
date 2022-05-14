@@ -1,7 +1,15 @@
+import inspect
 from odoo.tests.common import TransactionCase
 
 
 class ProxyMethodsMixinTest(TransactionCase):
+
+    def test_proxy_method_signature(self):
+        Model = self.env['test.proxy.method.my.specific.model.1']
+        func = type(Model).action_my_action
+
+        # If signature do not match, this will raise type error
+        inspect.signature(func).bind(self=Model)
 
     def test_proxy_method_single_rec(self):
         rec1 = self.env['test.proxy.method.my.specific.model.1'].create({
