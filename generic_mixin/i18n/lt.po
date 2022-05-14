@@ -101,6 +101,11 @@ msgid "Generic Mixin: Get Action"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_guard_fields
+msgid "Generic Mixin: Guard Fields"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_name_by_sequence
 msgid "Generic Mixin: Name by Sequence"
 msgstr ""
@@ -236,9 +241,4 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
 msgid "XML ID for this record."
-msgstr ""
-
-#. module: generic_mixin
-#: model:ir.model,name:generic_mixin.model_generic_mixin_guard_fields
-msgid "generic.mixin.guard.fields"
 msgstr ""
