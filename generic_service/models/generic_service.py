@@ -8,6 +8,7 @@ class GenericSerivce(models.Model):
         'generic.mixin.name_with_code',
         'generic.mixin.uniq_name_code',
         'generic.mixin.get.action',
+        'generic.mixin.entity.lifecycle',
     ]
     _description = 'Generic Service'
     _order = 'sequence, name'
