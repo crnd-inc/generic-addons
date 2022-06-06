@@ -1,9 +1,7 @@
 import logging
-import psycopg2
 
 from odoo import exceptions
 from odoo.tests.common import SavepointCase
-from odoo.tools import mute_logger
 from odoo.addons.generic_mixin.tests.common import (
     ReduceLoggingMixin
 )
