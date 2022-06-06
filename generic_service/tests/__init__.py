@@ -1,1 +1,4 @@
-from . import test_service_level
+from . import (
+    test_service_level,
+    test_lifecycle,
+)
