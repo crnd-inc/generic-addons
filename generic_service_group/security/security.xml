@@ -17,7 +17,7 @@
         <field name="name">Generic Service Group (readonly)</field>
         <field name="category_id" ref="base.module_generic_service_group"/>
         <field name="implied_ids"
-               eval="[(4, ref('generic_service_group.group_generic_service_group_user_implicit'))]"/>
+               eval="[(4, ref('generic_service_group.group_generic_service_group_implicit'))]"/>
     </record>
 
     <record id="group_generic_service_group_user" model="res.groups">
