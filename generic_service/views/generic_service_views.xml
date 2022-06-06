@@ -13,23 +13,24 @@
     <!-- generic.service -->
     <!-- Tree view for generic.service -->
     <record id="generic_service_view_tree" model="ir.ui.view">
-        <field name="name">generic.service.tree</field>
         <field name="model">generic.service</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="code"/>
+                <field name="lifecycle_state"/>
                 <field name="active" invisible="1"/>
             </tree>
         </field>
     </record>
     <!-- Form view for generic.service -->
     <record id="generic_service_view_form" model="ir.ui.view">
-        <field name="name">generic.service.form</field>
         <field name="model">generic.service</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="toggle_active" type="object"
@@ -60,6 +61,38 @@
                                 </group>
                             </group>
                             <field name="description" placeholder="Description..."/>
+                        </page>
+                        <page string="Lifecycle" name="page_lifecycle">
+                            <group>
+                                <group name="group_lifecycle_state" string="Lifecycle State">
+                                    <label for="lifecycle_state" string="State"/>
+                                    <div>
+                                        <field name="lifecycle_state"/>
+                                        <button name="action_lifecycle_state__activate"
+                                                type="object"
+                                                string="Activate"
+                                                class="btn btn-sm oe_inline oe_highlight ml-4"
+                                                attrs="{'invisible': [('lifecycle_state', '!=', 'draft')]}"/>
+                                        <button name="action_lifecycle_state__obsolete"
+                                                type="object"
+                                                string="Obsolete"
+                                                class="btn btn-sm oe_inline ml-4"
+                                                attrs="{'invisible': [('lifecycle_state', '!=', 'active')]}"/>
+                                        <button name="action_lifecycle_state__archive"
+                                                type="object"
+                                                string="Archive"
+                                                class="btn btn-sm oe_inline ml-4"
+                                                attrs="{'invisible': [('lifecycle_state', '!=', 'obsolete')]}"/>
+
+                                    </div>
+                                </group>
+                                <group name="group_lifecycle_dates" string="Lifecycle Dates">
+                                    <field name="lifecycle_date_created" string="Created"/>
+                                    <field name="lifecycle_date_activated" string="Activated"/>
+                                    <field name="lifecycle_date_obsolete" string="Obsolete"/>
+                                    <field name="lifecycle_date_archived" string="Archived"/>
+                                </group>
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
@@ -108,16 +141,22 @@
 
     <!-- Search for generic.service -->
     <record model="ir.ui.view" id="generic_service_view_search">
-        <field name="name">generic.service.search</field>
         <field name="model">generic.service</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
                 <field name="code"/>
+                <field name="lifecycle_state"/>
                 <separator/>
                 <filter name="filter_archived"
                         string="Archived"
                         domain="[('active', '=', False)]"/>
+
+                <group name="group_group_by" expand="0" string="Group by...">
+                    <filter name="filter_group_by_lifecycle_state"
+                            string="Lifecycle State"
+                            context="{'group_by': 'lifecycle_state'}"/>
+                </group>
             </search>
         </field>
     </record>
