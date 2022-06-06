@@ -10,6 +10,7 @@ class MyBaseModel(models.Model):
     _inherit = [
         'generic.mixin.proxy.methods',
     ]
+    _description = "Test Generic Mixin: Proxy method my base model"
 
     _generic_mixin_proxy_methods__dest_model = (
         'test.proxy.method.my.specific.model.mixin')
