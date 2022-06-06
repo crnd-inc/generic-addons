@@ -13,6 +13,7 @@
 
     # any module necessary for this one to work correctly
     'depends': [
+        'base',
         'generic_service',
         'generic_mixin',
 
@@ -31,6 +32,4 @@
     'application': False,
     'license': 'OPL-1',
     'auto_install': True,
-    'price': 50.0,
-    'currency': 'EUR',
 }

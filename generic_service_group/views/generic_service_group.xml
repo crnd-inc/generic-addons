@@ -21,6 +21,7 @@
         </field>
     </record>
 
+          <!-- Actions for generic.service.group -->
     <record id="generic_service_group_act_window"
             model="ir.actions.act_window">
         <field name="name">Generic Service Group.</field>
@@ -28,4 +29,11 @@
         <field name="res_model">generic.service.group</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <!-- Menu items for generic.service.group -->
+    <menuitem id="generic_service_group_menu_item"
+              name="Service group"
+              parent="generic_service.menu_generic_service_configuration_menu_item"
+              sequence="5"
+              action="generic_service_group_act_window"/>
 </odoo>

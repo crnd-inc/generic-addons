@@ -52,6 +52,7 @@
                             <group>
                                 <group name="group_info_left">
                                     <field name="change_manager_id"/>
+                                    <field name="service_group_id"/>
                                     <field name="sequence"/>
                                 </group>
                                 <group name="group_info_right">
@@ -95,9 +96,6 @@
                                 </group>
                             </group>
                         </page>
-                            <page string="Service Groups">
-                                <field name="service_group_id"/>
-                            </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
