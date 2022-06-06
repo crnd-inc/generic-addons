@@ -19,6 +19,7 @@ class GenericSerivce(models.Model):
     description = fields.Text(translate=True)
     sequence = fields.Integer(index=True, default=5)
     change_manager_id = fields.Many2one('res.users', ondelete='restrict')
+    service_group_id = fields.Many2one('generic.service.group',)
 
     # Access rignts
     access_group_ids = fields.Many2many(

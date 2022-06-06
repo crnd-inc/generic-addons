@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="generic_service_group_form_view" model="ir.ui.view">
+        <field name="name">generic.service.group.form</field>
+        <field name="model">generic.service.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name"/>
+                <field name="code"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_service_group_tree_view" model="ir.ui.view">
+        <field name="model">generic.service.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_service_group_act_window"
+            model="ir.actions.act_window">
+        <field name="name">Generic Service Group.</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.service.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
