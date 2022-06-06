@@ -41,13 +41,31 @@ msgid "Action Needed"
 msgstr "Необхідні дії"
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Activate"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Activated"
+msgstr ""
+
+#. module: generic_service
+#: selection:generic.service,lifecycle_state:0
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__active
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__active
 msgid "Active"
 msgstr "Активно"
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Archive"
+msgstr ""
+
+#. module: generic_service
+#: selection:generic.service,lifecycle_state:0
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_search
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Archived"
 msgstr "Заархівовано"
@@ -91,6 +109,11 @@ msgid "Contact"
 msgstr "Контакт"
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Created"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_uid
 msgid "Created by"
@@ -129,6 +152,11 @@ msgstr "Опис..."
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__display_name
 msgid "Display Name"
 msgstr "Назва для відображення"
+
+#. module: generic_service
+#: selection:generic.service,lifecycle_state:0
+msgid "Draft"
+msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_follower_ids
@@ -177,6 +205,11 @@ msgstr "Користувач універсальних сервісів"
 #: model:res.groups,name:generic_service.group_generic_service_user_implicit
 msgid "Generic service user (implicit)"
 msgstr "Користувач універсальних сервісів (неявний)"
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
+msgid "Group by..."
+msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__id
@@ -231,6 +264,43 @@ msgstr "Востаннє оновив"
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_date
 msgid "Last Updated on"
 msgstr "Останнє оновлення"
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Lifecycle"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_activated
+msgid "Lifecycle Date Activated"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_archived
+msgid "Lifecycle Date Archived"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_created
+msgid "Lifecycle Date Created"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_obsolete
+msgid "Lifecycle Date Obsolete"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Lifecycle Dates"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_state
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
+msgid "Lifecycle State"
+msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_main_attachment_id
@@ -298,6 +368,12 @@ msgid "Number of unread messages"
 msgstr "Кількість непрочитаних повідомлень"
 
 #. module: generic_service
+#: selection:generic.service,lifecycle_state:0
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Obsolete"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__access_group_ids
 msgid "Restrict access to this service by specified groups only"
 msgstr ""
@@ -337,6 +413,11 @@ msgstr "Сервіси"
 #: model:ir.actions.act_window,name:generic_service.generic_service_action_service_settings
 #: model:ir.ui.menu,name:generic_service.menu_settings_service
 msgid "Settings"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "State"
 msgstr ""
 
 #. module: generic_service
