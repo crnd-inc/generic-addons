@@ -122,3 +122,22 @@ class AccessRulesFixMixinMT:
     def setUp(self):
         super(AccessRulesFixMixinMT, self).setUp()
         deactivate_records_for_model(self.env, 'ir.rule')
+
+
+class WebTourCase(tests_common.HttpCase):
+
+    def run_js_tour(self, start_url, tour_name, **kw):
+        """ Run web tour.
+
+            :param str start_url: Url to start web tour at
+            :param str tour_name: Name of the tour to run
+        """
+        tour_service = "odoo.__DEBUG__.services['web_tour.tour']"
+        js_run_tour = tour_service + ".run('%s')" % tour_name
+        js_tour_ready = tour_service + ".tours.%s.ready" % tour_name
+        ready_exp = "Boolean(%s && %s)" % (tour_service, js_tour_ready)
+        return self.browser_js(
+            url_path=start_url,
+            code=js_run_tour,
+            ready=kw.pop('ready', ready_exp),
+            **kw)
