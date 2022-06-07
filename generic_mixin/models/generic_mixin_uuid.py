@@ -1,5 +1,9 @@
+import logging
+
 import uuid
 from odoo import models, fields, api
+
+_logger = logging.getLogger(__name__)
 
 
 class GenericMixinUUID(models.AbstractModel):
@@ -53,6 +57,8 @@ class GenericMixinUUID(models.AbstractModel):
     @api.model
     def _add_magic_fields(self):
         res = super(GenericMixinUUID, self)._add_magic_fields()
+        _logger.warning('\n\n Vals _ADD_MAGIC_FIELDS\n %s\n\n',
+                        (self._generic_mixin_uuid_field_name, self._fields))
 
         if not self._generic_mixin_uuid_auto_add_field:
             return res
@@ -65,6 +71,9 @@ class GenericMixinUUID(models.AbstractModel):
                     index=True, required=True, readonly=True,
                     size=38, default='/', copy=False)
             )
+        _logger.warning('\n\n Vals _ADD_MAGIC_FIELDS AFTER\n %s\n\n',
+                        (self._generic_mixin_uuid_field_name, self._fields))
+
         return res
 
     @api.model

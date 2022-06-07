@@ -10,13 +10,14 @@ _logger = logging.getLogger(__name__)
 
 
 def pre_init_hook(cr):
+    _logger.warning('\n\n Vals PRE_INIT_HOOK\n %s\n\n', ())
     if column_exists(cr, 'generic_location', 'uuid'):
-        _logger.info(
+        _logger.warning(
             "generic_location: uuid column already exists, "
             "no need to run pre-init hook")
         return
 
-    _logger.info("Running pre_init_hook for geneirc_location_uuid...")
+    _logger.warning("Running pre_init_hook for geneirc_location_uuid...")
     create_column(cr, 'generic_location', 'uuid', 'VARCHAR')
 
     cr.execute("SELECT array_agg(id) FROM generic_location")
