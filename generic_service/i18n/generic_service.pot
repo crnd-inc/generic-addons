@@ -35,9 +35,24 @@ msgid "Action Needed"
 msgstr ""
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Activate"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Activated"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__active
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__active
 msgid "Active"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Archive"
 msgstr ""
 
 #. module: generic_service
@@ -84,6 +99,11 @@ msgstr ""
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_res_partner
 msgid "Contact"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Created"
 msgstr ""
 
 #. module: generic_service
@@ -169,6 +189,11 @@ msgid "Generic service user (implicit)"
 msgstr ""
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
+msgid "Group by..."
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__has_message
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__has_message
 msgid "Has Message"
@@ -222,6 +247,43 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Lifecycle"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_activated
+msgid "Lifecycle Date Activated"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_archived
+msgid "Lifecycle Date Archived"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_created
+msgid "Lifecycle Date Created"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_obsolete
+msgid "Lifecycle Date Obsolete"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Lifecycle Dates"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_state
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
+msgid "Lifecycle State"
 msgstr ""
 
 #. module: generic_service
@@ -290,6 +352,11 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "Obsolete"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__access_group_ids
 msgid "Restrict access to this service by specified groups only"
 msgstr ""
@@ -329,6 +396,11 @@ msgstr ""
 #: model:ir.actions.act_window,name:generic_service.generic_service_action_service_settings
 #: model:ir.ui.menu,name:generic_service.menu_settings_service
 msgid "Settings"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
+msgid "State"
 msgstr ""
 
 #. module: generic_service

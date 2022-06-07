@@ -17,6 +17,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_mixin
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__active
+msgid "Active"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__archived
+msgid "Archived"
+msgstr ""
+
+#. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_no_unlink.py:0
 #, python-format
 msgid ""
@@ -72,10 +82,20 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_parent.py:0
 #, python-format
 msgid "Error ! You cannot create recursive %s."
 msgstr "Помилка ! Ви не можете створювати рекурсивні записи %s."
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_entity_lifecycle
+msgid "Generic Mixin: Entity Lifecycle"
+msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_get_action
@@ -156,6 +176,40 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_mixin_entity_lifecycle.py:0
+#, python-format
+msgid ""
+"It is not allowed to change Lifecycle State fieldfrom %(old_state)s to "
+"%(new_state)s!\n"
+"Allowed next states: %(allowed_states)s"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_activated
+msgid "Lifecycle Date Activated"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_archived
+msgid "Lifecycle Date Archived"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_created
+msgid "Lifecycle Date Created"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_obsolete
+msgid "Lifecycle Date Obsolete"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_state
+msgid "Lifecycle State"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__name
 msgid "Name"
 msgstr "Назва"
@@ -177,6 +231,11 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_no_update
 msgid "Non Updatable"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__obsolete
+msgid "Obsolete"
 msgstr ""
 
 #. module: generic_mixin

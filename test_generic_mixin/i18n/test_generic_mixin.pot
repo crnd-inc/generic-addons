@@ -276,6 +276,21 @@ msgid "Test Field"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_base_model
+msgid "Test Generic Mixin: Proxy method my base model"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_uuid_standard
+msgid "Test Generic Mixin: UUID Standard"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_uuid_named_field
+msgid "Test Generic Mixin: UUID named field"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__uuid
 msgid "Uuid"
 msgstr ""
@@ -388,16 +403,6 @@ msgid "test.generic.mixin.track.changes.model"
 msgstr ""
 
 #. module: test_generic_mixin
-#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_uuid_named_field
-msgid "test.generic.mixin.uuid.named.field"
-msgstr ""
-
-#. module: test_generic_mixin
-#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_uuid_standard
-msgid "test.generic.mixin.uuid.standard"
-msgstr ""
-
-#. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_mixin_name_search_by_fields
 msgid "test.mixin.name.search.by.fields"
 msgstr ""
@@ -405,11 +410,6 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_mixin_name_search_by_fields_2
 msgid "test.mixin.name.search.by.fields.2"
-msgstr ""
-
-#. module: test_generic_mixin
-#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_base_model
-msgid "test.proxy.method.my.base.model"
 msgstr ""
 
 #. module: test_generic_mixin
