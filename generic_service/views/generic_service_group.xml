@@ -4,9 +4,18 @@
         <field name="name">generic.service.group.form</field>
         <field name="model">generic.service.group</field>
         <field name="arch" type="xml">
+
             <form>
+                <button class="oe_stat_button"
+                        type="object"
+                        name="action_show_service"
+                        icon="fa-bars">
+                    <field string="Services" name="service_count"
+                           widget="statinfo"/>
+                </button>
                 <field name="name"/>
                 <field name="code"/>
+                <field name="active"/>
             </form>
         </field>
     </record>
@@ -17,11 +26,14 @@
             <tree>
                 <field name="name"/>
                 <field name="code"/>
+                <field name="active"/>
+                <field name="service_count"/>
+
             </tree>
         </field>
     </record>
 
-          <!-- Actions for generic.service.group -->
+    <!-- Actions for generic.service.group -->
     <record id="generic_service_group_act_window"
             model="ir.actions.act_window">
         <field name="name">Generic Service Group.</field>
