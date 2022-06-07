@@ -71,11 +71,4 @@
         <field eval="1" name="perm_create"/>
     </record>
 
-      <!-- Module category -->
-    <record model="ir.module.category" id="base.module_generic_service_group">
-        <field name="name">Generic Service Group</field>
-        <field name="sequence">100</field>
-        <field name="visible" eval="1"/>
-    </record>
-
 </odoo>
