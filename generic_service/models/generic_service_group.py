@@ -2,7 +2,6 @@ from odoo import models, fields, api
 from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 
 
-
 class GenericServiceGroup(models.Model):
     _name = 'generic.service.group'
     _description = 'Generic Service Group'
@@ -19,12 +18,12 @@ class GenericServiceGroup(models.Model):
 
     @api.depends('service_ids')
     def _compute_service_count(self):
-        mapped_data = read_counts_for_o2m(
-            records=self, field_name='service_ids', sudo=True)
+        mapped_data = read_counts_for_o2m(self, 'service_ids')
         for rec in self:
             rec.service_count = mapped_data.get(rec.id, 0)
 
     def action_show_service(self):
         self.ensure_one()
-        if self.sudo().show_service_action_id:
-            return self.sudo().show_service_action_id.read()[0]
+        return self.env['generic.mixin.get.action'].get_action_by_xmlid(
+            'generic_service.generic_service_act_window',
+            domain=[('name', '=', self.id)])
