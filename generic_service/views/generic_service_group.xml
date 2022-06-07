@@ -9,13 +9,22 @@
                 <button class="oe_stat_button"
                         type="object"
                         name="action_show_service"
-                        icon="fa-bars">
-                    <field string="Services" name="service_count"
-                           widget="statinfo"/>
+                        icon="fa-comments-o">
+                    <div class="o_stat_info">
+                        <field name="service_count" class="o_stat_value"/>
+                        <span class="o_stat_text"
+                                attrs="{'invisible': [('service_count', '&lt;', 2)]}"> Services</span>
+                        <span class="o_stat_text"
+                                attrs="{'invisible': [('service_count', '&gt;', 1)]}"> Service</span>
+                    </div>
                 </button>
-                <field name="name"/>
-                <field name="code"/>
-                <field name="active"/>
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                </group>
+                <group>
+                    <field name="active"/>
+                </group>
             </form>
         </field>
     </record>
