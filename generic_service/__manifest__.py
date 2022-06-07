@@ -25,6 +25,7 @@
         'views/generic_service_level_views.xml',
         'views/res_partner_views.xml',
         'views/res_config_settings_view.xml',
+        'views/generic_service_group.xml',
         'data/generic_service_default.xml'
     ],
     'demo': [

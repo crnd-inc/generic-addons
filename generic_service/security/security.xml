@@ -70,4 +70,40 @@
         <field eval="1" name="perm_read"/>
         <field eval="1" name="perm_create"/>
     </record>
+
+      <!-- Module category -->
+    <record model="ir.module.category" id="base.module_generic_service_group">
+        <field name="name">Generic Service Group</field>
+        <field name="sequence">100</field>
+        <field name="visible" eval="1"/>
+    </record>
+
+    <!--User Groups -->
+    <record id="group_generic_service_group_implicit" model="res.groups">
+        <field name="name">Generic Service Group (implicit)</field>
+        <field name="category_id" ref="base.module_generic_service_group"/>
+    </record>
+
+    <record id="group_generic_service_group_readonly" model="res.groups">
+        <field name="name">Generic Service Group (readonly)</field>
+        <field name="category_id" ref="base.module_generic_service_group"/>
+        <field name="implied_ids"
+               eval="[(4, ref('generic_service_group.group_generic_service_group_implicit'))]"/>
+    </record>
+
+    <record id="group_generic_service_group_user" model="res.groups">
+        <field name="name">Generic Service Group User</field>
+        <field name="implied_ids"
+               eval="[(4, ref('generic_service_group.group_generic_service_group_readonly'))]"/>
+        <field name="category_id" ref="base.module_generic_service_group"/>
+    </record>
+
+    <record id="group_generic_service_group_manager" model="res.groups">
+        <field name="name">Generic Service Group Manager</field>
+        <field name="implied_ids"
+               eval="[(4, ref('generic_service_group.group_generic_service_group_user'))]"/>
+        <field name="category_id" ref="base.module_generic_service_group"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
 </odoo>
