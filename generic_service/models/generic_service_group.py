@@ -31,6 +31,6 @@ class GenericServiceGroup(models.Model):
             'generic_service.generic_service_action',
             context=dict(
                 self.env.context,
-                default_service_group_id=[(4, self.id)]),
+                default_service_group_id=self.id),
             domain=[('service_group_id.id', '=', self.id)]
         )
