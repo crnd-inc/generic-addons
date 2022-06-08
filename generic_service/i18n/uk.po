@@ -53,6 +53,7 @@ msgstr ""
 #. module: generic_service
 #: selection:generic.service,lifecycle_state:0
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__active
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__active
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__active
 msgid "Active"
 msgstr "Активно"
@@ -83,11 +84,13 @@ msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__code
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__code
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__code
 msgid "Code"
 msgstr "Код"
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Code..."
@@ -115,12 +118,14 @@ msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_uid
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_uid
 msgid "Created by"
 msgstr "Створив"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_date
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__create_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_date
 msgid "Created on"
 msgstr "Створено"
@@ -149,6 +154,7 @@ msgstr "Опис..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__display_name
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__display_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__display_name
 msgid "Display Name"
 msgstr "Назва для відображення"
@@ -182,6 +188,12 @@ msgid "Generic Service"
 msgstr "Універсальний сервіс"
 
 #. module: generic_service
+#: model:ir.actions.act_window,name:generic_service.generic_service_group_act_window
+#: model:ir.model,name:generic_service.model_generic_service_group
+msgid "Generic Service Group"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model,name:generic_service.model_generic_service_level
 msgid "Generic Service Level"
 msgstr "Універсальний рівень сервісу"
@@ -213,6 +225,7 @@ msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__id
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__id
 msgid "ID"
 msgstr "ID"
@@ -249,18 +262,21 @@ msgstr "Підписник"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service____last_update
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group____last_update
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level____last_update
 msgid "Last Modified on"
 msgstr "Остання модифікація"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_uid
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_uid
 msgid "Last Updated by"
 msgstr "Востаннє оновив"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_date
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__write_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_date
 msgid "Last Updated on"
 msgstr "Останнє оновлення"
@@ -327,7 +343,9 @@ msgstr "Повідомлення"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__name
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__name
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Name"
 msgstr "Назва"
@@ -380,9 +398,30 @@ msgstr ""
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__sequence
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__sequence
 msgid "Sequence"
 msgstr "Послідовність"
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__service_ids
+msgid "Service"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__service_count
+msgid "Service Count"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__service_group_id
+msgid "Service Group"
+msgstr ""
+
+#. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
+msgid "Service Groups"
+msgstr ""
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.res_partner_view_form_inherit_service_level
@@ -402,9 +441,16 @@ msgid "Service Levels"
 msgstr "Рівні сервісу"
 
 #. module: generic_service
+#: model:ir.ui.menu,name:generic_service.generic_service_group_menu_item
+msgid "Service groups"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action
 #: model:ir.ui.menu,name:generic_service.generic_service_menu_item
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_root
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_tree_view
 #: model_terms:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
 msgid "Services"
 msgstr "Сервіси"
