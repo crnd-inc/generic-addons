@@ -21,6 +21,8 @@
                 <field name="code"/>
                 <field name="lifecycle_state"/>
                 <field name="active" invisible="1"/>
+                <field name="service_group_id"/>
+
             </tree>
         </field>
     </record>
@@ -51,6 +53,7 @@
                             <group>
                                 <group name="group_info_left">
                                     <field name="change_manager_id"/>
+                                    <field name="service_group_id"/>
                                     <field name="sequence"/>
                                 </group>
                                 <group name="group_info_right">
@@ -59,7 +62,8 @@
                                            options="{'no_create': true, 'no_quick_create': true}"/>
                                 </group>
                             </group>
-                            <field name="description" placeholder="Description..."/>
+                            <field name="description"
+                                   placeholder="Description..."/>
                         </page>
                         <page string="Lifecycle" name="page_lifecycle">
                             <group>
@@ -96,7 +100,8 @@
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_follower_ids" widget="mail_followers"
+                           groups="base.group_user"/>
                     <field name="message_ids" widget="mail_thread"/>
                 </div>
             </form>
@@ -104,7 +109,7 @@
     </record>
 
     <!-- Kanban view for generic.service -->
-        <record id="view_generic_service_kanban" model="ir.ui.view">
+    <record id="view_generic_service_kanban" model="ir.ui.view">
         <field name="model">generic.service</field>
         <field name="arch" type="xml">
             <kanban class="oe_background_grey o_service_dashboard_kanban">
@@ -113,16 +118,18 @@
                 <field name="code"/>
 
                 <templates>
-                     <t t-name="kanban-box">
+                    <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click o_service_dashboard_kanban">
                             <div class="o_service_dashboard_kanban_main">
                                 <div class="o_service_dashboard_content">
                                     <div class="o_kanban_primary_left">
                                         <div class="o_primary">
-                                            <span> <t t-esc="record.display_name.value"/></span>
+                                            <span><t
+                                                    t-esc="record.display_name.value"/></span>
                                         </div>
                                         <div class="text-muted">
-                                            <span> <t t-esc="record.code.value"/></span>
+                                            <span><t
+                                                    t-esc="record.code.value"/></span>
                                         </div>
                                         <div class="o_buttons">
                                         </div>
@@ -146,6 +153,7 @@
                 <field name="name"/>
                 <field name="code"/>
                 <field name="lifecycle_state"/>
+                <field name="service_group_id"/>
                 <separator/>
                 <filter name="filter_archived"
                         string="Archived"
@@ -155,6 +163,9 @@
                     <filter name="filter_group_by_lifecycle_state"
                             string="Lifecycle State"
                             context="{'group_by': 'lifecycle_state'}"/>
+                    <filter name="filter_group_service_groups"
+                            string="Service Groups"
+                            context="{'group_by': 'service_group_id'}"/>
                 </group>
             </search>
         </field>
@@ -169,7 +180,7 @@
 
     <!-- Menus for Generic Resource -->
     <menuitem id="generic_service_menu_item"
-                name="Services"
-                parent="menu_generic_service_root" sequence="5"
-                action="generic_service_action"/>
+              name="Services"
+              parent="menu_generic_service_root" sequence="5"
+              action="generic_service_action"/>
 </odoo>
