@@ -21,6 +21,8 @@
                 <field name="code"/>
                 <field name="lifecycle_state"/>
                 <field name="active" invisible="1"/>
+                <field name="service_group_id"/>
+
             </tree>
         </field>
     </record>
@@ -152,6 +154,7 @@
                 <field name="name"/>
                 <field name="code"/>
                 <field name="lifecycle_state"/>
+                <field name="service_group_id"/>
                 <separator/>
                 <filter name="filter_archived"
                         string="Archived"
@@ -161,6 +164,9 @@
                     <filter name="filter_group_by_lifecycle_state"
                             string="Lifecycle State"
                             context="{'group_by': 'lifecycle_state'}"/>
+                    <filter name="filter_group_service_groups"
+                            string="Service Groups"
+                            context="{'group_by': 'service_group_id'}"/>
                 </group>
             </search>
         </field>

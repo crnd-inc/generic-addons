@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="generic_service_group_form_view" model="ir.ui.view">
-        <field name="name">generic.service.group.form</field>
         <field name="model">generic.service.group</field>
         <field name="arch" type="xml">
 
@@ -10,14 +9,14 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                <button class="oe_stat_button"
-                        type="object"
-                        name="action_show_service"
-                        icon="fa-bars">
-                        <field name="service_count" widget="statinfo"/>
-                </button>
+                        <button class="oe_stat_button"
+                                type="object"
+                                name="action_show_service"
+                                icon="fa-bars">
+                            <field name="service_count" widget="statinfo"/>
+                        </button>
                     </div>
-               <div class="oe_title">
+                    <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Name"/>
                         </h1>
@@ -36,8 +35,7 @@
             <tree>
                 <field name="name"/>
                 <field name="code"/>
-                <field name="service_count"/>
-
+                <field name="service_count" string="Services"/>
             </tree>
         </field>
     </record>
