@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="generic_service_group_form_view" model="ir.ui.view">
+        <field name="model">generic.service.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                type="object"
+                                name="action_show_service"
+                                icon="fa-bars">
+                            <field name="service_count" widget="statinfo"
+                                   string="Services"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                        <h2>
+                            <field name="code" placeholder="Code..."/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="generic_service_group_tree_view" model="ir.ui.view">
+        <field name="model">generic.service.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="service_count" string="Services"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions for generic.service.group -->
+    <record id="generic_service_group_act_window"
+            model="ir.actions.act_window">
+        <field name="name">Generic Service Group</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.service.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu items for generic.service.group -->
+    <menuitem id="generic_service_group_menu_item"
+              name="Service groups"
+              parent="generic_service.menu_generic_service_configuration_menu_item"
+              sequence="30"
+              action="generic_service_group_act_window"/>
+</odoo>
