@@ -37,7 +37,8 @@ def generate_uuid_for_table(cr, table, field_name):
                 WHERE {field_name} = %(uuid)s
             )
         """).format(
-            table=table, field_name=field_name
+            table=sql.Identifier(table),
+            field_name=sql.Identifier(field_name),
         ), {'uuid': new_uuid})
         if not cr.fetchone()[0]:
             new_uuid_ok = True
@@ -71,8 +72,8 @@ def auto_generate_uuids(cr, table, field_name):
             SET {field_name}=%(uuid)s
             WHERE id=%(record_id)s
         """).format(
-            table=table,
-            field_name=field_name,
+            table=sql.Identifier(table),
+            field_name=sql.Identifier(field_name),
         ), {
             'uuid': new_uuid,
             'record_id': record_id,
