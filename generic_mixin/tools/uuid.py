@@ -4,13 +4,27 @@ and related tasks.
 """
 import uuid
 from psycopg2 import sql
-from odoo.tools.sql import create_column, set_not_null
+from odoo.tools.sql import create_column
 
 
 def create_uuid_field(cr, table, field_name):
+    """ Create new UUID column in table
+
+        :param cr: Database cursor
+        :param str table: Name of table to add column to
+        :param str field_name: Name of column to add to table
+    """
     create_column(cr, table, field_name, 'character varying(38)')
 
+
 def generate_uuid_for_table(cr, table, field_name):
+    """ Generate new unique UUID for table in specified column
+
+        :param cr: Database cursor
+        :param str table: Name of table to generate new UUID for
+        :param str field_name: Name of field to generate new UUID for
+        :return str: New generated UUID
+    """
     new_uuid_ok = False
     while not new_uuid_ok:
         new_uuid = str(uuid.uuid4())
@@ -24,13 +38,19 @@ def generate_uuid_for_table(cr, table, field_name):
             )
         """).format(
             table=table, field_name=field_name
-        ) % {'uuid': new_uuid})
+        ), {'uuid': new_uuid})
         if not cr.fetchone()[0]:
             new_uuid_ok = True
     return new_uuid
 
 
 def auto_generate_uuids(cr, table, field_name):
+    """ Automatically generate uuids for existing records in specified table
+
+        :param cr: Database cursor
+        :param str table: Name of table to generate uuids for
+        :param str field_name: Name of field to generate UUIDs for
+    """
     cr.execute(sql.SQL("""
         SELECT array_agg(id)
         FROM {table}
