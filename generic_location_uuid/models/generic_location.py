@@ -1,6 +1,6 @@
 import logging
 
-from odoo import models
+from odoo import models, fields
 
 _logger = logging.getLogger(__name__)
 
@@ -11,18 +11,12 @@ class GenericLocation(models.Model):
         'generic.location',
         'generic.mixin.uuid',
     ]
-    _generic_mixin_uuid_auto_add_field = True
+    uuid = fields.Char(
+        index=True, required=True, readonly=True,
+        size=38, default='/', copy=False, string='UUID')
 
     _sql_constraints = [
         ('uuid_uniq',
          'UNIQUE (uuid)',
-         'uuid must be unique.'),
+         'UUID must be unique.'),
     ]
-
-    def _add_sql_constraints(self):
-        _logger.warning('\n\n _ADD_SQL_CONSTRAINTS GenericLocation \n %s\n\n',
-                        (self._sql_constraints))
-        _logger.warning('\n\n Vals ALL RECORDS \n %s\n\n',
-                        (self.search([]).read(['id', 'uuid'])))
-        res = super(GenericLocation, self)._add_sql_constraints()
-        return res
