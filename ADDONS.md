@@ -11,9 +11,9 @@
 | generic_location_geo | Generic Location (Geo Coordinates) | LGPL-3 | 14.0.1.2.0 | Generic Location (Add geocoordinates to generic locations) |  |
 | generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 14.0.1.4.1 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
 | generic_location_tag | Generic Location Tag | LGPL-3 | 14.0.1.2.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
-| generic_location_uuid | Generic Location (UUID) | LGPL-3 | 14.0.1.2.0 | Generic Location (Add UUID to generic locations) |  |
+| generic_location_uuid | Generic Location (UUID) | LGPL-3 | 14.0.1.3.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 14.0.1.4.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 14.0.1.57.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 14.0.1.58.0 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 14.0.1.33.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 14.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 14.0.1.16.0 | Create and manage service catalog |  |
