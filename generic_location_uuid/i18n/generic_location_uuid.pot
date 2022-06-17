@@ -20,10 +20,11 @@ msgstr ""
 
 #. module: generic_location_uuid
 #: model:ir.model.fields,field_description:generic_location_uuid.field_generic_location__uuid
-msgid "Uuid"
+#: model_terms:ir.ui.view,arch_db:generic_location_uuid.generic_location_search_view
+msgid "UUID"
 msgstr ""
 
 #. module: generic_location_uuid
 #: model:ir.model.constraint,message:generic_location_uuid.constraint_generic_location_uuid_uniq
-msgid "uuid must be unique."
+msgid "UUID must be unique."
 msgstr ""
