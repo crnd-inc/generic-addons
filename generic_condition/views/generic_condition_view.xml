@@ -566,6 +566,102 @@
                                 </tr>
                             </table>
                         </group>
+                        <!-- 'Monetary field' condition data -->
+                        <group colspan="4" col="4"
+                               name="group_condition_find"
+                               attrs="{'invisible': [('type', '!=', 'find')]}">
+                            <div class="alert alert-warning" role="alert" colspan="4">
+                                <b>Warning:</b> This feature is experimental.
+                            </div>
+                            <div colspan="4">
+                                This type of condition can be used to find related objects in arbitary table
+                                and check them.
+                            </div>
+                            <group name="generic_condition_find_search"
+                                   string="Search"
+                                   colspan="2">
+                                <field name="condition_find_search_model_id"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Model"/>
+                                <field name="condition_find_search_model_name"
+                                       string="Model Name"/>
+                                <field name="condition_find_order_by_field_id"
+                                       domain="[('model_id', '=', condition_find_search_model_id), ('store', '=', True)]"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Order By Field"/>
+                                <field name="condition_find_order_by_direction"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Order By Direction"/>
+
+                            </group>
+                            <group name="generic_condition_find_check"
+                                   string="Check"
+                                   colspan="2">
+                                <field name="condition_find_fetch_type"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Type"/>
+                                <field name="condition_find_check_condition_ids"
+                                       context="{'default_model_id': condition_find_search_model_id}"
+                                       domain="[('model_id', '=', condition_find_search_model_id)]"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       widget="many2many_tags"
+                                       string="Conditions"/>
+                            </group>
+                            <group colspan="4"
+                                   name="generic_condition_find_domain"
+                                   string="Filter records">
+                                <separator string="Static filter"
+                                           colspan="2"/>
+                                <field name="condition_find_search_extra_domain"
+                                       widget="domain"
+                                       options="{'model': 'condition_find_search_model_name', 'in_dialog': True}"
+                                       nolabel="1"
+                                       colspan="2"/>
+                                <separator string="Dynamic filter"
+                                           colspan="2"/>
+                                <field name="condition_find_search_domain_ids"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       mode="tree,form"
+                                       nolabel="1"
+                                       colspan="2">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="type"/>
+                                        <field name="check_field_id"
+                                               domain="[('model_id', '=', parent.condition_find_search_model_id),('store', '=', True)]"
+                                               attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                        <field name="value_field_operator"
+                                               attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                        <field name="value_field_id"
+                                               attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"
+                                               domain="[('model_id', '=', parent.model_id)]"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="type"/>
+                                            </group>
+                                            <group>
+                                                <field name="sequence"/>
+                                            </group>
+                                        </group>
+                                        <group name="group_leaf"
+                                               string="Search condition"
+                                               attrs="{'invisible': [('type', '!=', 'search-condition')]}">
+                                            <field name="check_field_type"/>
+                                            <field name="check_field_id"
+                                                   domain="[('model_id', '=', parent.condition_find_search_model_id),('store', '=', True)]"
+                                                   attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                            <field name="value_field_operator"
+                                                   attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                            <field name="value_field_id"
+                                                   attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"
+                                                   domain="[('model_id', '=', parent.model_id), ('ttype', '=', check_field_type)]"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </group>
                     </group>
                     <group colspan="4" string="Description">
                         <field name="description"

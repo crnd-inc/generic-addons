@@ -15,6 +15,7 @@
     ],
     'demo': [
         'demo/test_model_demo.xml',
+        'demo/calendar_event.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
