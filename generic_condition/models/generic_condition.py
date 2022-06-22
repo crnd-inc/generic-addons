@@ -1,3 +1,4 @@
+# pylint:disable=too-many-lines
 import re
 import time
 import logging
