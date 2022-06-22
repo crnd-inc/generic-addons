@@ -8,6 +8,7 @@
     'category': 'Hidden',
     'depends': [
         'generic_condition',
+        'calendar',
     ],
     'data': [
         'security/security.xml',
