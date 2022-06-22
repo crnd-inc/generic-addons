@@ -47,6 +47,7 @@ class GenericConditionDomainLeaf(models.Model):
                     ],
                 }
             }
+        return {}
 
     def _get_domain_leaf_for(self, val_obj):
         self.ensure_one()
