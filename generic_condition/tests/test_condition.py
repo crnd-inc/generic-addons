@@ -1,7 +1,17 @@
 from odoo.tools.misc import mute_logger
+import logging
 from odoo.tests.common import SavepointCase
 from odoo.tools.translate import _
 from odoo.exceptions import ValidationError, UserError
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
+try:
+    # pylint: disable=unused-import
+    from freezegun import freeze_time  # noqa
+except ImportError:  # pragma: no cover
+    logging.getLogger(__name__).warning(
+        "freezegun not installed. Tests will not work!")
 
 
 class TestCondition(SavepointCase):
@@ -32,6 +42,9 @@ class TestCondition(SavepointCase):
             'generic_condition.demo_condition_partner_has_contact_green')
         cls.condition_partner_has_only_contacts = cls.env.ref(
             'generic_condition.demo_condition_partner_has_only_contacts')
+        cls.condition_company_partner_created_year_ago = cls.env.ref(
+            'generic_condition.demo_condition_company_partner_created_year_ago'
+        )
 
     def test_00_defaults(self):
         defaults = self.Condition.default_get(
@@ -135,3 +148,15 @@ class TestCondition(SavepointCase):
         wiz.write({'res_id': -42})  # ID that are not present in table
         with self.assertRaises(ValidationError):
             wiz.process()
+
+    def test_condition_type_find_check(self):
+        date_above_year = datetime.now() + relativedelta(years=1, days=1)
+        condition = self.condition_company_partner_created_year_ago
+        self.env['res.partner'].create({
+            'name': 'Old partner',
+            'parent_id': self.env.user.company_id.id,
+        })
+        self.assertFalse(condition.check(self.env.user.company_id))
+
+        with freeze_time(date_above_year.strftime('%Y-%m-%d')):
+            self.assertTrue(condition.check(self.env.user.company_id))

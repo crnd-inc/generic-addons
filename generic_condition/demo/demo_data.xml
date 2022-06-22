@@ -142,4 +142,27 @@
         <field name="condition_related_field_value_id" ref="base.ua"/>
     </record>
 
+    <record id="demo_condition_partner_created_year_ago" model="generic.condition">
+        <field name="name">Created: Year ago</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">date_diff</field>
+        <field name="condition_date_diff_date_end_type">now</field>
+        <field name="condition_date_diff_date_start_type">field</field>
+        <field name="condition_date_diff_date_start_field" ref="base.field_res_partner__create_date"/>
+        <field name="condition_date_diff_operator">></field>
+        <field name="condition_date_diff_value">1</field>
+        <field name="condition_date_diff_uom">years</field>
+    </record>
+
+    <record id="demo_condition_company_partner_created_year_ago" model="generic.condition">
+        <field name="name">Company partner created year ago</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="type">find</field>
+        <field name="condition_find_search_model_id" ref="base.model_res_partner"/>
+        <field name="condition_find_order_by_field_id" ref="base.field_res_partner__create_date"/>
+        <field name="condition_find_order_by_direction">ASC</field>
+        <field name="condition_find_fetch_type">first</field>
+        <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('demo_condition_partner_created_year_ago')])]"/>
+    </record>
+
 </odoo>
