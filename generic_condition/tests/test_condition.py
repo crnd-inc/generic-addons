@@ -1,10 +1,10 @@
-from odoo.tools.misc import mute_logger
 import logging
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+from odoo.tools.misc import mute_logger
 from odoo.tests.common import SavepointCase
 from odoo.tools.translate import _
 from odoo.exceptions import ValidationError, UserError
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
 try:
     # pylint: disable=unused-import

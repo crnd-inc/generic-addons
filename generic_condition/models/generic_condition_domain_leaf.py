@@ -83,7 +83,7 @@ class GenericConditionDomainLeaf(models.Model):
                 [val_obj[self.sudo().value_field_id.name].id],
             )]
         if (val_ftype in ('many2many', 'one2many') and
-              check_ftype in ('many2many', 'one2many')):
+                check_ftype in ('many2many', 'one2many')):
             if operator == '=':
                 operator = 'in'
             elif operator == '!=':
