@@ -6,8 +6,8 @@
         <field name="partner_ids" eval="[(6,0,[ref('generic_condition.demo_partner_sx_corp')])]"/>
         <field name="name">Follow-up for Project proposal</field>
         <field name="description">Meeting to discuss project plan and hash out the details of implementation.</field>
-        <field name="start" eval="2022-02-03 10:20:00"/>
-        <field name="stop" eval="2022-02-03 16:30:00"/>
+        <field name="start" eval="time.strftime('2022-02-03 10:20:00')"/>
+        <field name="stop" eval="time.strftime('2022-02-03 16:30:00')"/>
         <field name="duration" eval="6.3"/>
         <field name="allday" eval="False"/>
         <field name="state">open</field>
