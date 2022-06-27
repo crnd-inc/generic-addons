@@ -32,9 +32,6 @@ class TestCondition(SavepointCase):
             'generic_condition.demo_condition_partner_has_contact_green')
         cls.condition_partner_has_only_contacts = cls.env.ref(
             'generic_condition.demo_condition_partner_has_only_contacts')
-        cls.condition_company_partner_created_year_ago = cls.env.ref(
-            'generic_condition.demo_condition_company_partner_created_year_ago'
-        )
 
     def test_00_defaults(self):
         defaults = self.Condition.default_get(
