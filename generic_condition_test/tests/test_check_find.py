@@ -9,8 +9,7 @@ class TestConditionCheckFind(SavepointCase):
         cls.test_partner1 = cls.env.ref(
             'generic_condition_test.demo_partner_it_group')
         cls.test_partner2 = cls.env.ref(
-            'generic_condition_test.demo_partner_consulting_group'
-        )
+            'generic_condition_test.demo_partner_consulting_group')
         cls.condition = cls.env.ref(
             "generic_condition_test"
             ".test_condition_event_year_ago_on_partner_area"

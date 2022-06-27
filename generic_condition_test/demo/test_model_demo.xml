@@ -38,7 +38,7 @@
         <field name="condition_date_diff_uom">years</field>
     </record>
      <record id="test_condition_event_year_ago_on_partner_area" model="generic.condition">
-        <field name="name">Partner: Event year ago on partner area</field>
+        <field name="name">Partner: Related event year ago on partner area</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="type">find</field>
         <field name="condition_find_search_model_id" ref="calendar.model_calendar_event"/>
