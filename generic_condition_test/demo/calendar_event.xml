@@ -3,7 +3,7 @@
     <record id="calendar_event_test" model="calendar.event">
         <field name="active" eval="True"/>
         <field name="user_id" ref="base.user_admin"/>
-        <field name="partner_ids" eval="[(6,0,[ref('demo_partner_it_group')])]"/>
+        <field name="partner_ids" eval="[(6,0,[ref('demo_partner_it_group'), ref('demo_partner_consulting_group')])]"/>
         <field name="name">Commercial offer for cooperation</field>
         <field name="description">Meeting to discuss commercial offer.</field>
         <field name="start" eval="time.strftime('2021-02-03 10:20:00')"/>

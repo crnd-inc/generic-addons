@@ -47,12 +47,24 @@
         <field name="condition_find_fetch_type">first</field>
         <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('test_condition_event_year_ago')])]"/>
     </record>
+    <record id="test_condition_logic_operator" model="generic.condition.domain.leaf">
+        <field name="type">operator-and</field>
+        <field name="condition_id" ref="generic_condition_test.test_condition_event_year_ago_on_partner_area"/>
+    </record>
     <record id="test_condition_leaf_event_location_equals_partner_location" model="generic.condition.domain.leaf">
         <field name="type">search-condition</field>
         <field name="check_field_type">char</field>
         <field name="check_field_id" ref="calendar.field_calendar_event__location"/>
         <field name="value_field_operator">=</field>
         <field name="value_field_id" ref="base.field_res_partner__city"/>
+        <field name="condition_id" ref="generic_condition_test.test_condition_event_year_ago_on_partner_area"/>
+    </record>
+    <record id="test_condition_leaf_related_to_partner" model="generic.condition.domain.leaf">
+        <field name="type">search-condition</field>
+        <field name="check_field_type">char</field>
+        <field name="check_field_id" ref="calendar.field_calendar_event__partner_ids"/>
+        <field name="value_field_operator">=</field>
+        <field name="value_field_id" ref="base.field_res_partner__self"/>
         <field name="condition_id" ref="generic_condition_test.test_condition_event_year_ago_on_partner_area"/>
     </record>
 </odoo>
