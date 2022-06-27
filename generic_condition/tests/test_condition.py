@@ -1,17 +1,7 @@
-import logging
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
 from odoo.tools.misc import mute_logger
 from odoo.tests.common import SavepointCase
 from odoo.tools.translate import _
 from odoo.exceptions import ValidationError, UserError
-
-try:
-    # pylint: disable=unused-import
-    from freezegun import freeze_time  # noqa
-except ImportError:  # pragma: no cover
-    logging.getLogger(__name__).warning(
-        "freezegun not installed. Tests will not work!")
 
 
 class TestCondition(SavepointCase):
