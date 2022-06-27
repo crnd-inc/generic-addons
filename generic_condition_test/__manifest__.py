@@ -16,6 +16,7 @@
     ],
     'demo': [
         'demo/test_model_demo.xml',
+        'demo/res_partner.xml',
         'demo/calendar_event.xml',
     ],
     'images': ['static/description/banner.png'],

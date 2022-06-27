@@ -148,15 +148,3 @@ class TestCondition(SavepointCase):
         wiz.write({'res_id': -42})  # ID that are not present in table
         with self.assertRaises(ValidationError):
             wiz.process()
-
-    def test_condition_type_find_check(self):
-        date_above_year = datetime.now() + relativedelta(years=1, days=1)
-        condition = self.condition_company_partner_created_year_ago
-        self.env['res.partner'].create({
-            'name': 'Old partner',
-            'parent_id': self.env.user.company_id.id,
-        })
-        self.assertFalse(condition.check(self.env.user.company_id))
-
-        with freeze_time(date_above_year.strftime('%Y-%m-%d')):
-            self.assertTrue(condition.check(self.env.user.company_id))

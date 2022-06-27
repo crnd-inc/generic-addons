@@ -3,11 +3,13 @@
     <record id="calendar_event_test" model="calendar.event">
         <field name="active" eval="True"/>
         <field name="user_id" ref="base.user_admin"/>
-        <field name="partner_ids" eval="[(6,0,[ref('generic_condition.demo_partner_sx_corp')])]"/>
-        <field name="name">Follow-up for Project proposal</field>
-        <field name="description">Meeting to discuss project plan and hash out the details of implementation.</field>
-        <field name="start" eval="time.strftime('2022-02-03 10:20:00')"/>
-        <field name="stop" eval="time.strftime('2022-02-03 16:30:00')"/>
+        <field name="partner_ids" eval="[(6,0,[ref('demo_partner_it_group')])]"/>
+        <field name="name">Commercial offer for cooperation</field>
+        <field name="description">Meeting to discuss commercial offer.</field>
+        <field name="start" eval="time.strftime('2021-02-03 10:20:00')"/>
+        <field name="categ_ids" eval="[(6,0,[ref('calendar.categ_meet1')])]"/>
+        <field name="stop" eval="time.strftime('2021-02-03 16:30:00')"/>
+        <field name="location">Kyiv</field>
         <field name="duration" eval="6.3"/>
         <field name="allday" eval="False"/>
         <field name="state">open</field>
