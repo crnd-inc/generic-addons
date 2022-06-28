@@ -1,6 +1,7 @@
 import logging
 import unittest
 from odoo.tools.misc import mute_logger
+from odoo.tools.sql import table_kind
 from odoo.tools import config as tools_config
 from odoo.tests import common as tests_common
 
@@ -71,6 +72,93 @@ def deactivate_records_for_model(env, model):
         ('module', 'not in', tuple(env.registry._init_modules)),
     ]).mapped('res_id')
     env[model].browse(record_ids).write({'active': False})
+
+
+class FindNew:
+    """
+        This context manager should simplify the search for new records
+        that where created during event handling.
+
+        An example of a simple search for the required record:
+
+            old_records = self.env['my.model'].search([])
+
+            # Do some work
+
+            new_records = self.env['my.model'].search(
+                [('id', 'not in', old_records.ids)])
+
+            self.assertEqual(len(new_records), 1)
+
+        Example using this context manager:
+
+            with FindNew('my.model') as nr:
+                # Do some work
+            self.assertEqual(len(nr['my.model']), 1)
+
+        Also, it is possible to handle new records in multiple models with
+        single context manager:
+
+            with FindNew('my.model.1', 'my.model.2') as nr:
+                # Do some work
+            self.assertEqual(len(nr['my.model.1'], 1)
+            self.assertEqual(len(nr['my.model.2'], 4)
+    """
+    def __init__(self, env, *models):
+        assert len(models) > 0, (  # nosec
+            "At leas one model must be specified")
+        self._env = env
+        self._models = models
+        self._main_model = models[0]
+        self._records_map = {}
+        for model in models:
+            if table_kind(self._env.cr, self._env[model]._table) != 'r':
+                raise TypeError('Only regular tables (models) allowed!')
+            self._records_map[model] = self._env[model].browse()
+
+    @property
+    def main_model(self):
+        """ The name of main model, used to determine new records
+            via '.records' property
+
+            :return str: name of model for 'records' property
+        """
+        return self._main_model
+
+    @property
+    def records(self):
+        """ Return new records for main model.
+            This property is kept only for backward compatibility
+
+            :return: recordset with new records of main model
+        """
+        return self._records_map[self._main_model]
+
+    @property
+    def records_map(self):
+        """ Return mapping that contains recordset with new records
+            for each tracked model
+
+            :return dict: mapping with recordsets with new records for each
+                tracked model
+        """
+        return self._records_map
+
+    def __getitem__(self, name):
+        return self._records_map[name]
+
+    def __enter__(self):
+        self._search = {}
+        for model in self._models:
+            # TODO: Optimize this. Possibly it have sense to find max id
+            #       and then search for new ids greater than max id
+            self._search[model] = self._env[model].search([])
+        return self
+
+    def __exit__(self, etype, value, tracback):
+        for model in self._models:
+            self._records_map[model] = self._env[model].search(
+                [('id', 'not in', self._search[model].ids)])
 
 
 class ReduceLoggingMixin(unittest.TestCase):
