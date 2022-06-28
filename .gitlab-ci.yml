@@ -40,7 +40,6 @@ build_env:
     script:
         - pwd
         - whoami
-        - python --version
         - odoo-helper --version
         - odoo-helper status --tools-versions --ci-tools-versions
         - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^15.0(-.*)?$ ]]

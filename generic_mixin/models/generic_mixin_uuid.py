@@ -1,5 +1,9 @@
+import logging
+
 import uuid
 from odoo import models, fields, api
+
+_logger = logging.getLogger(__name__)
 
 
 class GenericMixinUUID(models.AbstractModel):
@@ -15,10 +19,18 @@ class GenericMixinUUID(models.AbstractModel):
             class MyModel(models.Model):
                 _name = 'my.model'
                 _inherit = 'generic.mixin.uuid'
-                _generic_mixin_uuid_auto_add_field = True
 
-        After this, your model will automaticall have field 'uuid' that will
-        be unique and automatically generated on creation of model.
+                uuid = fields.Char(
+                    index=True, required=True, readonly=True,
+                    size=38, default='/', copy=False, string='UUID')
+
+                _sql_constraints = [
+                    ('uuid_uniq',
+                     'UNIQUE (uuid)',
+                     'UUID must be unique.'),
+
+        After this code, you will have your uuid field automatically
+        filled with unique values on record creation.
 
         If you add this field to existing model, then you have also provide
         migration to automatically generate new UUIDs for existing records.
@@ -39,8 +51,17 @@ class GenericMixinUUID(models.AbstractModel):
             class MyModelC(models.Model):
                 _name = 'my.model.c'
                 _inherit = 'generic.mixin.uuid'
-                _generic_mixin_uuid_auto_add_field = True
+
                 _generic_mixin_uuid_field_name = 'my_uuid'
+
+                my_uuid = fields.Char(
+                    index=True, required=True, readonly=True,
+                    size=38, default='/', copy=False, string='UUID')
+
+                _sql_constraints = [
+                    ('my_uuid_uniq',
+                     'UNIQUE (my_uuid)',
+                     'My UUID must be unique.'),
     """
     _name = 'generic.mixin.uuid'
     _description = 'Generic Mixin: UUID'
@@ -59,12 +80,19 @@ class GenericMixinUUID(models.AbstractModel):
 
         # Add uuid field if needed
         if self._generic_mixin_uuid_field_name not in self._fields:
+            _logger.warning(
+                "The automatic generation of UUID field is buggy and thus "
+                "deprecated. Please, instead of relying on automatically "
+                "generated field, add regular field like: \n"
+                "uuid = fields.Char(index=True, required=True, readonly=True, "
+                "size=38, default='/', copy=False, string='UUID')")
             self._add_field(
                 self._generic_mixin_uuid_field_name,
                 fields.Char(
                     index=True, required=True, readonly=True,
-                    size=38, default='/', copy=False)
+                    size=38, default='/', copy=False, automatic=True)
             )
+
         return res
 
     @api.model

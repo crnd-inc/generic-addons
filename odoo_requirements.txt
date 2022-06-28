@@ -1,1 +1,1 @@
---github crnd-inc/crnd-web.git
+--github crnd-inc/crnd-web.git --module crnd_web_m2o_info_widget
