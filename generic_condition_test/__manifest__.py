@@ -9,6 +9,7 @@
     'depends': [
         'generic_condition',
         'calendar',
+        'survey',
     ],
     'data': [
         'security/security.xml',

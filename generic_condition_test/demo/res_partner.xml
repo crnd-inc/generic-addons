@@ -4,10 +4,12 @@
         <field name="name">IT Group</field>
         <field name="city">Kyiv</field>
         <field name="country_id" ref="base.ua"/>
+        <field name="email">it@group.ua</field>
     </record>
     <record id="demo_partner_consulting_group" model="res.partner">
         <field name="name">Consulting Group</field>
         <field name="city">Dnipro</field>
         <field name="country_id" ref="base.ua"/>
+        <field name="email">consulting@group.ua</field>
     </record>
 </odoo>
