@@ -1,6 +1,8 @@
 from odoo.tests.common import SavepointCase
 import datetime
+import logging
 from dateutil.relativedelta import relativedelta
+_logger = logging.getLogger(__name__)
 
 try:
     # pylint: disable=unused-import
