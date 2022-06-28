@@ -1,6 +1,6 @@
-from odoo.tests.common import SavepointCase
 import datetime
 import logging
+from odoo.tests.common import SavepointCase
 from dateutil.relativedelta import relativedelta
 _logger = logging.getLogger(__name__)
 
