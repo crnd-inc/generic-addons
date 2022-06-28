@@ -12,4 +12,14 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="generic_location_search_view">
+        <field name="model">generic.location</field>
+        <field name="inherit_id" ref="generic_location.generic_location_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="uuid" string="UUID"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
