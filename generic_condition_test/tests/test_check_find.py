@@ -1,6 +1,6 @@
 import datetime
 import logging
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import Form, SavepointCase
 from dateutil.relativedelta import relativedelta
 _logger = logging.getLogger(__name__)
 
@@ -55,10 +55,10 @@ class TestConditionCheckFind(SavepointCase):
         self.assertTrue(self.condition.check(self.test_partner1))
         self.assertFalse(self.condition.check(self.test_partner2))
 
-        # Change logical operator to 'OR'
-        self.condition_logic_operator_leaf.write({
-            'type': 'operator-or',
-        })
+        # Change logical operator to 'OR' (use Form class to trigger onchange)
+        condition = Form(self.condition_logic_operator_leaf)
+        condition.type = 'operator-or'
+        condition.save()
         # Check following conditions:
         # - partner city same as event location OR
         # - partner in Attendees;
