@@ -49,5 +49,6 @@ def ensure_version(version):
             _logger.info(
                 "Skipping migration, because installed module version is "
                 "greater or equal to migration version.")
+            return None
         return migrate
     return wrapper
