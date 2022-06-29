@@ -10,6 +10,7 @@
         'generic_condition',
         'calendar',
         'survey',
+        'crm',
     ],
     'data': [
         'security/security.xml',

@@ -43,6 +43,10 @@ class TestConditionCheckFind(SavepointCase):
             'survey.feedback_form'
         )
 
+        # m2o_o2m leaf tests
+        cls.condition_o2m_o2m = cls.env.ref(
+            'generic_condition_test.test_condition_contact_has_lead_partner')
+
     def test_m2m_m2o_condition_type_find_check(self):
         # Create condition leaf for existing condition
         # Use Form class to trigger onchange
@@ -75,7 +79,6 @@ class TestConditionCheckFind(SavepointCase):
         self.assertTrue(self.condition.check(self.test_partner2))
 
     def test_m2o_m2o_condition_type_find_check(self):
-
         # Create and send survey message to partner
         survey_mail_message = self.env['survey.mail.compose.message'].create({
             'survey_id': self.survey.id, 'public': 'email_private',
@@ -89,3 +92,29 @@ class TestConditionCheckFind(SavepointCase):
         date_over_year = datetime.date.today() + relativedelta(days=368)
         with freeze_time(date_over_year.strftime('%Y-%m-%d')):
             self.assertTrue(self.condition_m2o.check(self.test_partner1))
+
+    def test_m2o_o2m_condition_type_find_check(self):
+        with Form(self.condition_o2m_o2m) as condition:
+            with condition.condition_find_search_domain_ids.new() as leaf:
+                leaf.type = 'search-condition'
+                leaf.check_field_id = self.env.ref(
+                    'crm.field_crm_lead__partner_id')
+                leaf.value_field_operator = '='
+                leaf.value_field_id = self.env.ref(
+                    'base.field_res_partner__child_ids')
+        parent_partner = self.env['res.partner'].create({
+            'name': 'Grand partner',
+        })
+        child_partner = self.env['res.partner'].create({
+            'name': 'Child partner',
+            'parent_id': parent_partner.id,
+        })
+        self.assertFalse(self.condition_o2m_o2m.check(parent_partner))
+
+        self.env['crm.lead'].create({
+            'type': "opportunity",
+            'name': "Test lead child partner",
+            'partner_id': child_partner.id,
+            'description': "Opportunity for child partner",
+        })
+        self.assertTrue(self.condition_o2m_o2m.check(parent_partner))
