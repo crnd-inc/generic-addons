@@ -30,10 +30,6 @@ class TestConditionCheckFind(SavepointCase):
             "generic_condition_test"
             ".test_condition_event_year_ago_on_partner_area"
         )
-        cls.condition_location_leaf = cls.env.ref(
-            "generic_condition_test"
-            ".test_condition_leaf_event_location_equals_partner_location"
-        )
         cls.condition_logic_operator_leaf = cls.env.ref(
             "generic_condition_test.test_condition_logic_operator"
         )
@@ -48,6 +44,17 @@ class TestConditionCheckFind(SavepointCase):
         )
 
     def test_m2m_m2o_condition_type_find_check(self):
+        # Create condition leaf for existing condition
+        # Use Form class to trigger onchange
+        with Form(self.condition) as condition:
+            with condition.condition_find_search_domain_ids.new() as leaf:
+                leaf.type = 'search-condition'
+                leaf.check_field_id = self.env.ref(
+                    'calendar.field_calendar_event__location')
+                leaf.value_field_operator = '='
+                leaf.value_field_id = self.env.ref(
+                    'base.field_res_partner__city')
+
         # Check following conditions:
         # - partner city same as event location AND
         # - partner in Attendees;
@@ -56,9 +63,10 @@ class TestConditionCheckFind(SavepointCase):
         self.assertFalse(self.condition.check(self.test_partner2))
 
         # Change logical operator to 'OR' (use Form class to trigger onchange)
-        condition = Form(self.condition_logic_operator_leaf)
-        condition.type = 'operator-or'
-        condition.save()
+        condition_form = Form(self.condition_logic_operator_leaf)
+        condition_form.type = 'operator-or'
+        condition_form.save()
+
         # Check following conditions:
         # - partner city same as event location OR
         # - partner in Attendees;
