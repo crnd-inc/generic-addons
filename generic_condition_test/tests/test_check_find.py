@@ -85,7 +85,7 @@ class TestConditionCheckFind(SavepointCase):
             'body': '__URL__', 'partner_ids': [(4, self.test_partner1.id)]})
         survey_mail_message.send_mail()
 
-        # Check that survey sent to partner less than year ago
+        # Check that survey was sent to partner less than year ago
         self.assertFalse(self.condition_m2o.check(self.test_partner1))
 
         # Check that message was sent to partner year ago
@@ -94,6 +94,8 @@ class TestConditionCheckFind(SavepointCase):
             self.assertTrue(self.condition_m2o.check(self.test_partner1))
 
     def test_m2o_o2m_condition_type_find_check(self):
+        # Create condition leaf for existing condition
+        # Use Form class to trigger onchange
         with Form(self.condition_o2m_o2m) as condition:
             with condition.condition_find_search_domain_ids.new() as leaf:
                 leaf.type = 'search-condition'
@@ -102,6 +104,8 @@ class TestConditionCheckFind(SavepointCase):
                 leaf.value_field_operator = '='
                 leaf.value_field_id = self.env.ref(
                     'base.field_res_partner__child_ids')
+
+        # Create partner, child partner
         parent_partner = self.env['res.partner'].create({
             'name': 'Grand partner',
         })
@@ -109,12 +113,17 @@ class TestConditionCheckFind(SavepointCase):
             'name': 'Child partner',
             'parent_id': parent_partner.id,
         })
+
+        # Check that child partner doesn't have lead
         self.assertFalse(self.condition_o2m_o2m.check(parent_partner))
 
+        # Create opportunity for child partner
         self.env['crm.lead'].create({
             'type': "opportunity",
             'name': "Test lead child partner",
             'partner_id': child_partner.id,
             'description': "Opportunity for child partner",
         })
+
+        # Check that child partner has lead
         self.assertTrue(self.condition_o2m_o2m.check(parent_partner))
