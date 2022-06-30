@@ -4,8 +4,10 @@ from odoo.tools.sql import (
     add_foreign_key,
     table_exists,
 )
+from odoo.addons.generic_mixin.tools.migration_utils import ensure_version
 
 
+@ensure_version('1.1.1')
 def migrate(cr, installed_version):
     if table_exists(cr, 'generic_team_member'):
         # There is no need to run migration in this case
