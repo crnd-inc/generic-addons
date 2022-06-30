@@ -1,5 +1,8 @@
 import datetime
 import math
+
+from pkg_resources import parse_version
+
 from odoo.tools.float_utils import float_round
 
 
@@ -29,3 +32,12 @@ def float_to_time(hours):
     return datetime.time(
         int(integral),
         int(float_round(60 * fractional, precision_digits=0)), 0)
+
+
+def V(version):
+    """ Shortcut to return result of pkg_resource.parse_version.
+        This could be useful to compare versions.
+    """
+    if not version:
+        version = ''
+    return parse_version(version)
