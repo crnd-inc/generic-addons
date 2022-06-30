@@ -1,3 +1,7 @@
+from odoo.addons.generic_mixin.tools.migration_utils import ensure_version
+
+
+@ensure_version('1.6.0')
 def migrate(cr, installed_version):
     cr.execute("""
         UPDATE ir_model_data
