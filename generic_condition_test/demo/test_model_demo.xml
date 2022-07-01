@@ -107,4 +107,29 @@
         <field name="condition_find_fetch_type">first</field>
         <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('test_condition_lead_partner_set')])]"/>
     </record>
+
+    <record id="test_condition_calendar_event_active" model="generic.condition">
+        <field name="name">Calendar event: Active</field>
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="type">simple_field</field>
+        <field name="condition_simple_field_field_id" ref="calendar.field_calendar_event__active"/>
+        <field name="condition_simple_field_value_boolean">true</field>
+    </record>
+    <record id="test_condition_contact_has_partners_active_calendar_events" model="generic.condition">
+        <field name="name">Contact: has partners with active events</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">find</field>
+        <field name="condition_find_search_model_id" ref="calendar.model_calendar_event"/>
+        <field name="condition_find_order_by_field_id" ref="calendar.field_calendar_event__active"/>
+        <field name="condition_find_order_by_direction">DESC</field>
+        <field name="condition_find_fetch_type">first</field>
+        <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('test_condition_calendar_event_active')])]"/>
+    </record>
+    <record id="test_condition_leaf_attendees_equals_partner_child" model="generic.condition.domain.leaf">
+        <field name="type">search-condition</field>
+        <field name="check_field_id" ref="calendar.field_calendar_event__partner_ids"/>
+        <field name="value_field_operator">=</field>
+        <field name="value_field_id" ref="base.field_res_partner__child_ids"/>
+        <field name="condition_id" ref="generic_condition_test.test_condition_contact_has_partners_active_calendar_events"/>
+    </record>
 </odoo>

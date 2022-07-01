@@ -47,6 +47,11 @@ class TestConditionCheckFind(SavepointCase):
         cls.condition_o2m_o2m = cls.env.ref(
             'generic_condition_test.test_condition_contact_has_lead_partner')
 
+        # m2m_o2m leaf tests
+        cls.condition_m2m_o2m = cls.env.ref(
+            'generic_condition_test'
+            '.test_condition_contact_has_partners_active_calendar_events')
+
     def test_m2m_m2o_condition_type_find_check(self):
         # Create condition leaf for existing condition
         # Use Form class to trigger onchange
@@ -127,3 +132,17 @@ class TestConditionCheckFind(SavepointCase):
 
         # Check that child partner has lead
         self.assertTrue(self.condition_o2m_o2m.check(parent_partner))
+
+    def test_m2m_o2m_condition_type_find_check(self):
+        # Contacts has no child
+        self.assertFalse(self.condition_m2m_o2m.check(self.test_partner1))
+        self.assertFalse(self.condition_m2m_o2m.check(self.test_partner2))
+
+        # Make child partner
+        self.test_partner2.write({
+            'parent_id': self.test_partner1.id
+        })
+
+        # Check that contact has child with active calendar event
+        self.assertFalse(self.condition_m2m_o2m.check(self.test_partner2))
+        self.assertTrue(self.condition_m2m_o2m.check(self.test_partner1))
