@@ -12,4 +12,10 @@
         <field name="country_id" ref="base.ua"/>
         <field name="email">consulting@group.ua</field>
     </record>
+    <record id="demo_partner_dev_group" model="res.partner">
+        <field name="name">Development Group</field>
+        <field name="city">Kharkiv</field>
+        <field name="country_id" ref="base.ua"/>
+        <field name="email">dev@group.ua</field>
+    </record>
 </odoo>

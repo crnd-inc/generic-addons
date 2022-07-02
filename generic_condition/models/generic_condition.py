@@ -472,6 +472,10 @@ class GenericCondition(models.Model):
     condition_find_fetch_type = fields.Selection(
         [('first', 'First')],
         track_visibility='onchange')
+    condition_find_if_not_found = fields.Selection(
+        [('true', 'Evaluate to True'),
+         ('false', 'Evaluate to False')],
+        default='false', track_visibility='onchange')
     condition_find_check_condition_ids = fields.Many2many(
         'generic.condition',
         'generic_condition_find_check_conditions_rel',
@@ -934,6 +938,10 @@ class GenericCondition(models.Model):
             self.sudo().condition_find_order_by_direction)
         recs = SModel.search(domain, order=order, limit=1)
         if not recs:
+            if self.condition_find_if_not_found == 'true':
+                return True
+            # If 'If Not Found' is not specified or set to false,
+            # then return false
             return False
         return self.condition_find_check_condition_ids.check(
             recs, cache=cache, debug_log=debug_log)

@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="calendar_event_test" model="calendar.event">
-        <field name="active" eval="True"/>
+    <record id="calendar_event_meeting_with_it_group" model="calendar.event">
         <field name="user_id" ref="base.user_admin"/>
-        <field name="partner_ids" eval="[(6,0,[ref('demo_partner_it_group'), ref('demo_partner_consulting_group')])]"/>
-        <field name="name">Commercial offer for cooperation</field>
-        <field name="description">Meeting to discuss commercial offer.</field>
-        <field name="start" eval="time.strftime('2021-02-03 10:20:00')"/>
-        <field name="categ_ids" eval="[(6,0,[ref('calendar.categ_meet1')])]"/>
-        <field name="stop" eval="time.strftime('2021-02-03 16:30:00')"/>
+        <field name="partner_ids" eval="[(6,0,[ref('demo_partner_it_group')])]"/>
+        <field name="name">Contract negotiations with IT Group</field>
+        <field name="start" eval="time.strftime('2021-02-03 10:00:00')"/>
+        <field name="stop" eval="time.strftime('2021-02-03 12:00:00')"/>
         <field name="location">Kyiv</field>
-        <field name="duration" eval="6.3"/>
+        <field name="duration" eval="2"/>
+        <field name="allday" eval="False"/>
+        <field name="state">open</field>
+    </record>
+
+    <record id="calendar_event_meeting_with_consuting_group" model="calendar.event">
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="partner_ids" eval="[(6,0,[ref('demo_partner_consulting_group')])]"/>
+        <field name="name">Project status followup</field>
+        <field name="start" eval="time.strftime('2020-09-27 10:00:00')"/>
+        <field name="stop" eval="time.strftime('2020-09-27 12:00:00')"/>
+        <field name="location">Lviv</field>
+        <field name="duration" eval="2"/>
         <field name="allday" eval="False"/>
         <field name="state">open</field>
     </record>

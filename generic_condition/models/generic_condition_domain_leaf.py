@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions, _
 
 
 class GenericConditionDomainLeaf(models.Model):
@@ -18,12 +18,30 @@ class GenericConditionDomainLeaf(models.Model):
     check_field_id = fields.Many2one(
         'ir.model.fields', ondelete='cascade')
     check_field_type = fields.Selection(
-        related='check_field_id.ttype', readonly=True)
-    value_field_id = fields.Many2one(
-        'ir.model.fields', ondelete='cascade')
+        related='check_field_id.ttype', readonly=True,
+        related_sudo=True)
+    check_field_relation = fields.Char(
+        related='check_field_id.relation', readonly=True,
+        related_sudo=True)
     value_field_operator = fields.Selection(
         [('=', '='),
          ('!=', '!=')])
+    value_type = fields.Selection(
+        [('object-field', 'Object Field'),
+         ('static-value', 'Static Value')],
+        help="Object Field: uses value from field of the object being checked."
+             "Static Value: static value to check.")
+    value_field_id = fields.Many2one(
+        'ir.model.fields', ondelete='cascade')
+    value_boolean = fields.Selection(
+        [('true', 'True'), ('false', 'False')])
+    value_char = fields.Char()
+    value_float = fields.Float()
+    value_integer = fields.Integer()
+    value_selection = fields.Char()
+    value_res_id = fields.Integer()
+
+    # TODO: Add `value_display` field, to represent value in tree view.
 
     @api.onchange('type')
     def _onchange_cleanup_model_fields(self):
@@ -49,8 +67,7 @@ class GenericConditionDomainLeaf(models.Model):
             }
         return {}
 
-    def _get_domain_leaf_for(self, val_obj):
-        self.ensure_one()
+    def _get_domain_leaf_for_object_field(self, val_obj):
         # TODO: Add check to ensure correct model is used
         check_ftype = self.sudo().check_field_id.ttype
         val_ftype = self.sudo().value_field_id.ttype
@@ -101,6 +118,40 @@ class GenericConditionDomainLeaf(models.Model):
             operator,
             val_obj[self.sudo().value_field_id.name],
         )]
+
+    def _get_domain_leaf_for_static_field(self, val_obj):
+        check_ftype = self.sudo().check_field_id.ttype
+        operator = self.value_field_operator
+        if check_ftype in ('char', 'text', 'html'):
+            value = self.value_char
+        elif check_ftype == 'integer':
+            value = self.value_integer
+        elif check_ftype == 'float':
+            value = self.value_float
+        elif check_ftype == 'selection':
+            value = self.value_selection
+        elif check_ftype in ('many2one', 'one2many', 'many2many'):
+            value = self.value_res_id
+        else:
+            raise exceptions.UserError(_(
+                "Currently it is not supported to check "
+                "fields of %(field_type)s type "
+                "with static value"
+            ) % {
+                "field_type": check_ftype,
+            })
+
+        return [(self.sudo().check_field_id.name, operator, value)]
+
+    def _get_domain_leaf_for(self, val_obj):
+        self.ensure_one()
+        if self.value_type == 'object-field':
+            return self._get_domain_leaf_for_object_field(val_obj)
+        if self.value_type == 'static-value':
+            return self._get_domain_leaf_for_static_field(val_obj)
+
+        # TODO: May be raise error here
+        return []
 
     def compute_domain_for(self, val_obj):
         res = []
