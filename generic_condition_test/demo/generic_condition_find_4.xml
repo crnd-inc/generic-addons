@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="test_condition_crm_partner_survey_sent_year_ago" model="generic.condition">
+        <field name="name">CRM: Last survey (Feedback) from partner sent year ago</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="type">find</field>
+        <field name="condition_find_search_model_id" ref="survey.model_survey_user_input"/>
+        <field name="condition_find_order_by_field_id" ref="survey.field_survey_user_input__start_datetime"/>
+        <field name="condition_find_order_by_direction">DESC</field>
+        <field name="condition_find_if_not_found">false</field>
+        <field name="condition_find_fetch_type">first</field>
+        <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('test_condition_survey_sent_year_ago')])]"/>
+    </record>
+    <record id="test_condition_leaf_crm_partner_survey__same_partner" model="generic.condition.domain.leaf">
+        <field name="type">search-condition</field>
+        <field name="check_field_id" ref="survey.field_survey_user_input__partner_id"/>
+        <field name="value_type">object-field</field>
+        <field name="value_field_operator">=</field>
+        <field name="value_field_id" ref="crm.field_crm_lead__partner_id"/>
+        <field name="condition_id" ref="generic_condition_test.test_condition_crm_partner_survey_sent_year_ago"/>
+    </record>
+    <record id="test_condition_leaf_crm_partner_survey__is_feedback" model="generic.condition.domain.leaf">
+        <field name="type">search-condition</field>
+        <field name="check_field_id" ref="survey.field_survey_user_input__survey_id"/>
+        <field name="value_type">static-value</field>
+        <field name="value_field_operator">=</field>
+        <field name="value_res_id" ref="survey.survey_feedback"/>
+        <field name="condition_id" ref="generic_condition_test.test_condition_crm_partner_survey_sent_year_ago"/>
+    </record>
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Test conditions -->
+    <record id="test_condition_monetary_equal_150_usd" model="generic.condition">
+        <field name="name">Monetary field equal 150 USD</field>
+        <field name="model_id" ref="generic_condition_test.model_test_generic_condition_test_model"/>
+        <field name="type">monetary_field</field>
+        <field name="condition_monetary_field_id" ref="generic_condition_test.field_test_generic_condition_test_model__test_monetary"/>
+        <field name="condition_monetary_currency_field_id" ref="generic_condition_test.field_test_generic_condition_test_model__test_monetary_currency"/>
+        <field name="condition_monetary_operator">=</field>
+        <field name="condition_monetary_value" eval="150"/>
+        <field name="condition_monetary_value_currency_id" ref="base.USD"/>
+        <field name="condition_monetary_curency_date_type">now</field>
+        <field name="condition_monetary_curency_date_field_id" ref="field_test_generic_condition_test_model__date_test"/>
+    </record>
+
+    <!-- Check that meeting was started more than year ago -->
+    <record id="test_condition_meeting_started_year_ago" model="generic.condition">
+        <field name="name">Meeting: Started Year ago</field>
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="type">date_diff</field>
+        <field name="condition_date_diff_date_end_type">now</field>
+        <field name="condition_date_diff_date_start_type">field</field>
+        <field name="condition_date_diff_date_start_field" ref="calendar.field_calendar_event__start"/>
+        <field name="condition_date_diff_operator">></field>
+        <field name="condition_date_diff_value">1</field>
+        <field name="condition_date_diff_uom">years</field>
+        <field name="description">Check that this meeting is started more then 1 year ago</field>
+    </record>
+
+    <!-- Check that survey was sent more then year ago -->
+    <record id="test_condition_survey_sent_year_ago" model="generic.condition">
+        <field name="name">Survey: sent year ago</field>
+        <field name="model_id" ref="survey.model_survey_user_input"/>
+        <field name="type">date_diff</field>
+        <field name="condition_date_diff_date_end_type">now</field>
+        <field name="condition_date_diff_date_start_type">field</field>
+        <field name="condition_date_diff_date_start_field" ref="survey.field_survey_user_input__start_datetime"/>
+        <field name="condition_date_diff_operator">></field>
+        <field name="condition_date_diff_value">1</field>
+        <field name="condition_date_diff_uom">years</field>
+    </record>
+
+    <!-- Test CRM Lead -->
+    <record id="test_condition_lead_partner_set" model="generic.condition">
+        <field name="name">Lead: Partner set</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="type">related_field</field>
+        <field name="condition_related_field_field_id" ref="crm.field_crm_lead__partner_id"/>
+        <field name="condition_related_field_operator">set</field>
+    </record>
+    <record id="test_condition_contact_has_lead_partner" model="generic.condition">
+        <field name="name">Contact: has partners with leads</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">find</field>
+        <field name="condition_find_search_model_id" ref="crm.model_crm_lead"/>
+        <field name="condition_find_order_by_field_id" ref="crm.field_crm_lead__partner_id"/>
+        <field name="condition_find_order_by_direction">DESC</field>
+        <field name="condition_find_fetch_type">first</field>
+        <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('test_condition_lead_partner_set')])]"/>
+    </record>
+
+    <!-- Test Calendar Events -->
+    <record id="test_condition_calendar_event_active" model="generic.condition">
+        <field name="name">Calendar event: Active</field>
+        <field name="model_id" ref="calendar.model_calendar_event"/>
+        <field name="type">simple_field</field>
+        <field name="condition_simple_field_field_id" ref="calendar.field_calendar_event__active"/>
+        <field name="condition_simple_field_value_boolean">true</field>
+    </record>
+    <record id="test_condition_contact_has_partners_active_calendar_events" model="generic.condition">
+        <field name="name">Contact: has partners with active events</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">find</field>
+        <field name="condition_find_search_model_id" ref="calendar.model_calendar_event"/>
+        <field name="condition_find_order_by_field_id" ref="calendar.field_calendar_event__active"/>
+        <field name="condition_find_order_by_direction">DESC</field>
+        <field name="condition_find_fetch_type">first</field>
+        <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('test_condition_calendar_event_active')])]"/>
+    </record>
+    <record id="test_condition_leaf_attendees_equals_partner_child" model="generic.condition.domain.leaf">
+        <field name="type">search-condition</field>
+        <field name="check_field_id" ref="calendar.field_calendar_event__partner_ids"/>
+        <field name="value_field_operator">=</field>
+        <field name="value_field_id" ref="base.field_res_partner__child_ids"/>
+        <field name="condition_id" ref="generic_condition_test.test_condition_contact_has_partners_active_calendar_events"/>
+    </record>
+</odoo>
