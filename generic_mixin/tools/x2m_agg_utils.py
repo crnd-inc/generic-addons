@@ -84,7 +84,9 @@ def read_counts_for_o2m(records, field_name, domain=None, sudo=False):
 
             @api.depends()
             def _compute_other_count(self):
-                mapped_data = read_counts_for_o2m(records=self, 'other_ids')
+                mapped_data = read_counts_for_o2m(
+                    records=self,
+                    field_name='other_ids')
                 for record in self:
                     record.other_count = mapped_data.get(record.id, 0)
     """
