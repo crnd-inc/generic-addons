@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Check if last meeting with partner was more then year ago -->
+    <record id="test_condition_last_partner_meeting_1_year_ago" model="generic.condition">
+        <field name="name">Partner: Last partner meeting started more then 1 year ago</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="type">find</field>
+        <field name="condition_find_search_model_id" ref="calendar.model_calendar_event"/>
+        <field name="condition_find_order_by_field_id" ref="calendar.field_calendar_event__start_datetime"/>
+        <field name="condition_find_order_by_direction">DESC</field>
+        <field name="condition_find_if_not_found">false</field>
+        <field name="condition_find_fetch_type">first</field>
+        <field name="condition_find_check_condition_ids" eval="[(6, 0, [ref('test_condition_meeting_started_year_ago')])]"/>
+    </record>
+    <record id="test_condition_last_partner_meeting_1_year_ago__leaf_same_partner" model="generic.condition.domain.leaf">
+        <field name="type">search-condition</field>
+        <field name="check_field_id" ref="calendar.field_calendar_event__partner_ids"/>
+        <field name="value_type">object-field</field>
+        <field name="value_field_operator">=</field>
+        <field name="value_field_id" ref="base.field_res_partner__self"/>
+        <field name="condition_id" ref="generic_condition_test.test_condition_last_partner_meeting_1_year_ago"/>
+    </record>
+
+</odoo>

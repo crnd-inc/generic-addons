@@ -1,3 +1,4 @@
+# pylint:disable=too-many-lines
 import re
 import logging
 import traceback
@@ -9,6 +10,7 @@ from dateutil.relativedelta import relativedelta
 
 from odoo import models, fields, api, exceptions, _
 from odoo.tools.safe_eval import safe_eval, wrap_module
+from odoo.osv import expression
 
 from ..utils import str_to_datetime
 from ..debug_logger import DebugLogger
@@ -27,6 +29,7 @@ class GenericCondition(models.Model):
     _order = "sequence, name"
     _description = 'Generic Condition'
     _rec_name = 'name'
+    _log_access = False
 
     def _get_selection_date_diff_date_type(self):
         return [
@@ -100,6 +103,58 @@ class GenericCondition(models.Model):
                     raise exceptions.ValidationError(
                         _('Wrong Related Field / Based on combination'))
 
+    @api.constrains('type', 'condition_find_search_model_id',
+                    'condition_find_search_domain_ids',
+                    'condition_find_order_by_field_id',
+                    'condition_find_check_condition_ids')
+    def _constrain_condition_find_search_field_order(self):
+        for cond in self:
+            if cond.type != 'find':
+                continue
+            if not (cond.condition_find_search_model_id and
+                    cond.condition_find_order_by_field_id):
+                continue
+            search_model = cond.condition_find_search_model_id
+            order_by_field = cond.condition_find_order_by_field_id
+            if search_model != order_by_field.model_id:
+                raise exceptions.ValidationError(_(
+                    "Condition Find: model if order by field must "
+                    "be same as search model"))
+            for c in cond.condition_find_check_condition_ids:
+                if c.model_id != search_model:
+                    raise exceptions.ValidationError(_(
+                        "Model (%(cmodel)s) of check condition (%(cond)s) "
+                        "must match Search model (%(smodel)s)!"
+                    ) % {
+                        'cmodel': c.model_id.name,
+                        'cond': c.name,
+                        'smodel': search_model.name,
+                    })
+            for d in cond.condition_find_search_domain_ids:
+                if d.type != 'search-condition':
+                    continue
+                if d.check_field_id.model_id != search_model:
+                    raise exceptions.ValidationError(_(
+                        "Model of check field (%(dmodel)s) of "
+                        "domain leaf (%(domain)s) "
+                        "must match Search model (%(smodel)s)!"
+                    ) % {
+                        'dmodel': d.check_field_id.name,
+                        'domain': d.display_name,
+                        'smodel': search_model.name,
+                    })
+                if (d.value_field_id and
+                        d.value_field_id.model_id != cond.model_id):
+                    raise exceptions.ValidationError(_(
+                        "Model of value field (%(dfield)s) of "
+                        "domain leaf (%(domain)s) "
+                        "must match Condition model (%(smodel)s)!"
+                    ) % {
+                        'dfield': d.value_field_id.name,
+                        'domain': d.display_name,
+                        'smodel': cond.model_id.name,
+                    })
+
     color = fields.Integer()
     name = fields.Char(
         required=True, index=True, translate=True, tracking=True)
@@ -113,15 +168,16 @@ class GenericCondition(models.Model):
          ('simple_field', 'Simple field'),
          ('related_field', 'Related field'),
          ('current_user', 'Current user'),
-         ('monetary_field', 'Monetary field')], default='filter', index=True,
+         ('monetary_field', 'Monetary field'),
+         ('find', 'Find & Check')],
+        default='filter', index=True,
         required=True, tracking=True)
     model_id = fields.Many2one(
-        'ir.model', 'Based on model', required=True, index=True,
-        ondelete='cascade',
-        help="Choose model to apply condition to")
+        'ir.model', string='Based on model', required=True, index=True,
+        ondelete='cascade', help="Choose model to apply condition to")
     based_on = fields.Char(
         related='model_id.model', readonly=True, index=True, store=True,
-        related_sudo=True, tracking=True)
+        compute_sudo=True, tracking=True)
     sequence = fields.Integer(
         index=True, default=10, tracking=True,
         help="Conditions with smaller value in this field "
@@ -298,7 +354,7 @@ class GenericCondition(models.Model):
                                  'integer', 'selection'))],
         tracking=True)
     condition_simple_field_type = fields.Selection(
-        related='condition_simple_field_field_id.ttype', related_sudo=True,
+        related='condition_simple_field_field_id.ttype', compute_sudo=True,
         string='Field type', readonly=True, tracking=True)
     condition_simple_field_value_boolean = fields.Selection(
         [('true', 'True'), ('false', 'False')], 'Value',
@@ -346,7 +402,7 @@ class GenericCondition(models.Model):
         'ir.model.fields', 'Check field', ondelete='cascade',
         domain=[('ttype', 'in', ('many2one', 'many2many'))])
     condition_related_field_model = fields.Char(
-        string='Related Model', related_sudo=True, readonly=True,
+        string='Related Model', compute_sudo=True, readonly=True,
         related='condition_related_field_field_id.relation',
         help="Technical name of related field's model",
         tracking=True)
@@ -397,6 +453,35 @@ class GenericCondition(models.Model):
     condition_monetary_curency_date_date = fields.Date(
         'Date', default=fields.Date.today, tracking=True)
 
+    # Related Records conditions
+    condition_find_search_model_id = fields.Many2one(
+        'ir.model', ondelete='cascade', tracking=True,
+        domain=[('transient', '=', False)])
+    condition_find_search_model_name = fields.Char(
+        related='condition_find_search_model_id.model', readonly=True)
+    condition_find_search_domain_ids = fields.One2many(
+        'generic.condition.domain.leaf', 'condition_id')
+    condition_find_order_by_field_id = fields.Many2one(
+        'ir.model.fields', ondelete='cascade',
+        domain="[('store', '=', True)]",
+        tracking=True)
+    condition_find_order_by_direction = fields.Selection(
+        [('ASC', 'Ascending'),
+         ('DESC', 'Descending')],
+        tracking=True)
+    condition_find_fetch_type = fields.Selection(
+        [('first', 'First')],
+        tracking=True)
+    condition_find_if_not_found = fields.Selection(
+        [('true', 'Evaluate to True'),
+         ('false', 'Evaluate to False')],
+        default='false', tracking=True)
+    condition_find_check_condition_ids = fields.Many2many(
+        'generic.condition',
+        'generic_condition_find_check_conditions_rel',
+        'parent_id', 'child_id', ondelete='restrict', auto_join=True,
+        tracking=True)
+
     @api.model
     def default_get(self, field_names):
         """ If there is no default model id but default based on, then
@@ -426,6 +511,13 @@ class GenericCondition(models.Model):
             else:
                 cond.condition_rel_field_id_model_id = False
 
+    @api.onchange('condition_find_search_model_id')
+    def _onchange_condition_find_search_model(self):
+        for record in self:
+            record.condition_find_order_by_field_id = False
+            record.condition_find_search_domain_ids = False
+            record.condition_find_check_condition_ids = False
+
     # signature check_<type> where type is condition type
     def check_filter(self, obj, cache=None, debug_log=None):
         """ Check object with conditions filter applied
@@ -433,7 +525,10 @@ class GenericCondition(models.Model):
         Model = self.env[self.sudo().model_id.model]
 
         filter_obj = self.sudo().condition_filter_id
-        domain = [('id', '=', obj.id)] + safe_eval(filter_obj.domain)
+        domain = expression.AND([
+            [('id', '=', obj.id)],
+            safe_eval(filter_obj.domain),
+        ])
 
         ctx = self.env.context.copy()
         ctx.update(safe_eval(filter_obj.context, ctx))
@@ -449,7 +544,7 @@ class GenericCondition(models.Model):
                 self.sudo().model_id.model, obj.id,
                 obj.sudo().name_get()[0][1])
             _logger.error(
-                "Error was cauht when checking condition %s on document %s. "
+                "Error was caught when checking condition %s on document %s. "
                 "condition expression:\n%s\n", condition_name, obj_name,
                 self.condition_eval, exc_info=True)
             raise exceptions.ValidationError(_(
@@ -827,6 +922,35 @@ class GenericCondition(models.Model):
             obj_val, reference_currency, company, date)
 
         return operator(test_value, reference_value)
+
+    # signature check_<type> where type is condition type
+    def check_find(self, obj, cache=None, debug_log=None):
+        SModel = self.env[self.sudo().condition_find_search_model_id.model]
+        domain = self.condition_find_search_domain_ids.compute_domain_for(obj)
+        order = "%s %s" % (
+            self.sudo().condition_find_order_by_field_id.name,
+            self.sudo().condition_find_order_by_direction)
+        self._debug_log(
+            debug_log,
+            obj,
+            "Searching %(model)s with domain %(domain)s" % {
+                'model': SModel._name,
+                'domain': domain,
+            })
+        recs = SModel.search(domain, order=order, limit=1)
+        if not recs:
+            self._debug_log(debug_log, obj, "No records found.")
+            if self.condition_find_if_not_found == 'true':
+                self._debug_log(
+                    debug_log, obj,
+                    "Evaluation condition to True, "
+                    "because 'If Not Found' is set to 'Evaluate to True'.")
+                return True
+            # If 'If Not Found' is not specified or set to false,
+            # then return false
+            return False
+        return self.condition_find_check_condition_ids.check(
+            recs, cache=cache, debug_log=debug_log)
 
     def _debug_log(self, log, obj, msg):
         self.ensure_one()
