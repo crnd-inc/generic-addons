@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition",
-    "version": "15.0.1.12.0",
+    "version": "15.0.1.13.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",

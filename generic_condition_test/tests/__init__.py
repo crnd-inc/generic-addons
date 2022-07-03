@@ -7,3 +7,4 @@ from . import test_related_field
 from . import test_with_sudo
 from . import test_current_user
 from . import test_monetary_field
+from . import test_check_find

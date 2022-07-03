@@ -1,0 +1,1 @@
+- Added *Find & Check* type condition
