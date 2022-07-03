@@ -1,5 +1,7 @@
 from odoo import models, fields, api, exceptions, _
 
+from odoo.addons.generic_m2o.tools.utils import generic_m2o_get
+
 
 class GenericConditionDomainLeaf(models.Model):
     _name = 'generic.condition.domain.leaf'
@@ -41,7 +43,39 @@ class GenericConditionDomainLeaf(models.Model):
     value_selection = fields.Char()
     value_res_id = fields.Integer()
 
-    # TODO: Add `value_display` field, to represent value in tree view.
+    value_display = fields.Char(
+        compute='_compute_value_display', readonly=True)
+
+    @api.depends('value_type', 'value_field_id', 'value_boolean', 'value_char',
+                 'value_float', 'value_integer', 'value_selection',
+                 'value_res_id', 'check_field_type', 'check_field_relation',
+                 'check_field_id')
+    def _compute_value_display(self):
+        for record in self:
+            if record.value_type == 'object-field':
+                record.value_display = (
+                    record.sudo().value_field_id.display_name)
+            elif record.value_type == 'static-value':
+                if record.check_field_type in ('char', 'text', 'html'):
+                    record.value_display = record.value_char
+                elif record.check_field_type == 'float':
+                    record.value_display = record.value_float
+                elif record.check_field_type == 'integer':
+                    record.value_display = record.value_integer
+                elif record.check_field_type == 'selection':
+                    record.value_display = record.value_selection
+                elif record.check_field_type in ('many2one',
+                                                 'one2many',
+                                                 'many2many'):
+                    record.value_display = generic_m2o_get(
+                        record,
+                        field_res_model="check_field_relation",
+                        field_res_id="value_res_id",
+                    ).display_name
+                else:
+                    record.value_display = ""
+            else:
+                record.value_display = ""
 
     @api.onchange('type')
     def _onchange_cleanup_model_fields(self):

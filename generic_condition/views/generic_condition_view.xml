@@ -623,9 +623,8 @@
                                                attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
                                         <field name="value_field_operator"
                                                attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
-                                        <field name="value_field_id"
-                                               attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"
-                                               domain="[('model_id', '=', parent.model_id)]"/>
+                                        <field name="value_display"
+                                               attrs="{'invisible': [('type', '!=', 'search-condition')]}"/>
                                     </tree>
                                     <form>
                                         <group>
