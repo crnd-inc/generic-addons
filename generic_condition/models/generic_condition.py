@@ -458,9 +458,6 @@ class GenericCondition(models.Model):
         related='condition_find_search_model_id.model', readonly=True)
     condition_find_search_domain_ids = fields.One2many(
         'generic.condition.domain.leaf', 'condition_id')
-    condition_find_search_extra_domain = fields.Char(
-        help="Additional domain to be applied to search domain."
-    )
     condition_find_order_by_field_id = fields.Many2one(
         'ir.model.fields', ondelete='cascade',
         domain="[('store', '=', True)]",
@@ -927,12 +924,6 @@ class GenericCondition(models.Model):
     def check_find(self, obj, cache=None, debug_log=None):
         SModel = self.env[self.sudo().condition_find_search_model_id.model]
         domain = self.condition_find_search_domain_ids.compute_domain_for(obj)
-        if self.condition_find_search_extra_domain:
-            domain = expression.AND([
-                domain,
-                safe_eval(self.condition_find_search_extra_domain),
-            ])
-
         order = "%s %s" % (
             self.sudo().condition_find_order_by_field_id.name,
             self.sudo().condition_find_order_by_direction)

@@ -610,15 +610,6 @@
                             <group colspan="4"
                                    name="generic_condition_find_domain"
                                    string="Filter records">
-                                <separator string="Static filter"
-                                           colspan="2"/>
-                                <field name="condition_find_search_extra_domain"
-                                       widget="domain"
-                                       options="{'model': 'condition_find_search_model_name', 'in_dialog': True}"
-                                       nolabel="1"
-                                       colspan="2"/>
-                                <separator string="Dynamic filter"
-                                           colspan="2"/>
                                 <field name="condition_find_search_domain_ids"
                                        attrs="{'required': [('type','=','find')]}"
                                        mode="tree,form"
