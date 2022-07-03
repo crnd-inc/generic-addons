@@ -5,7 +5,7 @@
         <field name="model_id" ref="crm.model_crm_lead"/>
         <field name="type">find</field>
         <field name="condition_find_search_model_id" ref="survey.model_survey_user_input"/>
-        <field name="condition_find_order_by_field_id" ref="survey.field_survey_user_input__date_create"/>
+        <field name="condition_find_order_by_field_id" ref="survey.field_survey_user_input__start_datetime"/>
         <field name="condition_find_order_by_direction">DESC</field>
         <field name="condition_find_if_not_found">false</field>
         <field name="condition_find_fetch_type">first</field>
@@ -24,7 +24,7 @@
         <field name="check_field_id" ref="survey.field_survey_user_input__survey_id"/>
         <field name="value_type">static-value</field>
         <field name="value_field_operator">=</field>
-        <field name="value_res_id" ref="survey.feedback_form"/>
+        <field name="value_res_id" ref="survey.survey_feedback"/>
         <field name="condition_id" ref="generic_condition_test.test_condition_crm_partner_survey_sent_year_ago"/>
     </record>
 </odoo>

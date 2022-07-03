@@ -35,7 +35,7 @@
         <field name="type">date_diff</field>
         <field name="condition_date_diff_date_end_type">now</field>
         <field name="condition_date_diff_date_start_type">field</field>
-        <field name="condition_date_diff_date_start_field" ref="survey.field_survey_user_input__date_create"/>
+        <field name="condition_date_diff_date_start_field" ref="survey.field_survey_user_input__start_datetime"/>
         <field name="condition_date_diff_operator">></field>
         <field name="condition_date_diff_value">1</field>
         <field name="condition_date_diff_uom">years</field>
