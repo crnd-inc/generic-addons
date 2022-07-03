@@ -1,7 +1,5 @@
-import datetime
 import logging
-from odoo.tests.common import Form, SavepointCase
-from dateutil.relativedelta import relativedelta
+from odoo.tests.common import SavepointCase
 _logger = logging.getLogger(__name__)
 
 try:
@@ -184,71 +182,3 @@ class TestConditionCheckFind(SavepointCase):
         with freeze_time('2021-08-13'):
             self.assertFalse(condition.check(lead_it_group))
             self.assertFalse(condition.check(lead_dev_group))
-
-
-    # def test_m2m_m2o_condition_type_find_check(self):
-    #     # m2m_o2m leaf tests
-    #     cls.condition_m2m_o2m = cls.env.ref(
-    #         'generic_condition_test'
-    #         '.test_condition_contact_has_partners_active_calendar_events')
-    #     # Create condition leaf for existing condition
-    #     # Use Form class to trigger onchange
-    #     with Form(self.condition) as condition:
-    #         with condition.condition_find_search_domain_ids.new() as leaf:
-    #             leaf.type = 'search-condition'
-    #             leaf.check_field_id = self.env.ref(
-    #                 'calendar.field_calendar_event__location')
-    #             leaf.value_field_operator = '='
-    #             leaf.value_field_id = self.env.ref(
-    #                 'base.field_res_partner__city')
-    #     # Check that child partner has lead
-    #     self.assertTrue(self.condition_o2m_o2m.check(parent_partner))
-    #
-    # def test_m2m_o2m_condition_type_find_check(self):
-    #     # Contacts has no child
-    #     self.assertFalse(self.condition_m2m_o2m.check(self.test_partner1))
-    #     self.assertFalse(self.condition_m2m_o2m.check(self.test_partner2))
-    #
-    #     # Make child partner
-    #     self.test_partner2.write({
-    #         'parent_id': self.test_partner1.id
-    #     })
-    #
-    #     # Check that contact has child with active calendar event
-    #     self.assertFalse(self.condition_m2m_o2m.check(self.test_partner2))
-    #     self.assertTrue(self.condition_m2m_o2m.check(self.test_partner1))
-    # def test_m2o_o2m_condition_type_find_check(self):
-    #     # Create condition leaf for existing condition
-    #     # Use Form class to trigger onchange
-    #     with Form(self.condition_o2m_o2m) as condition:
-    #         with condition.condition_find_search_domain_ids.new() as leaf:
-    #             leaf.type = 'search-condition'
-    #             leaf.check_field_id = self.env.ref(
-    #                 'crm.field_crm_lead__partner_id')
-    #             leaf.value_type = 'object-field'
-    #             leaf.value_field_operator = '='
-    #             leaf.value_field_id = self.env.ref(
-    #                 'base.field_res_partner__child_ids')
-    #
-    #     # Create partner, child partner
-    #     parent_partner = self.env['res.partner'].create({
-    #         'name': 'Grand partner',
-    #     })
-    #     child_partner = self.env['res.partner'].create({
-    #         'name': 'Child partner',
-    #         'parent_id': parent_partner.id,
-    #     })
-    #
-    #     # Check that child partner doesn't have lead
-    #     self.assertFalse(self.condition_o2m_o2m.check(parent_partner))
-    #
-    #     # Create opportunity for child partner
-    #     self.env['crm.lead'].create({
-    #         'type': "opportunity",
-    #         'name': "Test lead child partner",
-    #         'partner_id': child_partner.id,
-    #         'description': "Opportunity for child partner",
-    #     })
-    #
-    #     # Check that child partner has lead
-    #     self.assertTrue(self.condition_o2m_o2m.check(parent_partner))
