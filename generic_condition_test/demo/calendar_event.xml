@@ -9,7 +9,6 @@
         <field name="location">Kyiv</field>
         <field name="duration" eval="2"/>
         <field name="allday" eval="False"/>
-        <field name="state">open</field>
     </record>
 
     <record id="calendar_event_meeting_with_consuting_group" model="calendar.event">
@@ -21,6 +20,5 @@
         <field name="location">Lviv</field>
         <field name="duration" eval="2"/>
         <field name="allday" eval="False"/>
-        <field name="state">open</field>
     </record>
 </odoo>

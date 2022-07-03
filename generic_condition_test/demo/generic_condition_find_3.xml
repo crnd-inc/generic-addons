@@ -6,7 +6,7 @@
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="type">find</field>
         <field name="condition_find_search_model_id" ref="calendar.model_calendar_event"/>
-        <field name="condition_find_order_by_field_id" ref="calendar.field_calendar_event__start_datetime"/>
+        <field name="condition_find_order_by_field_id" ref="calendar.field_calendar_event__start"/>
         <field name="condition_find_order_by_direction">DESC</field>
         <field name="condition_find_if_not_found">false</field>
         <field name="condition_find_fetch_type">first</field>

@@ -21,7 +21,7 @@
         <field name="type">date_diff</field>
         <field name="condition_date_diff_date_end_type">now</field>
         <field name="condition_date_diff_date_start_type">field</field>
-        <field name="condition_date_diff_date_start_field" ref="calendar.field_calendar_event__start_datetime"/>
+        <field name="condition_date_diff_date_start_field" ref="calendar.field_calendar_event__start"/>
         <field name="condition_date_diff_operator">></field>
         <field name="condition_date_diff_value">1</field>
         <field name="condition_date_diff_uom">years</field>

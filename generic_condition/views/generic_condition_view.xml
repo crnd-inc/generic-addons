@@ -646,7 +646,7 @@
                                                     <label for="value_field_operator" string="Operator"/>
                                                 </th>
                                                 <th>
-                                                    <label for="condition_simple_field_value_char" string="Value"/>
+                                                    <label for="value_char" string="Value"/>
                                                 </th>
                                             </tr>
                                             <tr>
