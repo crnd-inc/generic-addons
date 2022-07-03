@@ -26,8 +26,7 @@ class GenericConditionDomainLeaf(models.Model):
         related='check_field_id.relation', readonly=True,
         related_sudo=True)
     value_field_operator = fields.Selection(
-        [('=', '='),
-         ('!=', '!=')])
+        [('=', '=')])
     value_type = fields.Selection(
         [('object-field', 'Object Field'),
          ('static-value', 'Static Value')],
@@ -116,8 +115,6 @@ class GenericConditionDomainLeaf(models.Model):
                                                        'one2many'):
             if operator == '=':
                 operator = 'in'
-            elif operator == '!=':
-                operator = 'not in'
             return [(
                 self.sudo().check_field_id.name,
                 operator,
@@ -127,8 +124,6 @@ class GenericConditionDomainLeaf(models.Model):
                                                        'one2many'):
             if operator == '=':
                 operator = 'in'
-            elif operator == '!=':
-                operator = 'not in'
             return [(
                 '%s.id' % self.sudo().check_field_id.name,
                 operator,
@@ -138,8 +133,6 @@ class GenericConditionDomainLeaf(models.Model):
                 check_ftype in ('many2many', 'one2many')):
             if operator == '=':
                 operator = 'in'
-            elif operator == '!=':
-                operator = 'not in'
             return [(
                 '%s.id' % self.sudo().check_field_id.name,
                 operator,
