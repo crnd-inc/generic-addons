@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="crm_lead_it_group" model="crm.lead">
+        <field name="type">opportunity</field>
+        <field name="name">ITSM System for IT Group</field>
+        <field name="partner_id" ref="demo_partner_it_group"/>
+        <field name="description">IT group is searching for ITSM System</field>
+    </record>
+    <record id="crm_lead_dev_group" model="crm.lead">
+        <field name="type">opportunity</field>
+        <field name="name">HelpDesk System for Dev Group</field>
+        <field name="partner_id" ref="demo_partner_dev_group"/>
+        <field name="description">Dev group is searching for Helpdesk System</field>
+    </record>
+</odoo>

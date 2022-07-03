@@ -2,7 +2,6 @@
 <odoo>
     <!-- Generic Condition Views -->
     <record id="generic_condition_search_view" model="ir.ui.view">
-        <field name="name">generic.condition.search</field>
         <field name="model">generic.condition</field>
         <field name="arch" type="xml">
             <search string="Condition search">
@@ -54,7 +53,6 @@
     </record>
 
     <record id="generic_condition_tree_view" model="ir.ui.view">
-        <field name="name">generic.condition.tree</field>
         <field name="model">generic.condition</field>
         <field name="arch" type="xml">
             <tree>
@@ -69,7 +67,6 @@
     </record>
 
     <record id="generic_condition_form_view" model="ir.ui.view">
-        <field name="name">generic.condition.form</field>
         <field name="model">generic.condition</field>
         <field name="arch" type="xml">
             <form string="Condition">
@@ -565,6 +562,138 @@
                                     </td>
                                 </tr>
                             </table>
+                        </group>
+                        <!-- 'Monetary field' condition data -->
+                        <group colspan="4" col="4"
+                               name="group_condition_find"
+                               attrs="{'invisible': [('type', '!=', 'find')]}">
+                            <div class="alert alert-warning" role="alert" colspan="4">
+                                <b>Warning:</b> This feature is experimental.
+                            </div>
+                            <div colspan="4">
+                                This type of condition can be used to find related objects in arbitary table
+                                and check them.
+                            </div>
+                            <group name="generic_condition_find_search"
+                                   string="Search"
+                                   colspan="2">
+                                <field name="condition_find_search_model_id"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Model"/>
+                                <field name="condition_find_search_model_name"
+                                       string="Model Name"/>
+                                <field name="condition_find_order_by_field_id"
+                                       domain="[('model_id', '=', condition_find_search_model_id), ('store', '=', True)]"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Order By Field"/>
+                                <field name="condition_find_order_by_direction"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Order By Direction"/>
+
+                            </group>
+                            <group name="generic_condition_find_check"
+                                   string="Check"
+                                   colspan="2">
+                                <field name="condition_find_if_not_found"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="If records not found"/>
+                                <field name="condition_find_fetch_type"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       string="Type"/>
+                                <field name="condition_find_check_condition_ids"
+                                       context="{'default_model_id': condition_find_search_model_id}"
+                                       domain="[('model_id', '=', condition_find_search_model_id)]"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       widget="many2many_tags"
+                                       string="Conditions"/>
+                            </group>
+                            <group colspan="4"
+                                   name="generic_condition_find_domain"
+                                   string="Filter records">
+                                <field name="condition_find_search_domain_ids"
+                                       attrs="{'required': [('type','=','find')]}"
+                                       mode="tree,form"
+                                       nolabel="1"
+                                       colspan="2">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="type"/>
+                                        <field name="check_field_id"
+                                               domain="[('model_id', '=', parent.condition_find_search_model_id),('store', '=', True)]"
+                                               attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                        <field name="value_field_operator"
+                                               attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                        <field name="value_display"
+                                               attrs="{'invisible': [('type', '!=', 'search-condition')]}"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="type"/>
+                                            </group>
+                                            <group>
+                                                <field name="sequence"/>
+                                            </group>
+                                        </group>
+                                        <group name="group_leaf"
+                                               string="Search condition"
+                                               attrs="{'invisible': [('type', '!=', 'search-condition')]}">
+                                            <table colspan="4" class="generic_condition_definition">
+                                            <tr>
+                                                <th>
+                                                    <label for="check_field_id" string="Check Field"/>
+                                                </th>
+                                                <th>
+                                                    <label for="value_field_operator" string="Operator"/>
+                                                </th>
+                                                <th>
+                                                    <label for="condition_simple_field_value_char" string="Value"/>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <field name="check_field_id"
+                                                           domain="[('model_id', '=', parent.condition_find_search_model_id),('store', '=', True)]"
+                                                           context="{'default_model_id': parent.condition_find_search_model_id}"
+                                                           attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                                    <field name="check_field_type" invisible="1"/>
+                                                    <field name="check_field_relation" invisible="1"/>
+                                                </td>
+                                                <td>
+                                                    <field name="value_field_operator"
+                                                           attrs="{'required': [('type', '=', 'search-condition')],'invisible': [('type', '!=', 'search-condition')]}"/>
+                                                </td>
+                                                <td>
+                                                    <!-- Fields to check static value -->
+                                                    <field name="value_type"
+                                                           attrs="{'required': [('type','=','search-condition')], 'invisible': [('type', '!=', 'search-condition')]}"/>
+                                                    <field name="value_char"
+                                                           attrs="{'required': [('value_type','=','static-value'), ('check_field_type', 'in', ('char', 'text', 'html'))], 'invisible': ['|', ('value_type', '!=', 'static-value'), ('check_field_type', 'not in', ('char', 'text', 'html'))]}"/>
+                                                    <field name="value_integer"
+                                                           attrs="{'required': [('value_type','=','static-value'), ('check_field_type', '=', 'integer')], 'invisible': ['|', ('value_type', '!=', 'static-value'), ('check_field_type', '!=', 'integer')]}"/>
+                                                    <field name="value_float"
+                                                           attrs="{'required': [('value_type','=','static-value'), ('check_field_type', '=', 'float')], 'invisible': ['|', ('value_type', '!=', 'static-value'), ('check_field_type', '!=', 'float')]}"/>
+                                                    <!-- TODO: Allow only selection and res_id static checks to simplify code -->
+                                                    <field name="value_selection"
+                                                           widget="fake_selection"
+                                                           selection_field="check_field_id"
+                                                           attrs="{'required': [('value_type','=','static-value'), ('check_field_type', '=', 'selection')], 'invisible': ['|', ('value_type', '!=', 'static-value'), ('check_field_type', '!=', 'selection')]}"/>
+                                                    <field name="value_res_id"
+                                                           widget="generic_m2o"
+                                                           model_field="check_field_relation"
+                                                           attrs="{'required': [('value_type','=','static-value'), ('check_field_type', 'in', ('many2one', 'one2many', 'many2many'))], 'invisible': ['|', ('value_type', '!=', 'static-value'), ('check_field_type', 'not in', ('many2one', 'one2many', 'many2many'))]}"/>
+
+                                                    <!-- Fields to check against object field -->
+                                                    <field name="value_field_id"
+                                                           attrs="{'required': [('value_type', '=', 'object-field')],'invisible': [('value_type', '!=', 'object-field')]}"
+                                                           domain="[('model_id', '=', parent.model_id), ('ttype', '=', check_field_type)]"/>
+                                                </td>
+                                            </tr>
+                                            </table>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
                         </group>
                     </group>
                     <group colspan="4" string="Description">
