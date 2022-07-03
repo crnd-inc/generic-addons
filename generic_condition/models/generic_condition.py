@@ -927,9 +927,21 @@ class GenericCondition(models.Model):
         order = "%s %s" % (
             self.sudo().condition_find_order_by_field_id.name,
             self.sudo().condition_find_order_by_direction)
+        self._debug_log(
+            debug_log,
+            obj,
+            "Searching %(model)s with domain %(domain)s" % {
+                'model': SModel._name,
+                'domain': domain,
+            })
         recs = SModel.search(domain, order=order, limit=1)
         if not recs:
+            self._debug_log(debug_log, obj, "No records found.")
             if self.condition_find_if_not_found == 'true':
+                self._debug_log(
+                    debug_log, obj,
+                    "Evaluation condition to True, "
+                    "because 'If Not Found' is set to 'Evaluate to True'.")
                 return True
             # If 'If Not Found' is not specified or set to false,
             # then return false
