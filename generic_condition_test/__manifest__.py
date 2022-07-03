@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition - Test",
-    "version": "13.0.1.6.0",
+    "version": "13.0.1.7.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -8,6 +8,9 @@
     'category': 'Hidden',
     'depends': [
         'generic_condition',
+        'calendar',
+        'survey',
+        'crm',
     ],
     'data': [
         'security/security.xml',
@@ -15,8 +18,19 @@
     ],
     'demo': [
         'demo/test_model_demo.xml',
+        'demo/res_partner.xml',
+        'demo/calendar_event.xml',
+        'demo/crm_lead.xml',
+        'demo/survey_user_input.xml',
+        'demo/generic_condition.xml',
+        'demo/generic_condition_find_1.xml',
+        'demo/generic_condition_find_2.xml',
+        'demo/generic_condition_find_3.xml',
+        'demo/generic_condition_find_4.xml',
     ],
-    'images': ['static/description/banner.png'],
+    'images': [
+        'static/description/banner.png',
+    ],
     'installable': True,
     'auto_install': False,
     'application': False,
