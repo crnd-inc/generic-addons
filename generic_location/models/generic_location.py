@@ -51,7 +51,7 @@ class GenericLocation(models.Model):
         string='All Childs',
         readonly=True, copy=False)
     child_all_count = fields.Integer(
-        compute='_compute_child_count', readonly=True)
+        compute='_compute_child_all_count', readonly=True)
 
     # Images
     image = fields.Binary(
@@ -81,6 +81,9 @@ class GenericLocation(models.Model):
         )
         for record in self:
             record.child_count = mapped_data.get(record.id, 0)
+
+    def _compute_child_all_count(self):
+        for record in self:
             record.child_all_count = len(record.child_all_ids)
 
     def init(self):
