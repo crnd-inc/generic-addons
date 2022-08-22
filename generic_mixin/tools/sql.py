@@ -1,5 +1,9 @@
 from psycopg2 import sql
 from odoo import tools
+from odoo.tools.sql import (
+    create_column,
+    column_exists,
+)
 
 
 def create_sql_view(cr, name, definition):
@@ -21,3 +25,68 @@ def create_sql_view(cr, name, definition):
     if getattr(cr, 'sql_log', None):
         query = query.as_string(cr._obj)
     cr.execute(query)
+
+
+def create_column_if_not_exists(cr, tablename, columnname, columntype,
+                                comment=None):
+    """ Create a column with the given type if it not yet exists
+        and return True if column was created successfully
+        otherwise return False.
+
+        :param cr: database cursor
+        :param str tablename: Name of table to add column to
+        :param str columnname: Name of column to add
+        :param str columntype: postgresql type of column
+        :param str comment: optional comment for created column
+        :return bool: True if column was created,
+            False if column already exists
+    """
+    if not column_exists(cr, tablename, columnname):
+        create_column(cr, tablename, columnname, columntype, comment)
+        return True
+    return False
+
+
+def xmlid_to_id(cr, xmlid):
+    """ Resolve XMLIO to ID of object it references
+
+        :param cr: database cursor
+        :param str xmlid: string representing external identifier (xmlid)
+            of object. It must be fully qualified xmlid, that includes
+            name of module.
+        :return int|bool: ID of object if such xmlid exists,
+            or False if there is no such xmlid registered in db.
+    """
+    module, name = xmlid.split('.', 1)
+    cr.execute("""
+        SELECT res_id
+        FROM ir_model_data
+        WHERE module = %(module)s
+          AND name = %(name)s
+    """, {
+        'module': module,
+        'name': name,
+    })
+    if cr.rowcount > 0:
+        return cr.fetchone()[0]
+    return False
+
+
+def unlink_view(cr, xmlid):
+    """ Remove view referenced by xmlid.
+        This could be helpful during migrations: some times it is better
+        to remove view that has unexisting columns and let odoo recreate it.
+
+        :param cr: database cursor
+        :param str xmlid: string representing external identifier (xmlid)
+            of view. It must be fully qualified xmlid, that includes
+            name of module.
+    """
+    view_id = xmlid_to_id(cr, xmlid)
+    if view_id:
+        cr.execute("""
+            DELETE FROM ir_ui_view
+            WHERE id = %(view_id)s
+        """, {
+            'view_id': view_id,
+        })
