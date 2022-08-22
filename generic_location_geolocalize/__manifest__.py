@@ -1,3 +1,4 @@
+# flake8: noqa: E501
 {
     'name': "Generic Location (Geo Localization)",
 
@@ -9,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '14.0.1.4.1',
+    'version': '15.0.1.4.1',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -21,18 +22,23 @@
 
     # always loaded
     'data': [
-        'template/template.xml',
         'views/generic_location.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
     ],
 
-    'qweb': [
-        'static/src/xml/map_field_widget.xml',
-    ],
+    'assets': {
+        'web.assets_backend': [
+            '/generic_location_geolocalize/static/src/scss/map_field_widget.scss',
+            '/generic_location_geolocalize/static/src/js/map_field_widget.js',
+        ],
+        'web.assets_qweb': [
+            '/generic_location_geolocalize/static/src/xml/map_field_widget.xml',
+        ],
+    },
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'application': False,
     'license': 'LGPL-3',
 }

@@ -1,7 +1,7 @@
 <odoo>
 
-    <template id="assets_backend" name="crnd_map_view assets" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
+    <template id="assets_backend" name="crnd_map_view assets" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//t[@t-call-assets='web.assets_backend']" position="before">
             <script type="text/javascript" src="/google_maps_api_js/static/lib/markerclusterer/markerclusterer.min.js"/>
             <t t-set="google_maps_api_key" t-value="request.env['ir.config_parameter'].sudo().get_param('base_geolocalize.google_map_api_key')"/>
             <t t-set="user_lang" t-value="request.env.user.lang.split('_')[0]"/>
