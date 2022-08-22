@@ -4,7 +4,8 @@ and related tasks.
 """
 import uuid
 from psycopg2 import sql
-from odoo.tools.sql import create_column
+
+from .sql import create_column_if_not_exists
 
 
 def create_uuid_field(cr, table, field_name):
@@ -14,7 +15,8 @@ def create_uuid_field(cr, table, field_name):
         :param str table: Name of table to add column to
         :param str field_name: Name of column to add to table
     """
-    create_column(cr, table, field_name, 'character varying(38)')
+    create_column_if_not_exists(
+        cr, table, field_name, 'character varying(38)')
 
 
 def generate_uuid_for_table(cr, table, field_name):
