@@ -1,5 +1,9 @@
 from psycopg2 import sql
 from odoo import tools
+from odoo.tools.sql import (
+    create_column,
+    column_exists,
+)
 
 
 def create_sql_view(cr, name, definition):
@@ -21,3 +25,14 @@ def create_sql_view(cr, name, definition):
     if getattr(cr, 'sql_log', None):
         query = query.as_string(cr._obj)
     cr.execute(query)
+
+
+def create_column_if_not_exists(
+        cr, tablename, columnname, columntype, comment=None):
+    """ Create a column with the given type if not exists
+        and return True otherwise return False.
+    """
+    if not column_exists(cr, tablename, columnname):
+        create_column(cr, tablename, columnname, columntype, comment)
+        return True
+    return False
