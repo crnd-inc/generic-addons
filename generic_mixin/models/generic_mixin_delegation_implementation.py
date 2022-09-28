@@ -1,10 +1,10 @@
 import logging
-from odoo import fields, models, api
+from odoo import models, api
 
 _logger = logging.getLogger(__name__)
 
 
-class GenericMixinDelegationMixin(models.AbstractModel):
+class GenericMixinDelegationImplementation(models.AbstractModel):
     """ Mixin that have to help to deal with "inheritance via delegation".
         This is companion mixin to 'generic.mixin.delegation.interface.
 
@@ -88,10 +88,10 @@ class GenericMixinDelegationMixin(models.AbstractModel):
         rec.sudo()[
             self._generic_mixin_delegation_interface_field
         ].write({
-            implementation_id_field: Interface._generic_mixin_guard__wrap_field(
-                implementation_id_field, rec.id),
+            implementation_id_field:
+                Interface._generic_mixin_guard__wrap_field(
+                    implementation_id_field, rec.id),
         })
-
         return rec
 
     def unlink(self):

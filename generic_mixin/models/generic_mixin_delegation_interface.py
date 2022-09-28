@@ -1,11 +1,11 @@
 import logging
-from odoo import models, api, _
+from odoo import models, _
 from ..tools.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
 
 
-class GenericMixinDelegationTarget(models.AbstractModel):
+class GenericMixinDelegationInterface(models.AbstractModel):
     """ Mixin that have to help to deal with "inheritance via delegation".
         This is companion mixin to 'generic.mixin.delegation.mixin.
 

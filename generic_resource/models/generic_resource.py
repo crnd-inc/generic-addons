@@ -1,5 +1,5 @@
 import logging
-from odoo import fields, models, api, _
+from odoo import fields, models, api
 
 from odoo.addons.generic_mixin import generate_proxy_decorator
 from odoo.addons.generic_mixin.tools.generic_m2o import generic_m2o_get
