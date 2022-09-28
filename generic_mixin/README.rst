@@ -24,6 +24,7 @@ This is technical addon, that contains model mixins, that may be useful
 in develompent of other addons.
 
 Following mixins ara available:
+
 - ``generic.mixin.name_with_code`` - just add ``name`` and ``code`` fields to model, on name changed - compute code automatically.
 - ``generic.mixin.uniq_name_code`` - add *unique* constraint to name and code fields.
 - ``generic.mixin.name.by.sequence`` - Add *name* field to your model, that will be automatically filled with value based on ``ir.sequence`` (in same way as in sale order, or other odoo models)
@@ -68,4 +69,3 @@ This module is maintained by the Center of Research & Development company.
 We can provide you further Odoo Support, Odoo implementation, Odoo customization, Odoo 3rd Party development and integration software, consulting services. Our main goal is to provide the best quality product for you. 
 
 For any questions `contact us <mailto:info@crnd.pro>`__.
-

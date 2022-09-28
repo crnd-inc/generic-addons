@@ -10,10 +10,10 @@ class GenericResourceMixin(models.AbstractModel):
     _description = 'Generic Resource MixIn'
     _inherit = [
         'generic.mixin.track.changes',
-        'generic.mixin.guard.fields',
+        'generic.mixin.delegation.mixin',
     ]
 
-    _generic_mixin_deny_write_fields = ['resource_id']
+    _generic_mixin_delegation_target_field = 'resource_id'
 
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True,
@@ -83,41 +83,12 @@ class GenericResourceMixin(models.AbstractModel):
             self._get_resource_type())
         values.update(vals)
 
-        # Add fake resource id to values. This is required to create
-        # 'generic.resource' record, because 'res_id' field is required
-        # This field will be updated after record creation
-        values['res_id'] = self.env[
-            'generic.resource'
-        ]._generic_mixin_guard__wrap_field('res_id', -1)
-
         # Create record
-        # TODO: this create call somehow triggers write on self. Review.
-        rec = super(GenericResourceMixin, self).create(values)
-
-        # Update res_id with created id
-        rec.sudo().resource_id.write({
-            'res_id': self.env[
-                'generic.resource'
-            ]._generic_mixin_guard__wrap_field('res_id', rec.id),
-        })
+        rec = super().create(values)
 
         # Call 'on_resource_created' hook
         rec.resource_id.on_resource_created()
         return rec
-
-    def unlink(self):
-        # Get resources
-        resources = self.mapped('resource_id')
-
-        # Delete records
-        res = super(GenericResourceMixin, self).unlink()
-
-        # Delete resources and return status
-        # We are using sudo here to avoid access rights (ACL) conflicts.
-        # resource's access rules (ir.rule) checked
-        # when unlink called on this object.
-        resources.sudo().unlink()
-        return res
 
     def _get_resource_type(self):
         return self.env['generic.resource.type'].get_resource_type(self._name)
