@@ -10,10 +10,10 @@ class GenericResourceMixin(models.AbstractModel):
     _description = 'Generic Resource MixIn'
     _inherit = [
         'generic.mixin.track.changes',
-        'generic.mixin.delegation.mixin',
+        'generic.mixin.delegation.implementation',
     ]
 
-    _generic_mixin_delegation_target_field = 'resource_id'
+    _generic_mixin_delegation_interface_field = 'resource_id'
 
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True,

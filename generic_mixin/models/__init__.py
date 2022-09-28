@@ -13,6 +13,6 @@ from . import (
     generic_mixin_proxy_methods,
     generic_mixin_guard_fields,
     generic_mixin_entity_lifecycle,
-    generic_mixin_delegation_mixin,
+    generic_mixin_delegation_implementation,
     generic_mixin_delegation_target,
 )

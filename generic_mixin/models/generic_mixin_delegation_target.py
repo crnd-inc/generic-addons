@@ -14,7 +14,7 @@ class GenericMixinDelegationTarget(models.AbstractModel):
         possibly methods) and multiple implementation models for
         this interface.
 
-        For example, we could have basic interface (delegation target) model
+        For example, we could have basic interface model
         named Resource that could have following implementations:
             - Notebook
             - Workstation
@@ -23,8 +23,8 @@ class GenericMixinDelegationTarget(models.AbstractModel):
 
         Logically, each of these models could have it's own set of fields
         that represents some characteristics. But for example for accounting
-        we need only some subset of fields and methods defined by interface
-        (delegation target). But to make to manage this, for example assign
+        we need only some subset of fields and methods defined by interface.
+        But to make to manage this, for example assign
         some resource for some employee, we have to have different
         characteristics for each type of resource, thus we have to have
         specific model for each resource.
@@ -33,18 +33,18 @@ class GenericMixinDelegationTarget(models.AbstractModel):
         of devices
 
         And this mixin have to help to automatically handle one2one relation
-        between interface (delegation target) and implementation.
+        between interface and implementation.
 
-        Mixin `generic.mixin.delegation.target` is responsible for interface
+        Mixin `generic.mixin.delegation.interface` is responsible for interface
         concept.
-        Mixin `generic.mixin.delegation.mixin` is responsible for
+        Mixin `generic.mixin.delegation.implementation` is responsible for
         implementation of interface concept
     """
-    _name = 'generic.mixin.delegation.target'
+    _name = 'generic.mixin.delegation.interface'
     _inherit = [
         'generic.mixin.guard.fields',
     ]
-    _description = 'Generic Mixin: Delegation Target'
+    _description = 'Generic Mixin Delegation: Interface'
 
     # Names of fields that have to point to name of model of implementation
     # and ID of implementation record in implementation model

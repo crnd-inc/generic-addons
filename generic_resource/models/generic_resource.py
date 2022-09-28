@@ -17,7 +17,7 @@ class GenericResource(models.Model):
     _inherit = [
         'generic.mixin.get.action',
         'generic.mixin.proxy.methods',
-        'generic.mixin.delegation.target',
+        'generic.mixin.delegation.interface',
     ]
     _description = 'Generic Resource'
     _log_access = False
