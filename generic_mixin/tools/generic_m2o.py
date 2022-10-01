@@ -1,13 +1,5 @@
-import logging
-_logger = logging.getLogger(__name__)
-
-
 def generic_m2o_get(record, *, field_res_model, field_res_id):
     """ Utility function to read generic many2one field on specified record.
-
-        **Deprecated**: was moved to generic_mixin.tools.generic_m2o
-
-        Kept here for backward compatibility.
 
         :param RecordSet record: Single-record recordset to read m2o field.
         :param str field_res_model: name of field to read name of referenced
@@ -17,9 +9,6 @@ def generic_m2o_get(record, *, field_res_model, field_res_id):
             record. In case if referenced model does not exists, may return
             False.
     """
-    _logger.warning(
-        "Deprecated. generic_m2o_get function was moved to "
-        "'generic_mixin.tools.generic_m2o' module")
     record.ensure_one()
 
     # This case, when res model is not present in pool, may

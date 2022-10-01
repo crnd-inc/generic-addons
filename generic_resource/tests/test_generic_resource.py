@@ -79,7 +79,7 @@ class TestResource(ReduceLoggingMixin, TransactionCase):
         gresource = self.resource.resource_id
 
         with mute_logger(
-                "odoo.addons.generic_resource.models.generic_resource_mixin"):
+                "odoo.addons.generic_mixin.models.generic_mixin_guard_fields"):
             self.resource.write({
                 'resource_id': resource_other.resource_id.id,
             })
