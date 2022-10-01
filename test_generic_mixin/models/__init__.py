@@ -5,4 +5,5 @@ from . import (
     test_namesearch_by_fields,
     test_mixin_uuid,
     test_mixin_proxy_methods,
+    test_delegation,
 )
