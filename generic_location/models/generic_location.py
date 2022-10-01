@@ -3,6 +3,7 @@ from odoo import models, fields, _
 
 from odoo.addons.generic_mixin import post_create, post_write
 from odoo.addons.generic_mixin.tools.sql import create_sql_view
+from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 from odoo.addons.crnd_web_m2o_info_widget import helper_get_many2one_info_data
 
 _logger = logging.getLogger(__name__)
@@ -51,7 +52,7 @@ class GenericLocation(models.Model):
         string='All Childs',
         readonly=True, copy=False)
     child_all_count = fields.Integer(
-        compute='_compute_child_count', readonly=True)
+        compute='_compute_child_all_count', readonly=True)
 
     _sql_constraints = [
         ('name_description_check',
@@ -60,8 +61,15 @@ class GenericLocation(models.Model):
     ]
 
     def _compute_child_count(self):
+        mapped_data = read_counts_for_o2m(
+            records=self,
+            field_name='child_ids'
+        )
         for record in self:
-            record.child_count = len(record.child_ids)
+            record.child_count = mapped_data.get(record.id, 0)
+
+    def _compute_child_all_count(self):
+        for record in self:
             record.child_all_count = len(record.child_all_ids)
 
     def init(self):
