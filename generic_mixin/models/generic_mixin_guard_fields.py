@@ -77,9 +77,9 @@ class GenericMixinGuardFields(models.AbstractModel):
         for field_name in self._generic_mixin_guard__get_deny_write_fields():
             if field_name in res:
                 _logger.warning(
-                    "Trying update / create object with '%s' "
+                    "Trying update / create object (%s) with '%s' "
                     "field specified, but this field will be computed "
-                    "automatically.", field_name)
+                    "automatically.", self._name, field_name)
                 del res[field_name]
 
         for field_name in self._generic_mixin_guard__get_guard_fields():

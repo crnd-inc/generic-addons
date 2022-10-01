@@ -13,8 +13,6 @@ class GenericResourceMixin(models.AbstractModel):
         'generic.mixin.delegation.implementation',
     ]
 
-    _generic_mixin_delegation_interface_field = 'resource_id'
-
     resource_id = fields.Many2one(
         'generic.resource', index=True, auto_join=True,
         required=True, delegate=True, ondelete='restrict',
