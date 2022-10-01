@@ -1,8 +1,8 @@
 import logging
-from odoo import fields, models, api, _
+from odoo import fields, models, api
 
 from odoo.addons.generic_mixin import generate_proxy_decorator
-from odoo.addons.generic_m2o import generic_m2o_get
+from odoo.addons.generic_mixin.tools.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
 
@@ -17,7 +17,7 @@ class GenericResource(models.Model):
     _inherit = [
         'generic.mixin.get.action',
         'generic.mixin.proxy.methods',
-        'generic.mixin.guard.fields',
+        'generic.mixin.delegation.interface',
     ]
     _description = 'Generic Resource'
     _log_access = False
@@ -26,7 +26,8 @@ class GenericResource(models.Model):
     _generic_mixin_proxy_methods__link_field = 'resource_id'
     _generic_mixin_proxy_methods__method_attr = '__resource_proxy__'
 
-    _generic_mixin_guard_fields = ['res_id']
+    _generic_mixin_implementation_model_field = 'res_model'
+    _generic_mixin_implementation_id_field = 'res_id'
 
     active = fields.Boolean(default=True, index=True)
     res_type_id = fields.Many2one(
@@ -57,18 +58,6 @@ class GenericResource(models.Model):
         """
         return generic_m2o_get(
             self, field_res_model='res_model', field_res_id='res_id')
-
-    def name_get(self):
-        result = []
-        for record in self:
-            if record.res_model and record.res_id:
-                if record.resource:
-                    result.append((record.id, record.resource.display_name))
-                else:
-                    result.append((record.id, _("Error: no model")))
-            else:
-                result.append((record.id, False))
-        return result
 
     @api.model
     def _get_resource_type_defaults(self, resource_type):
