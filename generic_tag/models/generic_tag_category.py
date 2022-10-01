@@ -1,4 +1,5 @@
 from odoo import models, fields, api, _
+from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 from odoo.exceptions import ValidationError
 
 
@@ -11,8 +12,12 @@ class GenericTagCategory(models.Model):
 
     @api.depends('tag_ids')
     def _compute_tags_count(self):
+        mapped_data = read_counts_for_o2m(
+            records=self,
+            field_name='tag_ids'
+        )
         for line in self:
-            line.tags_count = len(line.tag_ids)
+            line.tags_count = mapped_data.get(line.id, 0)
 
     # model_id field will be added by 'generic.tag.model.mixin'
     name = fields.Char(required=True, translate=True, index=True)
