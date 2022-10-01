@@ -85,7 +85,9 @@ class GenericMixinUUID(models.AbstractModel):
                 "deprecated. Please, instead of relying on automatically "
                 "generated field, add regular field like: \n"
                 "uuid = fields.Char(index=True, required=True, readonly=True, "
-                "size=38, default='/', copy=False, string='UUID')")
+                "size=38, default='/', copy=False, string='UUID')\n"
+                "Model: %s, Field: %s",
+                self._name, self._generic_mixin_uuid_field_name)
             self._add_field(
                 self._generic_mixin_uuid_field_name,
                 fields.Char(
