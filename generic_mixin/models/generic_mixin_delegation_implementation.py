@@ -127,10 +127,10 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
 
     def _generic_mixin_guard__get_deny_write_fields(self):
         res = super()._generic_mixin_guard__get_deny_write_fields() + list(
-            self._generic_mixin_delegation__get_iterfaces_info())
+            self._generic_mixin_delegation__get_interfaces_info())
         return res
 
-    def _generic_mixin_delegation__get_iterfaces_info(self):
+    def _generic_mixin_delegation__get_interfaces_info(self):
         """ Return dictionary with supported interfaces mapping:
                 interface_field -> interface_model
         """
@@ -147,7 +147,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
         res = super()._add_missing_default_values(values)
 
         to_update = {}
-        interface_info = self._generic_mixin_delegation__get_iterfaces_info()
+        interface_info = self._generic_mixin_delegation__get_interfaces_info()
         for interface_model in interface_info.values():
             # Find delegation interface model
             Interface = self.env[interface_model]
@@ -179,7 +179,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
     def create(self, vals):
         values = dict(vals)
 
-        interface_info = self._generic_mixin_delegation__get_iterfaces_info()
+        interface_info = self._generic_mixin_delegation__get_interfaces_info()
         for interface_field, interface_model in interface_info.items():
             # Find delegation interface model
             Interface = self.env[interface_model]
@@ -217,7 +217,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
         return rec
 
     def unlink(self):
-        interface_info = self._generic_mixin_delegation__get_iterfaces_info()
+        interface_info = self._generic_mixin_delegation__get_interfaces_info()
 
         # Find deletagion interfaces to be removed
         to_cleanup = {
