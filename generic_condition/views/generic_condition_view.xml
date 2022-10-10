@@ -393,7 +393,7 @@
                                     <td>
                                         <field name="condition_simple_field_field_id"
                                                context="{'default_model_id': model_id}"
-                                               domain="[('model_id','=',model_id), ('ttype', 'in', ('boolean', 'char', 'text', 'html', 'float', 'integer', 'selection'))]"
+                                               domain="[('model_id','=',model_id), ('ttype', 'in', ('boolean', 'char', 'text', 'html', 'float', 'integer', 'selection', 'date', 'datetime'))]"
                                                attrs="{'required': [('type','=','simple_field')]}"/>
                                     </td>
                                     <td>
@@ -405,6 +405,8 @@
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('char', 'text'))], 'invisible': [('condition_simple_field_type', 'not in', ('char', 'text'))]}"/>
                                         <field name="condition_simple_field_string_operator_html"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'html')], 'invisible': [('condition_simple_field_type', '!=', 'html')]}"/>
+                                        <field name="condition_simple_field_date_operator"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', 'in', ('date', 'datetime'))], 'invisible': [('condition_simple_field_type', 'not in', ('date', 'datetime'))]}"/>
                                         <div>
                                             <span
                                                     attrs="{'invisible': ['|', ('condition_simple_field_type', 'not in', ('char', 'text', 'html')),('condition_simple_field_string_operator', 'in', ('set', 'not set'))]}">
@@ -433,6 +435,10 @@
                                                widget="fake_selection"
                                                selection_field="condition_simple_field_field_id"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'selection')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'selection'), ('condition_simple_field_selection_operator', 'in', ('set', 'not set'))]}"/>
+                                        <field name="condition_simple_field_value_date"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'date')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'date'),('condition_simple_field_date_operator', 'in', ('set', 'not set'))]}"/>
+                                        <field name="condition_simple_field_value_datetime"
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'datetime')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'datetime'),('condition_simple_field_date_operator', 'in', ('set', 'not set'))]}"/>
                                     </td>
                                 </tr>
                             </table>
