@@ -1,10 +1,13 @@
-from . import test_date_diff
-from . import test_simple_field_boolean
-from . import test_simple_field_number
-from . import test_simple_field_selection
-from . import test_simple_field_string
-from . import test_related_field
-from . import test_with_sudo
-from . import test_current_user
-from . import test_monetary_field
-from . import test_check_find
+from . import (
+    test_date_diff,
+    test_simple_field_boolean,
+    test_simple_field_number,
+    test_simple_field_selection,
+    test_simple_field_string,
+    test_simple_field_date,
+    test_related_field,
+    test_with_sudo,
+    test_current_user,
+    test_monetary_field,
+    test_check_find,
+)
