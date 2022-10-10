@@ -348,7 +348,8 @@ class GenericCondition(models.Model):
         'ir.model.fields', 'Check field', ondelete='cascade',
         domain=[('ttype', 'in', ('boolean', 'char', 'text',
                                  'html', 'float',
-                                 'integer', 'selection'))],
+                                 'integer', 'selection',
+                                 'date', 'datetime'))],
         track_visibility='onchange')
     condition_simple_field_type = fields.Selection(
         related='condition_simple_field_field_id.ttype', related_sudo=True,
@@ -363,6 +364,10 @@ class GenericCondition(models.Model):
     condition_simple_field_value_integer = fields.Integer(
         'Value', track_visibility='onchange')
     condition_simple_field_value_selection = fields.Char(
+        'Value', track_visibility='onchange')
+    condition_simple_field_value_date = fields.Date(
+        'Value', track_visibility='onchange')
+    condition_simple_field_value_datetime = fields.Datetime(
         'Value', track_visibility='onchange')
     condition_simple_field_selection_operator = fields.Selection(
         [('=', '='),
@@ -393,6 +398,12 @@ class GenericCondition(models.Model):
         'Case insensitive', track_visibility='onchange')
     condition_simple_field_string_operator_regex = fields.Boolean(
         'Regular expression', track_visibility='onchange')
+    condition_simple_field_date_operator = fields.Selection(
+        [('=', '='),
+         ('!=', '!='),
+         ('set', 'Set'),
+         ('not set', 'Not set')],
+        string='Operator', track_visibility='onchange')
 
     # Related field conditions
     condition_related_field_field_id = fields.Many2one(
@@ -841,6 +852,24 @@ class GenericCondition(models.Model):
             return obj_value != reference_value
         return False
 
+    def helper_check_simple_field_date(self, obj_value):
+        operator = self.condition_simple_field_date_operator
+        if self.condition_simple_field_type == 'date':
+            reference_value = self.condition_simple_field_value_date
+        elif self.condition_simple_field_type == 'datetime':
+            reference_value = self.condition_simple_field_value_datetime
+
+        # Simple operators
+        if operator == 'set':
+            return bool(obj_value)
+        if operator == 'not set':
+            return not bool(obj_value)
+        if operator == '=':
+            return obj_value == reference_value
+        if operator == '!=':
+            return obj_value != reference_value
+        return False
+
     # signature check_<type> where type is condition type
     def check_simple_field(self, obj, cache=None, debug_log=None):
         """ Check value of simple field of object
@@ -856,6 +885,9 @@ class GenericCondition(models.Model):
             return self.helper_check_simple_field_boolean(value)
         if field.ttype == 'selection':
             return self.helper_check_simple_field_selection(value)
+        if field.ttype in ('date', 'datetime'):
+            return self.helper_check_simple_field_date(value)
+
         raise NotImplementedError()
 
     # signature check_<type> where type is condition type

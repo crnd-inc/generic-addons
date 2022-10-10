@@ -9,6 +9,7 @@ class TestConditionModel(models.Model):
     date_start = fields.Datetime()
     date_end = fields.Datetime()
     date_test = fields.Date()
+    datetime_test = fields.Datetime()
 
     # simple fields
     test_char = fields.Char()
