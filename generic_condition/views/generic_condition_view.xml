@@ -436,9 +436,9 @@
                                                selection_field="condition_simple_field_field_id"
                                                attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'selection')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'selection'), ('condition_simple_field_selection_operator', 'in', ('set', 'not set'))]}"/>
                                         <field name="condition_simple_field_value_date"
-                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'date')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'date'),('condition_simple_field_date_operator', 'in', ('set', 'not set'))]}"/>
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'date'), ('condition_simple_field_date_operator', 'not in', ('set', 'not set'))], 'invisible': ['|', ('condition_simple_field_type', '!=', 'date'),('condition_simple_field_date_operator', 'in', ('set', 'not set'))]}"/>
                                         <field name="condition_simple_field_value_datetime"
-                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'datetime')], 'invisible': ['|', ('condition_simple_field_type', '!=', 'datetime'),('condition_simple_field_date_operator', 'in', ('set', 'not set'))]}"/>
+                                               attrs="{'required': [('type','=','simple_field'), ('condition_simple_field_type', '=', 'datetime'), ('condition_simple_field_date_operator', 'not in', ('set', 'not set'))], 'invisible': ['|', ('condition_simple_field_type', '!=', 'datetime'),('condition_simple_field_date_operator', 'in', ('set', 'not set'))]}"/>
                                     </td>
                                 </tr>
                             </table>
