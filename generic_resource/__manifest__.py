@@ -46,7 +46,7 @@
         'demo/demo_resource.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': True,
+    'installable': False,
     'application': True,
     'license': 'LGPL-3',
 }
