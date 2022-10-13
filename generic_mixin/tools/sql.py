@@ -6,7 +6,7 @@ from odoo.tools.sql import (
 )
 
 
-def create_sql_view(cr, name, definition):
+def create_sql_view(cr, name, definition, materialized=False):
     """ Create SQL view with specified name and definition.
         Note, that if view already exists, it will be recreated.
 
@@ -18,10 +18,25 @@ def create_sql_view(cr, name, definition):
     """
 
     # pylint: disable=sql-injection
-    tools.drop_view_if_exists(cr, name)
-    query = sql.SQL("""
-        CREATE or REPLACE VIEW {name} AS ({definition});
-    """).format(name=sql.Identifier(name), definition=sql.SQL(definition))
+    table_kind = tools.table_kind(cr, tablename=name)
+    if table_kind == 'v':
+        tools.drop_view_if_exists(cr, name)
+    elif table_kind == 'm':
+        query = sql.SQL("""
+            DROP MATERIALIZED VIEW IF EXISTS {name};
+        """).format(name=sql.Identifier(name))
+        if getattr(cr, 'sql_log', None):
+            query = query.as_string(cr._obj)
+        cr.execute(query)
+
+    if materialized:
+        query = sql.SQL("""
+            CREATE MATERIALIZED VIEW {name} AS ({definition});
+        """).format(name=sql.Identifier(name), definition=sql.SQL(definition))
+    else:
+        query = sql.SQL("""
+            CREATE or REPLACE VIEW {name} AS ({definition});
+        """).format(name=sql.Identifier(name), definition=sql.SQL(definition))
     if getattr(cr, 'sql_log', None):
         query = query.as_string(cr._obj)
     cr.execute(query)
