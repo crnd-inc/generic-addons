@@ -142,7 +142,7 @@ class GenericMixinDelegationInterface(models.AbstractModel):
         result = []
         for record in self:
             implementation = generic_m2o_get(
-                self,
+                record,
                 field_res_model=self._generic_mixin_implementation_model_field,
                 field_res_id=self._generic_mixin_implementation_id_field)
             if implementation:
