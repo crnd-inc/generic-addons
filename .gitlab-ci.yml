@@ -53,7 +53,7 @@ flake8:
 pylint:
     stage: static-test
     script:
-        - odoo-helper lint pylint --jslintrc=./.jslintrc .
+        - odoo-helper lint pylint .
     <<: *except_auto_commits
 
 stylelint:
