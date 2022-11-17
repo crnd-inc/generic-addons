@@ -4,6 +4,7 @@ from odoo.tools.sql import (
     create_column,
     column_exists,
 )
+from .xmlid import xmlid_to_id
 
 
 def create_sql_view(cr, name, definition, materialized=False):
@@ -59,31 +60,6 @@ def create_column_if_not_exists(cr, tablename, columnname, columntype,
     if not column_exists(cr, tablename, columnname):
         create_column(cr, tablename, columnname, columntype, comment)
         return True
-    return False
-
-
-def xmlid_to_id(cr, xmlid):
-    """ Resolve XMLIO to ID of object it references
-
-        :param cr: database cursor
-        :param str xmlid: string representing external identifier (xmlid)
-            of object. It must be fully qualified xmlid, that includes
-            name of module.
-        :return int|bool: ID of object if such xmlid exists,
-            or False if there is no such xmlid registered in db.
-    """
-    module, name = xmlid.split('.', 1)
-    cr.execute("""
-        SELECT res_id
-        FROM ir_model_data
-        WHERE module = %(module)s
-          AND name = %(name)s
-    """, {
-        'module': module,
-        'name': name,
-    })
-    if cr.rowcount > 0:
-        return cr.fetchone()[0]
     return False
 
 
