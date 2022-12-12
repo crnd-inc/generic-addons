@@ -122,3 +122,14 @@ class TestDelegation(ReduceLoggingMixin, TransactionCase):
         self.assertEqual(rec2.name, 'test-42')
         self.assertEqual(rec2.interface_1_test_field_1, 'Hello')
         self.assertEqual(rec2.interface_2_test_field_1, 'Space')
+
+    def test_create_with_delegation_and_without_delegation(self):
+        rec = self.env['test.gm.multi.interface.no.del.impl'].create({
+            'name': 'test',
+            'some_field': 'some data',
+            'interface_1_test_field_1': 'test 2'
+        })
+        self.assertEqual(rec.name, 'test')
+        self.assertEqual(rec.some_field, 'some data')
+        self.assertEqual(rec.interface_1_test_field_1, 'test 2')
+        self.assertTrue(rec.test_delegate_id)
