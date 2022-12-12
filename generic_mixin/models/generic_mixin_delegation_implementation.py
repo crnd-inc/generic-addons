@@ -138,8 +138,12 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
         return {
             field_name: m_name
             for m_name, field_name in self._inherits.items()
-            if self.env[m_name]._generic_mixin_implementation_id_field and
-            self.env[m_name]._generic_mixin_implementation_model_field
+            if all([
+                getattr(self.env[m_name],
+                        '_generic_mixin_implementation_id_field', None),
+                getattr(self.env[m_name],
+                        '_generic_mixin_implementation_model_field', None)
+            ])
         }
 
     @api.model
@@ -166,6 +170,9 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
             if impl_model_field.related:
                 continue
 
+            # Here we have to add name of implementation model on inreface
+            # record. Later, implementation record ID will be added
+            # (when implementation will be created)
             to_update[Interface._generic_mixin_implementation_model_field] = (
                 self._name)
 
