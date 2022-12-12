@@ -51,7 +51,7 @@ class IrModel(models.Model):
         res = super(IrModel, self).create(vals)
         if (vals.get('is_generic_resource') and
                 vals.get('state', 'manual') == 'manual'):
-            self.env['generic.resource.type'].create({
+            self.env['generic.resource.type'].sudo().create({
                 'model_id': res.id,
                 'name': res.name,
             })
