@@ -91,3 +91,24 @@ class TestDelegationMultiInterface(models.Model):
     ]
 
     name = fields.Char()
+
+
+class TestDelegationModelNoDeletgation(models.Model):
+    _name = 'test.gm.delegation.no.delegation'
+    _description = 'Test Generic Mixin Delegation no Delegation'
+
+    some_field = fields.Text()
+
+
+class TestDelegationMultiInterfaceNoDelImpl(models.Model):
+    _name = 'test.gm.multi.interface.no.del.impl'
+    _inherit = [
+        'test.generic.mixin.interface.1.impl.mixin',
+        'generic.mixin.track.changes',
+    ]
+
+    name = fields.Char()
+
+    test_delegate_id = fields.Many2one(
+        'test.gm.delegation.no.delegation', required=True, delegate=True,
+        ondelete='cascade')
