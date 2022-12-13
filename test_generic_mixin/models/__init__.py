@@ -6,4 +6,5 @@ from . import (
     test_mixin_uuid,
     test_mixin_proxy_methods,
     test_delegation,
+    test_refresh_view,
 )

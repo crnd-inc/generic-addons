@@ -13,6 +13,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/test_refresh_view.xml',
     ],
     'demo': [
         'demo/test_track_changes.xml',
