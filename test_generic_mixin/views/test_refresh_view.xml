@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_test_gm_refresh_view_tree" model="ir.ui.view">
+        <field name="model">test.gm.refresh.view</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_test_gm_refresh_view_form" model="ir.ui.view">
+        <field name="model">test.gm.refresh.view</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group name="group_info_left">
+                        <field name="name"/>
+                    </group>
+                    <group name="group_info_right">
+                        <field name="description"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="view_test_gm_refresh_view_kanban" model="ir.ui.view">
+        <field name="model">test.gm.refresh.view</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey">
+                <field name="description"/>
+                <field name="name"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_main">
+                                <div class="o_content">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <span><t
+                                                    t-esc="record.name.value"/></span>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span><t
+                                                    t-esc="record.description.value"/></span>
+                                        </div>
+                                        <div class="o_buttons">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="test_gm_refresh_view_action" model="ir.actions.act_window">
+        <field name="name">Refresh View Records</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.gm.refresh.view</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem name="Generic Mixin"
+              id="menu_tests_generic_mixin"
+              sequence="40"
+              parent="base.menu_tests"/>
+
+    <menuitem name="Refresh View"
+              id="menu_refresh_view"
+              sequence="10"
+              action="test_gm_refresh_view_action"
+              parent="menu_tests_generic_mixin"/>
+</odoo>
