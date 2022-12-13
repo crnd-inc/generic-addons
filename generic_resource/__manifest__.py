@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Resource',
-    'version': '15.0.1.38.0',
+    'version': '16.0.1.38.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -46,7 +46,7 @@
         'demo/demo_resource.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'application': True,
     'license': 'LGPL-3',
 }

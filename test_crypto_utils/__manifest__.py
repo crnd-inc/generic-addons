@@ -6,7 +6,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '15.0.0.10.0',
+    'version': '16.0.0.10.0',
     'depends': [
         'generic_crypto_utils',
     ],
@@ -14,7 +14,7 @@
     ],
     'demo': [
     ],
-    'installable': False,
+    'installable': True,
     'application': False,
     'license': 'LGPL-3',
 }

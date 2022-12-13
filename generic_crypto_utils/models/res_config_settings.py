@@ -7,7 +7,7 @@ class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     @api.model
-    def _get_classified_fields(self):
+    def _get_classified_fields(self, fnames=None):
         """ return a dictionary with the fields classified by category::
 
                 {   'default': [('default_foo', 'model', 'foo'), ...],
@@ -20,12 +20,17 @@ class ResConfigSettings(models.TransientModel):
                     'other':   ['other_field', ...],
                 }
         """
-        res = super()._get_classified_fields()
+        res = super()._get_classified_fields(fnames=fnames)
+
+        if fnames is None:
+            fnames = self._fields.keys()
 
         others = set(res['other'])
         # Find fields that are crypto params
         crypto_params = []
-        for name, field in self._fields.items():
+        for name in fnames:
+            field = self._fields[name]
+
             if hasattr(field, 'crypto_param'):
                 if field.type not in ('char', 'text'):
                     raise Exception(

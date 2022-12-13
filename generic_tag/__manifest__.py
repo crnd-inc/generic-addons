@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '15.0.2.7.0',
+    'version': '16.0.2.7.0',
 
     "depends": [
         "base",
@@ -24,7 +24,7 @@
         'wizard/wizard_manage_tags.xml',
     ],
     'images': ['static/description/banner.png'],
-    "installable": False,
+    "installable": True,
     "application": True,
     'license': 'LGPL-3',
 }

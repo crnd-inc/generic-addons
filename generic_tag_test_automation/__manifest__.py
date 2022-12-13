@@ -7,7 +7,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '15.0.1.1.0',
+    'version': '16.0.1.1.0',
 
     "depends": [
         "generic_tag_automation",
@@ -20,7 +20,7 @@
         "demo/base_automation_demo.xml"
     ],
     'images': ['static/description/banner.png'],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     'license': 'LGPL-3',
 }

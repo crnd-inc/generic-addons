@@ -3,7 +3,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'license': 'Other proprietary',
-    'version': '15.0.0.2.1',
+    'version': '16.0.0.2.1',
 
     'depends': [
         'base_geolocalize',
