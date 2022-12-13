@@ -6,13 +6,14 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '12.0.0.16.0',
+    'version': '12.0.0.17.0',
     'depends': [
         'generic_mixin',
         'calendar',
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/test_refresh_view.xml',
     ],
     'demo': [
         'demo/test_track_changes.xml',
