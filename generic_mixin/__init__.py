@@ -8,3 +8,4 @@ from .models.generic_track_changes import (
 from .models.generic_mixin_refresh_view import with_delay_refresh
 from .tools.jinja import render_jinja_string
 from .models.generic_mixin_proxy_methods import generate_proxy_decorator
+from .models.generic_mixin_delegation_interface import interface_proxy
