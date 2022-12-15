@@ -39,8 +39,8 @@ class GenericResource(models.Model):
     res_id = fields.Integer(
         string="Resource", required=True, index=True, readonly=True)
     resource_visibility = fields.Selection(
-        [('internal', 'Visible only to employees'),
-         ('portal', 'Visible to employees and portal users'),
+        [('internal', 'Visible only to internal users'),
+         ('portal', 'Visible to internal users and portal users'),
          ('public', 'Visible for unregistered users')],
         default='internal', required=True, index=True,
         help="Resource visibility determines users that have read access for "
