@@ -54,7 +54,7 @@ class Interface2(models.Model):
     @interface_proxy
     def interface_2_method_1(self, my_param):
         self.interface_2_test_field_1 = (
-                "interface_2_method_1 called with param %s" % my_param)
+            "interface_2_method_1 called with param %s" % my_param)
 
     def interface_2_method_2(self):
         self.interface_2_test_field_1 = "interface_2_method_2 called!"
