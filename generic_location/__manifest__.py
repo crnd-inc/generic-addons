@@ -25,7 +25,8 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/generic_location.xml',
-        'views/generic_location_type.xml'
+        'views/generic_location_type.xml',
+        'views/res_partner.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
