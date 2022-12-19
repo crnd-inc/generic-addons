@@ -133,3 +133,32 @@ class TestDelegation(ReduceLoggingMixin, TransactionCase):
         self.assertEqual(rec.some_field, 'some data')
         self.assertEqual(rec.interface_1_test_field_1, 'test 2')
         self.assertTrue(rec.test_delegate_id)
+
+    def test_interface_proxy_methods(self):
+        rec = self.env['test.generic.mixin.multi.interface.impl'].create({
+            'interface_1_test_field_1': 'Hello',
+            'interface_2_test_field_1': 'World',
+            'name': "test",
+        })
+        self.assertEqual(rec.name, 'test')
+        self.assertEqual(rec.interface_1_test_field_1, 'Hello')
+        self.assertEqual(rec.interface_2_test_field_1, 'World')
+
+        rec.interface_1_method_1('test-13')
+        self.assertEqual(rec.name, 'test')
+        self.assertEqual(
+            rec.interface_1_test_field_1,
+            'interface_1_method_1 called with param test-13')
+        self.assertEqual(rec.interface_2_test_field_1, 'World')
+
+        rec.interface_2_method_1('test-78')
+        self.assertEqual(rec.name, 'test')
+        self.assertEqual(
+            rec.interface_1_test_field_1,
+            'interface_1_method_1 called with param test-13')
+        self.assertEqual(
+            rec.interface_2_test_field_1,
+            'interface_2_method_1 called with param test-78')
+
+        with self.assertRaises(AttributeError):
+            rec.interface_2_method_2()

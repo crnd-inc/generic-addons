@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record model="ir.ui.view" id="generic_location_form_view">
-        <field name="name">generic.location.form</field>
         <field name="model">generic.location</field>
         <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
         <field name="arch" type="xml">
@@ -37,7 +36,8 @@
                                 options='{"no_open": True, "no_create": True}'/>
                         </div>
                     </group>
-                    <group name="group_address_config" string="Address Configuration">
+                    <group name="group_address_config" string="Address Configuration"
+                           groups="generic_location.group_use_hierarchical_locations">
                         <field name="street_use_parent"/>
                         <field name="street2_use_parent"/>
                         <field name="city_use_parent"/>
@@ -50,7 +50,6 @@
     </record>
 
     <record model="ir.ui.view" id="generic_location_tree_view">
-        <field name="name">generic.location.tree</field>
         <field name="model">generic.location</field>
         <field name="inherit_id" ref="generic_location.generic_location_tree_view"/>
         <field name="arch" type="xml">
@@ -68,7 +67,6 @@
 
     <!-- search views location tag -->
     <record model="ir.ui.view" id="generic_location_search_view">
-        <field name="name">generic.location.search</field>
         <field name="model">generic.location</field>
         <field name="inherit_id" ref="generic_location.generic_location_search_view"/>
         <field name="arch" type="xml">
@@ -80,4 +78,3 @@
         </field>
      </record>
 </odoo>
-

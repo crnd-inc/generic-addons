@@ -1,7 +1,26 @@
+import inspect
 import logging
 from odoo import models, api
 
 _logger = logging.getLogger(__name__)
+
+
+def interface_proxy_method_wrapper(method_name, link_field):
+    """ Generate proxy method for implementation model, to call
+        original method in defined in interface model
+
+        :param str method_name: name of method in interface model to call.
+        :param str link_field: name of field used to access interface record
+            from implementation record to call interface method
+        :return callable: wrapped method, that will call interface meth.
+    """
+
+    def method(self, *args, **kwargs):
+        interface_obj = self.mapped(link_field)
+        interface_method = getattr(interface_obj, method_name)
+        return interface_method(*args, **kwargs)
+
+    return method
 
 
 class GenericMixinDelegationImplementation(models.AbstractModel):
@@ -244,4 +263,44 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
         # Delete delegation interfaces and return status
         for interface_records in to_cleanup.values():
             interface_records.unlink()
+        return res
+
+    def _setup__update_interface_proxy_methods(self):
+        implementation_cls = type(self)
+        interface_info = self._generic_mixin_delegation__get_interfaces_info()
+        for interface_field, interface_model in interface_info.items():
+            # Find all proxy methods, and proxy them to implementation model
+            for method_name, method in inspect.getmembers(
+                    type(self.env[interface_model]), inspect.isfunction):
+
+                if not getattr(method, '__interface_proxy__', False):
+                    # If the method is not interface-proxy, then skip it
+                    continue
+
+                if hasattr(implementation_cls, method_name):
+                    # We do not want to do anything if corresponding method
+                    # already exists on implementation model
+                    continue
+
+                # Prepare the proxy method to be added to implementation model
+                proxy_method = interface_proxy_method_wrapper(
+                    method_name, interface_field)
+
+                # Update proxy method attributes
+                proxy_method.__name__ = method.__name__
+                proxy_method.__doc__ = method.__doc__
+
+                # Define method on implementation model
+                setattr(implementation_cls, method_name, proxy_method)
+
+    @api.model
+    def _setup_complete(self):
+        """ Setup recomputation triggers, and complete the model setup. """
+        res = super()._setup_complete()
+
+        if self._name == 'generic.mixin.delegation.implementation':
+            return res
+
+        self._setup__update_interface_proxy_methods()
+
         return res

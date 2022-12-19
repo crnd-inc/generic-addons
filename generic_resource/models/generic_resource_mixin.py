@@ -77,8 +77,7 @@ class GenericResourceMixin(models.AbstractModel):
 
     @api.model
     def create(self, vals):
-        values = self.env['generic.resource']._get_resource_type_defaults(
-            self._get_resource_type())
+        values = self._get_resource_type()._get_resource_defaults()
         values.update(vals)
 
         # Create record
@@ -92,6 +91,6 @@ class GenericResourceMixin(models.AbstractModel):
         return self.env['generic.resource.type'].get_resource_type(self._name)
 
     def check_access_rule(self, operation):
-        # Overriden to check access to generic resources also
+        # Overridden to check access to generic resources also
         self.mapped('resource_id').check_access_rule(operation)
         return super(GenericResourceMixin, self).check_access_rule(operation)
