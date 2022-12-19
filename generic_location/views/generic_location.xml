@@ -10,6 +10,7 @@
                         <button name="action_button_show_sublocations" 
                                 class="oe_stat_button" 
                                 type="object"
+                                groups="generic_location.group_use_hierarchical_locations"
                                 icon="fa-tasks">
                             <field string="Sublocation" 
                                     name="child_count" 
@@ -35,7 +36,9 @@
                             <field name="partner_id" placeholder="Partner or customer..."/>
                         </group>
                         <group name="group_root_right">
-                            <field name="parent_id" placeholder="Parent Location"/>
+                            <field name="parent_id"
+                                   placeholder="Parent Location"
+                                   groups="generic_location.group_use_hierarchical_locations"/>
                         </group>
                     </group>
                     <notebook>
@@ -61,7 +64,8 @@
                 <field name="name"/>
                 <field name="type_id"/>
                 <field name="partner_id"/>
-                <field name="parent_id"/>
+                <field name="parent_id"
+                       groups="generic_location.group_use_hierarchical_locations"/>
                 <field name="active"/>
             </tree>
         </field>
@@ -74,7 +78,8 @@
                 <field name="name"/>
                 <field name="partner_id"/>
                 <field name="type_id"/>
-                <field name="parent_id"/>
+                <field name="parent_id"
+                       groups="generic_location.group_use_hierarchical_locations"/>
                 <separator/>
 
                 <filter name="filter_active"
