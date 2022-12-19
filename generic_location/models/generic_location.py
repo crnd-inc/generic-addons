@@ -41,7 +41,7 @@ class GenericLocation(models.Model):
         readonly=True, copy=False)
 
     partner_id = fields.Many2one(
-        'res.partner',
+        'res.partner', index=True,
         help='Partner / customer related to this location.')
 
     active = fields.Boolean(default=True, index=True)

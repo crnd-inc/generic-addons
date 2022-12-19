@@ -85,6 +85,11 @@
                         domain="[('active', '=', False)]"/>
                 <separator/>
 
+                <filter name="filter_partner_locations"
+                        string="Partner Locations"
+                        domain="[('partner_id', '!=', False)]"/>
+                <separator/>
+
                 <group name="group_group_by" expand="0" string="Group by...">
                     <filter name="filter_group_by_type"
                             string="Type"
