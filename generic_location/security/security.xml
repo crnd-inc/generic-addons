@@ -22,7 +22,7 @@
         <field name="comment">Manage generic locations</field>
         <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
-    <record id="group_use_hierarchical_location" model="res.groups">
+    <record id="group_use_hierarchical_locations" model="res.groups">
         <field name="name">Use hierarchical location</field>
         <field name="comment">Use hierarchical locations</field>
     </record>
