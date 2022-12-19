@@ -2,11 +2,10 @@
 <odoo>
 
     <record id="generic_location_form_view" model="ir.ui.view">
-        <field name="name">generic.location.form</field>
         <field name="model">generic.location</field>
         <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//sheet//field[@name='parent_id']" position="after">
+            <xpath expr="//group[@name='group_root_right']" position="inside">
                 <field name="uuid"/>
             </xpath>
         </field>

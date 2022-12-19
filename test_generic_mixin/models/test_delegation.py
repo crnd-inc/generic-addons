@@ -1,4 +1,5 @@
 from odoo import models, fields
+from odoo.addons.generic_mixin import interface_proxy
 
 
 class Interface1(models.Model):
@@ -23,6 +24,11 @@ class Interface1(models.Model):
          'Model instance must be unique')
     ]
 
+    @interface_proxy
+    def interface_1_method_1(self, my_param):
+        self.interface_1_test_field_1 = (
+            "interface_1_method_1 called with param %s" % my_param)
+
 
 class Interface2(models.Model):
     _name = "test.generic.mixin.interface.2"
@@ -44,6 +50,14 @@ class Interface2(models.Model):
         ('unique_model', 'UNIQUE(interface_2_impl_model, interface_2_impl_id)',
          'Model instance must be unique')
     ]
+
+    @interface_proxy
+    def interface_2_method_1(self, my_param):
+        self.interface_2_test_field_1 = (
+            "interface_2_method_1 called with param %s" % my_param)
+
+    def interface_2_method_2(self):
+        self.interface_2_test_field_1 = "interface_2_method_2 called!"
 
 
 class ImplementationMixin1(models.AbstractModel):

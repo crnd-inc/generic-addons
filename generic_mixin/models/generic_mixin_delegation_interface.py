@@ -1,8 +1,15 @@
 import logging
-from odoo import models, _
+from odoo import models, api, _
 from ..tools.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
+
+
+def interface_proxy(fn):
+    """ Make the decorated method to be available from implementation model
+    """
+    fn.__interface_proxy__ = True
+    return fn
 
 
 class GenericMixinDelegationInterface(models.AbstractModel):
@@ -150,3 +157,21 @@ class GenericMixinDelegationInterface(models.AbstractModel):
             else:
                 result == [(record.id, _("Error: unknown implementation"))]
         return result
+
+    @api.model
+    def _setup_complete(self):
+        """ Setup recomputation triggers, and complete the model setup. """
+        res = super()._setup_complete()
+
+        if self._name == 'generic.mixin.delegation.interface':
+            return res
+
+        # Proxy interface methods to implementations
+        for implementation_model in type(self)._inherits_children:
+            if implementation_model not in self.env:
+                continue
+            impl = self.env[implementation_model]
+            if hasattr(impl, '_setup__update_interface_proxy_methods'):
+                impl._setup__update_interface_proxy_methods()
+
+        return res
