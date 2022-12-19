@@ -1,7 +1,7 @@
 import logging
 from odoo import fields, models, api
 
-from odoo.addons.generic_mixin import generate_proxy_decorator
+from odoo.addons.generic_mixin import interface_proxy
 from odoo.addons.generic_mixin.tools.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
@@ -9,22 +9,18 @@ _logger = logging.getLogger(__name__)
 
 # resource_proxy decorator, that have to be used to mark methods that have
 # to be added to resource implementation model.
-resource_proxy = generate_proxy_decorator('__resource_proxy__')
+# For backward compatibility we just do this assignment
+resource_proxy = interface_proxy
 
 
 class GenericResource(models.Model):
     _name = 'generic.resource'
     _inherit = [
         'generic.mixin.get.action',
-        'generic.mixin.proxy.methods',
         'generic.mixin.delegation.interface',
     ]
     _description = 'Generic Resource'
     _log_access = False
-
-    _generic_mixin_proxy_methods__dest_model = 'generic.resource.mixin'
-    _generic_mixin_proxy_methods__link_field = 'resource_id'
-    _generic_mixin_proxy_methods__method_attr = '__resource_proxy__'
 
     _generic_mixin_implementation_model_field = 'res_model'
     _generic_mixin_implementation_id_field = 'res_id'
@@ -40,8 +36,8 @@ class GenericResource(models.Model):
         string="Resource", required=True, index=True, readonly=True,
         model_field='res_model')
     resource_visibility = fields.Selection(
-        [('internal', 'Visible only to employees'),
-         ('portal', 'Visible to employees and portal users'),
+        [('internal', 'Visible only to internal users'),
+         ('portal', 'Visible to internal users and portal users'),
          ('public', 'Visible for unregistered users')],
         default='internal', required=True, index=True,
         help="Resource visibility determines users that have read access for "
@@ -68,7 +64,7 @@ class GenericResource(models.Model):
                          instead
         """
         # TODO: Remove this method in future in favor of
-        # generic.resource.type._get_resource_defaults
+        #       generic.resource.type._get_resource_defaults
         return resource_type._get_resource_defaults()
 
     def _preprocess_resource_changes(self, changes):
@@ -109,7 +105,7 @@ class GenericResource(models.Model):
                 self.env.context['generic_resource_type_model'])
             res.update({
                 k: v
-                for k, v in self._get_resource_type_defaults(res_type).items()
+                for k, v in res_type._get_resource_defaults().items()
                 if k in fields_list
             })
         return res
