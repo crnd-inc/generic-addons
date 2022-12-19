@@ -10,6 +10,7 @@
                         <button name="action_button_show_sublocations" 
                                 class="oe_stat_button" 
                                 type="object"
+                                groups="generic_location.group_use_hierarchical_locations"
                                 icon="fa-tasks">
                             <field string="Sublocation" 
                                     name="child_count" 
@@ -29,13 +30,20 @@
                             <field name="name"/>                          
                         </h1>
                     </div>
-                    <group>
-                        <field name="type_id" placeholder="Location Type"/>
-                        <field name="parent_id" placeholder="Parent Location"/>
+                    <group name="group_root">
+                        <group name="group_root_left">
+                            <field name="type_id" placeholder="Location Type"/>
+                            <field name="partner_id" placeholder="Partner or customer..."/>
+                        </group>
+                        <group name="group_root_right">
+                            <field name="parent_id"
+                                   placeholder="Parent Location"
+                                   groups="generic_location.group_use_hierarchical_locations"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Info" name="page_info">
-                            <group>
+                            <group name="group_info_root">
                             </group>
                             <field name="description" placeholder="Description..."/>
                         </page>
@@ -54,7 +62,10 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
-                <field name="parent_id"/>
+                <field name="type_id"/>
+                <field name="partner_id"/>
+                <field name="parent_id"
+                       groups="generic_location.group_use_hierarchical_locations"/>
                 <field name="active"/>
             </tree>
         </field>
@@ -65,11 +76,33 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="partner_id"/>
+                <field name="type_id"/>
+                <field name="parent_id"
+                       groups="generic_location.group_use_hierarchical_locations"/>
                 <separator/>
+
+                <filter name="filter_active"
+                        string="Active"
+                        domain="[('active', '=', True)]"/>
                 <filter name="filter_archived"
                         string="Archived"
                         domain="[('active', '=', False)]"/>
-                <field name="parent_id"/>
+                <separator/>
+
+                <filter name="filter_partner_locations"
+                        string="Partner Locations"
+                        domain="[('partner_id', '!=', False)]"/>
+                <separator/>
+
+                <group name="group_group_by" expand="0" string="Group by...">
+                    <filter name="filter_group_by_type"
+                            string="Type"
+                            context="{'group_by': 'type_id'}"/>
+                    <filter name="filter_group_by_partner"
+                            string="Partner"
+                            context="{'group_by': 'partner_id'}"/>
+                </group>
             </search>
         </field>
      </record>

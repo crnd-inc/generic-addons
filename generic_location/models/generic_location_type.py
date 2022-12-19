@@ -4,6 +4,7 @@ from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 
 class GenericLocationType(models.Model):
     _name = 'generic.location.type'
+    _order = 'name ASC, code ASC, id ASC'
 
     _inherit = [
         'generic.mixin.name_with_code',
