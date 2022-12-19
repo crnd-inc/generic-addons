@@ -24,14 +24,14 @@ class BaseAutomation(models.Model):
         model = self.env[self.sudo().model_id.model]
         model_has_tags = bool(
             model.fields_get(['tag_ids']).get('tag_ids', False))
-        if self.act_add_tag_ids and model_has_tags:
+        if self.sudo().act_add_tag_ids and model_has_tags:
             action_done[self] |= records
-            tag_ids_val = [(4, int(t)) for t in self.act_add_tag_ids]
+            tag_ids_val = [(4, int(t)) for t in self.sudo().act_add_tag_ids]
             records.write({'tag_ids': tag_ids_val})
 
-        if self.act_remove_tag_ids and model_has_tags:
+        if self.sudo().act_remove_tag_ids and model_has_tags:
             action_done[self] |= records
-            tag_ids_val = [(3, int(t)) for t in self.act_remove_tag_ids]
+            tag_ids_val = [(3, int(t)) for t in self.sudo().act_remove_tag_ids]
             records.write({'tag_ids': tag_ids_val})
 
         super(BaseAutomation, self)._process(records, *args, **kwargs)
