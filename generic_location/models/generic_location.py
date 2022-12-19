@@ -20,6 +20,7 @@ class GenericLocation(models.Model):
     _parent_name = 'parent_id'
     _parent_store = True
     _description = 'Location'
+    _order = 'name ASC, id ASC'
 
     name = fields.Char(required=True, index=True)
     type_id = fields.Many2one(
@@ -30,7 +31,7 @@ class GenericLocation(models.Model):
     parent_id = fields.Many2one(
         'generic.location', index=True, ondelete='cascade',
         string='Parent Location')
-    parent_path = fields.Char(index=True)
+    parent_path = fields.Char(index=True, readonly=True)
     parent_ids = fields.Many2manyView(
         comodel_name='generic.location',
         relation='generic_location_parents_rel_view',
@@ -38,6 +39,10 @@ class GenericLocation(models.Model):
         column2='parent_id',
         string='Parents',
         readonly=True, copy=False)
+
+    partner_id = fields.Many2one(
+        'res.partner', index=True,
+        help='Partner / customer related to this location.')
 
     active = fields.Boolean(default=True, index=True)
     child_ids = fields.One2many(
