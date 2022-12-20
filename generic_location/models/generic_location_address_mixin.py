@@ -1,6 +1,7 @@
 from odoo import models, fields
 
 
+# TODO: Merge into 'generic.location.mixin'
 class GenericLocationAddressMixin(models.AbstractModel):
     _name = 'generic.location.address.mixin'
     _inherit = 'generic.location.mixin'
