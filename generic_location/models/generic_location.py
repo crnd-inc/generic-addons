@@ -1,5 +1,5 @@
 import logging
-from odoo import models, fields, _
+from odoo import models, fields, api, _
 
 from odoo.addons.generic_mixin import post_create, post_write
 from odoo.addons.generic_mixin.tools.sql import create_sql_view
@@ -64,7 +64,6 @@ class GenericLocation(models.Model):
         readonly=True, copy=False)
     child_all_count = fields.Integer(
         compute='_compute_child_all_count', readonly=True)
-
 
     street = fields.Char(
         compute=l_parent_compute('street'),
