@@ -6,6 +6,8 @@ from odoo.addons.generic_mixin.tools.sql import create_sql_view
 from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 from odoo.addons.crnd_web_m2o_info_widget import helper_get_many2one_info_data
 
+from ..tools.utils import l_parent_compute, l_parent_inverse
+
 _logger = logging.getLogger(__name__)
 
 
@@ -22,6 +24,10 @@ class GenericLocation(models.Model):
     _parent_store = True
     _description = 'Location'
     _order = 'name ASC, id ASC'
+
+    def _default_country_id(self):
+        company = self.env.user.company_id
+        return company.country_id
 
     name = fields.Char(required=True, index=True)
     type_id = fields.Many2one(
@@ -58,6 +64,73 @@ class GenericLocation(models.Model):
         readonly=True, copy=False)
     child_all_count = fields.Integer(
         compute='_compute_child_all_count', readonly=True)
+
+
+    street = fields.Char(
+        compute=l_parent_compute('street'),
+        inverse=l_parent_inverse('street'),
+        store=False,
+    )
+    _street = fields.Char()
+    street_use_parent = fields.Boolean(
+        string="Use Parent Street"
+    )
+
+    street2 = fields.Char(
+        compute=l_parent_compute('street2'),
+        inverse=l_parent_inverse('street2'),
+        store=False,
+    )
+    _street2 = fields.Char()
+    street2_use_parent = fields.Boolean(
+        string="Use Parent Street2"
+    )
+
+    zip = fields.Char(
+        compute=l_parent_compute('zip'),
+        inverse=l_parent_inverse('zip'),
+        store=False,
+    )
+    _zip = fields.Char()
+    zip_use_parent = fields.Boolean(
+        string="Use Parent Zip"
+    )
+
+    city = fields.Char(
+        compute=l_parent_compute('city'),
+        inverse=l_parent_inverse('city'),
+        store=False,
+    )
+    _city = fields.Char()
+    city_use_parent = fields.Boolean(
+        string="Use Parent City"
+    )
+
+    state_id = fields.Many2one(
+        'res.country.state', string='State',
+        compute=l_parent_compute('state_id'),
+        inverse=l_parent_inverse('state_id'),
+        store=False,
+    )
+    state_name = fields.Char(related='state_id.name', string='State')
+    _state_id = fields.Many2one('res.country.state', string='State')
+    state_id_use_parent = fields.Boolean(
+        string="Use Parent State"
+    )
+
+    country_id = fields.Many2one(
+        'res.country', string='Country',
+        default=_default_country_id,
+        compute=l_parent_compute('country_id'),
+        inverse=l_parent_inverse('country_id'),
+        store=False,
+    )
+    country_name = fields.Char(related='country_id.name', string='Country')
+    _country_id = fields.Many2one(
+        'res.country', string='Country')
+    country_id_use_parent = fields.Boolean(
+        string="Use Parent Country"
+    )
 
     _sql_constraints = [
         ('name_description_check',
@@ -132,6 +205,7 @@ class GenericLocation(models.Model):
         """
         return [
             'name',
+            'street', 'street2', 'city', 'zip', 'country_name', 'state_name',
         ]
 
     def helper_m2o_info_data(self):
@@ -141,3 +215,21 @@ class GenericLocation(models.Model):
         return helper_get_many2one_info_data(
             self,
             self._helper_m2o_info_get_fields())
+
+    @api.onchange('parent_id')
+    def onchange_parent(self):
+        for record in self:
+            if record.parent_id:
+                record.street_use_parent = True
+                record.street2_use_parent = True
+                record.zip_use_parent = True
+                record.city_use_parent = True
+                record.state_id_use_parent = True
+                record.country_id_use_parent = True
+            else:
+                record.street_use_parent = False
+                record.street2_use_parent = False
+                record.zip_use_parent = False
+                record.city_use_parent = False
+                record.state_id_use_parent = False
+                record.country_id_use_parent = False

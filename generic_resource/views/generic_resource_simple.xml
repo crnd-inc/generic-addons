@@ -30,7 +30,7 @@
             <xpath expr="//h1[@name='h1_title']" position="inside">
                 <field name="name" string="Name" placeholder="Name"/>
             </xpath>
-            <xpath expr="//page[@name='page_resource_info']" position="before">
+            <xpath expr="//page[1]" position="before">
                 <page name="page_info" string="Info">
                     <group name="group_info_root">
                         <group name="group_info_left">
