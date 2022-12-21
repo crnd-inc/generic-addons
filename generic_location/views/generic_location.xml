@@ -44,6 +44,46 @@
                     <notebook>
                         <page string="Info" name="page_info">
                             <group name="group_info_root">
+                                <group name="group_address_address" string="Address">
+                                    <div class="o_address_format">
+                                        <field name="street"
+                                               class="o_address_street"
+                                               placeholder="Street..."
+                                               attrs="{'readonly': [('street_use_parent', '=', True)]}"/>
+                                        <field name="street2"
+                                               class="o_address_street"
+                                               placeholder="Street 2..."
+                                               attrs="{'readonly': [('street2_use_parent', '=', True)]}"/>
+                                        <field name="city"
+                                               class="o_address_city"
+                                               placeholder="City"
+                                               attrs="{'readonly': [('city_use_parent', '=', True)]}"/>
+                                        <field name="state_id"
+                                               class="o_address_state"
+                                               placeholder="State"
+                                               domain="[('country_id', '=', country_id)]"
+                                               attrs="{'readonly': [('state_id_use_parent', '=', True)]}"
+                                               options='{"no_open": True}'/>
+                                        <field name="zip"
+                                               class="o_address_zip"
+                                               placeholder="ZIP"
+                                               attrs="{'readonly': [('zip_use_parent', '=', True)]}"/>
+                                        <field name="country_id"
+                                               class="o_address_country"
+                                               placeholder="Country"
+                                               attrs="{'readonly': [('country_id_use_parent', '=', True)]}"
+                                               options='{"no_open": True, "no_create": True}'/>
+                                    </div>
+                                </group>
+                                <group name="group_address_config" string="Address Configuration"
+                                       groups="generic_location.group_use_hierarchical_locations">
+                                    <field name="street_use_parent"/>
+                                    <field name="street2_use_parent"/>
+                                    <field name="city_use_parent"/>
+                                    <field name="state_id_use_parent"/>
+                                    <field name="zip_use_parent"/>
+                                    <field name="country_id_use_parent"/>
+                                </group>
                             </group>
                             <field name="description" placeholder="Description..."/>
                         </page>
@@ -66,6 +106,12 @@
                 <field name="partner_id"/>
                 <field name="parent_id"
                        groups="generic_location.group_use_hierarchical_locations"/>
+                <field name="street"/>
+                <field name="street2"/>
+                <field name="city"/>
+                <field name="state_id"/>
+                <field name="zip"/>
+                <field name="country_id"/>
                 <field name="active"/>
             </tree>
         </field>
@@ -80,6 +126,9 @@
                 <field name="type_id"/>
                 <field name="parent_id"
                        groups="generic_location.group_use_hierarchical_locations"/>
+                <field name="state_id"/>
+                <field name="zip"/>
+                <field name="country_id"/>
                 <separator/>
 
                 <filter name="filter_active"
@@ -102,6 +151,15 @@
                     <filter name="filter_group_by_partner"
                             string="Partner"
                             context="{'group_by': 'partner_id'}"/>
+                    <filter name="filter_group_by_country"
+                            string="Country"
+                            context="{'group_by': 'country_id'}"/>
+                    <filter name="filter_group_by_state"
+                            string="State"
+                            context="{'group_by': 'state_id'}"/>
+                    <filter name="filter_group_by_city"
+                            string="State"
+                            context="{'group_by': 'city'}"/>
                 </group>
             </search>
         </field>
