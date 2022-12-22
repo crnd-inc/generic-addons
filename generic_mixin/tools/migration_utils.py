@@ -52,3 +52,88 @@ def ensure_version(version):
             return None
         return migrate
     return wrapper
+
+
+def migrate_xmlids_to_module(cr, src_module, dst_module, models,
+                             cleanup=False):
+    """ Move XMLID references (ir.model.data) from namespace of 'src_module',
+        to namespace of 'dst_module' for modules 'models'.
+
+        This is used, when you need to move data from one module to another,
+        or when you need to merge one module into another.
+
+        :param str src_module: Name of source module to migrate xmlids from
+        :param str dst_module: Name of destination module to migrate
+            xmlids to
+        :param list[str] models: List of models to migrate
+        :param bool cleanup: If true, then records that were not migrated
+            will be removed.
+    """
+    cr.execute("""
+        UPDATE ir_model_data
+        SET module = %(dst_module)s
+        WHERE module = %(src_module)s
+          AND model IN %(models)s
+          AND name NOT IN (
+              SELECT name FROM ir_model_data WHERE module = %(dst_module)s);
+    """, {
+        'src_module': src_module,
+        'dst_module': dst_module,
+        'models': tuple(models),
+    })
+
+    if cleanup:
+        cr.execute("""
+            /* Cleanup records, that were not moved to dst_module
+               (because, there are already existing records
+               with same name present) */
+            DELETE FROM ir_model_data
+            WHERE module = %(src_module)s
+              AND model IN %(models)s;
+        """, {
+            'src_module': src_module,
+            'dst_module': dst_module,
+            'models': tuple(models),
+        })
+
+
+def cleanup_module_data(cr, module_name):
+    """ Delete views, constraints, relations, etc that were not migrated
+
+        Usually this func could be used when merging one module into another.
+        And in this case, all required data have to be migrated,
+        but the references to views constraints and relations have to be
+        removed after all previous migrations done. These objects will be
+        recreated automatically when needed based on xml.
+    """
+    cr.execute("""
+        -- Delete views
+        DELETE FROM ir_ui_view WHERE id IN (
+            SELECT res_id
+            FROM ir_model_data
+            WHERE model = 'ir.ui.view'
+              AND module = %(module_name)s
+        );
+        DELETE FROM ir_model_data
+        WHERE model = 'ir.ui.view'
+          AND module = %(module_name)s;
+
+        -- Delete constraints (these models do not have related xmlids)
+        DELETE FROM ir_model_constraint WHERE module = (
+            SELECT id
+            FROM ir_module_module
+            WHERE name = %(module_name)s
+        );
+        DELETE FROM ir_model_relation WHERE module = (
+            SELECT id
+            FROM ir_module_module
+            WHERE name = %(module_name)s
+        );
+
+        -- DELETE references to ir_model
+        DELETE FROM ir_model_data
+        WHERE model = 'ir.model'
+          AND module = %(module_name)s;
+    """, {
+        'module_name': module_name,
+    })

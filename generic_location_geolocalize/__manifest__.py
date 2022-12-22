@@ -9,12 +9,11 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '14.0.1.4.1',
+    'version': '14.0.1.4.2',
 
     # any module necessary for this one to work correctly
     'depends': [
         'generic_location_geo',
-        'generic_location_address',
         'base_geolocalize',
         'google_maps_api_js',
     ],
