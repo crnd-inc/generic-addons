@@ -6,11 +6,11 @@ class TestGenericLocationAddress(TransactionCase):
     def setUpClass(cls):
         super(TestGenericLocationAddress, cls).setUpClass()
         cls.location_country = cls.env.ref(
-            'generic_location_address.demo_location_country_us')
+            'generic_location.demo_location_country_us')
         cls.location_state = cls.env.ref(
-            'generic_location_address.demo_location_state_us_ny')
+            'generic_location.demo_location_state_us_ny')
         cls.location_city = cls.env.ref(
-            'generic_location_address.demo_location_city_us_ny_buffalo')
+            'generic_location.demo_location_city_us_ny_buffalo')
 
     def test_parent_state_no_use_parent(self):
         self.assertTrue(self.location_state.state_id)
