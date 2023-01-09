@@ -137,3 +137,39 @@ def cleanup_module_data(cr, module_name):
     """, {
         'module_name': module_name,
     })
+
+
+def fix_view_inheritance(cr, original_view, replace_view):
+    """ Fix view inheritance chain.
+        This function will find all views inherited from original view,
+        and changes their inheritance to 'replace_view'.
+
+        :param cr: Database cursor
+        :param str original_view: fully qualified XMLID of original view
+        :param str replace_view: fully qualified XMLID of replacement view.
+    """
+    o_module, o_name = original_view.split('.')
+    r_module, r_name = replace_view.split('.')
+
+    cr.execute("""
+        UPDATE ir_ui_view AS iuv
+        SET inherit_id = (
+            SELECT res_id
+            FROM ir_model_data AS imd
+            WHERE imd.module = %(r_module)s
+              AND imd.model = 'ir.ui.view'
+              AND imd.name = %(r_name)s
+        )
+        WHERE iuv.inherit_id IN (
+            SELECT res_id
+            FROM ir_model_data AS imd
+            WHERE imd.module = %(o_module)s
+              AND imd.model = 'ir.ui.view'
+              AND imd.name = %(o_name)s
+        )
+    """, {
+        'r_module': r_module,
+        'r_name': r_name,
+        'o_module': o_module,
+        'o_name': o_name,
+    })
