@@ -4,11 +4,14 @@ import { registry } from "@web/core/registry";
 import {
     SelectionField
 } from "@web/views/fields/selection/selection_field";
+import { useService } from "@web/core/utils/hooks";
 
 const { useState, onPatched } = owl;
 
 class FakeSelection extends SelectionField {
     setup() {
+        this.orm = useService('orm');
+
         onPatched(this.onPatched);
 
         this.state = useState({
@@ -50,7 +53,7 @@ class FakeSelection extends SelectionField {
         if (!this.selectionFieldId) {
             this.state.fakeOptions = [];
         }
-        this.env.model.orm.call(
+        this.orm.call(
             'ir.model.fields',
             'get_field_selections',
             [[this.selectionFieldId]],
