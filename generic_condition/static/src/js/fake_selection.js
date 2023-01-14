@@ -1,86 +1,84 @@
 /** @odoo-module **/
 
-import BasicModel from 'web.BasicModel';
-import fieldRegistry from 'web.field_registry';
-import { FieldSelection } from 'web.relational_fields';
+import { registry } from "@web/core/registry";
+import {
+    SelectionField
+} from "@web/views/fields/selection/selection_field";
 
-// Modify basic model with extra methods to fetch special data
-BasicModel.include({
-    _fetchSpecialFakeSelection: function (record, fieldName, fieldInfo) {
-        var def = this._fetchFakeSelection(
-            record, fieldName, fieldInfo.selection_field);
-        return $.when(def);
-    },
-    _fetchFakeSelection: function (
-        record, fieldName, selection_field_name) {
-        var self = this;
+const { useState, onPatched } = owl;
 
-        var selection_field = null;
+class FakeSelection extends SelectionField {
+    setup() {
+        onPatched(this.onPatched);
 
-        if (record._changes) {
-            selection_field = record._changes[selection_field_name];
-        } else {
-            selection_field = record.data[selection_field_name];
-        }
-
-        var selection_field_data = self.localData[selection_field];
-
-        if (selection_field) {
-            return self._rpc({
-                model: 'ir.model.fields',
-                method: 'read',
-                args: [[selection_field_data.res_id], ['name', 'model']],
-                context: record.getContext({fieldName: fieldName}),
-            }).then(function (result) {
-                if (result.length === 1) {
-                    var model = result[0].model;
-                    var model_field_name = result[0].name;
-                    return self._rpc({
-                        model: model,
-                        method: 'fields_get',
-                        args: [[model_field_name], ['selection']],
-                        context: record.getContext({fieldName: fieldName}),
-                    }).then(function (fields_data) {
-                        return fields_data[model_field_name].selection;
-                    });
-                }
-            });
-        }
-        return $.when();
-    },
-});
-
-// This widget allows to render selection for other field
-// It is useful in case, when we have one many2one('ir.model.fields') field
-// and want to display selection for selected field.
-var FieldFakeSelection = FieldSelection.extend({
-
-    // ResetOnAnyFieldChange: true,
-    template: 'FieldSelection',
-    specialData: "_fetchSpecialFakeSelection",
-    supportedFieldTypes: ['selection'],
-
-    _formatValue: function (value) {
-        var val = _.find(this.values, function (option) {
-            return option[0] === value;
+        this.state = useState({
+            fakeOptions: [],
         });
-        if (!val) {
-            // If value not in selection, just show it
-            return value;
+
+        this.currentSelectionFieldId = this.selectionFieldId;
+        this.updateFakeOptions();
+    }
+
+    get options() {
+        return this.state.fakeOptions;
+    }
+    get string() {
+        return this.props.value !== false
+            ? this.options.find((o) => o[0] === this.props.value)[1]
+            : '';
+    }
+
+    get selectionFieldId() {
+        if (!this.props.selectionField) {
+            return false;
         }
-        return val[1];
-    },
-
-    _setValues: function () {
-        this.values = this.record.specialData[this.name];
-        if (!this.values) {
-            this.values = [];
+        const selectionFieldValue = this.props.record.data[this.props.selectionField];
+        if (!selectionFieldValue) {
+            return false;
         }
-        this.values = [
-            [false, this.attrs.placeholder || '']].concat(this.values);
-    },
-});
+        return selectionFieldValue[0];
+    }
 
-fieldRegistry.add('fake_selection', FieldFakeSelection);
+    onPatched() {
+        if (this.currentSelectionFieldId !== this.selectionFieldId) {
+            this.currentSelectionFieldId = this.selectionFieldId;
+            this.updateFakeOptions();
+        }
+    }
 
-export default FieldFakeSelection;
+    updateFakeOptions() {
+        if (!this.selectionFieldId) {
+            this.state.fakeOptions = [];
+        }
+        this.env.model.orm.call(
+            'ir.model.fields',
+            'get_field_selections',
+            [[this.selectionFieldId]],
+        ).then((data) => {
+            this.state.fakeOptions = data;
+        }).guardedCatch(() => {
+            this.state.fakeOptions = [];
+        })
+    }
+
+    onChange(ev) {
+        const value = JSON.parse(ev.target.value);
+        this.props.update(value);
+    }
+}
+
+FakeSelection.supportedTypes = ['char'];
+
+FakeSelection.props = {
+    ...SelectionField.props,
+    selectionField: String,
+};
+
+FakeSelection.extractProps = ({ attrs }) => {
+    return {
+        ...SelectionField.extractProps,
+        selectionField: attrs.selection_field,
+    };
+};
+
+registry.category('fields').add('fake_selection', FakeSelection);
