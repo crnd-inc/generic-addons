@@ -27,6 +27,7 @@ msgid "Archived"
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
 #: code:addons/generic_mixin/models/generic_no_unlink.py:0
 #, python-format
 msgid ""
@@ -36,6 +37,7 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
 #: code:addons/generic_mixin/models/generic_no_unlink.py:0
 #, python-format
 msgid ""
@@ -49,7 +51,6 @@ msgid "Code"
 msgstr ""
 
 #. module: generic_mixin
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_name_with_code_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_ascii_only
@@ -58,7 +59,6 @@ msgid "Code must be ascii only"
 msgstr ""
 
 #. module: generic_mixin
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_uniq
@@ -77,6 +77,7 @@ msgid "Data records"
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
 #: code:addons/generic_mixin/models/generic_mixin_guard_fields.py:0
 #, python-format
 msgid ""
@@ -89,9 +90,27 @@ msgid "Draft"
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
 #: code:addons/generic_mixin/models/generic_parent.py:0
 #, python-format
 msgid "Error ! You cannot create recursive %s."
+msgstr ""
+
+#. module: generic_mixin
+#. odoo-python
+#: code:addons/generic_mixin/models/generic_mixin_delegation_interface.py:0
+#, python-format
+msgid "Error: unknown implementation"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_implementation
+msgid "Generic Mixin Delegation: Implementation"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_interface
+msgid "Generic Mixin Delegation: Interface"
 msgstr ""
 
 #. module: generic_mixin
@@ -178,6 +197,7 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
 #: code:addons/generic_mixin/models/generic_mixin_entity_lifecycle.py:0
 #, python-format
 msgid ""
@@ -217,7 +237,6 @@ msgid "Name"
 msgstr ""
 
 #. module: generic_mixin
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_name_uniq
@@ -226,6 +245,7 @@ msgid "Name must be unique."
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
 #: code:addons/generic_mixin/models/generic_mixin_name_by_sequence.py:0
 #, python-format
 msgid "New"

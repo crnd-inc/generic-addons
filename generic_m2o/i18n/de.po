@@ -14,3 +14,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: generic_m2o
+#: model:ir.model,name:generic_m2o.model_base
+msgid "Base"
+msgstr ""
+
+#. module: generic_m2o
+#. odoo-javascript
+#: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
+#, python-format
+msgid "Quick search: %s"
+msgstr ""
+
+#. module: generic_m2o
+#. odoo-javascript
+#: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
+#, python-format
+msgid "Search: %s"
+msgstr ""
+
+#. module: generic_m2o
+#. odoo-javascript
+#: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
+#, python-format
+msgid "Select records"
+msgstr ""

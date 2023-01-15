@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -34,6 +34,36 @@ msgstr ""
 msgid ""
 "\n"
 "            User - readonly access, menu access\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team1
+msgid ""
+"\n"
+"        A Functional Team is a group\n"
+"        of people with a common functional expertise working\n"
+"        toward shared objectives.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team2
+msgid ""
+"\n"
+"        A self-organizing, cross-functional team\n"
+"        of people who collectively are responsible for all of the work\n"
+"        necessary to produce working, validated assets.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team3
+msgid ""
+"\n"
+"        DevOps as a Service is a delivery model\n"
+"        for a set of tools that facilitates collaboration between\n"
+"        an organization's software development team and the operations team.\n"
 "        "
 msgstr ""
 
@@ -86,6 +116,11 @@ msgid "Description..."
 msgstr ""
 
 #. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team3
+msgid "DevOps team"
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
 msgid "Display Name"
@@ -129,7 +164,6 @@ msgstr ""
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction
-#: model:ir.model.fields,help:generic_team.field_generic_team__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -217,8 +251,13 @@ msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: generic_team
-#: model:ir.model.fields,help:generic_team.field_generic_team__message_unread_counter
-msgid "Number of unread messages"
+#: model:generic.team,name:generic_team.generic_team_team2
+msgid "Odoo development team"
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team1
+msgid "Odoo functional team"
 msgstr ""
 
 #. module: generic_team
@@ -276,16 +315,7 @@ msgid "This user is member of following generic teams"
 msgstr ""
 
 #. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_unread
-msgid "Unread Messages"
-msgstr ""
-
-#. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr ""
-
-#. module: generic_team
+#: model:ir.model,name:generic_team.model_res_users
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__user_id
 #: model:res.groups,name:generic_team.group_generic_team_user
 msgid "User"
@@ -299,11 +329,6 @@ msgstr ""
 #. module: generic_team
 #: model:ir.model.constraint,message:generic_team.constraint_generic_team_member_user_team_unique
 msgid "User may be added to team only once."
-msgstr ""
-
-#. module: generic_team
-#: model:ir.model,name:generic_team.model_res_users
-msgid "Users"
 msgstr ""
 
 #. module: generic_team

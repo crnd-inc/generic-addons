@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -54,6 +54,7 @@ msgid "Create Dbg4"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cf__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cfcn__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__create_uid
@@ -65,6 +66,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__create_uid
@@ -74,6 +78,7 @@ msgid "Created by"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cf__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cfcn__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__create_date
@@ -85,6 +90,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__create_date
@@ -107,10 +115,14 @@ msgstr ""
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__description
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__description
 msgid "Description"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_2__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cf__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cfcn__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__display_name
@@ -122,6 +134,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__display_name
@@ -136,6 +151,14 @@ msgid "Dt Value"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.ui.menu,name:test_generic_mixin.menu_tests_generic_mixin
+msgid "Generic Mixin"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_2__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cf__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cfcn__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__id
@@ -147,6 +170,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__id
@@ -165,6 +191,70 @@ msgid ""
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1_impl_mixin__interface_1_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_1_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__interface_1_id
+msgid "Interface 1"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1__interface_1_impl_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_1_impl_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__interface_1_impl_id
+msgid "Interface 1 Impl"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1__interface_1_impl_model
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_1_impl_model
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__interface_1_impl_model
+msgid "Interface 1 Impl Model"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1__interface_1_test_field_1
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_1_test_field_1
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__interface_1_test_field_1
+msgid "Interface 1 Test Field 1"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_2_impl_mixin__interface_2_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_2_id
+msgid "Interface 2"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_2__interface_2_impl_id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_2_impl_id
+msgid "Interface 2 Impl"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_2__interface_2_impl_model
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_2_impl_model
+msgid "Interface 2 Impl Model"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_2__interface_2_test_field_1
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__interface_2_test_field_1
+msgid "Interface 2 Test Field 1"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_interface_1_impl_mixin_unique_interface_1_id
+#: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_interface_2_impl_mixin_unique_interface_2_id
+#: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_multi_interface_impl_unique_interface_1_id
+#: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_multi_interface_impl_unique_interface_2_id
+#: model:ir.model.constraint,message:test_generic_mixin.constraint_test_gm_multi_interface_no_del_impl_unique_interface_1_id
+msgid "Interface must be unique"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_2____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cf____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cfcn____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf____last_update
@@ -176,6 +266,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl____last_update
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model____last_update
@@ -185,6 +278,7 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cf__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cfcn__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__write_uid
@@ -196,6 +290,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__write_uid
@@ -205,6 +302,7 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cf__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_cfcn__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__write_date
@@ -216,12 +314,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_interface_1_unique_model
+#: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_interface_2_unique_model
+msgid "Model instance must be unique"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -240,6 +347,7 @@ msgid "Myuuid"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nf__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_nfcf__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_name_by_sequence_ns__name
@@ -248,6 +356,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__name
 msgid "Name"
@@ -257,6 +367,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_no_update
 msgid "Non Updatable"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.ui.menu,name:test_generic_mixin.menu_refresh_view
+msgid "Refresh View"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.actions.act_window,name:test_generic_mixin.test_gm_refresh_view_action
+msgid "Refresh View Records"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__some_field
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__some_field
+msgid "Some Field"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -270,14 +396,55 @@ msgid "Specific Field 2"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__test_delegate_id
+msgid "Test Delegate"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__test_field
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__test_field
 msgid "Test Field"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_gm_delegation_no_delegation
+msgid "Test Generic Mixin Delegation no Delegation"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_interface_1
+msgid "Test Generic Mixin: Interface 1"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_interface_1_impl_mixin
+msgid "Test Generic Mixin: Interface 1 Implementation Mixin"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_interface_2
+msgid "Test Generic Mixin: Interface 2"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_interface_2_impl_mixin
+msgid "Test Generic Mixin: Interface 2 Implementation Mixin"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_base_model
 msgid "Test Generic Mixin: Proxy method my base model"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_1
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_2
+msgid "Test Generic Mixin: Proxy method my specific model 1"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_mixin
+msgid "Test Generic Mixin: Proxy method my specific model mixin"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -358,6 +525,11 @@ msgid "XML ID for this record."
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_multi_interface_impl
+msgid "test.generic.mixin.multi.interface.impl"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_name_by_sequence_cf
 msgid "test.generic.mixin.name.by.sequence.cf"
 msgstr ""
@@ -403,6 +575,16 @@ msgid "test.generic.mixin.track.changes.model"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_gm_multi_interface_no_del_impl
+msgid "test.gm.multi.interface.no.del.impl"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_gm_refresh_view
+msgid "test.gm.refresh.view"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_mixin_name_search_by_fields
 msgid "test.mixin.name.search.by.fields"
 msgstr ""
@@ -410,19 +592,4 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_mixin_name_search_by_fields_2
 msgid "test.mixin.name.search.by.fields.2"
-msgstr ""
-
-#. module: test_generic_mixin
-#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_1
-msgid "test.proxy.method.my.specific.model.1"
-msgstr ""
-
-#. module: test_generic_mixin
-#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_2
-msgid "test.proxy.method.my.specific.model.2"
-msgstr ""
-
-#. module: test_generic_mixin
-#: model:ir.model,name:test_generic_mixin.model_test_proxy_method_my_specific_model_mixin
-msgid "test.proxy.method.my.specific.model.mixin"
 msgstr ""

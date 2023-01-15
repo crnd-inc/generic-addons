@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -74,6 +74,26 @@ msgid "No tag"
 msgstr ""
 
 #. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_1
+msgid "TC1"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_2
+msgid "TC2"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_3
+msgid "TC3"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,name:generic_tag_test.test_tag_4
+msgid "TC4"
+msgstr ""
+
+#. module: generic_tag_test
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__search_tag_id
 msgid "Tag"
 msgstr ""
@@ -81,6 +101,18 @@ msgstr ""
 #. module: generic_tag_test
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__tag_ids
 msgid "Tags"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:generic.tag,category_name:generic_tag_test.test_tag_1
+#: model:generic.tag,category_name:generic_tag_test.test_tag_2
+#: model:generic.tag.category,name:generic_tag_test.test_tag_category_1
+msgid "Test Category 1"
+msgstr ""
+
+#. module: generic_tag_test
+#: model:res.groups,name:generic_tag_test.group_tags_test_group
+msgid "Test group for tags"
 msgstr ""
 
 #. module: generic_tag_test

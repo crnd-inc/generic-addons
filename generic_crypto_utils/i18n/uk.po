@@ -47,6 +47,7 @@ msgid "ID"
 msgstr ""
 
 #. module: generic_crypto_utils
+#. odoo-python
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
 #, python-format
 msgid ""
@@ -54,6 +55,7 @@ msgid ""
 msgstr ""
 
 #. module: generic_crypto_utils
+#. odoo-python
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
 #, python-format
 msgid ""
@@ -92,6 +94,7 @@ msgid "Value"
 msgstr ""
 
 #. module: generic_crypto_utils
+#. odoo-python
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
 #, python-format
 msgid ""

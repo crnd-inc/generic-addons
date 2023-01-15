@@ -53,6 +53,37 @@ msgstr ""
 "        "
 
 #. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team1
+msgid ""
+"\n"
+"        A Functional Team is a group\n"
+"        of people with a common functional expertise working\n"
+"        toward shared objectives.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team2
+msgid ""
+"\n"
+"        A self-organizing, cross-functional team\n"
+"        of people who collectively are responsible for all of the work\n"
+"        necessary to produce working, validated assets.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team3
+msgid ""
+"\n"
+"        DevOps as a Service is a delivery model\n"
+"        for a set of tools that facilitates collaboration between\n"
+"        an organization's software development team and the operations "
+"team.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction
 msgid "Action Needed"
 msgstr "Необхідні дії"
@@ -101,6 +132,11 @@ msgid "Description..."
 msgstr "Опис..."
 
 #. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team3
+msgid "DevOps team"
+msgstr "Команда DevOps"
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
 msgid "Display Name"
@@ -144,7 +180,6 @@ msgstr "ID"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction
-#: model:ir.model.fields,help:generic_team.field_generic_team__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "Якщо відмічено, то нові повідомлення будуть потребувати вашої уваги."
 
@@ -232,9 +267,14 @@ msgid "Number of messages with delivery error"
 msgstr "Кількість повідомлень з помилковою дставкою"
 
 #. module: generic_team
-#: model:ir.model.fields,help:generic_team.field_generic_team__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Кількість непрочитаних повідомлень"
+#: model:generic.team,name:generic_team.generic_team_team2
+msgid "Odoo development team"
+msgstr "Команда розробників Odoo"
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team1
+msgid "Odoo functional team"
+msgstr "Функціональна команда Odoo"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__task_manager_id
@@ -291,16 +331,7 @@ msgid "This user is member of following generic teams"
 msgstr "Цей користувач є учасником наступних команд"
 
 #. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_unread
-msgid "Unread Messages"
-msgstr "Непрочитані повідомлення"
-
-#. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Кількість непрочитаних повідомлень"
-
-#. module: generic_team
+#: model:ir.model,name:generic_team.model_res_users
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__user_id
 #: model:res.groups,name:generic_team.group_generic_team_user
 msgid "User"
@@ -317,26 +348,24 @@ msgid "User may be added to team only once."
 msgstr "Користувач може бути включений в команду лише один раз."
 
 #. module: generic_team
-#: model:ir.model,name:generic_team.model_res_users
-msgid "Users"
-msgstr "Користувачі"
-
-#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__user_count
 msgid "Users count"
 msgstr "К-сть користувачів"
 
+#~ msgid "Number of unread messages"
+#~ msgstr "Кількість непрочитаних повідомлень"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Непрочитані повідомлення"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Кількість непрочитаних повідомлень"
+
+#~ msgid "Users"
+#~ msgstr "Користувачі"
+
 #~ msgid "Followers (Channels)"
 #~ msgstr "Підписники (Канали)"
-
-#~ msgid "DevOps team"
-#~ msgstr "Команда DevOps"
-
-#~ msgid "Odoo development team"
-#~ msgstr "Команда розробників Odoo"
-
-#~ msgid "Odoo functional team"
-#~ msgstr "Функціональна команда Odoo"
 
 #~ msgid "If checked new messages require your attention."
 #~ msgstr "Якщо позначено, то повідомленя потребує вашої уваги"
