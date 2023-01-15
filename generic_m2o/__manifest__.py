@@ -14,6 +14,7 @@
     'assets': {
         'web.assets_backend': [
             '/generic_m2o/static/src/js/generic_m2o.js',
+            '/generic_m2o/static/src/js/generic_m2o.xml',
         ],
     },
     'images': ['static/description/banner.png'],
