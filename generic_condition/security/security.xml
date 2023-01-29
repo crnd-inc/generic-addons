@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_generic_condition_manage" model="res.groups">
+        <field name="name">Generic Condition Manage</field>
+        <field name="category_id" ref="base.module_category_administration"/>
+        <field name="comment">Generic Condition Manage</field>
+    </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('generic_condition.group_generic_condition_manage'))]"/>
+    </record>
+
+</odoo>
