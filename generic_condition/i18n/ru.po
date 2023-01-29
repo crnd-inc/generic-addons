@@ -577,6 +577,12 @@ msgid "Generic Condition"
 msgstr "Универсальное условие"
 
 #. module: generic_condition
+#: model:res.groups,comment:generic_condition.group_generic_condition_manage
+#: model:res.groups,name:generic_condition.group_generic_condition_manage
+msgid "Generic Condition Manage"
+msgstr ""
+
+#. module: generic_condition
 #: model:ir.model,name:generic_condition.model_generic_condition_domain_leaf
 msgid "Generic Condition: Domain Leaf"
 msgstr ""
