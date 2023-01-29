@@ -1,5 +1,5 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_generic_condition_any", "generic_condition any","model_generic_condition",,1,0,0,0
 "access_generic_condition_domain_leaf_any", "generic_codnition_domain_leaf any","model_generic_condition_domain_leaf",,1,0,0,0
-"access_generic_condition_admin", "generic_condition admin","model_generic_condition","base.group_system",1,1,1,1
-"access_generic_condition_domain_leaf_admin", "generic_condition_domain_leaf admin","model_generic_condition_domain_leaf","base.group_system",1,1,1,1
+"access_generic_condition_admin", "generic_condition admin","model_generic_condition","generic_condition.group_generic_condition_manage",1,1,1,1
+"access_generic_condition_domain_leaf_admin", "generic_condition_domain_leaf admin","model_generic_condition_domain_leaf","generic_condition.group_generic_condition_manage",1,1,1,1
