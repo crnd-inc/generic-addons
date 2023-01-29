@@ -17,6 +17,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___city
+msgid " City"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___street
+msgid " Street"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___street2
+msgid " Street2"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___zip
+msgid " Zip"
+msgstr ""
+
+#. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user
 msgid "Access generic locations"
 msgstr ""
@@ -37,7 +57,24 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__active
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__active
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Active"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Address"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Address Configuration"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location__state_name
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
 msgstr ""
 
 #. module: generic_location
@@ -72,13 +109,40 @@ msgid "Child Count"
 msgstr ""
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__city
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__city
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "City"
+msgstr ""
+
+#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__code
 msgid "Code"
 msgstr ""
 
 #. module: generic_location
+#: model:ir.model,name:generic_location.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: generic_location
 #: model:ir.ui.menu,name:generic_location.menu_configuration
 msgid "Configuration"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model,name:generic_location.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___country_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__country_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__country_name
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__country_id
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
+msgid "Country"
 msgstr ""
 
 #. module: generic_location
@@ -105,9 +169,21 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__display_name
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__display_name
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__display_name
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__display_name
+#: model:ir.model.fields,field_description:generic_location.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:generic_location.field_res_partner__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.res_config_settings_view_form
+msgid ""
+"Enable this checkbox to build hierarchical location structures.\n"
+"                                    When enable, you will be able to set "
+"parent location for any location,\n"
+"                                    and see sub-locations of location."
 msgstr ""
 
 #. module: generic_location
@@ -126,6 +202,8 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_res_partner__generic_location_ids
+#: model:ir.model.fields,field_description:generic_location.field_res_users__generic_location_ids
 #: model:ir.ui.menu,name:generic_location.menu_generic_location_root
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
@@ -133,8 +211,29 @@ msgid "Generic Location"
 msgstr ""
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_res_partner__generic_location_count
+#: model:ir.model.fields,field_description:generic_location.field_res_users__generic_location_count
+msgid "Generic Location Count"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model,name:generic_location.model_generic_location_mixin
+msgid "Generic Location Mixin"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.res_config_settings_view_form
+msgid "Generic Locations"
+msgstr ""
+
+#. module: generic_location
 #: model:res.groups,name:generic_location.group_generic_location_manager
 msgid "Generic location manager"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.res_config_settings_view_form
+msgid "Generic location settings"
 msgstr ""
 
 #. module: generic_location
@@ -148,9 +247,17 @@ msgid "Generic location user (implicit)"
 msgstr ""
 
 #. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
+msgid "Group by..."
+msgstr ""
+
+#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__id
+#: model:ir.model.fields,field_description:generic_location.field_res_config_settings__id
+#: model:ir.model.fields,field_description:generic_location.field_res_partner__id
 msgid "ID"
 msgstr ""
 
@@ -202,8 +309,11 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location____last_update
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin____last_update
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin____last_update
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type____last_update
+#: model:ir.model.fields,field_description:generic_location.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:generic_location.field_res_partner____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -222,6 +332,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.actions.act_window,name:generic_location.generic_location_action
 #: model:ir.model,name:generic_location.model_generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__location_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__location_id
 #: model:ir.ui.menu,name:generic_location.menu_generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
@@ -243,6 +354,7 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__location_ids
+#: model_terms:ir.ui.view,arch_db:generic_location.view_partner_form
 msgid "Locations"
 msgstr ""
 
@@ -314,6 +426,65 @@ msgid "Parents"
 msgstr ""
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__partner_id
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
+msgid "Partner"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location__partner_id
+msgid "Partner / customer related to this location."
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
+msgid "Partner Locations"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Partner or customer..."
+msgstr ""
+
+#. module: generic_location
+#: model:ir.actions.act_window,name:generic_location.generic_location_action_location_settings
+#: model:ir.ui.menu,name:generic_location.menu_settings_generic_location
+msgid "Settings"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___state_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__state_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__state_name
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__state_id
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
+msgid "State"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__street
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__street
+msgid "Street"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Street 2..."
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Street..."
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__street2
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__street2
+msgid "Street2"
+msgstr ""
+
+#. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Sublocation"
 msgstr ""
@@ -326,18 +497,67 @@ msgid "Sublocations"
 msgstr ""
 
 #. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location__country_name
+msgid "The full name of the country."
+msgstr ""
+
+#. module: generic_location
 #: model:ir.model.constraint,message:generic_location.constraint_generic_location_name_description_check
 msgid "The title of the Location should not be the description"
 msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__type_id
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Type"
 msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__type_id
 msgid "Type of Location"
+msgstr ""
+
+#. module: generic_location
+#: model:generic.location,country_name:generic_location.demo_location_city_us_ny_buffalo
+#: model:generic.location,country_name:generic_location.demo_location_country_us
+#: model:generic.location,country_name:generic_location.demo_location_state_us_ny
+#: model:generic.location,country_name:generic_location.demo_location_street_us_ny_buffalo_4371_bottom_lane
+#: model:generic.location,country_name:generic_location.simple_location_room_1
+#: model:generic.location,country_name:generic_location.simple_location_room_10
+#: model:generic.location,country_name:generic_location.simple_location_room_101
+#: model:generic.location,country_name:generic_location.simple_location_room_11
+#: model:generic.location,country_name:generic_location.simple_location_room_111
+#: model:generic.location,country_name:generic_location.simple_location_room_12
+#: model:generic.location,country_name:generic_location.simple_location_room_13
+#: model:generic.location,country_name:generic_location.simple_location_room_14
+#: model:generic.location,country_name:generic_location.simple_location_room_1_l1_b1
+#: model:generic.location,country_name:generic_location.simple_location_room_1_l1_b2
+#: model:generic.location,country_name:generic_location.simple_location_room_1_l2_b1_1
+#: model:generic.location,country_name:generic_location.simple_location_room_1_l2_b1_2
+#: model:generic.location,country_name:generic_location.simple_location_room_1_l2_b2_1
+#: model:generic.location,country_name:generic_location.simple_location_room_1_l3_b1_1
+#: model:generic.location,country_name:generic_location.simple_location_room_2
+#: model:generic.location,country_name:generic_location.simple_location_room_21
+#: model:generic.location,country_name:generic_location.simple_location_room_3
+#: model:generic.location,country_name:generic_location.simple_location_room_4
+#: model:generic.location,country_name:generic_location.simple_location_room_5
+#: model:generic.location,country_name:generic_location.simple_location_room_51
+#: model:generic.location,country_name:generic_location.simple_location_room_6
+#: model:generic.location,country_name:generic_location.simple_location_room_61
+#: model:generic.location,country_name:generic_location.simple_location_room_7
+#: model:generic.location,country_name:generic_location.simple_location_room_71
+#: model:generic.location,country_name:generic_location.simple_location_room_8
+#: model:generic.location,country_name:generic_location.simple_location_room_81
+#: model:generic.location,country_name:generic_location.simple_location_room_9
+#: model:generic.location,country_name:generic_location.simple_location_room_91
+#: model:generic.location,country_name:generic_location.simple_location_root_1
+#: model:generic.location,country_name:generic_location.simple_parent_location_1
+#: model:generic.location,country_name:generic_location.simple_parent_location_2
+#: model:generic.location,country_name:generic_location.simple_parent_location_3
+#: model:generic.location,country_name:generic_location.simple_parent_location_4
+#: model:generic.location,country_name:generic_location.simple_parent_location_5
+#: model:generic.location,country_name:generic_location.simple_parent_location_6
+msgid "United States"
 msgstr ""
 
 #. module: generic_location
@@ -351,6 +571,59 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: generic_location
-#: model:ir.model,name:generic_location.model_generic_location_mixin
-msgid "generic.location.mixin"
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__city_use_parent
+msgid "Use Parent City"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__country_id_use_parent
+msgid "Use Parent Country"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__state_id_use_parent
+msgid "Use Parent State"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__street_use_parent
+msgid "Use Parent Street"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__street2_use_parent
+msgid "Use Parent Street2"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__zip_use_parent
+msgid "Use Parent Zip"
+msgstr ""
+
+#. module: generic_location
+#: model:res.groups,name:generic_location.group_use_hierarchical_locations
+msgid "Use hierarchical location"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_res_config_settings__group_use_hierarchical_locations
+#: model:res.groups,comment:generic_location.group_use_hierarchical_locations
+#: model_terms:ir.ui.view,arch_db:generic_location.res_config_settings_view_form
+msgid "Use hierarchical locations"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "ZIP"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__zip
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__zip
+msgid "Zip"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model,name:generic_location.model_generic_location_address_mixin
+msgid "generic.location.address.mixin"
 msgstr ""
