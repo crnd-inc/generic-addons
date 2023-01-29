@@ -726,5 +726,6 @@
     <menuitem id="menu_generic_condition"
               name="Generic Conditions"
               parent="generic_rule.menu_generic_rule" sequence="60"
+              groups="generic_condition.group_generic_condition_manage"
               action="generic_condition_action"/>
 </odoo>

@@ -1,6 +1,16 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
- 
+
+    <record id="group_generic_condition_manage" model="res.groups">
+        <field name="name">Generic Condition Manage</field>
+        <field name="category_id" ref="base.module_category_administration"/>
+        <field name="comment">Generic Condition Manage</field>
+    </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('generic_condition.group_generic_condition_manage'))]"/>
+    </record>
+
     <record id="rule_generic_condition_test_condition_admin" model="ir.rule">
         <field name="name">acces generic condition test condition admin</field>
         <field name="model_id" ref="generic_condition.model_generic_condition_test_condition"/>
@@ -13,5 +23,4 @@
         <field eval="1" name="perm_read"/>
         <field eval="1" name="perm_create"/>
     </record>
-
-</odoo> 
+</odoo>
