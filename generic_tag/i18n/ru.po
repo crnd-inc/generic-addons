@@ -91,6 +91,11 @@ msgid "Apply"
 msgstr ""
 
 #. module: generic_tag
+#: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
+msgid "Archived"
+msgstr ""
+
+#. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.generic_tag_wizard_manage_tags_form_view
 msgid "Cancel"
 msgstr ""

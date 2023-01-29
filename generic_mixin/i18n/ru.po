@@ -95,6 +95,22 @@ msgid "Error ! You cannot create recursive %s."
 msgstr "Ощибка ! Вы не можете создавать рекурсивные записи %s."
 
 #. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_mixin_delegation_interface.py:0
+#, python-format
+msgid "Error: unknown implementation"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_implementation
+msgid "Generic Mixin Delegation: Implementation"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_interface
+msgid "Generic Mixin Delegation: Interface"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_entity_lifecycle
 msgid "Generic Mixin: Entity Lifecycle"
 msgstr ""

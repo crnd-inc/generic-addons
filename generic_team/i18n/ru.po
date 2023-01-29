@@ -53,6 +53,53 @@ msgstr ""
 "        "
 
 #. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team1
+msgid ""
+"\n"
+"        A Functional Team is a group\n"
+"        of people with a common functional expertise working\n"
+"        toward shared objectives.\n"
+"        "
+msgstr ""
+"\n"
+"        Функциональная команда это группа\n"
+"        людей одной компетенции, работающая \n"
+"        в направлении общих целей.\n"
+"        "
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team2
+msgid ""
+"\n"
+"        A self-organizing, cross-functional team\n"
+"        of people who collectively are responsible for all of the work\n"
+"        necessary to produce working, validated assets.\n"
+"        "
+msgstr ""
+"\n"
+"        Самоорганизованная, многофункциональная команда\n"
+"        людей, которые коллективно отвечают за всю работу,\n"
+"        необходимую для производства работающих, проверенных активов.\n"
+"        "
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team3
+msgid ""
+"\n"
+"        DevOps as a Service is a delivery model\n"
+"        for a set of tools that facilitates collaboration between\n"
+"        an organization's software development team and the operations "
+"team.\n"
+"        "
+msgstr ""
+"\n"
+"        DevOps как сервис - это модель доставки\n"
+"        для набора инструментов, который облегчает сотрудничество между\n"
+"        командой разработчиков программного обеспечения организации и "
+"операционной командой.\n"
+"        "
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction
 msgid "Action Needed"
 msgstr "Требуется действие"
@@ -99,6 +146,11 @@ msgstr "Описание"
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Description..."
 msgstr "Описание..."
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team3
+msgid "DevOps team"
+msgstr "Команда DevOps"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
@@ -237,6 +289,16 @@ msgid "Number of unread messages"
 msgstr "Количество непрочитанных сообщений"
 
 #. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team2
+msgid "Odoo development team"
+msgstr "Команда разработчиков Odoo"
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team1
+msgid "Odoo functional team"
+msgstr "Функциональная команда Odoo"
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__task_manager_id
 msgid "Task manager"
 msgstr "Диспетчер заданий"
@@ -328,56 +390,6 @@ msgstr "Количество пользователей"
 
 #~ msgid "Followers (Channels)"
 #~ msgstr "Подписчики (Каналы)"
-
-#~ msgid ""
-#~ "\n"
-#~ "        A Functional Team is a group\n"
-#~ "        of people with a common functional expertise working\n"
-#~ "        toward shared objectives.\n"
-#~ "        "
-#~ msgstr ""
-#~ "\n"
-#~ "        Функциональная команда это группа\n"
-#~ "        людей одной компетенции, работающая \n"
-#~ "        в направлении общих целей.\n"
-#~ "        "
-
-#~ msgid ""
-#~ "\n"
-#~ "        A self-organizing, cross-functional team\n"
-#~ "        of people who collectively are responsible for all of the work\n"
-#~ "        necessary to produce working, validated assets.\n"
-#~ "        "
-#~ msgstr ""
-#~ "\n"
-#~ "        Самоорганизованная, многофункциональная команда\n"
-#~ "        людей, которые коллективно отвечают за всю работу,\n"
-#~ "        необходимую для производства работающих, проверенных активов.\n"
-#~ "        "
-
-#~ msgid ""
-#~ "\n"
-#~ "        DevOps as a Service is a delivery model\n"
-#~ "        for a set of tools that facilitates collaboration between\n"
-#~ "        an organization's software development team and the operations "
-#~ "team.\n"
-#~ "        "
-#~ msgstr ""
-#~ "\n"
-#~ "        DevOps как сервис - это модель доставки\n"
-#~ "        для набора инструментов, который облегчает сотрудничество между\n"
-#~ "        командой разработчиков программного обеспечения организации и "
-#~ "операционной командой.\n"
-#~ "        "
-
-#~ msgid "DevOps team"
-#~ msgstr "Команда DevOps"
-
-#~ msgid "Odoo development team"
-#~ msgstr "Команда разработчиков Odoo"
-
-#~ msgid "Odoo functional team"
-#~ msgstr "Функциональная команда Odoo"
 
 #~ msgid "If checked new messages require your attention."
 #~ msgstr "Если отмечено, новые сообщения будут требовать вашего внимания."

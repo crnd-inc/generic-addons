@@ -53,6 +53,37 @@ msgstr ""
 "        "
 
 #. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team1
+msgid ""
+"\n"
+"        A Functional Team is a group\n"
+"        of people with a common functional expertise working\n"
+"        toward shared objectives.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team2
+msgid ""
+"\n"
+"        A self-organizing, cross-functional team\n"
+"        of people who collectively are responsible for all of the work\n"
+"        necessary to produce working, validated assets.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team3
+msgid ""
+"\n"
+"        DevOps as a Service is a delivery model\n"
+"        for a set of tools that facilitates collaboration between\n"
+"        an organization's software development team and the operations "
+"team.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction
 msgid "Action Needed"
 msgstr "Необхідні дії"
@@ -99,6 +130,11 @@ msgstr "Опис"
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Description..."
 msgstr "Опис..."
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team3
+msgid "DevOps team"
+msgstr "Команда DevOps"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
@@ -237,6 +273,16 @@ msgid "Number of unread messages"
 msgstr "Кількість непрочитаних повідомлень"
 
 #. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team2
+msgid "Odoo development team"
+msgstr "Команда розробників Odoo"
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team1
+msgid "Odoo functional team"
+msgstr "Функціональна команда Odoo"
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__task_manager_id
 msgid "Task manager"
 msgstr "Диспетчер завдань"
@@ -328,15 +374,6 @@ msgstr "К-сть користувачів"
 
 #~ msgid "Followers (Channels)"
 #~ msgstr "Підписники (Канали)"
-
-#~ msgid "DevOps team"
-#~ msgstr "Команда DevOps"
-
-#~ msgid "Odoo development team"
-#~ msgstr "Команда розробників Odoo"
-
-#~ msgid "Odoo functional team"
-#~ msgstr "Функціональна команда Odoo"
 
 #~ msgid "If checked new messages require your attention."
 #~ msgstr "Якщо позначено, то повідомленя потребує вашої уваги"
