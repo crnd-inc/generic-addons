@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition",
-    "version": "12.0.1.15.0",
+    "version": "12.0.1.16.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -20,6 +20,7 @@
     ],
     'data': [
         'data/generic_condition.xml',
+        'security/security.xml',
         'security/ir.model.access.csv',
         'views/generic_condition_view.xml',
         'views/assets.xml',
