@@ -14,8 +14,33 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_crm_partner_survey_sent_year_ago
+msgid "CRM: Last survey (Feedback) from partner sent year ago"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_calendar_event_active
+msgid "Calendar event: Active"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,description:generic_condition_test.test_condition_meeting_started_year_ago
+msgid "Check that this meeting is started more then 1 year ago"
+msgstr ""
+
+#. module: generic_condition_test
 #: model:res.groups,name:generic_condition_test.group_condition_no_access
 msgid "Condition user with no access"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_contact_has_partners_active_calendar_events
+msgid "Contact: has partners with active events"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_contact_has_lead_partner
+msgid "Contact: has partners with leads"
 msgstr ""
 
 #. module: generic_condition_test
@@ -43,6 +68,11 @@ msgstr ""
 #. module: generic_condition_test
 #: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model__date_test
 msgid "Date Test"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model__datetime_test
+msgid "Datetime Test"
 msgstr ""
 
 #. module: generic_condition_test
@@ -76,8 +106,43 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_lead_partner_set
+msgid "Lead: Partner set"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_meeting_started_year_ago
+msgid "Meeting: Started Year ago"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_monetary_equal_150_usd
+msgid "Monetary field equal 150 USD"
+msgstr ""
+
+#. module: generic_condition_test
 #: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation__name
 msgid "Name"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_last_partner_meeting_1_year_ago
+msgid "Partner: Last partner meeting started more then 1 year ago"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_last_partner_meeting_1_year_ago_city_or_lviv
+msgid "Partner: Last partner meeting started more then 1 year ago (in partner's city or in Lviv)"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_last_partner_meeting_1_year_ago_city
+msgid "Partner: Last partner meeting started more then 1 year ago (in partner's city)"
+msgstr ""
+
+#. module: generic_condition_test
+#: model:generic.condition,name:generic_condition_test.test_condition_survey_sent_year_ago
+msgid "Survey: sent year ago"
 msgstr ""
 
 #. module: generic_condition_test

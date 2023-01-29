@@ -77,6 +77,11 @@ msgid "Category can not have subcategories with the same name!"
 msgstr "Категория не может иметь подкатегории с таким же именем!"
 
 #. module: generic_resource
+#: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers
+msgid "Computers"
+msgstr "Компьютеры"
+
+#. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_config_root
 msgid "Configuration"
 msgstr "Настройка"
@@ -111,6 +116,22 @@ msgid "Default"
 msgstr "По умолчанию"
 
 #. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_computer_1
+#: model:generic.resource.simple,name:generic_resource.simple_resource_computer_2
+#: model:generic.resource.simple,name:generic_resource.simple_resource_computer_3
+#: model:generic.resource.simple,name:generic_resource.simple_resource_computer_4
+#: model:generic.resource.simple,name:generic_resource.simple_resource_computer_5
+#: model:generic.resource.simple,name:generic_resource.simple_resource_computer_6
+#: model:generic.resource.simple,name:generic_resource.simple_resource_computer_7
+msgid "Desktop Computer"
+msgstr "Настольный компьютер"
+
+#. module: generic_resource
+#: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers_desktops
+msgid "Desktops"
+msgstr "Настольные компьютеры"
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__display_name
@@ -123,10 +144,9 @@ msgid "Display Name"
 msgstr "Отображаемое название"
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource.py:67
-#, python-format
-msgid "Error: no model"
-msgstr "Ошибка: не определена модель"
+#: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment
+msgid "Equipment"
+msgstr "Оборудование"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/ir_model.py:72
@@ -310,6 +330,11 @@ msgid "Inherited models"
 msgstr "Унаследованные Модели"
 
 #. module: generic_resource
+#: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_inkjet
+msgid "InkJet"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__inv_number
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__inv_number
 msgid "Inventory Number"
@@ -327,6 +352,11 @@ msgstr "Подписчик"
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model__is_generic_resource
 msgid "Is Generic Resource"
 msgstr "Является общим ресурсом"
+
+#. module: generic_resource
+#: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_laserjet
+msgid "LaserJet"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource____last_update
@@ -416,6 +446,22 @@ msgid "Name"
 msgstr "Название"
 
 #. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_1
+#: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_2
+#: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_3
+#: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_4
+#: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_5
+#: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_6
+#: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_7
+msgid "Notebook"
+msgstr "Ноутбук"
+
+#. module: generic_resource
+#: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers_notebooks
+msgid "Notebooks"
+msgstr "Ноутбуки"
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction_counter
 msgid "Number of Actions"
@@ -470,6 +516,81 @@ msgstr "Родительская категория"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_path
 msgid "Parent Path"
 msgstr "Родительский путь"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_3
+msgid "Printer Canon i-sensys 123"
+msgstr "Принтер Canon i-sensys 123"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_1
+msgid "Printer Canon i-sensys 233"
+msgstr "Принтер Canon i-sensys 233"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_2
+msgid "Printer Canon i-sensys 255"
+msgstr "Принтер Canon i-sensys 255"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_6
+msgid "Printer Canon i-sensys 569"
+msgstr "Принтер Canon i-sensys 569"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_3
+msgid "Printer Canon i123"
+msgstr "Принтер Canon i123"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_1
+msgid "Printer Canon i233"
+msgstr "Принтер Canon i233"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_2
+msgid "Printer Canon i255"
+msgstr "Принтер Canon i255"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_6
+msgid "Printer Canon i569"
+msgstr "Принтер Canon i569"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_4
+msgid "Printer Epson foto 235"
+msgstr "Принтер Epson foto 235"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_5
+msgid "Printer Epson stylus 15"
+msgstr "Принтер Epson stylus 15"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_7
+msgid "Printer Lexmark LS45"
+msgstr "Принтер Lexmark LS45"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_7
+msgid "Printer Panasonic LS45"
+msgstr "Принтер Panasonic LS45"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_5
+msgid "Printer Xerox 15"
+msgstr "Принтер Xerox 15"
+
+#. module: generic_resource
+#: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_4
+msgid "Printer Xerox 235"
+msgstr "Принтер Xerox 235"
+
+#. module: generic_resource
+#: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers
+msgid "Printers"
+msgstr "Принтеры"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_user
@@ -674,16 +795,24 @@ msgid "Visible for unregistered users"
 msgstr "Видимый для незарегистрированных пользователей"
 
 #. module: generic_resource
-#: selection:generic.resource,resource_visibility:0
 #: selection:generic.resource.type,resource_visibility:0
 msgid "Visible only to employees"
 msgstr "Видимый только сотрудникам"
 
 #. module: generic_resource
 #: selection:generic.resource,resource_visibility:0
+msgid "Visible only to internal users"
+msgstr ""
+
+#. module: generic_resource
 #: selection:generic.resource.type,resource_visibility:0
 msgid "Visible to employees and portal users"
 msgstr "Видимый сотрудникам и пользователям портала"
+
+#. module: generic_resource
+#: selection:generic.resource,resource_visibility:0
+msgid "Visible to internal users and portal users"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_generic_resource
@@ -703,6 +832,9 @@ msgstr "Поддерживает ли эта модель сообщения и 
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
 
+#~ msgid "Error: no model"
+#~ msgstr "Ошибка: не определена модель"
+
 #~ msgid "Access restricted by roles"
 #~ msgstr "Доступ запрещен ролями"
 
@@ -712,69 +844,6 @@ msgstr ""
 #~ msgid ""
 #~ "Direct modification of 'generic.resource:res_id' field is not allowed!"
 #~ msgstr "Прямое изменение поля 'generic.resource:res_id' запрещено!"
-
-#~ msgid "Computers"
-#~ msgstr "Компьютеры"
-
-#~ msgid "Desktop Computer"
-#~ msgstr "Настольный компьютер"
-
-#~ msgid "Desktops"
-#~ msgstr "Настольные компьютеры"
-
-#~ msgid "Equipment"
-#~ msgstr "Оборудование"
-
-#~ msgid "Notebook"
-#~ msgstr "Ноутбук"
-
-#~ msgid "Notebooks"
-#~ msgstr "Ноутбуки"
-
-#~ msgid "Printer Canon i-sensys 123"
-#~ msgstr "Принтер Canon i-sensys 123"
-
-#~ msgid "Printer Canon i-sensys 233"
-#~ msgstr "Принтер Canon i-sensys 233"
-
-#~ msgid "Printer Canon i-sensys 255"
-#~ msgstr "Принтер Canon i-sensys 255"
-
-#~ msgid "Printer Canon i-sensys 569"
-#~ msgstr "Принтер Canon i-sensys 569"
-
-#~ msgid "Printer Canon i123"
-#~ msgstr "Принтер Canon i123"
-
-#~ msgid "Printer Canon i233"
-#~ msgstr "Принтер Canon i233"
-
-#~ msgid "Printer Canon i255"
-#~ msgstr "Принтер Canon i255"
-
-#~ msgid "Printer Canon i569"
-#~ msgstr "Принтер Canon i569"
-
-#~ msgid "Printer Epson foto 235"
-#~ msgstr "Принтер Epson foto 235"
-
-#~ msgid "Printer Epson stylus 15"
-#~ msgstr "Принтер Epson stylus 15"
-
-#~ msgid "Printer Lexmark LS45"
-#~ msgstr "Принтер Lexmark LS45"
-
-#~ msgid "Printer Panasonic LS45"
-#~ msgstr "Принтер Panasonic LS45"
-
-#~ msgid "Printer Xerox 15"
-#~ msgstr "Принтер Xerox 15"
-
-#~ msgid "Printer Xerox 235"
-#~ msgstr "Принтер Xerox 235"
-
-#~ msgid "Printers"
-#~ msgstr "Принтеры"
 
 #~ msgid ""
 #~ "Fields incorrect\n"

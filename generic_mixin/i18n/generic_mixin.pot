@@ -64,13 +64,15 @@ msgid "Data records"
 msgstr ""
 
 #. module: generic_mixin
-#: code:addons/generic_mixin/models/generic_mixin_guard_fields.py:75
+#: code:addons/generic_mixin/models/generic_mixin_guard_fields.py:93
 #, python-format
 msgid "Direct modification of '%(model)s:%(field_name)s' field is is not allowed!"
 msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__display_name
@@ -97,6 +99,22 @@ msgstr ""
 #: code:addons/generic_mixin/models/generic_parent.py:41
 #, python-format
 msgid "Error ! You cannot create recursive %s."
+msgstr ""
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_mixin_delegation_interface.py:158
+#, python-format
+msgid "Error: unknown implementation"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_implementation
+msgid "Generic Mixin Delegation: Implementation"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_interface
+msgid "Generic Mixin Delegation: Interface"
 msgstr ""
 
 #. module: generic_mixin
@@ -176,6 +194,8 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__id
@@ -207,6 +227,8 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation____last_update
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields____last_update

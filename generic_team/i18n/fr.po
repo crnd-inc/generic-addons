@@ -41,6 +41,37 @@ msgid ""
 msgstr ""
 
 #. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team1
+msgid ""
+"\n"
+"        A Functional Team is a group\n"
+"        of people with a common functional expertise working\n"
+"        toward shared objectives.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team2
+msgid ""
+"\n"
+"        A self-organizing, cross-functional team\n"
+"        of people who collectively are responsible for all of the work\n"
+"        necessary to produce working, validated assets.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,description:generic_team.generic_team_team3
+msgid ""
+"\n"
+"        DevOps as a Service is a delivery model\n"
+"        for a set of tools that facilitates collaboration between\n"
+"        an organization's software development team and the operations "
+"team.\n"
+"        "
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction
 msgid "Action Needed"
 msgstr "Nécessite une action"
@@ -85,6 +116,11 @@ msgstr ""
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Description..."
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team3
+msgid "DevOps team"
 msgstr ""
 
 #. module: generic_team
@@ -226,6 +262,16 @@ msgstr "Nombre de messages avec des erreurs d'envoi"
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_unread_counter
 msgid "Number of unread messages"
 msgstr "Nombre de messages non lus"
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team2
+msgid "Odoo development team"
+msgstr ""
+
+#. module: generic_team
+#: model:generic.team,name:generic_team.generic_team_team1
+msgid "Odoo functional team"
+msgstr ""
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__leader_image

@@ -365,7 +365,7 @@ msgid "Model Description"
 msgstr ""
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_category.py:52
+#: code:addons/generic_tag/models/generic_tag_category.py:57
 #, python-format
 msgid "Model must be same as one used in related tags"
 msgstr ""
@@ -503,7 +503,7 @@ msgid "Tags Count"
 msgstr ""
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_category.py:61
+#: code:addons/generic_tag/models/generic_tag_category.py:66
 #, python-format
 msgid "Tags related to category %s"
 msgstr ""
