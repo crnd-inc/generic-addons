@@ -25,6 +25,6 @@
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 15.0.1.4.0 | Generic Tag - Tests (do not install manualy) |  |
 | generic_tag_test_automation | Generic Tag (Automation) - Test | LGPL-3 | 15.0.1.1.0 |  |  |
 | generic_team | Generic team | LGPL-3 | 15.0.1.14.0 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
-| google_maps_api_js | CR&D Google Maps API JS | Other proprietary | 15.0.0.2.1 |  |  |
+| google_maps_api_js | CR&D Google Maps API JS | Other proprietary | 15.0.0.3.0 |  |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 15.0.0.10.0 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 15.0.0.18.0 | Technical module that have to be used to test Generic Mixin module |  |
