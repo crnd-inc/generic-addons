@@ -393,6 +393,11 @@ msgid "Obsolete"
 msgstr ""
 
 #. module: generic_service
+#: model:generic.service,name:generic_service.generic_service_on_site_maintenance
+msgid "On-site Maintenance"
+msgstr ""
+
+#. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_notebook
 msgid "Rent of notebook"
 msgstr "Аренда ноутбука"
