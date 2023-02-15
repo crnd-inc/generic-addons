@@ -29,4 +29,9 @@
         <field name="name">Support / Hosting</field>
         <field name="code">support-hosting</field>
     </record>
+
+    <record id="generic_service_on_site_maintenance" model="generic.service">
+        <field name="name">On-site Maintenance</field>
+        <field name="code">on-site-maintenance</field>
+    </record>
 </odoo>
