@@ -11,6 +11,7 @@ class GenericServiceLevel(models.Model):
         'mail.thread',
         'generic.mixin.name_with_code',
         'generic.mixin.uniq_name_code',
+        'generic.mixin.track.changes'
     ]
     _order = 'sequence, name'
     _description = 'Generic Service Level'
