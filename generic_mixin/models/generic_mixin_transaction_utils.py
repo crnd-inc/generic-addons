@@ -35,7 +35,7 @@ class GenericMixinTransactionUtils(models.AbstractModel):
                     FROM "{table_name}"
                     WHERE id IN %(ids)s
                     FOR UPDATE NOWAIT;
-                """.format(table_name=self._table), {
+                """.format(table_name=self._table), {  # nosec
                     'ids': tuple(self.ids),
                 }
             )
