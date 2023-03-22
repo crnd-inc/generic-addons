@@ -7,7 +7,7 @@
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 16.0.1.8.0 | Generic Conditions - Tests (do not install manualy) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 16.0.0.4.0 | Technical utils to add encryption to other addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 16.0.1.5.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 16.0.1.71.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 16.0.1.72.0 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 16.0.1.38.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 16.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 16.0.1.19.0 | Create and manage service catalog |  |
