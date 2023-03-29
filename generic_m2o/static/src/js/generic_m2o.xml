@@ -5,7 +5,7 @@
          <t t-if="relation">
              <t t-call="generic_m2o.GenericMany2OneFieldBase"/>
          </t>
-     </t>expr="//t[contains(@t-if, 'isExportEnable')]"
+     </t>
 
     <t t-name="generic_m2o.GenericMany2OneFieldBase" t-inherit="web.Many2OneField" t-inherit-mode="primary" owl="1">
         <xpath expr="//a[contains(@t-attf-class, 'o_form_uri')]" position="attributes">
