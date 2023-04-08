@@ -89,7 +89,11 @@ patch(
         // Refresh controller
         _gmrvDoRefreshController (controller) {
             const localState = controller.getLocalState();
-            localState.model.load();
+            const params = {};
+            if (controller.view?.type === 'form' && localState.resId) {
+                params.resId = localState.resId;
+            }
+            localState.model.load(params);
         },
 
         _gmrvDoRefresher () {
