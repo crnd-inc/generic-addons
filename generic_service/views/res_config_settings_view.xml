@@ -19,7 +19,7 @@
                      string="Services" data-key="generic_service">
 
                     <h2>Generic service settings</h2>
-                    <div class="row mt16 o_settings_container">
+                    <div class="row mt16 o_settings_container" name="div_service_global_settings">
                         <div class="col-xs-12 o_setting_box">
                             <group name="group_settings_service">
                                 <group name="group_settings_service_left">
