@@ -107,6 +107,12 @@
                         <group colspan="4" name="group_condition_filter"
                                attrs="{'invisible': [('type', '!=', 'filter')]}">
 
+                            <div class="alert alert-warning" role="alert" colspan="4">
+                                <p><b>Warning:</b> This feature is deprecated,
+                                because filters cannot handle NewId records that used
+                                during onchange computation.</p>
+                                <p>Please, change this condition to use other types.</p>
+                            </div>
                             <div colspan="4">
                                 Here you can specify the filter for verification. <br />
                                 <br />

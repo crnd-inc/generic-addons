@@ -40,7 +40,7 @@ class TestCondition(SavepointCase):
         condition = self.Condition.new(defaults)
         self.assertTrue(condition.enable_caching)
         self.assertTrue(condition.active)
-        self.assertEqual(condition.type, 'filter')
+        self.assertEqual(condition.type, 'simple_field')
 
     def test_01_defaults_based_on(self):
         defaults = self.Condition.with_context(
@@ -50,7 +50,7 @@ class TestCondition(SavepointCase):
         condition = self.Condition.new(defaults)
         self.assertTrue(condition.enable_caching)
         self.assertTrue(condition.active)
-        self.assertEqual(condition.type, 'filter')
+        self.assertEqual(condition.type, 'simple_field')
         self.assertEqual(condition.model_id.model, 'res.partner')
 
     def test_02_compute_rel_model_id(self):

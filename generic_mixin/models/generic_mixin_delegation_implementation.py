@@ -245,7 +245,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
     def unlink(self):
         interface_info = self._generic_mixin_delegation__get_interfaces_info()
 
-        # Find deletagion interfaces to be removed
+        # Find delegation interfaces to be removed
         to_cleanup = {
             interface_model: self.sudo().mapped(interface_field)
             for interface_field, interface_model in interface_info.items()
