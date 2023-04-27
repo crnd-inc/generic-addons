@@ -2,7 +2,7 @@
 |---|---|---|---|---|---|
 | base_field_big_int | Base Field Big Int | LGPL-3 | 12.0.0.2.0 | BigInt field implementation for Odoo |  |
 | base_field_m2m_view | Base Field Many2many View | LGPL-3 | 12.0.0.2.0 | Adds Many2manyView field implementation for Odoo. Useful in cases when m2m relation computed via Postgresql View |  |
-| generic_condition | Generic Condition | LGPL-3 | 12.0.1.16.0 | Create generic conditions on which you         can program some logic in Odoo objects |  |
+| generic_condition | Generic Condition | LGPL-3 | 12.0.1.17.0 | Create generic conditions on which you         can program some logic in Odoo objects |  |
 | generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 12.0.1.1.1 | Generic Conditions (Integration with Action Rules) |  |
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 12.0.1.8.0 | Generic Conditions - Tests (do not install manualy) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 12.0.0.4.0 | Technical utils to add encryption to other addons |  |
@@ -15,8 +15,8 @@
 | generic_location_tag | Generic Location Tag | LGPL-3 | 12.0.1.3.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_location_uuid | Generic Location (UUID) | LGPL-3 | 12.0.1.4.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 12.0.1.5.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 12.0.1.72.0 | Technical module with generic mixins, that may help to build other modules |  |
-| generic_resource | Generic Resource | LGPL-3 | 12.0.1.38.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 12.0.1.73.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_resource | Generic Resource | LGPL-3 | 12.0.1.39.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 12.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 12.0.1.20.0 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 12.0.2.7.0 | Generic tag management. |  |
