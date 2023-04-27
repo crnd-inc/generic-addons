@@ -111,7 +111,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
 
             class Workstation(models.Model):
                 _name = 'my.workstation'
-                _inherit = 'my.thing.implementation'
+                _inherit = 'my.thing.implementation.mixin'
 
                 workstation_cpu = fields.Char()
                 workstation_memory = fields.Char()
@@ -135,7 +135,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
         This way, it is possible to implement processes that do not depend on
         concrete implementation model, but require only some kind of interface.
         Also, these mixins automatically handles clean-up actions on deletion
-        and automatic backlins from interface record to implementation record
+        and automatic backlinks from interface record to implementation record
         via generic many2one (model_name + record_id) fields.
     """
     _name = 'generic.mixin.delegation.implementation'
@@ -251,7 +251,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
     def unlink(self):
         interface_info = self._generic_mixin_delegation__get_interfaces_info()
 
-        # Find deletagion interfaces to be removed
+        # Find delegation interfaces to be removed
         to_cleanup = {
             interface_model: self.sudo().mapped(interface_field)
             for interface_field, interface_model in interface_info.items()

@@ -168,7 +168,7 @@ class GenericCondition(models.Model):
          ('current_user', 'Current user'),
          ('monetary_field', 'Monetary field'),
          ('find', 'Find & Check')],
-        default='filter', index=True,
+        default='simple_field', index=True,
         required=True, track_visibility='onchange')
     model_id = fields.Many2one(
         'ir.model', string='Based on model', required=True, index=True,
@@ -531,6 +531,18 @@ class GenericCondition(models.Model):
     def check_filter(self, obj, cache=None, debug_log=None):
         """ Check object with conditions filter applied
         """
+        _logger.warning(
+            "Usage of deprecated condition type 'Filter'. Condition: %s [%s]",
+            self.display_name, self.id)
+
+        if not obj.id:
+            raise exceptions.UserError(_(
+                "Cannot apply conditions %(cond_name)s [%(cond_id)s] of type "
+                "'Filter' to NewId object") % {
+                    'cond_name': self.display_name,
+                    'cond_id': self.id,
+                })
+
         Model = self.env[self.sudo().model_id.model]
 
         filter_obj = self.sudo().condition_filter_id

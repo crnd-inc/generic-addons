@@ -107,7 +107,13 @@
                         <group colspan="4" name="group_condition_filter"
                                attrs="{'invisible': [('type', '!=', 'filter')]}">
 
-                            <div>
+                            <div class="alert alert-warning" role="alert" colspan="4">
+                                <p><b>Warning:</b> This feature is deprecated,
+                                because filters cannot handle NewId records that used
+                                during onchange computation.</p>
+                                <p>Please, change this condition to use other types.</p>
+                            </div>
+                            <div colspan="4">
                                 Here you can specify the filter for verification. <br />
                                 <br />
                             </div>
@@ -122,7 +128,7 @@
                         <group colspan="4" name="group_condition_condition"
                                attrs="{'invisible': [('type', '!=', 'condition')]}">
 
-                            <div>
+                            <div colspan="4">
                                 In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br />
                                 <br />
                             </div>     
@@ -137,7 +143,7 @@
                         <group colspan="4" name="group_condition_eval"
                                attrs="{'invisible': [('type', '!=', 'eval')]}">
 
-                            <div>
+                            <div colspan="4">
                                 By this type you can describe the condition as an expression in the Python programming language. <br />
                                 <br />
                             </div>
@@ -146,7 +152,7 @@
                                    widget="ace" options="{'mode': 'python'}"
                                    attrs="{'required': [('type','=','eval')]}"/>
 
-                            <div>
+                            <div colspan="4">
                                 The following variables are available:
                                 <ul>
                                     <li>obj - object that is checked</li>
@@ -168,7 +174,7 @@
                         <group colspan="4" name="group_condition_group"
                                attrs="{'invisible': [('type', '!=', 'condition_group')]}">
 
-                            <div>
+                            <div colspan="4">
                                 With this type of condition you can use multiple conditions simultaneously. <br />
                                 <br /> 
                             </div>
@@ -188,7 +194,8 @@
                         <group colspan="4" col="4"
                                name="group_condition_related_conditions"
                                attrs="{'invisible': [('type', '!=', 'related_conditions')]}">
-                            <div>
+
+                            <div colspan="4">
                                 This type of condition is used to check the properties of related objects. <br />
                                 <br />
                             </div>
@@ -280,7 +287,7 @@
                                name="group_condition_date_diff"
                                attrs="{'invisible': [('type', '!=', 'date_diff')]}">
 
-                            <div>
+                            <div colspan="4">
                                 This type of the condition allows you to estimate the date difference between certain events. <br />
                                 <br />
                             </div>
@@ -368,7 +375,7 @@
                                name="group_condition_simple_field"
                                attrs="{'invisible': [('type', '!=', 'simple_field')]}">
 
-                            <div>
+                            <div colspan="4">
                                 Here you can create a condition that relates to the simple field of the Odoo object. <br />
                                 <br />
                             </div>
@@ -447,7 +454,7 @@
                                name="group_condition_related_field"
                                attrs="{'invisible': [('type', '!=', 'related_field')]}">
 
-                            <div>
+                            <div colspan="4">
                                 This type of condition applies to related fields. <br />
                                 <br />
                             </div>
@@ -493,7 +500,7 @@
                                name="group_condition_monetary_field"
                                attrs="{'invisible': [('type', '!=', 'monetary_field')]}">
 
-                            <div>
+                            <div colspan="4">
                                 By this type you can create the condition to compare monetary indicators. <br />
                                 <br />
                             </div>
