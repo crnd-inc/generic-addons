@@ -18,6 +18,15 @@ msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
+msgid ""
+"<b>Warning:</b> This feature is deprecated,\n"
+"                                because filters cannot handle NewId records "
+"that used\n"
+"                                during onchange computation."
+msgstr ""
+
+#. module: generic_condition
+#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "<b>Warning:</b> This feature is experimental."
 msgstr ""
 
@@ -89,6 +98,14 @@ msgstr ""
 "За цим типом ви можете описати умову як вираз мовою програмування Python. "
 "<br/>\n"
 "                                <br/>"
+
+#. module: generic_condition
+#: code:addons/generic_condition/models/generic_condition.py:0
+#, python-format
+msgid ""
+"Cannot apply conditions %(cond_name)s [%(cond_id)s] of type 'Filter' to "
+"NewId object"
+msgstr ""
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
@@ -944,6 +961,11 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Order By Field"
+msgstr ""
+
+#. module: generic_condition
+#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
+msgid "Please, change this condition to use other types."
 msgstr ""
 
 #. module: generic_condition
