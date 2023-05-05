@@ -825,7 +825,7 @@ msgstr ""
 "Gibt an, ob dieses Modell Mitteilungen und Benachrichtigungen unterstützt."
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/generic_resource_type.py:65
+#: code:addons/generic_resource/models/generic_resource_type.py:94
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
