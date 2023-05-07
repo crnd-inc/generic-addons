@@ -4,7 +4,6 @@ from odoo import models, fields, api, _
 from odoo.addons.generic_mixin import post_create, post_write
 from odoo.addons.generic_mixin.tools.sql import create_sql_view
 from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
-from odoo.addons.crnd_web_m2o_info_widget import helper_get_many2one_info_data
 
 from ..tools.utils import l_parent_compute, l_parent_inverse
 
@@ -38,7 +37,7 @@ class GenericLocation(models.Model):
     parent_id = fields.Many2one(
         'generic.location', index=True, ondelete='cascade',
         string='Parent Location')
-    parent_path = fields.Char(index=True, readonly=True)
+    parent_path = fields.Char(index=True, readonly=True, unaccent=False)
     parent_ids = fields.Many2manyView(
         comodel_name='generic.location',
         relation='generic_location_parents_rel_view',
@@ -74,6 +73,8 @@ class GenericLocation(models.Model):
     street_use_parent = fields.Boolean(
         string="Use Parent Street"
     )
+    street_readonly = fields.Boolean(
+        related='street_use_parent', readonly=True)
 
     street2 = fields.Char(
         compute=l_parent_compute('street2'),
@@ -84,6 +85,8 @@ class GenericLocation(models.Model):
     street2_use_parent = fields.Boolean(
         string="Use Parent Street2"
     )
+    street2_readonly = fields.Boolean(
+        related='street2_use_parent', readonly=True)
 
     zip = fields.Char(
         compute=l_parent_compute('zip'),
@@ -94,6 +97,8 @@ class GenericLocation(models.Model):
     zip_use_parent = fields.Boolean(
         string="Use Parent Zip"
     )
+    zip_readonly = fields.Boolean(
+        related='zip_use_parent', readonly=True)
 
     city = fields.Char(
         compute=l_parent_compute('city'),
@@ -104,6 +109,8 @@ class GenericLocation(models.Model):
     city_use_parent = fields.Boolean(
         string="Use Parent City"
     )
+    city_readonly = fields.Boolean(
+        related='city_use_parent', readonly=True)
 
     state_id = fields.Many2one(
         'res.country.state', string='State',
@@ -111,11 +118,12 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('state_id'),
         store=False,
     )
-    state_name = fields.Char(related='state_id.name', string='State')
     _state_id = fields.Many2one('res.country.state', string='State')
     state_id_use_parent = fields.Boolean(
         string="Use Parent State"
     )
+    state_id_readonly = fields.Boolean(
+        related='state_id_use_parent', readonly=True)
 
     country_id = fields.Many2one(
         'res.country', string='Country',
@@ -124,12 +132,13 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('country_id'),
         store=False,
     )
-    country_name = fields.Char(related='country_id.name', string='Country')
     _country_id = fields.Many2one(
         'res.country', string='Country')
     country_id_use_parent = fields.Boolean(
         string="Use Parent Country"
     )
+    country_id_readonly = fields.Boolean(
+        related='country_id_use_parent', readonly=True)
 
     _sql_constraints = [
         ('name_description_check',
@@ -168,7 +177,7 @@ class GenericLocation(models.Model):
     @post_create('parent_id')
     @post_write('parent_id')
     def _post_write_invalidate_childs_cache(self, changes):
-        self.invalidate_cache(['parent_ids'])
+        self.invalidate_model(['parent_ids'])
 
     # TODO rewrite method
     # this decorator is deprecated and removed in Odoo 13
@@ -197,23 +206,6 @@ class GenericLocation(models.Model):
             'display_name': _('Sublocations'),
         })
         return action
-
-    def _helper_m2o_info_get_fields(self):
-        """ Find list of fields, that have to be displayed as location info
-            on request form view in 'm2o_info' fields.
-        """
-        return [
-            'name',
-            'street', 'street2', 'city', 'zip', 'country_name', 'state_name',
-        ]
-
-    def helper_m2o_info_data(self):
-        """ Technical method, that is used to prepare data for
-            m2o_info fields.
-        """
-        return helper_get_many2one_info_data(
-            self,
-            self._helper_m2o_info_get_fields())
 
     @api.onchange('parent_id')
     def onchange_parent(self):

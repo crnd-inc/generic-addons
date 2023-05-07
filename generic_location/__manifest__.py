@@ -10,14 +10,13 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '16.0.2.0.0',
+    'version': '16.0.2.0.1',
 
     # any module necessary for this one to work correctly
     'depends': [
         'base_field_m2m_view',
         'generic_mixin',
         'mail',
-        'crnd_web_m2o_info_widget',
     ],
 
     # always loaded
@@ -34,7 +33,7 @@
         'demo/demo_location.xml'
     ],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'application': False,
     "license": "LGPL-3",
 }
