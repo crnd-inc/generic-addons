@@ -51,7 +51,7 @@
                                     <field name="state_id_readonly" invisible="1"/>
                                     <field name="zip_readonly" invisible="1"/>
                                     <field name="country_id_readonly" invisible="1"/>
-                                    <div class="o_address_format">
+                                    <div class="o_address_format" colspan="2">
                                         <field name="street"
                                                class="o_address_street"
                                                placeholder="Street..."
