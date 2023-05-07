@@ -6,6 +6,9 @@
 | generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 16.0.1.1.2 | Generic Conditions (Integration with Action Rules) |  |
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 16.0.1.8.1 | Generic Conditions - Tests (do not install manualy) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 16.0.0.4.1 | Technical utils to add encryption to other addons |  |
+| generic_location | Generic Location | LGPL-3 | 16.0.2.0.1 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
+| generic_location_geo | Generic Location (Geo Coordinates) | LGPL-3 | 16.0.1.2.1 | Generic Location (Add geocoordinates to generic locations) |  |
+| generic_location_tag | Generic Location Tag | LGPL-3 | 16.0.1.3.1 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 16.0.1.5.2 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 16.0.1.73.1 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 16.0.1.40.1 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
