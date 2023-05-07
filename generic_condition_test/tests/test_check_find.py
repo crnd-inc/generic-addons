@@ -1,5 +1,5 @@
 import logging
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 _logger = logging.getLogger(__name__)
 
 try:
@@ -10,7 +10,7 @@ except (ImportError, IOError):  # noqa
         "freezegun not installed. Tests will not work!")  # noqa
 
 
-class TestConditionCheckFind(SavepointCase):
+class TestConditionCheckFind(TransactionCase):
     # Here we have to test Check & find conditions
     # For this case, we will try to find and check calendar meetings related
     # to partner and surveys related to partner.

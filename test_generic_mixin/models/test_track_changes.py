@@ -14,6 +14,7 @@ class TestTrackChangesModel(models.Model):
         'generic.mixin.track.changes',
         'generic.mixin.data.updatable',
     ]
+    _description = "Test Generic Mixin: track changes model"
 
     name = fields.Char()
     value1 = fields.Integer()
