@@ -197,8 +197,8 @@ class TestBasics(TransactionCase):
 
         # Refresh test_tag_3 record, to recompute objects_count.
         # objects count compute method have no 'depends' spec,
-        # So we need manualy refresh cache
-        self.test_tag_3.refresh()  # This is required
+        # So we need manualy invalidate cache
+        self.test_tag_3.invalidate_recordset()  # This is required
         self.assertEqual(self.test_tag_3.objects_count, 2)
 
     def test_80_action_show_tags(self):

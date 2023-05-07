@@ -76,7 +76,7 @@ class IrModel(models.Model):
                     "to 'False'."))
 
             res = super(IrModel, self).write(vals)
-            self.flush()
+            self.flush_model()
             # setup models; this reloads custom models in registry
             self.pool.setup_models(self._cr)
             # update database schema of models

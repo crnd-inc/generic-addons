@@ -42,7 +42,7 @@ class TestSecurity(TransactionCase):
 
         # We need here to clean caches, because record contains data read by
         # superuser
-        urec.refresh()
+        urec.invalidate_recordset()
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
@@ -92,7 +92,7 @@ class TestSecurity(TransactionCase):
         urec.ensure_one()
         # We need here to clean caches, because record contains data read by
         # superuser
-        urec.refresh()
+        urec.invalidate_recordset()
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
@@ -142,7 +142,7 @@ class TestSecurity(TransactionCase):
         urec.ensure_one()
         # We need here to clean caches, because record contains data read by
         # superuser
-        urec.refresh()
+        urec.invalidate_recordset()
         self.assertEqual(len(urec.tag_ids), 0)
 
         self.demo_user.groups_id |= self.group_tags_test_group

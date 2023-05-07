@@ -242,9 +242,8 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
 
             # We have to ensure that all changes writtent to avoid unique
             # constraint voilations (for implementation_id field)
-            rec.sudo()[interface_field].flush(
-                fnames=[Interface._generic_mixin_implementation_id_field],
-                records=rec.sudo()[interface_field])
+            rec.sudo()[interface_field].flush_recordset(
+                fnames=[Interface._generic_mixin_implementation_id_field])
 
         return rec
 

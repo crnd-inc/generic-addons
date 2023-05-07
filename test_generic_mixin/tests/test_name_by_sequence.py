@@ -14,7 +14,7 @@ class NameBySequenceTest(TransactionCase):
         ], order='company_id', limit=1)
 
     def _get_next_sequence_number(self):
-        self.test_sequence.refresh()
+        self.test_sequence.invalidate_recordset()
         return self.test_sequence.read(
             ['number_next_actual']
         )[0]['number_next_actual']

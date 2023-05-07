@@ -42,7 +42,7 @@ class UpdatableMixinTest(TransactionCase):
         self.assertTrue(r.ir_model_data_no_update)
 
         r.ir_model_data_no_update = False
-        r.invalidate_cache()
+        r.invalidate_recordset()
         self.assertTrue(r.ir_model_data_no_update)
 
     def test_mixin_noupdate_on_write(self):
