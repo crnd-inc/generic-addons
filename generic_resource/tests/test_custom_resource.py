@@ -5,8 +5,7 @@ from odoo.addons.generic_mixin.tests.common import (
 )
 
 
-@tagged('-at_install')
-@tagged('post_install')
+@tagged('-at_install', 'post_install')
 class TestCustomResource(ReduceLoggingMixin, TransactionCase):
 
     def setUp(self):
