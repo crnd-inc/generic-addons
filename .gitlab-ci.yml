@@ -110,7 +110,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 test_installation_no_demo:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:12.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:13.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db-clean
