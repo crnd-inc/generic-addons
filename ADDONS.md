@@ -10,7 +10,7 @@
 | generic_location_address | Generic Location (Address) [Obsolete] | LGPL-3 | 12.0.1.6.0 | The functionality of this module was merged into the 'generic_location' module, thus this module could be safely removed. |  |
 | generic_location_geo | Generic Location (Geo Coordinates) | LGPL-3 | 12.0.1.1.0 | Generic Location (Add geocoordinates to generic locations) |  |
 | generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 12.0.1.5.0 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
-| generic_location_google_maps | Generic Location (Google Maps) | AGPL-3 | 12.0.1.2.0 | Generic Location (View locations on google maps) |  |
+| generic_location_google_maps | Generic Location (Google Maps) | AGPL-3 | 12.0.1.3.0 | Generic Location (View locations on google maps) |  |
 | generic_location_google_maps_tag | Generic Location (Google Maps + Tags) | AGPL-3 | 12.0.1.2.0 | Generic Location (Techinical addon that         shows location tags on map view) |  |
 | generic_location_tag | Generic Location Tag | LGPL-3 | 12.0.1.3.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_location_uuid | Generic Location (UUID) | LGPL-3 | 12.0.1.4.0 | Generic Location (Add UUID to generic locations) |  |
