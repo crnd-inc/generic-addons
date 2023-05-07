@@ -3,6 +3,35 @@ from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 
 
 class GenericResourceType(models.Model):
+    '''
+            Creating new resource type.
+    To correctly create a new resource type and bind it to the corresponding
+    model, you need to perform the following steps.
+    Example:
+        1. In the module, in the models folder, create a model
+    file your_model.py or use an already created one.
+    The model must inherit the mixin ‘generic.resource.mixin’
+
+    class YourModel(models.Model):
+        _name = 'your.model'
+        _inherit = 'generic.resource.mixin'
+
+        2. In the module, in the data folder, create the file
+    generic_resource_type.xml with a description of the new type
+    of resource where the new model must be specified
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <odoo noupdate="1">
+            <record id="generic_resource_type_your_model"
+                    model="generic.resource.type">
+                <field name="name">Generic Resource Type Your Model</field>
+                <field name="model_id" ref="model_your_model"/>
+            </record>
+        </odoo>
+
+    It`s all!
+    A new resource type has been created.
+    '''
     _name = 'generic.resource.type'
     _inherit = [
         'generic.mixin.track.changes',
