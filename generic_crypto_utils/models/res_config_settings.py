@@ -63,3 +63,9 @@ class ResConfigSettings(models.TransientModel):
                 self.env['generic.crypto.param'].set_param(
                     param_name, self[name])
         return res
+
+    def _valid_field_parameter(self, field, name):
+        # Make crypto_param field attribute valid for this model
+        if name == 'crypto_param':
+            return True
+        return super()._valid_field_parameter(field, name)

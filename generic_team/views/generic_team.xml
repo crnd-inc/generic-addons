@@ -82,7 +82,10 @@
                                 <div class="gt-kanban-team-left"><field name="leader_image" widget='image' class="oe_avatar" nolabel="1"/></div>
                                 <div class="gt-kanban-team-center"><t t-esc="record.leader_name.raw_value"/></div>
                                 <div t-if="record.user_count.raw_value" class="text-muted gt-kanban-team-right" >
-                                    <span><i class="fa fa-users mr4"/><span t-esc="record.user_count.raw_value"/></span>
+                                    <span>
+                                        <i class="fa fa-users mr4" title="Users"/>
+                                        <span t-esc="record.user_count.raw_value"/>
+                                    </span>
                                 </div>
                             </div>
                         </div>
