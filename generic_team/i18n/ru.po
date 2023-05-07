@@ -100,6 +100,11 @@ msgstr ""
 "        "
 
 #. module: generic_team
+#: model_terms:ir.ui.view,arch_db:generic_team.generic_team_kanban
+msgid "<i class=\"fa fa-users mr4\" title=\"Users\"/>"
+msgstr ""
+
+#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction
 msgid "Action Needed"
 msgstr "Требуется действие"
