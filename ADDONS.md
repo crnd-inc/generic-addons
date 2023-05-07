@@ -9,12 +9,12 @@
 | generic_location | Generic Location | LGPL-3 | 14.0.2.0.0 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
 | generic_location_address | Generic Location (Address) [Obsolete] | LGPL-3 | 14.0.1.6.0 | The functionality of this module was merged into the 'generic_location' module, thus this module could be safely removed. |  |
 | generic_location_geo | Generic Location (Geo Coordinates) | LGPL-3 | 14.0.1.2.0 | Generic Location (Add geocoordinates to generic locations) |  |
-| generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 14.0.1.5.0 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
+| generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 14.0.1.6.0 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
 | generic_location_tag | Generic Location Tag | LGPL-3 | 14.0.1.3.0 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_location_uuid | Generic Location (UUID) | LGPL-3 | 14.0.1.4.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 14.0.1.5.0 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 14.0.1.73.0 | Technical module with generic mixins, that may help to build other modules |  |
-| generic_resource | Generic Resource | LGPL-3 | 14.0.1.39.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
+| generic_resource | Generic Resource | LGPL-3 | 14.0.1.40.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 14.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 14.0.1.20.0 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 14.0.2.7.0 | Generic tag management. |  |
@@ -27,4 +27,4 @@
 | generic_team | Generic team | LGPL-3 | 14.0.1.14.0 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
 | google_maps_api_js | CR&D Google Maps API JS | Other proprietary | 14.0.0.3.0 |  |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 14.0.0.10.0 | Technical module that have to be used to test Generic Crypto Utils module |  |
-| test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 14.0.0.18.0 | Technical module that have to be used to test Generic Mixin module |  |
+| test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 14.0.0.19.0 | Technical module that have to be used to test Generic Mixin module |  |

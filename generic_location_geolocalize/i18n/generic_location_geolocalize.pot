@@ -30,6 +30,11 @@ msgid "Display Name"
 msgstr ""
 
 #. module: generic_location_geolocalize
+#: model:ir.model,name:generic_location_geolocalize.model_generic_location_geolocalize_mixin
+msgid "Generic Location Geolocalize Mixin"
+msgstr ""
+
+#. module: generic_location_geolocalize
 #: model_terms:ir.ui.view,arch_db:generic_location_geolocalize.generic_location_form_view
 msgid "Geolocalize"
 msgstr ""
@@ -93,9 +98,4 @@ msgstr ""
 #. module: generic_location_geolocalize
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__zip
 msgid "Zip"
-msgstr ""
-
-#. module: generic_location_geolocalize
-#: model:ir.model,name:generic_location_geolocalize.model_generic_location_geolocalize_mixin
-msgid "generic.location.geolocalize.mixin"
 msgstr ""
