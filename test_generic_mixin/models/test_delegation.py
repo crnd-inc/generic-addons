@@ -103,6 +103,7 @@ class TestDelegationMultiInterface(models.Model):
         'test.generic.mixin.interface.2.impl.mixin',
         'generic.mixin.track.changes',
     ]
+    _description = "Test Generic Mixin: Multi interface implementation"
 
     name = fields.Char()
 
@@ -120,6 +121,7 @@ class TestDelegationMultiInterfaceNoDelImpl(models.Model):
         'test.generic.mixin.interface.1.impl.mixin',
         'generic.mixin.track.changes',
     ]
+    _description = "Test Generic Mixin: Interface no del impl"
 
     name = fields.Char()
 

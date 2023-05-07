@@ -8,6 +8,7 @@ class TestNameBySequenceNoField(models.Model):
     _inherit = [
         'generic.mixin.name.by.sequence',
     ]
+    _description = "Test Generic Mixin: Name by Sequence: No Field"
     _name_by_sequence_auto_add_field = True
     _name_by_sequence_sequence_code = (
         'generic.mixin.test.name.by.sequence.name')
@@ -18,6 +19,7 @@ class TestNameBySequenceCustomField(models.Model):
     _inherit = [
         'generic.mixin.name.by.sequence',
     ]
+    _description = "Test Generic Mixin: Name by Sequence: Custom Field"
     _name_by_sequence_auto_add_field = True
     _name_by_sequence_name_field = 'my_name'
     _name_by_sequence_sequence_code = (
@@ -29,6 +31,7 @@ class TestNameBySequenceCustomFieldCustomName(models.Model):
     _inherit = [
         'generic.mixin.name.by.sequence',
     ]
+    _description = "Test Generic Mixin: Name by Sequence: Custom Field Name"
     _name_by_sequence_auto_add_field = True
     _name_by_sequence_name_field = 'my_name'
     _name_by_sequence_sequence_code = (
@@ -42,6 +45,7 @@ class TestNameBySequenceNoSequence(models.Model):
     _inherit = [
         'generic.mixin.name.by.sequence',
     ]
+    _description = "Test Generic Mixin: Name by Sequence: No Sequence"
     _name_by_sequence_auto_add_field = True
 
 
@@ -50,6 +54,7 @@ class TestNameBySequenceNoSequenceNoField(models.Model):
     _inherit = [
         'generic.mixin.name.by.sequence',
     ]
+    _description = "Test Generic Mixin: Name by Sequence: No Field No Sequence"
 
 
 class TestNameBySequenceNoFieldCustomField(models.Model):
@@ -57,6 +62,7 @@ class TestNameBySequenceNoFieldCustomField(models.Model):
     _inherit = [
         'generic.mixin.name.by.sequence',
     ]
+    _description = "Test Generic Mixin: Name by Sequence: No Field CustomField"
     _name_by_sequence_sequence_code = (
         'generic.mixin.test.name.by.sequence.name')
 
@@ -68,5 +74,6 @@ class TestNameBySequenceNoSequenceNoFieldCustomField(models.Model):
     _inherit = [
         'generic.mixin.name.by.sequence',
     ]
+    _description = "Test Generic Mixin: Name by Seq: No Field No Seq Custom F"
 
     name = fields.Char(default='New')
