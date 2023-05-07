@@ -16,7 +16,7 @@ class GenericResourceSimple(models.Model):
     _inv_number_in_display_name = True
 
     name = fields.Char(index=True, required=True, translate=True)
-    active = fields.Boolean(related="resource_id.active", default=True)
+    active = fields.Boolean(related="resource_id.active")
     category_id = fields.Many2one(
         'generic.resource.simple.category',
         'Category', index=True, ondelete='restrict')
