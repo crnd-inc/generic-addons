@@ -42,6 +42,7 @@ build_env:
         - whoami
         - odoo-helper --version
         - odoo-helper status --tools-versions --ci-tools-versions
+        - odood --version
         - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^12.0(-.*)?$ ]]
 
 flake8:
@@ -101,13 +102,27 @@ tests:
     stage: test
     <<: *pip_cache_definition
     before_script:
-        - odoo-helper link .
-        - apt update -q
-        - apt install -qy poppler-utils
+        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
+        - odood addons link -r .
     script:
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 90 --create-test-db --dir .
+        - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 90 --dir .
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
+
+test_installation_no_demo:
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:12.0-ci
+    stage: test
+    variables:
+        ODOO_DB_NAME: test-db-clean
+    <<: *pip_cache_definition
+    before_script:
+        - sudo apt-get update && sudo apt-get install -y libmagic1
+        # TODO: Use Odood here too
+        - odoo-helper link .
+        - odoo-helper db create $ODOO_DB_NAME
+    script:
+        - odoo-helper addons install --db "$ODOO_DB_NAME" --dir-r . --show-log-on-error
+    <<: *except_auto_commits
 
 migration_tests:
     image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:12.0-ci
@@ -116,20 +131,10 @@ migration_tests:
         ODOO_DB_NAME: test-db
     <<: *pip_cache_definition
     before_script:
-        - apt update -q
-        - apt install -qy poppler-utils
-        - git checkout $SERIES_BRANCH
-        - git pull
-        - odoo-helper link .
-        - odoo-helper --use-unbuffer db create --demo $ODOO_DB_NAME
-        - odoo-helper --use-unbuffer addons install --db $ODOO_DB_NAME --dir .
-        - git checkout $CI_COMMIT_SHA
-        - git clean -fdx
-        - odoo-helper link .
-        - odoo-helper --use-unbuffer addons update-list
-        - odoo-helper --use-unbuffer addons update --db $ODOO_DB_NAME --dir .
+        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
+        - odood addons link -f .
     script:
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 90 --dir .
+        - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=90 --dir .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     <<: *only_dev_branch
     <<: *except_auto_commits

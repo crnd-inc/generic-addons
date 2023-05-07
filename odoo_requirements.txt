@@ -1,1 +1,2 @@
 --github crnd-inc/crnd-web.git --module crnd_web_m2o_info_widget
+--github gityopie/odoo-addons.git
