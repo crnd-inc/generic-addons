@@ -1,1 +1,0 @@
---repo https://github.com/gityopie/odoo-addons.git --name gityopie-odoo-addons
