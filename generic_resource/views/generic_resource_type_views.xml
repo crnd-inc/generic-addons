@@ -39,7 +39,7 @@
                         </h1>
                     </div>
                     <notebook>
-                        <page name="system" string="System">
+                        <page name="page_info" string="Info">
                             <group name="group_root">
                                 <group name="group_left"
                                        string="System Info"
