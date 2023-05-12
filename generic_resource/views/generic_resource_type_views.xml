@@ -39,24 +39,17 @@
                         </h1>
                     </div>
                     <notebook>
-                        <page string="System Info" name="page_system_info" groups="base.group_no_one">
-                            <group name="group_system_root">
-                                <group name="group_system_left"
-                                       string="System Info">
+                        <page name="system" string="System">
+                            <group name="group_root">
+                                <group name="group_left"
+                                       string="System Info"
+                                       groups="base.group_no_one">
                                     <field name="model_id" readonly="1"/>
                                     <field name="resource_related_res_action_id" readonly="1"/>
                                 </group>
-                                <group name="group_system_right">
-                                </group>
-                            </group>
-                        </page>
-                        <page string="Parameters" name="page_parameters">
-                            <group name="group_parameters_root">
-                                <group name="group_parameters_left">
+                                <group name="group_right" string="Parameters">
                                     <field name="resource_visibility"/>
                                     <field name="sequence" groups="base.group_no_one"/>
-                                </group>
-                                <group name="group_parameters_right">
                                 </group>
                             </group>
                         </page>
