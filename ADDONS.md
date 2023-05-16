@@ -11,7 +11,7 @@
 | generic_location_tag | Generic Location Tag | LGPL-3 | 16.0.1.3.1 | This addon provides integration betwen *Generic         Location* and *Generic Tag* addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 16.0.1.5.2 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 16.0.1.73.1 | Technical module with generic mixins, that may help to build other modules |  |
-| generic_resource | Generic Resource | LGPL-3 | 16.0.1.40.1 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
+| generic_resource | Generic Resource | LGPL-3 | 16.0.1.41.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 16.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 16.0.1.20.1 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 16.0.2.7.0 | Generic tag management. |  |
