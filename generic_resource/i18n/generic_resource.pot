@@ -323,6 +323,7 @@ msgstr ""
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
+#: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 msgid "Info"
 msgstr ""
 
