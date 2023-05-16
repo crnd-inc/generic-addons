@@ -37,18 +37,22 @@
                             <field name="name" placeholder="Name"/>
                         </h1>
                     </div>
-                    <group name="group_root">
-                        <group name="group_left"
-                               string="System Info"
-                               groups="base.group_no_one">
-                            <field name="model_id" readonly="1"/>
-                            <field name="resource_related_res_action_id" readonly="1"/>
-                        </group>
-                        <group name="group_right" string="Parameters">
-                            <field name="resource_visibility"/>
-                            <field name="sequence" groups="base.group_no_one"/>
-                        </group>
-                    </group>
+                    <notebook>
+                        <page name="page_info" string="Info">
+                            <group name="group_root">
+                                <group name="group_left"
+                                       string="System Info"
+                                       groups="base.group_no_one">
+                                    <field name="model_id" readonly="1"/>
+                                    <field name="resource_related_res_action_id" readonly="1"/>
+                                </group>
+                                <group name="group_right" string="Parameters">
+                                    <field name="resource_visibility"/>
+                                    <field name="sequence" groups="base.group_no_one"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
