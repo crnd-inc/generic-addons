@@ -44,14 +44,12 @@
                         <h1>
                             <field name="name" placeholder="Name"/>
                         </h1>
-                        <h2>
-                            <field name="code" placeholder="Code..."/>
-                        </h2>
                     </div>
                     <notebook>
                         <page string="Info" name="page_info">
                             <group>
                                 <group name="group_info_left">
+                                    <field name="code" placeholder="Code..."/>
                                     <field name="change_manager_id"/>
                                     <field name="service_group_id"/>
                                     <field name="sequence"/>
@@ -74,17 +72,17 @@
                                         <button name="action_lifecycle_state__activate"
                                                 type="object"
                                                 string="Activate"
-                                                class="btn btn-sm oe_inline oe_highlight ml-4"
+                                                class="btn btn-outline-success btn-sm oe_inline oe_highlight ml-4"
                                                 attrs="{'invisible': [('lifecycle_state', '!=', 'draft')]}"/>
                                         <button name="action_lifecycle_state__obsolete"
                                                 type="object"
                                                 string="Obsolete"
-                                                class="btn btn-sm oe_inline ml-4"
+                                                class="btn btn-outline-info btn-sm oe_inline ml-4"
                                                 attrs="{'invisible': [('lifecycle_state', '!=', 'active')]}"/>
                                         <button name="action_lifecycle_state__archive"
                                                 type="object"
                                                 string="Archive"
-                                                class="btn btn-sm oe_inline ml-4"
+                                                class="btn btn-outline-danger btn-sm oe_inline ml-4"
                                                 attrs="{'invisible': [('lifecycle_state', '!=', 'obsolete')]}"/>
 
                                     </div>
