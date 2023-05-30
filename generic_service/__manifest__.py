@@ -8,7 +8,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
-    'version': '14.0.1.20.0',
+    'version': '14.0.1.21.0',
 
     # any module necessary for this one to work correctly
     'depends': [
