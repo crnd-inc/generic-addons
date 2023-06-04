@@ -205,6 +205,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
     def create(self, vals):
         interface_info = self._generic_mixin_delegation__get_interfaces_info()
         values = []
+        tmp_id = -1
         for vals_row in vals:
             # Copy original item from vals, to avoid side effects
             val = dict(vals_row)
@@ -223,7 +224,10 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
                 val[
                     implementation_id_field
                 ] = Interface._generic_mixin_guard__wrap_field(
-                    implementation_id_field, -1)
+                    implementation_id_field, tmp_id)
+
+                # Decrement temporary ID to avoid uniq constraint violation
+                tmp_id -= 1
 
             values += [val]
 
