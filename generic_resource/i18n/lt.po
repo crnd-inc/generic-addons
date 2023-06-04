@@ -146,7 +146,7 @@ msgid "Equipment"
 msgstr ""
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/ir_model.py:72
+#: code:addons/generic_resource/models/ir_model.py:73
 #, python-format
 msgid "Field 'Is Generic Resource' cannot be changed to 'False'."
 msgstr ""
@@ -490,7 +490,7 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: generic_resource
-#: code:addons/generic_resource/models/ir_model.py:66
+#: code:addons/generic_resource/models/ir_model.py:67
 #, python-format
 msgid "Only custom models can be modified."
 msgstr ""

@@ -509,7 +509,7 @@ msgid "Tags related to category %s"
 msgstr ""
 
 #. module: generic_tag
-#: code:addons/generic_tag/models/generic_tag_model.py:66
+#: code:addons/generic_tag/models/generic_tag_model.py:67
 #, python-format
 msgid "Tags related to model %s"
 msgstr ""
