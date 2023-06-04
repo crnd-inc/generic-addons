@@ -75,17 +75,21 @@ class GenericResourceMixin(models.AbstractModel):
             self.with_context(generic_resource_type_model=self._name)
         ).default_get(fields_list)
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        values = self._get_resource_type()._get_resource_defaults()
-        values.update(vals)
+        values = [
+            dict(self._get_resource_type()._get_resource_defaults(), **v)
+            for v in vals
+        ]
 
         # Create record
-        rec = super().create(values)
+        records = super().create(values)
 
         # Call 'on_resource_created' hook
-        rec.resource_id.on_resource_created()
-        return rec
+        for record in records:
+            # TODO: Support multi-record in on_resource_created
+            record.resource_id.on_resource_created()
+        return records
 
     def _get_resource_type(self):
         return self.env['generic.resource.type'].get_resource_type(self._name)

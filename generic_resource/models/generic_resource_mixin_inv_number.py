@@ -48,13 +48,19 @@ class GenericResourceMixinInvNumber(models.AbstractModel):
         'Inventory Number', index=True, required=True,
         readonly=True, default='', copy=False)
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        if self._inv_number_seq_code is not None and (
-                not vals.get('inv_number')):
-            vals['inv_number'] = self.env['ir.sequence'].next_by_code(
-                self._inv_number_seq_code)
-        result = super(GenericResourceMixinInvNumber, self).create(vals)
+        values = []
+        for val in vals:
+            # Copy value, that could be modified
+            value = dict(val)
+            # Set inv_number if needed
+            if self._inv_number_seq_code is not None and (
+                    not value.get('inv_number')):
+                value['inv_number'] = self.env['ir.sequence'].next_by_code(
+                    self._inv_number_seq_code)
+            values += [value]
+        result = super(GenericResourceMixinInvNumber, self).create(values)
         return result
 
     def name_get(self):

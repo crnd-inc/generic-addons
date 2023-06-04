@@ -32,28 +32,29 @@ class GenericTagModel(models.Model):
     ]
 
     def _create_context_action_for_target_model(self):
-        ActWindow = self.env['ir.actions.act_window']
-        for record in self:
-            if not record.act_manage_tags_id:
-                self.act_manage_tags_id = ActWindow.create({
-                    'name': 'Manage Tags',
-                    'binding_type': 'action',
-                    'binding_model_id': self.res_model_id.id,
-                    'res_model': 'generic.tag.wizard.manage.tags',
-                    'view_mode': 'form',
-                    'target': 'new',
-                    'context': (
-                        "{"
-                        "'manage_tags_model': active_model,"
-                        "'manage_tags_object_ids': active_ids,"
-                        "}"),
-                })
+        self.env['ir.actions.act_window'].create([
+            {
+                'name': 'Manage Tags',
+                'binding_type': 'action',
+                'binding_model_id': record.res_model_id.id,
+                'res_model': 'generic.tag.wizard.manage.tags',
+                'view_mode': 'form',
+                'target': 'new',
+                'context': (
+                    "{"
+                    "'manage_tags_model': active_model,"
+                    "'manage_tags_object_ids': active_ids,"
+                    "}"),
+            }
+            for record in self
+            if not record.act_manage_tags_id
+        ])
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        record = super(GenericTagModel, self).create(vals)
-        record._create_context_action_for_target_model()
-        return record
+        records = super(GenericTagModel, self).create(vals)
+        records._create_context_action_for_target_model()
+        return records
 
     def unlink(self):
         self.mapped('act_manage_tags_id').unlink()

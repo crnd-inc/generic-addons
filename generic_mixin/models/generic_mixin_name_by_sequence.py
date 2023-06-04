@@ -65,8 +65,7 @@ class GenericMixinNameBySequence(models.AbstractModel):
                 fsequence) or fdefault
         return vals
 
-    # TODO: add support for batch create
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        vals = self._name_by_sequence_update_name_in_vals(vals)
+        vals = [self._name_by_sequence_update_name_in_vals(v) for v in vals]
         return super(GenericMixinNameBySequence, self).create(vals)
