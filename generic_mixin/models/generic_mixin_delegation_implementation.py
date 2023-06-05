@@ -234,15 +234,15 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
         # Create record
         records = super().create(values)
 
-        for record in records:
-            for interface_field, interface_model in interface_info.items():
-                # Find delegation interface model
-                Interface = self.env[interface_model]
+        for interface_field, interface_model in interface_info.items():
+            # Find delegation interface model
+            Interface = self.env[interface_model]
 
-                # Find name of field that represents ID of implementation
-                implementation_id_field = (
-                    Interface._generic_mixin_implementation_id_field)
+            # Find name of field that represents ID of implementation
+            implementation_id_field = (
+                Interface._generic_mixin_implementation_id_field)
 
+            for record in records:
                 # Update res_id with created id
                 record.sudo()[interface_field].write({
                     implementation_id_field:
