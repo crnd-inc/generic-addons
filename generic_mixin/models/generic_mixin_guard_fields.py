@@ -108,10 +108,10 @@ class GenericMixinGuardFields(models.AbstractModel):
 
         return res
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        res = self._generic_mixin_guard__do_guard_fields(vals)
-        return super().create(res)
+        values = [self._generic_mixin_guard__do_guard_fields(v) for v in vals]
+        return super().create(values)
 
     def write(self, vals):
         res = self._generic_mixin_guard__do_guard_fields(vals)
