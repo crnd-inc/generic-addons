@@ -14,7 +14,6 @@ class TestDelegation(ReduceLoggingMixin, TransactionCase):
         super().setUpClass()
 
     def test_create_implementation_multi_interfaces(self):
-
         rec = self.env['test.generic.mixin.multi.interface.impl'].create({
             'interface_1_test_field_1': 'Hello',
             'interface_2_test_field_1': 'World',
@@ -28,6 +27,47 @@ class TestDelegation(ReduceLoggingMixin, TransactionCase):
         self.assertEqual(
             rec.interface_2_impl_model,
             'test.generic.mixin.multi.interface.impl')
+
+    def test_create_implementation_multi_interfaces_batch_create(self):
+        recs = self.env['test.generic.mixin.multi.interface.impl'].create([
+            {
+                'interface_1_test_field_1': 'Hello',
+                'interface_2_test_field_1': 'World',
+                'name': "test",
+            },
+            {
+                'interface_1_test_field_1': 'Test',
+                'interface_2_test_field_1': 'Second',
+                'name': "test second",
+            },
+        ])
+        self.assertEqual(
+            recs[0].interface_1_id.interface_1_impl_id, recs[0].id)
+        self.assertEqual(
+            recs[0].interface_2_id.interface_2_impl_id, recs[0].id)
+        self.assertEqual(
+            recs[0].interface_1_impl_model,
+            'test.generic.mixin.multi.interface.impl')
+        self.assertEqual(
+            recs[0].interface_2_impl_model,
+            'test.generic.mixin.multi.interface.impl')
+        self.assertEqual(recs[0].interface_1_test_field_1, 'Hello')
+        self.assertEqual(recs[0].interface_2_test_field_1, 'World')
+        self.assertEqual(recs[0].name, 'test')
+
+        self.assertEqual(
+            recs[1].interface_1_id.interface_1_impl_id, recs[1].id)
+        self.assertEqual(
+            recs[1].interface_2_id.interface_2_impl_id, recs[1].id)
+        self.assertEqual(
+            recs[1].interface_1_impl_model,
+            'test.generic.mixin.multi.interface.impl')
+        self.assertEqual(
+            recs[1].interface_2_impl_model,
+            'test.generic.mixin.multi.interface.impl')
+        self.assertEqual(recs[1].interface_1_test_field_1, 'Test')
+        self.assertEqual(recs[1].interface_2_test_field_1, 'Second')
+        self.assertEqual(recs[1].name, 'test second')
 
     def test_create_with_implementation_id(self):
         rec = self.env['test.generic.mixin.multi.interface.impl'].create({

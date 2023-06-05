@@ -518,13 +518,12 @@ class GenericMixInTrackChanges(models.AbstractModel):
             Similar to 'get_changed_fields', but use empty record to
             compute old_val.
         """
-        # Prepare dict with changes
+        # Prepare dict with changes for pre-create handlers
         # changes = {
         #     field1: (old_value, new_value),
         # }
 
         # Generate changes, using empty record as old value
-        # TODO: may be it have sense to handle default values here
         changes = {}
         dummy_record = self.browse()
         for fname, fval in vals.items():
@@ -551,8 +550,12 @@ class GenericMixInTrackChanges(models.AbstractModel):
                 changes[fname] = FieldChange(old_value, new_value)
         return changes
 
-    @api.model
-    def create(self, vals):
+    def _preprocess_create_changes(self, vals):
+        """ Preprocess create changes.
+
+            :param dict vals: values to preprocess
+            :return dict: preprocessed values to be supplied to create method
+        """
         changes = self._create__get_changed_fields(vals)
 
         # Run pre-create hooks and update vals with new changes (if needed)
@@ -563,11 +566,45 @@ class GenericMixInTrackChanges(models.AbstractModel):
                 if handler_res and isinstance(handler_res, dict):
                     vals.update(handler_res)
 
-        record = super(GenericMixInTrackChanges, self).create(vals)
+        return vals
 
-        # Run post-create handlers
+    def _postprocess_create_changes(self, record, changed_fields):
+        """ Run postprocess handlers for provided record.
+
+            :param recordset record: Record to run postprocessing for
+            :param set[str] changed_fields: Set that represents changed fields
+        """
+        # Prepare dict with changes for post-create handlers
+        #     changes = {
+        #         field1: (old_value, new_value),
+        #     }
+
+        # Generate changes, using empty record as old value
+        changes = {}
+        dummy_record = self.browse()
+        for fname in changed_fields:
+            old_value = dummy_record[fname]
+            new_value = record[fname]
+            if old_value != new_value:
+                changes[fname] = FieldChange(old_value, new_value)
+
         for hdl in self._generic_tracking_handler_data['post_create_handlers']:
             if not hdl['fields'] or set(hdl['fields']) & set(changes):
                 getattr(record, hdl['method'])(changes)
 
-        return record
+    @api.model_create_multi
+    def create(self, vals):
+        # Save changed fields for post-create handlers
+        changed_fields = {f for v in vals for f in v}
+
+        # Run pre-create handlers
+        vals = [self._preprocess_create_changes(v) for v in vals]
+
+        # Run actual create handler
+        records = super().create(vals)
+
+        # Run post-create handlers
+        for record in records:
+            self._postprocess_create_changes(record, changed_fields)
+
+        return records
