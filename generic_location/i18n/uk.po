@@ -17,26 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location___city
-msgid " City"
-msgstr ""
-
-#. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location___street
-msgid " Street"
-msgstr ""
-
-#. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location___street2
-msgid " Street2"
-msgstr ""
-
-#. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location___zip
-msgid " Zip"
-msgstr ""
-
-#. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user
 msgid "Access generic locations"
 msgstr "Доступ загальної локації"
@@ -69,6 +49,12 @@ msgstr ""
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Address Configuration"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location__state_name
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
 msgstr ""
 
 #. module: generic_location
@@ -130,12 +116,16 @@ msgid "Contact"
 msgstr ""
 
 #. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location___country_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__country_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__country_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Country"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__country_name
+msgid "Country Name"
 msgstr ""
 
 #. module: generic_location
@@ -193,6 +183,11 @@ msgstr "Підписники (Партнери)"
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
 msgid "Generic Location"
 msgstr "Загальна Локація"
+
+#. module: generic_location
+#: model:ir.model,name:generic_location.model_generic_location_address_mixin
+msgid "Generic Location Address Mixin"
+msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_res_partner__generic_location_count
@@ -428,12 +423,16 @@ msgid "Settings"
 msgstr ""
 
 #. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location___state_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__state_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__state_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "State"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__state_name
+msgid "State Name"
 msgstr ""
 
 #. module: generic_location
@@ -470,6 +469,36 @@ msgstr ""
 #, python-format
 msgid "Sublocations"
 msgstr "Сублокація"
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___city
+msgid "System City"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___country_id
+msgid "System Country"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___state_id
+msgid "System State"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___street
+msgid "System Street"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___street2
+msgid "System Street2"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location___zip
+msgid "System Zip"
+msgstr ""
 
 #. module: generic_location
 #: model:ir.model.constraint,message:generic_location.constraint_generic_location_name_description_check
@@ -544,11 +573,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__zip
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__zip
 msgid "Zip"
-msgstr ""
-
-#. module: generic_location
-#: model:ir.model,name:generic_location.model_generic_location_address_mixin
-msgid "generic.location.address.mixin"
 msgstr ""
 
 #~ msgid "Number of unread messages"
