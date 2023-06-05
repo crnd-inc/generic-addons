@@ -40,7 +40,7 @@ class GenericTag(models.Model):
         string="Name of Category")
     objects_count = fields.Integer(
         string="Objects", compute="_compute_objects_count",
-        store=False, readonly=True, tracking=True,
+        store=False, readonly=True,
         help="How many objects contains this tag")
     group_ids = fields.Many2many('res.groups', string='Groups')
     color = fields.Integer()
