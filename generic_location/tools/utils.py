@@ -41,7 +41,8 @@ def l_parent_compute(field_name):
     """
     hfield, cfield = l_parent_get_field_names(field_name)
 
-    @api.depends(hfield, cfield, 'parent_id')
+    @api.depends(hfield, cfield, 'parent_id', 'parent_ids',
+                 'parent_id.%s' % field_name)
     def _compute_func(self):
         for record in self:
             record[field_name] = l_parent_get_value(

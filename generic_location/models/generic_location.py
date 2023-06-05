@@ -67,7 +67,7 @@ class GenericLocation(models.Model):
     street = fields.Char(
         compute=l_parent_compute('street'),
         inverse=l_parent_inverse('street'),
-        store=False,
+        store=True, recursive=True,
     )
     _street = fields.Char(string="System Street")
     street_use_parent = fields.Boolean(
@@ -79,7 +79,7 @@ class GenericLocation(models.Model):
     street2 = fields.Char(
         compute=l_parent_compute('street2'),
         inverse=l_parent_inverse('street2'),
-        store=False,
+        store=True, recursive=True,
     )
     _street2 = fields.Char(string="System Street2")
     street2_use_parent = fields.Boolean(
@@ -91,7 +91,7 @@ class GenericLocation(models.Model):
     zip = fields.Char(
         compute=l_parent_compute('zip'),
         inverse=l_parent_inverse('zip'),
-        store=False,
+        store=True, recursive=True,
     )
     _zip = fields.Char(string="System Zip")
     zip_use_parent = fields.Boolean(
@@ -103,7 +103,7 @@ class GenericLocation(models.Model):
     city = fields.Char(
         compute=l_parent_compute('city'),
         inverse=l_parent_inverse('city'),
-        store=False,
+        store=True, recursive=True,
     )
     _city = fields.Char(string="System City")
     city_use_parent = fields.Boolean(
@@ -116,7 +116,7 @@ class GenericLocation(models.Model):
         'res.country.state', string='State',
         compute=l_parent_compute('state_id'),
         inverse=l_parent_inverse('state_id'),
-        store=False,
+        store=True, recursive=True,
     )
     state_name = fields.Char(
         related='state_id.name', string='State Name')
@@ -133,7 +133,7 @@ class GenericLocation(models.Model):
         default=_default_country_id,
         compute=l_parent_compute('country_id'),
         inverse=l_parent_inverse('country_id'),
-        store=False,
+        store=True, recursive=True,
     )
     country_name = fields.Char(
         related='country_id.name', string='Country Name')
