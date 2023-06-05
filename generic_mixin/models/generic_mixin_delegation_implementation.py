@@ -189,7 +189,7 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
             if impl_model_field.related:
                 continue
 
-            # Here we have to add name of implementation model on inreface
+            # Here we have to add name of implementation model on interface
             # record. Later, implementation record ID will be added
             # (when implementation will be created)
             to_update[Interface._generic_mixin_implementation_model_field] = (
@@ -201,29 +201,38 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
             res.update(to_update)
         return res
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        values = dict(vals)
-
         interface_info = self._generic_mixin_delegation__get_interfaces_info()
-        for interface_field, interface_model in interface_info.items():
-            # Find delegation interface model
-            Interface = self.env[interface_model]
+        values = []
+        tmp_id = -1
+        for vals_row in vals:
+            # Copy original item from vals, to avoid side effects
+            val = dict(vals_row)
+            for interface_field, interface_model in interface_info.items():
+                # Find delegation interface model
+                Interface = self.env[interface_model]
 
-            # Find name of field that represents ID of implementation
-            implementation_id_field = (
-                Interface._generic_mixin_implementation_id_field)
+                # Find name of field that represents ID of implementation
+                implementation_id_field = (
+                    Interface._generic_mixin_implementation_id_field)
 
-            # Add fake resource id to values. This is required to create
-            # 'generic.resource' record, because 'res_id' field is required
-            # This field will be updated after record creation
-            values[
-                implementation_id_field
-            ] = Interface._generic_mixin_guard__wrap_field(
-                implementation_id_field, -1)
+                # Add fake implementation id to values.
+                # This is required to create 'interface' record,
+                # because 'implementation_id' field is required
+                # This field will be updated after record creation completed
+                val[
+                    implementation_id_field
+                ] = Interface._generic_mixin_guard__wrap_field(
+                    implementation_id_field, tmp_id)
+
+                # Decrement temporary ID to avoid uniq constraint violation
+                tmp_id -= 1
+
+            values += [val]
 
         # Create record
-        rec = super().create(values)
+        records = super().create(values)
 
         for interface_field, interface_model in interface_info.items():
             # Find delegation interface model
@@ -233,19 +242,20 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
             implementation_id_field = (
                 Interface._generic_mixin_implementation_id_field)
 
-            # Update res_id with created id
-            rec.sudo()[interface_field].write({
-                implementation_id_field:
-                    Interface._generic_mixin_guard__wrap_field(
-                        implementation_id_field, rec.id),
-            })
+            for record in records:
+                # Update res_id with created id
+                record.sudo()[interface_field].write({
+                    implementation_id_field:
+                        Interface._generic_mixin_guard__wrap_field(
+                            implementation_id_field, record.id),
+                })
 
             # We have to ensure that all changes writtent to avoid unique
             # constraint voilations (for implementation_id field)
-            rec.sudo()[interface_field].flush_recordset(
+            records.sudo()[interface_field].flush_recordset(
                 fnames=[Interface._generic_mixin_implementation_id_field])
 
-        return rec
+        return records
 
     def unlink(self):
         interface_info = self._generic_mixin_delegation__get_interfaces_info()

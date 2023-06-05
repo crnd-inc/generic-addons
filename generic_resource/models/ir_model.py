@@ -49,17 +49,18 @@ class IrModel(models.Model):
         self.pool.setup_models(self._cr)
         return res
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        res = super(IrModel, self).create(vals)
-        if (vals.get('is_generic_resource') and
-                vals.get('state', 'manual') == 'manual'):
-            self.env['generic.resource.type'].sudo().create({
-                'model_id': res.id,
-                'name': res.name,
-            })
-
-        return res
+        records = super(IrModel, self).create(vals)
+        create_res_types = [
+            {'model_id': record.id,
+             'name': record.name}
+            for record in records
+            if record.is_generic_resource and record.state == "manual"
+        ]
+        if create_res_types:
+            self.env['generic.resource.type'].sudo().create(create_res_types)
+        return records
 
     def write(self, vals):
         if self and 'is_generic_resource' in vals:

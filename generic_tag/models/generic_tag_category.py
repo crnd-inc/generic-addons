@@ -57,6 +57,11 @@ class GenericTagCategory(models.Model):
                 raise ValidationError(_(
                     u"Model must be same as one used in related tags"))
 
+    def _valid_field_parameter(self, field, name):
+        if name == 'tracking':
+            return True
+        return super()._valid_field_parameter(field, name)
+
     def action_show_tags(self):
         self.ensure_one()
         ctx = dict(self.env.context,

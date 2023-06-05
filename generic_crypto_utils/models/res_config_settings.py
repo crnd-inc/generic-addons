@@ -51,8 +51,8 @@ class ResConfigSettings(models.TransientModel):
 
         classified = self._get_classified_fields()
         for name, __ in classified['crypto']:
-            # TODO: add option, that could controle whether we need to display
-            # crypted value or keep it hidded
+            # TODO: add option, that could control whether we need to display
+            # encrypted value or keep it hidden
             res[name] = CRYPTO_PLACEHOLDER
 
         return res

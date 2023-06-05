@@ -69,7 +69,7 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('street'),
         store=False,
     )
-    _street = fields.Char()
+    _street = fields.Char(string="System Street")
     street_use_parent = fields.Boolean(
         string="Use Parent Street"
     )
@@ -81,7 +81,7 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('street2'),
         store=False,
     )
-    _street2 = fields.Char()
+    _street2 = fields.Char(string="System Street2")
     street2_use_parent = fields.Boolean(
         string="Use Parent Street2"
     )
@@ -93,7 +93,7 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('zip'),
         store=False,
     )
-    _zip = fields.Char()
+    _zip = fields.Char(string="System Zip")
     zip_use_parent = fields.Boolean(
         string="Use Parent Zip"
     )
@@ -105,7 +105,7 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('city'),
         store=False,
     )
-    _city = fields.Char()
+    _city = fields.Char(string="System City")
     city_use_parent = fields.Boolean(
         string="Use Parent City"
     )
@@ -118,7 +118,10 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('state_id'),
         store=False,
     )
-    _state_id = fields.Many2one('res.country.state', string='State')
+    state_name = fields.Char(
+        related='state_id.name', string='State Name')
+    _state_id = fields.Many2one(
+        'res.country.state', string='System State')
     state_id_use_parent = fields.Boolean(
         string="Use Parent State"
     )
@@ -132,8 +135,10 @@ class GenericLocation(models.Model):
         inverse=l_parent_inverse('country_id'),
         store=False,
     )
+    country_name = fields.Char(
+        related='country_id.name', string='Country Name')
     _country_id = fields.Many2one(
-        'res.country', string='Country')
+        'res.country', string='System Country')
     country_id_use_parent = fields.Boolean(
         string="Use Parent Country"
     )
