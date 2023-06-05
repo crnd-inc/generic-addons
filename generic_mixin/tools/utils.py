@@ -1,5 +1,8 @@
 import datetime
 import math
+import pytz
+
+from dateutil.parser import parse
 
 from pkg_resources import parse_version
 
@@ -41,3 +44,19 @@ def V(version):
     if not version:
         version = ''
     return parse_version(version)
+
+
+def parse_date(dt_in):
+    """ Parse date, and convert ti to naive datetime UTC in timezone
+
+        :param str dt_in: string that represents date or datetime to parse
+        :return datetime|False: Naive datetime in UTC timezone
+
+        Note, if dt_in is falsy value, then None will be returned
+    """
+    if not dt_in:
+        return None
+    dt = parse(dt_in)
+    if dt.tzinfo:
+        dt = dt.astimezone(pytz.utc).replace(tzinfo=None)
+    return dt
