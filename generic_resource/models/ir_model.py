@@ -32,7 +32,7 @@ class IrModel(models.Model):
                 # Delete generic_resource related to this model. This is
                 # required to delete resources because generic resource have no
                 # direct (m2o) relation to record.
-                self.env[record.model].with_context(
+                self.env[record.model].sudo().with_context(
                     active_test=False).search([]).unlink()
                 res_model_names.add(record.model)
                 record.resource_type_id.unlink()
