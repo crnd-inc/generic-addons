@@ -66,6 +66,15 @@ class GenericResource(models.Model):
         #       generic.resource.type._get_resource_defaults
         return resource_type._get_resource_defaults()
 
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        if name:
+            resources = self.env['generic.resource'].search([])
+            result = resources.filtered(lambda x: name.lower() in x.display_name.lower())
+            return result.name_get()
+        return super(GenericResource, self)._name_search(name, args=args, operator=operator, limit=limit,
+                                                    name_get_uid=name_get_uid)
+
     def _preprocess_resource_changes(self, changes):
         """ This method is called before write on resource implementation and
             receives dict with changes of tracked fields.
