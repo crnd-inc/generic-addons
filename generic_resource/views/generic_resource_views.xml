@@ -112,7 +112,7 @@
 
     <!-- Menus for Generic Resource -->
     <menuitem id="generic_resource_menu_item"
-              parent="menu_generic_resource_root" sequence="5"
+              parent="menu_generic_resource_config_root" sequence="5"
               action="generic_resource_action"/>
 
 </odoo>
