@@ -14,7 +14,7 @@
 | generic_location_uuid | Generic Location (UUID) | LGPL-3 | 15.0.1.4.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 15.0.1.5.0 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 15.0.1.76.0 | Technical module with generic mixins, that may help to build other modules |  |
-| generic_resource | Generic Resource | LGPL-3 | 15.0.1.42.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
+| generic_resource | Generic Resource | LGPL-3 | 15.0.1.43.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 15.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 15.0.1.21.0 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 15.0.2.8.1 | Generic tag management. |  |
