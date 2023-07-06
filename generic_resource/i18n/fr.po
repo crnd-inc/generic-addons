@@ -60,11 +60,6 @@ msgid ""
 msgstr ""
 
 #. module: generic_resource
-#: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
-msgid "Categories"
-msgstr ""
-
-#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__category_id
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_search
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
@@ -738,7 +733,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_action
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_ids
 #: model:ir.ui.menu,name:generic_resource.generic_resource_menu_item
-#: model:ir.ui.menu,name:generic_resource.generic_resource_simple_menu_item
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_toplevel
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_category_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
@@ -764,7 +758,13 @@ msgid "Show Resources Action"
 msgstr ""
 
 #. module: generic_resource
+#: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
+msgid "Simple Resource Categories"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_simple_action
+#: model:ir.ui.menu,name:generic_resource.generic_resource_simple_menu_item
 #: model:ir.ui.menu,name:generic_resource.menu_simple_resource_root
 msgid "Simple Resources"
 msgstr ""
