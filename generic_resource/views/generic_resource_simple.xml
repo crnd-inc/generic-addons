@@ -56,7 +56,6 @@
 
     <!--Define search view generic.resource.simple-->
     <record model="ir.ui.view" id="generic_resource_simple_search">
-        <field name="name">generic.resource.simple.search</field>
         <field name="model">generic.resource.simple</field>
         <field name="arch" type="xml">
             <search>
@@ -80,7 +79,7 @@
 
     <!-- Menu for Simple Resources -->
     <menuitem id="generic_resource_simple_menu_item"
-                name="Resources"
+                name="Simple Resources"
                 parent="menu_simple_resource_root" sequence="0"
                 action="generic_resource_simple_action"/>
 </odoo>
