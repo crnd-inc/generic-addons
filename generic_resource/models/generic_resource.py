@@ -69,9 +69,13 @@ class GenericResource(models.Model):
     @api.model
     def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):  # noqa
         if name:
-            resources = self.env['generic.resource'].search([])
-            result = resources.filtered(lambda x: name.lower() in x.display_name.lower()) # noqa
-            return result.name_get()
+            resource_types = self.env['generic.resource.type'].search([])
+            result = []
+            for r_type in resource_types:
+                res = self.env[r_type.model]._name_search(
+                    name=name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid)  # noqa
+                result.extend(res)
+            return result
         return super(GenericResource, self)._name_search(
             name=name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid)  # noqa
 
