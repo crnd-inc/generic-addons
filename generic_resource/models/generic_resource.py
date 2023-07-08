@@ -69,13 +69,31 @@ class GenericResource(models.Model):
     @api.model
     def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):  # noqa
         if name:
+            generic_resources = self.env['generic.resource'].browse()
+
+            # Iterate through resource types to perform name_search
+            # on their models and collect the results in a dictionary,
+            # where the key is resource.type
+            # and the value is the result of the name_search for its model
             resource_types = self.env['generic.resource.type'].search([])
-            result = []
+            name_search_results = {}
             for r_type in resource_types:
                 res = self.env[r_type.model]._name_search(
                     name=name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid)  # noqa
-                result.extend(res)
-            return result
+                name_search_results[r_type] = res
+
+            # Get the relations of the search results for generic.resource
+            for r_type in name_search_results:
+                ids = [item[0] for item in name_search_results[r_type]]
+                generic_resource_ids = self.env['generic.resource']._search(
+                    [('res_id', 'in', ids), ('res_type_id', '=', r_type.id)],
+                    limit=limit, access_rights_uid=name_get_uid)
+                generic_resources += self.env['generic.resource'].browse(
+                    generic_resource_ids)
+
+            # Return the searched records as instances of generic.resource
+            return models.lazy_name_get(
+                generic_resources.with_user(name_get_uid))
         return super(GenericResource, self)._name_search(
             name=name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid)  # noqa
 
