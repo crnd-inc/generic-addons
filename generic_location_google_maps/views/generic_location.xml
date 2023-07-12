@@ -33,6 +33,7 @@
                 <field name="active"/>
                 <field name="city"/>
                 <field name="country_id"/>
+                <field name="tag_ids"/>
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
@@ -68,6 +69,9 @@
                                     <strong class="o_kanban_record_title">
                                         <field name="display_name"/>
                                     </strong>
+                                </div>
+                                <div>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                                 </div>
                                 <ul>
                                     <li t-if="record.city.raw_value and !record.country_id.raw_value">

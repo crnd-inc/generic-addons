@@ -1,32 +1,30 @@
 {
-    'name': "Generic Location (Google Maps + Tags)",
+    'name': "Generic Location (Google Maps + Tags) [Obsolete]",
 
-    'summary': """
-        Generic Location (Techinical addon that
-        shows location tags on map view)""",
+    'summary': (
+        "The functionality of this module was merged "
+        "into the 'generic_location_google_maps' module, "
+        "thus this module could be safely removed."),
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '12.0.1.2.0',
+    'version': '12.0.1.3.0',
 
     # any module necessary for this one to work correctly
     'depends': [
         'generic_location_google_maps',
-        'generic_location_tag',
     ],
 
     # always loaded
-    'data': [
-        'views/generic_location.xml',
-    ],
+    'data': [],
     # only loaded in demonstration mode
-    'demo': [
-    ],
+    'demo': [],
     'images': ['static/description/banner.png'],
     'installable': True,
     'auto_install': True,
     'application': False,
     'license': 'AGPL-3',
+    'tags': ['obsolete'],
 }
