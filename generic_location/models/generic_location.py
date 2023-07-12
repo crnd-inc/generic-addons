@@ -15,6 +15,7 @@ class GenericLocation(models.Model):
     _name = 'generic.location'
     _inherit = [
         'mail.thread',
+        'generic.tag.mixin',
         'generic.mixin.parent.names',
         'generic.mixin.get.action',
         'generic.mixin.track.changes',

@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '12.0.2.1.0',
+    'version': '12.0.2.2.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -22,16 +22,19 @@
 
     # always loaded
     'data': [
+        'data/generic_tag_model.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/generic_location.xml',
         'views/generic_location_type.xml',
+        'views/generic_location_tag_menu.xml',
         'views/res_config_settings.xml',
         'views/res_partner.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo_location.xml'
+        'demo/demo_location.xml',
+        'demo/demo_location_tag.xml',
     ],
     'images': ['static/description/banner.png'],
     'installable': True,
