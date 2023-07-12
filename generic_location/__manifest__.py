@@ -16,6 +16,7 @@
     'depends': [
         'base_field_m2m_view',
         'generic_mixin',
+        'generic_tag',
         'mail',
         'crnd_web_m2o_info_widget',
     ],

@@ -19,7 +19,6 @@ def migrate(cr, installed_version):
             'ir.model.access',
             'ir.actions.act_window',
             'generic.tag.model',
-            'generic.tag',
         ],
         cleanup=True,
     )
@@ -29,7 +28,10 @@ def migrate(cr, installed_version):
         cr,
         src_module='generic_location_tag',
         dst_module='generic_location',
-        models=['generic.location'],
+        models=[
+            'generic.location',
+            'generic.tag',
+        ],
         cleanup=False,
     )
 
