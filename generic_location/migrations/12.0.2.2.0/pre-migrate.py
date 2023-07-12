@@ -22,6 +22,20 @@ def migrate(cr, installed_version):
         ],
         cleanup=True,
     )
+    migrate_xmlids_to_module(
+        cr,
+        src_module='generic_location_geo',
+        dst_module='generic_location',
+        models=[
+            'ir.model.fields',
+            'ir.model.constraint',
+            'ir.model.relation',
+            'ir.ui.menu',
+            'ir.model.access',
+            'ir.actions.act_window',
+        ],
+        cleanup=True,
+    )
 
     # Migrate demo data
     migrate_xmlids_to_module(
@@ -37,3 +51,4 @@ def migrate(cr, installed_version):
 
     # Cleanup module data
     cleanup_module_data(cr, 'generic_location_tag')
+    cleanup_module_data(cr, 'generic_location_geo')

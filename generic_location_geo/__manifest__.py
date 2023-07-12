@@ -1,13 +1,16 @@
 {
-    'name': "Generic Location (Geo Coordinates)",
+    'name': "Generic Location (Geo Coordinates) [Obsolete]",
 
-    'summary': "Generic Location (Add geocoordinates to generic locations)",
+    'summary': (
+        "The functionality of this module was merged "
+        "into the 'generic_location' module, "
+        "thus this module could be safely removed."),
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '12.0.1.1.0',
+    'version': '12.0.1.2.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -16,7 +19,6 @@
 
     # always loaded
     'data': [
-        'views/generic_location.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
