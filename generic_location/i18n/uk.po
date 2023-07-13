@@ -17,6 +17,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid ""
+"<span class=\"oe_inline\"> ( </span>\n"
+"                                        <span> Lat : </span>"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "<span> : Long : </span>"
+msgstr ""
+
+#. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user
 msgid "Access generic locations"
 msgstr "Доступ загальної локації"
@@ -141,6 +153,11 @@ msgid "Created on"
 msgstr "Створено"
 
 #. module: generic_location
+#: model:generic.tag,name:generic_location.simple_tag_location_1
+msgid "Darnitsa"
+msgstr ""
+
+#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__description
 msgid "Description"
 msgstr "Опис"
@@ -165,6 +182,16 @@ msgid ""
 "                                    When enable, you will be able to set "
 "parent location for any location,\n"
 "                                    and see sub-locations of location."
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location__search_tag_id
+msgid "Find all records that contain this tag"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,help:generic_location.field_generic_location__search_no_tag_id
+msgid "Find all records that have no this tag"
 msgstr ""
 
 #. module: generic_location
@@ -226,6 +253,11 @@ msgstr "Користувач загальної локації"
 #: model:res.groups,name:generic_location.group_generic_location_user_implicit
 msgid "Generic location user (implicit)"
 msgstr "Користувач загальної локації (implicit)"
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+msgid "Geolocation"
+msgstr ""
 
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
@@ -307,14 +339,28 @@ msgid "Last Updated on"
 msgstr "Останнє оновлення"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__latitude
+msgid "Latitude"
+msgstr ""
+
+#. module: generic_location
+#: model:generic.tag.model,name:generic_location.generic_location_tag_model
 #: model:ir.actions.act_window,name:generic_location.generic_location_action
-#: model:ir.model,name:generic_location.model_generic_location
+#: model:ir.model,name:generic_location.generic_location_tag_model_ir_model
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__location_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__location_id
 #: model:ir.ui.menu,name:generic_location.menu_generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
 msgid "Location"
 msgstr "Локація"
+
+#. module: generic_location
+#: model:ir.actions.act_window,name:generic_location.action_generic_location_tags_view
+#: model:ir.ui.menu,name:generic_location.menu_location_tags
+#: model:ir.ui.menu,name:generic_location.menu_tags_location_tags
+#: model:ir.ui.menu,name:generic_location.menu_tags_location_tags_action
+msgid "Location Tags"
+msgstr ""
 
 #. module: generic_location
 #: model:ir.actions.act_window,name:generic_location.generic_location_type_action
@@ -333,6 +379,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__location_ids
 #: model_terms:ir.ui.view,arch_db:generic_location.view_partner_form
 msgid "Locations"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__longitude
+msgid "Longitude"
 msgstr ""
 
 #. module: generic_location
@@ -362,6 +413,11 @@ msgid "Name"
 msgstr "Назва"
 
 #. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__search_no_tag_id
+msgid "No tag"
+msgstr ""
+
+#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Кількість дій"
@@ -385,6 +441,11 @@ msgstr "Кількість повідомлень з помилковою дст
 #: model:ir.model.fields,help:generic_location.field_generic_location__message_unread_counter
 msgid "Number of unread messages"
 msgstr "Кількість непрочитаних повідомлень"
+
+#. module: generic_location
+#: model:generic.tag,name:generic_location.simple_tag_location_3
+msgid "Osocorki"
+msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__parent_id
@@ -421,6 +482,16 @@ msgstr ""
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Partner or customer..."
+msgstr ""
+
+#. module: generic_location
+#: model:generic.tag,name:generic_location.simple_tag_location_2
+msgid "Poznyaki"
+msgstr ""
+
+#. module: generic_location
+#: model:generic.tag,name:generic_location.simple_tag_location_4
+msgid "Rusanovka"
 msgstr ""
 
 #. module: generic_location
@@ -504,6 +575,22 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location___zip
 msgid "System Zip"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__search_tag_id
+msgid "Tag"
+msgstr ""
+
+#. module: generic_location
+#: model:ir.model.fields,field_description:generic_location.field_generic_location__tag_ids
+msgid "Tags"
+msgstr ""
+
+#. module: generic_location
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
+#: model_terms:ir.ui.view,arch_db:generic_location.generic_location_tree_view
+msgid "Tags..."
 msgstr ""
 
 #. module: generic_location
