@@ -1,5 +1,5 @@
 {
-    'name': "Generic Location (Address) [Obsolete]",
+    'name': "Generic Location (Geo Coordinates) [Obsolete]",
 
     'summary': (
         "The functionality of this module was merged "
@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '13.0.1.6.0',
+    'version': '13.0.1.2.1',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -18,12 +18,13 @@
     ],
 
     # always loaded
-    'data': [],
+    'data': [
+    ],
     # only loaded in demonstration mode
-    'demo': [],
+    'demo': [
+    ],
     'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
     'license': 'LGPL-3',
-    'tags': ['obsolete'],
 }

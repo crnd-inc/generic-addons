@@ -9,6 +9,12 @@
         <field name="domain">[('model_id.model','=','generic.location')]</field>
     </record>
 
+    <menuitem name="Location Tags"
+              id="menu_location_tags"
+              parent="generic_location.menu_configuration"
+              action="action_generic_location_tags_view"
+              sequence="120"/>
+
     <menuitem id="menu_tags_location_tags"
               parent="generic_tag.menu_generic_tags_root"
               name="Location Tags"
