@@ -20,7 +20,6 @@ class TestGenericResourceSearch(SavepointCase):
         cls.record_notebook = cls.env.ref(
             'test_generic_resource_search.demo_record_notebook_resource')
 
-
     def test_search_resource_id(self):
         result = self.demo_model.search([('resource_id', 'ilike', 'i255')])
         self.assertEqual(len(result), 1)
