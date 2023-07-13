@@ -8,4 +8,3 @@ class TestGenericResourceNameSearch(models.Model):
     ]
 
     name = fields.Char()
-
