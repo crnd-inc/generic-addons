@@ -68,7 +68,8 @@ class GenericResource(models.Model):
         return resource_type._get_resource_defaults()
 
     @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
+    def _name_search(self, name='', args=None, operator='ilike', limit=100,
+                     name_get_uid=None):  # noqa
         if name:
             generic_resources = self.env['generic.resource'].browse()
 
@@ -82,10 +83,11 @@ class GenericResource(models.Model):
                     [('res_id', 'in', [item[0] for item in res]),
                      ('res_type_id', '=', r_type.id)], limit=limit)
 
-            # Return the searched records as instances of generic.resource
-            return generic_resources.name_get()
-        return super(GenericResource, self).name_search(
-            name=name, args=args, operator=operator, limit=limit)
+            # Return the searched record ids as instances of generic.resource
+            return generic_resources.ids
+        return super(GenericResource, self)._name_search(
+            name=name, args=args, operator=operator, limit=limit,
+            name_get_uid=name_get_uid)
 
     def _preprocess_resource_changes(self, changes):
         """ This method is called before write on resource implementation and
