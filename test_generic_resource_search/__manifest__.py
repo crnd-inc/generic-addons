@@ -14,9 +14,13 @@
     'data': [
         'security/ir.model.access.csv',
 
-        'views/test_generic_resource_name_search.xml'
+        'views/test_generic_resource_name_search.xml',
+        'views/generic_resource_test_model.xml',
+
+        'data/generic_resource_type_data.xml',
     ],
     'demo': [
+        'demo/demo_resource_test_records.xml',
         'demo/demo_resource.xml',
     ],
     'installable': True,

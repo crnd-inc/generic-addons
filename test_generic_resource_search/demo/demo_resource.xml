@@ -29,4 +29,16 @@
         <field name="resource_type_id" ref="generic_resource.generic_resource_type_default"/>
         <field name="resource_res_id" eval="int(ref('generic_resource.simple_resource_notebook_1'))"/>
     </record>
+
+    <record id="demo_record_desktop_test_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with test resource Desktop</field>
+        <field name="resource_type_id" ref="test_generic_resource_search.generic_resource_type_test"/>
+        <field name="resource_res_id" eval="int(ref('test_generic_resource_search.test_resource_desktop'))"/>
+    </record>
+
+    <record id="demo_record_printer_test_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with test resource Printer</field>
+        <field name="resource_type_id" ref="test_generic_resource_search.generic_resource_type_test"/>
+        <field name="resource_res_id" eval="int(ref('test_generic_resource_search.test_resource_printer'))"/>
+    </record>
 </odoo>
