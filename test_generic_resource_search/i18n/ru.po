@@ -1,0 +1,168 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* test_generic_resource_search
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-14 08:49+0000\n"
+"PO-Revision-Date: 2023-07-14 08:49+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__active
+msgid "Active"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__create_uid
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__create_date
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:generic.resource.test.model,name:test_generic_resource_search.test_resource_desktop
+msgid "Desktop Test Resource Type"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__display_name
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.ui.menu,name:test_generic_resource_search.test_generic_resource_search
+#: model:ir.ui.menu,name:test_generic_resource_search.test_generic_resource_search_root
+msgid "GR Test Search"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__resource_id
+msgid "Generic Resource"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.actions.act_window,name:test_generic_resource_search.test_generic_resource_name_search_action
+msgid "Generic Resource Search"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model,name:test_generic_resource_search.generic_resource_type_test_ir_model
+msgid "Generic Resource Test Model"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__resource_id
+msgid "Generic resource"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__id
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__id
+msgid "ID"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
+msgid "Info"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model____last_update
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__write_uid
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__write_date
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__name
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__name
+#: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
+#: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_tree
+msgid "Name"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:generic.resource.test.model,name:test_generic_resource_search.test_resource_printer
+msgid "Printer Test Resource Type"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__res_id
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__resource_res_id
+#: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
+#: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_tree
+msgid "Resource"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__res_model
+msgid "Resource Model"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__res_type_id
+msgid "Resource Type"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__resource_visibility
+msgid "Resource Visibility"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__resource_res_model
+msgid "Resource model"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__resource_type_id
+msgid "Resource type"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model.fields,help:test_generic_resource_search.field_generic_resource_test_model__resource_visibility
+msgid "Resource visibility determines users that have read access for this resource."
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:generic.resource.type,name:test_generic_resource_search.generic_resource_type_test
+msgid "Test"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.actions.act_window,name:test_generic_resource_search.generic_resource_test_action
+#: model:ir.ui.menu,name:test_generic_resource_search.generic_resource_test_menu_item
+#: model:ir.ui.menu,name:test_generic_resource_search.menu_resource_test_model_root
+msgid "Test Resources"
+msgstr ""
+
+#. module: test_generic_resource_search
+#: model:ir.model,name:test_generic_resource_search.model_test_generic_resource_name_search
+msgid "test.generic.resource.name.search"
+msgstr ""
+

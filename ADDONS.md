@@ -12,7 +12,7 @@
 | generic_location_uuid | Generic Location (UUID) | LGPL-3 | 12.0.1.4.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 12.0.1.5.0 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 12.0.1.76.0 | Technical module with generic mixins, that may help to build other modules |  |
-| generic_resource | Generic Resource | LGPL-3 | 12.0.1.43.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
+| generic_resource | Generic Resource | LGPL-3 | 12.0.1.44.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 12.0.1.1.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 12.0.1.21.0 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 12.0.2.8.0 | Generic tag management. |  |
@@ -25,3 +25,4 @@
 | generic_team | Generic team | LGPL-3 | 12.0.1.14.0 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 12.0.0.10.0 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 12.0.0.20.0 | Technical module that have to be used to test Generic Mixin module |  |
+| test_generic_resource_search | Tests Generic Resource (Search Tests) | LGPL-3 | 12.0.0.1.0 | Technical module that have to be used to test Generic Resource search cases |  |
