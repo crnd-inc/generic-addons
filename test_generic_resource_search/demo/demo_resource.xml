@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="demo_record_printer_i255_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with resource printer Canon i255</field>
+        <field name="resource_type_id" ref="generic_resource.generic_resource_type_default"/>
+        <field name="resource_res_id" eval="int(ref('generic_resource.simple_resource_inkprinter_2'))"/>
+    </record>
+
+    <record id="demo_record_printer_i123_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with resource printer Canon i123</field>
+        <field name="resource_type_id" ref="generic_resource.generic_resource_type_default"/>
+        <field name="resource_res_id" eval="int(ref('generic_resource.simple_resource_inkprinter_3'))"/>
+    </record>
+
+    <record id="demo_record_printer_i569_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with resource printer Canon i569</field>
+        <field name="resource_type_id" ref="generic_resource.generic_resource_type_default"/>
+        <field name="resource_res_id" eval="int(ref('generic_resource.simple_resource_inkprinter_6'))"/>
+    </record>
+
+    <record id="demo_record_desktop_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with resource Desktop</field>
+        <field name="resource_type_id" ref="generic_resource.generic_resource_type_default"/>
+        <field name="resource_res_id" eval="int(ref('generic_resource.simple_resource_computer_7'))"/>
+    </record>
+
+    <record id="demo_record_notebook_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with resource Notebook</field>
+        <field name="resource_type_id" ref="generic_resource.generic_resource_type_default"/>
+        <field name="resource_res_id" eval="int(ref('generic_resource.simple_resource_notebook_1'))"/>
+    </record>
+
+    <record id="demo_record_desktop_test_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with test resource Desktop</field>
+        <field name="resource_type_id" ref="test_generic_resource_search.generic_resource_type_test"/>
+        <field name="resource_res_id" eval="int(ref('test_generic_resource_search.test_resource_desktop'))"/>
+    </record>
+
+    <record id="demo_record_printer_test_resource" model="test.generic.resource.name.search">
+        <field name="name">Record with test resource Printer</field>
+        <field name="resource_type_id" ref="test_generic_resource_search.generic_resource_type_test"/>
+        <field name="resource_res_id" eval="int(ref('test_generic_resource_search.test_resource_printer'))"/>
+    </record>
+</odoo>

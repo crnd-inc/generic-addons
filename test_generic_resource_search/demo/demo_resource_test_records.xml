@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="test_resource_desktop" model="generic.resource.test.model">
+        <field name="name">Desktop Test Resource Type</field>
+    </record>
+
+    <record id="test_resource_printer" model="generic.resource.test.model">
+        <field name="name">Printer Test Resource Type</field>
+    </record>
+</odoo>

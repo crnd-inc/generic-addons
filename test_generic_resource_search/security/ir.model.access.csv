@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_test_generic_resource_name_search_all,test_generic_resource_name_search_all,model_test_generic_resource_name_search,,1,1,1,1
+access_generic_resource_test_model_all,access_generic_resource_test_model_all,model_generic_resource_test_model,,1,1,1,1
