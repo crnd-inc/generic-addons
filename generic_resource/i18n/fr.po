@@ -702,6 +702,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_mixin_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_unique_resource_id
+#: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_unique_resource_id
 msgid "Resource must be unique"
 msgstr ""
 
