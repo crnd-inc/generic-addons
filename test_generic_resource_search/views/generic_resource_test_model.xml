@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_resource_test_model_root"
+              name="Test Resources"
+              parent="generic_resource.menu_generic_resource_toplevel"/>
+
+    <record id="generic_resource_test_view_tree" model="ir.ui.view">
+        <field name="model">generic.resource.test.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="display_name" string="Name"/>
+                <field name="resource_id" string="Resource"/>
+                <field name="resource_visibility"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="generic_resource_test_view_form" model="ir.ui.view">
+        <field name="model">generic.resource.test.model</field>
+        <field name="inherit_id" ref="generic_resource.generic_resource_view_form_base"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="/form" position="attributes">
+                <attribute name="create">true</attribute>
+                <attribute name="delete">true</attribute>
+            </xpath>
+            <xpath expr="//h1[@name='h1_title']" position="inside">
+                <field name="name" string="Name" placeholder="Name"/>
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="page_info" string="Info">
+                    <group name="group_info_root">
+                        <group name="group_info_left">
+                            <field name="resource_id" string="Resource" placeholder="Resource" attrs="{'required': False, 'readonly': True}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="generic_resource_test_action" model="ir.actions.act_window">
+        <field name="name">Test Resources</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">generic.resource.test.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="generic_resource_test_menu_item"
+                name="Test Resources"
+                parent="menu_resource_test_model_root" sequence="0"
+                action="generic_resource_test_action"/>
+
+</odoo>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="generic_location_form_view" model="ir.ui.view">
-        <field name="name">generic.location.form</field>
         <field name="model">generic.location</field>
-        <field name="inherit_id" ref="generic_location_geo.generic_location_form_view"/>
+        <field name="inherit_id" ref="generic_location.generic_location_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@name='geo_coordinates']" position="before">
                 <div colspan="2" class="d-flex">

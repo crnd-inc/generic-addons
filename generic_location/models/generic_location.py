@@ -16,6 +16,7 @@ class GenericLocation(models.Model):
     _inherit = [
         'mail.thread',
         'image.mixin',
+        'generic.tag.mixin',
         'generic.mixin.parent.names',
         'generic.mixin.get.action',
         'generic.mixin.track.changes',
@@ -133,6 +134,10 @@ class GenericLocation(models.Model):
     country_id_use_parent = fields.Boolean(
         string="Use Parent Country"
     )
+
+    # Geolocation
+    longitude = fields.Float(digits=(16, 5))
+    latitude = fields.Float(digits=(16, 5))
 
     _sql_constraints = [
         ('name_description_check',

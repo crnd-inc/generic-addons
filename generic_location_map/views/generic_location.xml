@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="generic_location_map_view" model="ir.ui.view">
+        <field name="model">generic.location</field>
+        <field name="arch" type="xml">
+            <crnd_map_view
+                    latitude_field="latitude"
+                    longitude_field="longitude"
+                    title_field="display_name">
+            </crnd_map_view>
+        </field>
+    </record>
+
+    <record id="generic_location_action_view_map"
+            model="ir.actions.act_window.view">
+        <field eval="7" name="sequence"/>
+        <field name="view_mode">crnd_map_view</field>
+        <field name="view_id"  ref="generic_location_map_view"/>
+        <field name="act_window_id" ref="generic_location.generic_location_action"/>
+    </record>
+</odoo>

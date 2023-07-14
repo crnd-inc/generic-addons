@@ -29,6 +29,14 @@
                         <h1>
                             <field name="name"/>                          
                         </h1>
+                        <h2 class="header_tags">
+                            <field name="tag_ids"
+                                   widget="many2many_tags"
+                                   placeholder="Tags..."
+                                   class="oe_inline"
+                                   domain="[('model_id.model', '=', 'generic.location')]"
+                                   context="{'default_model': 'generic.location'}"/>
+                        </h2>
                     </div>
                     <group name="group_root">
                         <group name="group_root_left">
@@ -84,6 +92,16 @@
                                     <field name="zip_use_parent"/>
                                     <field name="country_id_use_parent"/>
                                 </group>
+                                <group string="Geolocation" name="group_geolocation">
+                                    <div name="geo_coordinates">
+                                        <span class="oe_inline"> ( </span>
+                                        <span> Lat : </span>
+                                        <field name="latitude" class="oe_inline" no_label="1"/>
+                                        <span> : Long : </span>
+                                        <field name="longitude" class="oe_inline" nolabel="1"/>
+                                        <span>) </span>
+                                    </div>
+                                </group>
                             </group>
                             <field name="description" placeholder="Description..."/>
                         </page>
@@ -113,6 +131,10 @@
                 <field name="zip"/>
                 <field name="country_id"/>
                 <field name="active"/>
+                <field name="tag_ids"
+                       widget="many2many_tags"
+                       placeholder="Tags..."
+                       context="{'default_model': 'generic.location'}"/>
             </tree>
         </field>
     </record>
@@ -126,6 +148,9 @@
                 <field name="type_id"/>
                 <field name="parent_id"
                        groups="generic_location.group_use_hierarchical_locations"/>
+                <field name="tag_ids"/>
+                <field name="search_tag_id"/>
+                <field name="search_no_tag_id"/>
                 <field name="state_id"/>
                 <field name="zip"/>
                 <field name="country_id"/>

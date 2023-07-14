@@ -67,6 +67,28 @@ class GenericResource(models.Model):
         #       generic.resource.type._get_resource_defaults
         return resource_type._get_resource_defaults()
 
+    @api.model
+    def _name_search(self, name='', args=None, operator='ilike', limit=100,
+                     name_get_uid=None):  # noqa
+        if name:
+            generic_resources = self.env['generic.resource'].browse()
+
+            # Iterate through resource types to perform name_search
+            # on their models and collect result records as generic_resources
+            resource_types = self.env['generic.resource.type'].search([])
+            for r_type in resource_types:
+                res = self.env[r_type.model].name_search(
+                    name=name, args=args, operator=operator, limit=limit)
+                generic_resources += self.env['generic.resource'].search(
+                    [('res_id', 'in', [item[0] for item in res]),
+                     ('res_type_id', '=', r_type.id)], limit=limit)
+
+            # Return the searched record ids as instances of generic.resource
+            return generic_resources.ids
+        return super(GenericResource, self)._name_search(
+            name=name, args=args, operator=operator, limit=limit,
+            name_get_uid=name_get_uid)
+
     def _preprocess_resource_changes(self, changes):
         """ This method is called before write on resource implementation and
             receives dict with changes of tracked fields.
