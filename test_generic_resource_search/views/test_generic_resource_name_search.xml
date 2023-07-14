@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="test_generic_resource_name_search_view_form" model="ir.ui.view">
+        <field name="model">test.generic.resource.name.search</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="resource_type_id"/>
+                    </group>
+                    <group>
+                        <field name="resource_res_model" invisible="1"/>
+                        <field name="resource_res_id"
+                               widget="generic_m2o"
+                               model_field="resource_res_model"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="test_generic_resource_name_search_view_search" model="ir.ui.view">
+       <field name="model">test.generic.resource.name.search</field>
+        <field name="arch" type="xml">
+            <search>
+              <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+              <field name="resource_id" filter_domain="[('resource_id', 'ilike', self)]"/>
+            </search>
+       </field>
+    </record>
+
+    <record id="test_generic_resource_name_search_view_tree" model="ir.ui.view">
+        <field name="model">test.generic.resource.name.search</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="test_generic_resource_name_search_action" model="ir.actions.act_window">
+        <field name="name">Generic Resource Search</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.generic.resource.name.search</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="test_generic_resource_search_root"
+              name="GR Test Search"
+              sequence="10"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="test_generic_resource_search"
+              name="GR Test Search"
+              parent="test_generic_resource_search.test_generic_resource_search_root"
+              action="test_generic_resource_search.test_generic_resource_name_search_action"
+              sequence="10"/>
+</odoo>
