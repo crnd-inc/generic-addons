@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* test_generic_resource_search
+# 	* test_generic_resource_search
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2023-07-14 08:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -146,7 +147,8 @@ msgstr ""
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,help:test_generic_resource_search.field_generic_resource_test_model__resource_visibility
-msgid "Resource visibility determines users that have read access for this resource."
+msgid ""
+"Resource visibility determines users that have read access for this resource."
 msgstr ""
 
 #. module: test_generic_resource_search
@@ -165,4 +167,3 @@ msgstr ""
 #: model:ir.model,name:test_generic_resource_search.model_test_generic_resource_name_search
 msgid "test.generic.resource.name.search"
 msgstr ""
-

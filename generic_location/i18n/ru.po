@@ -103,6 +103,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__city
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__city
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__city
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "City"
 msgstr ""
@@ -130,6 +131,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__country_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__country_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__country_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Country"
@@ -324,6 +326,8 @@ msgstr "Последнее обновление"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__latitude
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__latitude
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__latitude
 msgid "Latitude"
 msgstr ""
 
@@ -367,6 +371,8 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__longitude
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__longitude
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__longitude
 msgid "Longitude"
 msgstr ""
 
@@ -517,6 +523,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__state_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__state_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__state_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "State"
@@ -530,6 +537,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__street
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__street
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__street
 msgid "Street"
 msgstr ""
 
@@ -546,6 +554,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__street2
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__street2
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__street2
 msgid "Street2"
 msgstr ""
 
@@ -739,6 +748,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__zip
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__zip
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__zip
 msgid "Zip"
 msgstr ""
 
