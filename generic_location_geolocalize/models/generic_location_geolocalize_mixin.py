@@ -1,13 +1,10 @@
-from odoo import models, fields
+from odoo import models
 
 
 class GenericLocationGeolocalizeMixin(models.AbstractModel):
     _name = 'generic.location.geolocalize.mixin'
-    _inherit = 'generic.location.address.mixin'
+    _inherit = 'generic.location.mixin'
     _description = 'Generic Location Geolocalize Mixin'
-
-    longitude = fields.Float(related='location_id.longitude')
-    latitude = fields.Float(related='location_id.latitude')
 
     def geo_localize(self):
         if self.location_id:
