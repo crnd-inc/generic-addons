@@ -15,11 +15,13 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__active
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__active
 msgid "Active"
 msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__archived
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__archived
 msgid "Archived"
 msgstr ""
 
@@ -85,6 +87,7 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__draft
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__draft
 msgid "Draft"
 msgstr ""
 
@@ -257,6 +260,7 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__obsolete
+#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__obsolete
 msgid "Obsolete"
 msgstr ""
 

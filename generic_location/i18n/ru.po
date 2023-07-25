@@ -107,7 +107,7 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__city
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__city
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__city
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "City"
 msgstr ""
@@ -134,7 +134,7 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__country_id
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__country_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__country_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Country"
@@ -215,11 +215,6 @@ msgstr "Подписчики (Партнеры)"
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
 msgid "Generic Location"
 msgstr "Локация"
-
-#. module: generic_location
-#: model:ir.model,name:generic_location.model_generic_location_address_mixin
-msgid "Generic Location Address Mixin"
-msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_res_partner__generic_location_count
@@ -343,13 +338,13 @@ msgstr "Последнее обновление"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__latitude
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__latitude
 msgid "Latitude"
 msgstr ""
 
 #. module: generic_location
 #: model:ir.actions.act_window,name:generic_location.generic_location_action
 #: model:ir.model,name:generic_location.model_generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__location_id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__location_id
 #: model:ir.ui.menu,name:generic_location.menu_generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
@@ -385,6 +380,7 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__longitude
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__longitude
 msgid "Longitude"
 msgstr ""
 
@@ -431,8 +427,8 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Количество сообщений, требующих внимания"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__message_has_error_counter
@@ -499,7 +495,7 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__state_id
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__state_id
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__state_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "State"
@@ -512,7 +508,7 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__street
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__street
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__street
 msgid "Street"
 msgstr ""
 
@@ -528,7 +524,7 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__street2
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__street2
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__street2
 msgid "Street2"
 msgstr ""
 
@@ -662,9 +658,12 @@ msgstr ""
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__zip
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_address_mixin__zip
+#: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__zip
 msgid "Zip"
 msgstr ""
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Количество сообщений, требующих внимания"
 
 #~ msgid "Number of unread messages"
 #~ msgstr "Количество непрочитанных сообщений"

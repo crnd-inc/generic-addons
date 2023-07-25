@@ -856,7 +856,7 @@ msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr ""
 
 #. module: generic_condition

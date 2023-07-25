@@ -6,7 +6,7 @@
 | generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 16.0.1.1.3 | Generic Conditions (Integration with Action Rules) |  |
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 16.0.1.8.1 | Generic Conditions - Tests (do not install manualy) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 16.0.0.5.0 | Technical utils to add encryption to other addons |  |
-| generic_location | Generic Location | LGPL-3 | 16.0.2.2.0 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
+| generic_location | Generic Location | LGPL-3 | 16.0.2.3.0 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
 | generic_location_map | Generic Location: Map | LGPL-3 | 16.0.1.6.0 | Display locations on map view. |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 16.0.1.5.2 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 16.0.1.76.0 | Technical module with generic mixins, that may help to build other modules |  |

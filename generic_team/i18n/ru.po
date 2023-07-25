@@ -279,8 +279,8 @@ msgstr ""
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Количество сообщений, требующих внимания"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_has_error_counter
@@ -372,6 +372,9 @@ msgstr "Пользователь может быть добавлен в ком�
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__user_count
 msgid "Users count"
 msgstr "Количество пользователей"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Количество сообщений, требующих внимания"
 
 #~ msgid "Number of unread messages"
 #~ msgstr "Количество непрочитанных сообщений"
