@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2023-07-26 11:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -27,7 +28,8 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user
 msgid ""
 "\n"
-"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
+"            Users in this group have access to menu Tags. They cannot create "
+"or edit tags.\n"
 "        "
 msgstr ""
 
@@ -35,7 +37,8 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
 msgid ""
 "\n"
-"            Users in this group have access to tags that have same group that user have\n"
+"            Users in this group have access to tags that have same group "
+"that user have\n"
 "        "
 msgstr ""
 
@@ -348,26 +351,6 @@ msgid "List of modules in which the object is defined or inherited"
 msgstr "Modulių sąrašas, kuriame objektas yra apibrėžtas arba paveldėtas"
 
 #. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_activity
-msgid "Mail Activity"
-msgstr ""
-
-#. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_blacklist
-msgid "Mail Blacklist"
-msgstr ""
-
-#. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_thread
-msgid "Mail Thread"
-msgstr ""
-
-#. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_thread_sms
-msgid "Mail Thread SMS"
-msgstr ""
-
-#. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__code
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__code
 msgid "May be used for special tags which have programmed bechavior"
@@ -575,26 +558,6 @@ msgstr "Tipas"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__view_ids
 msgid "Views"
 msgstr "Peržiūros"
-
-#. module: generic_tag
-#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_activity
-msgid "Whether this model supports activities."
-msgstr ""
-
-#. module: generic_tag
-#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_blacklist
-msgid "Whether this model supports blacklist."
-msgstr ""
-
-#. module: generic_tag
-#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_thread_sms
-msgid "Whether this model supports messages and notifications through SMS"
-msgstr ""
-
-#. module: generic_tag
-#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_thread
-msgid "Whether this model supports messages and notifications."
-msgstr ""
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__check_xor

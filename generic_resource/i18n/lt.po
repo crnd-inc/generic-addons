@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2023-07-26 11:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -271,9 +272,7 @@ msgstr "Jeigu pažymėta, naujiems pranešimams reikės jūsų dėmesio."
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_sms_error
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Jei pažymėta, yra žinučių, turinčių pristatymo klaidų."
 
@@ -393,11 +392,6 @@ msgstr "Pašto juodasis sąrašas"
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Mail Thread"
 msgstr "El. pašto susirašinėjimas"
-
-#. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_thread_sms
-msgid "Mail Thread SMS"
-msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_main_attachment_id
@@ -694,11 +688,8 @@ msgid "Resource model"
 msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.constraint,message:generic_resource.constraint_generic_equipment_simple_unique_resource_id
-#: model:ir.model.constraint,message:generic_resource.constraint_generic_equipment_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_mixin_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_unique_resource_id
-#: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_2_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_unique_resource_id
 msgid "Resource must be unique"
 msgstr ""
@@ -712,8 +703,7 @@ msgstr ""
 #: model:ir.model.fields,help:generic_resource.field_generic_resource__resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__resource_visibility
 msgid ""
-"Resource visibility determines users that have read access for this "
-"resource."
+"Resource visibility determines users that have read access for this resource."
 msgstr ""
 
 #. module: generic_resource
@@ -728,21 +718,10 @@ msgid "Resources"
 msgstr "Ištekliai"
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_sms_error
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
-
-#. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__order
 msgid ""
 "SQL expression for ordering records in the model; e.g. \"x_sequence asc, id "
 "desc\""
-msgstr ""
-
-#. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__field_security_ids
-msgid "Security Fields"
 msgstr ""
 
 #. module: generic_resource
@@ -860,11 +839,6 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_mail_blacklist
 msgid "Whether this model supports blacklist."
-msgstr ""
-
-#. module: generic_resource
-#: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_mail_thread_sms
-msgid "Whether this model supports messages and notifications through SMS"
 msgstr ""
 
 #. module: generic_resource

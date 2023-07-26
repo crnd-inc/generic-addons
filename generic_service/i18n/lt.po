@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2023-07-26 11:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -230,9 +231,7 @@ msgstr "Jeigu pažymėta, naujiems pranešimams reikės jūsų dėmesio."
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_has_error
-#: model:ir.model.fields,help:generic_service.field_generic_service__message_has_sms_error
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_error
-#: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Jei pažymėta, yra žinučių, turinčių pristatymo klaidų."
 
@@ -411,12 +410,6 @@ msgstr ""
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__access_group_ids
 msgid "Restrict access to this service by specified groups only"
-msgstr ""
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_sms_error
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_sms_error
-msgid "SMS Delivery error"
 msgstr ""
 
 #. module: generic_service

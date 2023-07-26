@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-13 15:05+0000\n"
 "PO-Revision-Date: 2023-07-26 09:29+0000\n"
 "Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
-"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
-"generic-addons-15-0/generic_location_geolocalize/uk/>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/generic-"
+"addons-15-0/generic_location_geolocalize/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,12 +35,6 @@ msgid "Generic Location Geolocalize Mixin"
 msgstr ""
 
 #. module: generic_location_geolocalize
-#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location__display_name
-#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__display_name
-msgid "Display Name"
-msgstr "Назва для відображення"
-
-#. module: generic_location_geolocalize
 #: model_terms:ir.ui.view,arch_db:generic_location_geolocalize.generic_location_form_view
 msgid "Geolocalize"
 msgstr "Геолокалізація"
@@ -50,18 +44,6 @@ msgstr "Геолокалізація"
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__geolocation_json
 msgid "Geolocation Json"
 msgstr "Геолокація Json"
-
-#. module: generic_location_geolocalize
-#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location__id
-#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__id
-msgid "ID"
-msgstr "ID"
-
-#. module: generic_location_geolocalize
-#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location____last_update
-#: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin____last_update
-msgid "Last Modified on"
-msgstr "Остання модифікація"
 
 #. module: generic_location_geolocalize
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__latitude
@@ -106,7 +88,11 @@ msgstr "Вулиця2"
 msgid "Zip"
 msgstr "Зіп Код"
 
-#. module: generic_location_geolocalize
-#: model:ir.model,name:generic_location_geolocalize.model_generic_location_geolocalize_mixin
-msgid "generic.location.geolocalize.mixin"
-msgstr ""
+#~ msgid "Display Name"
+#~ msgstr "Назва для відображення"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Остання модифікація"
