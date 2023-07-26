@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '15.0.1.2.0',
+    'version': '15.0.1.3.0',
 
     "depends": [
         "generic_tag",
