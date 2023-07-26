@@ -4,13 +4,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-09 11:05+0000\n"
-"PO-Revision-Date: 2021-07-09 11:05+0000\n"
+"POT-Creation-Date: 2023-07-26 11:12+0000\n"
+"PO-Revision-Date: 2023-07-26 11:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -28,8 +27,7 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user
 msgid ""
 "\n"
-"            Users in this group have access to menu Tags. They cannot create "
-"or edit tags.\n"
+"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
 "        "
 msgstr ""
 
@@ -37,15 +35,14 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
 msgid ""
 "\n"
-"            Users in this group have access to tags that have same group "
-"that user have\n"
+"            Users in this group have access to tags that have same group that user have\n"
 "        "
 msgstr ""
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__access_ids
 msgid "Access"
-msgstr ""
+msgstr "Prieiga"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__act_manage_tags_id
@@ -55,18 +52,18 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__action
 msgid "Action"
-msgstr ""
+msgstr "Veiksmas"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__active
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__active
 msgid "Active"
-msgstr ""
+msgstr "Aktyvus"
 
 #. module: generic_tag
 #: model:ir.model.fields.selection,name:generic_tag.selection__generic_tag_wizard_manage_tags__action__add
 msgid "Add"
-msgstr ""
+msgstr "Pridėti"
 
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_all
@@ -76,29 +73,29 @@ msgstr ""
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.generic_tag_wizard_manage_tags_form_view
 msgid "Apply"
-msgstr ""
+msgstr "Taikyti"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Archived"
-msgstr ""
+msgstr "Archyvuota"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.generic_tag_wizard_manage_tags_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "Atšaukti"
 
 #. module: generic_tag
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tag_caegories_view
 #: model:ir.ui.menu,name:generic_tag.menu_action_generic_tag_categories_view
 msgid "Categories"
-msgstr ""
+msgstr "Kategorijos"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__category_id
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Category"
-msgstr ""
+msgstr "Kategorija"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
@@ -130,7 +127,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__code
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__code
 msgid "Code"
-msgstr ""
+msgstr "Kodas"
 
 #. module: generic_tag
 #: model:ir.model.constraint,message:generic_tag.constraint_generic_tag_category_code_uniq
@@ -146,13 +143,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__color
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__color
 msgid "Color"
-msgstr ""
+msgstr "Spalva"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__comment
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__comment
 msgid "Comment"
-msgstr ""
+msgstr "Komentaras"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
@@ -163,12 +160,12 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__complete_name
 msgid "Complete Name"
-msgstr ""
+msgstr "Pilnas pavadinimas"
 
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_configuration_root
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigūracija"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__count
@@ -181,7 +178,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__create_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Sukūrė"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__create_date
@@ -189,7 +186,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__create_date
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Sukurta"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__comment
@@ -207,12 +204,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Rodomas pavadinimas"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__field_id
 msgid "Fields"
-msgstr ""
+msgstr "Laukai"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_mixin__search_tag_id
@@ -276,12 +273,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Group By..."
-msgstr ""
+msgstr "Grupuoti pagal..."
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__group_ids
 msgid "Groups"
-msgstr ""
+msgstr "Grupės"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__objects_count
@@ -309,17 +306,17 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__modules
 msgid "In Apps"
-msgstr ""
+msgstr "Programose"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__info
 msgid "Information"
-msgstr ""
+msgstr "Informacija"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__inherited_model_ids
 msgid "Inherited models"
-msgstr ""
+msgstr "Paveldėti modeliai"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag____last_update
@@ -327,7 +324,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model____last_update
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Paskutinį kartą keista"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__write_uid
@@ -335,7 +332,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__write_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Paskutinį kartą atnaujino"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__write_date
@@ -343,11 +340,31 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__write_date
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Paskutinį kartą atnaujinta"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__modules
 msgid "List of modules in which the object is defined or inherited"
+msgstr "Modulių sąrašas, kuriame objektas yra apibrėžtas arba paveldėtas"
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_activity
+msgid "Mail Activity"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_blacklist
+msgid "Mail Blacklist"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_thread
+msgid "Mail Thread"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__is_mail_thread_sms
+msgid "Mail Thread SMS"
 msgstr ""
 
 #. module: generic_tag
@@ -365,12 +382,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Model"
-msgstr ""
+msgstr "Šablonas"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__name
 msgid "Model Description"
-msgstr ""
+msgstr "Modelio aprašymas"
 
 #. module: generic_tag
 #: code:addons/generic_tag/models/generic_tag_category.py:0
@@ -382,13 +399,13 @@ msgstr ""
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tag_models_view
 #: model:ir.ui.menu,name:generic_tag.menu_action_generic_tag_modeles_view
 msgid "Models"
-msgstr ""
+msgstr "Modeliai"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__name
 msgid "Name"
-msgstr ""
+msgstr "Vardas"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__category_name
@@ -430,17 +447,17 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__order
 msgid "Order"
-msgstr ""
+msgstr "Užsakymas"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__rule_ids
 msgid "Record Rules"
-msgstr ""
+msgstr "Įrašo taisyklės"
 
 #. module: generic_tag
 #: model:ir.model.fields.selection,name:generic_tag.selection__generic_tag_wizard_manage_tags__action__remove
 msgid "Remove"
-msgstr ""
+msgstr "Pašalinti"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__order
@@ -453,7 +470,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__sequence
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Seka"
 
 #. module: generic_tag
 #: model:ir.model.fields.selection,name:generic_tag.selection__generic_tag_wizard_manage_tags__action__set
@@ -482,7 +499,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__search_tag_id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__tag_ids
 msgid "Tag"
-msgstr ""
+msgstr "Tagas"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_manager
@@ -510,7 +527,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_tree
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_model_form
 msgid "Tags"
-msgstr ""
+msgstr "Žymos"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__tags_count
@@ -532,31 +549,51 @@ msgstr ""
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.generic_tag_wizard_manage_tags_form_view
 msgid "Tags..."
-msgstr ""
+msgstr "Žymos..."
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__inherited_model_ids
 msgid "The list of models that extends the current model."
-msgstr ""
+msgstr "Sąrašas modulių, praplėčiančių dabartinį modulį."
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__count
 msgid "Total number of records in this model"
-msgstr ""
+msgstr "Visas šio modelio įrašų skaičius"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__transient
 msgid "Transient Model"
-msgstr ""
+msgstr "Laikinas modelis"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__state
 msgid "Type"
-msgstr ""
+msgstr "Tipas"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__view_ids
 msgid "Views"
+msgstr "Peržiūros"
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_activity
+msgid "Whether this model supports activities."
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_blacklist
+msgid "Whether this model supports blacklist."
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_thread_sms
+msgid "Whether this model supports messages and notifications through SMS"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__is_mail_thread
+msgid "Whether this model supports messages and notifications."
 msgstr ""
 
 #. module: generic_tag

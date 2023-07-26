@@ -4,13 +4,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-22 16:05+0000\n"
-"PO-Revision-Date: 2021-06-22 16:05+0000\n"
+"POT-Creation-Date: 2023-07-26 11:12+0000\n"
+"PO-Revision-Date: 2023-07-26 11:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,13 +18,13 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__access_ids
 msgid "Access"
-msgstr ""
+msgstr "Prieiga"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Reikalingas veiksmas"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__active
@@ -34,7 +33,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__active
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Active"
-msgstr ""
+msgstr "Aktyvus"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_category_view_form
@@ -42,13 +41,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_form_base
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Archived"
-msgstr ""
+msgstr "Archyvuota"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_attachment_count
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Prisegtukų skaičius"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_wizard_mixin.py:0
@@ -63,7 +62,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_search
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 msgid "Category"
-msgstr ""
+msgstr "Kategorija"
 
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_category_category_unique
@@ -78,7 +77,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_config_root
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigūracija"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__count
@@ -90,24 +89,24 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Sukūrė"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Sukurta"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_type_menu_item
 msgid "Dashboard"
-msgstr ""
+msgstr "Valdymo skydelis"
 
 #. module: generic_resource
 #: model:generic.resource.type,name:generic_resource.generic_resource_type_default
 msgid "Default"
-msgstr ""
+msgstr "Numatytasis"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_computer_1
@@ -131,7 +130,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Rodomas pavadinimas"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment
@@ -147,7 +146,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__field_id
 msgid "Fields"
-msgstr ""
+msgstr "Laukai"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:0
@@ -162,13 +161,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_follower_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Sekėjai"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_partner_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Sekėjai (partneriai)"
 
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_type_model_id_uniq
@@ -252,7 +251,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__has_message
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Turi žinutę"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__id
@@ -268,59 +267,61 @@ msgstr ""
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Jeigu pažymėta, naujiems pranešimams reikės jūsų dėmesio."
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_sms_error
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Jei pažymėta, yra žinučių, turinčių pristatymo klaidų."
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_1920
 msgid "Image"
-msgstr ""
+msgstr "Paveikslėlis"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_1024
 msgid "Image 1024"
-msgstr ""
+msgstr "Paveikslėlis "
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_128
 msgid "Image 128"
-msgstr ""
+msgstr "Paveikslėlis 128"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_256
 msgid "Image 256"
-msgstr ""
+msgstr "Paveikslėlis 256"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_512
 msgid "Image 512"
-msgstr ""
+msgstr "Paveikslėlis 512"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__modules
 msgid "In Apps"
-msgstr ""
+msgstr "Programose"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 msgid "Info"
-msgstr ""
+msgstr "Informacija"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__info
 msgid "Information"
-msgstr ""
+msgstr "Informacija"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "Inherited models"
-msgstr ""
+msgstr "Paveldėti modeliai"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_inkjet
@@ -337,7 +338,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_is_follower
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Yra sekėjas"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_generic_resource
@@ -357,26 +358,26 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category____last_update
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Paskutinį kartą keista"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Paskutinį kartą atnaujino"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Paskutinį kartą atnaujinta"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__modules
 msgid "List of modules in which the object is defined or inherited"
-msgstr ""
+msgstr "Modulių sąrašas, kuriame objektas yra apibrėžtas arba paveldėtas"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_activity
@@ -386,18 +387,23 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_blacklist
 msgid "Mail Blacklist"
-msgstr ""
+msgstr "Pašto juodasis sąrašas"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Mail Thread"
+msgstr "El. pašto susirašinėjimas"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_thread_sms
+msgid "Mail Thread SMS"
 msgstr ""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_main_attachment_id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Pagrindinis prisegtukas"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_manager
@@ -408,18 +414,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Žinutės pristatymo klaida"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Žinutės"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model
 msgid "Model"
-msgstr ""
+msgstr "Šablonas"
 
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_unique_model
@@ -429,7 +435,7 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_ir_model
 msgid "Models"
-msgstr ""
+msgstr "Modeliai"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__name
@@ -442,7 +448,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
 msgid "Name"
-msgstr ""
+msgstr "Vardas"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_1
@@ -464,37 +470,37 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Veiksmų skaičius"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Klaidų kiekis"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_needaction_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Žinučių, kurioms reikia jūsų veiksmo, skaičius"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Žinučių su pristatymo klaida skaičius"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_unread_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Neperskaitytų žinučių skaičius"
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/ir_model.py:0
 #, python-format
 msgid "Only custom models can be modified."
-msgstr ""
+msgstr "Tik nestandartiniai modeliai gali būti redaguojami."
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
@@ -504,22 +510,22 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__order
 msgid "Order"
-msgstr ""
+msgstr "Užsakymas"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 msgid "Parameters"
-msgstr ""
+msgstr "Parametrai"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_id
 msgid "Parent Category"
-msgstr ""
+msgstr "Tėvinė kategorija"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "Tėvinis kelias"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_3
@@ -609,12 +615,12 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_ir_rule
 msgid "Record Rule"
-msgstr ""
+msgstr "Įrašo taisyklė"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__rule_ids
 msgid "Record Rules"
-msgstr ""
+msgstr "Įrašo taisyklės"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_id
@@ -624,7 +630,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
 msgid "Resource"
-msgstr ""
+msgstr "Išteklius"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_count
@@ -641,7 +647,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model_id
 msgid "Resource Model"
-msgstr ""
+msgstr "Išteklių modelis"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_related_res_action_id
@@ -688,8 +694,11 @@ msgid "Resource model"
 msgstr ""
 
 #. module: generic_resource
+#: model:ir.model.constraint,message:generic_resource.constraint_generic_equipment_simple_unique_resource_id
+#: model:ir.model.constraint,message:generic_resource.constraint_generic_equipment_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_mixin_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_unique_resource_id
+#: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_2_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_unique_resource_id
 msgid "Resource must be unique"
 msgstr ""
@@ -703,7 +712,8 @@ msgstr ""
 #: model:ir.model.fields,help:generic_resource.field_generic_resource__resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__resource_visibility
 msgid ""
-"Resource visibility determines users that have read access for this resource."
+"Resource visibility determines users that have read access for this "
+"resource."
 msgstr ""
 
 #. module: generic_resource
@@ -715,6 +725,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resources"
+msgstr "Ištekliai"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_sms_error
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_sms_error
+msgid "SMS Delivery error"
 msgstr ""
 
 #. module: generic_resource
@@ -725,9 +741,14 @@ msgid ""
 msgstr ""
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__field_security_ids
+msgid "Security Fields"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Seka"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__show_resources_action_id
@@ -764,39 +785,39 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "The list of models that extends the current model."
-msgstr ""
+msgstr "Sąrašas modulių, praplėčiančių dabartinį modulį."
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__count
 msgid "Total number of records in this model"
-msgstr ""
+msgstr "Visas šio modelio įrašų skaičius"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__transient
 msgid "Transient Model"
-msgstr ""
+msgstr "Laikinas modelis"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__state
 msgid "Type"
-msgstr ""
+msgstr "Tipas"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_unread
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neperskaitytos žinutės"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_unread_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Neperskaitytų žinučių skaičiavimas"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__view_ids
 msgid "Views"
-msgstr ""
+msgstr "Peržiūros"
 
 #. module: generic_resource
 #: model:ir.model.fields.selection,name:generic_resource.selection__generic_resource__resource_visibility__public
@@ -842,9 +863,14 @@ msgid "Whether this model supports blacklist."
 msgstr ""
 
 #. module: generic_resource
+#: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_mail_thread_sms
+msgid "Whether this model supports messages and notifications through SMS"
+msgstr ""
+
+#. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Whether this model supports messages and notifications."
-msgstr ""
+msgstr "Ar šis modelis palaiko žinutes ir pranešimus."
 
 #. module: generic_resource
 #: code:addons/generic_resource/models/generic_resource_type.py:0

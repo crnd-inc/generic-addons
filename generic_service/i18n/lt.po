@@ -4,13 +4,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-22 16:04+0000\n"
-"PO-Revision-Date: 2021-06-22 16:04+0000\n"
+"POT-Creation-Date: 2023-07-26 11:09+0000\n"
+"PO-Revision-Date: 2023-07-26 11:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -35,12 +34,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Reikalingas veiksmas"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Activate"
-msgstr ""
+msgstr "Aktyvuoti"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
@@ -52,7 +51,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__active
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__active
 msgid "Active"
-msgstr ""
+msgstr "Aktyvus"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
@@ -65,13 +64,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Archived"
-msgstr ""
+msgstr "Archyvuota"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_attachment_count
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Prisegtukų skaičius"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__change_manager_id
@@ -83,7 +82,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__code
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__code
 msgid "Code"
-msgstr ""
+msgstr "Kodas"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
@@ -95,7 +94,7 @@ msgstr ""
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Konfigūracijos nustatymai"
 
 #. module: generic_service
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_configuration_menu_item
@@ -105,31 +104,31 @@ msgstr ""
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Kontaktai"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Created"
-msgstr ""
+msgstr "Sukurta"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Sukūrė"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__create_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Sukurta"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_default
 msgid "Default"
-msgstr ""
+msgstr "Numatytasis"
 
 #. module: generic_service
 #: model:generic.service,description:generic_service.generic_service_default
@@ -140,7 +139,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__description
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__description
 msgid "Description"
-msgstr ""
+msgstr "Aprašymas"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
@@ -153,19 +152,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__display_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Rodomas pavadinimas"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_follower_ids
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Sekėjai"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_partner_ids
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Sekėjai (partneriai)"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_generic_service
@@ -206,13 +205,13 @@ msgstr ""
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Group by..."
-msgstr ""
+msgstr "Grupuoti pagal..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__has_message
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Turi žinutę"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__id
@@ -227,46 +226,48 @@ msgstr ""
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_needaction
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Jeigu pažymėta, naujiems pranešimams reikės jūsų dėmesio."
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_has_error
+#: model:ir.model.fields,help:generic_service.field_generic_service__message_has_sms_error
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_error
+#: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Jei pažymėta, yra žinučių, turinčių pristatymo klaidų."
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Info"
-msgstr ""
+msgstr "Informacija"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_is_follower
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Yra sekėjas"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service____last_update
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group____last_update
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Paskutinį kartą keista"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Paskutinį kartą atnaujino"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__write_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Paskutinį kartą atnaujinta"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_1
@@ -329,7 +330,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_main_attachment_id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Pagrindinis prisegtukas"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_manager
@@ -340,13 +341,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_error
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Žinutės pristatymo klaida"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_ids
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Žinutės"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__name
@@ -355,7 +356,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Name"
-msgstr ""
+msgstr "Vardas"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
@@ -366,31 +367,31 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction_counter
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Veiksmų skaičius"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_error_counter
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Klaidų kiekis"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_needaction_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Žinučių, kurioms reikia jūsų veiksmo, skaičius"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_has_error_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Žinučių su pristatymo klaida skaičius"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_unread_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Neperskaitytų žinučių skaičius"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
@@ -413,16 +414,22 @@ msgid "Restrict access to this service by specified groups only"
 msgstr ""
 
 #. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_sms_error
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Seka"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__service_ids
 msgid "Service"
-msgstr ""
+msgstr "Servisas"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__service_count
@@ -448,7 +455,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_res_partner__service_level_id
 #: model:ir.model.fields,field_description:generic_service.field_res_users__service_level_id
 msgid "Service Level"
-msgstr ""
+msgstr "Serviso lygis"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_level_action
@@ -489,18 +496,18 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_tree_view
 #: model_terms:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
 msgid "Services"
-msgstr ""
+msgstr "Paslaugos"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action_service_settings
 #: model:ir.ui.menu,name:generic_service.menu_settings_service
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "State"
-msgstr ""
+msgstr "Regionas"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_administration
@@ -531,13 +538,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_unread
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neperskaitytos žinutės"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_unread_counter
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Neperskaitytų žinučių skaičiavimas"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_config_settings__group_use_service_level

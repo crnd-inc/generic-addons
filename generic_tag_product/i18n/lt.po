@@ -4,13 +4,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-09 11:05+0000\n"
-"PO-Revision-Date: 2021-07-09 11:05+0000\n"
+"POT-Creation-Date: 2023-07-26 11:11+0000\n"
+"PO-Revision-Date: 2023-07-26 11:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -35,7 +34,7 @@ msgstr ""
 #: model:generic.tag.model,name:generic_tag_product.generic_tag_model_product_product
 #: model:ir.model,name:generic_tag_product.model_product_product
 msgid "Product"
-msgstr ""
+msgstr "Produktas"
 
 #. module: generic_tag_product
 #: model:ir.actions.act_window,name:generic_tag_product.product_product_tags_view_action

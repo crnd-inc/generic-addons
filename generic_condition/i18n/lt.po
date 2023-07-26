@@ -4,13 +4,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-09 11:05+0000\n"
-"PO-Revision-Date: 2021-07-09 11:05+0000\n"
+"POT-Creation-Date: 2023-07-26 11:09+0000\n"
+"PO-Revision-Date: 2023-07-26 11:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -20,8 +19,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
 "<b>Warning:</b> This feature is deprecated,\n"
-"                                because filters cannot handle NewId records "
-"that used\n"
+"                                because filters cannot handle NewId records that used\n"
 "                                during onchange computation."
 msgstr ""
 
@@ -50,12 +48,12 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Reikalingas veiksmas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__active
 msgid "Active"
-msgstr ""
+msgstr "Aktyvus"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_find_order_by_direction__asc
@@ -65,12 +63,12 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Prisegtukų skaičius"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Based on"
-msgstr ""
+msgstr "Paremta"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__model_id
@@ -80,16 +78,14 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can create the condition to compare monetary indicators. "
-"<br/>\n"
+"By this type you can create the condition to compare monetary indicators. <br/>\n"
 "                                <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can describe the condition as an expression in the Python "
-"programming language. <br/>\n"
+"By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -115,7 +111,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Check"
-msgstr ""
+msgstr "Pažymėti"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__check_field_id
@@ -143,8 +139,7 @@ msgstr ""
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid ""
-"Checking condition %(cond)s on document %(doc)s caused error. Notify "
-"administrator to fix it.\n"
+"Checking condition %(cond)s on document %(doc)s caused error. Notify administrator to fix it.\n"
 "\n"
 "---\n"
 "%(error_msg)s"
@@ -153,7 +148,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_user_check_type__checks
 msgid "Checks"
-msgstr ""
+msgstr "Kvitai"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -175,8 +170,7 @@ msgstr ""
 msgid ""
 "Choose way related record will be checked:\n"
 "- Match: return True if all filtered records match condition.\n"
-"- Contains: return True if at least one of filtered records match 'check' "
-"conditions"
+"- Contains: return True if at least one of filtered records match 'check' conditions"
 msgstr ""
 
 #. module: generic_condition
@@ -187,7 +181,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__color
 msgid "Color"
-msgstr ""
+msgstr "Spalva"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__condition_id
@@ -197,7 +191,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Condition"
-msgstr ""
+msgstr "Sąlyga"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_condition_ids
@@ -290,7 +284,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_user_checks_condition_ids
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Conditions"
-msgstr ""
+msgstr "Sąlygos"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__sequence
@@ -303,7 +297,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator__contains
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator_html__contains
 msgid "Contains"
-msgstr ""
+msgstr "Turi"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_parenter_country_is_ukraine
@@ -314,20 +308,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__create_uid
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Sukūrė"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__create_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Sukurta"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_currency_field_id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_value_currency_id
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Currency"
-msgstr ""
+msgstr "Valiuta"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
@@ -356,7 +350,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_monetary_curency_date_type__date
 #, python-format
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_uom
@@ -420,7 +414,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__days
 msgid "Days"
-msgstr ""
+msgstr "Dienos"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__debug_log
@@ -436,7 +430,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__description
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Description"
-msgstr ""
+msgstr "Aprašymas"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -448,7 +442,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__display_name
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Rodomas pavadinimas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__enable_caching
@@ -458,7 +452,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "End Date"
-msgstr ""
+msgstr "Pabaigos data"
 
 #. module: generic_condition
 #: code:addons/generic_condition/wizard/test_condition.py:0
@@ -504,12 +498,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
 msgid "Field"
-msgstr ""
+msgstr "Laukas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__check_field_type
 msgid "Field Type"
-msgstr ""
+msgstr "Lauko tipas"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_user_user_field_id
@@ -535,7 +529,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__filter
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Filter"
-msgstr ""
+msgstr "Filtras"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -550,22 +544,22 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_find_fetch_type__first
 msgid "First"
-msgstr ""
+msgstr "Pirmas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Sekėjai"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Sekėjai (partneriai)"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_domain_leaf__check_field_relation
 msgid "For relationship fields, the technical name of the target model"
-msgstr ""
+msgstr "Santykių laukams, tikslinio modelio techninis pavadinimas "
 
 #. module: generic_condition
 #: model:ir.model,name:generic_condition.model_generic_condition
@@ -595,20 +589,19 @@ msgstr ""
 msgid ""
 "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s "
-"[%(object_id)d]\tobject's model: %(object_model)s\n"
+"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s [%(object_id)d]\tobject's model: %(object_model)s\n"
 "\tcondition's model: %(condition_model)s\n"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Group by..."
-msgstr ""
+msgstr "Grupuoti pagal..."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Turi žinutę"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_has_contact_green
@@ -623,8 +616,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"Here you can create a condition that relates to the simple field of the Odoo "
-"object. <br/>\n"
+"Here you can create a condition that relates to the simple field of the Odoo object. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -638,7 +630,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__hours
 msgid "Hours"
-msgstr ""
+msgstr "Valandos"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__id
@@ -656,12 +648,13 @@ msgstr ""
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_needaction
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Jeigu pažymėta, naujiems pranešimams reikės jūsų dėmesio."
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_has_error
+#: model:ir.model.fields,help:generic_condition.field_generic_condition__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Jei pažymėta, yra žinučių, turinčių pristatymo klaidų."
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_date_diff_absolute
@@ -685,9 +678,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"In that case you can select one of the already created conditions (this "
-"could be useful if you use the same condition but with inversion or as a "
-"superuser). <br/>\n"
+"In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -727,26 +718,26 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Yra sekėjas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition____last_update
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf____last_update
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Paskutinį kartą keista"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__write_uid
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Paskutinį kartą atnaujino"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__write_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Paskutinį kartą atnaujinta"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_condition_id
@@ -756,7 +747,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Pagrindinis prisegtukas"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_rel_record_operator__match
@@ -766,24 +757,24 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Žinutės pristatymo klaida"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Žinutės"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__minutes
 msgid "Minutes"
-msgstr ""
+msgstr "Minutės"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__based_on
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_search_model_name
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Model"
-msgstr ""
+msgstr "Šablonas"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
@@ -796,7 +787,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Model Name"
-msgstr ""
+msgstr "Modelio pavadinimas"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
@@ -822,12 +813,12 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__months
 msgid "Months"
-msgstr ""
+msgstr "Mėnesiai"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__name
 msgid "Name"
-msgstr ""
+msgstr "Vardas"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_related_field_operator__not_set
@@ -841,27 +832,27 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Veiksmų skaičius"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Klaidų kiekis"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Žinučių, kurioms reikia jūsų veiksmo, skaičius"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Žinučių su pristatymo klaida skaičius"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Neperskaitytų žinučių skaičius"
 
 #. module: generic_condition
 #: code:addons/generic_condition/models/generic_condition.py:0
@@ -903,7 +894,7 @@ msgstr ""
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
 msgid "Ok"
-msgstr ""
+msgstr "Gerai"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_user_check_type__one_of
@@ -955,7 +946,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_field_id
 msgid "Related Field"
-msgstr ""
+msgstr "Susijęs laukas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_related_field_model
@@ -1016,9 +1007,14 @@ msgid "Run this condition as superuser."
 msgstr ""
 
 #. module: generic_condition
+#: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Search"
-msgstr ""
+msgstr "Paieška"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1029,7 +1025,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__sequence
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Seka"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_related_field_operator__set
@@ -1048,7 +1044,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Start Date"
-msgstr ""
+msgstr "Pradžios data"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__value_type__static-value
@@ -1064,7 +1060,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
 msgid "Test"
-msgstr ""
+msgstr "Testas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__test_as_user_id
@@ -1097,16 +1093,14 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of condition can be used to find related objects in arbitary "
-"table\n"
+"This type of condition can be used to find related objects in arbitary table\n"
 "                                and check them."
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of condition is used to check the properties of related objects. "
-"<br/>\n"
+"This type of condition is used to check the properties of related objects. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1120,8 +1114,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of the condition allows you to estimate the date difference "
-"between certain events. <br/>\n"
+"This type of the condition allows you to estimate the date difference between certain events. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1138,23 +1131,23 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Type"
-msgstr ""
+msgstr "Tipas"
 
 #. module: generic_condition
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
 msgid "Unknown"
-msgstr ""
+msgstr "Nežinomas"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neperskaitytos žinutės"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Neperskaitytų žinučių skaičiavimas"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_rel_filter_conditions
@@ -1196,7 +1189,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_user_one_of_user_ids
 msgid "Users"
-msgstr ""
+msgstr "Vartotojai"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_value
@@ -1210,7 +1203,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_simple_field_value_selection
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Value"
-msgstr ""
+msgstr "Reikšmė"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_boolean
@@ -1240,12 +1233,12 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_float
 msgid "Value Float"
-msgstr ""
+msgstr "Skaičiaus su kableliu reikšmė"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_integer
 msgid "Value Integer"
-msgstr ""
+msgstr "Skaičiaus reikšmė"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_res_id
@@ -1265,7 +1258,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__weeks
 msgid "Weeks"
-msgstr ""
+msgstr "Savaitės"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__with_sudo
@@ -1280,8 +1273,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"With this type of condition you can use multiple conditions simultaneously. "
-"<br/>\n"
+"With this type of condition you can use multiple conditions simultaneously. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1299,7 +1291,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__years
 msgid "Years"
-msgstr ""
+msgstr "Metai"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
