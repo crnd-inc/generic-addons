@@ -6,7 +6,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '12.0.0.10.0',
+    'version': '12.0.0.12.0',
     'depends': [
         'generic_crypto_utils',
     ],
