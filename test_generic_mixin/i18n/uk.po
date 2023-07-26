@@ -432,6 +432,7 @@ msgstr ""
 msgid "Test Generic Mixin: Interface 2"
 msgstr ""
 
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__uuid
 msgid "UUID"
 msgstr "Унікальний ID"

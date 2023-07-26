@@ -34,6 +34,7 @@ msgstr "Країна"
 msgid "Generic Location Geolocalize Mixin"
 msgstr ""
 
+#. module: generic_location_geolocalize
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location__display_name
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__display_name
 msgid "Display Name"
