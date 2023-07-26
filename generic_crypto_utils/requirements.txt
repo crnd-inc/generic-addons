@@ -1,1 +1,2 @@
 cryptography
+pyopenssl   # We need it here to not break pip
