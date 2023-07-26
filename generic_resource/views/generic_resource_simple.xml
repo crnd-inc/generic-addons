@@ -74,7 +74,22 @@
         <field name="name">Simple Resources</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.resource.simple</field>
-        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="generic_resource_simple_action_view_tree"
+            model="ir.actions.act_window.view">
+        <field name="sequence" eval="5"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="generic_resource_simple_view_tree"/>
+        <field name="act_window_id" ref="generic_resource_simple_action"/>
+    </record>
+
+    <record id="generic_resource_simple_action_view_from"
+            model="ir.actions.act_window.view">
+        <field name="sequence" eval="10"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="generic_resource_simple_view_form"/>
+        <field name="act_window_id" ref="generic_resource_simple_action"/>
     </record>
 
     <!-- Menu for Simple Resources -->
