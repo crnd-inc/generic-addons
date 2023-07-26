@@ -7,44 +7,47 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-20 12:34+0000\n"
-"PO-Revision-Date: 2020-10-20 12:34+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2023-07-26 09:29+0000\n"
+"Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
+"generic-addons-15-0/test_generic_mixin/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__base_field
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__base_field
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__base_field
 msgid "Base Field"
-msgstr ""
+msgstr "Базове поле"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__base_record_id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__base_record_id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_mixin__base_record_id
 msgid "Base Record"
-msgstr ""
+msgstr "Базовий Запис"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__code
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__code
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_dbg
 msgid "Create Dbg"
-msgstr ""
+msgstr "Створити Dbg"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_dbg2
 msgid "Create Dbg2"
-msgstr ""
+msgstr "Створити  Dbg2"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_dbg3
@@ -78,7 +81,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Створив"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__create_date
@@ -102,25 +105,25 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Створено"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_id
 msgid "Data record"
-msgstr ""
+msgstr "Запис даних"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_ids
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_ids
 msgid "Data records"
-msgstr ""
+msgstr "Записи даних"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__description
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__description
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1__display_name
@@ -146,7 +149,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Назва для відображення"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__dt_value
@@ -182,7 +185,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
@@ -278,7 +281,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1____last_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Остання модифікація"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__write_uid
@@ -302,7 +305,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Востаннє оновив"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_multi_interface_impl__write_date
@@ -326,7 +329,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Останнє оновлення"
 
 #. module: test_generic_mixin
 #: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_interface_1_unique_model
@@ -364,7 +367,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__name
 msgid "Name"
-msgstr ""
+msgstr "Назва"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
@@ -428,6 +431,10 @@ msgstr ""
 #: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_interface_2
 msgid "Test Generic Mixin: Interface 2"
 msgstr ""
+
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__uuid
+msgid "UUID"
+msgstr "Унікальний ID"
 
 #. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_interface_2_impl_mixin

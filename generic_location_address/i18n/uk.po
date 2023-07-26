@@ -1,0 +1,161 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* generic_location_address
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-13 15:06+0000\n"
+"PO-Revision-Date: 2023-07-26 09:29+0000\n"
+"Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
+"generic-addons-15-0/generic_location_address/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___city
+msgid " City"
+msgstr " Місто"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___street
+msgid " Street"
+msgstr " Вулиця"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___street2
+msgid " Street2"
+msgstr " Вулиця2"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___zip
+msgid " Zip"
+msgstr " Зіп Код"
+
+#. module: generic_location_address
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Address"
+msgstr "Адреса"
+
+#. module: generic_location_address
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Address Configuration"
+msgstr "Конфігурація адреси"
+
+#. module: generic_location_address
+#: model:ir.model.fields,help:generic_location_address.field_generic_location__state_name
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr ""
+"Адміністративний поділ країни. наприклад Годували. Штат, департамент, кантон"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__city
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "City"
+msgstr "Місто"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___country_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_name
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__country_id
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Country"
+msgstr "Країна"
+
+#. module: generic_location_address
+#: model:ir.model,name:generic_location_address.model_generic_location
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__location_id
+msgid "Location"
+msgstr "Місцезнаходження"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location___state_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_id
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_name
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__state_id
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "State"
+msgstr "Стан"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__street
+msgid "Street"
+msgstr "Вулиця"
+
+#. module: generic_location_address
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Street 2..."
+msgstr "Вулиця 2..."
+
+#. module: generic_location_address
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "Street..."
+msgstr "Вулиця..."
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street2
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__street2
+msgid "Street2"
+msgstr "Вулиця2"
+
+#. module: generic_location_address
+#: model:ir.model.fields,help:generic_location_address.field_generic_location__country_name
+msgid "The full name of the country."
+msgstr "Повна назва країни."
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__city_use_parent
+msgid "Use Parent City"
+msgstr "Використовувати батьківське місто"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__country_id_use_parent
+msgid "Use Parent Country"
+msgstr "Використовувати батьківську країну"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__state_id_use_parent
+msgid "Use Parent State"
+msgstr "Використовуйте батьківський стан"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street_use_parent
+msgid "Use Parent Street"
+msgstr "Використовувати батьківську вулицю"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__street2_use_parent
+msgid "Use Parent Street2"
+msgstr ""
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__zip_use_parent
+msgid "Use Parent Zip"
+msgstr ""
+
+#. module: generic_location_address
+#: model_terms:ir.ui.view,arch_db:generic_location_address.generic_location_form_view
+msgid "ZIP"
+msgstr "Індекс"
+
+#. module: generic_location_address
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location__zip
+#: model:ir.model.fields,field_description:generic_location_address.field_generic_location_address_mixin__zip
+msgid "Zip"
+msgstr "Зіп Код"
+
+#. module: generic_location_address
+#: model:ir.model,name:generic_location_address.model_generic_location_address_mixin
+msgid "generic.location.address.mixin"
+msgstr ""

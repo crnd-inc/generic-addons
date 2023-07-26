@@ -7,26 +7,29 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-13 15:06+0000\n"
-"PO-Revision-Date: 2019-09-13 15:06+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2023-07-26 09:29+0000\n"
+"Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
+"generic-addons-15-0/generic_mixin/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__active
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__active
 msgid "Active"
-msgstr ""
+msgstr "Активно"
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__archived
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__archived
 msgid "Archived"
-msgstr ""
+msgstr "Архівовано"
 
 #. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_no_unlink.py:0
@@ -57,7 +60,7 @@ msgstr "Код"
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_ascii_only
 msgid "Code must be ascii only"
-msgstr ""
+msgstr "Код має бути лише у форматі ASCII"
 
 #. module: generic_mixin
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_code_uniq
@@ -66,17 +69,17 @@ msgstr ""
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_uniq
 msgid "Code must be unique."
-msgstr ""
+msgstr "Код повинен бути унікальним."
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_id
 msgid "Data record"
-msgstr ""
+msgstr "Запис даних"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_ids
 msgid "Data records"
-msgstr ""
+msgstr "Записи даних"
 
 #. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_mixin_guard_fields.py:0
@@ -89,7 +92,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__draft
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__draft
 msgid "Draft"
-msgstr ""
+msgstr "Драфт"
 
 #. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_parent.py:0
@@ -116,7 +119,7 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_entity_lifecycle
 msgid "Generic Mixin: Entity Lifecycle"
-msgstr ""
+msgstr "Generic Mixin: життєвий цикл сутності"
 
 #. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_get_action
@@ -208,27 +211,27 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_activated
 msgid "Lifecycle Date Activated"
-msgstr ""
+msgstr "Дата життєвого циклу активовано"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_archived
 msgid "Lifecycle Date Archived"
-msgstr ""
+msgstr "Дата життєвого циклу в архіві"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_created
 msgid "Lifecycle Date Created"
-msgstr ""
+msgstr "Дата створення життєвого циклу"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_date_obsolete
 msgid "Lifecycle Date Obsolete"
-msgstr ""
+msgstr "Дата Закінчення Життєвого циклу"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__lifecycle_state
 msgid "Lifecycle State"
-msgstr ""
+msgstr "Стан життєвого циклу"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__name
@@ -242,13 +245,13 @@ msgstr "Назва"
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_name_uniq
 msgid "Name must be unique."
-msgstr ""
+msgstr "Ім'я має бути унікальним."
 
 #. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_mixin_name_by_sequence.py:0
 #, python-format
 msgid "New"
-msgstr ""
+msgstr "Новий"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_no_update
@@ -259,7 +262,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__obsolete
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__obsolete
 msgid "Obsolete"
-msgstr ""
+msgstr "Застарілий"
 
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid

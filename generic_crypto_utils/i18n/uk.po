@@ -7,44 +7,47 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-20 12:35+0000\n"
-"PO-Revision-Date: 2020-10-20 12:35+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2023-07-26 09:29+0000\n"
+"Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
+"generic-addons-15-0/generic_crypto_utils/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_crypto_utils
 #: model:ir.model,name:generic_crypto_utils.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Параметри конфігурації"
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Створив"
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Створено"
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Назва для відображення"
 
 #. module: generic_crypto_utils
 #: model:ir.model,name:generic_crypto_utils.model_generic_crypto_param
 msgid "Generic Crypto Param"
-msgstr ""
+msgstr "Загальний криптопараметр"
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: generic_crypto_utils
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
@@ -64,32 +67,32 @@ msgstr ""
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__key
 msgid "Key"
-msgstr ""
+msgstr "Ключ"
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Остання модифікація"
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Востаннє оновив"
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Останнє оновлення"
 
 #. module: generic_crypto_utils
 #: model:ir.model.constraint,message:generic_crypto_utils.constraint_generic_crypto_param_key_uniq
 msgid "Param key must be unique."
-msgstr ""
+msgstr "Ключ параметрів має бути унікальним."
 
 #. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__value
 msgid "Value"
-msgstr ""
+msgstr "Значення"
 
 #. module: generic_crypto_utils
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
@@ -97,3 +100,5 @@ msgstr ""
 msgid ""
 "You must add 'crypto_token' to 'odoo.conf' to be able to use this feature"
 msgstr ""
+"Ви повинні додати 'crypto_token' до 'odoo.conf', щоб мати можливість "
+"використовувати цю функцію"

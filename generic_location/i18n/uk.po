@@ -7,14 +7,17 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-13 15:06+0000\n"
-"PO-Revision-Date: 2019-09-13 15:06+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2023-07-26 09:29+0000\n"
+"Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
+"generic-addons-15-0/generic_location/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
@@ -77,18 +80,18 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__child_all_ids
 msgid "All Childs"
-msgstr ""
+msgstr "Всі підпорядковані"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__location_count
 msgid "All Locations"
-msgstr ""
+msgstr "Всі Локації"
 
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_type_search_view
 msgid "Archived"
-msgstr "Заархівовано"
+msgstr "Архівовано"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_attachment_count
@@ -98,12 +101,12 @@ msgstr "Підрахунок прикріплення"
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__child_all_count
 msgid "Child All Count"
-msgstr ""
+msgstr "Кількість всіх Підпорядкованих"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__child_count
 msgid "Child Count"
-msgstr ""
+msgstr "Кількість Підпорядкованих"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__city
@@ -116,7 +119,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__code
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #. module: generic_location
 #: model:ir.model,name:generic_location.model_res_config_settings
@@ -126,7 +129,7 @@ msgstr ""
 #. module: generic_location
 #: model:ir.ui.menu,name:generic_location.menu_configuration
 msgid "Configuration"
-msgstr ""
+msgstr "Налаштування"
 
 #. module: generic_location
 #: model:ir.model,name:generic_location.model_res_partner
@@ -172,7 +175,7 @@ msgstr "Опис"
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Description..."
-msgstr ""
+msgstr "Опис ..."
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__display_name
@@ -272,13 +275,13 @@ msgstr ""
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Є повідомлення"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__id
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__message_needaction
@@ -299,27 +302,27 @@ msgstr "Зображення"
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__image_1024
 msgid "Image 1024"
-msgstr ""
+msgstr "Зображення 1024"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__image_128
 msgid "Image 128"
-msgstr ""
+msgstr "Зображення 128"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__image_256
 msgid "Image 256"
-msgstr ""
+msgstr "Зображення 256"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__image_512
 msgid "Image 512"
-msgstr ""
+msgstr "Зображення 512"
 
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Info"
-msgstr ""
+msgstr "Інформація"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_is_follower
@@ -360,7 +363,7 @@ msgstr ""
 #: model:ir.ui.menu,name:generic_location.menu_generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
 msgid "Location"
-msgstr "Локація"
+msgstr "Місцезнаходження"
 
 #. module: generic_location
 #: model:ir.actions.act_window,name:generic_location.action_generic_location_tags_view
@@ -376,18 +379,18 @@ msgstr ""
 #: model:ir.ui.menu,name:generic_location.menu_generic_location_type
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Location Type"
-msgstr ""
+msgstr "Тип Локації"
 
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_typeform_view
 msgid "Location type code..."
-msgstr ""
+msgstr "Код Типу Локіції ..."
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__location_ids
 #: model_terms:ir.ui.view,arch_db:generic_location.view_partner_form
 msgid "Locations"
-msgstr ""
+msgstr "Локація"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__longitude
@@ -435,7 +438,7 @@ msgstr "Кількість дій"
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Номер помилки"
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__message_needaction_counter
@@ -461,17 +464,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__parent_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Parent Location"
-msgstr ""
+msgstr "Батьківська Локація"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "Батьківський шлях"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__parent_ids
 msgid "Parents"
-msgstr ""
+msgstr "Батьки"
 
 #. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__partner_id
@@ -551,7 +554,7 @@ msgstr ""
 #. module: generic_location
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_form_view
 msgid "Sublocation"
-msgstr ""
+msgstr "Підлокації"
 
 #. module: generic_location
 #: code:addons/generic_location/models/generic_location.py:0
@@ -620,12 +623,12 @@ msgstr "Назвою локації, не повинен бути опис"
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__type_id
 #: model_terms:ir.ui.view,arch_db:generic_location.generic_location_search_view
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #. module: generic_location
 #: model:ir.model.fields,help:generic_location.field_generic_location__type_id
 msgid "Type of Location"
-msgstr ""
+msgstr "Тип Локації"
 
 #. module: generic_location
 #: model:generic.location,country_name:generic_location.demo_location_city_us_ny_buffalo

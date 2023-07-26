@@ -7,17 +7,17 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-16 11:43+0000\n"
-"PO-Revision-Date: 2020-07-28 12:23+0000\n"
-"Last-Translator: Ostap Yakovenko <ceo@crnd.pro>\n"
-"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/bureaucrat-"
-"itsm-13/generic_team/uk/>\n"
+"PO-Revision-Date: 2023-07-26 09:29+0000\n"
+"Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
+"generic-addons-15-0/generic_team/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.10.3\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_user_implicit
@@ -107,7 +107,7 @@ msgstr "Активно?"
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_search
 msgid "Archived"
-msgstr "Заархівовано"
+msgstr "Архівовано"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_attachment_count
@@ -134,7 +134,7 @@ msgstr "Опис"
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Description..."
-msgstr "Опис..."
+msgstr "Опис ..."
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team3
@@ -175,7 +175,7 @@ msgstr "Учасник універсаьної команди"
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Є повідомлення"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__id
@@ -230,7 +230,7 @@ msgstr ""
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_name
 msgid "Leader Name"
-msgstr ""
+msgstr "Ім'я лідера"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_main_attachment_id
@@ -260,7 +260,7 @@ msgstr "Кількість дій"
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Номер помилки"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction_counter
