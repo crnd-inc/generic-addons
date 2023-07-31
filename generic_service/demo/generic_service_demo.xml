@@ -3,35 +3,58 @@
     <record id="generic_service_rent_notebook" model="generic.service">
         <field name="name">Rent of notebook</field>
         <field name="code">rent-of-notebook</field>
+        <field name="service_group_id" ref="generic_service_group_rent"/>
     </record>
+    <record id="generic_service_rent_desktop_computer" model="generic.service">
+        <field name="name">Rent of desktop computer</field>
+        <field name="code">rent-of-desktop-computer</field>
+        <field name="service_group_id" ref="generic_service_group_rent"/>
+    </record>
+    <record id="generic_service_rent_server" model="generic.service">
+        <field name="name">Rent of server</field>
+        <field name="code">rent-of-server</field>
+        <field name="service_group_id" ref="generic_service_group_rent"/>
+    </record>
+    <record id="generic_service_rent_office" model="generic.service">
+        <field name="name">Rent of office</field>
+        <field name="code">rent-of-office</field>
+        <field name="service_group_id" ref="generic_service_group_rent"/>
+    </record>
+
 
     <record id="generic_service_support_consulting" model="generic.service">
         <field name="name">Support / Consulting</field>
         <field name="code">support-consulting</field>
+        <field name="service_group_id" ref="generic_service_group_support"/>
     </record>
 
     <record id="generic_service_support_development" model="generic.service">
         <field name="name">Support / Development</field>
         <field name="code">support-development</field>
+        <field name="service_group_id" ref="generic_service_group_support"/>
     </record>
 
     <record id="generic_service_support_configuration" model="generic.service">
         <field name="name">Support / Configuration</field>
         <field name="code">support-configuration</field>
+        <field name="service_group_id" ref="generic_service_group_support"/>
     </record>
 
     <record id="generic_service_support_administration" model="generic.service">
         <field name="name">Support / Administration</field>
         <field name="code">support-administration</field>
+        <field name="service_group_id" ref="generic_service_group_support"/>
     </record>
 
     <record id="generic_service_support_hosting" model="generic.service">
         <field name="name">Support / Hosting</field>
         <field name="code">support-hosting</field>
+        <field name="service_group_id" ref="generic_service_group_support"/>
     </record>
 
     <record id="generic_service_on_site_maintenance" model="generic.service">
         <field name="name">On-site Maintenance</field>
         <field name="code">on-site-maintenance</field>
+        <field name="service_group_id" ref="generic_service_group_maintenance"/>
     </record>
 </odoo>
