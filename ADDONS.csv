@@ -13,7 +13,7 @@
 "generic_mixin","Generic Mixin","LGPL-3","12.0.1.78.0","Technical module with generic mixins, that may help to build other modules","",
 "generic_resource","Generic Resource","LGPL-3","12.0.1.47.0","Provides the ability to create and categorize         various resources that can be used in other Odoo modules.","",
 "generic_rule","Generic Rule","LGPL-3","12.0.1.3.0","Adds new top-level menu 'rules'","",
-"generic_service","Generic Service","LGPL-3","12.0.1.23.0","Create and manage service catalog","",
+"generic_service","Generic Service","LGPL-3","12.0.1.24.0","Create and manage service catalog","",
 "generic_tag","Generic Tag","LGPL-3","12.0.2.10.0","Generic tag management.","",
 "generic_tag_account","Generic Tag (Account)","LGPL-3","12.0.1.4.0","Generic tag integration with account addon","",
 "generic_tag_automation","Generic Tag (Automation)","LGPL-3","12.0.1.4.0","","",
