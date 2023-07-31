@@ -332,6 +332,11 @@ msgid "Main Attachment"
 msgstr ""
 
 #. module: generic_service
+#: model:generic.service.group,name:generic_service.generic_service_group_maintenance
+msgid "Maintenance"
+msgstr ""
+
+#. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_manager
 msgid "Manage generic services"
 msgstr ""
@@ -403,8 +408,28 @@ msgid "On-site Maintenance"
 msgstr ""
 
 #. module: generic_service
+#: model:generic.service.group,name:generic_service.generic_service_group_rent
+msgid "Rent"
+msgstr ""
+
+#. module: generic_service
+#: model:generic.service,name:generic_service.generic_service_rent_desktop_computer
+msgid "Rent of desktop computer"
+msgstr ""
+
+#. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_notebook
 msgid "Rent of notebook"
+msgstr ""
+
+#. module: generic_service
+#: model:generic.service,name:generic_service.generic_service_rent_office
+msgid "Rent of office"
+msgstr ""
+
+#. module: generic_service
+#: model:generic.service,name:generic_service.generic_service_rent_server
+msgid "Rent of server"
 msgstr ""
 
 #. module: generic_service
@@ -500,6 +525,11 @@ msgstr ""
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "State"
+msgstr ""
+
+#. module: generic_service
+#: model:generic.service.group,name:generic_service.generic_service_group_support
+msgid "Support"
 msgstr ""
 
 #. module: generic_service
