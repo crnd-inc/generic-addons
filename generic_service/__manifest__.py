@@ -8,7 +8,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
-    'version': '14.0.1.23.0',
+    'version': '14.0.1.24.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -29,6 +29,7 @@
         'data/generic_service_default.xml'
     ],
     'demo': [
+        'demo/generic_service_group.xml',
         'demo/generic_service_demo.xml',
         'demo/generic_service_level_demo.xml',
         'demo/res_partner.xml',

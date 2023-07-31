@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="generic_service_group_rent" model="generic.service.group">
+        <field name="name">Rent</field>
+        <field name="code">rent</field>
+    </record>
+
+    <record id="generic_service_group_support" model="generic.service.group">
+        <field name="name">Support</field>
+        <field name="code">support</field>
+    </record>
+
+    <record id="generic_service_group_maintenance" model="generic.service.group">
+        <field name="name">Maintenance</field>
+        <field name="code">maintenance</field>
+    </record>
+</odoo>
