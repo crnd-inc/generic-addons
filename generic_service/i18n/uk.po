@@ -141,11 +141,13 @@ msgstr "Сервіс за замовчанням"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__description
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__description
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__description
 msgid "Description"
 msgstr "Опис"
 
 #. module: generic_service
+#: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Description..."
