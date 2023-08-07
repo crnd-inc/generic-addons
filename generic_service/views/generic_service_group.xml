@@ -27,6 +27,8 @@
                     <group>
                         <group>
                             <field name="sequence"/>
+                            <field name="description"
+                                   placeholder="Description..."/>
                         </group>
                     </group>
 
