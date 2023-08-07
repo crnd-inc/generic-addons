@@ -17,6 +17,7 @@ class GenericServiceGroup(models.Model):
         readonly=True,
         compute="_compute_service_count")
     sequence = fields.Integer(default=5, index=True)
+    description = fields.Text(translate=True)
 
     @api.depends('service_ids')
     def _compute_service_count(self):
