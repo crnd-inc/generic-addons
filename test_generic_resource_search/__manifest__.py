@@ -6,7 +6,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '13.0.0.3.0',
+    'version': '13.0.0.4.0',
     'depends': [
         'generic_resource',
         'generic_m2o',
