@@ -47,7 +47,7 @@ class TestCustomResource(ReduceLoggingMixin, TransactionCase):
             })
 
         # Delete created model
-        res_model.unlink()
+        res_model.with_context(_force_unlink=True).unlink()
 
         # Ensure type removed
         self.assertFalse(res_type.exists())
@@ -81,7 +81,7 @@ class TestCustomResource(ReduceLoggingMixin, TransactionCase):
         self.assertEqual(resource.resource_id.res_type_id, res_type)
 
         # Delete created model
-        res_model.unlink()
+        res_model.with_context(_force_unlink=True).unlink()
 
         # Ensure type removed
         self.assertFalse(res_type.exists())
