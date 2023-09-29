@@ -1,6 +1,6 @@
 {
     "name": "Base Field Many2many View",
-    "version": "16.0.0.4.0",
+    "version": "16.0.0.5.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
