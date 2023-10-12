@@ -107,12 +107,18 @@ class GenericMixinUUID(models.AbstractModel):
             _uuid = str(uuid.uuid4())
         return _uuid
 
-    @api.model
-    def create(self, vals):
-        vals_uuid = vals.get(self._generic_mixin_uuid_field_name, '/')
-        if not vals_uuid or vals_uuid == '/':
-            # If uuid is not provided in vals, or is equeal to '/', then we
-            # have to generate new uuid
-            vals[self._generic_mixin_uuid_field_name] = (
-                self._generic_mixin_uuid__generate_new())
-        return super(GenericMixinUUID, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals_r = []
+        for vals in vals_list:
+            vals_uuid = vals.get(self._generic_mixin_uuid_field_name, '/')
+            if not vals_uuid or vals_uuid == '/':
+                # If uuid is not provided in vals, or is equeal to '/', then we
+                # have to generate new uuid
+                v = dict(vals)   # Copy values dict, to avoid modification
+                v[self._generic_mixin_uuid_field_name] = (
+                    self._generic_mixin_uuid__generate_new())
+                vals_r += [v]
+            else:
+                vals_r += [vals]
+        return super(GenericMixinUUID, self).create(vals_r)
