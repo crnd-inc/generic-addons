@@ -97,22 +97,17 @@ class GenericMixinUUID(models.AbstractModel):
 
         return res
 
-    @api.model
-    def _generic_mixin_uuid__generate_new(self):
-        """ Generate new UUID that is not used in this model yet
-        """
-        _uuid = str(uuid.uuid4())
-        while self.with_context(active_test=False).search_count(
-                [(self._generic_mixin_uuid_field_name, '=', _uuid)]) > 0:
-            _uuid = str(uuid.uuid4())
-        return _uuid
-
-    @api.model
-    def create(self, vals):
-        vals_uuid = vals.get(self._generic_mixin_uuid_field_name, '/')
-        if not vals_uuid or vals_uuid == '/':
-            # If uuid is not provided in vals, or is equeal to '/', then we
-            # have to generate new uuid
-            vals[self._generic_mixin_uuid_field_name] = (
-                self._generic_mixin_uuid__generate_new())
-        return super(GenericMixinUUID, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        vals_r = []
+        for vals in vals_list:
+            vals_uuid = vals.get(self._generic_mixin_uuid_field_name, '/')
+            if not vals_uuid or vals_uuid == '/':
+                # If uuid is not provided in vals, or is equal to '/', then we
+                # have to generate new uuid
+                v = dict(vals)   # Copy values dict, to avoid modification
+                v[self._generic_mixin_uuid_field_name] = str(uuid.uuid4())
+                vals_r += [v]
+            else:
+                vals_r += [vals]
+        return super(GenericMixinUUID, self).create(vals_r)
