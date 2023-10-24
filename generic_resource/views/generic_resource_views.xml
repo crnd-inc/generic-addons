@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_generic_resource_toplevel"
-        name="Resources"
-        groups="generic_resource.group_generic_resource_user"
-        web_icon="generic_resource,static/description/icon.png"/>
+              name="Resources"
+              groups="generic_resource.group_generic_resource_user"
+              web_icon="generic_resource,static/description/icon.png"
+              sequence="12"/>
 
     <menuitem id="menu_generic_resource_root"
-        name="Generic Resources"
-        sequence="30"
-        parent="menu_generic_resource_toplevel"/>
+              name="Generic Resources"
+              sequence="30"
+              parent="menu_generic_resource_toplevel"/>
 
     <menuitem id="menu_generic_resource_config_root"
-        name="Configuration"
-        sequence="100"
-        parent="menu_generic_resource_toplevel"/>
+              name="Configuration"
+              sequence="100"
+              parent="menu_generic_resource_toplevel"/>
 
     <!-- generic.resource -->
     <record id="generic_resource_view_search" model="ir.ui.view">
