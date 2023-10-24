@@ -214,9 +214,10 @@
 
 
     <menuitem id="menu_generic_location_root"
-              name="Generic Location"
+              name="Locations"
               groups="generic_location.group_generic_location_user"
-              web_icon="generic_location,static/description/menu.png"/>
+              web_icon="generic_location,static/description/menu.png"
+              sequence="13"/>
 
     <menuitem id="menu_generic_location"
               name="Location"

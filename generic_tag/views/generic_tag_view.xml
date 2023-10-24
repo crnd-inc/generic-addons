@@ -2,7 +2,7 @@
 <odoo>
     <menuitem id="menu_generic_tags_root"
                 groups="generic_tag.group_tags_user"
-                sequence="120"
+                sequence="16"
                 name="Tags"
                 web_icon="generic_tag,static/description/menu.png"/>
 

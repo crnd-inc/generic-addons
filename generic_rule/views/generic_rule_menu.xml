@@ -3,8 +3,9 @@
     <menuitem id="menu_generic_rule"
               name="Rules"
               groups="base.group_system"
-              sequence="120"
-              web_icon="generic_rule,static/description/menu.png"/>
+              web_icon="generic_rule,static/description/menu.png"
+              sequence="17"/>
+
     <menuitem id="menu_generic_rule_configuration"
               name="Configuration"
               parent="menu_generic_rule"
