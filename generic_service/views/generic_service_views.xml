@@ -3,7 +3,8 @@
     <menuitem id="menu_generic_service_root"
               name="Services"
               groups="generic_service.group_generic_service_user"
-              web_icon="generic_service,static/description/icon.png"/>
+              web_icon="generic_service,static/description/icon.png"
+              sequence="11"/>
 
     <menuitem id="menu_generic_service_configuration_menu_item"
               name="Configurations"
