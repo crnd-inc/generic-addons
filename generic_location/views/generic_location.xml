@@ -222,7 +222,7 @@
     <menuitem id="menu_generic_location_root"
               name="Locations"
               groups="generic_location.group_generic_location_user"
-              web_icon="generic_location,static/description/menu.png"
+              web_icon="generic_location,static/description/icon.png"
               sequence="13"/>
 
     <menuitem id="menu_generic_location"
