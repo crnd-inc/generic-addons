@@ -3,7 +3,7 @@
     <menuitem id="menu_generic_rule"
               name="Rules"
               groups="base.group_system"
-              web_icon="generic_rule,static/description/menu.png"
+              web_icon="generic_rule,static/description/icon.png"
               sequence="17"/>
 
     <menuitem id="menu_generic_rule_configuration"
