@@ -6,14 +6,14 @@
 | generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 14.0.1.4.0 | Generic Conditions (Integration with Action Rules) |  |
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 14.0.1.11.0 | Generic Conditions - Tests (do not install manualy) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 14.0.0.8.0 | Technical utils to add encryption to other addons |  |
-| generic_location | Generic Location | LGPL-3 | 14.0.2.8.0 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
+| generic_location | Generic Location | LGPL-3 | 14.0.2.9.0 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
 | generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 14.0.1.10.0 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
 | generic_location_map | Generic Location: Map | LGPL-3 | 14.0.1.9.0 | Display locations on map view. |  |
 | generic_location_uuid | Generic Location (UUID) | LGPL-3 | 14.0.1.7.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 14.0.1.8.0 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 14.0.1.80.0 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 14.0.1.49.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
-| generic_rule | Generic Rule | LGPL-3 | 14.0.1.6.0 | Adds new top-level menu 'rules' |  |
+| generic_rule | Generic Rule | LGPL-3 | 14.0.1.7.0 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 14.0.1.29.0 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 14.0.2.13.0 | Generic tag management. |  |
 | generic_tag_account | Generic Tag (Account) | LGPL-3 | 14.0.1.5.0 | Generic tag integration with account addon |  |
