@@ -3,8 +3,7 @@
     <menuitem id="menu_generic_service_root"
               name="Services"
               groups="generic_service.group_generic_service_user"
-              web_icon="generic_service,static/description/icon.png"
-              sequence="11"/>
+              web_icon="generic_service,static/description/icon.png"/>
 
     <menuitem id="menu_generic_service_configuration_menu_item"
               name="Configurations"
@@ -41,6 +40,7 @@
                     <widget name="web_ribbon" title="Archived"
                             bg_color="bg-danger"
                             attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image":"image_128"}'/>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Name"/>
@@ -136,6 +136,7 @@
                                 </div>
                             </div>
                             <div class="o_service_dashboard_kanban_boxes">
+                                <field name="image_256" widget='image' class="oe_avatar" options='{"preview_image":"image_128"}'/>
                             </div>
                         </div>
                     </t>
