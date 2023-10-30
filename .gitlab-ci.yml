@@ -1,7 +1,7 @@
-image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:16.0-simple
+image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:17.0-simple
 
 variables:
-    SERIES_BRANCH: '16.0'
+    SERIES_BRANCH: '17.0'
     ODOO_ADMIN_PASS: admin
     CI_JOB_TOKEN_GIT_HOST: 'gitlab.crnd.pro'
 
@@ -9,11 +9,11 @@ variables:
 
 .only-stable-branch: &only_stable_branch
     only:
-        - "16.0"
+        - "17.0"
 
 .only-dev-branch: &only_dev_branch
     only:
-        - /^16.0-.*$/
+        - /^17.0-.*$/
 
 .except-auto-commits: &except_auto_commits
     except:
@@ -43,7 +43,7 @@ build_env:
         - odoo-helper --version
         - odoo-helper status --tools-versions --ci-tools-versions
         - odood --version
-        - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^16.0(-.*)?$ ]]
+        - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^17.0(-.*)?$ ]]
 
 flake8:
     stage: static-test
@@ -98,7 +98,7 @@ ensure-icons:
 
 
 tests:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:16.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:17.0-ci
     stage: test
     <<: *pip_cache_definition
     before_script:
@@ -110,7 +110,7 @@ tests:
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
 test_installation_no_demo:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:16.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:17.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db-clean
@@ -125,7 +125,7 @@ test_installation_no_demo:
     <<: *except_auto_commits
 
 migration_tests:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:16.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:17.0-ci
     stage: test
     variables:
         ODOO_DB_NAME: test-db
@@ -141,7 +141,7 @@ migration_tests:
     allow_failure: true
 
 update_addons_list_and_trans:
-    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:16.0-ci
+    image: registry.crnd.pro/crnd-opensource/docker/odoo-ci-x:17.0-ci
     stage: deploy
     before_script:
         - odoo-helper link .
