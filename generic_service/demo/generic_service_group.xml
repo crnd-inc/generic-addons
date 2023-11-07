@@ -3,15 +3,18 @@
     <record id="generic_service_group_rent" model="generic.service.group">
         <field name="name">Rent</field>
         <field name="code">rent</field>
+        <field name="image_1920" type="base64" file="generic_service/static/img/office.jpg"/>
     </record>
 
     <record id="generic_service_group_support" model="generic.service.group">
         <field name="name">Support</field>
         <field name="code">support</field>
+        <field name="image_1920" type="base64" file="generic_service/static/img/administration.jpg"/>
     </record>
 
     <record id="generic_service_group_maintenance" model="generic.service.group">
         <field name="name">Maintenance</field>
         <field name="code">maintenance</field>
+        <field name="image_1920" type="base64" file="generic_service/static/img/on-site.jpg"/>
     </record>
 </odoo>

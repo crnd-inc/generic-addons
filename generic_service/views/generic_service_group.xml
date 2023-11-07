@@ -16,6 +16,7 @@
                                    string="Services"/>
                         </button>
                     </div>
+                    <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image":"image_128"}'/>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Name"/>
@@ -37,6 +38,41 @@
         </field>
     </record>
 
+    <record id="view_generic_service_group_kanban" model="ir.ui.view">
+        <field name="model">generic.service.group</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_service_dashboard_kanban">
+                <field name="display_name"/>
+                <field name="description"/>
+                <field name="code"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_service_dashboard_kanban">
+                            <div class="o_service_dashboard_kanban_main">
+                                <div class="o_service_dashboard_content">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <span><t
+                                                    t-esc="record.display_name.value"/></span>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span><t
+                                                    t-esc="record.code.value"/></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_service_dashboard_kanban_boxes">
+                                <field name="image_256" widget='image' class="oe_avatar" options='{"preview_image":"image_128"}'/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="generic_service_group_tree_view" model="ir.ui.view">
         <field name="model">generic.service.group</field>
         <field name="arch" type="xml">
@@ -54,7 +90,7 @@
         <field name="name">Generic Service Group</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.service.group</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <!-- Menu items for generic.service.group -->
