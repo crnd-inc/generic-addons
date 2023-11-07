@@ -245,6 +245,36 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
 
 #. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__image_1920
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_1920
+msgid "Image"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__image_1024
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__image_128
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__image_256
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: generic_service
+#: model:ir.model.fields,field_description:generic_service.field_generic_service__image_512
+#: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Info"
