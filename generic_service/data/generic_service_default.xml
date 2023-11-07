@@ -4,5 +4,6 @@
         <field name="name">Default</field>
         <field name="code">default</field>
         <field name="description">Default service</field>
+        <field name="image_1920" type="base64" file="generic_service/static/img/default.jpg"/>
     </record>
 </odoo>
