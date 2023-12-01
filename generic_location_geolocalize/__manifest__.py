@@ -10,13 +10,12 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '15.0.1.10.0',
+    'version': '15.0.1.11.0',
 
     # any module necessary for this one to work correctly
     'depends': [
         'generic_location',
         'base_geolocalize',
-        'google_maps_api_js',
     ],
 
     # always loaded
@@ -27,15 +26,6 @@
     'demo': [
     ],
 
-    'assets': {
-        'web.assets_backend': [
-            '/generic_location_geolocalize/static/src/scss/map_field_widget.scss',
-            '/generic_location_geolocalize/static/src/js/map_field_widget.js',
-        ],
-        'web.assets_qweb': [
-            '/generic_location_geolocalize/static/src/xml/map_field_widget.xml',
-        ],
-    },
     'images': ['static/description/banner.png'],
     'installable': True,
     'application': False,
