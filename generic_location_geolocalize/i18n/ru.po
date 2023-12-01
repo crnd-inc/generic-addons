@@ -59,13 +59,6 @@ msgid "Longitude"
 msgstr ""
 
 #. module: generic_location_geolocalize
-#. openerp-web
-#: code:addons/generic_location_geolocalize/static/src/xml/map_field_widget.xml:0
-#, python-format
-msgid "Select on the map"
-msgstr ""
-
-#. module: generic_location_geolocalize
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__state_id
 msgid "State"
 msgstr ""

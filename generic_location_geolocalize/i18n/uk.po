@@ -62,13 +62,6 @@ msgid "Longitude"
 msgstr "Довгота"
 
 #. module: generic_location_geolocalize
-#. openerp-web
-#: code:addons/generic_location_geolocalize/static/src/xml/map_field_widget.xml:0
-#, python-format
-msgid "Select on the map"
-msgstr "Виберіть на карті"
-
-#. module: generic_location_geolocalize
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__state_id
 msgid "State"
 msgstr "Стан"
@@ -87,6 +80,9 @@ msgstr "Вулиця2"
 #: model:ir.model.fields,field_description:generic_location_geolocalize.field_generic_location_geolocalize_mixin__zip
 msgid "Zip"
 msgstr "Зіп Код"
+
+#~ msgid "Select on the map"
+#~ msgstr "Виберіть на карті"
 
 #~ msgid "Display Name"
 #~ msgstr "Назва для відображення"
