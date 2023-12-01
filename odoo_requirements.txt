@@ -1,2 +1,3 @@
 --github crnd-inc/crnd-web.git --module crnd_web_m2o_info_widget
 --github crnd-inc/crnd-web.git --module crnd_web_map_view
+--github crnd-inc/crnd-web.git --module crnd_web_widget_select_geolocation

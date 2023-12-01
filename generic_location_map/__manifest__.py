@@ -7,12 +7,14 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '16.0.1.10.0',
+    'version': '16.0.1.12.0',
 
     # any module necessary for this one to work correctly
     'depends': [
         'generic_location',
+        'generic_location_geolocalize',
         'crnd_web_map_view',
+        'crnd_web_widget_select_geolocation',
     ],
 
     # always loaded
