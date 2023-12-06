@@ -1,6 +1,6 @@
 {
     "name": "Generic M2O Widget",
-    "version": "13.0.1.8.0",
+    "version": "13.0.1.9.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
