@@ -92,6 +92,11 @@ msgid "Draft"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__email
+msgid "Email"
+msgstr ""
+
+#. module: generic_mixin
 #. odoo-python
 #: code:addons/generic_mixin/models/generic_parent.py:0
 #, python-format
@@ -113,6 +118,11 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_interface
 msgid "Generic Mixin Delegation: Interface"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_contact
+msgid "Generic Mixin: Contacts"
 msgstr ""
 
 #. module: generic_mixin
@@ -200,6 +210,13 @@ msgstr ""
 
 #. module: generic_mixin
 #. odoo-python
+#: code:addons/generic_mixin/models/generic_mixin_contact.py:0
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr ""
+
+#. module: generic_mixin
+#. odoo-python
 #: code:addons/generic_mixin/models/generic_mixin_entity_lifecycle.py:0
 #, python-format
 msgid ""
@@ -233,6 +250,71 @@ msgid "Lifecycle State"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_fb
+msgid "Link Fb"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_linkedin
+msgid "Link Linkedin"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_telegram
+msgid "Link Telegram"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_twitter
+msgid "Link Twitter"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_viber
+msgid "Link Viber"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_whatsapp
+msgid "Link Whatsapp"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_youtube
+msgid "Link Youtube"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_city
+msgid "Location City"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_country_id
+msgid "Location Country"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_state_id
+msgid "Location State"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_street
+msgid "Location Street"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_street2
+msgid "Location Street2"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_zip
+msgid "Location Zip"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__name
 msgid "Name"
 msgstr ""
@@ -262,6 +344,16 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__obsolete
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__obsolete
 msgid "Obsolete"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__phone
+msgid "Phone"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__website_link
+msgid "Website Link"
 msgstr ""
 
 #. module: generic_mixin
