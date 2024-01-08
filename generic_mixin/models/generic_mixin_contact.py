@@ -32,8 +32,8 @@ class GenericMixinContact(models.AbstractModel):
     location_country_id = fields.Many2one('res.country')
 
     # Email validation
-    @api.onchange('email')
-    def on_change_email(self):
+    @api.constrains('email')
+    def _check_email(self):
         if self.email and not single_email_re.match(self.email):
             raise UserError(
                 _("Invalid Email! Please enter a valid email address."))
