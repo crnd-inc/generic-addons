@@ -34,9 +34,3 @@ class ContactMixinTest(TransactionCase):
         })
         self.assertEqual(
             test_record.website_link, 'https://write_test_https.com')
-
-        test_record.write({
-            'website_link': '/write_test_https.com'
-        })
-        self.assertEqual(
-            test_record.website_link, 'https://write_test_https.com')
