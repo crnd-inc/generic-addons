@@ -31,13 +31,14 @@ class GenericMixinContact(models.AbstractModel):
     location_state_id = fields.Many2one('res.country.state')
     location_country_id = fields.Many2one('res.country')
 
+    # Email validation
     @api.onchange('email')
     def on_change_email(self):
         if self.email and not single_email_re.match(self.email):
             raise UserError(
                 _("Invalid Email! Please enter a valid email address."))
 
-    # Website link validator
+    # Website link sanitizer
     def write(self, vals):
         if vals.get('website_link'):
             vals['website_link'] = self.env['res.partner']._clean_website(
