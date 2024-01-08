@@ -42,10 +42,13 @@ class ContactMixinTest(TransactionCase):
         with Form(Model) as fmodel:
             with self.assertRaises(UserError):
                 fmodel.email = 'wrong_email'
+                fmodel.save()
             with self.assertRaises(UserError):
                 fmodel.email = '@wrong_email'
+                fmodel.save()
             with self.assertRaises(UserError):
                 fmodel.email = 'sdfsd@wrong_email'
+                fmodel.save()
             fmodel.email = 'admin@admin.com'
             fmodel.save()
         self.assertEqual(fmodel.email, 'admin@admin.com')
