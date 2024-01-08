@@ -34,7 +34,8 @@ class GenericMixinContact(models.AbstractModel):
     @api.onchange('email')
     def on_change_email(self):
         if self.email and not single_email_re.match(self.email):
-            raise UserError(_("Invalid Email! Please enter a valid email address."))
+            raise UserError(
+                _("Invalid Email! Please enter a valid email address."))
 
     # Website link validator
     def write(self, vals):
