@@ -1,6 +1,7 @@
 import logging
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, Form
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -34,3 +35,17 @@ class ContactMixinTest(TransactionCase):
         })
         self.assertEqual(
             test_record.website_link, 'https://write_test_https.com')
+
+    def test_mail_link_sanitizer(self):
+        Model = self.env['test.contact.mixin']
+
+        with Form(Model) as fmodel:
+            with self.assertRaises(UserError):
+                fmodel.email = 'wrong_email'
+            with self.assertRaises(UserError):
+                fmodel.email = '@wrong_email'
+            with self.assertRaises(UserError):
+                fmodel.email = 'sdfsd@wrong_email'
+            fmodel.email = 'admin@admin.com'
+            fmodel.save()
+        self.assertEqual(fmodel.email, 'admin@admin.com')

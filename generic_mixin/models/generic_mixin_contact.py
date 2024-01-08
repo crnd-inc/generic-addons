@@ -1,5 +1,7 @@
 import logging
-from odoo import fields, models, api
+from odoo import fields, models, api, _
+from odoo.tools import single_email_re
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -28,6 +30,11 @@ class GenericMixinContact(models.AbstractModel):
     location_zip = fields.Char()
     location_state_id = fields.Many2one('res.country.state')
     location_country_id = fields.Many2one('res.country')
+
+    @api.onchange('email')
+    def on_change_email(self):
+        if self.email and not single_email_re.match(self.email):
+            raise UserError(_("Invalid Email! Please enter a valid email address."))
 
     # Website link validator
     def write(self, vals):
