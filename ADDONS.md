@@ -10,7 +10,7 @@
 | generic_location_geolocalize | Generic Location (Geo Localization) | LGPL-3 | 16.0.1.11.1 | Generic Location (Automaticaly determine geo coordinates         for location by its address) |  |
 | generic_location_map | Generic Location: Map | LGPL-3 | 16.0.1.13.0 | Display locations on map view. |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 16.0.1.9.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 16.0.1.81.1 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 16.0.1.81.2 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 16.0.1.50.0 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 16.0.1.9.0 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 16.0.1.30.1 | Create and manage service catalog |  |
