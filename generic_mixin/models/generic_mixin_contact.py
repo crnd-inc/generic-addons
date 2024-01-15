@@ -34,9 +34,10 @@ class GenericMixinContact(models.AbstractModel):
     # Email validation
     @api.constrains('email')
     def _check_email(self):
-        if self.email and not single_email_re.match(self.email):
-            raise UserError(
-                _("Invalid Email! Please enter a valid email address."))
+        for record in self:
+            if record.email and not single_email_re.match(record.email):
+                raise UserError(
+                    _("Invalid Email! Please enter a valid email address."))
 
     # Website link sanitizer
     def write(self, vals):
