@@ -15,4 +15,5 @@ from . import (
     generic_mixin_entity_lifecycle,
     generic_mixin_delegation_implementation,
     generic_mixin_delegation_interface,
+    generic_mixin_contact,
 )

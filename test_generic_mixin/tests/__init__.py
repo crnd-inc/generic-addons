@@ -7,4 +7,5 @@ from . import (
     test_namesearch_by_fields,
     test_mixin_proxy_methods,
     test_delegation,
+    test_contact_mixin,
 )
