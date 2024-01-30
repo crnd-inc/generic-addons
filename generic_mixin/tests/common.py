@@ -112,7 +112,7 @@ class FindNew:
         self._main_model = models[0]
         self._records_map = {}
         for model in models:
-            if table_kind(self._env.cr, self._env[model]._table) != 'r':
+            if table_kind(self._env.cr, self._env[model]._table).value != 'r':
                 raise TypeError('Only regular tables (models) allowed!')
             self._records_map[model] = self._env[model].browse()
 

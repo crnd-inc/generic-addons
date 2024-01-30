@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Technical Settings',
-    'version': '17.0.1.80.0',
+    'version': '17.0.1.80.1',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -19,14 +19,16 @@
     ],
     'data': [
     ],
+    #
     'assets': {
-        'web.assets_backend': [
-            'generic_mixin/static/src/scss/refresh_view.scss',
-            'generic_mixin/static/src/js/*.js',
-        ],
+        # Disabled refresher during forwardport on v.17.0
+        # 'web.assets_backend': [
+        #     'generic_mixin/static/src/scss/refresh_view.scss',
+        #     'generic_mixin/static/src/js/*.js',
+        # ],
     },
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'application': False,
     'license': 'LGPL-3',
 }

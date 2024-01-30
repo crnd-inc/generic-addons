@@ -20,7 +20,7 @@ class TestGenericMixinUUIDNamedField(models.Model):
         'generic.mixin.uuid',
     ]
     _description = "Test Generic Mixin: UUID named field"
-    _generic_mixin_uuid_field_name = 'myuuid'
+    _generic_mixin_uuid_field_name = 'x_myuuid'
     _generic_mixin_uuid_auto_add_field = True
 
     name = fields.Char()

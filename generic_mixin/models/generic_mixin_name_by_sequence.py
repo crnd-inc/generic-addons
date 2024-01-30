@@ -1,3 +1,5 @@
+# TODO: temporary disabled feature in Odoo17 in case of decide what to do with
+# https://github.com/odoo/odoo/commit/6e8e3e6333c70bf4e88ecdc25cc3b629298bfbe8
 from odoo import models, fields, api, _
 
 
@@ -17,7 +19,7 @@ class GenericMixinNameBySequence(models.AbstractModel):
     _name = 'generic.mixin.name.by.sequence'
     _description = 'Generic Mixin: Name by Sequence'
 
-    _name_by_sequence_name_field = 'name'
+    _name_by_sequence_name_field = 'x_name'
     _name_by_sequence_auto_add_field = False
     _name_by_sequence_sequence_code = None
 

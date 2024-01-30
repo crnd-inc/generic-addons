@@ -66,7 +66,7 @@ class GenericMixinUUID(models.AbstractModel):
     _name = 'generic.mixin.uuid'
     _description = 'Generic Mixin: UUID'
 
-    _generic_mixin_uuid_field_name = 'uuid'
+    _generic_mixin_uuid_field_name = 'x_uuid'
     _generic_mixin_uuid_auto_add_field = False
 
     # TODO: Add optional validation of UUIDs
