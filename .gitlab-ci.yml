@@ -102,7 +102,8 @@ tests:
     stage: test
     <<: *pip_cache_definition
     before_script:
-        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
+        # temporary disable before port crnd_web repository
+        #- odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
         - odood addons link -r .
     script:
         - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 90 --dir .
@@ -131,7 +132,8 @@ migration_tests:
         ODOO_DB_NAME: test-db
     <<: *pip_cache_definition
     before_script:
-        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
+        # temporary disable before port crnd_web repository
+        #- odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
         - odood addons link -f .
     script:
         - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=90 --dir .
