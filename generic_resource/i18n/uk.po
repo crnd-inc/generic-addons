@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-16 11:46+0000\n"
 "PO-Revision-Date: 2023-07-26 09:29+0000\n"
 "Last-Translator: Den_Sharaf <den.sharaf@gmail.com>\n"
-"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
-"generic-addons-15-0/generic_resource/uk/>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/generic-"
+"addons-15-0/generic_resource/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,6 +74,11 @@ msgstr "Категорія"
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_category_category_unique
 msgid "Category can not have subcategories with the same name!"
 msgstr "Категорія не може мати підкатегорії з таким самим ім'ям!"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__code
+msgid "Code"
+msgstr ""
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers
@@ -187,6 +192,13 @@ msgstr "Для кожної моделі Odoo може бути визначен
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_model_search
 msgid "Generic Resource"
 msgstr "Універсальний ресурс"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__generic_resource_code
+#: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model__generic_resource_code
+#: model:ir.model.fields,field_description:generic_resource.field_ir_model__generic_resource_code
+msgid "Generic Resource Code"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin
@@ -730,8 +742,8 @@ msgid ""
 "SQL expression for ordering records in the model; e.g. \"x_sequence asc, id "
 "desc\""
 msgstr ""
-"SQL-вираз для впорядкування записів у моделі; напр. \"x_sequence asc, id "
-"desc\""
+"SQL-вираз для впорядкування записів у моделі; напр. \"x_sequence asc, id desc"
+"\""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__sequence
