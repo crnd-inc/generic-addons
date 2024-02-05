@@ -23,6 +23,7 @@ class TestCustomResource(ReduceLoggingMixin, TransactionCase):
         res_model = self.env['ir.model'].create({
             'name': 'Test Custom Resource',
             'model': 'x_test_custom_resource',
+            'generic_resource_code': 'test-custom-resource',
             'is_generic_resource': True,
         })
 
@@ -57,6 +58,7 @@ class TestCustomResource(ReduceLoggingMixin, TransactionCase):
         res_model = self.env['ir.model'].create({
             'name': 'Test Custom Resource',
             'model': 'x_test_custom_resource',
+            'generic_resource_code': 'test-custom-resource',
         })
 
         self.assertFalse(res_model.is_generic_resource)
