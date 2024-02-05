@@ -9,6 +9,7 @@ class IrModel(models.Model):
         default=False,
         help="Whether this model is Generic Resource.",
     )
+    generic_resource_code = fields.Char()
     resource_type_ids = fields.One2many(
         'generic.resource.type', 'model_id', readonly=True,
         string="Generic Resource Types")
@@ -52,7 +53,8 @@ class IrModel(models.Model):
         records = super(IrModel, self).create(vals)
         create_res_types = [
             {'model_id': record.id,
-             'name': record.name}
+             'name': record.name,
+             'code': record.generic_resource_code}
             for record in records
             if record.is_generic_resource and record.state == "manual"
         ]
@@ -88,6 +90,7 @@ class IrModel(models.Model):
                         self.env['generic.resource.type'].create({
                             'model_id': model.id,
                             'name': model.name,
+                            'code': model.generic_resource_code,
                         })
         else:
             res = super(IrModel, self).write(vals)
