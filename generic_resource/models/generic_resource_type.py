@@ -35,6 +35,8 @@ class GenericResourceType(models.Model):
     _name = 'generic.resource.type'
     _inherit = [
         'generic.mixin.track.changes',
+        'generic.mixin.name_with_code',
+        'generic.mixin.uniq_name_code',
         'image.mixin',
     ]
     _description = "Generic Resource Type"
