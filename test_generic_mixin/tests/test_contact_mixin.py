@@ -53,7 +53,7 @@ class ContactMixinTest(TransactionCase):
             fmodel.save()
         self.assertEqual(fmodel.email, 'admin@admin.com')
 
-    def test_mail_link_sanitizer(self):
+    def test_telegram_link_constraint(self):
         Model = self.env['test.contact.mixin']
 
         with Form(Model) as fmodel:
