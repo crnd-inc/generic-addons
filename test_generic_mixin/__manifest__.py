@@ -6,7 +6,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '16.0.0.23.1',
+    'version': '16.0.0.23.2',
     'depends': [
         'generic_mixin',
         'calendar',
