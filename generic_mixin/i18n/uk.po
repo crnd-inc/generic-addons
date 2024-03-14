@@ -359,6 +359,13 @@ msgid "Phone"
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
+#: code:addons/generic_mixin/models/generic_mixin_contact.py:0
+#, python-format
+msgid "Telegram link must start with 'https://t.me/'"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__website_link
 msgid "Website Link"
 msgstr ""
