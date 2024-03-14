@@ -52,3 +52,17 @@ class ContactMixinTest(TransactionCase):
             fmodel.email = 'admin@admin.com'
             fmodel.save()
         self.assertEqual(fmodel.email, 'admin@admin.com')
+
+    def test_mail_link_sanitizer(self):
+        Model = self.env['test.contact.mixin']
+
+        with Form(Model) as fmodel:
+            with self.assertRaises(UserError):
+                fmodel.link_telegram = 'http://UserLogin'
+                fmodel.save()
+            with self.assertRaises(UserError):
+                fmodel.link_telegram = 'http://t.me/UserLogin'
+                fmodel.save()
+            fmodel.link_telegram = 'https://t.me/UserLogin'
+            fmodel.save()
+        self.assertEqual(fmodel.email, 'https://t.me/UserLogin')
