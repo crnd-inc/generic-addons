@@ -39,7 +39,7 @@ class GenericMixinContact(models.AbstractModel):
                 raise UserError(
                     _("Invalid Email! Please enter a valid email address."))
 
-    # Email validation
+    # Telegram link validation
     @api.constrains('link_telegram')
     def _check_link_telegram(self):
         for record in self:
