@@ -65,4 +65,4 @@ class ContactMixinTest(TransactionCase):
                 fmodel.save()
             fmodel.link_telegram = 'https://t.me/UserLogin'
             fmodel.save()
-        self.assertEqual(fmodel.email, 'https://t.me/UserLogin')
+        self.assertEqual(fmodel.link_telegram, 'https://t.me/UserLogin')
