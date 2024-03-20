@@ -73,7 +73,7 @@
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click gt-kanban-team-global">
                             <h2><t t-esc="record.name.raw_value"/></h2>
-                            <div class="description-container">
+                            <div>
                                 <span t-if="record.description.raw_value" t-esc="record.description.raw_value"></span>
                             </div>
                             <div class="oe_kanban_details gt-kanban-team">
