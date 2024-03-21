@@ -18,7 +18,7 @@
 | generic_tag_automation | Generic Tag (Automation) | LGPL-3 | 16.0.1.6.0 |  |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 16.0.1.8.0 | Generic Tag - Tests (do not install manualy) |  |
 | generic_tag_test_automation | Generic Tag (Automation) - Test | LGPL-3 | 16.0.1.5.0 |  |  |
-| generic_team | Generic team | LGPL-3 | 16.0.1.21.0 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
+| generic_team | Generic team | LGPL-3 | 16.0.1.21.1 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 16.0.0.13.0 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 16.0.0.23.2 | Technical module that have to be used to test Generic Mixin module |  |
 | test_generic_resource_search | Tests Generic Resource (Search Tests) | LGPL-3 | 16.0.0.5.0 | Technical module that have to be used to test Generic Resource search cases |  |
