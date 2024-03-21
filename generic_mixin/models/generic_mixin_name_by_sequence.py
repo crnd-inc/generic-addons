@@ -19,7 +19,7 @@ class GenericMixinNameBySequence(models.AbstractModel):
     _name = 'generic.mixin.name.by.sequence'
     _description = 'Generic Mixin: Name by Sequence'
 
-    _name_by_sequence_name_field = 'x_name'
+    _name_by_sequence_name_field = 'name'
     _name_by_sequence_auto_add_field = False
     _name_by_sequence_sequence_code = None
 
