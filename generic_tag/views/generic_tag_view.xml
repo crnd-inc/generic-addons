@@ -44,7 +44,7 @@
                 <field name="sequence" widget="handle"/>
                 <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                 <field name="category_id" domain="[('model_id','=',model_id)]"
-                        context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
+                        context="{'default_model_id': model_id}" readonly="model_id == False"/>
                 <field name="name"/>
                 <field name="code"/>
                 <field name="comment"/>
@@ -72,7 +72,7 @@
                     <widget name="web_ribbon"
                             title="Archived"
                             bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
+                            invisible="active == True"/>
                     <div class="oe_title">
                         <h1 class="o_row">
                             <field name="complete_name"/>
@@ -87,7 +87,7 @@
                         <group>
                             <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                             <field name="category_id" domain="[('model_id','=',model_id)]"
-                                   context="{'default_model_id': model_id}" attrs="{'readonly': [('model_id','=',False)]}"/>
+                                   context="{'default_model_id': model_id}" readonly="model_id == False"/>
                             <field name="group_ids" widget="many2many_tags"
                                    groups="generic_tag.group_tags_manager"/>
                         </group>
