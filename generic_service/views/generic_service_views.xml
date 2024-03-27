@@ -40,7 +40,7 @@
                     <field name="active" invisible="1"/>
                     <widget name="web_ribbon" title="Archived"
                             bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
+                            invisible="active == True"/>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Name"/>
@@ -74,17 +74,17 @@
                                                 type="object"
                                                 string="Activate"
                                                 class="btn btn-outline-success btn-sm oe_inline oe_highlight ml-4"
-                                                attrs="{'invisible': [('lifecycle_state', '!=', 'draft')]}"/>
+                                                invisible="lifecycle_state != 'draft'"/>
                                         <button name="action_lifecycle_state__obsolete"
                                                 type="object"
                                                 string="Obsolete"
                                                 class="btn btn-outline-info btn-sm oe_inline ml-4"
-                                                attrs="{'invisible': [('lifecycle_state', '!=', 'active')]}"/>
+                                                invisible="lifecycle_state != 'active'"/>
                                         <button name="action_lifecycle_state__archive"
                                                 type="object"
                                                 string="Archive"
                                                 class="btn btn-outline-danger btn-sm oe_inline ml-4"
-                                                attrs="{'invisible': [('lifecycle_state', '!=', 'obsolete')]}"/>
+                                                invisible="lifecycle_state != 'obsolete'"/>
 
                                     </div>
                                 </group>
