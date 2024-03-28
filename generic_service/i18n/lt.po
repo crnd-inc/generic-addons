@@ -248,13 +248,6 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service____last_update
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_group____last_update
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_level____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_uid
@@ -323,12 +316,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Lifecycle State"
-msgstr ""
-
-#. module: generic_service
-#: model:ir.model.fields,field_description:generic_service.field_generic_service__message_main_attachment_id
-#: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: generic_service

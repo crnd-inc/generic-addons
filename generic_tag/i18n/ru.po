@@ -339,14 +339,6 @@ msgid "Inherited models"
 msgstr "Унаследованные Модели"
 
 #. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags____last_update
-msgid "Last Modified on"
-msgstr "Последнее изменение"
-
-#. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__write_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__write_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__write_uid
@@ -590,6 +582,9 @@ msgstr ""
 "Если установлено, то только один тег этой категории может присутствовать на "
 "одном объекте. При попытке добавить второй тег этой же категории к объекту, "
 "будет вызвана ошибка"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Последнее изменение"
 
 #~ msgid "Count (incl. archived)"
 #~ msgstr "Кол-во (вкл. заарх.)"

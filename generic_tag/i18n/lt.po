@@ -324,14 +324,6 @@ msgid "Inherited models"
 msgstr ""
 
 #. module: generic_tag
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model____last_update
-#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__write_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__write_uid
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__write_uid
