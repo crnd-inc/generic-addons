@@ -7,7 +7,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '15.0.1.8.0',
+    'version': '16.0.1.8.0',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -23,7 +23,7 @@
     ],
     'images': ['static/description/banner.png'],
     'pre_init_hook': 'pre_init_hook',
-    'installable': False,
+    'installable': True,
     'application': False,
     'license': 'LGPL-3',
 }
