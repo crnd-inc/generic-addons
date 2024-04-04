@@ -86,10 +86,12 @@ class GenericTag(models.Model):
                 raise exceptions.ValidationError(_(
                     u"Category must be bound to same model as tag"))
 
-    def name_get(self):
+    @api.depends('category_id.name', 'name')
+    def _compute_display_name(self):
         if self.env.context.get('_use_standart_name_get_', False):
-            return super(GenericTag, self).name_get()
-        return [(t.id, t.complete_name) for t in self]
+            return super()._compute_display_name()
+        for tag in self:
+            tag.display_name = tag.complete_name
 
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):

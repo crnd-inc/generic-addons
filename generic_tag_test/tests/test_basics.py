@@ -348,10 +348,10 @@ class TestBasics(TransactionCase):
         }).do_apply()
         self.assertEqual(record.tag_ids, tag)
 
-    # def test_name_get(self):
-    #     self.assertEqual(
-    #         self.test_tag_1.read(['display_name'])[0]['display_name'],
-    #         'Test Category 1 / TC1')
+    def test_name_get(self):
+        self.assertEqual(
+            self.test_tag_1.read(['display_name'])[0]['display_name'],
+            'Test Category 1 / TC1')
 
     def test_name_get_context_switch(self):
         self.assertEqual(
