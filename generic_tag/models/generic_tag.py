@@ -92,6 +92,7 @@ class GenericTag(models.Model):
             return super()._compute_display_name()
         for tag in self:
             tag.display_name = tag.complete_name
+        return True
 
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
