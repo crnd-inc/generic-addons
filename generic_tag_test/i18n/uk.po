@@ -52,11 +52,6 @@ msgid "ID"
 msgstr ""
 
 #. module: generic_tag_test
-#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model____last_update
-msgid "Last Modified on"
-msgstr "Остання модифікація"
-
-#. module: generic_tag_test
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__write_uid
 msgid "Last Updated by"
 msgstr "Востаннє оновив"
@@ -122,3 +117,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__test_field
 msgid "test_field"
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Остання модифікація"
