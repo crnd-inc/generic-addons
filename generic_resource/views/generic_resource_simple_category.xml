@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- generic.resource.simple.category -->
-
     <!--Action for statistic button-->
     <record id="action_list_of_simple_resources" model="ir.actions.act_window">
         <field name="name">Simple resources</field>
@@ -9,7 +8,6 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[('category_id', 'child_of', active_id)]</field>
     </record>
-
     <!-- Tree view for generic.resource.simple.category -->
     <record id="generic_resource_simple_category_view_tree" model="ir.ui.view">
         <field name="model">generic.resource.simple.category</field>
@@ -17,8 +15,7 @@
             <tree>
                 <field name="name"/>
                 <field name="parent_id"/>
-            </tree>
-        </field>
+            </tree></field>
     </record>
     <!-- Form view for generic.resource.simple.category -->
     <record id="generic_resource_simple_category_view_form" model="ir.ui.view">
@@ -27,18 +24,14 @@
             <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" type="action"
-                                icon="fa-list" string="Resources"
-                                name="%(action_list_of_simple_resources)d">
+                        <button class="oe_stat_button" icon="fa-list" name="%(action_list_of_simple_resources)d" string="Resources" type="action">
                         </button>
                     </div>
-                    <field name="active" invisible="1"/>
-                    <widget name="web_ribbon" title="Archived"
-                            bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field invisible="1" name="active"/>
+                    <widget bg_color="bg-danger" invisible="active == True" name="web_ribbon" title="Archived"/>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" string="Name" placeholder="Name"/>
+                            <field name="name" placeholder="Name" string="Name"/>
                         </h1>
                     </div>
                     <group>
@@ -49,31 +42,23 @@
                     <field name="message_follower_ids"/>
                     <field name="message_ids"/>
                 </div>
-            </form>
-        </field>
+            </form></field>
     </record>
-
     <!--Define search view generic.resource.simple.category-->
-    <record model="ir.ui.view" id="generic_resource_simple_category_search">
+    <record id="generic_resource_simple_category_search" model="ir.ui.view">
         <field name="model">generic.resource.simple.category</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
                 <field name="parent_id"/>
-            </search>
-        </field>
+            </search></field>
     </record>
-
     <record id="generic_resource_simple_category_action" model="ir.actions.act_window">
         <field name="name">Simple Resources Categories</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.resource.simple.category</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-   <!-- Menu for Simple Resources Category-->
-    <menuitem id="generic_resource_simple_category_menu_item"
-                name="Simple Resource Categories"
-                parent="menu_simple_resource_root" sequence="1"
-                action="generic_resource_simple_category_action"/>
+    <!-- Menu for Simple Resources Category-->
+    <menuitem action="generic_resource_simple_category_action" id="generic_resource_simple_category_menu_item" name="Simple Resource Categories" parent="menu_simple_resource_root" sequence="1"/>
 </odoo>

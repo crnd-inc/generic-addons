@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_generic_resource_toplevel"
-              name="Resources"
-              groups="generic_resource.group_generic_resource_user"
-              web_icon="generic_resource,static/description/icon.png"
-              sequence="12"/>
-
-    <menuitem id="menu_generic_resource_root"
-              name="Generic Resources"
-              sequence="30"
-              parent="menu_generic_resource_toplevel"/>
-
-    <menuitem id="menu_generic_resource_config_root"
-              name="Configuration"
-              sequence="100"
-              parent="menu_generic_resource_toplevel"/>
-
+    <menuitem groups="generic_resource.group_generic_resource_user" id="menu_generic_resource_toplevel" name="Resources" sequence="12" web_icon="generic_resource,static/description/icon.png"/>
+    <menuitem id="menu_generic_resource_root" name="Generic Resources" parent="menu_generic_resource_toplevel" sequence="30"/>
+    <menuitem id="menu_generic_resource_config_root" name="Configuration" parent="menu_generic_resource_toplevel" sequence="100"/>
     <!-- generic.resource -->
     <record id="generic_resource_view_search" model="ir.ui.view">
         <field name="model">generic.resource</field>
@@ -23,16 +10,10 @@
         <field name="arch" type="xml">
             <search>
                 <field name="res_type_id"/>
-
                 <separator/>
-                <filter name="filter_active"
-                        string="Active"
-                        domain="[('active', '=', True)]"/>
-                <filter name="filter_archived"
-                        string="Archived"
-                        domain="[('active', '=', False)]"/>
-            </search>
-        </field>
+                <filter domain="[('active', '=', True)]" name="filter_active" string="Active"/>
+                <filter domain="[('active', '=', False)]" name="filter_archived" string="Archived"/>
+            </search></field>
     </record>
     <record id="generic_resource_view_tree" model="ir.ui.view">
         <field name="model">generic.resource</field>
@@ -40,30 +21,23 @@
         <field name="arch" type="xml">
             <tree create="false" delete="false">
                 <field name="display_name" string="Name"/>
-                <field name="active" invisible="1"/>
+                <field invisible="1" name="active"/>
                 <field name="res_type_id"/>
-                <button name="action_open_resource_object"
-                        type="object"
-                        string="Open Resource"
-                        icon="fa-external-link"/>
-            </tree>
-        </field>
+                <button icon="fa-external-link" name="action_open_resource_object" string="Open Resource" type="object"/>
+            </tree></field>
     </record>
-
     <record id="generic_resource_view_form_base" model="ir.ui.view">
         <field name="model">generic.resource</field>
         <field name="mode">primary</field>
-        <field name="priority" eval="150"/>
+        <field eval="150" name="priority"/>
         <field name="arch" type="xml">
             <form create="false" delete="false">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                     </div>
-                    <field name="active" invisible="1"/>
-                    <widget name="web_ribbon" title="Archived"
-                            bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
-                    <div name="div_title" class="oe_title">
+                    <field invisible="1" name="active"/>
+                    <widget bg_color="bg-danger" invisible="active == True" name="web_ribbon" title="Archived"/>
+                    <div class="oe_title" name="div_title">
                         <h1 name="h1_title">
                         </h1>
                     </div>
@@ -79,10 +53,8 @@
                         </page>
                     </notebook>
                 </sheet>
-            </form>
-        </field>
+            </form></field>
     </record>
-
     <!-- Form view for generic.resource -->
     <record id="generic_resource_view_form" model="ir.ui.view">
         <field name="model">generic.resource</field>
@@ -93,42 +65,28 @@
                 <field name="display_name" string="Name"/>
             </xpath>
             <xpath expr="//group[@name='group_resource_info_left']" position="inside">
-                <field name="res_type_id"
-                       options="{'no_create': true, 'no_quick_create': true}"/>
-                <field name="res_model" invisible="1"/>
-                <field name="res_id"
-                       widget="generic_m2o"
-                       model_field="res_model"
-                       attrs="{'invisible': [('res_model', '=', False)]}"/>
-            </xpath>
-        </field>
+                <field name="res_type_id" options="{'no_create': true, 'no_quick_create': true}"/>
+                <field invisible="1" name="res_model"/>
+                <field invisible="res_model == False" model_field="res_model" name="res_id" widget="generic_m2o"/>
+            </xpath></field>
     </record>
-
     <record id="generic_resource_action" model="ir.actions.act_window">
         <field name="name">Resources</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.resource</field>
     </record>
-
-    <record id="generic_resource_action_view_tree"
-            model="ir.actions.act_window.view">
-        <field name="sequence" eval="5"/>
+    <record id="generic_resource_action_view_tree" model="ir.actions.act_window.view">
+        <field eval="5" name="sequence"/>
         <field name="view_mode">tree</field>
         <field name="view_id" ref="generic_resource_view_tree"/>
         <field name="act_window_id" ref="generic_resource_action"/>
     </record>
-
-    <record id="generic_resource_action_view_from"
-            model="ir.actions.act_window.view">
-        <field name="sequence" eval="10"/>
+    <record id="generic_resource_action_view_from" model="ir.actions.act_window.view">
+        <field eval="10" name="sequence"/>
         <field name="view_mode">form</field>
         <field name="view_id" ref="generic_resource_view_form"/>
         <field name="act_window_id" ref="generic_resource_action"/>
     </record>
-
     <!-- Menus for Generic Resource -->
-    <menuitem id="generic_resource_menu_item"
-              parent="menu_generic_resource_config_root" sequence="5"
-              action="generic_resource_action"/>
-
+    <menuitem action="generic_resource_action" id="generic_resource_menu_item" parent="menu_generic_resource_config_root" sequence="5"/>
 </odoo>
