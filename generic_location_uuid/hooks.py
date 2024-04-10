@@ -11,13 +11,13 @@ from odoo.addons.generic_mixin.tools.uuid import (
 _logger = logging.getLogger(__name__)
 
 
-def pre_init_hook(cr):
-    if column_exists(cr, 'generic_location', 'uuid'):
+def pre_init_hook(env):
+    if column_exists(env.cr, 'generic_location', 'uuid'):
         _logger.info(
             "generic_location: uuid column already exists, "
             "no need to run pre-init hook")
         return
 
-    create_uuid_field(cr, 'generic_location', 'uuid')
+    create_uuid_field(env.cr, 'generic_location', 'uuid')
 
-    auto_generate_uuids(cr, 'generic_location', 'uuid')
+    auto_generate_uuids(env.cr, 'generic_location', 'uuid')
