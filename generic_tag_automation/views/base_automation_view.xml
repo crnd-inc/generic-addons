@@ -6,8 +6,10 @@
         <field name="model">base.automation</field>
         <field name="inherit_id" ref="base_automation.view_base_automation_form"/>
         <field name="arch" type="xml">
-            <field name="state" position="after">
-                <field context="{'default_model': model_name}" invisible="state != 'set_tag'" name="act_add_tag_ids" options="{'color_field': 'color'}" widget="many2many_tags"/>
-                <field context="{'default_model': model_name}" invisible="state != 'set_tag'" name="act_remove_tag_ids" options="{'color_field': 'color'}" widget="many2many_tags"/></field></field>
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <field context="{'default_model': model_name}" name="act_add_tag_ids" options="{'color_field': 'color'}" widget="many2many_tags"/>
+                <field context="{'default_model': model_name}" name="act_remove_tag_ids" options="{'color_field': 'color'}" widget="many2many_tags"/>
+            </xpath>
+        </field>
     </record>
 </odoo>
