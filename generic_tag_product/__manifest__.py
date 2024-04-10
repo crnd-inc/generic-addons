@@ -22,7 +22,7 @@
         'views/generic_tag_product.xml'
     ],
     'images': ['static/description/banner.png'],
-    "installable": False,
+    "installable": True,
     "auto_install": False,
     'license': 'LGPL-3',
 }
