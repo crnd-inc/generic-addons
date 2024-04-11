@@ -156,14 +156,16 @@ class GenericResourceType(models.Model):
     @api.model
     def create(self, vals):
         record = super(GenericResourceType, self).create(vals)
-        self._get_resource_type_id.clear_cache(self)
+        # self._get_resource_type_id.clear_cache(self)
+        self.env.registry.clear_cache()
         record._create_context_action_for_target_model()
         return record
 
     def unlink(self):
         self.mapped('resource_related_res_action_id').unlink()
         res = super(GenericResourceType, self).unlink()
-        self._get_resource_type_id.clear_cache(self)
+        # self._get_resource_type_id.clear_cache(self)
+        self.env.registry.clear_cache()
         return res
 
     def action_show_resources(self):
