@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestGenericResourceSearch(SavepointCase):
+class TestGenericResourceSearch(TransactionCase):
 
     @classmethod
     def setUpClass(cls):

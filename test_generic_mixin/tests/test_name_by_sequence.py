@@ -21,20 +21,20 @@ class NameBySequenceTest(TransactionCase):
 
     def test_name_by_sequence_no_field_default_behavior(self):
         Model = self.env['test.generic.mixin.name.by.sequence.nf']
-        self.assertIn('name', Model._fields)
-        self.assertIsInstance(Model._fields['name'], fields.Char)
-        self.assertEqual(Model._fields['name'].string, 'Name')
+        self.assertIn('x_name', Model._fields)
+        self.assertIsInstance(Model._fields['x_name'], fields.Char)
+        self.assertEqual(Model._fields['x_name'].string, 'X Name')
 
         next_number = self._get_next_sequence_number()
         rec = Model.create({})
-        self.assertEqual(rec.name, 'GMTNBSN%s' % next_number)
+        self.assertEqual(rec.x_name, 'GMTNBSN%s' % next_number)
 
         next_number = self._get_next_sequence_number()
-        rec = Model.create({'name': 'New'})
-        self.assertEqual(rec.name, 'GMTNBSN%s' % next_number)
+        rec = Model.create({'x_name': 'New'})
+        self.assertEqual(rec.x_name, 'GMTNBSN%s' % next_number)
 
-        rec = Model.create({'name': 'Custom name'})
-        self.assertEqual(rec.name, 'Custom name')
+        rec = Model.create({'x_name': 'Custom name'})
+        self.assertEqual(rec.x_name, 'Custom name')
 
     def test_name_by_sequence_custom_field(self):
         Model = self.env['test.generic.mixin.name.by.sequence.cf']

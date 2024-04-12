@@ -21,7 +21,7 @@ class TestNameBySequenceCustomField(models.Model):
     ]
     _description = "Test Generic Mixin: Name by Sequence: Custom Field"
     _name_by_sequence_auto_add_field = True
-    _name_by_sequence_name_field = 'my_name'
+    _name_by_sequence_name_field = 'x_my_name'
     _name_by_sequence_sequence_code = (
         'generic.mixin.test.name.by.sequence.name')
 
@@ -33,7 +33,7 @@ class TestNameBySequenceCustomFieldCustomName(models.Model):
     ]
     _description = "Test Generic Mixin: Name by Sequence: Custom Field Name"
     _name_by_sequence_auto_add_field = True
-    _name_by_sequence_name_field = 'my_name'
+    _name_by_sequence_name_field = 'x_my_name'
     _name_by_sequence_sequence_code = (
         'generic.mixin.test.name.by.sequence.name')
 
