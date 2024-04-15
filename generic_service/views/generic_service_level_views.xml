@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <!-- Tree view for generic.service.level -->
     <record id="generic_service_level_view_tree" model="ir.ui.view">
         <field name="model">generic.service.level</field>
@@ -9,8 +10,10 @@
                 <field name="name"/>
                 <field name="code"/>
                 <field name="active"/>
-            </tree></field>
+            </tree>
+        </field>
     </record>
+
     <!-- Form view for generic.service.level -->
     <record id="generic_service_level_view_form" model="ir.ui.view">
         <field name="model">generic.service.level</field>
@@ -30,7 +33,7 @@
                         </h2>
                     </div>
                     <notebook>
-                        <page name="page_info" string="Info">
+                        <page string="Info" name="page_info">
                             <group>
                                 <group name="group_info_left"/>
                                 <group name="group_info_right">
@@ -45,19 +48,25 @@
                     <field name="message_follower_ids"/>
                     <field name="message_ids"/>
                 </div>
-            </form></field>
+            </form>
+        </field>
     </record>
+
     <!-- Search for generic.service.level -->
-    <record id="generic_service_level_view_search" model="ir.ui.view">
+    <record model="ir.ui.view" id="generic_service_level_view_search">
         <field name="model">generic.service.level</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
                 <field name="code"/>
                 <separator/>
-                <filter domain="[('active', '=', False)]" name="filter_archived" string="Archived"/>
-            </search></field>
+                <filter name="filter_archived"
+                        string="Archived"
+                        domain="[('active', '=', False)]"/>
+            </search>
+        </field>
     </record>
+
     <!-- Actions for generic.service.level -->
     <record id="generic_service_level_action" model="ir.actions.act_window">
         <field name="name">Service Levels</field>
@@ -65,6 +74,13 @@
         <field name="res_model">generic.service.level</field>
         <field name="view_mode">tree,form</field>
     </record>
+
     <!-- Menu items for generic.service.level -->
-    <menuitem action="generic_service_level_action" groups="generic_service.group_use_service_level" id="generic_service_level_menu_item" name="Service Levels" parent="generic_service.menu_generic_service_configuration_menu_item" sequence="5"/>
+    <menuitem id="generic_service_level_menu_item"
+              name="Service Levels"
+              parent="generic_service.menu_generic_service_configuration_menu_item"
+              sequence="5"
+              groups="generic_service.group_use_service_level"
+              action="generic_service_level_action"/>
+
 </odoo>

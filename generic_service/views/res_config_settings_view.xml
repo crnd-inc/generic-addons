@@ -15,11 +15,9 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//form[hasclass('oe_form_configuration')]" position="inside">
-                <div data-string="Services" class="app_settings_block"
-                     string="Services" data-key="generic_service">
+                <app data-string="Services" string="Services" name="generic_service">
+                    <block title="Generic service settings" name="div_service_global_settings">
 
-                    <h2>Generic service settings</h2>
-                    <div class="row mt16 o_settings_container" name="div_service_global_settings">
                         <div class="col-xs-12 o_setting_box">
                             <group name="group_settings_service">
                                 <group name="group_settings_service_left">
