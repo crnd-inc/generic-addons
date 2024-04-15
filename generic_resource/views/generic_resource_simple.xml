@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_simple_resource_root" name="Simple Resources" parent="generic_resource.menu_generic_resource_toplevel"/>
+
+    <menuitem id="menu_simple_resource_root"
+              name="Simple Resources"
+              parent="generic_resource.menu_generic_resource_toplevel" />
+
     <record id="generic_resource_simple_view_tree" model="ir.ui.view">
         <field name="model">generic.resource.simple</field>
         <field name="arch" type="xml">
@@ -10,21 +14,21 @@
                 <field name="resource_id" string="Resource"/>
                 <field name="category_id"/>
                 <field name="resource_visibility"/>
-            </tree></field>
+            </tree>
+        </field>
     </record>
+
     <record id="generic_resource_simple_view_form" model="ir.ui.view">
         <field name="model">generic.resource.simple</field>
         <field name="inherit_id" ref="generic_resource_view_form_base"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <xpath expr="/form" position="attributes">
-                <attribute name="create">
-                    true</attribute>
-                <attribute name="delete">
-                    true</attribute>
+                <attribute name="create">true</attribute>
+                <attribute name="delete">true</attribute>
             </xpath>
             <xpath expr="//h1[@name='h1_title']" position="inside">
-                <field name="name" placeholder="Name" string="Name"/>
+                <field name="name" string="Name" placeholder="Name"/>
             </xpath>
             <xpath expr="//page[1]" position="before">
                 <page name="page_info" string="Info">
@@ -34,7 +38,9 @@
                             <field name="category_id" placeholder="Category"/>
                         </group>
                         <group name="group_info_right">
-                            <field name="inv_number" required="0" widget="CopyClipboardChar"/>
+                            <field name="inv_number"
+                                   required="0"
+                                   widget="CopyClipboardChar"/>
                         </group>
                     </group>
                 </page>
@@ -44,37 +50,51 @@
                     <field name="message_follower_ids"/>
                     <field name="message_ids"/>
                 </div>
-            </xpath></field>
+            </xpath>
+        </field>
     </record>
+
     <!--Define search view generic.resource.simple-->
-    <record id="generic_resource_simple_search" model="ir.ui.view">
+    <record model="ir.ui.view" id="generic_resource_simple_search">
         <field name="model">generic.resource.simple</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
                 <field name="category_id"/>
                 <group>
-                    <filter context="{'group_by': 'category_id'}" name="group_by_category_id" string="Category"/>
+                    <filter name="group_by_category_id" string="Category"
+                            context="{'group_by': 'category_id'}"/>
                 </group>
-            </search></field>
+            </search>
+        </field>
     </record>
+
+
     <record id="generic_resource_simple_action" model="ir.actions.act_window">
         <field name="name">Simple Resources</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.resource.simple</field>
     </record>
-    <record id="generic_resource_simple_action_view_tree" model="ir.actions.act_window.view">
-        <field eval="5" name="sequence"/>
+
+    <record id="generic_resource_simple_action_view_tree"
+            model="ir.actions.act_window.view">
+        <field name="sequence" eval="5"/>
         <field name="view_mode">tree</field>
         <field name="view_id" ref="generic_resource_simple_view_tree"/>
         <field name="act_window_id" ref="generic_resource_simple_action"/>
     </record>
-    <record id="generic_resource_simple_action_view_from" model="ir.actions.act_window.view">
-        <field eval="10" name="sequence"/>
+
+    <record id="generic_resource_simple_action_view_from"
+            model="ir.actions.act_window.view">
+        <field name="sequence" eval="10"/>
         <field name="view_mode">form</field>
         <field name="view_id" ref="generic_resource_simple_view_form"/>
         <field name="act_window_id" ref="generic_resource_simple_action"/>
     </record>
+
     <!-- Menu for Simple Resources -->
-    <menuitem action="generic_resource_simple_action" id="generic_resource_simple_menu_item" name="Simple Resources" parent="menu_simple_resource_root" sequence="0"/>
+    <menuitem id="generic_resource_simple_menu_item"
+                name="Simple Resources"
+                parent="menu_simple_resource_root" sequence="0"
+                action="generic_resource_simple_action"/>
 </odoo>
