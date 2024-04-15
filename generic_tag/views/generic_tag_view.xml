@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem groups="generic_tag.group_tags_user" id="menu_generic_tags_root" name="Tags" sequence="16" web_icon="generic_tag,static/description/icon.png"/>
-    <menuitem id="menu_generic_tags_all" name="All Tags" parent="generic_tag.menu_generic_tags_root" sequence="10"/>
-    <menuitem groups="group_tags_manager" id="menu_generic_tags_configuration_root" name="Configuration" parent="generic_tag.menu_generic_tags_root" sequence="220"/>
+    <menuitem id="menu_generic_tags_root"
+                groups="generic_tag.group_tags_user"
+                sequence="16"
+                name="Tags"
+                web_icon="generic_tag,static/description/icon.png"/>
+
+    <menuitem id="menu_generic_tags_all"
+                parent="generic_tag.menu_generic_tags_root"
+                sequence="10"
+                name="All Tags"/>
+
+    <menuitem id="menu_generic_tags_configuration_root"
+                parent="generic_tag.menu_generic_tags_root"
+                sequence="220"
+                name="Configuration"
+                groups="group_tags_manager"/>
+
     <record id="view_generic_tag_search" model="ir.ui.view">
         <field name="name">generic.tag.search</field>
         <field name="model">generic.tag</field>
@@ -12,12 +26,16 @@
                 <field name="category_id"/>
                 <field name="name"/>
                 <field name="code"/>
+
                 <group expand="0" string="Group By...">
-                    <filter context="{'group_by':'model_id'}" domain="[]" name="group_by_model" string="Model"/>
-                    <filter context="{'group_by':'category_id'}" domain="[]" name="group_by_category" string="Category"/>
+                    <filter string="Model" name="group_by_model" domain="[]" context="{'group_by':'model_id'}"/>
+                    <filter string="Category" name="group_by_category" domain="[]" context="{'group_by':'category_id'}"/>
                 </group>
-            </search></field>
+
+            </search>
+        </field>
     </record>
+
     <record id="view_generic_tag_tree" model="ir.ui.view">
         <field name="name">generic.tag.tree</field>
         <field name="model">generic.tag</field>
@@ -32,9 +50,11 @@
                 <field name="comment"/>
                 <field name="active"/>
                 <field name="objects_count"/>
-                <button icon="fa-search" name="action_show_objects" string="Show Objects" type="object"/>
-            </tree></field>
+                <button name="action_show_objects" type="object" string="Show Objects" icon="fa-search"/>
+            </tree>
+        </field>
     </record>
+
     <record id="view_generic_tag_form" model="ir.ui.view">
         <field name="name">generic.tag.form</field>
         <field name="model">generic.tag</field>
@@ -42,7 +62,9 @@
             <form>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" icon="fa-bars" name="action_show_objects" type="object">
+                        <button name="action_show_objects"
+                                type="object" icon="fa-bars"
+                                class="oe_stat_button">
                             <field name="objects_count" string="Objects" widget="statinfo"/>
                         </button>
                     </div>
@@ -72,8 +94,10 @@
                     </group>
                     <field name="comment" placeholder="Comment..."/>
                 </sheet>
-            </form></field>
+            </form>
+        </field>
     </record>
+
     <record id="action_generic_tags_view" model="ir.actions.act_window">
         <field name="name">Tags</field>
         <field name="res_model">generic.tag</field>
@@ -81,5 +105,7 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_generic_tag_tree"/>
     </record>
-    <menuitem action="action_generic_tags_view" id="menu_action_generic_tags_view" parent="menu_generic_tags_all" sequence="10"/>
+
+    <menuitem action="action_generic_tags_view" id="menu_action_generic_tags_view"
+                parent="menu_generic_tags_all" sequence="10"/>
 </odoo>
