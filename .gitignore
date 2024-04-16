@@ -8,3 +8,4 @@
 .ropeproject/
 .coverage
 htmlcov
+.DS_Store*
