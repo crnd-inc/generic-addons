@@ -17,6 +17,6 @@
         'views/base_automation.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': True,
 }

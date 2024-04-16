@@ -11,6 +11,7 @@ class GenericLocation(models.Model):
         'generic.location',
         'generic.mixin.uuid',
     ]
+    _generic_mixin_uuid_field_name = 'uuid'
     uuid = fields.Char(
         index=True, required=True, readonly=True,
         size=38, default='/', copy=False, string='UUID')

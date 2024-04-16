@@ -45,23 +45,24 @@ class GenericMixinParentNames(models.AbstractModel):
 
         return super(GenericMixinParentNames, cls)._build_model(pool, cr)
 
+    @api.depends('name', 'parent_id.name')
     def _compute_display_name(self):
-        for record in self:
-            if self.env.context.get('_use_standart_name_get_', False):
-                return super(
-                    GenericMixinParentNames, self)._compute_display_name()
+        if self.env.context.get('_use_standart_name_get_', False):
+            return super()._compute_display_name()
 
-            def get_names(rec):
-                """ Return the list [rec.name, rec.parent_id.name, ...] """
-                res = []
-                name_field = self._rec_name_fallback()
-                while rec:
-                    if rec[name_field]:
-                        res.append(rec[name_field])
-                    rec = rec[self._parent_name]
-                return res
-            name = " / ".join(reversed(get_names(record.sudo())))
-            record.display_name = name
+        def get_names(rec):
+            """ Return the list [rec.name, rec.parent_id.name, ...] """
+            res = []
+            name_field = self._rec_name_fallback()
+            while rec:
+                if rec[name_field]:
+                    res.append(rec[name_field])
+                rec = rec[self._parent_name]
+            return res
+        for rec in self:
+            rec.display_name = " / ".join(
+                reversed(get_names(rec.sudo())))
+        return True
 
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):

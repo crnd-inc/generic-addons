@@ -20,6 +20,6 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }

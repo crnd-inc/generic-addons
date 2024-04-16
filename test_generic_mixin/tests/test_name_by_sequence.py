@@ -38,10 +38,10 @@ class NameBySequenceTest(TransactionCase):
 
     def test_name_by_sequence_custom_field(self):
         Model = self.env['test.generic.mixin.name.by.sequence.cf']
-        self.assertIn('my_name', Model._fields)
-        self.assertNotIn('name', Model._fields)
-        self.assertIsInstance(Model._fields['my_name'], fields.Char)
-        self.assertEqual(Model._fields['my_name'].string, 'My Name')
+        self.assertIn('x_my_name', Model._fields)
+        self.assertNotIn('x_name', Model._fields)
+        self.assertIsInstance(Model._fields['x_my_name'], fields.Char)
+        self.assertEqual(Model._fields['x_my_name'].string, 'X My Name')
 
         next_number = self._get_next_sequence_number()
         rec = Model.create({})
@@ -74,16 +74,16 @@ class NameBySequenceTest(TransactionCase):
 
     def test_name_by_sequence_no_sequence(self):
         Model = self.env['test.generic.mixin.name.by.sequence.ns']
-        self.assertIn('name', Model._fields)
-        self.assertIsInstance(Model._fields['name'], fields.Char)
-        self.assertEqual(Model._fields['name'].string, 'Name')
+        self.assertIn('x_name', Model._fields)
+        self.assertIsInstance(Model._fields['x_name'], fields.Char)
+        self.assertEqual(Model._fields['x_name'].string, 'X Name')
 
         # Field was added, so its default value was used
         rec = Model.create({})
-        self.assertEqual(rec.name, 'New')
+        self.assertEqual(rec.x_name, 'New')
 
-        rec = Model.create({'name': 'Custom value'})
-        self.assertEqual(rec.name, 'Custom value')
+        rec = Model.create({'x_name': 'Custom value'})
+        self.assertEqual(rec.x_name, 'Custom value')
 
     def test_name_by_sequence_no_sequence_no_auto_field(self):
         Model = self.env['test.generic.mixin.name.by.sequence.nsnf']

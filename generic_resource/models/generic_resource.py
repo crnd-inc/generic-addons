@@ -48,6 +48,11 @@ class GenericResource(models.Model):
          'Model instance must be unique')
     ]
 
+    @api.depends('res_model', 'res_id')
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = rec.resource.display_name
+
     @property
     def resource(self):
         """ Property to easily access implementation of this generic resource
