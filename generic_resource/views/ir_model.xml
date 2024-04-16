@@ -5,7 +5,9 @@
         <field name="inherit_id" ref="base.view_model_form"/>
         <field name="arch" type="xml">
             <field name="transient" position="after">
-                <field groups="base.group_no_one" name="is_generic_resource" readonly="state != 'manual'"/>
+                <field name="is_generic_resource"
+                       readonly="state != 'manual'"
+                       groups="base.group_no_one"/>
             </field>
         </field>
     </record>
@@ -15,7 +17,9 @@
         <field name="inherit_id" ref="base.view_model_search"/>
         <field name="arch" type="xml">
             <field name="model" position="after">
-                <filter domain="[('is_generic_resource', '=', True)]" name="filter_is_generic_resource" string="Generic Resource"/>
+                <filter string="Generic Resource"
+                        name="filter_is_generic_resource"
+                        domain="[('is_generic_resource', '=', True)]"/>
             </field>
         </field>
     </record>

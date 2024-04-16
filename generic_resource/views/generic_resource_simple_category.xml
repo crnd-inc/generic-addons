@@ -33,7 +33,9 @@
                         </button>
                     </div>
                     <field name="active" invisible="1"/>
-                    <widget bg_color="bg-danger" invisible="active == True" name="web_ribbon" title="Archived"/>
+                    <widget name="web_ribbon" title="Archived"
+                            bg_color="bg-danger"
+                            invisible="active == True"/>
                     <div class="oe_title">
                         <h1>
                             <field name="name" string="Name" placeholder="Name"/>

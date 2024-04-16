@@ -60,7 +60,9 @@
                     <div class="oe_button_box" name="button_box">
                     </div>
                     <field name="active" invisible="1"/>
-                    <widget bg_color="bg-danger" invisible="active == True" name="web_ribbon" title="Archived"/>
+                    <widget name="web_ribbon" title="Archived"
+                            bg_color="bg-danger"
+                            invisible="active == True"/>
                     <div name="div_title" class="oe_title">
                         <h1 name="h1_title">
                         </h1>
