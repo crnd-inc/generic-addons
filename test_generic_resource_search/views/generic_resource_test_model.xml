@@ -31,7 +31,7 @@
                 <page name="page_info" string="Info">
                     <group name="group_info_root">
                         <group name="group_info_left">
-                            <field name="resource_id" placeholder="Resource" readonly="True" required="False" string="Resource"/>
+                            <field name="resource_id" string="Resource" placeholder="Resource" required="False" readonly="True"/>
                         </group>
                     </group>
                 </page>
