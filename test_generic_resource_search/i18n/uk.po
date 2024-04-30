@@ -7,14 +7,17 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-14 15:46+0000\n"
-"PO-Revision-Date: 2023-07-14 15:46+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2024-04-30 10:03+0000\n"
+"Last-Translator: Galina Prokopenko <am@crnd.pro>\n"
+"Language-Team: Ukrainian <http://weblate.crnd.pro/projects/"
+"generic-addons-16-0/test_generic_resource_search/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__active
@@ -74,12 +77,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__id
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: test_generic_resource_search
 #: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
 msgid "Info"
-msgstr ""
+msgstr "Інформація"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model____last_update
