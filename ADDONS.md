@@ -1,6 +1,6 @@
 | System Name | Name | License | Version | Summary | Price |
 |---|---|---|---|---|---|
-| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.80.1 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.80.2 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_service | Generic Service | LGPL-3 | 17.0.1.29.1 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 17.0.2.13.2 | Generic tag management. |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 17.0.1.7.1 | Generic Tag - Tests (do not install manualy) |  |
