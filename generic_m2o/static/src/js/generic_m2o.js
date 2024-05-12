@@ -1,21 +1,20 @@
 /** @odoo-module **/
 
+import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
-import { m2oTupleFromData, Many2OneField } from "@web/views/fields/many2one/many2one_field";
+import { m2oTupleFromData, many2OneField, Many2OneField } from '@web/views/fields/many2one/many2one_field';
 import { useOwnedDialogs } from "@web/core/utils/hooks";
 import { sprintf } from "@web/core/utils/strings";
 import { Many2XAutocomplete, useOpenMany2XRecord } from "@web/views/fields/relational_utils";
 import { SelectCreateDialog } from "@web/views/view_dialogs/select_create_dialog";
-
-const { onPatched, useEnv } = owl;
+const { onPatched } = owl;
 
 function useGenericSelectCreate({ resModel, activeActions, onSelected, onCreateEdit }) {
-    const env = useEnv();
     const addDialog = useOwnedDialogs();
 
     function selectCreate({ domain, context, filters, title, forceModel }) {
         addDialog(SelectCreateDialog, {
-            title: title || env._t("Select records"),
+            title: title || _t("Select records"),
             noCreate: !activeActions.create,
             multiSelect: "link" in activeActions ? activeActions.link : false, // LPE Fixme
             resModel: forceModel || resModel,
@@ -70,13 +69,13 @@ class GenericMany2XAutocomplete extends Many2XAutocomplete {
 
             dynamicFilters = [
                 {
-                    description: sprintf(this.env._t("Quick search: %s"), request),
+                    description: sprintf(_t("Quick search: %s"), request),
                     domain: [["id", "in", nameGets.map((nameGet) => nameGet[0])]],
                 },
             ];
         }
 
-        const title = sprintf(this.env._t("Search: %s"), fieldString);
+        const title = sprintf(_t("Search: %s"), fieldString);
         this.selectCreate({
             domain,
             context,
@@ -89,7 +88,21 @@ class GenericMany2XAutocomplete extends Many2XAutocomplete {
 
 GenericMany2XAutocomplete.template = 'generic_m2o.GenericMany2XAutocomplete';
 
-class GenericMany2OneField extends Many2OneField {
+export class GenericMany2OneField extends Many2OneField {
+    static template = "generic_m2o.GenericMany2OneField";
+    static supportedTypes = ['integer', 'many2one_reference']
+    static components = {
+        ...Many2OneField.components,
+        GenericMany2XAutocomplete,
+    };
+    static props = {
+        ...Many2OneField.props,
+        value: true,
+        modelField: {
+            type: String,
+            optional: true,
+        },
+    };
     setup() {
         super.setup(...arguments);
 
@@ -157,7 +170,7 @@ class GenericMany2OneField extends Many2OneField {
         if (changedRelationModel || changedRecord) {
             this.state.relationModel = this.relationModel;
             if (!changedRecord) {
-                this.props.update(false);
+                this.props.record.update(false);
             } else {
                 this.updateProxyDisplayName();
             }
@@ -177,7 +190,7 @@ class GenericMany2OneField extends Many2OneField {
             [[resId]],
         ).then((data) => {
             this.state.proxyDisplayName = data[0][1];
-        }).guardedCatch(() => {
+        }).catch(() => {
             this.state.proxyDisplayName = false;
         });
     }
@@ -232,31 +245,21 @@ class GenericMany2OneField extends Many2OneField {
         if (!displayName) {
             this.updateProxyDisplayName(resId);
         }
-        this.props.update(resId);
+        this.props.record.update(resId);
     }
 }
 
-GenericMany2OneField.template = 'generic_m2o.GenericMany2OneField';
-GenericMany2OneField.components = {
-    ...Many2OneField.components,
-    GenericMany2XAutocomplete,
-};
-GenericMany2OneField.supportedTypes = ['integer', 'many2one_reference'];
-
-GenericMany2OneField.props = {
-    ...Many2OneField.props,
-    value: true,
-    modelField: {
-        type: String,
-        optional: true,
+export const genericMany2OneField = {
+    ...many2OneField,
+    component: GenericMany2OneField,
+    extractProps(fieldInfo, dynamicInfo) {
+        const props = {
+            ...many2OneField.extractProps(...arguments),
+            modelField: fieldInfo.attrs.model_field,
+            value: fieldInfo.attrs.value || true,
+        }
+        return props;
     },
 };
 
-GenericMany2OneField.extractProps = ({ attrs }) => {
-    return {
-        ...Many2OneField.extractProps,
-        modelField: attrs.model_field,
-    };
-};
-
-registry.category('fields').add('generic_m2o', GenericMany2OneField);
+registry.category('fields').add('generic_m2o', genericMany2OneField);
