@@ -1,18 +1,33 @@
 /** @odoo-module **/
 
-import { _t } from "@web/core/l10n/translation";
-import { registry } from "@web/core/registry";
-import { m2oTupleFromData, many2OneField, Many2OneField } from '@web/views/fields/many2one/many2one_field';
-import { useOwnedDialogs } from "@web/core/utils/hooks";
-import { sprintf } from "@web/core/utils/strings";
-import { Many2XAutocomplete, useOpenMany2XRecord } from "@web/views/fields/relational_utils";
-import { SelectCreateDialog } from "@web/views/view_dialogs/select_create_dialog";
-const { onPatched } = owl;
+import {_t} from "@web/core/l10n/translation";
+import {registry} from "@web/core/registry";
+import {
+    m2oTupleFromData,
+    many2OneField,
+    Many2OneField
+} from '@web/views/fields/many2one/many2one_field';
+import {useOwnedDialogs} from "@web/core/utils/hooks";
+import {sprintf} from "@web/core/utils/strings";
+import {
+    Many2XAutocomplete,
+    useOpenMany2XRecord
+} from "@web/views/fields/relational_utils";
+import {
+    SelectCreateDialog
+} from "@web/views/view_dialogs/select_create_dialog";
 
-function useGenericSelectCreate({ resModel, activeActions, onSelected, onCreateEdit }) {
+const {onPatched} = owl;
+
+function useGenericSelectCreate({
+                                    resModel,
+                                    activeActions,
+                                    onSelected,
+                                    onCreateEdit
+                                }) {
     const addDialog = useOwnedDialogs();
 
-    function selectCreate({ domain, context, filters, title, forceModel }) {
+    function selectCreate({domain, context, filters, title, forceModel}) {
         addDialog(SelectCreateDialog, {
             title: title || _t("Select records"),
             noCreate: !activeActions.create,
@@ -21,7 +36,7 @@ function useGenericSelectCreate({ resModel, activeActions, onSelected, onCreateE
             context,
             domain,
             onSelected,
-            onCreateEdit: () => onCreateEdit({ context }),
+            onCreateEdit: () => onCreateEdit({context}),
             dynamicFilters: filters,
         });
     }
@@ -31,18 +46,16 @@ function useGenericSelectCreate({ resModel, activeActions, onSelected, onCreateE
 class GenericMany2XAutocomplete extends Many2XAutocomplete {
     setup() {
         super.setup(...arguments);
-
-        const { activeActions, resModel, update } = this.props;
-
+        const {activeActions, resModel, update} = this.props;
         this.selectCreate = useGenericSelectCreate({
             resModel,
             activeActions,
             onSelected: (resId) => {
                 const resIds = Array.isArray(resId) ? resId : [resId];
-                const values = resIds.map((id) => ({ id }));
+                const values = resIds.map((id) => ({id}));
                 return update(values);
             },
-            onCreateEdit: ({ context }) => this.openMany2X({ context }),
+            onCreateEdit: ({context}) => this.openMany2X({context}),
         });
     }
 
@@ -54,7 +67,7 @@ class GenericMany2XAutocomplete extends Many2XAutocomplete {
     }
 
     async onSearchMore(request) {
-        const { resModel, getDomain, context, fieldString } = this.props;
+        const {resModel, getDomain, context, fieldString} = this.props;
 
         const domain = getDomain();
         let dynamicFilters = [];
@@ -103,9 +116,9 @@ export class GenericMany2OneField extends Many2OneField {
             optional: true,
         },
     };
+
     setup() {
         super.setup(...arguments);
-
         this.modelField = this.props.modelField;
         if (!this.modelField) {
             const fieldName = this.props.name;
@@ -119,15 +132,20 @@ export class GenericMany2OneField extends Many2OneField {
         if (!(this.modelField in this.props.record.data)) {
             throw new Error(`The field specified in parameter "model_field" was not found in the form view`);
         }
-
-        onPatched(this.onPatched);
+        if (Object.keys(this.props.record.data).includes(this.props.name)) {
+            this.props.value = this.props.record.data[this.props.name];
+        }
+        onPatched(this.onPatched)
         this.currentRelationModel = this.relationModel;
         this.currentRecordId = this.props.record.id;
-
         this.state.proxyDisplayName = false;
         this.state.relationModel = this.relationModel;
+        this.state.modelField = this.modelField;
 
         this.updateProxyDisplayName();
+
+        // Quick Create is disabled because it is not possible to correctly extend the 'web.BasicModel'
+        this.quickCreate = null;
 
         this.openMany2X = useOpenMany2XRecord({
             resModel: this.relation,
@@ -151,9 +169,6 @@ export class GenericMany2OneField extends Many2OneField {
             this.state.isFloating = false;
             return this.proxyUpdate(value);
         };
-
-        // Quick Create is disabled because it is not possible to correctly extend the 'web.BasicModel'
-        this.quickCreate = null;
     }
 
     onPatched() {
@@ -181,18 +196,15 @@ export class GenericMany2OneField extends Many2OneField {
         if (!resId) {
             resId = this.props.value;
         }
-        if (!this.relationModel || !resId) {
+        if (!this.relationModel || !resId || typeof(resId) !== 'number'){
             return;
         }
-        this.orm.call(
-            this.relationModel,
-            'name_get',
-            [[resId]],
-        ).then((data) => {
-            this.state.proxyDisplayName = data[0][1];
-        }).catch(() => {
-            this.state.proxyDisplayName = false;
-        });
+        this.orm.call(this.relationModel, 'name_get', [[resId]])
+            .then((data) => {
+                this.state.proxyDisplayName = data[0][1];
+            }).catch(() => {
+                this.state.proxyDisplayName = false;
+            });
     }
 
     get relationModel() {
@@ -200,24 +212,20 @@ export class GenericMany2OneField extends Many2OneField {
     }
 
     get relation() {
-        return this.state.relationModel;
+        return this.state.relationModel || this.props.record.data.res_model;
     }
 
     get displayName() {
-        return (this.proxyValue && this.proxyValue[1])
-            ? this.proxyValue[1].split("\n")[0]
-            : '';
+        return (this.proxyValue && this.proxyValue[1]) ? this.proxyValue[1].split("\n")[0] : '';
     }
+
     get extraLines() {
-        return this.displayName
-            ? this.displayName
-                  .split("\n")
-                  .map((line) => line.trim())
-                  .slice(1)
-            : [];
+        return this.displayName ? this.displayName.split("\n").map((line) => line.trim()).slice(1) : [];
     }
+
     get resId() {
-        return this.proxyValue && this.proxyValue[0];
+        let val = this.proxyValue;
+        return val && val[0];
     }
 
     async openDialog(resId) {
@@ -237,6 +245,7 @@ export class GenericMany2OneField extends Many2OneField {
     proxyUpdate(value) {
         let resId = false;
         let displayName = false;
+        this.props.value = value ? value[0] : value;
         if (value) {
             displayName = value[1] || false;
             resId = value[0];
@@ -245,7 +254,9 @@ export class GenericMany2OneField extends Many2OneField {
         if (!displayName) {
             this.updateProxyDisplayName(resId);
         }
-        this.props.record.update(resId);
+        let vals = {};
+        vals[this.props.name] = resId
+        this.props.record.update(vals);
     }
 }
 
