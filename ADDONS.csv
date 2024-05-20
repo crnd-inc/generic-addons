@@ -14,7 +14,7 @@
 "generic_resource","Generic Resource","LGPL-3","16.0.1.51.0","Provides the ability to create and categorize         various resources that can be used in other Odoo modules.","",
 "generic_rule","Generic Rule","LGPL-3","16.0.1.9.0","Adds new top-level menu 'rules'","",
 "generic_service","Generic Service","LGPL-3","16.0.1.30.1","Create and manage service catalog","",
-"generic_tag","Generic Tag","LGPL-3","16.0.2.15.0","Generic tag management.","",
+"generic_tag","Generic Tag","LGPL-3","16.0.2.16.0","Generic tag management.","",
 "generic_tag_account","Generic Tag (Account)","LGPL-3","16.0.1.6.0","Generic tag integration with account addon","",
 "generic_tag_automation","Generic Tag (Automation)","LGPL-3","16.0.1.6.0","","",
 "generic_tag_product","Generic Tag (Product) (Experimental)","LGPL-3","16.0.1.6.0","Generic tag integration with product addon","",
