@@ -29,7 +29,7 @@ class GenericTagWizardManageTags(models.TransientModel):
     def do_apply(self):
         self.ensure_one()
 
-        records = self.env[self.model_id.model].search(
+        records = self.env[self.sudo().model_id.model].search(
             [('id', 'in', self.env.context.get('manage_tags_object_ids', []))])
 
         for record in records:
