@@ -1,5 +1,6 @@
 | System Name | Name | License | Version | Summary | Price |
 |---|---|---|---|---|---|
+| generic_m2o | Generic M2O Widget | LGPL-3 | 17.0.1.8.1 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.80.2 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_service | Generic Service | LGPL-3 | 17.0.1.29.1 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 17.0.2.13.2 | Generic tag management. |  |
