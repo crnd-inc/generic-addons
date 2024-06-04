@@ -2,7 +2,7 @@
 |---|---|---|---|---|---|
 | base_field_m2m_view | Base Field Many2many View | LGPL-3 | 17.0.0.5.1 | Adds Many2manyView field implementation for Odoo. Useful in cases when m2m relation computed via Postgresql View |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 17.0.1.8.1 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.80.2 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.80.3 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_service | Generic Service | LGPL-3 | 17.0.1.29.1 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 17.0.2.13.2 | Generic tag management. |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 17.0.1.7.1 | Generic Tag - Tests (do not install manualy) |  |
