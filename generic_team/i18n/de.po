@@ -192,12 +192,6 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team____last_update
-#: model:ir.model.fields,field_description:generic_team.field_generic_team_member____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__write_uid
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__write_uid
 msgid "Last Updated by"
@@ -217,11 +211,6 @@ msgstr ""
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_name
 msgid "Leader Name"
-msgstr ""
-
-#. module: generic_team
-#: model:ir.model.fields,field_description:generic_team.field_generic_team__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: generic_team

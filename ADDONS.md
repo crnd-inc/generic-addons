@@ -7,4 +7,5 @@
 | generic_service | Generic Service | LGPL-3 | 17.0.1.29.1 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 17.0.2.13.2 | Generic tag management. |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 17.0.1.7.1 | Generic Tag - Tests (do not install manualy) |  |
+| generic_team | Generic team | LGPL-3 | 17.0.1.20.1 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 17.0.0.23.1 | Technical module that have to be used to test Generic Mixin module |  |
