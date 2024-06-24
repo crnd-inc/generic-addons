@@ -21,7 +21,7 @@
                     <field name="active" invisible="1"/>
                     <widget name="web_ribbon" title="Archived"
                             bg_color="bg-danger"
-                            attrs="{'invisible': [('active', '=', True)]}"/>
+                            invisible="active == True"/>
                     <div name="title" class="oe_title">
                         <h1 name="header_team_name">
                             <field name="name" placeholder="Team name..."/>
@@ -37,11 +37,9 @@
                                 <field name="leader_id"/>
                                 <field name="task_manager_id"/>
                             </group>
-                            <group name="description">
                                 <field name="description"
                                        placeholder="Description..."
                                        nolabel="1"/>
-                            </group>
                         </page>
                         <page string="Team members" name="page_team_members">
                             <field name="team_member_ids">

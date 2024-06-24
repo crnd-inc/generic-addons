@@ -12,7 +12,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Team',
-    'version': '17.0.1.20.0',
+    'version': '17.0.1.20.1',
 
     "depends": [
         'base',
@@ -40,7 +40,7 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    "installable": False,
+    "installable": True,
     "application": False,
     'license': 'LGPL-3',
 }

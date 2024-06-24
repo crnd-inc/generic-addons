@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class GenericTeamMember(models.Model):
@@ -16,12 +16,8 @@ class GenericTeamMember(models.Model):
          'User may be added to team only once.'),
     ]
 
-    def name_get(self):
-        res = []
+    @api.depends('user_id', 'team_id')
+    def _compute_display_name(self):
         for record in self:
-            res += [(
-                record.id,
-                "%s (%s)" % (record.user_id.display_name,
-                             record.team_id.display_name),
-            )]
-        return res
+            record.display_name = "%s (%s)" % (
+                record.user_id.display_name, record.team_id.display_name)
