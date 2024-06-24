@@ -10,7 +10,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Location',
-    'version': '17.0.2.9.0',
+    'version': '17.0.2.9.1',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -37,7 +37,7 @@
         'demo/demo_location_tag.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'application': False,
     "license": "LGPL-3",
 }
