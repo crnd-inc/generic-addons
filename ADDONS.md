@@ -1,6 +1,7 @@
 | System Name | Name | License | Version | Summary | Price |
 |---|---|---|---|---|---|
 | base_field_m2m_view | Base Field Many2many View | LGPL-3 | 17.0.0.5.1 | Adds Many2manyView field implementation for Odoo. Useful in cases when m2m relation computed via Postgresql View |  |
+| generic_location | Generic Location | LGPL-3 | 17.0.2.9.1 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 17.0.1.8.1 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.80.3 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_service | Generic Service | LGPL-3 | 17.0.1.29.1 | Create and manage service catalog |  |

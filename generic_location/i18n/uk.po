@@ -318,12 +318,6 @@ msgid "Is Follower"
 msgstr "Стежить"
 
 #. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location____last_update
-#: model:ir.model.fields,field_description:generic_location.field_generic_location_type____last_update
-msgid "Last Modified on"
-msgstr "Остання модифікація"
-
-#. module: generic_location
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__write_uid
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_type__write_uid
 msgid "Last Updated by"
@@ -383,11 +377,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__longitude
 msgid "Longitude"
 msgstr ""
-
-#. module: generic_location
-#: model:ir.model.fields,field_description:generic_location.field_generic_location__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Основне прикріплення"
 
 #. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_manager
@@ -661,6 +650,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_location.field_generic_location_mixin__zip
 msgid "Zip"
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Остання модифікація"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Основне прикріплення"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Кількість повідомлень, які потебують дії"
