@@ -555,7 +555,7 @@ class GenericCondition(models.Model):
 
         ctx = self.env.context.copy()
         ctx.update(safe_eval(filter_obj.context, ctx))
-        return bool(Model.with_context(**ctx).search(domain, count=True))
+        return bool(Model.with_context(**ctx).search(domain))
 
     # signature check_<type> where type is condition type
     def check_eval(self, obj, cache=None, debug_log=None):

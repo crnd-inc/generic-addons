@@ -18,12 +18,12 @@
                     </group>
                     <group string="Condition Result"
                            colspan="4"
-                           attrs="{'invisible': [('result', '=', False)]}">
+                           invisible="result == False">
                         <field name="result" nolabel="1" colspan="2"/>
                     </group>
                     <group string="Condition Debug Log"
                            colspan="4"
-                           attrs="{'invisible': [('debug_log', '=', False)]}">
+                           invisible="debug_log == False">
                         <field name="debug_log" nolabel="1" colspan="2"/>
                     </group>
                 </group>
