@@ -269,17 +269,17 @@
                             <group colspan="2">
                                 <field name="condition_user_user_field_id"
                                        required="type == 'current_user' and condition_user_check_type == 'field'"
-                                       invisible="type != 'current_user' and condition_user_check_type != 'field'"
+                                       invisible="type != 'current_user' or condition_user_check_type != 'field'"
                                        domain="[('model_id','=',model_id),
                                                 ('ttype', 'in', ('many2one', 'one2many', 'many2many')),
                                                 ('relation', '=', 'res.users')]"/>
                                 <field name="condition_user_one_of_user_ids"
                                        required="type == 'current_user' and condition_user_check_type == 'one_of'"
-                                       invisible="type != 'current_user' and condition_user_check_type != 'one_of'"
+                                       invisible="type != 'current_user' or condition_user_check_type != 'one_of'"
                                        widget="many2many_tags"/>
                                 <field name="condition_user_checks_condition_ids"
                                        required="type == 'current_user' and condition_user_check_type == 'checks'"
-                                       invisible="type != 'current_user' and condition_user_check_type != 'checks'"
+                                       invisible="type != 'current_user' or condition_user_check_type != 'checks'"
                                        context="{'default_based_on': 'res.users'}"
                                        widget="many2many_tags"/>
                             </group>
@@ -428,13 +428,13 @@
                                                required="type == 'simple_field' and condition_simple_field_type in ('date', 'datetime')"
                                                invisible="condition_simple_field_type not in ('date', 'datetime')"/>
                                         <div>
-                                            <span invisible="(condition_simple_field_type not in ('char', 'text', 'html')) and (condition_simple_field_string_operator in ('set', 'not set'))">
+                                            <span invisible="(condition_simple_field_type not in ('char', 'text', 'html')) or (condition_simple_field_string_operator in ('set', 'not set'))">
                                                 <field name="condition_simple_field_string_operator_icase"/>
                                                 <label for="condition_simple_field_string_operator_icase"/>
                                             </span>
                                         </div>
                                         <div>
-                                            <span invisible="(condition_simple_field_type not in ('char', 'text', 'html')) and (condition_simple_field_string_operator in ('set', 'not set'))">
+                                            <span invisible="(condition_simple_field_type not in ('char', 'text', 'html')) or (condition_simple_field_string_operator in ('set', 'not set'))">
                                                 <field name="condition_simple_field_string_operator_regex"/>
                                                 <label for="condition_simple_field_string_operator_regex"/>
                                             </span>
@@ -446,7 +446,7 @@
                                     <td>
                                         <field name="condition_simple_field_value_char"
                                                required="type == 'simple_field' and condition_simple_field_type in ('char', 'text', 'html') and condition_simple_field_string_operator not in ('set', 'not set')"
-                                               invisible="[('condition_simple_field_type', 'not in', ('char', 'text', 'html')) and ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]"/>
+                                               invisible="[('condition_simple_field_type', 'not in', ('char', 'text', 'html')) or ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]"/>
                                         <field name="condition_simple_field_value_integer"
                                                required="type == 'simple_field' and condition_simple_field_type == 'integer'"
                                                invisible="condition_simple_field_type != 'integer'"/>
@@ -457,13 +457,13 @@
                                                widget="fake_selection"
                                                selection_field="condition_simple_field_field_id"
                                                required="type == 'simple_field' and condition_simple_field_type == 'selection'"
-                                               invisible="condition_simple_field_type != 'selection' and condition_simple_field_selection_operator in ('set', 'not set')"/>
+                                               invisible="condition_simple_field_type != 'selection' or condition_simple_field_selection_operator in ('set', 'not set')"/>
                                         <field name="condition_simple_field_value_date"
                                                required="type == 'simple_field' and condition_simple_field_type == 'date' and condition_simple_field_date_operator not in ('set', 'not set')"
-                                               invisible="condition_simple_field_type != 'date' and condition_simple_field_date_operator in ('set', 'not set')"/>
+                                               invisible="condition_simple_field_type != 'date' or condition_simple_field_date_operator in ('set', 'not set')"/>
                                         <field name="condition_simple_field_value_datetime"
                                                required="type == 'simple_field' and condition_simple_field_type == 'datetime' and condition_simple_field_date_operator not in ('set', 'not set')"
-                                               invisible="condition_simple_field_type != 'datetime' and condition_simple_field_date_operator in ('set', 'not set')"/>
+                                               invisible="condition_simple_field_type != 'datetime' or condition_simple_field_date_operator in ('set', 'not set')"/>
                                     </td>
                                 </tr>
                             </table>
@@ -708,24 +708,24 @@
                                                            invisible="type != 'search-condition'"/>
                                                     <field name="value_char"
                                                            required="value_type == 'static-value' and check_field_type in ('char', 'text', 'html')"
-                                                           invisible="value_type != 'static-value' and check_field_type not in ('char', 'text', 'html')"/>
+                                                           invisible="value_type != 'static-value' or check_field_type not in ('char', 'text', 'html')"/>
                                                     <field name="value_integer"
                                                            required="value_type == 'static-value' and check_field_type == 'integer'"
-                                                           invisible="value_type != 'static-value' and check_field_type != 'integer'"/>
+                                                           invisible="value_type != 'static-value' or check_field_type != 'integer'"/>
                                                     <field name="value_float"
                                                            required="value_type == 'static-value' and check_field_type == 'float'"
-                                                           invisible="value_type != 'static-value' and check_field_type != 'float'"/>
+                                                           invisible="value_type != 'static-value' or check_field_type != 'float'"/>
                                                     <!-- TODO: Allow only selection and res_id static checks to simplify code -->
                                                     <field name="value_selection"
                                                            widget="fake_selection"
                                                            selection_field="check_field_id"
                                                            required="value_type == 'static-value' and check_field_type == 'selection'"
-                                                           invisible="value_type != 'static-value' and check_field_type != 'selection'"/>
+                                                           invisible="value_type != 'static-value' or check_field_type != 'selection'"/>
                                                     <field name="value_res_id"
                                                            widget="generic_m2o"
                                                            model_field="check_field_relation"
                                                            required="value_type == 'static-value' and check_field_type in ('many2one', 'one2many', 'many2many')"
-                                                           invisible="value_type != 'static-value' and check_field_type not in ('many2one', 'one2many', 'many2many')"/>
+                                                           invisible="value_type != 'static-value' or check_field_type not in ('many2one', 'one2many', 'many2many')"/>
 
                                                     <!-- Fields to check against object field -->
                                                     <field name="value_field_id"
