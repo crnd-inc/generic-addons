@@ -562,10 +562,10 @@ class GenericCondition(models.Model):
         try:
             res = bool(safe_eval(self.condition_eval, dict(self.env.context)))
         except Exception:
-            condition_name = self.name_get()[0][1]
+            condition_name = self.display_name
             obj_name = "%s [id:%s] (%s)" % (
                 self.sudo().model_id.model, obj.id,
-                obj.sudo().name_get()[0][1])
+                obj.sudo().display_name)
             _logger.error(
                 "Error was caught when checking condition %s on document %s. "
                 "condition expression:\n%s\n", condition_name, obj_name,
