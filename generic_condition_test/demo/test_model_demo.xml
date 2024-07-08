@@ -7,9 +7,12 @@
     <record id="test_generic_condition_model_rec" model="test.generic.condition.test.model">
         <field name="test_m2o" ref="test_generic_condition_related_model_rec"/>
     </record>
-    <record id="test_generic_condition_model_rec_monetary" model="test.generic.condition.test.model">
-        <field name="test_monetary_currency" ref="base.USD"/>
-        <field name="test_monetary" eval="150.0"/>
-        <field name="date_test">2012-05-03</field>
-    </record>
+
+    <!-- TODO: uncomment when odoo solve monetary fields -->
+
+<!--    <record id="test_generic_condition_model_rec_monetary" model="test.generic.condition.test.model">-->
+<!--        <field name="test_monetary_currency" ref="base.USD"/>-->
+<!--        <field name="test_monetary" eval="150.0"/>-->
+<!--        <field name="date_test">2012-05-03</field>-->
+<!--    </record>-->
 </odoo>

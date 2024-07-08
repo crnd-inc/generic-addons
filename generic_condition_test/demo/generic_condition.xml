@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- Test conditions -->
-    <record id="test_condition_monetary_equal_150_usd" model="generic.condition">
-        <field name="name">Monetary field equal 150 USD</field>
-        <field name="model_id" ref="generic_condition_test.model_test_generic_condition_test_model"/>
-        <field name="type">monetary_field</field>
-        <field name="condition_monetary_field_id" ref="generic_condition_test.field_test_generic_condition_test_model__test_monetary"/>
-        <field name="condition_monetary_currency_field_id" ref="generic_condition_test.field_test_generic_condition_test_model__test_monetary_currency"/>
-        <field name="condition_monetary_operator">=</field>
-        <field name="condition_monetary_value" eval="150"/>
-        <field name="condition_monetary_value_currency_id" ref="base.USD"/>
-        <field name="condition_monetary_curency_date_type">now</field>
-        <field name="condition_monetary_curency_date_field_id" ref="field_test_generic_condition_test_model__date_test"/>
-    </record>
+
+    <!-- TODO: uncomment when odoo solve about monetary field -->
+
+<!--    <record id="test_condition_monetary_equal_150_usd" model="generic.condition">-->
+<!--        <field name="name">Monetary field equal 150 USD</field>-->
+<!--        <field name="model_id" ref="generic_condition_test.model_test_generic_condition_test_model"/>-->
+<!--        <field name="type">monetary_field</field>-->
+<!--        <field name="condition_monetary_field_id" ref="generic_condition_test.field_test_generic_condition_test_model__test_monetary"/>-->
+<!--        <field name="condition_monetary_currency_field_id" ref="generic_condition_test.field_test_generic_condition_test_model__test_monetary_currency"/>-->
+<!--        <field name="condition_monetary_operator">=</field>-->
+<!--        <field name="condition_monetary_value" eval="150"/>-->
+<!--        <field name="condition_monetary_value_currency_id" ref="base.USD"/>-->
+<!--        <field name="condition_monetary_curency_date_type">now</field>-->
+<!--        <field name="condition_monetary_curency_date_field_id" ref="field_test_generic_condition_test_model__date_test"/>-->
+<!--    </record>-->
 
     <!-- Check that meeting was started more than year ago -->
     <record id="test_condition_meeting_started_year_ago" model="generic.condition">

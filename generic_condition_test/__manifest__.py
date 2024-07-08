@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition - Test",
-    "version": "17.0.1.11.0",
+    "version": "17.0.1.11.1",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -31,7 +31,7 @@
     'images': [
         'static/description/banner.png',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
