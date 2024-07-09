@@ -1,0 +1,1 @@
+- monetary field condition temporary disabled for tests
