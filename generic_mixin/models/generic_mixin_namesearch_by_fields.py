@@ -57,9 +57,13 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
         else:
             domain = expression.OR(domains)
 
-        return self.search(
+        record_ids = self.search(
             expression.AND([
                 args if args else [],
                 domain]),
             limit=limit
-        ).sudo().name_get()
+        ).sudo()
+
+        results = [(record.id, record.display_name) for record in record_ids]
+
+        return results
