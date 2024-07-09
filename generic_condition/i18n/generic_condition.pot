@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -40,11 +40,6 @@ msgid "Absolute"
 msgstr ""
 
 #. module: generic_condition
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "Accounting date"
-msgstr ""
-
-#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_needaction
 msgid "Action Needed"
 msgstr ""
@@ -72,13 +67,6 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__model_id
 msgid "Based on model"
-msgstr ""
-
-#. module: generic_condition
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid ""
-"By this type you can create the condition to compare monetary indicators. <br/>\n"
-"                                <br/>"
 msgstr ""
 
 #. module: generic_condition
@@ -317,7 +305,6 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_currency_field_id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_value_currency_id
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Currency"
 msgstr ""
 
@@ -733,13 +720,6 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: generic_condition
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition____last_update
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf____last_update
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__write_uid
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__write_uid
 msgid "Last Updated by"
@@ -754,11 +734,6 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_condition_id
 msgid "Link to another condition. Usualy used to get inversed condition"
-msgstr ""
-
-#. module: generic_condition
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: generic_condition
@@ -818,11 +793,6 @@ msgstr ""
 msgid ""
 "Model of value field (%(dfield)s) of domain leaf (%(domain)s) must match "
 "Condition model (%(smodel)s)!"
-msgstr ""
-
-#. module: generic_condition
-#: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__monetary_field
-msgid "Monetary field"
 msgstr ""
 
 #. module: generic_condition

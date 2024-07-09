@@ -91,12 +91,6 @@ msgid "ID"
 msgstr ""
 
 #. module: generic_condition_test
-#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model____last_update
-#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation____last_update
-msgid "Last Modified on"
-msgstr "Остання модифікація"
-
-#. module: generic_condition_test
 #: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model__write_uid
 #: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model_relation__write_uid
 msgid "Last Updated by"
@@ -116,11 +110,6 @@ msgstr ""
 #. module: generic_condition_test
 #: model:generic.condition,name:generic_condition_test.test_condition_meeting_started_year_ago
 msgid "Meeting: Started Year ago"
-msgstr ""
-
-#. module: generic_condition_test
-#: model:generic.condition,name:generic_condition_test.test_condition_monetary_equal_150_usd
-msgid "Monetary field equal 150 USD"
 msgstr ""
 
 #. module: generic_condition_test
@@ -198,16 +187,6 @@ msgid "Test Model for Generic Condition"
 msgstr ""
 
 #. module: generic_condition_test
-#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model__test_monetary
-msgid "Test Monetary"
-msgstr ""
-
-#. module: generic_condition_test
-#: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model__test_monetary_currency
-msgid "Test Monetary Currency"
-msgstr ""
-
-#. module: generic_condition_test
 #: model:ir.model.fields,field_description:generic_condition_test.field_test_generic_condition_test_model__test_selection
 msgid "Test Selection"
 msgstr ""
@@ -236,3 +215,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition_test.selection__test_generic_condition_test_model__test_selection__val2
 msgid "Value 2"
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Остання модифікація"

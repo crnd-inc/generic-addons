@@ -44,11 +44,6 @@ msgid "Absolute"
 msgstr "По модулю"
 
 #. module: generic_condition
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid "Accounting date"
-msgstr "Дата обліку"
-
-#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_needaction
 msgid "Action Needed"
 msgstr "Дія необхідна"
@@ -77,17 +72,6 @@ msgstr "Базується на"
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__model_id
 msgid "Based on model"
 msgstr "Базується на моделі"
-
-#. module: generic_condition
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-msgid ""
-"By this type you can create the condition to compare monetary indicators. "
-"<br/>\n"
-"                                <br/>"
-msgstr ""
-"За цим типом ви можете створити умови для перевірки грошових показників. <br/"
-">\n"
-"                                <br/>"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -336,7 +320,6 @@ msgstr "Створено"
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_currency_field_id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_value_currency_id
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Currency"
 msgstr "Валюта"
 
@@ -768,13 +751,6 @@ msgid "Is Follower"
 msgstr "Підписник"
 
 #. module: generic_condition
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition____last_update
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf____last_update
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition____last_update
-msgid "Last Modified on"
-msgstr "Остання зміна"
-
-#. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__write_uid
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__write_uid
 msgid "Last Updated by"
@@ -791,11 +767,6 @@ msgstr "Оновлено"
 msgid "Link to another condition. Usualy used to get inversed condition"
 msgstr ""
 "Зв'язати іншу умову. Зазвичай використовується щоб отримати протилежну умову"
-
-#. module: generic_condition
-#: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Основне прикріплення"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_rel_record_operator__match
@@ -855,11 +826,6 @@ msgid ""
 "Model of value field (%(dfield)s) of domain leaf (%(domain)s) must match "
 "Condition model (%(smodel)s)!"
 msgstr ""
-
-#. module: generic_condition
-#: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__monetary_field
-msgid "Monetary field"
-msgstr "Грошове поле"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__months
@@ -1444,6 +1410,27 @@ msgstr "uid - id поточного користувача"
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "user - current user"
 msgstr "user - поточний користувач"
+
+#~ msgid "Accounting date"
+#~ msgstr "Дата обліку"
+
+#~ msgid ""
+#~ "By this type you can create the condition to compare monetary indicators. "
+#~ "<br/>\n"
+#~ "                                <br/>"
+#~ msgstr ""
+#~ "За цим типом ви можете створити умови для перевірки грошових показників. "
+#~ "<br/>\n"
+#~ "                                <br/>"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Остання зміна"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Основне прикріплення"
+
+#~ msgid "Monetary field"
+#~ msgstr "Грошове поле"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Кількість повідомлень, які потебують дії"
