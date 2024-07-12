@@ -38,7 +38,6 @@ msgid "Invoice Tags"
 msgstr ""
 
 #. module: generic_tag_account
-#: model:generic.tag.model,name:generic_tag_account.generic_tag_model_account_move
 #: model:ir.model,name:generic_tag_account.model_account_move
 msgid "Journal Entry"
 msgstr ""

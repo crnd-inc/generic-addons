@@ -368,14 +368,6 @@ msgid "LaserJet"
 msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_uid
@@ -392,12 +384,6 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__modules
 msgid "List of modules in which the object is defined or inherited"
-msgstr ""
-
-#. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_main_attachment_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: generic_resource

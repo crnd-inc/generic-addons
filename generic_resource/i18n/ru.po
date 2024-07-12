@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.10.3\n"
 
 #. module: generic_resource
@@ -371,14 +371,6 @@ msgid "LaserJet"
 msgstr ""
 
 #. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category____last_update
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type____last_update
-msgid "Last Modified on"
-msgstr "Последнее изменение"
-
-#. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_uid
@@ -396,12 +388,6 @@ msgstr "Последнее обновление"
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__modules
 msgid "List of modules in which the object is defined or inherited"
 msgstr "Список модулей, в котором объект декларируется или наследуется"
-
-#. module: generic_resource
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_main_attachment_id
-#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Основное вложение"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_manager
@@ -827,6 +813,12 @@ msgstr "Является ли эта модель общим ресурсом."
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Последнее изменение"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Основное вложение"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Количество сообщений, требующих внимания"

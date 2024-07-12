@@ -41,13 +41,11 @@ msgid "Purchase Line Tags"
 msgstr "Теги лінії постачання"
 
 #. module: generic_tag_purchase
-#: model:generic.tag.model,name:generic_tag_purchase.generic_tag_model_purchase_order
 #: model:ir.model,name:generic_tag_purchase.model_purchase_order
 msgid "Purchase Order"
 msgstr "Замовлення постачання"
 
 #. module: generic_tag_purchase
-#: model:generic.tag.model,name:generic_tag_purchase.generic_tag_model_purchase_order_line
 #: model:ir.model,name:generic_tag_purchase.model_purchase_order_line
 msgid "Purchase Order Line"
 msgstr "Рядок замовлення постачання"

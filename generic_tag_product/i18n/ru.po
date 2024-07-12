@@ -32,17 +32,16 @@ msgid "No tag"
 msgstr ""
 
 #. module: generic_tag_product
-#: model:generic.tag.model,name:generic_tag_product.generic_tag_model_product_product
-#: model:ir.model,name:generic_tag_product.model_product_product
-msgid "Product"
-msgstr "Товар"
-
-#. module: generic_tag_product
 #: model:ir.actions.act_window,name:generic_tag_product.product_product_tags_view_action
 #: model:ir.ui.menu,name:generic_tag_product.menu_product_product_tags_id
 #: model:ir.ui.menu,name:generic_tag_product.menu_product_tags
 msgid "Product Tags"
 msgstr "Теги товара"
+
+#. module: generic_tag_product
+#: model:ir.model,name:generic_tag_product.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: generic_tag_product
 #: model:ir.model.fields,field_description:generic_tag_product.field_product_product__search_tag_id
@@ -60,3 +59,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_tag_product.view_product_tree_tags
 msgid "Tags..."
 msgstr "Теги..."
+
+#~ msgid "Product"
+#~ msgstr "Товар"

@@ -69,11 +69,6 @@ msgid "Key"
 msgstr ""
 
 #. module: generic_crypto_utils
-#: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: generic_crypto_utils
 #: model:ir.model.fields,field_description:generic_crypto_utils.field_generic_crypto_param__write_uid
 msgid "Last Updated by"
 msgstr ""

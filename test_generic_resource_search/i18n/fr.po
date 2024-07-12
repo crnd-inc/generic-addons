@@ -82,12 +82,6 @@ msgid "Info"
 msgstr ""
 
 #. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model____last_update
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__write_uid
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__write_uid
 msgid "Last Updated by"

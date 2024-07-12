@@ -18,11 +18,11 @@ msgstr ""
 
 #. module: generic_condition_automation
 #: model:ir.model,name:generic_condition_automation.model_base_automation
-msgid "Automated Action"
+msgid "Automation Rule"
 msgstr ""
 
 #. module: generic_condition_automation
-#: model:ir.actions.server,name:generic_condition_automation.test_rule_on_write_ir_actions_server
+#: model:base.automation,name:generic_condition_automation.test_rule_on_write
 msgid "Generic Condition: Test rule on write"
 msgstr ""
 
