@@ -22,6 +22,7 @@ class GenericMixinContact(models.AbstractModel):
     link_youtube = fields.Char()
     link_twitter = fields.Char()
     link_whatsapp = fields.Char()
+    link_instagram = fields.Char()
 
     # Address block
     location_street = fields.Char()
