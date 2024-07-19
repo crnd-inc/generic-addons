@@ -366,6 +366,11 @@ msgid "Link Fb"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_instagram
+msgid "Link Instagram"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_linkedin
 msgid "Link Linkedin"
 msgstr ""
