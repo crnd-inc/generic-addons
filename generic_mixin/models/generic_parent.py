@@ -95,4 +95,4 @@ class GenericMixinParentNames(models.AbstractModel):
             records = self.search(expression.AND([domain, args]), limit=limit)
         else:
             records = self.search(args, limit=limit)
-        return records.name_get()
+        return [(record.id, record.display_name) for record in records]
