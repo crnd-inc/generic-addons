@@ -55,3 +55,22 @@ class TestGenericLocation(ReduceLoggingMixin, TransactionCase):
         self.assertEqual(len(room1.parent_ids), 2)
         self.assertIn(root, room1.parent_ids)
         self.assertIn(house1, room1.parent_ids)
+
+    def test_top_level_parent(self):
+        top_level_location1 = self.env['generic.location'].create({
+            'name': 'Top level location 1',
+        })
+        child1 = self.env['generic.location'].create({
+            'name': 'Child 1',
+            'parent_id': top_level_location1.id,
+        })
+        grand_child1 = self.env['generic.location'].create({
+            'name': 'Grand Child 1',
+            'parent_id': child1.id,
+        })
+        self.assertEqual(
+            child1.top_level_parent, top_level_location1)
+        self.assertEqual(
+            grand_child1.top_level_parent, top_level_location1)
+        self.assertEqual(
+            top_level_location1.top_level_parent, top_level_location1)
