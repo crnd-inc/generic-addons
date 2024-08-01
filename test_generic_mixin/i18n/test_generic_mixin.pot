@@ -14,6 +14,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid ""
+"<span class=\"o_form_label o_td_label\" name=\"location_address_name\">\n"
+"                                <b>Location Address</b>\n"
+"                            </span>"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__base_field
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__base_field
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__base_field
@@ -28,9 +36,24 @@ msgid "Base Record"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "City..."
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__code
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__code
 msgid "Code"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.ui.menu,name:test_generic_mixin.menu_contact_mixin_view
+msgid "Contact Mixin"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.actions.act_window,name:test_generic_mixin.test_contact_mixin_view_action
+msgid "Contact Mixin View Records"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -274,6 +297,11 @@ msgid "Link Fb"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_instagram
+msgid "Link Instagram"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_linkedin
 msgid "Link Linkedin"
 msgstr ""
@@ -304,6 +332,11 @@ msgid "Link Youtube"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "Links"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_city
 msgid "Location City"
 msgstr ""
@@ -314,8 +347,18 @@ msgid "Location Country"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "Location Country..."
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_state_id
 msgid "Location State"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "Location State..."
 msgstr ""
 
 #. module: test_generic_mixin
@@ -331,6 +374,11 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_zip
 msgid "Location Zip"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "Main Info"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -388,6 +436,16 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__specific_field_2
 msgid "Specific Field 2"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "Street 2..."
+msgstr ""
+
+#. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "Street..."
 msgstr ""
 
 #. module: test_generic_mixin
@@ -562,6 +620,11 @@ msgstr ""
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_xmlid
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_xmlid
 msgid "XML ID for this record."
+msgstr ""
+
+#. module: test_generic_mixin
+#: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
+msgid "Zip Code..."
 msgstr ""
 
 #. module: test_generic_mixin

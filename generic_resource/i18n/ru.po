@@ -75,6 +75,11 @@ msgid "Category can not have subcategories with the same name!"
 msgstr "Категория не может иметь подкатегории с таким же именем!"
 
 #. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__code
+msgid "Code"
+msgstr ""
+
+#. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers
 msgid "Computers"
 msgstr "Компьютеры"
@@ -188,6 +193,13 @@ msgstr "Для каждой модели Odoo может быть определ
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_model_search
 msgid "Generic Resource"
 msgstr "Универсальный ресурс"
+
+#. module: generic_resource
+#: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__generic_resource_code
+#: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model__generic_resource_code
+#: model:ir.model.fields,field_description:generic_resource.field_ir_model__generic_resource_code
+msgid "Generic Resource Code"
+msgstr ""
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin

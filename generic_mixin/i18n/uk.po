@@ -55,6 +55,7 @@ msgstr "Код"
 #. module: generic_mixin
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_name_with_code_code_ascii_only
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_resource_type_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_ascii_only
@@ -64,6 +65,7 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_code_uniq
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_resource_type_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_uniq
@@ -254,6 +256,11 @@ msgid "Link Fb"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_instagram
+msgid "Link Instagram"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_linkedin
 msgid "Link Linkedin"
 msgstr ""
@@ -321,6 +328,7 @@ msgstr "Назва"
 #. module: generic_mixin
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_name_uniq
+#: model:ir.model.constraint,message:generic_mixin.constraint_generic_resource_type_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_name_uniq
@@ -348,6 +356,13 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__phone
 msgid "Phone"
+msgstr ""
+
+#. module: generic_mixin
+#. odoo-python
+#: code:addons/generic_mixin/models/generic_mixin_contact.py:0
+#, python-format
+msgid "Telegram link must start with 'https://t.me/'"
 msgstr ""
 
 #. module: generic_mixin
