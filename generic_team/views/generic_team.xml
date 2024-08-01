@@ -33,7 +33,7 @@
                                    widget='image'
                                    class="oe_avatar mr16 ml8"
                                    nolabel="1"/>
-                            <group style="display: block">
+                            <group>
                                 <field name="leader_id"/>
                                 <field name="task_manager_id"/>
                             </group>

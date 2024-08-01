@@ -6,7 +6,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '17.0.0.23.2',
+    'version': '17.0.0.23.3',
     'depends': [
         'generic_mixin',
         'calendar',
@@ -14,6 +14,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/test_refresh_view.xml',
+        'views/test_contact_mixin.xml',
     ],
     'demo': [
         'demo/test_track_changes.xml',

@@ -1,13 +1,13 @@
 import json
-
 from odoo import models, fields, api
 
 
 class GenericLocation(models.Model):
     _inherit = 'generic.location'
 
-    geolocation_json = fields.Char(compute='_compute_geolocation_json',
-                                   inverse='_inverse_geolocation_json')
+    geolocation_json = fields.Char(
+        compute='_compute_geolocation_json',
+        inverse='_inverse_geolocation_json')
 
     @api.depends('latitude', 'longitude')
     def _compute_geolocation_json(self):
@@ -20,10 +20,8 @@ class GenericLocation(models.Model):
     def _inverse_geolocation_json(self):
         for rec in self:
             geolocation = json.loads(rec.geolocation_json)
-            if rec.latitude != geolocation['lat']:
-                rec.latitude = geolocation['lat']
-            if rec.longitude != geolocation['lng']:
-                rec.longitude = geolocation['lng']
+            rec.latitude = geolocation['lat']
+            rec.longitude = geolocation['lng']
 
     @api.model
     def _geo_localize(self, street='', zip_code='', city='',

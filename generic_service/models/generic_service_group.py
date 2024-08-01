@@ -9,6 +9,7 @@ class GenericServiceGroup(models.Model):
     _inherit = [
         'generic.mixin.name_with_code',
         'generic.mixin.uniq_name_code',
+        'image.mixin',
     ]
 
     active = fields.Boolean(index=True, default=True)

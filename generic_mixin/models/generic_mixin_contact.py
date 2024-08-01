@@ -22,6 +22,7 @@ class GenericMixinContact(models.AbstractModel):
     link_youtube = fields.Char()
     link_twitter = fields.Char()
     link_whatsapp = fields.Char()
+    link_instagram = fields.Char()
 
     # Address block
     location_street = fields.Char()
@@ -38,6 +39,15 @@ class GenericMixinContact(models.AbstractModel):
             if record.email and not single_email_re.match(record.email):
                 raise UserError(
                     _("Invalid Email! Please enter a valid email address."))
+
+    # Telegram link validation
+    @api.constrains('link_telegram')
+    def _check_link_telegram(self):
+        for record in self:
+            if record.link_telegram:
+                if not record.link_telegram.startswith('https://t.me/'):
+                    raise UserError(
+                        _("Telegram link must start with 'https://t.me/'"))
 
     # Website link sanitizer
     def write(self, vals):

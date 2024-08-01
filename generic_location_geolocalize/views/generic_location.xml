@@ -11,11 +11,6 @@
                             type="object"
                             style="display: flex; align-items: center;"
                             icon="fa-check"/>
-                    <field name="geolocation_json"
-                           widget="map_widget"
-                           class="mb-0 ml-2"
-                           nolabel="1"
-                           options="{'zoom': 18, 'maxZoom': 20}"/>
                 </div>
             </xpath>
         </field>
