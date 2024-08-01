@@ -68,6 +68,9 @@ class TestGenericLocation(ReduceLoggingMixin, TransactionCase):
             'name': 'Grand Child 1',
             'parent_id': child1.id,
         })
-        self.assertEqual(child1.top_level_parent, top_level_location1)
-        self.assertEqual(grand_child1.top_level_parent, top_level_location1)
-        self.assertEqual(top_level_location1.top_level_parent, top_level_location1)
+        self.assertEqual(
+            child1.top_level_parent, top_level_location1)
+        self.assertEqual(
+            grand_child1.top_level_parent, top_level_location1)
+        self.assertEqual(
+            top_level_location1.top_level_parent, top_level_location1)
