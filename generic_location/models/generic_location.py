@@ -145,6 +145,16 @@ class GenericLocation(models.Model):
          ("The title of the Location should not be the description")),
     ]
 
+    @property
+    def top_level_parent(self):
+        if self.exists():
+            self.ensure_one()
+            location = self
+            while location.parent_id:
+                location = location.parent_id
+            return location
+        return self
+
     def _compute_child_count(self):
         mapped_data = read_counts_for_o2m(
             records=self,
