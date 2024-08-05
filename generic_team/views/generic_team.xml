@@ -5,6 +5,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="id" groups="base.group_no_one"/>
                 <field name="user_count"/>
                 <field name="active"/>
             </tree>

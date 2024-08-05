@@ -120,6 +120,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="id" groups="base.group_no_one"/>
                 <field name="type_id"/>
                 <field name="partner_id"/>
                 <field name="parent_id"
