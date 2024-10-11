@@ -73,8 +73,9 @@ class GenericResourceRelatedMixin(models.AbstractModel):
             if (rec.resource_res_id and
                     rec.resource_type_id and
                     rec.resource_res_id != -1):
-                resource = self.env[
-                    rec.resource_type_id.model].browse(rec.resource_res_id)
+                resource_model = rec.resource_type_id.sudo().model
+                resource = self.env[resource_model].browse(
+                    rec.resource_res_id)
                 if resource.exists():
                     rec.resource_id = resource.resource_id
                 else:
@@ -102,7 +103,8 @@ class GenericResourceRelatedMixin(models.AbstractModel):
     @api.onchange('resource_type_id')
     def _onchange_resource_type_id_clean_resource_res_id(self):
         if self.resource_type_id:
-            if not self.env[self.resource_type_id.model].browse(
+            resource_model = self.resource_type_id.sudo().model
+            if not self.env[resource_model].browse(
                     self.resource_res_id).exists():
                 self.resource_res_id = False
         else:
