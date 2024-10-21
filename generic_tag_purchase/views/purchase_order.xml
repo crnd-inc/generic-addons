@@ -51,6 +51,34 @@
         </field>
     </record>
 
+    <record id="purchase_order_view_tree_tags" model="ir.ui.view">
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="tag_ids"
+                        options="{'color_field': 'color'}"
+                        widget="many2many_tags"
+                        placeholder="Tags..."
+                        context="{'default_model': 'purchase.order'}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="purchase_order_kpis_tree_tags" model="ir.ui.view">
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="tag_ids"
+                        options="{'color_field': 'color'}"
+                        widget="many2many_tags"
+                        placeholder="Tags..."
+                        context="{'default_model': 'purchase.order'}"/>
+            </field>
+        </field>
+    </record>
+
     <record id="view_purchase_order_view_filter_tags" model="ir.ui.view">
         <field name="name">purchase.order.filter.view.tags</field>
         <field name="model">purchase.order</field>
