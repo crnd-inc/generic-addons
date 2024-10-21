@@ -71,6 +71,8 @@ msgid "Tags"
 msgstr ""
 
 #. module: generic_tag_purchase
+#: model_terms:ir.ui.view,arch_db:generic_tag_purchase.purchase_order_kpis_tree_tags
+#: model_terms:ir.ui.view,arch_db:generic_tag_purchase.purchase_order_view_tree_tags
 #: model_terms:ir.ui.view,arch_db:generic_tag_purchase.view_purchase_order_form_tags
 #: model_terms:ir.ui.view,arch_db:generic_tag_purchase.view_purchase_order_line_form_tags
 #: model_terms:ir.ui.view,arch_db:generic_tag_purchase.view_purchase_order_line_tree_tags
