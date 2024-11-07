@@ -51,7 +51,10 @@ class GenericResource(models.Model):
     @api.depends('res_model', 'res_id')
     def _compute_display_name(self):
         for rec in self:
-            rec.display_name = rec.resource.display_name
+            if rec.res_model and rec.res_id:
+                rec.display_name = rec.resource.display_name
+            else:
+                rec.display_name = f"{rec._name},{rec.id}"
 
     @property
     def resource(self):
