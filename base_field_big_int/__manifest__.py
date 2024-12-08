@@ -1,6 +1,6 @@
 {
     "name": "Base Field Big Int",
-    "version": "17.0.0.6.0",
+    "version": "18.0.0.6.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
