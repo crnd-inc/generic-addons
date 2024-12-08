@@ -3,7 +3,7 @@
     <record id="view_test_contact_mixin_view_tree" model="ir.ui.view">
         <field name="model">test.contact.mixin</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="email"/>
@@ -21,7 +21,7 @@
                 <field name="location_zip"/>
                 <field name="location_state_id"/>
                 <field name="location_country_id"/>
-            </tree>
+            </list>
         </field>
     </record>
     <record id="view_test_contact_mixin_view_form" model="ir.ui.view">
@@ -69,7 +69,7 @@
         <field name="name">Contact Mixin View Records</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">test.contact.mixin</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem name="Contact Mixin"
