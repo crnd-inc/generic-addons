@@ -23,7 +23,7 @@
     ],
     'images': ['static/description/banner.png'],
     'pre_init_hook': 'pre_init_hook',
-    'installable': True,
+    'installable': False,
     'application': False,
     'license': 'LGPL-3',
 }

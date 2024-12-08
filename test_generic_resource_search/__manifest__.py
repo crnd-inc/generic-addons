@@ -23,7 +23,7 @@
         'demo/demo_resource_test_records.xml',
         'demo/demo_resource.xml',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
     'license': 'LGPL-3',
 }
