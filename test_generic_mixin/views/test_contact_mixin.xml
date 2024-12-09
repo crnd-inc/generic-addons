@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_test_contact_mixin_view_tree" model="ir.ui.view">
+        <field name="model">test.contact.mixin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="website_link"/>
+                <field name="link_fb"/>
+                <field name="link_linkedin"/>
+                <field name="link_viber"/>
+                <field name="link_telegram"/>
+                <field name="link_youtube"/>
+                <field name="link_twitter"/>
+                <field name="link_whatsapp"/>
+                <field name="location_street"/>
+                <field name="location_street2"/>
+                <field name="location_city"/>
+                <field name="location_zip"/>
+                <field name="location_state_id"/>
+                <field name="location_country_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_test_contact_mixin_view_form" model="ir.ui.view">
+        <field name="model">test.contact.mixin</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Main Info">
+                            <field name="name"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="website_link" widget="url"/>
+                            <span class="o_form_label o_td_label" name="location_address_name">
+                                <b>Location Address</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="location_street" placeholder="Street..." class="o_address_street"/>
+                                <field name="location_street2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="location_city" placeholder="City..." class="o_address_city"/>
+                                <field name="location_state_id"
+                                       domain="[('country_id', '=', location_country_id)]"
+                                       placeholder="Location State..."
+                                       class="o_address_state"/>
+                                <field name="location_zip" placeholder="Zip Code..." class="o_address_zip"/>
+                                <field name="location_country_id" placeholder="Location Country..." class="o_address_country"/>
+                            </div>
+                        </group>
+                        <group string="Links">
+                            <field name="link_fb" widget="url"/>
+                            <field name="link_linkedin" widget="url"/>
+                            <field name="link_viber" widget="url"/>
+                            <field name="link_telegram" widget="url"/>
+                            <field name="link_youtube" widget="url"/>
+                            <field name="link_twitter" widget="url"/>
+                            <field name="link_whatsapp" widget="url"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="test_contact_mixin_view_action" model="ir.actions.act_window">
+        <field name="name">Contact Mixin View Records</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">test.contact.mixin</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Contact Mixin"
+              id="menu_contact_mixin_view"
+              sequence="10"
+              action="test_contact_mixin_view_action"
+              parent="test_generic_mixin.menu_tests_generic_mixin"/>
+</odoo>
