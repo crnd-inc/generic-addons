@@ -439,10 +439,10 @@ class GenericMixInTrackChanges(models.AbstractModel):
             for record in self:
                 for field in changed_fields:
                     old_value = record[field]
-                    new_value = self._fields[field].convert_to_record(
-                        self._fields[field].convert_to_cache(
-                            vals[field], self),
-                        self)
+                    new_value = record._fields[field].convert_to_record(
+                        record._fields[field].convert_to_cache(
+                            vals[field], record),
+                        record)
                     if old_value != new_value:
                         changes[record.id][field] = FieldChange(old_value,
                                                                 new_value)
