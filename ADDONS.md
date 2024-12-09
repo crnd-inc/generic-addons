@@ -9,10 +9,10 @@
 | generic_location | Generic Location | LGPL-3 | 17.0.2.11.2 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
 | generic_location_uuid | Generic Location (UUID) | LGPL-3 | 17.0.1.8.0 | Generic Location (Add UUID to generic locations) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 17.0.1.9.0 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.81.5 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.82.0 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 17.0.1.51.3 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 17.0.1.9.0 | Adds new top-level menu 'rules' |  |
-| generic_service | Generic Service | LGPL-3 | 17.0.1.30.1 | Create and manage service catalog |  |
+| generic_service | Generic Service | LGPL-3 | 17.0.1.30.2 | Create and manage service catalog |  |
 | generic_tag | Generic Tag | LGPL-3 | 17.0.2.16.0 | Generic tag management. |  |
 | generic_tag_account | Generic Tag (Account) | LGPL-3 | 17.0.1.6.0 | Generic tag integration with account addon |  |
 | generic_tag_product | Generic Tag (Product) (Experimental) | LGPL-3 | 17.0.1.6.0 | Generic tag integration with product addon |  |
@@ -20,5 +20,5 @@
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 17.0.1.8.0 | Generic Tag - Tests (do not install manualy) |  |
 | generic_team | Generic team | LGPL-3 | 17.0.1.21.2 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 17.0.0.13.1 | Technical module that have to be used to test Generic Crypto Utils module |  |
-| test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 17.0.0.23.3 | Technical module that have to be used to test Generic Mixin module |  |
+| test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 17.0.0.24.0 | Technical module that have to be used to test Generic Mixin module |  |
 | test_generic_resource_search | Tests Generic Resource (Search Tests) | LGPL-3 | 17.0.0.5.0 | Technical module that have to be used to test Generic Resource search cases |  |
