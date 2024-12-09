@@ -76,6 +76,7 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation__display_name
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface__display_name
@@ -102,6 +103,11 @@ msgid "Draft"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__email
+msgid "Email"
+msgstr ""
+
+#. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_parent.py:41
 #, python-format
 msgid "Error ! You cannot create recursive %s."
@@ -121,6 +127,11 @@ msgstr ""
 #. module: generic_mixin
 #: model:ir.model,name:generic_mixin.model_generic_mixin_delegation_interface
 msgid "Generic Mixin Delegation: Interface"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model,name:generic_mixin.model_generic_mixin_contact
+msgid "Generic Mixin: Contacts"
 msgstr ""
 
 #. module: generic_mixin
@@ -199,6 +210,7 @@ msgid "GenericMixin: Transaction Utils"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation__id
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface__id
@@ -228,6 +240,12 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_mixin_contact.py:41
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr ""
+
+#. module: generic_mixin
 #: code:addons/generic_mixin/models/generic_mixin_entity_lifecycle.py:52
 #, python-format
 msgid ""
@@ -237,6 +255,7 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation____last_update
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface____last_update
@@ -283,6 +302,76 @@ msgid "Lifecycle State"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_fb
+msgid "Link Fb"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_instagram
+msgid "Link Instagram"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_linkedin
+msgid "Link Linkedin"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_telegram
+msgid "Link Telegram"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_twitter
+msgid "Link Twitter"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_viber
+msgid "Link Viber"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_whatsapp
+msgid "Link Whatsapp"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__link_youtube
+msgid "Link Youtube"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_city
+msgid "Location City"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_country_id
+msgid "Location Country"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_state_id
+msgid "Location State"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_street
+msgid "Location Street"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_street2
+msgid "Location Street2"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__location_zip
+msgid "Location Zip"
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__name
 msgid "Name"
 msgstr "Назва"
@@ -306,6 +395,22 @@ msgstr ""
 #. module: generic_mixin
 #: selection:generic.mixin.entity.lifecycle,lifecycle_state:0
 msgid "Obsolete"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__phone
+msgid "Phone"
+msgstr ""
+
+#. module: generic_mixin
+#: code:addons/generic_mixin/models/generic_mixin_contact.py:50
+#, python-format
+msgid "Telegram link must start with 'https://t.me/'"
+msgstr ""
+
+#. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__website_link
+msgid "Website Link"
 msgstr ""
 
 #. module: generic_mixin
