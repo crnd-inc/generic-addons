@@ -1,7 +1,7 @@
 import logging
 
 from odoo.tests.common import TransactionCase, Form
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -40,13 +40,13 @@ class ContactMixinTest(TransactionCase):
         Model = self.env['test.contact.mixin']
 
         with Form(Model) as fmodel:
-            with self.assertRaises(ValidationError):
+            with self.assertRaises(UserError):
                 fmodel.email = 'wrong_email'
                 fmodel.save()
-            with self.assertRaises(ValidationError):
+            with self.assertRaises(UserError):
                 fmodel.email = '@wrong_email'
                 fmodel.save()
-            with self.assertRaises(ValidationError):
+            with self.assertRaises(UserError):
                 fmodel.email = 'sdfsd@wrong_email'
                 fmodel.save()
             fmodel.email = 'admin@admin.com'
@@ -57,10 +57,10 @@ class ContactMixinTest(TransactionCase):
         Model = self.env['test.contact.mixin']
 
         with Form(Model) as fmodel:
-            with self.assertRaises(ValidationError):
+            with self.assertRaises(UserError):
                 fmodel.link_telegram = 'http://UserLogin'
                 fmodel.save()
-            with self.assertRaises(ValidationError):
+            with self.assertRaises(UserError):
                 fmodel.link_telegram = 'http://t.me/UserLogin'
                 fmodel.save()
             fmodel.link_telegram = 'https://t.me/UserLogin'
