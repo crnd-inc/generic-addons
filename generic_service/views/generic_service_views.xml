@@ -16,7 +16,7 @@
     <record id="generic_service_view_tree" model="ir.ui.view">
         <field name="model">generic.service</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="code"/>
@@ -24,7 +24,7 @@
                 <field name="active" invisible="1"/>
                 <field name="service_group_id"/>
 
-            </tree>
+            </list>
         </field>
     </record>
     <!-- Form view for generic.service -->
@@ -99,10 +99,7 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="message_ids"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -175,7 +172,7 @@
         <field name="name">Services</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.service</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
     </record>
 
     <!-- Menus for Generic Resource -->

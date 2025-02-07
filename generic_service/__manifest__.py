@@ -8,7 +8,7 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Generic Service',
-    'version': '18.0.1.30.1',
+    'version': '18.0.1.30.2',
 
     # any module necessary for this one to work correctly
     'depends': [
@@ -39,7 +39,7 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'application': False,
     'license': 'LGPL-3',
 }

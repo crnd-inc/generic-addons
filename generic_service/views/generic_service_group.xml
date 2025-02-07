@@ -76,11 +76,11 @@
     <record id="generic_service_group_tree_view" model="ir.ui.view">
         <field name="model">generic.service.group</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="code"/>
                 <field name="service_count" string="Services"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -90,7 +90,7 @@
         <field name="name">Generic Service Group</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.service.group</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
     </record>
 
     <!-- Menu items for generic.service.group -->
