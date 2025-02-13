@@ -86,7 +86,7 @@ class GenericResource(models.Model):
             resource_types = self.env['generic.resource.type'].search([])
             for r_type in resource_types:
                 res = self.env[r_type.model].name_search(
-                    name=name, domain=domain, operator=operator, limit=limit)
+                    name=name, args=domain, operator=operator, limit=limit)
                 generic_resources += self.env['generic.resource'].search(
                     [('res_id', 'in', [item[0] for item in res]),
                      ('res_type_id', '=', r_type.id)], limit=limit)
