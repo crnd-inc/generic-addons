@@ -24,12 +24,12 @@ class BaseAutomation(models.Model):
             record.pre_condition_ids = False
             record.post_condition_ids = False
 
-    def _filter_pre(self, records):
+    def _filter_pre(self, records, feedback=False):
         if self.pre_condition_ids:
             records = records.filtered(self.pre_condition_ids.check)
-        return super(BaseAutomation, self)._filter_pre(records)
+        return super(BaseAutomation, self)._filter_pre(records, feedback)
 
-    def _filter_post(self, records):
+    def _filter_post(self, records, feedback=False):
         if self.post_condition_ids:
             records = records.filtered(self.post_condition_ids.check)
-        return super(BaseAutomation, self)._filter_post(records)
+        return super(BaseAutomation, self)._filter_post(records, feedback)
