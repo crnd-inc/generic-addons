@@ -18,7 +18,7 @@
 | generic_tag_product | Generic Tag (Product) (Experimental) | LGPL-3 | 17.0.1.6.0 | Generic tag integration with product addon |  |
 | generic_tag_purchase | Generic Tag (Purchase) | LGPL-3 | 17.0.1.6.1 | Generic tag integration with purchase addon |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 17.0.1.8.0 | Generic Tag - Tests (do not install manualy) |  |
-| generic_team | Generic team | LGPL-3 | 17.0.1.21.2 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
+| generic_team | Generic team | LGPL-3 | 17.0.1.21.3 | With this module you can create teams and add         users to them, which allows you to perform group         actions (such as assigning a responsible team         instead of one person) while working with Odoo applications. |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 17.0.0.13.1 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 17.0.0.24.0 | Technical module that have to be used to test Generic Mixin module |  |
 | test_generic_resource_search | Tests Generic Resource (Search Tests) | LGPL-3 | 17.0.0.5.0 | Technical module that have to be used to test Generic Resource search cases |  |
