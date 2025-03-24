@@ -84,4 +84,6 @@ FakeSelection.extractProps = ({ attrs }) => {
     };
 };
 
-registry.category('fields').add('fake_selection', FakeSelection);
+registry.category('fields').add('fake_selection', {
+    component: FakeSelection
+});

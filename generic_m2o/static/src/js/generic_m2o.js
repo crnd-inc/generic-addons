@@ -273,4 +273,6 @@ export const genericMany2OneField = {
     },
 };
 
-registry.category('fields').add('generic_m2o', genericMany2OneField);
+registry.category('fields').add('generic_m2o', {
+    component: genericMany2OneField
+});
