@@ -1,7 +1,7 @@
 import logging
 import traceback
 
-from odoo import models, fields, tools, exceptions, _
+from odoo import models, fields, exceptions, _
 
 from ..debug_logger import DebugLogger
 
@@ -79,7 +79,7 @@ class TestGenericCondition(models.TransientModel):
         debug_log = DebugLogger()
         result = self._get_result(debug_log)
         self.write({
-            'result': tools.ustr(result),
+            'result': str(result),
             'debug_log': debug_log.get_log_html(),
         })
 
