@@ -1,0 +1,1 @@
+ - fix bug related to the widget display
