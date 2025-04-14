@@ -16,7 +16,7 @@ class GenericTag(models.Model):
     _description = "Generic Tag"
     _access_log = False
     _rec_name = 'name'
-    _order = 'category_sequence, category_name, sequence, complete_name'
+    _order = 'category_sequence, category_name, sequence'
 
     category_id = fields.Many2one(
         'generic.tag.category', 'Category',
@@ -29,14 +29,14 @@ class GenericTag(models.Model):
     comment = fields.Text(help="Describe what this tag means")
     complete_name = fields.Char(
         compute="_compute_complete_name",
-        store=True, readonly=True,
+        store=False, readonly=True,
         help="Full name of tag (including category name)")
     category_sequence = fields.Integer(
         related='category_id.sequence',
         string="Category priority",
         store=True, index=True, readonly=True)
     category_name = fields.Char(
-        related='category_id.name', store=True, index=True,
+        related='category_id.name', store=False, index=True,
         string="Name of Category")
     objects_count = fields.Integer(
         string="Objects", compute="_compute_objects_count",
@@ -102,8 +102,8 @@ class GenericTag(models.Model):
             domain = [
                 [('name', operator, name)],
                 [('code', operator, name)],
-                [('complete_name', operator, name)]
             ]
+
             if operator in expression.NEGATIVE_TERM_OPERATORS:
                 domain = expression.AND(domain)
             else:
