@@ -1,8 +1,9 @@
 from psycopg2 import sql
-from odoo import tools
 from odoo.tools.sql import (
     create_column,
     column_exists,
+    table_kind,
+    drop_view_if_exists,
 )
 from .xmlid import xmlid_to_id
 
@@ -19,10 +20,10 @@ def create_sql_view(cr, name, definition, materialized=False):
     """
 
     # pylint: disable=sql-injection
-    table_kind = tools.table_kind(cr, tablename=name)
-    if table_kind == 'v':
-        tools.drop_view_if_exists(cr, name)
-    elif table_kind == 'm':
+    kind = table_kind(cr, tablename=name)
+    if kind == 'v':
+        drop_view_if_exists(cr, name)
+    elif kind == 'm':
         query = sql.SQL("""
             DROP MATERIALIZED VIEW IF EXISTS {name};
         """).format(name=sql.Identifier(name))
