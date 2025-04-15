@@ -102,8 +102,6 @@ msgid "Tags"
 msgstr ""
 
 #. module: generic_tag_test
-#: model:generic.tag,category_name:generic_tag_test.test_tag_1
-#: model:generic.tag,category_name:generic_tag_test.test_tag_2
 #: model:generic.tag.category,name:generic_tag_test.test_tag_category_1
 msgid "Test Category 1"
 msgstr ""
