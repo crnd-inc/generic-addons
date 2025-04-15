@@ -16,7 +16,7 @@ class GenericTag(models.Model):
     _description = "Generic Tag"
     _access_log = False
     _rec_name = 'name'
-    _order = 'category_sequence, category_name, sequence'
+    _order = 'category_sequence, category_id, sequence, name'
 
     category_id = fields.Many2one(
         'generic.tag.category', 'Category',
