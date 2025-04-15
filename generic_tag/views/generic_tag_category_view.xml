@@ -22,7 +22,7 @@
         <field name="name">generic.tag.category.tree</field>
         <field name="model">generic.tag.category</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle"/>
                 <field name="model_id" widget="selection"/>
                 <field name="name"/>
@@ -33,7 +33,7 @@
                 <field name="tags_count" string="Tags"/>
                 <button name="action_show_tags" type="object"
                         string="Show Tags" icon="fa-search"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -85,7 +85,7 @@
         <field name="name">Categories</field>
         <field name="res_model">generic.tag.category</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_generic_tag_category_tree"/>
     </record>
 

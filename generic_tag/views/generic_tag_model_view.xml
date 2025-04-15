@@ -16,13 +16,13 @@
         <field name="name">generic.tag.model.tree</field>
         <field name="model">generic.tag.model</field>
         <field name="arch" type="xml">
-            <tree create="false" delete="false">
+            <list create="false" delete="false">
                 <field name="name"/>
                 <field name="model"/>
                 <field name="res_model_id"/>
                 <field name="tags_count"/>
                 <button name="action_show_tags" type="object" string="Show Tags" icon="fa-search"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -57,7 +57,7 @@
         <field name="name">Models</field>
         <field name="res_model">generic.tag.model</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_generic_tag_model_tree"/>
     </record>
 

@@ -40,7 +40,7 @@
         <field name="name">generic.tag.tree</field>
         <field name="model">generic.tag</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle"/>
                 <field name="model_id" widget="selection" invisible="'hide_model' in context"/>
                 <field name="category_id" domain="[('model_id','=',model_id)]"
@@ -51,7 +51,7 @@
                 <field name="active"/>
                 <field name="objects_count"/>
                 <button name="action_show_objects" type="object" string="Show Objects" icon="fa-search"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -102,7 +102,7 @@
         <field name="name">Tags</field>
         <field name="res_model">generic.tag</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_generic_tag_tree"/>
     </record>
 
