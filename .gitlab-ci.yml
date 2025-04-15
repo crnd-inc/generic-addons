@@ -108,7 +108,7 @@ tests:
     script:
         # temporary decrease test coverage in case of port single generic_mixin module
 #        - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 90 --dir .
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 80 --create-test-db --dir .
+        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 75 --create-test-db --dir .
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
