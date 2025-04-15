@@ -114,7 +114,7 @@ class GenericTag(models.Model):
         else:
             tags = self.search(args, limit=limit)
 
-        return tags.name_get()
+        return [(tag.id, tag.display_name) for tag in tags]
 
     @api.model
     @api.returns('self')
