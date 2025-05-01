@@ -52,16 +52,18 @@ class FakeSelection extends SelectionField {
     updateFakeOptions() {
         if (!this.selectionFieldId) {
             this.state.fakeOptions = [];
+            return;
         }
         this.orm.call(
             'ir.model.fields',
             'get_field_selections',
             [[this.selectionFieldId]],
         ).then((data) => {
-            this.state.fakeOptions = data;
-        }).guardedCatch(() => {
+            this.state.fakeOptions = data || [];
+        }).catch((error) => {
+            console.warn('Failed to fetch field selections:', error);
             this.state.fakeOptions = [];
-        })
+        });
     }
 
     onChange(ev) {
