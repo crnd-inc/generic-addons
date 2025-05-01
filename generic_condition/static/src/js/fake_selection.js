@@ -1,9 +1,7 @@
 /** @odoo-module **/
 
 import { registry } from "@web/core/registry";
-import {
-    SelectionField
-} from "@web/views/fields/selection/selection_field";
+import { SelectionField, selectionField } from "@web/views/fields/selection/selection_field";
 import { useService } from "@web/core/utils/hooks";
 
 const { useState, onPatched } = owl;
@@ -52,16 +50,18 @@ class FakeSelection extends SelectionField {
     updateFakeOptions() {
         if (!this.selectionFieldId) {
             this.state.fakeOptions = [];
+            return;
         }
         this.orm.call(
             'ir.model.fields',
             'get_field_selections',
             [[this.selectionFieldId]],
         ).then((data) => {
-            this.state.fakeOptions = data;
-        }).guardedCatch(() => {
+            this.state.fakeOptions = data || [];
+        }).catch((error) => {
+            console.warn('Failed to fetch field selections:', error);
             this.state.fakeOptions = [];
-        })
+        });
     }
 
     onChange(ev) {
@@ -85,5 +85,6 @@ FakeSelection.extractProps = ({ attrs }) => {
 };
 
 registry.category('fields').add('fake_selection', {
+    ...selectionField,
     component: FakeSelection
 });

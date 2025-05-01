@@ -168,8 +168,7 @@ class GenericCondition(models.Model):
          ('simple_field', 'Simple field'),
          ('related_field', 'Related field'),
          ('current_user', 'Current user'),
-         # TODO: uncomment when odoo solve monetary
-         # ('monetary_field', 'Monetary field'),
+         ('monetary_field', 'Monetary field'),
          ('find', 'Find & Check')],
         default='simple_field', index=True,
         required=True, tracking=True)
