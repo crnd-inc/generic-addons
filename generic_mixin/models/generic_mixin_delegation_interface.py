@@ -1,5 +1,5 @@
 import logging
-from odoo import models, api, _
+from odoo import models, fields, api, _
 from ..tools.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
@@ -10,7 +10,6 @@ def interface_proxy(fn):
     """
     fn.__interface_proxy__ = True
     return fn
-
 
 class GenericMixinDelegationInterface(models.AbstractModel):
     """ Mixin that have to help to deal with "inheritance via delegation".
@@ -136,8 +135,8 @@ class GenericMixinDelegationInterface(models.AbstractModel):
     # Names of fields that have to point to name of model of implementation
     # and ID of implementation record in implementation model
     # TODO: Add validation
-    _generic_mixin_implementation_model_field = None  # Required
-    _generic_mixin_implementation_id_field = None  # Required
+    _generic_mixin_implementation_model_field = None # Required
+    _generic_mixin_implementation_id_field = None # Required
 
     def _generic_mixin_guard__get_guard_fields(self):
         res = super()._generic_mixin_guard__get_guard_fields() + [
@@ -145,18 +144,20 @@ class GenericMixinDelegationInterface(models.AbstractModel):
         ]
         return res
 
-    def name_get(self):
-        result = []
+
+    @api.depends(lambda self: [self._generic_mixin_implementation_model_field,
+                               self._generic_mixin_implementation_id_field])
+    def _compute_display_name(self):
         for record in self:
             implementation = generic_m2o_get(
                 record,
-                field_res_model=self._generic_mixin_implementation_model_field,
-                field_res_id=self._generic_mixin_implementation_id_field)
+                field_res_model=record._generic_mixin_implementation_model_field,
+                field_res_id=record._generic_mixin_implementation_id_field,
+            )
             if implementation:
-                result += [(record.id, implementation.display_name)]
+                record.display_name = implementation.display_name
             else:
-                result == [(record.id, _("Error: unknown implementation"))]
-        return result
+                record.display_name = _("Error: unknown implementation")
 
     @api.model
     def _setup_complete(self):
@@ -167,7 +168,7 @@ class GenericMixinDelegationInterface(models.AbstractModel):
             return res
 
         # Proxy interface methods to implementations
-        for implementation_model in type(self)._inherits_children:
+        for implementation_model in getattr(type(self), '_inherits_children', []):
             if implementation_model not in self.env:
                 continue
             impl = self.env[implementation_model]

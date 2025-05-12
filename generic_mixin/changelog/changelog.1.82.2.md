@@ -1,0 +1,1 @@
+- Changed name_get method .
