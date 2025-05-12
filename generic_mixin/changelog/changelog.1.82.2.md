@@ -1,1 +1,1 @@
-- Changed name_get method .
+- Changed get_name method .
