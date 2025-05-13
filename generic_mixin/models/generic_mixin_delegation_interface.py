@@ -11,6 +11,7 @@ def interface_proxy(fn):
     fn.__interface_proxy__ = True
     return fn
 
+
 class GenericMixinDelegationInterface(models.AbstractModel):
     """ Mixin that have to help to deal with "inheritance via delegation".
         This is companion mixin to 'generic.mixin.delegation.mixin.
