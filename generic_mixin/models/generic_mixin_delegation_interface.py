@@ -135,8 +135,8 @@ class GenericMixinDelegationInterface(models.AbstractModel):
     # Names of fields that have to point to name of model of implementation
     # and ID of implementation record in implementation model
     # TODO: Add validation
-    _generic_mixin_implementation_model_field = None # Required
-    _generic_mixin_implementation_id_field = None # Required
+    _generic_mixin_implementation_model_field = None  # Required
+    _generic_mixin_implementation_id_field = None  # Required
 
     def _generic_mixin_guard__get_guard_fields(self):
         res = super()._generic_mixin_guard__get_guard_fields() + [
