@@ -1,5 +1,5 @@
 import logging
-from odoo import models, fields, api, _
+from odoo import models, api, _
 from ..tools.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
@@ -145,14 +145,15 @@ class GenericMixinDelegationInterface(models.AbstractModel):
         ]
         return res
 
-
     @api.depends(lambda self: [self._generic_mixin_implementation_model_field,
                                self._generic_mixin_implementation_id_field])
     def _compute_display_name(self):
         for record in self:
             implementation = generic_m2o_get(
                 record,
-                field_res_model=record._generic_mixin_implementation_model_field,
+                field_res_model=(
+                    record._generic_mixin_implementation_model_field
+                ),
                 field_res_id=record._generic_mixin_implementation_id_field,
             )
             if implementation:
@@ -169,7 +170,9 @@ class GenericMixinDelegationInterface(models.AbstractModel):
             return res
 
         # Proxy interface methods to implementations
-        for implementation_model in getattr(type(self), '_inherits_children', []):
+        for implementation_model in getattr(
+                type(self), '_inherits_children', []
+        ):
             if implementation_model not in self.env:
                 continue
             impl = self.env[implementation_model]
