@@ -7,23 +7,26 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:15+0000\n"
-"PO-Revision-Date: 2025-05-13 07:15+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-05-21 05:08+0000\n"
+"Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
+"Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
+"test_generic_resource_search/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__active
 msgid "Active"
-msgstr ""
+msgstr "פָּעִיל"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__city
 msgid "City"
-msgstr ""
+msgstr "עִיר"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__service_count
@@ -33,19 +36,19 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__country_id
 msgid "Country"
-msgstr ""
+msgstr "מְדִינָה"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__create_uid
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "נוצר על ידי"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__create_date
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__create_date
 msgid "Created on"
-msgstr ""
+msgstr "נוצר ב"
 
 #. module: test_generic_resource_search
 #: model:generic.resource.test.model,name:test_generic_resource_search.test_resource_desktop
@@ -56,7 +59,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__display_name
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #. module: test_generic_resource_search
 #: model:ir.ui.menu,name:test_generic_resource_search.test_generic_resource_search
@@ -67,7 +70,7 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__resource_id
 msgid "Generic Resource"
-msgstr ""
+msgstr "משאב כללי"
 
 #. module: test_generic_resource_search
 #: model:ir.actions.act_window,name:test_generic_resource_search.test_generic_resource_name_search_action
@@ -82,13 +85,13 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__resource_id
 msgid "Generic resource"
-msgstr ""
+msgstr "משאב כללי"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__id
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__id
 msgid "ID"
-msgstr ""
+msgstr "תְעוּדַת זֶהוּת"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,help:test_generic_resource_search.field_generic_resource_test_model__resource_use_generic_locations
@@ -99,24 +102,24 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
 msgid "Info"
-msgstr ""
+msgstr "מידע"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__write_uid
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "עודכן לאחרונה על ידי"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__write_date
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "עודכן לאחרונה ב"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__latitude
 msgid "Latitude"
-msgstr ""
+msgstr "רוֹחַב"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__placed_on_location_id
@@ -126,7 +129,7 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__longitude
 msgid "Longitude"
-msgstr ""
+msgstr "קו אורך"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__name
@@ -134,7 +137,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
 #: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_tree
 msgid "Name"
-msgstr ""
+msgstr "שֵׁם"
 
 #. module: test_generic_resource_search
 #: model:generic.resource.test.model,name:test_generic_resource_search.test_resource_printer
@@ -147,39 +150,39 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
 #: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_tree
 msgid "Resource"
-msgstr ""
+msgstr "מַשׁאָב"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__res_model
 msgid "Resource Model"
-msgstr ""
+msgstr "מודל משאבים"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__res_type_id
 msgid "Resource Type"
-msgstr ""
+msgstr "סוג משאב"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__resource_visibility
 msgid "Resource Visibility"
-msgstr ""
+msgstr "נראות משאבים"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__resource_res_model
 msgid "Resource model"
-msgstr ""
+msgstr "מודל משאבים"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__resource_type_id
 msgid "Resource type"
-msgstr ""
+msgstr "סוג משאב"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,help:test_generic_resource_search.field_generic_resource_test_model__resource_visibility
 msgid ""
 "Resource visibility determines users that have read access for this "
 "resource."
-msgstr ""
+msgstr "נראות המשאב קובעת למשתמשים יש גישת קריאה למשאב זה."
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__service_ids
@@ -189,22 +192,22 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__state_id
 msgid "State"
-msgstr ""
+msgstr "מְדִינָה"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__street
 msgid "Street"
-msgstr ""
+msgstr "רְחוֹב"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__street2
 msgid "Street2"
-msgstr ""
+msgstr "רחוב 2"
 
 #. module: test_generic_resource_search
 #: model:generic.resource.type,name:test_generic_resource_search.generic_resource_type_test
 msgid "Test"
-msgstr ""
+msgstr "מִבְחָן"
 
 #. module: test_generic_resource_search
 #: model:ir.actions.act_window,name:test_generic_resource_search.generic_resource_test_action
@@ -221,7 +224,7 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__zip
 msgid "Zip"
-msgstr ""
+msgstr "רוֹכְסָן"
 
 #. module: test_generic_resource_search
 #: model:ir.model,name:test_generic_resource_search.model_test_generic_resource_name_search
