@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:14+0000\n"
-"PO-Revision-Date: 2025-05-13 07:14+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-05-22 17:06+0000\n"
+"Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
+"Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
+"test_generic_mixin/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
@@ -46,7 +49,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__code
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__code
 msgid "Code"
-msgstr ""
+msgstr "קוד"
 
 #. module: test_generic_mixin
 #: model:ir.ui.menu,name:test_generic_mixin.menu_contact_mixin_view
@@ -94,7 +97,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "נוצר על ידי"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__create_date
@@ -112,25 +115,25 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__create_date
 msgid "Created on"
-msgstr ""
+msgstr "נוצר ב"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_id
 msgid "Data record"
-msgstr ""
+msgstr "רשומת נתונים"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_ids
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_ids
 msgid "Data records"
-msgstr ""
+msgstr "רשומות נתונים"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__description
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__description
 msgid "Description"
-msgstr ""
+msgstr "תֵאוּר"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__display_name
@@ -150,7 +153,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__dt_value
@@ -160,7 +163,7 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__email
 msgid "Email"
-msgstr ""
+msgstr "אֶלֶקטרוֹנִי"
 
 #. module: test_generic_mixin
 #: model:ir.ui.menu,name:test_generic_mixin.menu_tests_generic_mixin
@@ -185,7 +188,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__id
 msgid "ID"
-msgstr ""
+msgstr "תְעוּדַת זֶהוּת"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
@@ -195,6 +198,8 @@ msgid ""
 "set to True, the record will not be overriden on module update, if set to "
 "False, thenrecord will be overridden by module update"
 msgstr ""
+"מציין אם רשומה זו תעודכן עם עדכון מודול או לא. אם מוגדר כ-True, הרשומה לא "
+"תידרוס בעת עדכון המודול, אם מוגדרת כ-False, הרישום תידרוס על ידי עדכון המודול"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_interface_1_impl_mixin__interface_1_id
@@ -273,7 +278,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "עודכן לאחרונה על ידי"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__write_date
@@ -291,47 +296,47 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "עודכן לאחרונה ב"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_fb
 msgid "Link Fb"
-msgstr ""
+msgstr "קישור Fb"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_instagram
 msgid "Link Instagram"
-msgstr ""
+msgstr "קישור לאינסטגרם"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_linkedin
 msgid "Link Linkedin"
-msgstr ""
+msgstr "קישור לינקדאין"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_telegram
 msgid "Link Telegram"
-msgstr ""
+msgstr "קישור לטלגרם"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_twitter
 msgid "Link Twitter"
-msgstr ""
+msgstr "קישור לטוויטר"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_viber
 msgid "Link Viber"
-msgstr ""
+msgstr "קישור Viber"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_whatsapp
 msgid "Link Whatsapp"
-msgstr ""
+msgstr "קישור לוואטסאפ"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__link_youtube
 msgid "Link Youtube"
-msgstr ""
+msgstr "קישור ליוטיוב"
 
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
@@ -341,12 +346,12 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_city
 msgid "Location City"
-msgstr ""
+msgstr "מיקום עיר"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_country_id
 msgid "Location Country"
-msgstr ""
+msgstr "ארץ מיקום"
 
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
@@ -356,7 +361,7 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_state_id
 msgid "Location State"
-msgstr ""
+msgstr "מצב מיקום"
 
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
@@ -366,17 +371,17 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_street
 msgid "Location Street"
-msgstr ""
+msgstr "רחוב מיקום"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_street2
 msgid "Location Street2"
-msgstr ""
+msgstr "מיקום רחוב 2"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__location_zip
 msgid "Location Zip"
-msgstr ""
+msgstr "מיקוד מיקום"
 
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
@@ -387,7 +392,7 @@ msgstr ""
 #: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_interface_1_unique_model
 #: model:ir.model.constraint,message:test_generic_mixin.constraint_test_generic_mixin_interface_2_unique_model
 msgid "Model instance must be unique"
-msgstr ""
+msgstr "מופע המודל חייב להיות ייחודי"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__name
@@ -401,18 +406,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__name
 msgid "Name"
-msgstr ""
+msgstr "שֵׁם"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_no_update
 msgid "Non Updatable"
-msgstr ""
+msgstr "לא ניתן לעדכון"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__phone
 msgid "Phone"
-msgstr ""
+msgstr "טֵלֵפוֹן"
 
 #. module: test_generic_mixin
 #: model:ir.ui.menu,name:test_generic_mixin.menu_refresh_view
@@ -443,12 +448,12 @@ msgstr ""
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
 msgid "Street 2..."
-msgstr ""
+msgstr "רחוב 2..."
 
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
 msgid "Street..."
-msgstr ""
+msgstr "רְחוֹב..."
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__test_delegate_id
@@ -600,7 +605,7 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_contact_mixin__website_link
 msgid "Website Link"
-msgstr ""
+msgstr "קישור לאתר"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__x_myuuid
@@ -616,13 +621,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_xmlid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_xmlid
 msgid "XML ID"
-msgstr ""
+msgstr "XML ID"
 
 #. module: test_generic_mixin
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_xmlid
 #: model:ir.model.fields,help:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_xmlid
 msgid "XML ID for this record."
-msgstr ""
+msgstr "מזהה XML עבור רשומה זו."
 
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
