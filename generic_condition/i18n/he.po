@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:14+0000\n"
-"PO-Revision-Date: 2025-05-13 07:14+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-05-23 23:52+0000\n"
+"Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
+"Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
+"generic_condition/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -22,11 +25,15 @@ msgid ""
 "                                because filters cannot handle NewId records that used\n"
 "                                during onchange computation."
 msgstr ""
+"<b>אזהרה:</b> תכונה זו הוצאה משימוש,\n"
+"                                כי מסננים אינם יכולים להתמודד עם רשומות "
+"NewId שהשתמשו בהן\n"
+"                                במהלך חישוב Onchange."
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "<b>Warning:</b> This feature is experimental."
-msgstr ""
+msgstr "<b>אזהרה:</b> תכונה זו היא ניסיונית."
 
 #. module: generic_condition
 #. odoo-python
@@ -34,47 +41,47 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__type__operator-and
 #, python-format
 msgid "AND"
-msgstr ""
+msgstr "ו"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_absolute
 msgid "Absolute"
-msgstr ""
+msgstr "מוּחלָט"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Accounting date"
-msgstr ""
+msgstr "תאריך חשבונאות"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "נדרשת פעולה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__active
 msgid "Active"
-msgstr ""
+msgstr "פָּעִיל"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_find_order_by_direction__asc
 msgid "Ascending"
-msgstr ""
+msgstr "עוֹלֶה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "ספירת קבצים מצורפים"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Based on"
-msgstr ""
+msgstr "מבוסס על"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__model_id
 msgid "Based on model"
-msgstr ""
+msgstr "מבוסס על דגם"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -82,6 +89,8 @@ msgid ""
 "By this type you can create the condition to compare monetary indicators. <br/>\n"
 "                               <br/>"
 msgstr ""
+"לפי סוג זה אתה יכול ליצור את התנאי להשוואת אינדיקטורים כספיים. <br/>\n"
+"                               <br/>"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -89,6 +98,8 @@ msgid ""
 "By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
 "                                <br/>"
 msgstr ""
+"לפי סוג זה ניתן לתאר את המצב כביטוי בשפת התכנות Python. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #. odoo-python
@@ -98,45 +109,47 @@ msgid ""
 "Cannot apply conditions %(cond_name)s [%(cond_id)s] of type 'Filter' to "
 "NewId object"
 msgstr ""
+"לא ניתן להחיל תנאים %(cond_name)s [%(cond_id)s] מסוג 'Filter' על אובייקט "
+"NewId"
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid "Cannot check conditions for empty recordset"
-msgstr ""
+msgstr "לא ניתן לבדוק תנאים עבור ערכת רשומות ריקה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_simple_field_string_operator_icase
 msgid "Case insensitive"
-msgstr ""
+msgstr "חסר רגישות לרישיות"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Check"
-msgstr ""
+msgstr "לִבדוֹק"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__check_field_id
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Check Field"
-msgstr ""
+msgstr "סמן שדה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_user_check_type
 msgid "Check Type"
-msgstr ""
+msgstr "סמן סוג"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_related_field_field_id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_simple_field_field_id
 msgid "Check field"
-msgstr ""
+msgstr "שדה סימון"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_condition_ids
 msgid "Check set of other conditions"
-msgstr ""
+msgstr "בדוק סט של תנאים אחרים"
 
 #. module: generic_condition
 #. odoo-python
@@ -148,26 +161,30 @@ msgid ""
 "---\n"
 "%(error_msg)s"
 msgstr ""
+"בדיקת המצב %(cond)s במסמך %(doc)s גרמה לשגיאה. הודע למנהל המערכת לתקן זאת.\n"
+"\n"
+"---\n"
+"%(error_msg)s"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_user_check_type__checks
 msgid "Checks"
-msgstr ""
+msgstr "צ'קים"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Checks: Check if current user satisfies specified conditions"
-msgstr ""
+msgstr "בדיקות: בדוק אם המשתמש הנוכחי עומד בתנאים שצוינו"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_date_diff_uom
 msgid "Choose Unit of Measurement for date diff here"
-msgstr ""
+msgstr "בחר יחידת מדידה להפרש תאריך כאן"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__model_id
 msgid "Choose model to apply condition to"
-msgstr ""
+msgstr "בחר דגם להחיל תנאי"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_rel_record_operator
@@ -176,11 +193,14 @@ msgid ""
 "- Match: return True if all filtered records match condition.\n"
 "- Contains: return True if at least one of filtered records match 'check' conditions"
 msgstr ""
+"בחר את הדרך שבה תיבדק רשומה קשורה:\n"
+"- התאמה: החזר True אם כל הרשומות המסוננות תואמות למצב.\n"
+"- מכיל: החזר True אם לפחות אחת מהרשומות המסוננות תואמת לתנאי 'בדוק'"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__color
 msgid "Color"
-msgstr ""
+msgstr "צֶבַע"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__condition_id
@@ -190,106 +210,106 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Condition"
-msgstr ""
+msgstr "מַצָב"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_condition_ids
 msgid "Condition (condition group)"
-msgstr ""
+msgstr "מצב (קבוצת מצב)"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_condition_ids_operator
 msgid "Condition (condition group): operator"
-msgstr ""
+msgstr "מצב (קבוצת מצב): מפעיל"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_condition_id
 msgid "Condition (condition)"
-msgstr ""
+msgstr "מצב (מצב)"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_eval
 msgid "Condition (eval)"
-msgstr ""
+msgstr "מצב (שוויון)"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_filter_id
 msgid "Condition (filter)"
-msgstr ""
+msgstr "מצב (מסנן)"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
 msgid "Condition Debug Log"
-msgstr ""
+msgstr "יומן ניפוי באגים במצב"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_check_condition_ids
 msgid "Condition Find Check Condition"
-msgstr ""
+msgstr "מצב מצא בדוק מצב"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_fetch_type
 msgid "Condition Find Fetch Type"
-msgstr ""
+msgstr "תנאי מצא סוג אחזור"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_if_not_found
 msgid "Condition Find If Not Found"
-msgstr ""
+msgstr "מצב מצא אם לא נמצא"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_order_by_direction
 msgid "Condition Find Order By Direction"
-msgstr ""
+msgstr "מצב מצא סדר לפי כיוון"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_order_by_field_id
 msgid "Condition Find Order By Field"
-msgstr ""
+msgstr "מצב מצא סדר לפי שדה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_search_domain_ids
 msgid "Condition Find Search Domain"
-msgstr ""
+msgstr "מצב מצא דומיין חיפוש"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_search_model_id
 msgid "Condition Find Search Model"
-msgstr ""
+msgstr "מצב מצא מודל חיפוש"
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid "Condition Find: model if order by field must be same as search model"
-msgstr ""
+msgstr "חיפוש מצב: דגם אם סדר לפי שדה חייב להיות זהה למודל החיפוש"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
 msgid "Condition Result"
-msgstr ""
+msgstr "תוצאה של מצב"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__condition_group
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Condition group"
-msgstr ""
+msgstr "קבוצת מצב"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Condition search"
-msgstr ""
+msgstr "חיפוש מצב"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_user_checks_condition_ids
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Conditions"
-msgstr ""
+msgstr "תנאים"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__sequence
 msgid "Conditions with smaller value in this field will be checked first"
-msgstr ""
+msgstr "תנאים בעלי ערך קטן יותר בשדה זה ייבדקו תחילה"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_rel_record_operator__contains
@@ -297,31 +317,31 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator__contains
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator_html__contains
 msgid "Contains"
-msgstr ""
+msgstr "מכיל"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_parenter_country_is_ukraine
 msgid "Country: Ukraine"
-msgstr ""
+msgstr "מדינה: אוקראינה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__create_uid
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "נוצר על ידי"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__create_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__create_date
 msgid "Created on"
-msgstr ""
+msgstr "נוצר ב"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_currency_field_id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_value_currency_id
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Currency"
-msgstr ""
+msgstr "מַטְבֵּעַ"
 
 #. module: generic_condition
 #. odoo-python
@@ -330,12 +350,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
 msgid "Current date"
-msgstr ""
+msgstr "תאריך נוכחי"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__current_user
 msgid "Current user"
-msgstr ""
+msgstr "משתמש נוכחי"
 
 #. module: generic_condition
 #. odoo-python
@@ -344,7 +364,7 @@ msgstr ""
 msgid ""
 "Currently it is not supported to check fields of %(field_type)s type with "
 "static value"
-msgstr ""
+msgstr "כרגע אין תמיכה בבדיקת שדות מסוג %(field_type)s עם ערך סטטי"
 
 #. module: generic_condition
 #. odoo-python
@@ -353,133 +373,133 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_monetary_curency_date_type__date
 #, python-format
 msgid "Date"
-msgstr ""
+msgstr "תַאֲרִיך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_uom
 msgid "Date diff UoM"
-msgstr ""
+msgstr "הבדל תאריך UoM"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_operator
 msgid "Date diff operator"
-msgstr ""
+msgstr "מפעיל הבדל תאריך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_value
 msgid "Date diff value"
-msgstr ""
+msgstr "ערך הפרש תאריך"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__date_diff
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Date difference"
-msgstr ""
+msgstr "הבדל בתאריכים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_end_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_end_datetime
 msgid "Date end"
-msgstr ""
+msgstr "סוף תאריך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_end_field
 msgid "Date end field"
-msgstr ""
+msgstr "שדה סיום תאריך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_end_type
 msgid "Date end type"
-msgstr ""
+msgstr "סוג תאריך סיום"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_start_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_start_datetime
 msgid "Date start"
-msgstr ""
+msgstr "תאריך התחלה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_start_field
 msgid "Date start field"
-msgstr ""
+msgstr "שדה תאריך התחלה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_date_start_type
 msgid "Date start type"
-msgstr ""
+msgstr "סוג תאריך התחלה"
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid "Datetime"
-msgstr ""
+msgstr "תאריך ושעה"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__days
 msgid "Days"
-msgstr ""
+msgstr "ימים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__debug_log
 msgid "Debug Log"
-msgstr ""
+msgstr "יומן ניפוי באגים"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_find_order_by_direction__desc
 msgid "Descending"
-msgstr ""
+msgstr "יורד"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__description
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Description"
-msgstr ""
+msgstr "תֵאוּר"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Description..."
-msgstr ""
+msgstr "תֵאוּר..."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__display_name
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__display_name
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__enable_caching
 msgid "Enable Caching"
-msgstr ""
+msgstr "הפעל שמירה במטמון"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "End Date"
-msgstr ""
+msgstr "תאריך סיום"
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
 msgid "Error"
-msgstr ""
+msgstr "שְׁגִיאָה"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_find_if_not_found__false
 msgid "Evaluate to False"
-msgstr ""
+msgstr "הערך לשווא"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_find_if_not_found__true
 msgid "Evaluate to True"
-msgstr ""
+msgstr "להעריך לאמיתי"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__eval
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Expression"
-msgstr ""
+msgstr "הַבָּעָה"
 
 #. module: generic_condition
 #. odoo-python
@@ -487,13 +507,13 @@ msgstr ""
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
 msgid "Fail"
-msgstr ""
+msgstr "לְהִכָּשֵׁל"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_value_boolean__false
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__value_boolean__false
 msgid "False"
-msgstr ""
+msgstr "שֶׁקֶר"
 
 #. module: generic_condition
 #. odoo-python
@@ -505,95 +525,95 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #, python-format
 msgid "Field"
-msgstr ""
+msgstr "שָׂדֶה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__check_field_type
 msgid "Field Type"
-msgstr ""
+msgstr "סוג שדה"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_user_user_field_id
 msgid "Field in object being checked, that points to user."
-msgstr ""
+msgstr "שדה באובייקט שנבדק, שמצביע על משתמש."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_simple_field_type
 msgid "Field type"
-msgstr ""
+msgstr "סוג שדה"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_monetary_currency_field_id
 msgid "Field with currency for field being checked"
-msgstr ""
+msgstr "שדה עם מטבע לשדה שנבדק"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Field: Check if current user is present in field of object"
-msgstr ""
+msgstr "שדה: בדוק אם המשתמש הנוכחי נמצא בשדה האובייקט"
 
 #. module: generic_condition
 #: model:ir.model,name:generic_condition.model_ir_model_fields
 msgid "Fields"
-msgstr ""
+msgstr "שדות"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__filter
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Filter"
-msgstr ""
+msgstr "לְסַנֵן"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Filter records"
-msgstr ""
+msgstr "סינון רשומות"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__find
 msgid "Find & Check"
-msgstr ""
+msgstr "מצא ובדוק"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_find_fetch_type__first
 msgid "First"
-msgstr ""
+msgstr "רֵאשִׁית"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "עוקבים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "עוקבים (שותפים)"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_domain_leaf__check_field_relation
 msgid "For relationship fields, the technical name of the target model"
-msgstr ""
+msgstr "עבור שדות יחסים, השם הטכני של מודל היעד"
 
 #. module: generic_condition
 #: model:ir.model,name:generic_condition.model_generic_condition
 msgid "Generic Condition"
-msgstr ""
+msgstr "מצב גנרי"
 
 #. module: generic_condition
 #: model:res.groups,comment:generic_condition.group_generic_condition_manage
 #: model:res.groups,name:generic_condition.group_generic_condition_manage
 msgid "Generic Condition Manage"
-msgstr ""
+msgstr "ניהול מצב כללי"
 
 #. module: generic_condition
 #: model:ir.model,name:generic_condition.model_generic_condition_domain_leaf
 msgid "Generic Condition: Domain Leaf"
-msgstr ""
+msgstr "מצב כללי: עלה דומיין"
 
 #. module: generic_condition
 #: model:ir.actions.act_window,name:generic_condition.generic_condition_action
 #: model:ir.ui.menu,name:generic_condition.menu_generic_condition
 msgid "Generic Conditions"
-msgstr ""
+msgstr "תנאים כלליים"
 
 #. module: generic_condition
 #. odoo-python
@@ -605,26 +625,31 @@ msgid ""
 "\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s [%(object_id)d]\tobject's model: %(object_model)s\n"
 "\tcondition's model: %(condition_model)s\n"
 msgstr ""
+"תנאים כלליים שגויים!\n"
+"המודל והמצב של האובייקט אינם תואמים:\n"
+"\tcondition: %(condition)s [%(condition_id)d] אובייקט: %(object)s "
+"[%(object_id)d] מודל האובייקט: %(object_model)s\n"
+"\tהמודל של condition: %(condition_model)s\n"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Group by..."
-msgstr ""
+msgstr "קבץ לפי..."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "יש הודעה"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_has_contact_green
 msgid "Has contact 'Green'"
-msgstr ""
+msgstr "בעל איש קשר 'ירוק'"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_has_only_contacts
 msgid "Has only contacts"
-msgstr ""
+msgstr "יש רק אנשי קשר"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -632,6 +657,8 @@ msgid ""
 "Here you can create a condition that relates to the simple field of the Odoo object. <br/>\n"
 "                                <br/>"
 msgstr ""
+"כאן ניתן ליצור תנאי המתייחס לשדה הפשוט של האובייקט Odoo. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -639,45 +666,47 @@ msgid ""
 "Here you can specify the filter for verification. <br/>\n"
 "                                <br/>"
 msgstr ""
+"כאן אתה יכול לציין את המסנן לאימות. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__hours
 msgid "Hours"
-msgstr ""
+msgstr "שעות"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__id
 msgid "ID"
-msgstr ""
+msgstr "תְעוּדַת זֶהוּת"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_test_condition__res_id
 msgid "ID of object to test condition on"
-msgstr ""
+msgstr "מזהה האובייקט שעליו יש לבדוק את מצב הבדיקה"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "אם מסומן, הודעות חדשות דורשות את תשומת לבך."
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "אם מסומן, בחלק מההודעות יש שגיאת מסירה."
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_date_diff_absolute
 msgid ""
 "If checked, then absolute date difference will be checked. (date difference "
 "will be positive always)"
-msgstr ""
+msgstr "אם מסומן, אזי הפרש תאריך מוחלט ייבדק. (הפרש התאריכים יהיה חיובי תמיד)"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "If records not found"
-msgstr ""
+msgstr "אם לא נמצאו רשומות"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__enable_caching
@@ -685,6 +714,8 @@ msgid ""
 "If set, then condition result for a specific object will be cached during "
 "one condition chain call. This may speed up condition processing."
 msgstr ""
+"אם מוגדר, אז תוצאת תנאי עבור אובייקט ספציפי תישמר במטמון במהלך קריאת שרשרת "
+"תנאי אחת. זה עשוי להאיץ את עיבוד המצב."
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -692,6 +723,9 @@ msgid ""
 "In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br/>\n"
 "                                <br/>"
 msgstr ""
+"במקרה זה תוכל לבחור באחד מהתנאים שכבר נוצרו (זה יכול להיות שימושי אם אתה "
+"משתמש באותו תנאי אבל עם היפוך או כמשתמש-על). <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #. odoo-python
@@ -702,6 +736,9 @@ msgid ""
 "Base condition: %(base_cond)s [%(base_cond_id)s]\n"
 "Condition with wrong model: %(cond)s [%(cond_id)s]"
 msgstr ""
+"מצב שגוי (קבוצת מצב) נבחר!\n"
+"תנאי בסיס: %(base_cond)s [%(base_cond_id)s]\n"
+"מצב עם דגם שגוי: %(cond)s [%(cond_id)s]"
 
 #. module: generic_condition
 #. odoo-python
@@ -709,7 +746,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Incorrect Conditon field set for condition: %(condition)s [%(condition_id)s]"
-msgstr ""
+msgstr "שדה תנאי שגוי הוגדר עבור תנאי: %(condition)s [%(condition_id)s]"
 
 #. module: generic_condition
 #. odoo-python
@@ -717,66 +754,66 @@ msgstr ""
 #, python-format
 msgid ""
 "Incorrect Filter field set for condition: %(condition)s [%(condition_id)s]"
-msgstr ""
+msgstr "שדה מסנן שגוי הוגדר עבור תנאי: %(condition)s [%(condition_id)s]"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__invert
 msgid "Invert (Not)"
-msgstr ""
+msgstr "הפוך (לא)"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__invert
 msgid "Invert condition result."
-msgstr ""
+msgstr "הפוך תוצאת מצב."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "האם עוקב"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__write_uid
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "עודכן לאחרונה על ידי"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__write_date
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "עודכן לאחרונה ב"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_condition_id
 msgid "Link to another condition. Usualy used to get inversed condition"
-msgstr ""
+msgstr "קישור לתנאי אחר. בדרך כלל משמש כדי לקבל מצב הפוך"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_rel_record_operator__match
 msgid "Match"
-msgstr ""
+msgstr "לְהַתְאִים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "שגיאת מסירת הודעה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "הודעות"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__minutes
 msgid "Minutes"
-msgstr ""
+msgstr "פּרוֹטוֹקוֹל"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__based_on
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_find_search_model_name
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Model"
-msgstr ""
+msgstr "דֶגֶם"
 
 #. module: generic_condition
 #. odoo-python
@@ -786,11 +823,13 @@ msgid ""
 "Model (%(cmodel)s) of check condition (%(cond)s) must match Search model "
 "(%(smodel)s)!"
 msgstr ""
+"הדגם (%(cmodel)s) של מצב הסימון (%(cond)s) חייב להתאים למודל החיפוש "
+"(%(smodel)s)!"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Model Name"
-msgstr ""
+msgstr "שם הדגם"
 
 #. module: generic_condition
 #. odoo-python
@@ -800,6 +839,8 @@ msgid ""
 "Model of check field (%(dmodel)s) of domain leaf (%(domain)s) must match "
 "Search model (%(smodel)s)!"
 msgstr ""
+"מודל שדה הסימון (%(dmodel)s) של דף הדומיין (%(domain)s) חייב להתאים למודל "
+"החיפוש (%(smodel)s)!"
 
 #. module: generic_condition
 #. odoo-python
@@ -809,21 +850,23 @@ msgid ""
 "Model of value field (%(dfield)s) of domain leaf (%(domain)s) must match "
 "Condition model (%(smodel)s)!"
 msgstr ""
+"מודל שדה הערך (%(dfield)s) של דף התחום (%(domain)s) חייב להתאים למודל התנאים "
+"(%(smodel)s)!"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__monetary_field
 msgid "Monetary field"
-msgstr ""
+msgstr "תחום מוניטרי"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__months
 msgid "Months"
-msgstr ""
+msgstr "חודשים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__name
 msgid "Name"
-msgstr ""
+msgstr "שֵׁם"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_related_field_operator__not_set
@@ -832,27 +875,27 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator__not_set
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator_html__not_set
 msgid "Not set"
-msgstr ""
+msgstr "לא מוגדר"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "מספר פעולות"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "מספר שגיאות"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "מספר ההודעות הדורשות פעולה"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "מספר הודעות עם שגיאת מסירה"
 
 #. module: generic_condition
 #. odoo-python
@@ -860,19 +903,19 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__type__operator-or
 #, python-format
 msgid "OR"
-msgstr ""
+msgstr "אוֹ"
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
 msgid "Object (model: %(model)s; id: %(obj_id)s) not found"
-msgstr ""
+msgstr "אובייקט (דגם: %(model)s; מזהה: %(obj_id)s) לא נמצא"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__value_type__object-field
 msgid "Object Field"
-msgstr ""
+msgstr "שדה אובייקט"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition_domain_leaf__value_type
@@ -880,16 +923,17 @@ msgid ""
 "Object Field: uses value from field of the object being checked.Static "
 "Value: static value to check."
 msgstr ""
+"שדה אובייקט: משתמש בערך משדה של האובייקט הנבדק. ערך סטטי: ערך סטטי לבדיקה."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__res_id
 msgid "Object ID"
-msgstr ""
+msgstr "מזהה אובייקט"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__res_model
 msgid "Object Model"
-msgstr ""
+msgstr "דגם אובייקט"
 
 #. module: generic_condition
 #. odoo-python
@@ -897,17 +941,17 @@ msgstr ""
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
 msgid "Ok"
-msgstr ""
+msgstr "בְּסֵדֶר"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_user_check_type__one_of
 msgid "One of"
-msgstr ""
+msgstr "אחד מ"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "One of: Check if current user is present in specified list of users"
-msgstr ""
+msgstr "אחד מ: בדוק אם המשתמש הנוכחי קיים ברשימת המשתמשים שצוינה"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_operator
@@ -919,111 +963,111 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_simple_field_string_operator_html
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Operator"
-msgstr ""
+msgstr "מַפעִיל"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Order By Direction"
-msgstr ""
+msgstr "הזמנה לפי כיוון"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Order By Field"
-msgstr ""
+msgstr "סדר לפי שדה"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Please, change this condition to use other types."
-msgstr ""
+msgstr "אנא שנה תנאי זה כדי להשתמש בסוגים אחרים."
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_eval
 msgid "Python expression. 'obj' are present in context."
-msgstr ""
+msgstr "ביטוי פייתון. 'obj' נוכחים בהקשר."
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_simple_field_string_operator_regex
 msgid "Regular expression"
-msgstr ""
+msgstr "ביטוי רגיל"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_field_id
 msgid "Related Field"
-msgstr ""
+msgstr "תחום קשור"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_related_field_model
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__check_field_relation
 msgid "Related Model"
-msgstr ""
+msgstr "דגם קשור"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_conditions
 msgid "Related check conditions"
-msgstr ""
+msgstr "תנאי בדיקה קשורים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_conditions_operator
 msgid "Related check conditions operator"
-msgstr ""
+msgstr "מפעיל תנאי בדיקה קשור"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__related_conditions
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Related conditions"
-msgstr ""
+msgstr "תנאים קשורים"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__related_field
 msgid "Related field"
-msgstr ""
+msgstr "תחום קשור"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_field_id_model_id
 msgid "Related field: model"
-msgstr ""
+msgstr "תחום קשור: דגם"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_filter_conditions
 msgid "Related filter conditions"
-msgstr ""
+msgstr "תנאי סינון קשורים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_filter_conditions_operator
 msgid "Related filter conditions operator"
-msgstr ""
+msgstr "מפעיל תנאי סינון קשורים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_rel_record_operator
 msgid "Related record operator"
-msgstr ""
+msgstr "מפעיל רשומות קשור"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__result
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Result"
-msgstr ""
+msgstr "תוֹצָאָה"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__with_sudo
 msgid "Run this condition as superuser."
-msgstr ""
+msgstr "הפעל את המצב הזה בתור משתמש-על."
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Search"
-msgstr ""
+msgstr "לְחַפֵּשׂ"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Search condition"
-msgstr ""
+msgstr "מצב חיפוש"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__sequence
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "רֶצֶף"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_related_field_operator__set
@@ -1032,54 +1076,54 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator__set
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_string_operator_html__set
 msgid "Set"
-msgstr ""
+msgstr "מַעֲרֶכֶת"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__simple_field
 msgid "Simple field"
-msgstr ""
+msgstr "שדה פשוט"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Start Date"
-msgstr ""
+msgstr "תאריך התחלה"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__value_type__static-value
 msgid "Static Value"
-msgstr ""
+msgstr "ערך סטטי"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_related_field_model
 msgid "Technical name of related field's model"
-msgstr ""
+msgstr "שם טכני של דגם התחום הקשור"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
 msgid "Test"
-msgstr ""
+msgstr "מִבְחָן"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__test_as_user_id
 msgid "Test As User"
-msgstr ""
+msgstr "בדוק כמשתמש"
 
 #. module: generic_condition
 #: model:ir.actions.act_window,name:generic_condition.action_generic_condition_test_wizard_view
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
 msgid "Test Condition"
-msgstr ""
+msgstr "מצב מבחן"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "The following variables are available:"
-msgstr ""
+msgstr "המשתנים הבאים זמינים:"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "There following check types"
-msgstr ""
+msgstr "יש סוגי המחאות הבאים"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1087,6 +1131,8 @@ msgid ""
 "This type of condition applies to related fields. <br/>\n"
 "                                <br/>"
 msgstr ""
+"סוג זה של תנאי חל על שדות קשורים. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1094,6 +1140,8 @@ msgid ""
 "This type of condition can be used to find related objects in arbitary table\n"
 "                                and check them."
 msgstr ""
+"ניתן להשתמש בתנאי מסוג זה כדי למצוא אובייקטים קשורים בטבלה שרירותית\n"
+"                                ולבדוק אותם."
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1101,6 +1149,8 @@ msgid ""
 "This type of condition is used to check the properties of related objects. <br/>\n"
 "                                <br/>"
 msgstr ""
+"סוג זה של תנאי משמש לבדיקת המאפיינים של אובייקטים קשורים. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1108,6 +1158,7 @@ msgid ""
 "This type of condition refers to the current user and verifies whether the "
 "current user satisfies conditions."
 msgstr ""
+"סוג זה של תנאי מתייחס למשתמש הנוכחי ומוודא האם המשתמש הנוכחי עומד בתנאים."
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1115,12 +1166,14 @@ msgid ""
 "This type of the condition allows you to estimate the date difference between certain events. <br/>\n"
 "                                <br/>"
 msgstr ""
+"סוג זה של התנאי מאפשר לך להעריך את הפרש התאריכים בין אירועים מסוימים. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_simple_field_value_boolean__true
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__value_boolean__true
 msgid "True"
-msgstr ""
+msgstr "נָכוֹן"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_curency_date_type
@@ -1129,14 +1182,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "Type"
-msgstr ""
+msgstr "סוּג"
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/wizard/test_condition.py:0
 #, python-format
 msgid "Unknown"
-msgstr ""
+msgstr "לֹא יְדוּעַ"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_rel_filter_conditions
@@ -1146,6 +1199,9 @@ msgid ""
 "conditions evaluates to False for some object, that this object will not be "
 "checked"
 msgstr ""
+"משמש יחד עם Related Field. תנאים אלה משמשים לסינון פריטים קשורים שייבדקו לפי "
+"'תנאי בדיקה קשורים'. אם תנאי זה מוערך כ-false עבור אובייקט כלשהו, האובייקט "
+"הזה לא יסומן"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_rel_conditions
@@ -1154,31 +1210,33 @@ msgid ""
 "objects that passed filter conditions. And result of these related "
 "conditions will be used as result"
 msgstr ""
+"משמש יחד עם Related Field. תנאים אלו ישמשו לבדיקת אובייקטים שעברו תנאי "
+"סינון. והתוצאה של תנאים קשורים אלה ישמשו כתוצאה מכך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_user_user_field_id
 msgid "User Field"
-msgstr ""
+msgstr "שדה משתמש"
 
 #. module: generic_condition
 #: model:ir.model.fields,help:generic_condition.field_generic_condition__condition_filter_id
 msgid "User filter to be applied by this condition."
-msgstr ""
+msgstr "מסנן משתמש שיופעל על ידי תנאי זה."
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.condition_user_is_external
 msgid "User is external"
-msgstr ""
+msgstr "המשתמש הוא חיצוני"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.condition_user_is_internal
 msgid "User is internal"
-msgstr ""
+msgstr "המשתמש הוא פנימי"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_user_one_of_user_ids
 msgid "Users"
-msgstr ""
+msgstr "משתמשים"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_value
@@ -1192,72 +1250,72 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_simple_field_value_selection
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Value"
-msgstr ""
+msgstr "עֵרֶך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_boolean
 msgid "Value Boolean"
-msgstr ""
+msgstr "ערך בוליאני"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_char
 msgid "Value Char"
-msgstr ""
+msgstr "ערך Char"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_display
 msgid "Value Display"
-msgstr ""
+msgstr "תצוגת ערך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_field_id
 msgid "Value Field"
-msgstr ""
+msgstr "שדה ערך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_field_operator
 msgid "Value Field Operator"
-msgstr ""
+msgstr "מפעיל שדה ערך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_float
 msgid "Value Float"
-msgstr ""
+msgstr "צף ערך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_integer
 msgid "Value Integer"
-msgstr ""
+msgstr "ערך מספר שלם"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_res_id
 msgid "Value Res"
-msgstr ""
+msgstr "ערך רז"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_selection
 msgid "Value Selection"
-msgstr ""
+msgstr "בחירת ערך"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__value_type
 msgid "Value Type"
-msgstr ""
+msgstr "סוג ערך"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__weeks
 msgid "Weeks"
-msgstr ""
+msgstr "שבועות"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__with_sudo
 msgid "With Sudo"
-msgstr ""
+msgstr "עם סודו"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
 msgid "With sudo"
-msgstr ""
+msgstr "עם סודו"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -1265,111 +1323,113 @@ msgid ""
 "With this type of condition you can use multiple conditions simultaneously. <br/>\n"
 "                                <br/>"
 msgstr ""
+"עם סוג זה של תנאי אתה יכול להשתמש במספר תנאים בו זמנית. <br/>\n"
+"                                <br/>"
 
 #. module: generic_condition
 #: model:ir.model,name:generic_condition.model_generic_condition_test_condition
 msgid "Wizard: Test generic condition"
-msgstr ""
+msgstr "אשף: בדוק מצב כללי"
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid "Wrong Related Field / Based on combination"
-msgstr ""
+msgstr "שדה לא קשור / מבוסס על שילוב"
 
 #. module: generic_condition
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_date_diff_uom__years
 msgid "Years"
-msgstr ""
+msgstr "שנים"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_test_wizard_form
 msgid "_Cancel"
-msgstr ""
+msgstr "_לְבַטֵל"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_city_kyiv
 #: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp_but_kyiv
 msgid "city: Kyiv"
-msgstr ""
+msgstr "עיר: קייב"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "datetime - python module \"datetime\""
-msgstr ""
+msgstr "datetime - python module \"datetime\""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "dateutil - python module \"dateutil\""
-msgstr ""
+msgstr "dateutil - python module \"dateutil\""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "env - environment"
-msgstr ""
+msgstr "env - environment"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_blue
 msgid "eval [name: Blue]"
-msgstr ""
+msgstr "eval [שֵׁם: Blue]"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_green
 msgid "eval [name: Green]"
-msgstr ""
+msgstr "eval [שֵׁם: Green]"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_sx_corp
 msgid "eval [name: SX Corp]"
-msgstr ""
+msgstr "eval [שֵׁם: SX Corp]"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_contact
 msgid "eval [type: contact]"
-msgstr ""
+msgstr "eval [type: contact]"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_eval_error
 msgid "eval with error"
-msgstr ""
+msgstr "eval עם שגיאה"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "model - model"
-msgstr ""
+msgstr "model - דֶגֶם"
 
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp
 msgid "not [name: SX Corp]"
-msgstr ""
+msgstr "not [שֵׁם: SX Corp]"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "obj - object that is checked"
-msgstr ""
+msgstr "obj - אובייקט שנבדק"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "record - record of the object that is checked (same as obj)"
-msgstr ""
+msgstr "record - רשומה של האובייקט שנבדק (זהה כמו obj)"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "time - python module \"time\""
-msgstr ""
+msgstr "time - python module \"time\""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "timezone - python module \"timezone\""
-msgstr ""
+msgstr "timezone - python module \"timezone\""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "uid - current user id"
-msgstr ""
+msgstr "uid - מזהה משתמש נוכחי"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "user - current user"
-msgstr ""
+msgstr "user - המשתמש הנוכחי"
