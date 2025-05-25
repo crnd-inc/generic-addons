@@ -7,24 +7,27 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:14+0000\n"
-"PO-Revision-Date: 2025-05-13 07:14+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-05-25 17:48+0000\n"
+"Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
+"Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
+"generic_resource/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__access_ids
 msgid "Access"
-msgstr ""
+msgstr "גִישָׁה"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "נדרשת פעולה"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__active
@@ -33,7 +36,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__active
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Active"
-msgstr ""
+msgstr "פָּעִיל"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_category_view_form
@@ -41,13 +44,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_form_base
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_search
 msgid "Archived"
-msgstr ""
+msgstr "בארכיון"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_attachment_count
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "ספירת קבצים מצורפים"
 
 #. module: generic_resource
 #. odoo-python
@@ -57,62 +60,63 @@ msgid ""
 "Cannot apply this action to resources with different types! Please, select "
 "resources of single resource type"
 msgstr ""
+"לא ניתן להחיל פעולה זו על משאבים מסוגים שונים! אנא בחר משאבים מסוג משאב יחיד"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__category_id
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_search
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 msgid "Category"
-msgstr ""
+msgstr "קָטֵגוֹרִיָה"
 
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_category_category_unique
 msgid "Category can not have subcategories with the same name!"
-msgstr ""
+msgstr "לקטגוריה לא יכולות להיות תת-קטגוריות עם אותו שם!"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__code
 msgid "Code"
-msgstr ""
+msgstr "קוד"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers
 msgid "Computers"
-msgstr ""
+msgstr "מחשבים"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_config_root
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__count
 msgid "Count (Incl. Archived)"
-msgstr ""
+msgstr "ספירה (כולל ארכיון)"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "נוצר על ידי"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__create_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__create_date
 msgid "Created on"
-msgstr ""
+msgstr "נוצר ב"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_type_menu_item
 msgid "Dashboard"
-msgstr ""
+msgstr "לוּחַ מַחווָנִים"
 
 #. module: generic_resource
 #: model:generic.resource.type,name:generic_resource.generic_resource_type_default
 msgid "Default"
-msgstr ""
+msgstr "בְּרִירַת מֶחדָל"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_computer_1
@@ -123,12 +127,12 @@ msgstr ""
 #: model:generic.resource.simple,name:generic_resource.simple_resource_computer_6
 #: model:generic.resource.simple,name:generic_resource.simple_resource_computer_7
 msgid "Desktop Computer"
-msgstr ""
+msgstr "מחשב שולחני"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers_desktops
 msgid "Desktops"
-msgstr ""
+msgstr "מחשבים שולחניים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__display_name
@@ -136,24 +140,24 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__display_name
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment
 msgid "Equipment"
-msgstr ""
+msgstr "צִיוּד"
 
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/ir_model.py:0
 #, python-format
 msgid "Field 'Is Generic Resource' cannot be changed to 'False'."
-msgstr ""
+msgstr "לא ניתן לשנות את השדה 'הוא משאב כללי' ל-'שקר'."
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__field_id
 msgid "Fields"
-msgstr ""
+msgstr "שדות"
 
 #. module: generic_resource
 #. odoo-python
@@ -164,23 +168,26 @@ msgid ""
 "\tResource type: %(res_type)s\n"
 "\tResource res_id: %(res_id)s"
 msgstr ""
+"שדות שגויים\n"
+"\tסוג משאב: %(res_type)s\n"
+"\tמַשׁאָב res_id: %(res_id)s"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_follower_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "עוקבים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_partner_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "עוקבים (שותפים)"
 
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_type_model_id_uniq
 msgid "For each Odoo model only one Resource Type can be created!"
-msgstr ""
+msgstr "עבור כל מודל Odoo ניתן ליצור רק סוג משאב אחד!"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource
@@ -188,39 +195,39 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__resource_id
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_model_search
 msgid "Generic Resource"
-msgstr ""
+msgstr "משאב כללי"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__generic_resource_code
 #: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model__generic_resource_code
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model__generic_resource_code
 msgid "Generic Resource Code"
-msgstr ""
+msgstr "משאב כללי"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin
 msgid "Generic Resource MixIn"
-msgstr ""
+msgstr "תערובת משאבים כללית"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_mixin_inv_number
 msgid "Generic Resource Mixin Inv Number"
-msgstr ""
+msgstr "מספר חשבונית של ערבוב משאבים כללי"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_related_mixin
 msgid "Generic Resource Mixin: Related Resource"
-msgstr ""
+msgstr "ערבוב משאבים כללי: משאב קשור"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_simple
 msgid "Generic Resource Simple"
-msgstr ""
+msgstr "משאב כללי פשוט"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_simple_category
 msgid "Generic Resource Simple Category"
-msgstr ""
+msgstr "קטגוריה פשוטה של משאבים כלליים"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_type
@@ -228,60 +235,60 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model__resource_type_id
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model__resource_type_id
 msgid "Generic Resource Type"
-msgstr ""
+msgstr "סוג משאב כללי"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_type_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model__resource_type_ids
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model__resource_type_ids
 msgid "Generic Resource Types"
-msgstr ""
+msgstr "סוגי משאבים גנריים"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.menu_generic_resource_root
 msgid "Generic Resources"
-msgstr ""
+msgstr "משאבים גנריים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_id
 msgid "Generic resource"
-msgstr ""
+msgstr "משאב כללי"
 
 #. module: generic_resource
 #: model:res.groups,name:generic_resource.group_generic_resource_manager
 msgid "Generic resource manager"
-msgstr ""
+msgstr "מנהל משאבים כללי"
 
 #. module: generic_resource
 #: model:res.groups,name:generic_resource.group_generic_resource_user
 msgid "Generic resource user"
-msgstr ""
+msgstr "משתמש משאב כללי"
 
 #. module: generic_resource
 #: model:res.groups,name:generic_resource.group_generic_resource_user_implicit
 msgid "Generic resource user (imlicit)"
-msgstr ""
+msgstr "משתמש משאב כללי (מרומז)"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_activity
 msgid "Has Mail Activity"
-msgstr ""
+msgstr "משאב כללי (מרומז)"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_blacklist
 msgid "Has Mail Blacklist"
-msgstr ""
+msgstr "יש רשימה שחורה של דואר"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_mail_thread
 msgid "Has Mail Thread"
-msgstr ""
+msgstr "יש שרשור דואר"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__has_message
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "יש הודעה"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__id
@@ -289,145 +296,145 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__id
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__id
 msgid "ID"
-msgstr ""
+msgstr "תְעוּדַת זֶהוּת"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_needaction
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "אם מסומן, הודעות חדשות דורשות את תשומת לבך."
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "אם מסומן, בחלק מההודעות יש שגיאת מסירה."
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_1920
 msgid "Image"
-msgstr ""
+msgstr "תְמוּנָה"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_1024
 msgid "Image 1024"
-msgstr ""
+msgstr "תמונה 1024"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_128
 msgid "Image 128"
-msgstr ""
+msgstr "תמונה 128"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_256
 msgid "Image 256"
-msgstr ""
+msgstr "תמונה 256"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__image_512
 msgid "Image 512"
-msgstr ""
+msgstr "תמונה 512"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__modules
 msgid "In Apps"
-msgstr ""
+msgstr "באפליקציות"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 msgid "Info"
-msgstr ""
+msgstr "מידע"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__info
 msgid "Information"
-msgstr ""
+msgstr "מֵידָע"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "Inherited models"
-msgstr ""
+msgstr "מודלים שעברו בירושה"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_inkjet
 msgid "InkJet"
-msgstr ""
+msgstr "הזרקת דיו"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_mixin_inv_number__inv_number
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__inv_number
 msgid "Inventory Number"
-msgstr ""
+msgstr "מספר מלאי"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_is_follower
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "האם עוקב"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__is_generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_tag_model__is_generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_ir_model__is_generic_resource
 msgid "Is Generic Resource"
-msgstr ""
+msgstr "האם משאב כללי"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers_laserjet
 msgid "LaserJet"
-msgstr ""
+msgstr "לייזרג'ט"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_uid
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "עודכן לאחרונה על ידי"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__write_date
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "עודכן לאחרונה ב"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__modules
 msgid "List of modules in which the object is defined or inherited"
-msgstr ""
+msgstr "רשימת מודולים שבהם האובייקט מוגדר או עובר בירושה"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_manager
 msgid "Manage generic resources"
-msgstr ""
+msgstr "ניהול משאבים גנריים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "שגיאת מסירת הודעה"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_ids
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "הודעות"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model
 msgid "Model"
-msgstr ""
+msgstr "דֶגֶם"
 
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_unique_model
 msgid "Model instance must be unique"
-msgstr ""
+msgstr "מופע המודל חייב להיות ייחודי"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_ir_model
 msgid "Models"
-msgstr ""
+msgstr "מודלים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__name
@@ -440,7 +447,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
 msgid "Name"
-msgstr ""
+msgstr "שֵׁם"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_1
@@ -451,163 +458,163 @@ msgstr ""
 #: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_6
 #: model:generic.resource.simple,name:generic_resource.simple_resource_notebook_7
 msgid "Notebook"
-msgstr ""
+msgstr "מַחבֶּרֶת"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_computers_notebooks
 msgid "Notebooks"
-msgstr ""
+msgstr "מחברות"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_needaction_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "מספר פעולות"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__message_has_error_counter
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "מספר שגיאות"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_needaction_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "מספר ההודעות הדורשות פעולה"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__message_has_error_counter
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple_category__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "מספר הודעות עם שגיאת מסירה"
 
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/ir_model.py:0
 #, python-format
 msgid "Only custom models can be modified."
-msgstr ""
+msgstr "ניתן לשנות רק מודלים מותאמים אישית."
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_tree
 msgid "Open Resource"
-msgstr ""
+msgstr "משאב פתוח"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__order
 msgid "Order"
-msgstr ""
+msgstr "לְהַזמִין"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 msgid "Parameters"
-msgstr ""
+msgstr "פרמטרים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_id
 msgid "Parent Category"
-msgstr ""
+msgstr "קטגוריית אב"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple_category__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "נתיב הורים"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_3
 msgid "Printer Canon i-sensys 123"
-msgstr ""
+msgstr "מדפסת קנון i-sensys 123"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_1
 msgid "Printer Canon i-sensys 233"
-msgstr ""
+msgstr "מדפסת קנון i-sensys 233"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_2
 msgid "Printer Canon i-sensys 255"
-msgstr ""
+msgstr "מדפסת קנון i-sensys 255"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_6
 msgid "Printer Canon i-sensys 569"
-msgstr ""
+msgstr "מדפסת קנון i-sensys 569"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_3
 msgid "Printer Canon i123"
-msgstr ""
+msgstr "מדפסת קנון i123"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_1
 msgid "Printer Canon i233"
-msgstr ""
+msgstr "מדפסת קנון i233"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_2
 msgid "Printer Canon i255"
-msgstr ""
+msgstr "מדפסת קנון i255"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_6
 msgid "Printer Canon i569"
-msgstr ""
+msgstr "מדפסת קנון i569"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_4
 msgid "Printer Epson foto 235"
-msgstr ""
+msgstr "מדפסת אפסון פוטו 235"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_5
 msgid "Printer Epson stylus 15"
-msgstr ""
+msgstr "מדפסת אפסון סטיילוס 15"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_inkprinter_7
 msgid "Printer Lexmark LS45"
-msgstr ""
+msgstr "מדפסת לקסמרק LS45"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_7
 msgid "Printer Panasonic LS45"
-msgstr ""
+msgstr "מדפסת פנסוניק LS45"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_5
 msgid "Printer Xerox 15"
-msgstr ""
+msgstr "מדפסת זירוקס 15"
 
 #. module: generic_resource
 #: model:generic.resource.simple,name:generic_resource.simple_resource_laserprinter_4
 msgid "Printer Xerox 235"
-msgstr ""
+msgstr "מדפסת זירוקס 235"
 
 #. module: generic_resource
 #: model:generic.resource.simple.category,name:generic_resource.simple_resource_category_equipment_printers
 msgid "Printers"
-msgstr ""
+msgstr "מדפסות"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_user
 msgid "Read and write to generic resources"
-msgstr ""
+msgstr "קריאה וכתיבה למשאבים גנריים"
 
 #. module: generic_resource
 #: model:res.groups,comment:generic_resource.group_generic_resource_user_implicit
 msgid "Read and write to generic resources (no access to menus)"
-msgstr ""
+msgstr "קריאה וכתיבה למשאבים גנריים (אין גישה לתפריטים)"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_ir_rule
 msgid "Record Rule"
-msgstr ""
+msgstr "כלל תיעוד"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__rule_ids
 msgid "Record Rules"
-msgstr ""
+msgstr "חוקי הקלטה"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_id
@@ -617,29 +624,29 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_form
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_simple_view_tree
 msgid "Resource"
-msgstr ""
+msgstr "מַשׁאָב"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_count
 msgid "Resource Count"
-msgstr ""
+msgstr "ספירת משאבים"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_view_form_base
 msgid "Resource Info"
-msgstr ""
+msgstr "מידע על משאבים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__res_model
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__model_id
 msgid "Resource Model"
-msgstr ""
+msgstr "מודל משאבים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_related_res_action_id
 msgid "Resource Related Res Action"
-msgstr ""
+msgstr "פעולה הקשורה למשאבים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__res_type_id
@@ -647,24 +654,24 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_wizard_mixin__resource_type_id
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resource Type"
-msgstr ""
+msgstr "סוג משאב"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_type_action
 msgid "Resource Types"
-msgstr ""
+msgstr "סוגי משאבים"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource__resource_visibility
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_simple__resource_visibility
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__resource_visibility
 msgid "Resource Visibility"
-msgstr ""
+msgstr "נראות משאבים"
 
 #. module: generic_resource
 #: model:ir.model,name:generic_resource.model_generic_resource_wizard_mixin
 msgid "Resource Wizard: Mixin"
-msgstr ""
+msgstr "אשף משאבים: ערבוב"
 
 #. module: generic_resource
 #. odoo-python
@@ -675,23 +682,26 @@ msgid ""
 "\tResource type: %(res_type)s\n"
 "\tResource res_id: %(res_id)s"
 msgstr ""
+"המשאב לא קיים!\n"
+"סוג משאב: %(res_type)s\n"
+"מַשׁאָב: res_id: %(res_id)s"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_res_model
 msgid "Resource model"
-msgstr ""
+msgstr "מודל משאבים"
 
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_mixin_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_unique_resource_id
 msgid "Resource must be unique"
-msgstr ""
+msgstr "המשאב חייב להיות ייחודי"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_related_mixin__resource_type_id
 msgid "Resource type"
-msgstr ""
+msgstr "סוג משאב"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource__resource_visibility
@@ -699,7 +709,7 @@ msgstr ""
 msgid ""
 "Resource visibility determines users that have read access for this "
 "resource."
-msgstr ""
+msgstr "נראות המשאב קובעת למשתמשים יש גישת קריאה למשאב זה."
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_action
@@ -710,113 +720,113 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 #: model_terms:ir.ui.view,arch_db:generic_resource.view_generic_resource_type_kanban
 msgid "Resources"
-msgstr ""
+msgstr "אֶמְצָעִי"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__order
 msgid ""
 "SQL expression for ordering records in the model; e.g. \"x_sequence asc, id "
 "desc\""
-msgstr ""
+msgstr "ביטוי SQL לסידור רשומות במודל; לדוגמה \"x_sequence asc, id desc\""
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "רֶצֶף"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__show_resources_action_id
 msgid "Show Resources Action"
-msgstr ""
+msgstr "הצג פעולה של משאבים"
 
 #. module: generic_resource
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_category_menu_item
 msgid "Simple Resource Categories"
-msgstr ""
+msgstr "קטגוריות משאבים פשוטות"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_simple_action
 #: model:ir.ui.menu,name:generic_resource.generic_resource_simple_menu_item
 #: model:ir.ui.menu,name:generic_resource.menu_simple_resource_root
 msgid "Simple Resources"
-msgstr ""
+msgstr "משאבים פשוטים"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.generic_resource_simple_category_action
 msgid "Simple Resources Categories"
-msgstr ""
+msgstr "קטגוריות משאבים פשוטים"
 
 #. module: generic_resource
 #: model:ir.actions.act_window,name:generic_resource.action_list_of_simple_resources
 msgid "Simple resources"
-msgstr ""
+msgstr "משאבים פשוטים"
 
 #. module: generic_resource
 #: model_terms:ir.ui.view,arch_db:generic_resource.generic_resource_type_view_from
 msgid "System Info"
-msgstr ""
+msgstr "מידע מערכת"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__inherited_model_ids
 msgid "The list of models that extends the current model."
-msgstr ""
+msgstr "רשימת המודלים המרחיבה את המודל הנוכחי."
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__count
 msgid "Total number of records in this model"
-msgstr ""
+msgstr "מספר הרשומות הכולל במודל זה"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__transient
 msgid "Transient Model"
-msgstr ""
+msgstr "מודל חולף"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__state
 msgid "Type"
-msgstr ""
+msgstr "סוּג"
 
 #. module: generic_resource
 #: model:ir.model.fields,field_description:generic_resource.field_generic_resource_type__view_ids
 msgid "Views"
-msgstr ""
+msgstr "צפיות"
 
 #. module: generic_resource
 #: model:ir.model.fields.selection,name:generic_resource.selection__generic_resource__resource_visibility__public
 #: model:ir.model.fields.selection,name:generic_resource.selection__generic_resource_type__resource_visibility__public
 msgid "Visible for unregistered users"
-msgstr ""
+msgstr "גלוי למשתמשים לא רשומים"
 
 #. module: generic_resource
 #: model:ir.model.fields.selection,name:generic_resource.selection__generic_resource_type__resource_visibility__internal
 msgid "Visible only to employees"
-msgstr ""
+msgstr "גלוי רק לעובדים"
 
 #. module: generic_resource
 #: model:ir.model.fields.selection,name:generic_resource.selection__generic_resource__resource_visibility__internal
 msgid "Visible only to internal users"
-msgstr ""
+msgstr "גלוי רק למשתמשים פנימיים"
 
 #. module: generic_resource
 #: model:ir.model.fields.selection,name:generic_resource.selection__generic_resource_type__resource_visibility__portal
 msgid "Visible to employees and portal users"
-msgstr ""
+msgstr "גלוי לעובדים ולמשתמשי הפורטל"
 
 #. module: generic_resource
 #: model:ir.model.fields.selection,name:generic_resource.selection__generic_resource__resource_visibility__portal
 msgid "Visible to internal users and portal users"
-msgstr ""
+msgstr "גלוי למשתמשים פנימיים ולמשתמשי פורטל"
 
 #. module: generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_type__is_generic_resource
 #: model:ir.model.fields,help:generic_resource.field_generic_tag_model__is_generic_resource
 #: model:ir.model.fields,help:generic_resource.field_ir_model__is_generic_resource
 msgid "Whether this model is Generic Resource."
-msgstr ""
+msgstr "האם מודל זה הוא משאב כללי."
 
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/generic_resource_type.py:0
 #, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
-msgstr ""
+msgstr "פעולת 'הצגת משאבים' שגויה עבור סוג המשאב '%(res_type)s'"
