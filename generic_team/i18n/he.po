@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:15+0000\n"
-"PO-Revision-Date: 2025-05-13 07:15+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-05-30 07:07+0000\n"
+"Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
+"Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
+"generic_team/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_user_implicit
@@ -22,6 +25,9 @@ msgid ""
 "            Imlicit user for generic team\n"
 "        "
 msgstr ""
+"\n"
+"            משתמש מרומז עבור צוות כללי\n"
+"        "
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_manager
@@ -30,6 +36,9 @@ msgid ""
 "            Manager - full access\n"
 "        "
 msgstr ""
+"\n"
+"            מנהל - גישה מלאה\n"
+"        "
 
 #. module: generic_team
 #: model:res.groups,comment:generic_team.group_generic_team_user
@@ -38,6 +47,9 @@ msgid ""
 "            User - readonly access, menu access\n"
 "        "
 msgstr ""
+"\n"
+"            משתמש - גישת קריאה בלבד, גישה לתפריט\n"
+"        "
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team1
@@ -48,6 +60,11 @@ msgid ""
 "        toward shared objectives.\n"
 "        "
 msgstr ""
+"\n"
+"        צוות פונקציונלי הוא קבוצה\n"
+"        של אנשים בעלי מומחיות תפקודית משותפת שעובדים\n"
+"        לעבר מטרות משותפות.\n"
+"        "
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team2
@@ -58,6 +75,11 @@ msgid ""
 "        necessary to produce working, validated assets.\n"
 "        "
 msgstr ""
+"\n"
+"        צוות חוצה תפקידים, בעל יכולת ארגון עצמי\n"
+"        של אנשים שאחראים יחד על כל העבודה\n"
+"        הכרחיים לייצור נכסים פועלים ומאומתים.\n"
+"        "
 
 #. module: generic_team
 #: model:generic.team,description:generic_team.generic_team_team3
@@ -68,233 +90,238 @@ msgid ""
 "        an organization's software development team and the operations team.\n"
 "        "
 msgstr ""
+"\n"
+"        DevOps כשירות הוא מודל אספקה\n"
+"        עבור סט כלים המאפשר שיתוף פעולה בין\n"
+"        צוות פיתוח התוכנה וצוות התפעול של הארגון.\n"
+"        "
 
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_kanban
 msgid "<i class=\"fa fa-users mr4\" title=\"Users\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-users mr4\" title=\"משתמשים\"/>"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "נדרשת פעולה"
 
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_search
 msgid "Active"
-msgstr ""
+msgstr "פָּעִיל"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__active
 msgid "Active?"
-msgstr ""
+msgstr "פָּעִיל?"
 
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_search
 msgid "Archived"
-msgstr ""
+msgstr "בארכיון"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "ספירת קבצים מצורפים"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__create_uid
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "נוצר על ידי"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__create_date
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__create_date
 msgid "Created on"
-msgstr ""
+msgstr "נוצר ב"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__description
 msgid "Description"
-msgstr ""
+msgstr "תֵאוּר"
 
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Description..."
-msgstr ""
+msgstr "תֵאוּר..."
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team3
 msgid "DevOps team"
-msgstr ""
+msgstr "צוות DevOps"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__display_name
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "עוקבים"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "עוקבים (שותפים)"
 
 #. module: generic_team
 #: model:ir.model,name:generic_team.model_generic_team
 msgid "Generic Team"
-msgstr ""
+msgstr "צוות גנרי"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_res_users__generic_team_member_ids
 msgid "Generic Team Member"
-msgstr ""
+msgstr "חבר צוות כללי"
 
 #. module: generic_team
 #: model:ir.model,name:generic_team.model_generic_team_member
 msgid "Generic team member"
-msgstr ""
+msgstr "חבר צוות כללי"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "יש הודעה"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__id
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__id
 msgid "ID"
-msgstr ""
+msgstr "תְעוּדַת זֶהוּת"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "אם מסומן, הודעות חדשות דורשות את תשומת לבך."
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "אם מסומן, בחלק מההודעות יש שגיאת מסירה."
 
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Info"
-msgstr ""
+msgstr "מידע"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "האם עוקב"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__write_uid
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "עודכן לאחרונה על ידי"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__write_date
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "עודכן לאחרונה ב"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_image
 msgid "Leader Image"
-msgstr ""
+msgstr "תמונת מנהיג"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_name
 msgid "Leader Name"
-msgstr ""
+msgstr "שם המנהיג"
 
 #. module: generic_team
 #: model:res.groups,name:generic_team.group_generic_team_manager
 msgid "Manager"
-msgstr ""
+msgstr "מְנַהֵל"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "שגיאת מסירת הודעה"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "הודעות"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "מספר פעולות"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "מספר שגיאות"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "מספר ההודעות הדורשות פעולה"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_generic_team__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "מספר הודעות עם שגיאת מסירה"
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team2
 msgid "Odoo development team"
-msgstr ""
+msgstr "צוות הפיתוח של אודו"
 
 #. module: generic_team
 #: model:generic.team,name:generic_team.generic_team_team1
 msgid "Odoo functional team"
-msgstr ""
+msgstr "צוות פונקציונלי של אודו"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__task_manager_id
 msgid "Task manager"
-msgstr ""
+msgstr "מנהל המשימות"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__team_id
 msgid "Team"
-msgstr ""
+msgstr "קְבוּצָה"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__team_member_ids
 msgid "Team Members"
-msgstr ""
+msgstr "חברי הצוות"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__leader_id
 msgid "Team leader"
-msgstr ""
+msgstr "ראש צוות"
 
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Team members"
-msgstr ""
+msgstr "חברי הצוות"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__user_ids
 msgid "Team members (Users)"
-msgstr ""
+msgstr "חברי צוות (משתמשים)"
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__name
 msgid "Team name"
-msgstr ""
+msgstr "שם הקבוצה"
 
 #. module: generic_team
 #: model_terms:ir.ui.view,arch_db:generic_team.generic_team_form
 msgid "Team name..."
-msgstr ""
+msgstr "שם הקבוצה..."
 
 #. module: generic_team
 #: model:ir.actions.act_window,name:generic_team.generic_team_action
@@ -303,31 +330,31 @@ msgstr ""
 #: model:ir.ui.menu,name:generic_team.menu_generic_team_root
 #: model_terms:ir.ui.view,arch_db:generic_team.view_users_form
 msgid "Teams"
-msgstr ""
+msgstr "קבוצות"
 
 #. module: generic_team
 #: model:ir.model.fields,help:generic_team.field_res_users__generic_team_ids
 msgid "This user is member of following generic teams"
-msgstr ""
+msgstr "משתמש זה חבר בצוותים הגנריים הבאים"
 
 #. module: generic_team
 #: model:ir.model,name:generic_team.model_res_users
 #: model:ir.model.fields,field_description:generic_team.field_generic_team_member__user_id
 #: model:res.groups,name:generic_team.group_generic_team_user
 msgid "User"
-msgstr ""
+msgstr "מִשׁתַמֵשׁ"
 
 #. module: generic_team
 #: model:res.groups,name:generic_team.group_generic_team_user_implicit
 msgid "User implicit"
-msgstr ""
+msgstr "משתמש מרומז"
 
 #. module: generic_team
 #: model:ir.model.constraint,message:generic_team.constraint_generic_team_member_user_team_unique
 msgid "User may be added to team only once."
-msgstr ""
+msgstr "ניתן להוסיף משתמש לצוות פעם אחת בלבד."
 
 #. module: generic_team
 #: model:ir.model.fields,field_description:generic_team.field_generic_team__user_count
 msgid "Users count"
-msgstr ""
+msgstr "ספירת משתמשים"
