@@ -7,56 +7,59 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:14+0000\n"
-"PO-Revision-Date: 2025-05-13 07:14+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-06-03 07:04+0000\n"
+"Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
+"Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
+"generic_service/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_user
 msgid "Access generic services"
-msgstr ""
+msgstr "גישה לשירותים גנריים"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_user_implicit
 msgid "Access generic services (no access to menu)"
-msgstr ""
+msgstr "גישה לשירותים גנריים (אין גישה לתפריט)"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__access_group_ids
 msgid "Access groups"
-msgstr ""
+msgstr "קבוצות גישה"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "נדרשת פעולה"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Activate"
-msgstr ""
+msgstr "לְהַפְעִיל"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Activated"
-msgstr ""
+msgstr "מוּפעָל"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__active
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__active
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__active
 msgid "Active"
-msgstr ""
+msgstr "פָּעִיל"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Archive"
-msgstr ""
+msgstr "ארכיון"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
@@ -64,310 +67,310 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Archived"
-msgstr ""
+msgstr "בארכיון"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_attachment_count
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "ספירת קבצים מצורפים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__change_manager_id
 msgid "Change Manager"
-msgstr ""
+msgstr "מנהל שינויים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__code
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__code
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__code
 msgid "Code"
-msgstr ""
+msgstr "קוד"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Code..."
-msgstr ""
+msgstr "קוד..."
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "הגדרות תצורה"
 
 #. module: generic_service
 #: model:ir.ui.menu,name:generic_service.menu_generic_service_configuration_menu_item
 msgid "Configurations"
-msgstr ""
+msgstr "תצורות"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "מַגָע"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Created"
-msgstr ""
+msgstr "נוצר"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__create_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "נוצר על ידי"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__create_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__create_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__create_date
 msgid "Created on"
-msgstr ""
+msgstr "נוצר ב"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_default
 msgid "Default"
-msgstr ""
+msgstr "בְּרִירַת מֶחדָל"
 
 #. module: generic_service
 #: model:generic.service,description:generic_service.generic_service_default
 msgid "Default service"
-msgstr ""
+msgstr "שירות ברירת מחדל"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__description
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__description
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__description
 msgid "Description"
-msgstr ""
+msgstr "תֵאוּר"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Description..."
-msgstr ""
+msgstr "תֵאוּר..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__display_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__display_name
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_follower_ids
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "עוקבים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_partner_ids
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "עוקבים (שותפים)"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_generic_service
 msgid "Generic Service"
-msgstr ""
+msgstr "שירות כללי"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_group_act_window
 #: model:ir.model,name:generic_service.model_generic_service_group
 msgid "Generic Service Group"
-msgstr ""
+msgstr "קבוצת שירותים גנריים"
 
 #. module: generic_service
 #: model:ir.model,name:generic_service.model_generic_service_level
 msgid "Generic Service Level"
-msgstr ""
+msgstr "רמת שירות כללית"
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_manager
 msgid "Generic service manager"
-msgstr ""
+msgstr "מנהל שירות כללי"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
 msgid "Generic service settings"
-msgstr ""
+msgstr "הגדרות שירות כלליות"
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_user
 msgid "Generic service user"
-msgstr ""
+msgstr "משתמש שירות כללי"
 
 #. module: generic_service
 #: model:res.groups,name:generic_service.group_generic_service_user_implicit
 msgid "Generic service user (implicit)"
-msgstr ""
+msgstr "משתמש שירות כללי (מרומז)"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Group by..."
-msgstr ""
+msgstr "קבץ לפי..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__has_message
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "יש הודעה"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__id
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__id
 msgid "ID"
-msgstr ""
+msgstr "תְעוּדַת זֶהוּת"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_needaction
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "אם מסומן, הודעות חדשות דורשות את תשומת לבך."
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_has_error
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "אם מסומן, בחלק מההודעות יש שגיאת מסירה."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__image_1920
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_1920
 msgid "Image"
-msgstr ""
+msgstr "תְמוּנָה"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__image_1024
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_1024
 msgid "Image 1024"
-msgstr ""
+msgstr "תמונה 1024"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__image_128
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_128
 msgid "Image 128"
-msgstr ""
+msgstr "תמונה 128"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__image_256
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_256
 msgid "Image 256"
-msgstr ""
+msgstr "תמונה 256"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__image_512
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__image_512
 msgid "Image 512"
-msgstr ""
+msgstr "תמונה 512"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Info"
-msgstr ""
+msgstr "מידע"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_is_follower
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "האם עוקב"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__write_uid
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "עודכן לאחרונה על ידי"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__write_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__write_date
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "עודכן לאחרונה ב"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_1
 msgid "Level 1"
-msgstr ""
+msgstr "רמה 1"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_2
 msgid "Level 2"
-msgstr ""
+msgstr "רמה 2"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_3
 msgid "Level 3"
-msgstr ""
+msgstr "רמה 3"
 
 #. module: generic_service
 #: model:generic.service.level,name:generic_service.generic_service_level_4
 msgid "Level 4"
-msgstr ""
+msgstr "רמה 4"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Lifecycle"
-msgstr ""
+msgstr "מחזור חיים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_activated
 msgid "Lifecycle Date Activated"
-msgstr ""
+msgstr "תאריך מחזור החיים הופעל"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_archived
 msgid "Lifecycle Date Archived"
-msgstr ""
+msgstr "תאריך מחזור החיים הועבר לארכיון"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_created
 msgid "Lifecycle Date Created"
-msgstr ""
+msgstr "תאריך יצירת מחזור החיים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_date_obsolete
 msgid "Lifecycle Date Obsolete"
-msgstr ""
+msgstr "תאריך מחזור החיים מיושן"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Lifecycle Dates"
-msgstr ""
+msgstr "תאריכי מחזור חיים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__lifecycle_state
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Lifecycle State"
-msgstr ""
+msgstr "מצב מחזור חיים"
 
 #. module: generic_service
 #: model:generic.service.group,name:generic_service.generic_service_group_maintenance
 msgid "Maintenance"
-msgstr ""
+msgstr "תַחזוּקָה"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_generic_service_manager
 msgid "Manage generic services"
-msgstr ""
+msgstr "ניהול שירותים גנריים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_error
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "שגיאת מסירת הודעה"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_ids
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "הודעות"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__name
@@ -376,145 +379,145 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_form_view
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Name"
-msgstr ""
+msgstr "שֵׁם"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_level_view_form
 msgid "Name..."
-msgstr ""
+msgstr "שֵׁם..."
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_needaction_counter
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "מספר פעולות"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__message_has_error_counter
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "מספר שגיאות"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_needaction_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "מספר ההודעות הדורשות פעולה"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__message_has_error_counter
 #: model:ir.model.fields,help:generic_service.field_generic_service_level__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "מספר הודעות עם שגיאת מסירה"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "Obsolete"
-msgstr ""
+msgstr "מְיוּשָׁן"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_on_site_maintenance
 msgid "On-site Maintenance"
-msgstr ""
+msgstr "תחזוקה באתר"
 
 #. module: generic_service
 #: model:generic.service.group,name:generic_service.generic_service_group_rent
 msgid "Rent"
-msgstr ""
+msgstr "לִשְׂכּוֹר"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_desktop_computer
 msgid "Rent of desktop computer"
-msgstr ""
+msgstr "השכרת מחשב שולחני"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_notebook
 msgid "Rent of notebook"
-msgstr ""
+msgstr "השכרת מחשב נייד"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_office
 msgid "Rent of office"
-msgstr ""
+msgstr "שכירות משרד"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_rent_server
 msgid "Rent of server"
-msgstr ""
+msgstr "השכרת שרת"
 
 #. module: generic_service
 #: model:ir.model.fields,help:generic_service.field_generic_service__access_group_ids
 msgid "Restrict access to this service by specified groups only"
-msgstr ""
+msgstr "הגבל את הגישה לשירות זה לקבוצות ספציפיות בלבד"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__sequence
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_level__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "רֶצֶף"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__service_ids
 msgid "Service"
-msgstr ""
+msgstr "שֵׁרוּת"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service_group__service_count
 msgid "Service Count"
-msgstr ""
+msgstr "ספירת שירותים"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_generic_service__service_group_id
 msgid "Service Group"
-msgstr ""
+msgstr "קבוצת שירות"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_search
 msgid "Service Groups"
-msgstr ""
+msgstr "קבוצות שירות"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.res_partner_view_form_inherit_service_level
 msgid "Service Info"
-msgstr ""
+msgstr "מידע על השירות"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_partner__service_level_id
 #: model:ir.model.fields,field_description:generic_service.field_res_users__service_level_id
 msgid "Service Level"
-msgstr ""
+msgstr "רמת השירות"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_level_action
 #: model:ir.ui.menu,name:generic_service.generic_service_level_menu_item
 msgid "Service Levels"
-msgstr ""
+msgstr "רמות שירות"
 
 #. module: generic_service
 #: model:ir.ui.menu,name:generic_service.generic_service_group_menu_item
 msgid "Service groups"
-msgstr ""
+msgstr "קבוצות שירות"
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_4
 msgid "Service level for our Bronze clients."
-msgstr ""
+msgstr "רמת שירות עבור לקוחות הברונזה שלנו."
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_2
 msgid "Service level for our Gold clients."
-msgstr ""
+msgstr "רמת שירות ללקוחות הזהב שלנו."
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_1
 msgid "Service level for our Platinum clients."
-msgstr ""
+msgstr "רמת שירות ללקוחות הפלטינום שלנו."
 
 #. module: generic_service
 #: model:generic.service.level,description:generic_service.generic_service_level_3
 msgid "Service level for our Silver clients."
-msgstr ""
+msgstr "רמת שירות ללקוחות הכסף שלנו."
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action
@@ -524,56 +527,56 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_group_tree_view
 #: model_terms:ir.ui.view,arch_db:generic_service.res_config_settings_view_form
 msgid "Services"
-msgstr ""
+msgstr "שירותים"
 
 #. module: generic_service
 #: model:ir.actions.act_window,name:generic_service.generic_service_action_service_settings
 #: model:ir.ui.menu,name:generic_service.menu_settings_service
 msgid "Settings"
-msgstr ""
+msgstr "הגדרות"
 
 #. module: generic_service
 #: model_terms:ir.ui.view,arch_db:generic_service.generic_service_view_form
 msgid "State"
-msgstr ""
+msgstr "מְדִינָה"
 
 #. module: generic_service
 #: model:generic.service.group,name:generic_service.generic_service_group_support
 msgid "Support"
-msgstr ""
+msgstr "תְמִיכָה"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_administration
 msgid "Support / Administration"
-msgstr ""
+msgstr "תמיכה / ניהול"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_configuration
 msgid "Support / Configuration"
-msgstr ""
+msgstr "תמיכה / תצורה"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_consulting
 msgid "Support / Consulting"
-msgstr ""
+msgstr "תמיכה / ייעוץ"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_development
 msgid "Support / Development"
-msgstr ""
+msgstr "תמיכה / פיתוח"
 
 #. module: generic_service
 #: model:generic.service,name:generic_service.generic_service_support_hosting
 msgid "Support / Hosting"
-msgstr ""
+msgstr "תמיכה / אירוח"
 
 #. module: generic_service
 #: model:ir.model.fields,field_description:generic_service.field_res_config_settings__group_use_service_level
 msgid "Use Service Level"
-msgstr ""
+msgstr "השתמש ברמת השירות"
 
 #. module: generic_service
 #: model:res.groups,comment:generic_service.group_use_service_level
 #: model:res.groups,name:generic_service.group_use_service_level
 msgid "Use service level"
-msgstr ""
+msgstr "השתמש ברמת השירות"

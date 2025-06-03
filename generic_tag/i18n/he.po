@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:14+0000\n"
-"PO-Revision-Date: 2025-05-21 02:14+0000\n"
+"PO-Revision-Date: 2025-06-03 07:04+0000\n"
 "Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
 "Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
 "generic_tag/he/>\n"
@@ -25,6 +25,9 @@ msgid ""
 "            Users in this group can manage tags (create / update / ...)\n"
 "        "
 msgstr ""
+"\n"
+"            משתמשים בקבוצה זו יכולים לנהל תגיות (ליצור / לעדכן / ...)\n"
+"        "
 
 #. module: generic_tag
 #: model:res.groups,comment:generic_tag.group_tags_user
@@ -33,6 +36,10 @@ msgid ""
 "            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
 "        "
 msgstr ""
+"\n"
+"            למשתמשים בקבוצה זו יש גישה לתפריט תגיות. הם אינם יכולים ליצור או "
+"לערוך תגיות.\n"
+"        "
 
 #. module: generic_tag
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
@@ -41,6 +48,10 @@ msgid ""
 "            Users in this group have access to tags that have same group that user have\n"
 "        "
 msgstr ""
+"\n"
+"            למשתמשים בקבוצה זו יש גישה לתגים המשתייכים לאותה קבוצה שיש "
+"למשתמש.\n"
+"        "
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__access_ids
@@ -50,12 +61,12 @@ msgstr "גִישָׁה"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__act_manage_tags_id
 msgid "Act Manage Tags"
-msgstr ""
+msgstr "ניהול תגיות"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__action
 msgid "Action"
-msgstr ""
+msgstr "פְּעוּלָה"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__active
@@ -66,17 +77,17 @@ msgstr "פָּעִיל"
 #. module: generic_tag
 #: model:ir.model.fields.selection,name:generic_tag.selection__generic_tag_wizard_manage_tags__action__add
 msgid "Add"
-msgstr ""
+msgstr "לְהוֹסִיף"
 
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_all
 msgid "All Tags"
-msgstr ""
+msgstr "כל התגים"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.generic_tag_wizard_manage_tags_form_view
 msgid "Apply"
-msgstr ""
+msgstr "לִפְנוֹת"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
@@ -86,13 +97,13 @@ msgstr "בארכיון"
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.generic_tag_wizard_manage_tags_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "לְבַטֵל"
 
 #. module: generic_tag
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tag_caegories_view
 #: model:ir.ui.menu,name:generic_tag.menu_action_generic_tag_categories_view
 msgid "Categories"
-msgstr ""
+msgstr "קטגוריות"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__category_id
@@ -103,29 +114,29 @@ msgstr "קָטֵגוֹרִיָה"
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 msgid "Category code"
-msgstr ""
+msgstr "קוד קטגוריה"
 
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag.py:0
 #, python-format
 msgid "Category must be bound to same model as tag"
-msgstr ""
+msgstr "הקטגוריה חייבת להיות קשורה לאותו מודל כמו התגית"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 msgid "Category name"
-msgstr ""
+msgstr "שם הקטגוריה"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__category_sequence
 msgid "Category priority"
-msgstr ""
+msgstr "עדיפות לקטגוריה"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__check_xor
 msgid "Check XOR"
-msgstr ""
+msgstr "בדיקת XOR"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__code
@@ -136,12 +147,12 @@ msgstr "קוד"
 #. module: generic_tag
 #: model:ir.model.constraint,message:generic_tag.constraint_generic_tag_category_code_uniq
 msgid "Code of category must be unique"
-msgstr ""
+msgstr "קוד הקטגוריה חייב להיות ייחודי"
 
 #. module: generic_tag
 #: model:ir.model.constraint,message:generic_tag.constraint_generic_tag_code_uniq
 msgid "Code of tag must be unique"
-msgstr ""
+msgstr "קוד התגית חייב להיות ייחודי"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__color
@@ -153,18 +164,18 @@ msgstr "צֶבַע"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__comment
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__comment
 msgid "Comment"
-msgstr ""
+msgstr "הֶעָרָה"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_form
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Comment..."
-msgstr ""
+msgstr "הֶעָרָה..."
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__complete_name
 msgid "Complete Name"
-msgstr ""
+msgstr "שם מלא"
 
 #. module: generic_tag
 #: model:ir.ui.menu,name:generic_tag.menu_generic_tags_configuration_root
@@ -195,12 +206,12 @@ msgstr "נוצר ב"
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__comment
 msgid "Describe what this tag category is for"
-msgstr ""
+msgstr "תאר למה מיועדת קטגוריית התגיות הזו"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__comment
 msgid "Describe what this tag means"
-msgstr ""
+msgstr "תאר מה המשמעות של תגית זו"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__display_name
@@ -233,72 +244,74 @@ msgid ""
 "Following (category - tags) pairs, break category XOR restriction:\n"
 "%s"
 msgstr ""
+"זוגות (קטגוריה - תגיות) הבאים, שבירת מגבלת XOR של קטגוריה:\n"
+"%s"
 
 #. module: generic_tag
 #: model:ir.model.constraint,message:generic_tag.constraint_generic_tag_model_res_model_id_uniq
 msgid "For each Odoo model only one Tag Model could be created!"
-msgstr ""
+msgstr "עבור כל מודל של Odoo ניתן היה ליצור רק מודל תג אחד!"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__complete_name
 msgid "Full name of tag (including category name)"
-msgstr ""
+msgstr "שם מלא של התגית (כולל שם הקטגוריה)"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag
 msgid "Generic Tag"
-msgstr ""
+msgstr "תג כללי"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_category
 msgid "Generic Tag Category"
-msgstr ""
+msgstr "קטגוריית תג גנרית"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_mixin
 msgid "Generic Tag Mixin"
-msgstr ""
+msgstr "ערבוב תגים גנרי"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_model
 msgid "Generic Tag Model"
-msgstr ""
+msgstr "מודל תג כללי"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_model_mixin
 msgid "Generic Tag Model Mixin"
-msgstr ""
+msgstr "מיקס מודל תג גנרי"
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag_wizard_manage_tags
 msgid "Generic Tag Wizard: Manage Tags"
-msgstr ""
+msgstr "אשף תגיות כללי: ניהול תגיות"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Group By..."
-msgstr ""
+msgstr "קיבוץ לפי..."
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__group_ids
 msgid "Groups"
-msgstr ""
+msgstr "קבוצות"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__objects_count
 msgid "How many objects contains this tag"
-msgstr ""
+msgstr "כמה אובייקטים מכילים תגית זו"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__tags_count
 msgid "How many tags related to this catgory"
-msgstr ""
+msgstr "כמה תגיות קשורות לקטגוריה זו"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__tags_count
 msgid "How many tags related to this model exists"
-msgstr ""
+msgstr "כמה תגיות שקשורות למודל הזה קיימות"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__id
@@ -348,7 +361,7 @@ msgstr "רשימת מודולים שבהם האובייקט מוגדר או עו
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__code
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__code
 msgid "May be used for special tags which have programmed bechavior"
-msgstr ""
+msgstr "ניתן להשתמש עבור תגים מיוחדים אשר תוכנתו bechavior"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__model_id
@@ -364,14 +377,14 @@ msgstr "דֶגֶם"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__name
 msgid "Model Description"
-msgstr ""
+msgstr "תיאור הדגם"
 
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_category.py:0
 #, python-format
 msgid "Model must be same as one used in related tags"
-msgstr ""
+msgstr "המודל חייב להיות זהה לזה שנעשה בו שימוש בתגים קשורים"
 
 #. module: generic_tag
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tag_models_view
@@ -388,17 +401,17 @@ msgstr "שֵׁם"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__category_name
 msgid "Name of Category"
-msgstr ""
+msgstr "שם הקטגוריה"
 
 #. module: generic_tag
 #: model:ir.model.constraint,message:generic_tag.constraint_generic_tag_category_name_uniq
 msgid "Name of category must be unique"
-msgstr ""
+msgstr "שם הקטגוריה חייב להיות ייחודי"
 
 #. module: generic_tag
 #: model:ir.model.constraint,message:generic_tag.constraint_generic_tag_name_uniq
 msgid "Name of tag must be unique for category"
-msgstr ""
+msgstr "שם התגית חייב להיות ייחודי לקטגוריה"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__search_no_tag_id
@@ -409,19 +422,19 @@ msgstr "אין תג"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__objects_count
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_form
 msgid "Objects"
-msgstr ""
+msgstr "חפצים"
 
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag.py:0
 #, python-format
 msgid "Objects related to tag %s"
-msgstr ""
+msgstr "אובייקטים הקשורים לתגית %s"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__res_model_id
 msgid "Odoo Model"
-msgstr ""
+msgstr "דגם אודו"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__order
@@ -436,7 +449,7 @@ msgstr "חוקי הקלטה"
 #. module: generic_tag
 #: model:ir.model.fields.selection,name:generic_tag.selection__generic_tag_wizard_manage_tags__action__remove
 msgid "Remove"
-msgstr ""
+msgstr "לְהַסִיר"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model__order
@@ -459,20 +472,20 @@ msgstr "מַעֲרֶכֶת"
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_tree
 msgid "Show Objects"
-msgstr ""
+msgstr "הצג אובייקטים"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_tree
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_model_tree
 msgid "Show Tags"
-msgstr ""
+msgstr "הצג תגיות"
 
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag__model_id
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_category__model_id
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_model_mixin__model_id
 msgid "Specify model for which this tag is available"
-msgstr ""
+msgstr "ציין את הדגם שעבורו תג זה זמין"
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__search_tag_id
@@ -483,17 +496,17 @@ msgstr "תָג"
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_manager
 msgid "Tag Manager"
-msgstr ""
+msgstr "מנהל תגיות"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_user
 msgid "Tag User"
-msgstr ""
+msgstr "תייג משתמש"
 
 #. module: generic_tag
 #: model:res.groups,name:generic_tag.group_tags_user_restricted
 msgid "Tag User (restricted)"
-msgstr ""
+msgstr "משתמש תג (מוגבל)"
 
 #. module: generic_tag
 #: model:ir.actions.act_window,name:generic_tag.action_generic_tags_view
@@ -511,21 +524,21 @@ msgstr "תגים"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__tags_count
 msgid "Tags Count"
-msgstr ""
+msgstr "ספירת תגיות"
 
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_category.py:0
 #, python-format
 msgid "Tags related to category %s"
-msgstr ""
+msgstr "תגיות הקשורות לקטגוריה %s"
 
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_model.py:0
 #, python-format
 msgid "Tags related to model %s"
-msgstr ""
+msgstr "תגיות הקשורות למודל %s"
 
 #. module: generic_tag
 #: model_terms:ir.ui.view,arch_db:generic_tag.generic_tag_wizard_manage_tags_form_view
@@ -564,3 +577,5 @@ msgid ""
 "single object. On attempt to add second tag from this category to object, "
 "error will be raised"
 msgstr ""
+"אם מוגדר כ-True, רק תג אחד מקטגוריה זו יכול להימצא על אובייקט יחיד. בניסיון "
+"להוסיף תג שני מקטגוריה זו לאובייקט, תופיע שגיאה"

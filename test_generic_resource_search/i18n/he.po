@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:15+0000\n"
-"PO-Revision-Date: 2025-05-21 05:08+0000\n"
+"PO-Revision-Date: 2025-06-03 07:04+0000\n"
 "Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
 "Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
 "test_generic_resource_search/he/>\n"
@@ -187,7 +187,7 @@ msgstr "נראות המשאב קובעת למשתמשים יש גישת קריא
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__service_ids
 msgid "Services"
-msgstr ""
+msgstr "שירותים"
 
 #. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__state_id
