@@ -22,21 +22,6 @@ msgid "Active"
 msgstr ""
 
 #. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__city
-msgid "City"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__service_count
-msgid "Count of services"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__country_id
-msgid "Country"
-msgstr ""
-
-#. module: test_generic_resource_search
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__create_uid
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__create_uid
 msgid "Created by"
@@ -92,12 +77,6 @@ msgid "ID"
 msgstr ""
 
 #. module: test_generic_resource_search
-#: model:ir.model.fields,help:test_generic_resource_search.field_generic_resource_test_model__resource_use_generic_locations
-msgid ""
-"If set, then resources of this types could be placed on generic location."
-msgstr ""
-
-#. module: test_generic_resource_search
 #: model_terms:ir.ui.view,arch_db:test_generic_resource_search.generic_resource_test_view_form
 msgid "Info"
 msgstr ""
@@ -112,21 +91,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__write_date
 #: model:ir.model.fields,field_description:test_generic_resource_search.field_test_generic_resource_name_search__write_date
 msgid "Last Updated on"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__latitude
-msgid "Latitude"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__placed_on_location_id
-msgid "Located in"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__longitude
-msgid "Longitude"
 msgstr ""
 
 #. module: test_generic_resource_search
@@ -182,26 +146,6 @@ msgid ""
 msgstr ""
 
 #. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__service_ids
-msgid "Services"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__state_id
-msgid "State"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__street
-msgid "Street"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__street2
-msgid "Street2"
-msgstr ""
-
-#. module: test_generic_resource_search
 #: model:generic.resource.type,name:test_generic_resource_search.generic_resource_type_test
 msgid "Test"
 msgstr ""
@@ -211,16 +155,6 @@ msgstr ""
 #: model:ir.ui.menu,name:test_generic_resource_search.generic_resource_test_menu_item
 #: model:ir.ui.menu,name:test_generic_resource_search.menu_resource_test_model_root
 msgid "Test Resources"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__resource_use_generic_locations
-msgid "Use Generic Locations"
-msgstr ""
-
-#. module: test_generic_resource_search
-#: model:ir.model.fields,field_description:test_generic_resource_search.field_generic_resource_test_model__zip
-msgid "Zip"
 msgstr ""
 
 #. module: test_generic_resource_search
