@@ -1,6 +1,7 @@
 import logging
 import datetime
 import functools
+import pytz
 from werkzeug import urls
 from dateutil.relativedelta import relativedelta
 from jinja2.sandbox import SandboxedEnvironment
@@ -21,11 +22,36 @@ def prepare_jinja_template_env(env_kwargs=None, extra_context=None):
 
     env = SandboxedEnvironment(**env_params)
 
+    def as_timezone(dt, tz_name='UTC'):
+        """ Convert datetime to specified timezone
+            :param datetime dt: datetime object to convert
+            :param str tz_name:
+                name of timezone to convert to (e.g. 'UTC', 'Europe/Kiev')
+            :return: formatted datetime string without timezone info
+        """
+        if not dt:
+            return dt
+
+        if isinstance(dt, str):
+            dt = datetime.datetime.fromisoformat(dt)
+
+        if not dt.tzinfo:
+            # Assume naive datetime is in UTC
+            dt = pytz.UTC.localize(dt)
+
+        target_tz = pytz.timezone(tz_name)
+        dt_with_tz = dt.astimezone(target_tz)
+
+        # Return datetime formatted as string without timezone info
+        return dt_with_tz.strftime('%Y-%m-%d %H:%M:%S')
+
     env_ctx = {
         'str': str,
         'quote': urls.url_quote,
         'urlencode': urls.url_encode,
         'datetime': datetime,
+        'pytz': pytz,
+        'as_timezone': as_timezone,
         'len': len,
         'abs': abs,
         'min': min,
