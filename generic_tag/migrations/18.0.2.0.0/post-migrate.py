@@ -3,7 +3,7 @@ from odoo.addons.generic_mixin.tools.migration_utils import ensure_version
 
 
 @ensure_version('2.0.0')
-def migrate(cr, installed_version):
+def migrate(cr, version):
     env = api.Environment(cr, SUPERUSER_ID, {})
 
     for record in env['generic.tag.model'].search([]):

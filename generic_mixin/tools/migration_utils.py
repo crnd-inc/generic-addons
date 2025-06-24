@@ -12,7 +12,7 @@ RE_VERSION = re.compile(
     r"$")
 
 
-def ensure_version(version):
+def ensure_version(expected_version):
     """ Ensure that migration will be running only if installed version is
         less then expected.
         This decorator could be useful to handle database migrations between
@@ -30,22 +30,22 @@ def ensure_version(version):
         This guard, allows to avoid running migration on server-version change,
         if module version kept same (or below).
 
-        :param str version: expected module version to run migration.
+        :param str expected_version: expected module version to run migration.
             This must not include odoo serie!
     """
     def wrapper(fn):
         @functools.wraps(fn)
-        def migrate(cr, installed_version):
-            match = RE_VERSION.match(installed_version)
+        def migrate(cr, version):
+            match = RE_VERSION.match(version)
             if not match:
                 _logger.warning(
                     "Installed version of module has non-standard version! "
                     "Ensure version guard will not work in this case. \n"
                     "Running migration...")
-                return fn(cr, installed_version)
+                return fn(cr, version)
             installed_ver = match.group('version')
-            if V(installed_ver) < V(version):
-                return fn(cr, installed_version)
+            if V(installed_ver) < V(expected_version):
+                return fn(cr, version)
             _logger.info(
                 "Skipping migration, because installed module version is "
                 "greater or equal to migration version.")

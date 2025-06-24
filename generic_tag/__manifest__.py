@@ -13,6 +13,7 @@
 
     "depends": [
         "base",
+        "generic_mixin",
     ],
 
     "data": [
