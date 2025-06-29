@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-13 07:15+0000\n"
-"PO-Revision-Date: 2025-05-19 21:26+0000\n"
+"PO-Revision-Date: 2025-06-29 10:48+0000\n"
 "Last-Translator: Usenko Oleg <oleg911usenko@gmail.com>\n"
 "Language-Team: Hebrew <http://weblate.crnd.pro/projects/generic-addons-17-0/"
 "generic_location/he/>\n"
@@ -131,7 +131,7 @@ msgstr "הגדרות תצורה"
 #. module: generic_location
 #: model:ir.ui.menu,name:generic_location.menu_configuration
 msgid "Configuration"
-msgstr "Configuration"
+msgstr "תְצוּרָה"
 
 #. module: generic_location
 #: model:ir.model,name:generic_location.model_res_partner
