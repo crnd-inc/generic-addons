@@ -120,7 +120,6 @@ msgstr "Код категорії"
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag.py:0
-#, python-format
 msgid "Category must be bound to same model as tag"
 msgstr "Категорія тега повинна бути зв'язаною з тією ж моделлю що і тег"
 
@@ -240,7 +239,6 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_mixin.py:0
-#, python-format
 msgid ""
 "Following (category - tags) pairs, break category XOR restriction:\n"
 "%s"
@@ -384,7 +382,6 @@ msgstr "Опис моделі"
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_category.py:0
-#, python-format
 msgid "Model must be same as one used in related tags"
 msgstr "Модель має бути та ж що і у пов'язаних тегах"
 
@@ -429,7 +426,6 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag.py:0
-#, python-format
 msgid "Objects related to tag %s"
 msgstr "Об'єкти пов'язані з тегом %s"
 
@@ -531,14 +527,12 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_category.py:0
-#, python-format
 msgid "Tags related to category %s"
 msgstr "Теги пов'язані з категорією %s"
 
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_model.py:0
-#, python-format
 msgid "Tags related to model %s"
 msgstr "Теги пов'язані з моделлю %s"
 

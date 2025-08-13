@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -103,7 +103,6 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag.py:0
-#, python-format
 msgid "Category must be bound to same model as tag"
 msgstr ""
 
@@ -223,7 +222,6 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_mixin.py:0
-#, python-format
 msgid ""
 "Following (category - tags) pairs, break category XOR restriction:\n"
 "%s"
@@ -364,7 +362,6 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_category.py:0
-#, python-format
 msgid "Model must be same as one used in related tags"
 msgstr ""
 
@@ -409,7 +406,6 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag.py:0
-#, python-format
 msgid "Objects related to tag %s"
 msgstr ""
 
@@ -511,14 +507,12 @@ msgstr ""
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_category.py:0
-#, python-format
 msgid "Tags related to category %s"
 msgstr ""
 
 #. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_model.py:0
-#, python-format
 msgid "Tags related to model %s"
 msgstr ""
 

@@ -23,20 +23,17 @@ msgstr ""
 #. module: generic_m2o
 #. odoo-javascript
 #: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
-#, python-format
 msgid "Quick search: %s"
 msgstr ""
 
 #. module: generic_m2o
 #. odoo-javascript
 #: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
-#, python-format
 msgid "Search: %s"
 msgstr ""
 
 #. module: generic_m2o
 #. odoo-javascript
 #: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
-#, python-format
 msgid "Select records"
 msgstr ""

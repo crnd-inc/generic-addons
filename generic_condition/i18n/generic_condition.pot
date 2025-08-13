@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -30,13 +30,17 @@ msgstr ""
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__type__operator-and
-#, python-format
 msgid "AND"
 msgstr ""
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_date_diff_absolute
 msgid "Absolute"
+msgstr ""
+
+#. module: generic_condition
+#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
+msgid "Accounting date"
 msgstr ""
 
 #. module: generic_condition
@@ -72,6 +76,13 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
+"By this type you can create the condition to compare monetary indicators. <br/>\n"
+"                               <br/>"
+msgstr ""
+
+#. module: generic_condition
+#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
+msgid ""
 "By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
 "                                <br/>"
 msgstr ""
@@ -79,7 +90,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Cannot apply conditions %(cond_name)s [%(cond_id)s] of type 'Filter' to "
 "NewId object"
@@ -88,7 +98,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid "Cannot check conditions for empty recordset"
 msgstr ""
 
@@ -127,7 +136,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Checking condition %(cond)s on document %(doc)s caused error. Notify administrator to fix it.\n"
 "\n"
@@ -246,7 +254,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid "Condition Find: model if order by field must be same as search model"
 msgstr ""
 
@@ -305,6 +312,7 @@ msgstr ""
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_currency_field_id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_value_currency_id
+#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid "Currency"
 msgstr ""
 
@@ -313,7 +321,6 @@ msgstr ""
 #: code:addons/generic_condition/models/generic_condition.py:0
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_monetary_curency_date_type__now
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-#, python-format
 msgid "Current date"
 msgstr ""
 
@@ -325,7 +332,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition_domain_leaf.py:0
-#, python-format
 msgid ""
 "Currently it is not supported to check fields of %(field_type)s type with "
 "static value"
@@ -336,7 +342,6 @@ msgstr ""
 #: code:addons/generic_condition/models/generic_condition.py:0
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__condition_monetary_curency_date_date
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_monetary_curency_date_type__date
-#, python-format
 msgid "Date"
 msgstr ""
 
@@ -396,7 +401,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid "Datetime"
 msgstr ""
 
@@ -446,7 +450,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/wizard/test_condition.py:0
-#, python-format
 msgid "Error"
 msgstr ""
 
@@ -470,7 +473,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/generic_condition/tests/test_condition.py:0
 #: code:addons/generic_condition/wizard/test_condition.py:0
-#, python-format
 msgid "Fail"
 msgstr ""
 
@@ -488,7 +490,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_monetary_curency_date_type__field
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__condition_user_check_type__field
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
-#, python-format
 msgid "Field"
 msgstr ""
 
@@ -583,7 +584,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
@@ -681,7 +681,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Incorrect Condition (condition group) selected!\n"
 "Base condition: %(base_cond)s [%(base_cond_id)s]\n"
@@ -691,7 +690,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Incorrect Conditon field set for condition: %(condition)s [%(condition_id)s]"
 msgstr ""
@@ -699,7 +697,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Incorrect Filter field set for condition: %(condition)s [%(condition_id)s]"
 msgstr ""
@@ -766,7 +763,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Model (%(cmodel)s) of check condition (%(cond)s) must match Search model "
 "(%(smodel)s)!"
@@ -780,7 +776,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Model of check field (%(dmodel)s) of domain leaf (%(domain)s) must match "
 "Search model (%(smodel)s)!"
@@ -789,10 +784,14 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid ""
 "Model of value field (%(dfield)s) of domain leaf (%(domain)s) must match "
 "Condition model (%(smodel)s)!"
+msgstr ""
+
+#. module: generic_condition
+#: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition__type__monetary_field
+msgid "Monetary field"
 msgstr ""
 
 #. module: generic_condition
@@ -838,14 +837,12 @@ msgstr ""
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
 #: model:ir.model.fields.selection,name:generic_condition.selection__generic_condition_domain_leaf__type__operator-or
-#, python-format
 msgid "OR"
 msgstr ""
 
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/wizard/test_condition.py:0
-#, python-format
 msgid "Object (model: %(model)s; id: %(obj_id)s) not found"
 msgstr ""
 
@@ -875,7 +872,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/generic_condition/tests/test_condition.py:0
 #: code:addons/generic_condition/wizard/test_condition.py:0
-#, python-format
 msgid "Ok"
 msgstr ""
 
@@ -1114,7 +1110,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/wizard/test_condition.py:0
-#, python-format
 msgid "Unknown"
 msgstr ""
 
@@ -1254,7 +1249,6 @@ msgstr ""
 #. module: generic_condition
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
-#, python-format
 msgid "Wrong Related Field / Based on combination"
 msgstr ""
 
