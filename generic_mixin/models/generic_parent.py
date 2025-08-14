@@ -37,7 +37,7 @@ class GenericMixinParentNames(models.AbstractModel):
 
         @api.constrains(cls._parent_name)
         def _recursion_constraint(self):
-            if not self._check_recursion():
+            if self._has_cycle():
                 raise ValidationError(_(
                     'Error ! You cannot create recursive %s.'
                     '') % self._description)
