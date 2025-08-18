@@ -4,13 +4,13 @@
     <record id="generic_resource_type_view_tree" model="ir.ui.view">
         <field name="model">generic.resource.type</field>
         <field name="arch" type="xml">
-            <tree create="false" delete="false">
+            <list create="false" delete="false">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="model_id"/>
                 <field name="active"/>
                 <field name="resource_count"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -110,7 +110,7 @@
         <field name="name">Resource Types</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.resource.type</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
     </record>
 
     <menuitem id="generic_resource_type_menu_item"

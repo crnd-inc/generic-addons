@@ -103,7 +103,7 @@ class GenericResourceType(models.Model):
                 'binding_type': 'action',
                 'binding_model_id': self.model_id.id,
                 'res_model': 'generic.resource',
-                'view_mode': 'tree,form',
+                'view_mode': 'list,form',
                 'target': 'current',
                 'domain': (
                     "[('res_id', 'in', active_ids),"
@@ -176,6 +176,6 @@ class GenericResourceType(models.Model):
             'type': 'ir.actions.act_window',
             'name': self.sudo().model_id.name,
             'res_model': self.sudo().model_id.model,
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'target': 'current',
         }

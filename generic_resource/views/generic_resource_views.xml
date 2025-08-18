@@ -38,7 +38,7 @@
         <field name="model">generic.resource</field>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <tree create="false" delete="false">
+            <list create="false" delete="false">
                 <field name="display_name" string="Name"/>
                 <field name="active" column_invisible="1"/>
                 <field name="res_type_id"/>
@@ -46,7 +46,7 @@
                         type="object"
                         string="Open Resource"
                         icon="fa-external-link"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -110,7 +110,7 @@
     <record id="generic_resource_action_view_tree"
             model="ir.actions.act_window.view">
         <field name="sequence" eval="5"/>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
         <field name="view_id" ref="generic_resource_view_tree"/>
         <field name="act_window_id" ref="generic_resource_action"/>
     </record>
