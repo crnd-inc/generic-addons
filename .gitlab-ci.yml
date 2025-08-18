@@ -21,6 +21,10 @@ variables:
             - $CI_COMMIT_MESSAGE =~ /\[CI-AUTO-UPDATE\]/
             - $CI_COMMIT_MESSAGE =~ /Translated using Weblate/
 
+.except-port-branches: &except_port_branches
+    except:
+        - /^18\.0-port.*$/
+
 # Disable global cache
 cache: {}
 
@@ -79,6 +83,7 @@ check-versions:
         - odoo-helper ci check-versions-git . origin/$SERIES_BRANCH $CI_COMMIT_SHA
     <<: *only_dev_branch
     <<: *except_auto_commits
+    <<: *except_port_branches
 
 ensure-changelog:
     stage: static-test
