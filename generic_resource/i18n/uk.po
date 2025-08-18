@@ -56,7 +56,6 @@ msgstr "Кіль-ть вкладень"
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/generic_resource_wizard_mixin.py:0
-#, python-format
 msgid ""
 "Cannot apply this action to resources with different types! Please, select "
 "resources of single resource type"
@@ -150,7 +149,6 @@ msgstr "Устаткування"
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/ir_model.py:0
-#, python-format
 msgid "Field 'Is Generic Resource' cannot be changed to 'False'."
 msgstr "Поле 'Є загальним ресурсом' не можна змінювати на 'False'."
 
@@ -162,7 +160,6 @@ msgstr "Поля"
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:0
-#, python-format
 msgid ""
 "Fields incorrect\n"
 "\tResource type: %(res_type)s\n"
@@ -489,7 +486,6 @@ msgstr "Кількість повідомлень з помилковою дст
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/ir_model.py:0
-#, python-format
 msgid "Only custom models can be modified."
 msgstr "Можна змінювати тільки користувацькі моделі."
 
@@ -673,7 +669,6 @@ msgstr ""
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/generic_resource_related_mixin.py:0
-#, python-format
 msgid ""
 "Resource does not exists!\n"
 "\tResource type: %(res_type)s\n"
@@ -688,7 +683,6 @@ msgstr ""
 #. module: generic_resource
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_mixin_unique_resource_id
 #: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_simple_unique_resource_id
-#: model:ir.model.constraint,message:generic_resource.constraint_generic_resource_test_model_unique_resource_id
 msgid "Resource must be unique"
 msgstr "Ресурс має бути унікальним"
 
@@ -822,7 +816,6 @@ msgstr "Чи є ця модель загальним ресурсом."
 #. module: generic_resource
 #. odoo-python
 #: code:addons/generic_resource/models/generic_resource_type.py:0
-#, python-format
 msgid "Wrong 'Show Resources Action' for resource type '%(res_type)s'"
 msgstr ""
 
