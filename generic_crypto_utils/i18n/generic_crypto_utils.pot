@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -46,7 +46,6 @@ msgstr ""
 #. module: generic_crypto_utils
 #. odoo-python
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
-#, python-format
 msgid ""
 "Invalid 'crypto_token'! Ensure it is valid 32-bytes base64-encoded string!"
 msgstr ""
@@ -54,7 +53,6 @@ msgstr ""
 #. module: generic_crypto_utils
 #. odoo-python
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
-#, python-format
 msgid ""
 "It seems that python package 'cryptography' is not installed!Please, install"
 " [cryptography](https://pypi.org/project/cryptography/) package and try "
@@ -89,7 +87,6 @@ msgstr ""
 #. module: generic_crypto_utils
 #. odoo-python
 #: code:addons/generic_crypto_utils/models/generic_crypto_param.py:0
-#, python-format
 msgid ""
 "You must add 'crypto_token' to 'odoo.conf' to be able to use this feature"
 msgstr ""
