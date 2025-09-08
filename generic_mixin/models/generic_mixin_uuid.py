@@ -111,3 +111,13 @@ class GenericMixinUUID(models.AbstractModel):
             else:
                 vals_r += [vals]
         return super(GenericMixinUUID, self).create(vals_r)
+
+    def get_by_uuid(self, u):
+        """ Get record by UUID, even if it is archived
+
+            :param str u: UUID to search record by
+            :return: Recordset with record found or empty recordset.
+        """
+        return self.with_context(active_test=False).search([
+            (self._generic_mixin_uuid_field_name, '=', u),
+        ])

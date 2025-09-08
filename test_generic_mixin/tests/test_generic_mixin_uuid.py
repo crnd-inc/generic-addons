@@ -21,6 +21,8 @@ class UUIDMixinTest(TransactionCase):
         # If UUID receive wrong param, then it will raise ValueError
         uuid.UUID(rec.x_uuid)
 
+        self.assertEqual(rec.id, Model.get_by_uuid(rec.x_uuid).id)
+
     def test_generic_mixin_uuid_2(self):
         Model = self.env['test.generic.mixin.uuid.named.field']
         self.assertIn('x_myuuid', Model._fields)
@@ -33,6 +35,8 @@ class UUIDMixinTest(TransactionCase):
         # If UUID receive wrong param, then it will raise ValueError
         _logger.info('U: %s', rec.x_myuuid)
         uuid.UUID(rec.x_myuuid)
+
+        self.assertEqual(rec.id, Model.get_by_uuid(rec.x_myuuid).id)
 
     def test_generic_mixin_uuid_3(self):
         Model = self.env['test.generic.mixin.uuid.named.field']
@@ -49,3 +53,5 @@ class UUIDMixinTest(TransactionCase):
         # If UUID receive wrong param, then it will raise ValueError
         _logger.info('U: %s', rec.x_myuuid)
         uuid.UUID(rec.x_myuuid)
+
+        self.assertEqual(rec.id, Model.get_by_uuid(rec.x_myuuid).id)
