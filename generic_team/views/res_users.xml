@@ -9,9 +9,9 @@
                       groups="generic_team.group_generic_team_user_implicit"
                       string="Teams">
                     <field name="generic_team_member_ids">
-                        <tree>
+                        <list>
                             <field name="team_id"/>
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </xpath>

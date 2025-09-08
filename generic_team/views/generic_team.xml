@@ -3,12 +3,12 @@
     <record id="generic_team_tree" model="ir.ui.view">
         <field name="model">generic.team</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="id" groups="base.group_no_one"/>
                 <field name="user_count"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -44,17 +44,14 @@
                         </page>
                         <page string="Team members" name="page_team_members">
                             <field name="team_member_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="user_id"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="message_ids"/>
-                </div>
+                <chatter/>
 
             </form>
         </field>
