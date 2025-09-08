@@ -15,3 +15,10 @@ class ResUsers(models.Model):
         help='This user is member of following generic teams')
     generic_team_member_ids = fields.One2many(
         'generic.team.member', 'user_id')
+
+    def get_team_member(self, team_id):
+        self.ensure_one()
+        return self.env['generic.team.member'].sudo().search([
+            ('team_id', '=', team_id.id),
+            ('user_id', '=', self.id),
+        ])

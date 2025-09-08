@@ -55,14 +55,14 @@
     <record id="generic_condition_tree_view" model="ir.ui.view">
         <field name="model">generic.condition</field>
         <field name="arch" type="xml">
-            <list>
+            <tree>
                 <field name="name"/>
                 <field name="sequence" column_invisible="1"/>
                 <field name="type"/>
                 <field name="model_id"/>
                 <field name="enable_caching"/>
                 <field name="with_sudo"/>
-            </list>
+            </tree>
         </field>
     </record>
 
@@ -517,6 +517,8 @@
                         </group>
                         <!-- 'Monetary field' condition data -->
 
+                        <!-- TODO: uncomment when odoo solve monetary fields -->
+
                        <group colspan="4" col="4"
                               name="group_condition_monetary_field"
                               invisible="type != 'monetary_field'">
@@ -648,10 +650,10 @@
                                    string="Filter records">
                                 <field name="condition_find_search_domain_ids"
                                        required="type == 'find'"
-                                       mode="list,form"
+                                       mode="tree,form"
                                        nolabel="1"
                                        colspan="2">
-                                    <list>
+                                    <tree>
                                         <field name="sequence" widget="handle"/>
                                         <field name="type"/>
                                         <field name="check_field_id"
@@ -663,7 +665,7 @@
                                                invisible="type != 'search-condition'"/>
                                         <field name="value_display"
                                                invisible="type != 'search-condition'"/>
-                                    </list>
+                                    </tree>
                                     <form>
                                         <group>
                                             <group>
@@ -743,13 +745,15 @@
                             </group>
                         </group>
                     </group>
-                    <group colspan="4" string="Description">
+                    <group colspan="4" string="Description"></group>
                         <field name="description"
                                nolabel="1"
                                placeholder="Description..."/>
-                    </group>
                 </sheet>
-                <chatter reload_on_attachment="True"/>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
@@ -758,7 +762,7 @@
         <field name="name">Generic Conditions</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.condition</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <!--menus -->

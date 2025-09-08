@@ -8,4 +8,5 @@ from . import (
     test_mixin_proxy_methods,
     test_delegation,
     test_contact_mixin,
+    test_jinja_timezone,
 )

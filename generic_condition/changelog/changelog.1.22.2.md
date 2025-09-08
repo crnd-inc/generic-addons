@@ -1,4 +1,2 @@
-
-- generic_condition_form_view: remove deprecated chatter usage,
-    replace with modern tag <chatter/>
-- uncomment monetary field for model Generic Condition.
+- Fix FakeSelection(extends SelectionField) class: remove deprecated code,
+    update existing code according to odoo version 17.0.
