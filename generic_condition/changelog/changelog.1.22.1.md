@@ -1,1 +1,0 @@
-- Uncomment monetary field support for Generic Conditions.
