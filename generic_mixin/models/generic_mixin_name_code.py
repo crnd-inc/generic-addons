@@ -13,7 +13,7 @@ class GenericMixinNameWithCode(models.AbstractModel):
 
     _sql_constraints = [
         ('code_ascii_only',
-         r"CHECK (code ~ '^[a-zA-Z0-9\-_]*$')",
+         r"CHECK (code ~ '^[a-zA-Z0-9\-_\.]*$')",
          'Code must be ascii only'),
     ]
 
