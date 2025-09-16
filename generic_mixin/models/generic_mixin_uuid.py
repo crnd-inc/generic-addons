@@ -121,3 +121,22 @@ class GenericMixinUUID(models.AbstractModel):
         return self.with_context(active_test=False).search([
             (self._generic_mixin_uuid_field_name, '=', u),
         ])
+
+    def create_or_update_by_uuid(self, u, data):
+        """ Create or update record by UUID.
+
+            Useful for integration purposes.
+
+            :param str u: UUID of record to create or update
+            :param dict data: Data to write to record or to updated record with
+            :return: record updated or created record
+        """
+        record = self.get_by_uuid(u)
+        if record:
+            record.write(data)
+        else:
+            data = dict(data)
+            data[self._generic_mixin_uuid_field_name] = u
+            record = self.create(data)
+
+        return record

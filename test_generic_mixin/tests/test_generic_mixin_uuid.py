@@ -55,3 +55,22 @@ class UUIDMixinTest(TransactionCase):
         uuid.UUID(rec.x_myuuid)
 
         self.assertEqual(rec.id, Model.get_by_uuid(rec.x_myuuid).id)
+
+    def test_generic_mixin_uuid_4(self):
+        Model = self.env['test.generic.mixin.uuid.named.field']
+        self.assertIn('x_myuuid', Model._fields)
+        self.assertIsInstance(Model._fields['x_myuuid'], fields.Char)
+
+        u = str(uuid.uuid4())
+        rec = Model.create_or_update_by_uuid(u, {
+            'name': 'New',
+        })
+        self.assertEqual(rec.x_myuuid, u)
+        self.assertEqual(rec.name, 'New')
+
+        rec1 = Model.create_or_update_by_uuid(u, {
+            'name': 'Updated',
+        })
+        self.assertEqual(rec.x_myuuid, u)
+        self.assertEqual(rec.name, 'Updated')
+        self.assertEqual(rec.id, rec1.id)
