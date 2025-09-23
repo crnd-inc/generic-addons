@@ -4,7 +4,7 @@
         <field name="name">Location Tags</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">generic.tag</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{'default_model': 'generic.location'}</field>
         <field name="domain">[('model_id.model','=','generic.location')]</field>
     </record>

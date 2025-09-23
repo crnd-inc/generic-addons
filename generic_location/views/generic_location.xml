@@ -113,10 +113,7 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="message_ids"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -124,7 +121,7 @@
     <record model="ir.ui.view" id="generic_location_tree_view">
         <field name="model">generic.location</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="id" groups="base.group_no_one"/>
                 <field name="type_id"/>
@@ -142,7 +139,7 @@
                        widget="many2many_tags"
                        placeholder="Tags..."
                        context="{'default_model': 'generic.location'}"/>
-            </tree>
+            </list>
         </field>
     </record>
     
@@ -206,7 +203,7 @@
     <record id="generic_location_action_view_tree"
             model="ir.actions.act_window.view">
         <field eval="5" name="sequence"/>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
         <field name="view_id"  ref="generic_location_tree_view"/>
         <field name="act_window_id" ref="generic_location_action"/>
     </record>

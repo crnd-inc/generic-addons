@@ -37,7 +37,7 @@
         'demo/demo_location_tag.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'application': False,
     "license": "LGPL-3",
 }

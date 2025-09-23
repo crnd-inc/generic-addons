@@ -38,12 +38,12 @@
     <record model="ir.ui.view" id="generic_location_type_tree_view">
         <field name="model">generic.location.type</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="code"/>
                 <field name="active"/>
                 <field name="location_count"/>
-            </tree>
+            </list>
         </field>
     </record>
     
