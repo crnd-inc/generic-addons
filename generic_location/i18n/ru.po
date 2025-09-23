@@ -526,7 +526,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/generic_location/models/generic_location.py:0
 #: model:ir.model.fields,field_description:generic_location.field_generic_location__child_ids
-#, python-format
 msgid "Sublocations"
 msgstr "Сублокации"
 
