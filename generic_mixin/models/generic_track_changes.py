@@ -542,7 +542,8 @@ class GenericMixInTrackChanges(models.AbstractModel):
                 except ValueError:
                     # And if not working, apply special case
                     fval = datetime.datetime.strptime(fval, '%Y-%m-%d %H:%M')
-
+            # TODO: Handle changes of x2m fields
+            #       Id not changed, but record changed
             new_value = self._fields[fname].convert_to_record(
                 self._fields[fname].convert_to_cache(fval, self),
                 self)
