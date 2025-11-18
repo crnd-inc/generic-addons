@@ -545,7 +545,11 @@ class GenericMixInTrackChanges(models.AbstractModel):
             # TODO: Handle changes of x2m fields
             #       Id not changed, but record changed
             new_value = self._fields[fname].convert_to_record(
-                self._fields[fname].convert_to_cache(fval, self),
+                # Note, that here we use `self.new`, because internally,
+                # convert_to_cache has some checks that require
+                # record to be `new`, empty, or single record
+                # to make it work properly
+                self._fields[fname].convert_to_cache(fval, self.new()),
                 self)
             if old_value != new_value:
                 changes[fname] = FieldChange(old_value, new_value)
