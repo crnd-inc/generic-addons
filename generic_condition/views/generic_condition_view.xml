@@ -446,7 +446,7 @@
                                     <td>
                                         <field name="condition_simple_field_value_char"
                                                required="type == 'simple_field' and condition_simple_field_type in ('char', 'text', 'html') and condition_simple_field_string_operator not in ('set', 'not set')"
-                                               invisible="[('condition_simple_field_type', 'not in', ('char', 'text', 'html')) or ('condition_simple_field_string_operator', 'in', ('set', 'not set'))]"/>
+                                               invisible="(condition_simple_field_type not in ('char', 'text', 'html')) or (condition_simple_field_string_operator in ('set', 'not set'))"/>
                                         <field name="condition_simple_field_value_integer"
                                                required="type == 'simple_field' and condition_simple_field_type == 'integer'"
                                                invisible="condition_simple_field_type != 'integer'"/>
