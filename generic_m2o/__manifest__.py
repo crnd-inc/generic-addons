@@ -1,6 +1,6 @@
 {
     "name": "Generic M2O Widget",
-    "version": "18.0.1.9.2",
+    "version": "19.0.1.9.2",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -15,6 +15,9 @@
         'web.assets_backend': [
             '/generic_m2o/static/src/js/generic_m2o.js',
             '/generic_m2o/static/src/js/generic_m2o.xml',
+        ],
+        'web.assets_unit_tests': [
+            '/generic_m2o/static/tests/**/*.test.js',
         ],
     },
     'images': ['static/description/banner.png'],

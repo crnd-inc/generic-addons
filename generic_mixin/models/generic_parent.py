@@ -1,6 +1,6 @@
 from odoo import api, models, _
 from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 # Inspired by default product.category implementation
@@ -78,21 +78,21 @@ class GenericMixinParentNames(models.AbstractModel):
                 names_ids = self.name_search(' / '.join(parents), args=args,
                                              operator='ilike', limit=limit)
                 record_ids = [name_id[0] for name_id in names_ids]
-                if operator in expression.NEGATIVE_TERM_OPERATORS:
+                if operator in Domain.NEGATIVE_TERM_OPERATORS:
                     records = self.search([('id', 'not in', record_ids)])
-                    domain = expression.OR(
+                    domain = Domain.OR(
                         [[(self._parent_name, 'in', records.ids)], domain])
                 else:
-                    domain = expression.AND(
+                    domain = Domain.AND(
                         [[(self._parent_name, 'in', record_ids)], domain])
                 for i in range(1, len(record_names)):
                     names = ' / '.join(record_names[-1 - i:])
                     domain = [[('name', operator, names)], domain]
-                    if operator in expression.NEGATIVE_TERM_OPERATORS:
-                        domain = expression.AND(domain)
+                    if operator in Domain.NEGATIVE_TERM_OPERATORS:
+                        domain = Domain.AND(domain)
                     else:
-                        domain = expression.OR(domain)
-            records = self.search(expression.AND([domain, args]), limit=limit)
+                        domain = Domain.OR(domain)
+            records = self.search(Domain.AND([domain, args]), limit=limit)
         else:
             records = self.search(args, limit=limit)
         return [(record.id, record.display_name) for record in records]

@@ -1,4 +1,4 @@
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 def read_counts_for(records, related_model, search_field, value_field,
@@ -48,7 +48,7 @@ def read_counts_for(records, related_model, search_field, value_field,
 
         search_domain = [(search_field, 'in', check_values)]
         if domain:
-            search_domain = expression.AND([search_domain, domain])
+            search_domain = Domain.AND([search_domain, domain])
         data = RelatedModel.read_group(
             search_domain, [search_field], [search_field])
         mapped_data = {}

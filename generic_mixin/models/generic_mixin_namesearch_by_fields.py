@@ -1,5 +1,5 @@
 from odoo import models, api
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class GenericMixinNamesearchByFields(models.AbstractModel):
@@ -52,13 +52,13 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
         # Contrary in case of positive term operator, we need to use OR to
         # join domains. For example:
         #     code ilike 'test' or name 'ilike' test
-        if operator in expression.NEGATIVE_TERM_OPERATORS:
-            domain = expression.AND(domains)
+        if operator in Domain.NEGATIVE_TERM_OPERATORS:
+            domain = Domain.AND(domains)
         else:
-            domain = expression.OR(domains)
+            domain = Domain.OR(domains)
 
         record_ids = self.search(
-            expression.AND([
+            Domain.AND([
                 args if args else [],
                 domain]),
             limit=limit

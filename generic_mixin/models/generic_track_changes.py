@@ -4,7 +4,8 @@ import collections
 from operator import itemgetter
 from inspect import getmembers
 from odoo import models, api, fields
-from odoo.fields import resolve_mro, DATETIME_LENGTH
+from odoo.orm.fields import resolve_mro
+from odoo.orm.fields_temporal import DATETIME_LENGTH
 
 _logger = logging.getLogger(__name__)
 

@@ -1,5 +1,5 @@
 from odoo import models, _
-from odoo.osv.expression import FALSE_DOMAIN
+from odoo.fields import Domain
 from odoo.exceptions import UserError
 
 
@@ -11,7 +11,7 @@ class GenericMixinNoUnlink(models.AbstractModel):
 
     # Change this domain to that one, that selected records allowed to be
     # unlinked
-    _allow_unlink_domain = FALSE_DOMAIN
+    _allow_unlink_domain = Domain.FALSE
 
     def _allow_unlink(self):
         """ Decide whether unlink of selected records is allowed or not
