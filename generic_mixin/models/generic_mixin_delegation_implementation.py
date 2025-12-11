@@ -303,13 +303,11 @@ class GenericMixinDelegationImplementation(models.AbstractModel):
                 setattr(implementation_cls, method_name, proxy_method)
 
     @api.model
-    def _setup_complete(self):
-        """ Setup recomputation triggers, and complete the model setup. """
-        res = super()._setup_complete()
+    def _post_model_setup__(self):
+        """ Method called after the model has been setup. """
+        super()._post_model_setup__()
 
         if self._name == 'generic.mixin.delegation.implementation':
-            return res
+            return
 
         self._setup__update_interface_proxy_methods()
-
-        return res

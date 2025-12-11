@@ -1,5 +1,5 @@
 import inspect
-from odoo import models, api
+from odoo import api, models
 
 
 def generate_proxy_decorator(attr_name):
@@ -140,24 +140,24 @@ class GenericMixinProxyMethods(models.AbstractModel):
     _generic_mixin_proxy_methods__method_attr = None
 
     @api.model
-    def _setup_complete(self):
-        """ Setup recomputation triggers, and complete the model setup. """
-        res = super()._setup_complete()
+    def _post_model_setup__(self):
+        """ Method called after the model has been setup. """
+        super()._post_model_setup__()
 
         if self._name == 'generic.mixin.proxy.methods':
-            return res
+            return
 
         if not self._generic_mixin_proxy_methods__dest_model:
-            return res
+            return
 
         if not self._generic_mixin_proxy_methods__method_attr:
-            return res
+            return
 
         if not self._generic_mixin_proxy_methods__link_field:
-            return res
+            return
 
-        mixin_cls = type(
-            self.env[self._generic_mixin_proxy_methods__dest_model])
+        dest_model = self.env[self._generic_mixin_proxy_methods__dest_model]
+        dest_model_cls = type(dest_model)
 
         def is_proxy_method(func):
             """ Check if function is marked as proxy
@@ -167,17 +167,44 @@ class GenericMixinProxyMethods(models.AbstractModel):
             return getattr(
                 func, self._generic_mixin_proxy_methods__method_attr, False)
 
-        # Find all proxy methods, and proxy them to dest model
-        for attrname, __ in inspect.getmembers(type(self), is_proxy_method):
-            if hasattr(mixin_cls, attrname):
-                # We do not want to do anything if corresponding method
-                # already exists on destination model
-                continue
-            setattr(
-                mixin_cls,
-                attrname,
-                proxy_method_wrapper(
-                    attrname,
-                    self._generic_mixin_proxy_methods__link_field))
+        # Find all models that inherit from dest_model via _inherit
+        def collect_inherit_children(model_cls):
+            children = set()
+            for child_name in getattr(model_cls, '_inherit_children', []):
+                if child_name in self.env:
+                    child_cls = type(self.env[child_name])
+                    children.add(child_cls)
+                    children.update(collect_inherit_children(child_cls))
+            return children
 
-        return res
+        # Get all models that inherit from dest_model (including itself)
+        # We need to find all models that have _inherits pointing to
+        # the source model (self._name) via the link field
+        models_to_update = set()
+
+        # Add dest model itself
+        models_to_update.add(dest_model_cls)
+
+        models_to_update.update(collect_inherit_children(dest_model_cls))
+
+        # Also find all models that have _inherits pointing to source model
+        for model_name in self.env.registry:
+            model_cls = type(self.env[model_name])
+            if self._name in getattr(model_cls, '_inherits', {}):
+                models_to_update.add(model_cls)
+                # And their children
+                models_to_update.update(collect_inherit_children(model_cls))
+
+        # Find all proxy methods, and proxy them to dest model and its children
+        for attrname, __ in inspect.getmembers(type(self), is_proxy_method):
+            for model_cls in models_to_update:
+                if hasattr(model_cls, attrname):
+                    # We do not want to do anything if corresponding method
+                    # already exists on destination model
+                    continue
+                setattr(
+                    model_cls,
+                    attrname,
+                    proxy_method_wrapper(
+                        attrname,
+                        self._generic_mixin_proxy_methods__link_field))

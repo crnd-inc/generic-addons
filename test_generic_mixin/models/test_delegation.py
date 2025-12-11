@@ -67,10 +67,11 @@ class ImplementationMixin1(models.AbstractModel):
         'generic.mixin.track.changes',
         'generic.mixin.delegation.implementation',
     ]
+    _inherits = {'test.generic.mixin.interface.1': 'interface_1_id'}
 
     interface_1_id = fields.Many2one(
         'test.generic.mixin.interface.1', index=True, auto_join=True,
-        required=True, delegate=True, ondelete='restrict')
+        required=True, ondelete='restrict')
 
     _sql_constraints = [
         ('unique_interface_1_id', 'UNIQUE(interface_1_id)',
@@ -85,10 +86,11 @@ class ImplementationMixin2(models.AbstractModel):
         'generic.mixin.track.changes',
         'generic.mixin.delegation.implementation',
     ]
+    _inherits = {'test.generic.mixin.interface.2': 'interface_2_id'}
 
     interface_2_id = fields.Many2one(
         'test.generic.mixin.interface.2', index=True, auto_join=True,
-        required=True, delegate=True, ondelete='restrict')
+        required=True, ondelete='restrict')
 
     _sql_constraints = [
         ('unique_interface_2_id', 'UNIQUE(interface_2_id)',
@@ -121,10 +123,11 @@ class TestDelegationMultiInterfaceNoDelImpl(models.Model):
         'test.generic.mixin.interface.1.impl.mixin',
         'generic.mixin.track.changes',
     ]
+    _inherits = {'test.gm.delegation.no.delegation': 'test_delegate_id'}
     _description = "Test Generic Mixin: Interface no del impl"
 
     name = fields.Char()
 
     test_delegate_id = fields.Many2one(
-        'test.gm.delegation.no.delegation', required=True, delegate=True,
+        'test.gm.delegation.no.delegation', required=True,
         ondelete='cascade')

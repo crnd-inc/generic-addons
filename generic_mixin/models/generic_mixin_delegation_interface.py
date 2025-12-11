@@ -162,12 +162,12 @@ class GenericMixinDelegationInterface(models.AbstractModel):
                 record.display_name = _("Error: unknown implementation")
 
     @api.model
-    def _setup_complete(self):
-        """ Setup recomputation triggers, and complete the model setup. """
-        res = super()._setup_complete()
+    def _post_model_setup__(self):
+        """ Method called after the model has been setup. """
+        super()._post_model_setup__()
 
         if self._name == 'generic.mixin.delegation.interface':
-            return res
+            return
 
         # Proxy interface methods to implementations
         for implementation_model in getattr(
@@ -178,5 +178,3 @@ class GenericMixinDelegationInterface(models.AbstractModel):
             impl = self.env[implementation_model]
             if hasattr(impl, '_setup__update_interface_proxy_methods'):
                 impl._setup__update_interface_proxy_methods()
-
-        return res

@@ -34,9 +34,10 @@ class MyBaseModel(models.Model):
 class MySpecificModelMixin(models.AbstractModel):
     _name = 'test.proxy.method.my.specific.model.mixin'
     _description = "Test Generic Mixin: Proxy method my specific model mixin"
+    _inherits = {'test.proxy.method.my.base.model': 'base_record_id'}
 
     base_record_id = fields.Many2one(
-        'test.proxy.method.my.base.model', delegate=True, required=True,
+        'test.proxy.method.my.base.model', required=True,
         ondelete='cascade', readonly=True)
 
 

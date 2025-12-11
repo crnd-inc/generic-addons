@@ -52,7 +52,7 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
         # Contrary in case of positive term operator, we need to use OR to
         # join domains. For example:
         #     code ilike 'test' or name 'ilike' test
-        if operator in Domain.NEGATIVE_TERM_OPERATORS:
+        if operator in Domain.NEGATIVE_OPERATORS:
             domain = Domain.AND(domains)
         else:
             domain = Domain.OR(domains)

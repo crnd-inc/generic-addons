@@ -11,11 +11,10 @@ class GenericMixinNameWithCode(models.AbstractModel):
     name = fields.Char(required=True, index=True, translate=True)
     code = fields.Char(required=True, index=True)
 
-    _sql_constraints = [
-        ('code_ascii_only',
-         r"CHECK (code ~ '^[a-zA-Z0-9\-_\.]*$')",
-         'Code must be ascii only'),
-    ]
+    _code_ascii_only = models.Constraint(
+        r"CHECK (code ~ '^[a-zA-Z0-9\-_\.]*$')",
+        'Code must be ascii only',
+    )
 
     @api.onchange('name', 'code')
     def _onchange_mixin_name_set_code(self):
@@ -29,11 +28,11 @@ class GenericMixinUniqNameCode(models.AbstractModel):
     _name = 'generic.mixin.uniq_name_code'
     _description = 'Generic Mixin: Unique name and code'
 
-    _sql_constraints = [
-        ('name_uniq',
-         'UNIQUE (name)',
-         'Name must be unique.'),
-        ('code_uniq',
-         'UNIQUE (code)',
-         'Code must be unique.'),
-    ]
+    _name_uniq = models.Constraint(
+        "UNIQUE (name)",
+        'Name must be unique.',
+    )
+    _code_uniq = models.Constraint(
+        "UNIQUE (code)",
+        'Code must be unique.',
+    )
