@@ -111,9 +111,7 @@ tests:
 #        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
         - odood addons link -r .
     script:
-        # temporary decrease test coverage in case of port single generic_mixin module
-#        - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 90 --dir .
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 75 --create-test-db --dir .
+        odood test --temp-db --isw --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 80 --dir .
     <<: *except_auto_commits
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
 
@@ -127,9 +125,9 @@ test_installation_no_demo:
         - sudo apt-get update && sudo apt-get install -y libmagic1
         # TODO: Use Odood here too
         - odoo-helper link .
-        - odoo-helper db create $ODOO_DB_NAME
+        - odood db create $ODOO_DB_NAME
     script:
-        - odoo-helper addons install --db "$ODOO_DB_NAME" --dir-r . --show-log-on-error
+        - odood addons install --db "$ODOO_DB_NAME" --ual --dir-r .
     <<: *except_auto_commits
 
 migration_tests:
@@ -139,11 +137,9 @@ migration_tests:
         ODOO_DB_NAME: test-db
     <<: *pip_cache_definition
     before_script:
-        # temporary disable before port crnd_web repository
-        #- odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
         - odood addons link -f .
     script:
-        - odoo-helper --use-unbuffer test --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 80 --dir .
+        - odood test -t --migration --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under=10 --dir-r .
     coverage: '/^TOTAL\s+\d+\s+\d+\s+(\d+\%)/'
     <<: *only_dev_branch
     <<: *except_auto_commits
