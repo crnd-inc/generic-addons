@@ -23,7 +23,7 @@ variables:
 
 .except-port-branches: &except_port_branches
     except:
-        - /^18\.0-port.*$/
+        - /^19\.0-port.*$/
 
 # Disable global cache
 cache: {}
