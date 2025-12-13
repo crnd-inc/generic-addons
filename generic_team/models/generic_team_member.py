@@ -10,11 +10,10 @@ class GenericTeamMember(models.Model):
     team_id = fields.Many2one(
         'generic.team', index=True, required=True, ondelete='cascade')
 
-    _sql_constraints = [
-        ('user_team_unique',
-         'UNIQUE (user_id, team_id)',
-         'User may be added to team only once.'),
-    ]
+    _user_team_unique = models.Constraint(
+        'UNIQUE (user_id, team_id)',
+        "User may be added to team only once.",
+    )
 
     @api.depends('user_id', 'team_id')
     def _compute_display_name(self):
