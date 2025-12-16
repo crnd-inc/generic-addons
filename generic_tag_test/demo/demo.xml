@@ -60,14 +60,14 @@
         <field name="is_default" eval="False"/>
         <field name="model_id">generic.tag.test.model</field>
         <field name="domain">[('test_field','=','add')]</field>
-        <field name="user_id" eval="False"/>
+        <field name="user_ids" eval="False"/>
     </record>
     <record id="filter_test_field_eq_remove" model="ir.filters">
         <field name="name">Test model test field = 'remove'</field>
         <field name="is_default" eval="False"/>
         <field name="model_id">generic.tag.test.model</field>
         <field name="domain">[('test_field','=','remove')]</field>
-        <field name="user_id" eval="False"/>
+        <field name="user_ids" eval="False"/>
     </record>
 
 </odoo>
