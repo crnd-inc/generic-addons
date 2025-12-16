@@ -114,7 +114,7 @@
                 <field name="code"/>
 
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div t-attf-class="oe_kanban_global_click o_service_dashboard_kanban">
                             <div class="o_service_dashboard_kanban_main">
                                 <div class="o_service_dashboard_content">
@@ -156,7 +156,7 @@
                         string="Archived"
                         domain="[('active', '=', False)]"/>
 
-                <group name="group_group_by" expand="0" string="Group by...">
+                <group>
                     <filter name="filter_group_by_lifecycle_state"
                             string="Lifecycle State"
                             context="{'group_by': 'lifecycle_state'}"/>
