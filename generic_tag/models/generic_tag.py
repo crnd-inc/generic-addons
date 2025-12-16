@@ -117,7 +117,6 @@ class GenericTag(models.Model):
         return [(tag.id, tag.display_name) for tag in tags]
 
     @api.model
-    @api.returns('self')
     def get_tags(self, model, code=None, name=None):
         """ Search for tags by model, code, name
         """
