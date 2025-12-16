@@ -13,7 +13,8 @@ class GenericTagModel(models.Model):
                 [('model_id', '=', model.id)])
 
     res_model_id = fields.Many2one(
-        'ir.model', 'Odoo Model', required=True, index=True, auto_join=True,
+        'ir.model', 'Odoo Model', required=True, index=True,
+        bypass_search_access=True,
         domain=[('transient', '=', False),
                 ('field_id.name', '=', 'tag_ids')],
         ondelete='cascade')
@@ -25,11 +26,10 @@ class GenericTagModel(models.Model):
     act_manage_tags_id = fields.Many2one(
         'ir.actions.act_window', readonly=True)
 
-    _sql_constraints = [
-        ('res_model_id_uniq',
-         'UNIQUE (res_model_id)',
-         'For each Odoo model only one Tag Model could be created!'),
-    ]
+    _res_model_id_uniq = models.Constraint(
+        'UNIQUE (res_model_id)',
+        "For each Odoo model only one Tag Model could be created!",
+    )
 
     def _create_context_action_for_target_model(self):
         self.env['ir.actions.act_window'].create([

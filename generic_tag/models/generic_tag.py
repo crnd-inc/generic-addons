@@ -1,7 +1,7 @@
 import logging
 
 from odoo import models, fields, api, exceptions, _
-from odoo.osv import expression
+from odoo.fields import Domain
 
 from ..utils import ensure_code_or_name
 
@@ -46,14 +46,14 @@ class GenericTag(models.Model):
     color = fields.Integer()
     active = fields.Boolean(default=True, index=True)
 
-    _sql_constraints = [
-        ('name_uniq',
-         'unique(model_id, category_id, name)',
-         'Name of tag must be unique for category'),
-        ('code_uniq',
-         'unique(model_id, code)',
-         'Code of tag must be unique'),
-    ]
+    _name_uniq = models.Constraint(
+        'unique(model_id, category_id, name)',
+        "Name of tag must be unique for category",
+    )
+    _code_uniq = models.Constraint(
+        'unique(model_id, code)',
+        "Code of tag must be unique",
+    )
 
     @api.depends()
     def _compute_objects_count(self):
@@ -104,12 +104,12 @@ class GenericTag(models.Model):
                 [('code', operator, name)],
             ]
 
-            if operator in expression.NEGATIVE_TERM_OPERATORS:
-                domain = expression.AND(domain)
+            if operator in Domain.NEGATIVE_OPERATORS:
+                domain = Domain.AND(domain)
             else:
-                domain = expression.OR(domain)
+                domain = Domain.OR(domain)
 
-            domain = expression.AND([domain, args])
+            domain = Domain.AND([domain, args])
             tags = self.search(domain, limit=limit)
         else:
             tags = self.search(args, limit=limit)

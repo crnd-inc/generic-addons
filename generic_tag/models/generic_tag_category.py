@@ -41,12 +41,14 @@ class GenericTagCategory(models.Model):
     color = fields.Integer()
     sequence = fields.Integer(index=True, default=5)
 
-    _sql_constraints = [
-        ('name_uniq', 'unique(model_id, name)',
-         'Name of category must be unique'),
-        ('code_uniq', 'unique(model_id, code)',
-         'Code of category must be unique'),
-    ]
+    _name_uniq = models.Constraint(
+        'unique(model_id, name)',
+        "Name of category must be unique",
+    )
+    _code_uniq = models.Constraint(
+        'unique(model_id, code)',
+        "Code of category must be unique",
+    )
 
     @api.constrains('model_id')
     def _check_model_id(self):

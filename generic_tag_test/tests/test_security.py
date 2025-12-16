@@ -46,7 +46,7 @@ class TestSecurity(TransactionCase):
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
-        self.demo_user.groups_id |= self.group_tags_test_group
+        self.demo_user.group_ids |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
@@ -78,7 +78,7 @@ class TestSecurity(TransactionCase):
             uGenericTag.browse(self.test_tag_4.id).unlink()
 
     def test_tags_user_access_records(self):
-        self.demo_user.groups_id |= self.env.ref(
+        self.demo_user.group_ids |= self.env.ref(
             'generic_tag.group_tags_user')
 
         # Add to record 2 one tag without group and one tag with group
@@ -96,7 +96,7 @@ class TestSecurity(TransactionCase):
         self.assertEqual(len(urec.tag_ids), 1)
         self.assertEqual(urec.tag_ids[0].id, self.test_tag_1.id)
 
-        self.demo_user.groups_id |= self.group_tags_test_group
+        self.demo_user.group_ids |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
@@ -128,7 +128,7 @@ class TestSecurity(TransactionCase):
             uGenericTag.browse(self.test_tag_4.id).unlink()
 
     def test_tags_user_restricted_access_records(self):
-        self.demo_user.groups_id |= self.env.ref(
+        self.demo_user.group_ids |= self.env.ref(
             'generic_tag.group_tags_user_restricted')
 
         # Add to record 2 one tag without group and one tag with group
@@ -145,7 +145,7 @@ class TestSecurity(TransactionCase):
         urec.invalidate_recordset()
         self.assertEqual(len(urec.tag_ids), 0)
 
-        self.demo_user.groups_id |= self.group_tags_test_group
+        self.demo_user.group_ids |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)
@@ -154,7 +154,7 @@ class TestSecurity(TransactionCase):
         self.assertIn(self.test_tag_4.id, urec.tag_ids.ids)
 
     def test_tags_manager_access_records(self):
-        self.demo_user.groups_id |= self.env.ref(
+        self.demo_user.group_ids |= self.env.ref(
             'generic_tag.group_tags_manager')
 
         # Add to record 2 one tag without group and one tag with group
@@ -170,7 +170,7 @@ class TestSecurity(TransactionCase):
         self.assertIn(self.test_tag_1.id, urec.tag_ids.ids)
         self.assertIn(self.test_tag_4.id, urec.tag_ids.ids)
 
-        self.demo_user.groups_id |= self.group_tags_test_group
+        self.demo_user.group_ids |= self.group_tags_test_group
 
         urec = self.uenv['generic.tag.test.model'].browse(
             self.test_record_2.id)

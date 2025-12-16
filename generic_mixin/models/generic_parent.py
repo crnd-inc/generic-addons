@@ -78,7 +78,7 @@ class GenericMixinParentNames(models.AbstractModel):
                 names_ids = self.name_search(' / '.join(parents), args=args,
                                              operator='ilike', limit=limit)
                 record_ids = [name_id[0] for name_id in names_ids]
-                if operator in Domain.NEGATIVE_TERM_OPERATORS:
+                if operator in Domain.NEGATIVE_OPERATORS:
                     records = self.search([('id', 'not in', record_ids)])
                     domain = Domain.OR(
                         [[(self._parent_name, 'in', records.ids)], domain])
@@ -88,7 +88,7 @@ class GenericMixinParentNames(models.AbstractModel):
                 for i in range(1, len(record_names)):
                     names = ' / '.join(record_names[-1 - i:])
                     domain = [[('name', operator, names)], domain]
-                    if operator in Domain.NEGATIVE_TERM_OPERATORS:
+                    if operator in Domain.NEGATIVE_OPERATORS:
                         domain = Domain.AND(domain)
                     else:
                         domain = Domain.OR(domain)

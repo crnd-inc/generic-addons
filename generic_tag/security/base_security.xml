@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
 <odoo>
-    <!-- Look at Odoo code (openepr|odoo)/modules/db.py:create_categories
-         for info abuto a way module categories are generated.
-         This xmlid is used to avoid duplication of module category -->
     <record model="ir.module.category" id="base.module_category_generic_tags">
         <field name="name">Generic Tags</field>
         <field name="sequence">100</field>
         <field name="visible" eval="1" />
+    </record>
+
+    <record model="res.groups.privilege" id="res_groups_privilege_generic_tag">
+        <field name="name">Generic Tag</field>
+        <field name="category_id" ref="base.module_category_generic_tags"/>
+        <field name="sequence">30</field>
     </record>
 
     <!--
@@ -14,14 +17,14 @@
     -->
     <record model="res.groups" id="group_tags_user_restricted">
         <field name="name">Tag User (restricted)</field>
-        <field name="category_id" ref="base.module_category_generic_tags"/>
+        <field name="privilege_id" ref="res_groups_privilege_generic_tag"/>
         <field name="comment">
             Users in this group have access to tags that have same group that user have
         </field>
     </record>
     <record model="res.groups" id="group_tags_user">
         <field name="name">Tag User</field>
-        <field name="category_id" ref="base.module_category_generic_tags"/>
+        <field name="privilege_id" ref="res_groups_privilege_generic_tag"/>
         <field name="comment">
             Users in this group have access to menu Tags. They cannot create or edit tags.
         </field>
@@ -29,8 +32,8 @@
     <record model="res.groups" id="group_tags_manager">
         <field name="name">Tag Manager</field>
         <field name="implied_ids" eval="[(4, ref('generic_tag.group_tags_user'))]"/>
-        <field name="category_id" ref="base.module_category_generic_tags"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="privilege_id" ref="res_groups_privilege_generic_tag"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         <field name="comment">
             Users in this group can manage tags (create / update / ...)
         </field>
