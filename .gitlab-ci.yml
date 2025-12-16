@@ -124,7 +124,7 @@ test_installation_no_demo:
     before_script:
         - sudo apt-get update && sudo apt-get install -y libmagic1
         # TODO: Use Odood here too
-        - odoo-helper link .
+        - odood addons link -r .
         - odood db create $ODOO_DB_NAME
     script:
         - odood addons install --db "$ODOO_DB_NAME" --ual --dir-r .
