@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- module category -->
+    <record model="ir.module.category" id="base.module_category_generic_team">
+        <field name="name">Generic Team</field>
+        <field name="visible" eval="1" />
+    </record>
+
+    <record model="res.groups.privilege" id="res_groups_privilege_generic_team">
+        <field name="name">Generic Team</field>
+        <field name="category_id" ref="base.module_category_generic_team"/>
+        <field name="sequence">20</field>
+    </record>
 
     <!-- implicit user group  -->
     <record id="group_generic_team_user_implicit" model="res.groups">
         <field name="name">User implicit</field>
+        <field name="privilege_id" ref="res_groups_privilege_generic_team"/>
         <field name="comment">
             Imlicit user for generic team
         </field>
@@ -12,6 +24,7 @@
     <!-- user group -->
     <record id="group_generic_team_user" model="res.groups">
         <field name="name">User</field>
+        <field name="privilege_id" ref="res_groups_privilege_generic_team"/>
         <field name="implied_ids"
                eval="[(4, ref('generic_team.group_generic_team_user_implicit'))]"/>
         <field name="comment">
@@ -22,6 +35,7 @@
     <!-- manager group -->
     <record id="group_generic_team_manager" model="res.groups">
         <field name="name">Manager</field>
+        <field name="privilege_id" ref="res_groups_privilege_generic_team"/>
         <field name="implied_ids"
                eval="[(4, ref('generic_team.group_generic_team_user'))]"/>
         <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
