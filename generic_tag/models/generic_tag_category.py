@@ -71,7 +71,7 @@ class GenericTagCategory(models.Model):
                    default_category_id=self.id)
         return {
             'name': _('Tags related to category %s') % self.name,
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'res_model': 'generic.tag',
             'type': 'ir.actions.act_window',
             'context': ctx,

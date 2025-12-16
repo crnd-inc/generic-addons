@@ -132,7 +132,7 @@ class GenericTag(models.Model):
         self.ensure_one()
         return {
             'name': _('Objects related to tag %s') % self.name,
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'res_model': self.model_id.model,
             'type': 'ir.actions.act_window',
             'context': self.env.context,
