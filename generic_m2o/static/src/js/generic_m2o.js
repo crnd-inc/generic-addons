@@ -67,9 +67,14 @@ class GenericMany2XAutocomplete extends Many2XAutocomplete {
         this.selectCreate = useGenericSelectCreate({
             resModel,
             activeActions,
-            onSelected: (resId) => {
+            onSelected: async (resId) => {
                 const resIds = Array.isArray(resId) ? resId : [resId];
-                const values = resIds.map((id) => ({id}));
+                const ids = resIds.filter((id) => typeof id === "number");
+                if (!ids.length) {
+                    return update([]);
+                }
+                const data = await this.orm.call(resModel, "name_get", [ids]);
+                const values = data.map(([id, display_name]) => ({ id, display_name }));
                 return update(values);
             },
             onCreateEdit: ({context}) => this.openMany2X({context}),
@@ -136,7 +141,6 @@ export class GenericMany2OneField extends Many2OneField {
     };
     static props = {
         ...Many2OneField.props,
-        value: true,
         modelField: {
             type: String,
             optional: true,
@@ -161,9 +165,6 @@ export class GenericMany2OneField extends Many2OneField {
         }
         if (!(this.modelField in this.props.record.data)) {
             throw new Error(`The field specified in parameter "model_field" was not found in the form view`);
-        }
-        if (Object.keys(this.props.record.data).includes(this.props.name)) {
-            this.props.value = this.props.record.data[this.props.name];
         }
         onPatched(this.onPatched)
         this.currentRelationModel = this.relationModel;
@@ -201,6 +202,7 @@ export class GenericMany2OneField extends Many2OneField {
     }
 
     get m2oProps() {
+        const value = this.props.record.data[this.props.name];
         return {
             canCreate: this.props.canCreate,
             canCreateEdit: this.props.canCreateEdit,
@@ -229,8 +231,8 @@ export class GenericMany2OneField extends Many2OneField {
                 }
                 return this.props.record.update({ [this.props.name]: resId }, options);
             },
-            value: this.props.value
-                ? { id: this.props.value, display_name: this.state.proxyDisplayName || _t("Unnamed") }
+            value: value
+                ? { id: value, display_name: this.state.proxyDisplayName || _t("Unnamed") }
                 : false,
         };
     }
@@ -257,7 +259,7 @@ export class GenericMany2OneField extends Many2OneField {
 
     updateProxyDisplayName(resId) {
         if (!resId) {
-            resId = this.props.value;
+            resId = this.props.record.data[this.props.name];
         }
         if (!this.relationModel || !resId || typeof(resId) !== 'number'){
             return;
@@ -300,15 +302,15 @@ export class GenericMany2OneField extends Many2OneField {
     }
 
     get proxyValue() {
-        return this.props.value
-            ? [this.props.value, this.state.proxyDisplayName]
+        const value = this.props.record.data[this.props.name];
+        return value
+            ? [value, this.state.proxyDisplayName]
             : false;
     }
 
     proxyUpdate(value) {
         let resId = false;
         let displayName = false;
-        this.props.value = value ? value[0] : value;
         if (value) {
             displayName = value[1] || false;
             resId = value[0];
@@ -330,7 +332,6 @@ export const genericMany2OneField = {
         const props = {
             ...extractM2OFieldProps(...arguments),
             modelField: fieldInfo.attrs.model_field,
-            value: fieldInfo.attrs.value || true,
         }
         return props;
     },
