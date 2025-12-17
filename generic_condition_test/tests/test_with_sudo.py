@@ -34,7 +34,7 @@ class TestConditionRelatedCondition(TransactionCase):
 
         # Demo-user
         cls.demo_user = cls.env.ref('base.user_demo')
-        cls.demo_user.groups_id = cls.env.ref(
+        cls.demo_user.group_ids = cls.env.ref(
             'generic_condition_test.group_condition_no_access')
         cls.uenv = cls.env(user=cls.demo_user)  # pylint: disable=not-callable
 
