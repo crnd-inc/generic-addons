@@ -1,13 +1,15 @@
 /** @odoo-module **/
 
+import {useState} from "@odoo/owl";
 import {_t} from "@web/core/l10n/translation";
 import {registry} from "@web/core/registry";
 import {
-    m2oTupleFromData,
-    many2OneField,
-    Many2OneField
+    buildM2OFieldDescription,
+    extractM2OFieldProps,
+    Many2OneField,
 } from '@web/views/fields/many2one/many2one_field';
-import {useOwnedDialogs} from "@web/core/utils/hooks";
+import {Many2One} from "@web/views/fields/many2one/many2one";
+import {useOwnedDialogs, useService} from "@web/core/utils/hooks";
 import {sprintf} from "@web/core/utils/strings";
 import {
     Many2XAutocomplete,
@@ -19,6 +21,15 @@ import {
 
 const {onPatched} = owl;
 
+function m2oTupleFromData(data) {
+    if (!data) {
+        return false;
+    }
+    const id = data.id;
+    const displayName = data.display_name || data.displayName || data.name;
+    return [id, displayName];
+}
+
 function useGenericSelectCreate({
                                     resModel,
                                     activeActions,
@@ -28,6 +39,12 @@ function useGenericSelectCreate({
     const addDialog = useOwnedDialogs();
 
     function selectCreate({domain, context, filters, title, forceModel}) {
+        if (typeof domain === "function") {
+            domain = domain();
+        }
+        if (!Array.isArray(domain)) {
+            domain = [];
+        }
         addDialog(SelectCreateDialog, {
             title: title || _t("Select records"),
             noCreate: !activeActions.create,
@@ -101,11 +118,20 @@ class GenericMany2XAutocomplete extends Many2XAutocomplete {
 
 GenericMany2XAutocomplete.template = 'generic_m2o.GenericMany2XAutocomplete';
 
+export class GenericMany2One extends Many2One {
+    static template = "web.Many2One";
+    static components = {
+        ...Many2One.components,
+        Many2XAutocomplete: GenericMany2XAutocomplete,
+    };
+}
+
 export class GenericMany2OneField extends Many2OneField {
     static template = "generic_m2o.GenericMany2OneField";
     static supportedTypes = ['integer', 'many2one_reference']
     static components = {
         ...Many2OneField.components,
+        GenericMany2One,
         GenericMany2XAutocomplete,
     };
     static props = {
@@ -119,6 +145,10 @@ export class GenericMany2OneField extends Many2OneField {
 
     setup() {
         super.setup(...arguments);
+        this.state = useState({
+            proxyDisplayName: false,
+        });
+        this.orm = useService("orm");
         this.modelField = this.props.modelField;
         if (!this.modelField) {
             const fieldName = this.props.name;
@@ -138,10 +168,6 @@ export class GenericMany2OneField extends Many2OneField {
         onPatched(this.onPatched)
         this.currentRelationModel = this.relationModel;
         this.currentRecordId = this.props.record.id;
-        this.state.proxyDisplayName = false;
-        this.state.relationModel = this.relationModel;
-        this.state.modelField = this.modelField;
-
         this.updateProxyDisplayName();
 
         // Quick Create is disabled because it is not possible to correctly extend the 'web.BasicModel'
@@ -149,7 +175,11 @@ export class GenericMany2OneField extends Many2OneField {
 
         this.openMany2X = useOpenMany2XRecord({
             resModel: this.relation,
-            activeActions: this.state.activeActions,
+            activeActions: {
+                create: this.props.canCreate,
+                createEdit: this.props.canCreateEdit,
+                write: this.props.canWrite,
+            },
             isToMany: false,
             onRecordSaved: async (record) => {
                 await this.props.record.load();
@@ -166,8 +196,42 @@ export class GenericMany2OneField extends Many2OneField {
             if (value) {
                 value = m2oTupleFromData(value[0]);
             }
-            this.state.isFloating = false;
             return this.proxyUpdate(value);
+        };
+    }
+
+    get m2oProps() {
+        return {
+            canCreate: this.props.canCreate,
+            canCreateEdit: this.props.canCreateEdit,
+            canOpen: this.props.canOpen,
+            canQuickCreate: this.props.canQuickCreate,
+            canScanBarcode: this.props.canScanBarcode,
+            canWrite: this.props.canWrite,
+            context: this.props.context,
+            cssClass: this.props.className,
+            domain: () => (typeof this.props.domain === "function" ? this.props.domain() : this.props.domain || []),
+            id: this.props.id,
+            linkCssClass: "",
+            nameCreateField: this.props.nameCreateField,
+            openActionContext: () => this.props.context,
+            placeholder: this.props.placeholder,
+            readonly: this.props.readonly,
+            relation: this.relation,
+            searchThreshold: this.props.searchThreshold,
+            string: this.props.string,
+            update: (idNamePair, options = {}) => {
+                const resId = idNamePair ? idNamePair.id : false;
+                if (idNamePair && idNamePair.display_name) {
+                    this.state.proxyDisplayName = idNamePair.display_name;
+                } else {
+                    this.state.proxyDisplayName = false;
+                }
+                return this.props.record.update({ [this.props.name]: resId }, options);
+            },
+            value: this.props.value
+                ? { id: this.props.value, display_name: this.state.proxyDisplayName || _t("Unnamed") }
+                : false,
         };
     }
 
@@ -183,7 +247,6 @@ export class GenericMany2OneField extends Many2OneField {
             changedRecord = true;
         }
         if (changedRelationModel || changedRecord) {
-            this.state.relationModel = this.relationModel;
             if (!changedRecord) {
                 this.props.record.update(false);
             } else {
@@ -212,7 +275,7 @@ export class GenericMany2OneField extends Many2OneField {
     }
 
     get relation() {
-        return this.state.relationModel || this.props.record.data.res_model;
+        return this.relationModel || this.props.record.data.res_model;
     }
 
     get displayName() {
@@ -261,11 +324,11 @@ export class GenericMany2OneField extends Many2OneField {
 }
 
 export const genericMany2OneField = {
-    ...many2OneField,
-    component: GenericMany2OneField,
+    ...buildM2OFieldDescription(GenericMany2OneField),
+    supportedTypes: ['integer', 'many2one_reference'],
     extractProps(fieldInfo, dynamicInfo) {
         const props = {
-            ...many2OneField.extractProps(...arguments),
+            ...extractM2OFieldProps(...arguments),
             modelField: fieldInfo.attrs.model_field,
             value: fieldInfo.attrs.value || true,
         }

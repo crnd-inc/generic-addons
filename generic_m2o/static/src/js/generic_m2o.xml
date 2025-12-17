@@ -3,19 +3,9 @@
 
      <t t-name="generic_m2o.GenericMany2OneField" owl="1">
          <t t-if="relation">
-             <t t-call="generic_m2o.GenericMany2OneFieldBase"/>
+             <GenericMany2One t-props="m2oProps"/>
          </t>
      </t>
-
-    <t t-name="generic_m2o.GenericMany2OneFieldBase" t-inherit="web.Many2OneField" t-inherit-mode="primary" owl="1">
-        <xpath expr="//a[contains(@t-attf-class, 'o_form_uri')]" position="attributes">
-            <attribute name="t-if">proxyValue</attribute>
-            <attribute name="t-att-href">proxyValue ? `#id=${proxyValue[0]}&amp;model=${relation}` : '#'</attribute>
-        </xpath>
-        <xpath expr="//Many2XAutocomplete" position="replace">
-            <GenericMany2XAutocomplete t-props="Many2XAutocompleteProps"/>
-        </xpath>
-    </t>
 
     <t t-name="generic_m2o.GenericMany2XAutocomplete" t-inherit="web.Many2XAutocomplete" t-inherit-mode="primary" owl="1">
         <xpath expr="//div[hasclass('o_input_dropdown')]" position="attributes">
