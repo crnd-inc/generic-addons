@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- pylint: disable=dangerous-filter-wo-user -->
 <odoo>
     <record id="demo_partner_sx_corp" model="res.partner">
         <field name="name">SX Corp</field>
