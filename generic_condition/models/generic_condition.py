@@ -10,7 +10,7 @@ from dateutil.relativedelta import relativedelta
 
 from odoo import models, fields, api, exceptions, _
 from odoo.tools.safe_eval import safe_eval, wrap_module
-from odoo.osv import expression
+from odoo.fields import Domain
 
 from ..utils import str_to_datetime
 from ..debug_logger import DebugLogger
@@ -204,14 +204,14 @@ class GenericCondition(models.Model):
 
     # Condition type 'filter' params
     condition_filter_id = fields.Many2one(
-        'ir.filters', string='Condition (filter)', auto_join=True,
+        'ir.filters', string='Condition (filter)', bypass_search_access=True,
         ondelete='restrict', tracking=True,
         help="User filter to be applied by this condition.")
 
     # Condition type 'condition' params
     condition_condition_id = fields.Many2one(
         'generic.condition', 'Condition (condition)',
-        ondelete='restrict', tracking=True, auto_join=True,
+        ondelete='restrict', tracking=True, bypass_search_access=True,
         help='Link to another condition. Usualy used to get '
              'inversed condition')
 
@@ -221,7 +221,7 @@ class GenericCondition(models.Model):
         'generic_condition__condition_group__rel',
         'parent_condition_id', 'sub_condition_id',
         string='Condition (condition group)',
-        tracking=True, auto_join=True,
+        tracking=True, bypass_search_access=True,
         help='Check set of other conditions')
     condition_condition_ids_operator = fields.Selection(
         '_get_selection_condition_condition_ids_operator', default='and',
@@ -253,7 +253,7 @@ class GenericCondition(models.Model):
     # Condition type 'related_conditions' params
     condition_rel_field_id = fields.Many2one(
         'ir.model.fields', string='Related Field',
-        ondelete='cascade', auto_join=True, tracking=True,
+        ondelete='cascade', bypass_search_access=True, tracking=True,
         domain=[('ttype', 'in', ('many2one', 'one2many', 'many2many'))])
     condition_rel_field_id_model_id = fields.Many2one(
         comodel_name='ir.model',
@@ -271,7 +271,8 @@ class GenericCondition(models.Model):
         tracking=True)
     condition_rel_filter_conditions = fields.Many2many(
         'generic.condition', 'generic_condition_filter_conds',
-        'parent_id', 'child_id', ondelete='restrict', auto_join=True,
+        'parent_id', 'child_id', ondelete='restrict',
+        bypass_search_access=True,
         string='Related filter conditions', tracking=True,
         help="Used together with Related Field. "
              "These conditions are used to filter related items that "
@@ -284,7 +285,8 @@ class GenericCondition(models.Model):
         tracking=True)
     condition_rel_conditions = fields.Many2many(
         'generic.condition', 'generic_condition_check_conds',
-        'parent_id', 'child_id', ondelete='restrict', auto_join=True,
+        'parent_id', 'child_id', ondelete='restrict',
+        bypass_search_access=True,
         string='Related check conditions', tracking=True,
         help="Used together with Related Field. "
              "These conditions will be used to check objects "
@@ -490,7 +492,8 @@ class GenericCondition(models.Model):
     condition_find_check_condition_ids = fields.Many2many(
         'generic.condition',
         'generic_condition_find_check_conditions_rel',
-        'parent_id', 'child_id', ondelete='restrict', auto_join=True,
+        'parent_id', 'child_id', ondelete='restrict',
+        bypass_search_access=True,
         tracking=True)
 
     @api.model
@@ -548,7 +551,7 @@ class GenericCondition(models.Model):
         Model = self.env[self.sudo().model_id.model]
 
         filter_obj = self.sudo().condition_filter_id
-        domain = expression.AND([
+        domain = Domain.AND([
             [('id', '=', obj.id)],
             safe_eval(filter_obj.domain),
         ])
@@ -1100,7 +1103,7 @@ class GenericCondition(models.Model):
             'record': obj,
             'env': self.env,
             'model': self.env[obj._name],
-            'uid': self._uid,
+            'uid': self.env.uid,
             'user': self.env.user,
             'time': _time,
             'datetime': _datetime,

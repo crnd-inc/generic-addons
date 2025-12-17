@@ -10,7 +10,8 @@ class GenericConditionDomainLeaf(models.Model):
 
     sequence = fields.Integer(default=5, index=True)
     condition_id = fields.Many2one(
-        'generic.condition', required=True, index=True, auto_join=True,
+        'generic.condition', required=True, index=True,
+        bypass_search_access=True,
         ondelete='cascade')
     type = fields.Selection(
         [('operator-and', 'AND'),

@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition - Action Rules",
-    "version": "18.0.1.6.0",
+    "version": "19.0.1.6.0",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -17,6 +17,6 @@
         'views/base_automation.xml',
     ],
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': True,
 }

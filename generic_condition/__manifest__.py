@@ -1,6 +1,6 @@
 {
     "name": "Generic Condition",
-    "version": "18.0.1.22.4",
+    "version": "19.0.1.22.4",
     "author": "Center of Research and Development",
     "website": "https://crnd.pro",
     "license": "LGPL-3",
@@ -34,6 +34,6 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
 }

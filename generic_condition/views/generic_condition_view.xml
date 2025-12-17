@@ -33,7 +33,7 @@
                         string="Condition group"/>
                 <separator/>
 
-                <group expand="0" string="Group by...">
+                <group>
                     <filter string='Type'
                             name="group_by_type"
                             domain="[]"
