@@ -27,14 +27,14 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
     _generic_namesearch_search_by_rec_name = False
 
     @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
+    def name_search(self, name='', domain=None, operator='ilike', limit=100):
         if not self._generic_namesearch_fields:
             return super().name_search(
-                name=name, args=args, operator=operator, limit=limit)
+                name=name, domain=domain, operator=operator, limit=limit)
 
         if not name:
             return super().name_search(
-                name=name, args=args, operator=operator, limit=limit)
+                name=name, domain=domain, operator=operator, limit=limit)
 
         # List of domains to search record via
         domains = [
@@ -53,14 +53,14 @@ class GenericMixinNamesearchByFields(models.AbstractModel):
         # join domains. For example:
         #     code ilike 'test' or name 'ilike' test
         if operator in Domain.NEGATIVE_OPERATORS:
-            domain = Domain.AND(domains)
+            r_domain = Domain.AND(domains)
         else:
-            domain = Domain.OR(domains)
+            r_domain = Domain.OR(domains)
 
         record_ids = self.search(
             Domain.AND([
-                args if args else [],
-                domain]),
+                domain if domain else [],
+                r_domain]),
             limit=limit
         ).sudo()
 
