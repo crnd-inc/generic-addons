@@ -73,8 +73,10 @@ class GenericMany2XAutocomplete extends Many2XAutocomplete {
                 if (!ids.length) {
                     return update([]);
                 }
-                const data = await this.orm.call(resModel, "name_get", [ids]);
-                const values = data.map(([id, display_name]) => ({ id, display_name }));
+                const records = await this.orm.read(resModel, ids, ["display_name"], {
+                    context: this.props.context,
+                });
+                const values = records.map((record) => ({ id: record.id, display_name: record.display_name }));
                 return update(values);
             },
             onCreateEdit: ({context}) => this.openMany2X({context}),
@@ -264,12 +266,13 @@ export class GenericMany2OneField extends Many2OneField {
         if (!this.relationModel || !resId || typeof(resId) !== 'number'){
             return;
         }
-        this.orm.call(this.relationModel, 'name_get', [[resId]])
-            .then((data) => {
-                this.state.proxyDisplayName = data[0][1];
-            }).catch(() => {
-                this.state.proxyDisplayName = false;
-            });
+        this.orm.read(this.relationModel, [resId], ['display_name'], {
+            context: this.props.context,
+        }).then((records) => {
+            this.state.proxyDisplayName = records && records[0] ? records[0].display_name : false;
+        }).catch(() => {
+            this.state.proxyDisplayName = false;
+        });
     }
 
     get relationModel() {

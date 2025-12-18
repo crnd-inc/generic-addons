@@ -40,8 +40,8 @@ defineModels([TestModel, Partner]);
 
 
 test("GenericMany2OneField renders in form view", async () => {
-    onRpc("name_get", () => {
-        return [[1, "Partner 1"]];
+    onRpc("read", () => {
+        return [{ id: 1, display_name: "Partner 1" }];
     });
 
     await mountView({
@@ -61,8 +61,8 @@ test("GenericMany2OneField renders in form view", async () => {
 
 
 test("GenericMany2OneField displays linked record name", async () => {
-    onRpc("name_get", () => {
-        return [[1, "Partner 1"]];
+    onRpc("read", () => {
+        return [{ id: 1, display_name: "Partner 1" }];
     });
 
     await mountView({
@@ -103,8 +103,8 @@ test("GenericMany2OneField renders empty when no value", async () => {
 
 
 test("GenericMany2OneField in readonly mode", async () => {
-    onRpc("name_get", () => {
-        return [[1, "Partner 1"]];
+    onRpc("read", () => {
+        return [{ id: 1, display_name: "Partner 1" }];
     });
 
     await mountView({
@@ -127,8 +127,8 @@ test("GenericMany2OneField in readonly mode", async () => {
 
 
 test("GenericMany2OneField in list view", async () => {
-    onRpc("name_get", () => {
-        return [[1, "Partner 1"]];
+    onRpc("read", () => {
+        return [{ id: 1, display_name: "Partner 1" }];
     });
 
     await mountView({
