@@ -19,10 +19,10 @@ class Interface1(models.Model):
 
     interface_1_test_field_1 = fields.Char()
 
-    _sql_constraints = [
-        ('unique_model', 'UNIQUE(interface_1_impl_model, interface_1_impl_id)',
-         'Model instance must be unique')
-    ]
+    _unique_model = models.Constraint(
+        'UNIQUE(interface_1_impl_model, interface_1_impl_id)',
+        "Model instance must be unique",
+    )
 
     @interface_proxy
     def interface_1_method_1(self, my_param):
@@ -46,10 +46,10 @@ class Interface2(models.Model):
 
     interface_2_test_field_1 = fields.Char()
 
-    _sql_constraints = [
-        ('unique_model', 'UNIQUE(interface_2_impl_model, interface_2_impl_id)',
-         'Model instance must be unique')
-    ]
+    _unique_model = models.Constraint(
+        'UNIQUE(interface_2_impl_model, interface_2_impl_id)',
+        "Model instance must be unique",
+    )
 
     @interface_proxy
     def interface_2_method_1(self, my_param):
@@ -70,13 +70,14 @@ class ImplementationMixin1(models.AbstractModel):
     _inherits = {'test.generic.mixin.interface.1': 'interface_1_id'}
 
     interface_1_id = fields.Many2one(
-        'test.generic.mixin.interface.1', index=True, auto_join=True,
+        'test.generic.mixin.interface.1', index=True,
+        bypass_search_access=True,
         required=True, ondelete='restrict')
 
-    _sql_constraints = [
-        ('unique_interface_1_id', 'UNIQUE(interface_1_id)',
-         'Interface must be unique')
-    ]
+    _unique_interface_1_id = models.Constraint(
+        'UNIQUE(interface_1_id)',
+        "Interface must be unique",
+    )
 
 
 class ImplementationMixin2(models.AbstractModel):
@@ -89,13 +90,14 @@ class ImplementationMixin2(models.AbstractModel):
     _inherits = {'test.generic.mixin.interface.2': 'interface_2_id'}
 
     interface_2_id = fields.Many2one(
-        'test.generic.mixin.interface.2', index=True, auto_join=True,
+        'test.generic.mixin.interface.2', index=True,
+        bypass_search_access=True,
         required=True, ondelete='restrict')
 
-    _sql_constraints = [
-        ('unique_interface_2_id', 'UNIQUE(interface_2_id)',
-         'Interface must be unique')
-    ]
+    _unique_interface_2_id = models.Constraint(
+        'UNIQUE(interface_2_id)',
+        "Interface must be unique",
+    )
 
 
 class TestDelegationMultiInterface(models.Model):
