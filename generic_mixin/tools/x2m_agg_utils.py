@@ -49,15 +49,21 @@ def read_counts_for(records, related_model, search_field, value_field,
         search_domain = [(search_field, 'in', check_values)]
         if domain:
             search_domain = Domain.AND([search_domain, domain])
-        data = RelatedModel.read_group(
-            search_domain, [search_field], [search_field])
         mapped_data = {}
-        for m in data:
-            key = m[search_field]
+        data = RelatedModel._read_group(
+            search_domain,
+            groupby=[search_field],
+            aggregates=['__count'],
+        )
+        for group_value, count in data:
+            key = group_value
             if isinstance(key, (tuple, list)):
-                # For many2one fields
+                # For many2one fields (compat)
                 key = key[0]
-            mapped_data[key] = m['%s_count' % search_field]
+            elif hasattr(key, 'ids'):
+                # For many2one fields
+                key = key.id
+            mapped_data[key] = count
     else:
         # For case, if record is not written in db
         mapped_data = dict()
