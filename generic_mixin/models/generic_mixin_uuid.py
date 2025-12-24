@@ -72,30 +72,48 @@ class GenericMixinUUID(models.AbstractModel):
     # TODO: Add optional validation of UUIDs
 
     @api.model
-    def _setup_base(self):
-        res = super(GenericMixinUUID, self)._setup_base()
+    def _post_model_setup__(self):
+        super()._post_model_setup__()
 
-        if not self._generic_mixin_uuid_auto_add_field:
-            return res
+        if not getattr(self, '_generic_mixin_uuid_auto_add_field', False):
+            return
 
-        # Add uuid field if needed
-        if self._generic_mixin_uuid_field_name not in self._fields:
+        field_name = getattr(self, '_generic_mixin_uuid_field_name', 'x_uuid')
+        if not field_name.startswith('x_'):
             _logger.warning(
-                "The automatic generation of UUID field is buggy and thus "
-                "deprecated. Please, instead of relying on automatically "
-                "generated field, add regular field like: \n"
-                "uuid = fields.Char(index=True, required=True, readonly=True, "
-                "size=38, default='/', copy=False, string='UUID')\n"
+                "Automatic UUID field generation is only supported "
+                "for custom fields starting with 'x_'. "
+                "Please declare the field explicitly in the model. "
                 "Model: %s, Field: %s",
-                self._name, self._generic_mixin_uuid_field_name)
-            self._add_field(
-                self._generic_mixin_uuid_field_name,
-                fields.Char(
-                    index=True, required=True, readonly=True,
-                    size=38, default='/', copy=False, automatic=True)
+                getattr(self, '_name', self.__class__.__name__),
+                field_name,
             )
+            return
 
-        return res
+        if field_name in self._fields:
+            return
+
+        try:
+            from odoo.orm import model_classes
+            field = fields.Char(
+                index=True,
+                required=True,
+                readonly=True,
+                size=38,
+                default='/',
+                copy=False,
+                automatic=True,
+            )
+            model_classes.add_field(self.__class__, field_name, field)
+            field.prepare_setup()
+            field.setup(self)
+        except Exception:
+            _logger.exception(
+                "Failed to auto-add UUID field on model during post-setup. "
+                "Model: %s, Field: %s",
+                getattr(self, '_name', self.__class__.__name__),
+                field_name,
+            )
 
     @api.model_create_multi
     def create(self, vals_list):
