@@ -71,12 +71,12 @@
                 <field name="image_128"/>
 
                 <templates>
-                     <t t-name="kanban-box">
+                     <t t-name="card">
                         <div t-attf-class="oe_kanban_global_click o_resource_dashboard_kanban">
                             <div class="o_resource_dashboard_kanban_main">
                                 <div class="o_resource_dashboard_content">
                                     <div class="o_kanban_image">
-                                        <img t-att-src="kanban_image('generic.resource.type', 'image_128', record.id.raw_value)" alt="Resource Type"/>
+                                        <img t-attf-src="/web/image/generic.resource.type/{{ record.id.raw_value }}/image_128" alt="Resource Type"/>
                                     </div>
                                     <div class="o_kanban_primary_left">
                                         <div class="o_primary">

@@ -43,10 +43,10 @@ class GenericResource(models.Model):
         help="Resource visibility determines users that have read access for "
              "this resource.")
 
-    _sql_constraints = [
-        ('unique_model', 'UNIQUE(res_model, res_id)',
-         'Model instance must be unique')
-    ]
+    _unique_model = models.Constraint(
+        'UNIQUE(res_model, res_id)',
+        "Model instance must be unique",
+    )
 
     @api.depends('res_model', 'res_id')
     def _compute_display_name(self):

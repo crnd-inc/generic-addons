@@ -1,6 +1,6 @@
 import logging
 from odoo import api, models, tools
-from odoo.osv import expression
+from odoo.fields import Domain
 
 _logger = logging.getLogger(__name__)
 
@@ -11,21 +11,21 @@ class IrRule(models.Model):
     def _generic_res__get_domain(self, mode):
         """ Get domain for generic resources
         """
-        return expression.OR([
+        return Domain.OR([
             # Internal users
-            expression.AND([
+            Domain.AND([
                 [('resource_visibility', 'in', ('internal',
                                                 'portal',
                                                 'public'))],
                 [(int(not self.env.user.share), '=', 1)],
             ]),
             # Portal users
-            expression.AND([
+            Domain.AND([
                 [('resource_visibility', 'in', ('portal', 'public'))],
                 [(int(self.env.user.has_group('base.group_portal')), '=', 1)],
             ]),
             # Public users
-            expression.AND([
+            Domain.AND([
                 [('resource_visibility', '=', 'public')],
                 [(int(self.env.user.has_group('base.group_public')), '=', 1)],
             ]),
@@ -54,7 +54,7 @@ class IrRule(models.Model):
                     'generic_resource.group_generic_resource_manager'):
                 return domain
 
-            domain = expression.AND([
+            domain = Domain.AND([
                 domain,
                 self._generic_res__get_domain(mode)
             ])

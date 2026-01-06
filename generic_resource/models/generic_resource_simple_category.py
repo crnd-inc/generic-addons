@@ -20,6 +20,7 @@ class GenericResourceSimpleCategory(models.Model):
         index=True, ondelete='restrict')
     parent_path = fields.Char(index=True, unaccent=False)
 
-    _sql_constraints = [
-        ('category_unique', 'unique(parent_id, name)',
-         'Category can not have subcategories with the same name!')]
+    _category_unique = models.Constraint(
+        'unique(parent_id, name)',
+        "Category can not have subcategories with the same name!",
+    )

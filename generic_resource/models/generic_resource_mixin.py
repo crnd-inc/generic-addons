@@ -12,16 +12,19 @@ class GenericResourceMixin(models.AbstractModel):
         'generic.mixin.track.changes',
         'generic.mixin.delegation.implementation',
     ]
+    _inherits = {
+        'generic.resource': 'resource_id',
+    }
 
     resource_id = fields.Many2one(
-        'generic.resource', index=True, auto_join=True,
-        required=True, delegate=True, ondelete='restrict',
+        'generic.resource', index=True, bypass_search_access=True,
+        required=True, ondelete='restrict',
         string="Generic Resource")
 
-    _sql_constraints = [
-        ('unique_resource_id', 'UNIQUE(resource_id)',
-         'Resource must be unique')
-    ]
+    _unique_resource_id = models.Constraint(
+        'UNIQUE(resource_id)',
+        "Resource must be unique",
+    )
 
     @api.model
     def _get_generic_tracking_fields(self):

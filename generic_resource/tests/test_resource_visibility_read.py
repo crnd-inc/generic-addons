@@ -38,7 +38,7 @@ class TestResourceRoleRead(TestResourceVisibilityBase):
             self.resource_portal.with_user(self.public_user).read(['name'])
 
         # Remove group 'Portal' from portal user
-        self.portal_user.groups_id -= self.env.ref('base.group_portal')
+        self.portal_user.group_ids -= self.env.ref('base.group_portal')
         self.assertFalse(self.portal_user.has_group('base.group_portal'))
 
         # Ensure that such user cannot read portal resources

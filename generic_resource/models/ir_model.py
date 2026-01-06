@@ -47,7 +47,7 @@ class IrModel(models.Model):
         #    self.env['generic.resource.mixin']._inherit_children -= (
         #        res_model_names)
 
-        self.pool.setup_models(self._cr)
+        self.pool.setup_models(self.env.cr)
         return res
 
     @api.model_create_multi
@@ -81,12 +81,12 @@ class IrModel(models.Model):
             res = super(IrModel, self).write(vals)
             self.flush_model()
             # setup models; this reloads custom models in registry
-            self.pool.setup_models(self._cr)
+            self.pool.setup_models(self.env.cr)
             # update database schema of models
             self.pool.init_models(
-                self._cr,
+                self.env.cr,
                 self.pool.descendants(self.mapped('model'), '_inherits'),
-                dict(self._context, update_custom_fields=True))
+                dict(self.env.context, update_custom_fields=True))
             if vals['is_generic_resource']:
                 for model in self:
                     if not model.resource_type_id:

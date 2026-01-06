@@ -39,6 +39,7 @@ class GenericResourceType(models.Model):
         'generic.mixin.uniq_name_code',
         'image.mixin',
     ]
+    _inherits = {'ir.model': 'model_id'}
     _description = "Generic Resource Type"
     _order = 'sequence asc, name asc, model_id asc'
     _log_access = True
@@ -46,11 +47,10 @@ class GenericResourceType(models.Model):
     name = fields.Char(index=True, required=True, translate=True)
     active = fields.Boolean(index=True, default=True)
     model_id = fields.Many2one(
-        'ir.model', required=True, index=True, auto_join=True,
+        'ir.model', required=True, index=True, bypass_search_access=True,
         domain=[('transient', '=', False),
                 ('field_id.name', '=', 'resource_id')],
-        string="Resource Model",
-        delegate=True, ondelete='cascade')
+        string="Resource Model", ondelete='cascade')
     resource_ids = fields.One2many(
         'generic.resource', 'res_type_id', string='Resources')
     resource_count = fields.Integer(compute="_compute_resource_count")
@@ -66,11 +66,10 @@ class GenericResourceType(models.Model):
         default='internal', required=True)
     sequence = fields.Integer(default=5, index=True)
 
-    _sql_constraints = [
-        ('model_id_uniq',
-         'UNIQUE (model_id)',
-         'For each Odoo model only one Resource Type can be created!'),
-    ]
+    _model_id_uniq = models.Constraint(
+        'UNIQUE (model_id)',
+        "For each Odoo model only one Resource Type can be created!",
+    )
 
     @api.depends('resource_ids')
     def _compute_resource_count(self):
