@@ -47,7 +47,7 @@ class IrModel(models.Model):
         #    self.env['generic.resource.mixin']._inherit_children -= (
         #        res_model_names)
 
-        self.pool.setup_models(self.env.cr)
+        self.pool._setup_models__(self.env.cr)
         return res
 
     @api.model_create_multi
@@ -81,7 +81,7 @@ class IrModel(models.Model):
             res = super(IrModel, self).write(vals)
             self.flush_model()
             # setup models; this reloads custom models in registry
-            self.pool.setup_models(self.env.cr)
+            self.pool._setup_models__(self.env.cr)
             # update database schema of models
             self.pool.init_models(
                 self.env.cr,
@@ -101,17 +101,17 @@ class IrModel(models.Model):
 
     def _reflect_model_params(self, model):
         vals = super(IrModel, self)._reflect_model_params(model)
-        vals['is_generic_resource'] = issubclass(
-            type(model), self.pool['generic.resource.mixin'])
+        vals['is_generic_resource'] = isinstance(
+            model, self.pool['generic.resource.mixin'])
         return vals
 
     @api.model
-    def _instanciate(self, model_data):
-        model_class = super(IrModel, self)._instanciate(model_data)
+    def _instanciate_attrs(self, model_data):
+        attrs = super(IrModel, self)._instanciate_attrs(model_data)
         if (model_data.get('is_generic_resource') and
-                model_class._name != 'generic.resource.mixin'):
-            parents = model_class._inherit or []
+                attrs['_name'] != 'generic.resource.mixin'):
+            parents = attrs.get('_inherit') or []
             if isinstance(parents, str):
                 parents = [parents]
-            model_class._inherit = parents + ['generic.resource.mixin']
-        return model_class
+            attrs['_inherit'] = parents + ['generic.resource.mixin']
+        return attrs
