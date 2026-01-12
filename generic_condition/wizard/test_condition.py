@@ -18,8 +18,9 @@ class TestGenericCondition(models.TransientModel):
         string='Object Model',
         related='condition_id.model_id.model',
         readonly=True)
-    res_id = fields.Integer(
+    res_id = fields.Many2oneReference(
         'Object ID', required=True,
+        model_field="res_model",
         help='ID of object to test condition on')
     test_as_user_id = fields.Many2one('res.users')
     result = fields.Text(readonly=True)

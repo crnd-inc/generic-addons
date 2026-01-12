@@ -11,9 +11,7 @@
                     </group>
                     <group>
                         <field name="resource_res_model" invisible="1"/>
-                        <field name="resource_res_id"
-                               widget="generic_m2o"
-                               model_field="resource_res_model"/>
+                        <field name="resource_res_id"/>
                     </group>
                 </sheet>
             </form>

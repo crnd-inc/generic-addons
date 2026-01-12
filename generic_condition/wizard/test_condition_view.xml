@@ -11,8 +11,6 @@
                         <field name="condition_id"
                                readonly="context.get('default_condition_id')"/>
                         <field name="res_id"
-                               widget="generic_m2o"
-                               model_field="res_model"
                                readonly="context.get('default_res_id')"/>
                         <field name="test_as_user_id"/>
                     </group>
