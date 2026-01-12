@@ -96,7 +96,7 @@
                 <field name="res_type_id"
                        options="{'no_create': true, 'no_quick_create': true}"/>
                 <field name="res_model" invisible="1"/>
-                <field invisible="res_model == False" model_field="res_model" name="res_id" widget="generic_m2o"/>
+                <field invisible="res_model == False" name="res_id"/>
             </xpath>
         </field>
     </record>
