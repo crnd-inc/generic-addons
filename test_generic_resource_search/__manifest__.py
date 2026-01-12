@@ -6,10 +6,9 @@
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
     'category': 'Hidden',
-    'version': '18.0.0.5.0',
+    'version': '18.0.0.5.1',
     'depends': [
         'generic_resource',
-        'generic_m2o',
     ],
     'data': [
         'security/ir.model.access.csv',
