@@ -1,6 +1,6 @@
 from odoo import models, fields, api, exceptions, _
 
-from odoo.addons.generic_m2o.tools.utils import generic_m2o_get
+from odoo.addons.generic_mixin.tools.generic_m2o import generic_m2o_get
 
 
 class GenericConditionDomainLeaf(models.Model):
@@ -40,7 +40,7 @@ class GenericConditionDomainLeaf(models.Model):
     value_float = fields.Float()
     value_integer = fields.Integer()
     value_selection = fields.Char()
-    value_res_id = fields.Integer()
+    value_res_id = fields.Integer(model_field="check_field_relation")
 
     value_display = fields.Char(
         compute='_compute_value_display', readonly=True)

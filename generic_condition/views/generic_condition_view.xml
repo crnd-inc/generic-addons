@@ -508,7 +508,6 @@
                                     </td>
                                     <td>
                                         <field name="condition_related_field_value_id"
-                                               widget="generic_m2o" model_field="condition_related_field_model"
                                                required="type == 'related_field' and condition_related_field_operator == 'contains'"
                                                invisible="condition_related_field_operator in ('set', 'not set')"/>
                                     </td>
@@ -724,8 +723,6 @@
                                                            required="value_type == 'static-value' and check_field_type == 'selection'"
                                                            invisible="value_type != 'static-value' or check_field_type != 'selection'"/>
                                                     <field name="value_res_id"
-                                                           widget="generic_m2o"
-                                                           model_field="check_field_relation"
                                                            required="value_type == 'static-value' and check_field_type in ('many2one', 'one2many', 'many2many')"
                                                            invisible="value_type != 'static-value' or check_field_type not in ('many2one', 'one2many', 'many2many')"/>
 
