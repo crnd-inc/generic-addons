@@ -417,13 +417,22 @@ class GenericMixInTrackChanges(models.AbstractModel):
         cls._generic_tracking_handler_data = write_handlers
         return write_handlers
 
-    @classmethod
-    def _init_constraints_onchanges(cls):
-        # reset properties memoized on cls
+    def _generic_tracking_handler_data__cleanup_caches(self):
+        """ Clean up handler-related memoized computations
+        """
+        cls = type(self)
         cls._generic_tracking_handler_data = (
             GenericMixInTrackChanges._generic_tracking_handler_data)
-        return super(
-            GenericMixInTrackChanges, cls)._init_constraints_onchanges()
+
+    @api.model
+    def _post_model_setup__(self):
+        res = super()._post_model_setup__()
+
+        # Clean up cached info about registered handlers when new model
+        # initialized.
+        self._generic_tracking_handler_data__cleanup_caches()
+
+        return res
 
     def _get_changed_fields(self, vals):
         """ Preprocess vals to be written, and gether field changes
