@@ -425,7 +425,7 @@ class GenericCondition(models.Model):
          ('contains', 'Contains')],
         string='Operator', tracking=True)
     condition_related_field_value_id = fields.Many2oneReference(
-        'Value', tracking=True,
+        'Value', tracking=False,
         model_field="condition_related_field_model")
 
     # Monetary field conditions
