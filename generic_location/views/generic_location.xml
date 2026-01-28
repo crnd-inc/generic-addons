@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
     <record model="ir.ui.view" id="generic_location_form_view">
@@ -173,7 +173,7 @@
                         domain="[('partner_id', '!=', False)]"/>
                 <separator/>
 
-                <group name="group_group_by" expand="0" string="Group by...">
+                <group name="group_group_by">
                     <filter name="filter_group_by_type"
                             string="Type"
                             context="{'group_by': 'type_id'}"/>
@@ -204,7 +204,7 @@
             model="ir.actions.act_window.view">
         <field eval="5" name="sequence"/>
         <field name="view_mode">list</field>
-        <field name="view_id"  ref="generic_location_tree_view"/>
+        <field name="view_id" ref="generic_location_tree_view"/>
         <field name="act_window_id" ref="generic_location_action"/>
     </record>
 
@@ -212,7 +212,7 @@
             model="ir.actions.act_window.view">
         <field eval="10" name="sequence"/>
         <field name="view_mode">form</field>
-        <field name="view_id"  ref="generic_location_form_view"/>
+        <field name="view_id" ref="generic_location_form_view"/>
         <field name="act_window_id" ref="generic_location_action"/>
     </record>
 

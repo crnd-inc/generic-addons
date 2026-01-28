@@ -150,11 +150,10 @@ class GenericLocation(models.Model):
     longitude = fields.Float(digits=(16, 5))
     latitude = fields.Float(digits=(16, 5))
 
-    _sql_constraints = [
-        ('name_description_check',
-         'CHECK(name != description)',
-         ("The title of the Location should not be the description")),
-    ]
+    _name_description_check = models.Constraint(
+        'CHECK(name != description)',
+        "The title of the Location should not be the description",
+    )
 
     @property
     def top_level_parent(self):
