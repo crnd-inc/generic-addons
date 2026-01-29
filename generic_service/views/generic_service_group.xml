@@ -47,7 +47,7 @@
                 <field name="code"/>
 
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div t-attf-class="oe_kanban_global_click o_service_dashboard_kanban">
                             <div class="o_service_dashboard_kanban_main">
                                 <div class="o_service_dashboard_content">
