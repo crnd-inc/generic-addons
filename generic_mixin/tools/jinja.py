@@ -85,6 +85,8 @@ def render_jinja_string(template_str, context, on_error='empty', env=None):
         :param jinja2.sandbox.SandboxedEnvironment env: specific sendbox env
            if needed
     """
+    if not template_str:
+        return ''
     template_env = prepare_jinja_template_env() if env is None else env
 
     # Compile template
