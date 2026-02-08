@@ -45,7 +45,7 @@ class GenericMixinParentNames(models.AbstractModel):
 
         return super(GenericMixinParentNames, cls)._build_model(pool, cr)
 
-    @api.depends('name', 'parent_id.name')
+    @api.depends()
     def _compute_display_name(self):
         if self.env.context.get('_use_standart_name_get_', False):
             return super()._compute_display_name()
@@ -73,7 +73,7 @@ class GenericMixinParentNames(models.AbstractModel):
             record_names = name.split(' / ')
             parents = list(record_names)
             child = parents.pop()
-            domain = [('name', operator, child)]
+            domain = [(self._rec_name_fallback(), operator, child)]
             if parents:
                 names_ids = self.name_search(' / '.join(parents), args=args,
                                              operator='ilike', limit=limit)
@@ -87,7 +87,7 @@ class GenericMixinParentNames(models.AbstractModel):
                         [[(self._parent_name, 'in', record_ids)], domain])
                 for i in range(1, len(record_names)):
                     names = ' / '.join(record_names[-1 - i:])
-                    domain = [[('name', operator, names)], domain]
+                    domain = [[(self._rec_name_fallback(), operator, names)], domain]
                     if operator in expression.NEGATIVE_TERM_OPERATORS:
                         domain = expression.AND(domain)
                     else:
