@@ -7,7 +7,7 @@
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 18.0.0.8.1 | Technical utils to add encryption to other addons |  |
 | generic_location | Generic Location | LGPL-3 | 18.0.2.11.2 | Allows you to make an abstract description of the         objects location relative to the general location         (for example: house3 -> office5 -> room2 -> table5) |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 18.0.1.9.2 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 18.0.1.84.0 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 18.0.1.84.1 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_resource | Generic Resource | LGPL-3 | 18.0.1.51.4 | Provides the ability to create and categorize         various resources that can be used in other Odoo modules. |  |
 | generic_rule | Generic Rule | LGPL-3 | 18.0.1.9.1 | Adds new top-level menu 'rules' |  |
 | generic_service | Generic Service | LGPL-3 | 18.0.1.30.2 | Create and manage service catalog |  |
