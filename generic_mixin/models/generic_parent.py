@@ -87,7 +87,10 @@ class GenericMixinParentNames(models.AbstractModel):
                         [[(self._parent_name, 'in', record_ids)], domain])
                 for i in range(1, len(record_names)):
                     names = ' / '.join(record_names[-1 - i:])
-                    domain = [[(self._rec_name_fallback(), operator, names)], domain]
+                    domain = [
+                        [(self._rec_name_fallback(), operator, names)],
+                        domain,
+                    ]
                     if operator in expression.NEGATIVE_TERM_OPERATORS:
                         domain = expression.AND(domain)
                     else:
