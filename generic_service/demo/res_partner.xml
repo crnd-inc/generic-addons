@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <record id="base.res_partner_2" model="res.partner">
-        <field name="service_level_id" ref="generic_service_level_2"/>
-    </record>
-</odoo>
