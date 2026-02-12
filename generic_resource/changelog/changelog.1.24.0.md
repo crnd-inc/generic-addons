@@ -1,2 +1,0 @@
-- Show create/delete button/action on simple resource form view
-- Make `generic_resource` to be application
