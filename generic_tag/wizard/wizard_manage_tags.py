@@ -18,6 +18,8 @@ class GenericTagWizardManageTags(models.TransientModel):
     model_id = fields.Many2one(
         'generic.tag.model', required=True, ondelete='cascade',
         default=_get_default_model_id)
+    model_tag_name = fields.Char(
+        related='model_id.model')
     tag_ids = fields.Many2many(
         'generic.tag', required=True)
     action = fields.Selection(
@@ -29,7 +31,7 @@ class GenericTagWizardManageTags(models.TransientModel):
     def do_apply(self):
         self.ensure_one()
 
-        records = self.env[self.sudo().model_id.model].search(
+        records = self.env[self.sudo().model_tag_name].search(
             [('id', 'in', self.env.context.get('manage_tags_object_ids', []))])
 
         for record in records:

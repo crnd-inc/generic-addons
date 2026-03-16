@@ -1,6 +1,6 @@
 from odoo import api, models, _
 from odoo.exceptions import ValidationError
-from odoo.fields import Domain
+from odoo.osv import expression
 
 
 # Inspired by default product.category implementation
@@ -45,7 +45,7 @@ class GenericMixinParentNames(models.AbstractModel):
 
         return super(GenericMixinParentNames, cls)._build_model(pool, cr)
 
-    @api.depends('name', 'parent_id.name')
+    @api.depends()
     def _compute_display_name(self):
         if self.env.context.get('_use_standart_name_get_', False):
             return super()._compute_display_name()
@@ -65,35 +65,37 @@ class GenericMixinParentNames(models.AbstractModel):
         return True
 
     @api.model
-    def name_search(self, name='', domain=None, operator='ilike', limit=100):
-        if not domain:
-            domain = []
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        if not args:
+            args = []
         if name:
             # Be sure name_search is symetric to name_get
             record_names = name.split(' / ')
             parents = list(record_names)
             child = parents.pop()
-            r_domain = [('name', operator, child)]
+            domain = [(self._rec_name_fallback(), operator, child)]
             if parents:
-                names_ids = self.name_search(
-                    ' / '.join(parents),
-                    domain=domain, operator='ilike', limit=limit)
+                names_ids = self.name_search(' / '.join(parents), args=args,
+                                             operator='ilike', limit=limit)
                 record_ids = [name_id[0] for name_id in names_ids]
-                if operator in Domain.NEGATIVE_OPERATORS:
+                if operator in expression.NEGATIVE_TERM_OPERATORS:
                     records = self.search([('id', 'not in', record_ids)])
-                    r_domain = Domain.OR(
-                        [[(self._parent_name, 'in', records.ids)], r_domain])
+                    domain = expression.OR(
+                        [[(self._parent_name, 'in', records.ids)], domain])
                 else:
-                    r_domain = Domain.AND(
-                        [[(self._parent_name, 'in', record_ids)], r_domain])
+                    domain = expression.AND(
+                        [[(self._parent_name, 'in', record_ids)], domain])
                 for i in range(1, len(record_names)):
                     names = ' / '.join(record_names[-1 - i:])
-                    r_domain = [[('name', operator, names)], r_domain]
-                    if operator in Domain.NEGATIVE_OPERATORS:
-                        r_domain = Domain.AND(r_domain)
+                    domain = [
+                        [(self._rec_name_fallback(), operator, names)],
+                        domain,
+                    ]
+                    if operator in expression.NEGATIVE_TERM_OPERATORS:
+                        domain = expression.AND(domain)
                     else:
-                        r_domain = Domain.OR(r_domain)
-            records = self.search(Domain.AND([r_domain, domain]), limit=limit)
+                        domain = expression.OR(domain)
+            records = self.search(expression.AND([domain, args]), limit=limit)
         else:
-            records = self.search(domain, limit=limit)
+            records = self.search(args, limit=limit)
         return [(record.id, record.display_name) for record in records]

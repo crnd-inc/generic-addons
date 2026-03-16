@@ -63,7 +63,7 @@ class GenericTag(models.Model):
                 continue
 
             try:
-                TagModel = self.env[tag.model_id.model]
+                TagModel = self.env[tag.model_tag_name]
             except KeyError:
                 tag.objects_count = 0
             else:
@@ -121,7 +121,7 @@ class GenericTag(models.Model):
         """ Search for tags by model, code, name
         """
         ensure_code_or_name(code, name)
-        tag_domain = [('model_id.model', '=', model)]
+        tag_domain = [('model_tag_name', '=', model)]
         if code is not None:
             tag_domain.append(('code', '=', code))
         if name is not None:
@@ -133,7 +133,7 @@ class GenericTag(models.Model):
         return {
             'name': _('Objects related to tag %s') % self.name,
             'view_mode': 'list,form',
-            'res_model': self.model_id.model,
+            'res_model': self.model_tag_name,
             'type': 'ir.actions.act_window',
             'context': self.env.context,
             'domain': [('tag_ids.id', '=', self.id)],
