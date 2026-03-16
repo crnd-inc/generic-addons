@@ -22,3 +22,5 @@ class GenericTagModelMixin(models.AbstractModel):
         "generic.tag.model", "Model", required=True, ondelete='cascade',
         default=_get_default_model_id,
         help="Specify model for which this tag is available")
+    model_tag_name = fields.Char(
+        related='model_id.model')
