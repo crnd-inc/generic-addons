@@ -52,18 +52,18 @@ class GenericTagMixin(models.AbstractModel):
 
     tag_ids = fields.Many2many(
         'generic.tag', string="Tags",
-        domain=lambda self: [('model_id.model', '=', self._name)])
+        domain=lambda self: [('model_tag_name', '=', self._name)])
 
     # Search capabilities
     search_tag_id = fields.Many2one(
         'generic.tag', string='Tag', compute='_compute_search_tag',
         search='_search_tag_id', store=False, readonly=True,
-        domain=lambda self: [('model_id.model', '=', self._name)],
+        domain=lambda self: [('model_tag_name', '=', self._name)],
         help="Find all records that contain this tag")
     search_no_tag_id = fields.Many2one(
         'generic.tag', string='No tag', compute='_compute_search_tag',
         search='_search_no_tag_id', store=False, readonly=True,
-        domain=lambda self: [('model_id.model', '=', self._name)],
+        domain=lambda self: [('model_tag_name', '=', self._name)],
         help="Find all records that have no this tag")
 
     def add_tag(self, code=None, name=None, create=False):
