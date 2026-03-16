@@ -8,7 +8,7 @@
 | generic_m2o | Generic M2O Widget | LGPL-3 | 18.0.1.9.2 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 18.0.1.84.1 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_rule | Generic Rule | LGPL-3 | 18.0.1.9.1 | Adds new top-level menu 'rules' |  |
-| generic_tag | Generic Tag | LGPL-3 | 18.0.2.16.3 | Generic tag management. |  |
+| generic_tag | Generic Tag | LGPL-3 | 18.0.2.16.4 | Generic tag management. |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 18.0.1.8.0 | Generic Tag - Tests (do not install manualy) |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 18.0.0.13.1 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 18.0.0.25.2 | Technical module that have to be used to test Generic Mixin module |  |

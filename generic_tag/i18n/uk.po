@@ -365,10 +365,14 @@ msgstr ""
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__model
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__model_tag_name
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Model"
