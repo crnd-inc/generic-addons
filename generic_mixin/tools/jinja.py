@@ -90,7 +90,7 @@ def render_jinja_string(template_str, context, on_error='empty', env=None):
 
     # Compile template
     try:
-        template = template_env.from_string(tools.ustr(template_str))
+        template = template_env.from_string(template_str)
     except Exception:
         _logger.error(
             "Cannot parse template:\n\n---\n\n%s\n\n---\n",
