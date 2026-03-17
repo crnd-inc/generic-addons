@@ -45,7 +45,7 @@ def advisory_locked(method=None, *, lock_key=None, transaction_level=True):
         @functools.wraps(func)
         def wrapper(self, *args, **kwargs):
             key = lock_key or f"{self._name}.{func.__name__}"
-            with self._advisory_lock(
+            with self.env['generic.mixin.transaction.utils']._advisory_lock(
                 key, transaction_level=transaction_level,
             ):
                 return func(self, *args, **kwargs)
