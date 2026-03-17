@@ -4,7 +4,7 @@ import logging
 import struct
 from contextlib import contextmanager
 
-from odoo import _, models
+from odoo import models
 from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)

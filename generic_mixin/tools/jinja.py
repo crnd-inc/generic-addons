@@ -5,7 +5,6 @@ import pytz
 from werkzeug import urls
 from dateutil.relativedelta import relativedelta
 from jinja2.sandbox import SandboxedEnvironment
-from odoo import tools
 
 _logger = logging.getLogger(__name__)
 
