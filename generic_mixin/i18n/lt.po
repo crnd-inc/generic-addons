@@ -22,6 +22,13 @@ msgid "Active"
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
+#: code:addons/generic_mixin/models/generic_mixin_transaction_utils.py:0
+msgid ""
+"Another process is already running this operation. Please try again later."
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__archived
 msgid "Archived"
 msgstr ""
