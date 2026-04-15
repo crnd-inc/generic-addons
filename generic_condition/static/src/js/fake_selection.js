@@ -17,14 +17,19 @@ class FakeSelection extends SelectionField {
     setup() {
         this.orm = useService('orm');
 
-        onPatched(this.onPatched);
-
         this.state = useState({
             fakeOptions: [],
         });
 
         this.currentSelectionFieldId = this.selectionFieldId;
         this.updateFakeOptions();
+
+        onPatched(() => {
+            if (this.currentSelectionFieldId !== this.selectionFieldId) {
+                this.currentSelectionFieldId = this.selectionFieldId;
+                this.updateFakeOptions();
+            }
+        });
     }
 
     get options() {
@@ -32,10 +37,11 @@ class FakeSelection extends SelectionField {
     }
 
     get string() {
-        if (this.props.value === false) {
+        const val = this.value;
+        if (!val) {
             return '';
         }
-        const option = this.options.find((o) => o[0] === this.props.value);
+        const option = this.options.find((o) => o[0] === val);
         return option ? option[1] : '';
     }
 
@@ -44,17 +50,16 @@ class FakeSelection extends SelectionField {
             return false;
         }
         const selectionFieldValue = this.props.record.data[this.props.selectionField];
-        if (!selectionFieldValue || !selectionFieldValue[0]) {
+        if (!selectionFieldValue) {
             return false;
         }
-        return selectionFieldValue[0];
-    }
-
-    onPatched() {
-        if (this.currentSelectionFieldId !== this.selectionFieldId) {
-            this.currentSelectionFieldId = this.selectionFieldId;
-            this.updateFakeOptions();
+        // In Odoo 19+, many2one values are {id, display_name} objects;
+        // in older versions they were [id, name] arrays.
+        const id = selectionFieldValue.id || selectionFieldValue[0];
+        if (!id) {
+            return false;
         }
+        return id;
     }
 
     async updateFakeOptions() {
@@ -75,24 +80,24 @@ class FakeSelection extends SelectionField {
         }
     }
 
-    onChange(ev) {
-        const value = JSON.parse(ev.target.value);
+    onChange(value) {
         this.props.record.update(
-            { [this.props.name]: value },
+            { [this.props.name]: value ?? false },
             { save: this.props.autosave }
         );
     }
 }
 
-FakeSelection.extractProps = ({ attrs, viewType }, dynamicInfo) => {
+FakeSelection.extractProps = (staticInfo, dynamicInfo) => {
     return {
-        ...selectionField.extractProps({ attrs, viewType }, dynamicInfo),
-        selectionField: attrs.selection_field || '',
+        ...selectionField.extractProps(staticInfo, dynamicInfo),
+        selectionField: (staticInfo.attrs && staticInfo.attrs.selection_field) || '',
     };
 };
 
 registry.category('fields').add('fake_selection', {
     ...selectionField,
+    supportedTypes: ['char'],
     component: FakeSelection,
     extractProps: FakeSelection.extractProps,
 });
