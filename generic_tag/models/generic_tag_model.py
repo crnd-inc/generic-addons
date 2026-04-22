@@ -65,7 +65,7 @@ class GenericTagModel(models.Model):
         ctx = dict(self.env.context, default_model_id=self.id)
         return {
             'name': _('Tags related to model %s') % self.name,
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'res_model': 'generic.tag',
             'type': 'ir.actions.act_window',
             'context': ctx,
