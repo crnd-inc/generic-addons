@@ -27,9 +27,10 @@ class GenericCryptoParam(models.Model):
     key = fields.Char(index=True, required=True)
     value = fields.Text()
 
-    _sql_constraints = [
-        ('key_uniq', 'unique (key)', 'Param key must be unique.')
-    ]
+    _key_uniq = models.Constraint(
+        'unique (key)',
+        "Param key must be unique.",
+    )
 
     def _get_ecnryption_context(self):
         if not tools.config.get('crypto_token', False):
