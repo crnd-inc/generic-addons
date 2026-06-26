@@ -452,6 +452,11 @@ msgid "Street..."
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_contact_mixin
+msgid "Test Contact Mixin"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__test_delegate_id
 msgid "Test Delegate"
 msgstr ""
@@ -628,9 +633,4 @@ msgstr ""
 #. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
 msgid "Zip Code..."
-msgstr ""
-
-#. module: test_generic_mixin
-#: model:ir.model,name:test_generic_mixin.model_test_contact_mixin
-msgid "test.contact.mixin"
 msgstr ""
