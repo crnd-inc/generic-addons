@@ -70,8 +70,10 @@
     <record id="demo_condition_partner_city_kyiv" model="generic.condition">
         <field name="name">city: Kyiv</field>
         <field name="model_id" ref="base.model_res_partner"/>
-        <field name="type">filter</field>
-        <field name="condition_filter_id" ref="demo_filter_partner_city_kyiv"/>
+        <field name="type">simple_field</field>
+        <field name="condition_simple_field_field_id" ref="base.field_res_partner__city"/>
+        <field name="condition_simple_field_string_operator">=</field>
+        <field name="condition_simple_field_value_char">Kyiv</field>
     </record>
 
     <record id="demo_condition_partner_not_sx_corp_but_kyiv" model="generic.condition">
