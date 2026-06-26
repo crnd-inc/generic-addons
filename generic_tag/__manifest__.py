@@ -9,7 +9,7 @@
     'website': "https://crnd.pro",
 
     'category': 'Generic Tags',
-    'version': '18.0.2.16.6',
+    'version': '18.0.2.16.7',
 
     "depends": [
         "base",
