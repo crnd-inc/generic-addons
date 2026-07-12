@@ -5,6 +5,9 @@ from operator import itemgetter
 from inspect import getmembers
 from odoo import models, api, fields
 from odoo.fields import resolve_mro, DATETIME_LENGTH
+from ..tools.generic_class_memoized_property import (
+    generic_class_memoized_property,
+)
 
 _logger = logging.getLogger(__name__)
 
@@ -360,11 +363,15 @@ class GenericMixInTrackChanges(models.AbstractModel):
         """
         return self._generic_tracking_handler_data['track_fields']
 
-    @property
+    @generic_class_memoized_property
     def _generic_tracking_handler_data(self):
-        """ Return a dictionary mapping field names to post write handlers. """
-        # collect tracking fields on the model's class
+        """ Return a dictionary mapping field names to post write handlers.
+
+            Computed once per model class; memoized via
+            ``generic_class_memoized_property``.
+        """
         cls = type(self)
+        # collect tracking fields on the model's class
         write_handlers = {}
         pre_write_handlers = write_handlers['pre_write_handlers'] = []
         post_write_handlers = write_handlers['post_write_handlers'] = []
@@ -412,17 +419,19 @@ class GenericMixInTrackChanges(models.AbstractModel):
         pre_create_handlers.sort(key=itemgetter('priority'))
         post_create_handlers.sort(key=itemgetter('priority'))
 
-        # optimization: memoize result on cls, it will not be recomputed
-        cls._generic_tracking_handler_data = write_handlers
         return write_handlers
 
-    @classmethod
-    def _init_constraints_onchanges(cls):
-        # reset properties memoized on cls
-        cls._generic_tracking_handler_data = (
-            GenericMixInTrackChanges._generic_tracking_handler_data)
-        return super(
-            GenericMixInTrackChanges, cls)._init_constraints_onchanges()
+    def _setup_complete(self):
+        res = super()._setup_complete()
+
+        # Refresh the memoized handler registry against the (re)assembled
+        # class: the class object is reused across ``setup_models`` (a later
+        # module may add handlers, test ``reset_changes`` re-runs setup), so a
+        # value cached earlier could be stale.
+        cls = type(self)
+        cls._generic_tracking_handler_data.invalidate(cls)
+
+        return res
 
     def _get_changed_fields(self, vals):
         """ Preprocess vals to be written, and gether field changes

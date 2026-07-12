@@ -1,5 +1,8 @@
 from odoo import fields
 from odoo.tests.common import TransactionCase
+from odoo.addons.generic_mixin.models.generic_track_changes import (
+    GenericMixInTrackChanges,
+)
 
 
 class TrackChangesTest(TransactionCase):
@@ -268,3 +271,66 @@ class TrackChangesTest(TransactionCase):
 
         self.assertEqual(rec.dt_value, fields.Datetime.to_datetime(
             '2021-11-13 12:13:00'))
+
+    def test_handler_data_class_access_does_not_poison(self):
+        """ Accessing '_generic_tracking_handler_data' at class level (as
+            Odoo's setup-time introspection does) must not memoize a result
+            that leaks to concrete models.
+
+            Regression test: a memoization that computes on class access and
+            caches on the abstract mixin base would compute an *empty* handler
+            set (the bare mixin declares no handlers) and every concrete model
+            would inherit it, so no handler would ever fire.
+        """
+        # Touch class-level access on the abstract mixin and on the concrete
+        # model class *before* creating any record.
+        self.assertIsNotNone(
+            GenericMixInTrackChanges._generic_tracking_handler_data)
+        Model = self.env['test.generic.mixin.track.changes.model']
+        self.assertIsNotNone(type(Model)._generic_tracking_handler_data)
+
+        # Handlers must still fire for the concrete model.
+        rec = Model.create({'name': 'Test'})
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+        self.assertEqual(rec.create_dbg2, 'post-create-1')
+
+    def test_handler_data_recomputed_after_invalidate(self):
+        """ After the memoized handler data is invalidated, it is recomputed
+            and handlers keep working. Regression test for invalidation.
+        """
+        Model = self.env['test.generic.mixin.track.changes.model']
+
+        # Populate the cache.
+        rec = Model.create({'name': 'Test'})
+        self.assertEqual(rec.create_dbg, 'pre-create-1')
+
+        # Drop the memoized handler data (as one would when the model's
+        # handler set changes on a reused class).
+        cls = type(Model)
+        cls._generic_tracking_handler_data.invalidate(cls)
+
+        # Handlers must keep working after invalidation + recomputation.
+        rec2 = Model.create({'name': 'Test2'})
+        self.assertEqual(rec2.create_dbg, 'pre-create-1')
+        self.assertEqual(rec2.create_dbg2, 'post-create-1')
+
+    def test_handler_data_isolated_across_models(self):
+        """ Two real models that both inherit the tracking mixin but declare
+            different handler sets must each resolve to their own data.
+
+            A model that inherits the mixin but declares no handlers must
+            resolve to an *empty* handler set -- and, crucially, this must not
+            make the model that DOES declare handlers resolve empty (the
+            abstract-base poisoning failure mode, checked here on real models).
+        """
+        with_handlers = self.env['test.generic.mixin.track.changes.model']
+        without_handlers = self.env['test.generic.mixin.multi.interface.impl']
+
+        with_data = with_handlers._generic_tracking_handler_data
+        without_data = without_handlers._generic_tracking_handler_data
+
+        self.assertTrue(with_data['pre_create_handlers'])
+        self.assertEqual(without_data['pre_create_handlers'], [])
+        self.assertEqual(without_data['post_write_handlers'], [])
+        # Distinct cache entries, not a shared (poisoned) one.
+        self.assertIsNot(with_data, without_data)
