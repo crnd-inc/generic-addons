@@ -1,11 +1,11 @@
 from odoo.tests.common import TransactionCase
 from odoo.addons.generic_mixin.tools.generic_class_memoized_property import (
-    generic_class_memoized_property,
+    GenericClassMemoizedProperty,
 )
 
 
 class TestGenericClassMemoizedProperty(TransactionCase):
-    """ Contract tests for the ``generic_class_memoized_property`` descriptor.
+    """ Contract tests for the ``GenericClassMemoizedProperty`` descriptor.
 
         These use plain Python classes (no ORM) to exercise the descriptor
         directly; ``TransactionCase`` is used only so Odoo's runner discovers
@@ -16,7 +16,7 @@ class TestGenericClassMemoizedProperty(TransactionCase):
         calls = []
 
         class A:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def value(self):
                 calls.append(1)
                 return {'v': 1}
@@ -37,17 +37,17 @@ class TestGenericClassMemoizedProperty(TransactionCase):
         calls = []
 
         class A:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def value(self):
                 calls.append(1)
                 return 1
 
-        self.assertIsInstance(A.value, generic_class_memoized_property)
+        self.assertIsInstance(A.value, GenericClassMemoizedProperty)
         self.assertEqual(calls, [])
 
     def test_per_class_isolation(self):
         class Base:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def value(self):
                 return type(self).__name__
 
@@ -67,7 +67,7 @@ class TestGenericClassMemoizedProperty(TransactionCase):
             first, which must NOT shadow a subclass's own (non-empty) value.
         """
         class Base:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def handlers(self):
                 return sorted(
                     name for name in dir(type(self))
@@ -89,7 +89,7 @@ class TestGenericClassMemoizedProperty(TransactionCase):
         calls = []
 
         class A:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def value(self):
                 calls.append(1)
                 return {}
@@ -103,7 +103,7 @@ class TestGenericClassMemoizedProperty(TransactionCase):
         calls = []
 
         class A:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def value(self):
                 calls.append(1)
                 return object()
@@ -121,7 +121,7 @@ class TestGenericClassMemoizedProperty(TransactionCase):
 
     def test_invalidate_unknown_class_is_noop(self):
         class A:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def value(self):
                 return 1
 
@@ -131,15 +131,15 @@ class TestGenericClassMemoizedProperty(TransactionCase):
 
     def test_invalidate_is_per_descriptor(self):
         """ Invalidating one property must not touch a sibling property's
-            cache -- so mixins that each own a generic_class_memoized_property
+            cache -- so mixins that each own a GenericClassMemoizedProperty
             can invalidate only their own.
         """
         class A:
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def x(self):
                 return object()
 
-            @generic_class_memoized_property
+            @GenericClassMemoizedProperty
             def y(self):
                 return object()
 
@@ -159,7 +159,7 @@ class TestGenericClassMemoizedProperty(TransactionCase):
 
 class TestGenericClassMemoizedPropertyOnModel(TransactionCase):
     """ Integration checks against the real tracking mixin, which uses
-        ``generic_class_memoized_property`` for the tracking-handler data.
+        ``GenericClassMemoizedProperty`` for the tracking-handler data.
     """
 
     def test_tracking_data_is_memoized_and_invalidatable(self):
@@ -174,7 +174,7 @@ class TestGenericClassMemoizedPropertyOnModel(TransactionCase):
         # Class-level access exposes the descriptor; invalidate through it.
         self.assertIsInstance(
             cls._generic_tracking_handler_data,
-            generic_class_memoized_property)
+            GenericClassMemoizedProperty)
         cls._generic_tracking_handler_data.invalidate(cls)
 
         data2 = model._generic_tracking_handler_data

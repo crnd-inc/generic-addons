@@ -1,7 +1,7 @@
 import weakref
 
 
-class generic_class_memoized_property:
+class GenericClassMemoizedProperty:
     """ Descriptor that memoizes a value computed once per *model class*.
 
         The value is kept in a per-descriptor ``WeakKeyDictionary`` keyed by
@@ -26,7 +26,7 @@ class generic_class_memoized_property:
 
             class MyModel(models.AbstractModel):
 
-                @generic_class_memoized_property
+                @GenericClassMemoizedProperty
                 def _my_state(self):
                     return ...  # computed from ``type(self)``
 
@@ -45,7 +45,7 @@ class generic_class_memoized_property:
         self.name = name
 
     def __repr__(self):
-        return '<generic_class_memoized_property %s>' % (self.name,)
+        return '<GenericClassMemoizedProperty %s>' % (self.name,)
 
     def __get__(self, instance, owner=None):
         if instance is None:

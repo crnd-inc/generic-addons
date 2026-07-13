@@ -6,7 +6,7 @@ from inspect import getmembers
 from odoo import models, api, fields
 from odoo.fields import resolve_mro, DATETIME_LENGTH
 from ..tools.generic_class_memoized_property import (
-    generic_class_memoized_property,
+    GenericClassMemoizedProperty,
 )
 
 _logger = logging.getLogger(__name__)
@@ -363,12 +363,12 @@ class GenericMixInTrackChanges(models.AbstractModel):
         """
         return self._generic_tracking_handler_data['track_fields']
 
-    @generic_class_memoized_property
+    @GenericClassMemoizedProperty
     def _generic_tracking_handler_data(self):
         """ Return a dictionary mapping field names to post write handlers.
 
             Computed once per model class; memoized via
-            ``generic_class_memoized_property``.
+            ``GenericClassMemoizedProperty``.
         """
         cls = type(self)
         # collect tracking fields on the model's class
