@@ -3,7 +3,7 @@
 | base_field_big_int | Base Field Big Int | LGPL-3 | 18.0.0.6.1 | BigInt field implementation for Odoo |  |
 | base_field_m2m_view | Base Field Many2many View | LGPL-3 | 18.0.0.6.0 | Adds Many2manyView field implementation for Odoo. Useful in cases when m2m relation computed via Postgresql View |  |
 | generic_condition | Generic Condition | LGPL-3 | 18.0.1.22.8 | Create generic conditions on which you         can program some logic in Odoo objects |  |
-| generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 18.0.1.6.1 | Generic Conditions (Integration with Action Rules) |  |
+| generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 18.0.1.6.2 | Generic Conditions (Integration with Action Rules) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 18.0.0.8.1 | Technical utils to add encryption to other addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 18.0.1.9.2 | Generic Many2one widget |  |
 | generic_mixin | Generic Mixin | LGPL-3 | 18.0.1.84.6 | Technical module with generic mixins, that may help to build other modules |  |
