@@ -4,6 +4,10 @@ from odoo.tests.common import (tagged, TransactionCase)
 @tagged('-at_install', 'post_install')
 class TestConditionAutomation(TransactionCase):
 
+    def tearDown(self):
+        self.env['base.automation']._unregister_hook()
+        super().tearDown()
+
     def test_condition_automation(self):
         partner = self.env.ref('generic_condition.demo_partner_z_corp')
 
