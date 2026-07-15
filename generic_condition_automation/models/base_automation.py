@@ -29,13 +29,21 @@ class BaseAutomation(models.Model):
         # AccessError on 'base.automation' for regular users.
         self_sudo = self.sudo()
         if self_sudo.pre_condition_ids:
-            records = records.filtered(self_sudo.pre_condition_ids.check)
+            # Generic conditions are readable by any user,
+            # thus switch back to user env after reading them from automation
+            # rule
+            records = records.filtered(
+                self_sudo.pre_condition_ids.with_env(self.env).check)
         return super(BaseAutomation, self)._filter_pre(
             records, *args, **kwargs)
 
     def _filter_post(self, records, *args, **kwargs):
         self_sudo = self.sudo()
         if self_sudo.post_condition_ids:
-            records = records.filtered(self_sudo.post_condition_ids.check)
+            # Generic conditions are readable by any user,
+            # thus switch back to user env after reading them from automation
+            # rule
+            records = records.filtered(
+                self_sudo.post_condition_ids.with_env(self.env).check)
         return super(BaseAutomation, self)._filter_post(
             records, *args, **kwargs)
