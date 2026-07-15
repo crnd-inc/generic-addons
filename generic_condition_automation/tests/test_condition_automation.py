@@ -70,9 +70,9 @@ class TestConditionAutomation(TransactionCase):
         self.assertEqual(partner.city, 'Kyiv')
 
         # Drop everything from the transaction cache so the automation's
-        # pre/post condition fields are actually fetched (and thus access-checked)
-        # during the write, reproducing the cold-cache production scenario.
-        # Without this, an earlier superuser read of those fields would populate
+        # pre/post condition fields are actually fetched during the write,
+        # reproducing the cold-cache production scenario.
+        # Without this, an earlier su read of those fields would populate
         # the shared cache and mask the AccessError.
         self.env.invalidate_all()
 

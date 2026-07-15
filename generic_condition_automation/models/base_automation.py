@@ -25,10 +25,7 @@ class BaseAutomation(models.Model):
             record.post_condition_ids = False
 
     def _filter_pre(self, records, *args, **kwargs):
-        # Automation rules are readable only by administrators, but this method
-        # runs in the acting user's environment (base_automation binds the
-        # automations to the record's env). Access the condition fields in sudo,
-        # mirroring how the core _filter_pre reads its own fields, to avoid an
+        # Access the condition fields in sudo to avoid an
         # AccessError on 'base.automation' for regular users.
         self_sudo = self.sudo()
         if self_sudo.pre_condition_ids:
