@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- We add group Portal to implied_ids here to allow this group to read conditions.
+         But reading restricted record is still not allowed.
+         Thus. we cam use it to test access rights -->
     <record id="group_condition_no_access" model="res.groups">
         <field name="name">Condition user with no access</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
     </record>
 </odoo>

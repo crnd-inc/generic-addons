@@ -123,7 +123,8 @@ class GenericMixinRefreshView(models.AbstractModel):
                 fname for fname, f in self._fields.items()
                 if fname not in ('create_uid', 'write_uid',
                                  'create_date', 'write_date',
-                                 self.CONCURRENCY_CHECK_FIELD)
+                                 getattr(self, 'CONCURRENCY_CHECK_FIELD',
+                                         '__last_update'))
                 if not f.compute
                 if not f.inverse
                 if not f.related

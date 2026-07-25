@@ -14,11 +14,9 @@ class TestCryptoSettings(TransactionCase):
 
     @classmethod
     def tearDownClass(cls):
-        res = super(TestCryptoSettings, cls).setUpClass()
+        super(TestCryptoSettings, cls).tearDownClass()
 
         config['crypto_token'] = cls.old_token
-
-        return res
 
     def _search_param(self, key):
         return self.env['generic.crypto.param'].search(

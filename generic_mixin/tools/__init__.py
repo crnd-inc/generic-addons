@@ -1,1 +1,2 @@
 from .jinja import render_jinja_string
+from .generic_class_memoized_property import GenericClassMemoizedProperty

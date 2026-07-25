@@ -1,5 +1,6 @@
 from . import (
     test_find_new,
+    test_generic_class_memoized_property,
     test_track_changes,
     test_updatable_mixin,
     # test_name_by_sequence,
