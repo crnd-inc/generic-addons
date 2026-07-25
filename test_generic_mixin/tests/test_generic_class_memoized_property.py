@@ -186,10 +186,11 @@ class TestGenericClassMemoizedPropertyOnModel(TransactionCase):
             [h['method'] for h in data2['pre_create_handlers']])
 
     def test_setup_complete_invalidates_tracking_cache(self):
-        """ ``_post_model_setup__`` must drop the memoized handler data, so it is
-            recomputed against the fully-assembled class. This is what keeps
-            the cache correct across incremental module loading (a later
-            module adding handlers) and test ``reset_changes``.
+        """ ``_post_model_setup__`` must drop the memoized handler data,
+            so it is recomputed against the fully-assembled class.
+            This is what keeps the cache correct across incremental module
+            loading (a later module adding handlers)
+            and test ``reset_changes``.
         """
         model = self.env['test.generic.mixin.track.changes.model']
         cls = type(model)
