@@ -21,7 +21,7 @@ class GenericTag(models.Model):
     category_id = fields.Many2one(
         'generic.tag.category', 'Category',
         index=True, ondelete='restrict')
-    name = fields.Char(required=True, translate=True, index=True)
+    name = fields.Char(required=True, index=True)
     code = fields.Char(
         index=True, help="May be used for special "
                          "tags which have programmed bechavior")
