@@ -20,7 +20,7 @@ class GenericTagCategory(models.Model):
             line.tags_count = mapped_data.get(line.id, 0)
 
     # model_id field will be added by 'generic.tag.model.mixin'
-    name = fields.Char(required=True, index=True)
+    name = fields.Char(required=True, translate=True)
     code = fields.Char(
         index=True, help="May be used for special "
                          "tags which have programmed bechavior")
