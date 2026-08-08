@@ -17,6 +17,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: generic_tag_test
+#: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__active
+msgid "Active"
+msgstr ""
+
+#. module: generic_tag_test
 #: model:ir.model.fields,field_description:generic_tag_test.field_generic_tag_test_model__create_uid
 msgid "Created by"
 msgstr ""
