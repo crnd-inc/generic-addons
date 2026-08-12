@@ -25,6 +25,11 @@ msgid ""
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__active
+msgid "Active"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_base_model__base_field
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_1__base_field
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_proxy_method_my_specific_model_2__base_field
@@ -39,11 +44,17 @@ msgid "Base Record"
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__child_ids
+msgid "Child"
+msgstr ""
+
+#. module: test_generic_mixin
 #: model_terms:ir.ui.view,arch_db:test_generic_mixin.view_test_contact_mixin_view_form
 msgid "City..."
 msgstr ""
 
 #. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__code
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__code
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields__code
 msgid "Code"
@@ -86,6 +97,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__create_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__create_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__create_uid
@@ -104,6 +117,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__create_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__create_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__create_date
@@ -142,6 +157,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__display_name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__display_name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__display_name
@@ -177,6 +194,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__id
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__id
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__id
@@ -265,6 +284,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__write_uid
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__write_uid
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__write_uid
@@ -283,6 +304,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__write_date
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_delegation_no_delegation__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__write_date
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__write_date
@@ -397,6 +420,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_named_field__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_uuid_standard__name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__name
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_multi_interface_no_del_impl__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_gm_refresh_view__name
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_mixin_name_search_by_fields_2__name
@@ -408,6 +433,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_noupdate_on_write_model__ir_model_data_no_update
 #: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_track_changes_model__ir_model_data_no_update
 msgid "Non Updatable"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_parent__other_ids
+msgid "Other"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model.fields,field_description:test_generic_mixin.field_test_generic_mixin_x2m_agg_child__parent_code
+msgid "Parent Code"
 msgstr ""
 
 #. module: test_generic_mixin
@@ -551,6 +591,16 @@ msgstr ""
 #. module: test_generic_mixin
 #: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_track_changes_model
 msgid "Test Generic Mixin: track changes model"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_x2m_agg_child
+msgid "Test Generic Mixin: x2m agg: Child"
+msgstr ""
+
+#. module: test_generic_mixin
+#: model:ir.model,name:test_generic_mixin.model_test_generic_mixin_x2m_agg_parent
+msgid "Test Generic Mixin: x2m agg: Parent"
 msgstr ""
 
 #. module: test_generic_mixin
