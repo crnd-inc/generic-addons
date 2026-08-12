@@ -49,15 +49,15 @@ def read_counts_for(records, related_model, search_field, value_field,
         search_domain = [(search_field, 'in', check_values)]
         if domain:
             search_domain = expression.AND([search_domain, domain])
-        data = RelatedModel.read_group(
-            search_domain, [search_field], [search_field])
+        # `_read_group`, not the legacy `read_group`: the latter defaults the
+        # order to the groupby, which makes it LEFT JOIN the comodel just to
+        # sort groups by display name. That join costs more than the count
+        # itself on a large related table, and callers do not need the order.
         mapped_data = {}
-        for m in data:
-            key = m[search_field]
-            if isinstance(key, (tuple, list)):
-                # For many2one fields
-                key = key[0]
-            mapped_data[key] = m['%s_count' % search_field]
+        for key, count in RelatedModel._read_group(
+                search_domain, [search_field], ['__count']):
+            # many2one groups come back as recordsets, other types as values
+            mapped_data[getattr(key, 'id', key)] = count
     else:
         # For case, if record is not written in db
         mapped_data = dict()
