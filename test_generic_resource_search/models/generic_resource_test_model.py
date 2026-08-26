@@ -10,5 +10,5 @@ class GenericResourceTestModel(models.Model):
 
     _rec_name = 'name'
 
-    name = fields.Char(index=True, required=True, translate=True)
+    name = fields.Char(required=True, translate=True)
     active = fields.Boolean(related="resource_id.active", default=True)
