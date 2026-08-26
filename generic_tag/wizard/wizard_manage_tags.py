@@ -31,8 +31,11 @@ class GenericTagWizardManageTags(models.TransientModel):
     def do_apply(self):
         self.ensure_one()
 
-        records = self.env[self.sudo().model_tag_name].search(
-            [('id', 'in', self.env.context.get('manage_tags_object_ids', []))])
+        records = self.env[self.sudo().model_tag_name].with_context(
+            active_test=False,
+        ).search(
+            [('id', 'in', self.env.context.get('manage_tags_object_ids', []))]
+        )
 
         for record in records:
             if self.action == 'add':

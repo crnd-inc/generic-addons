@@ -10,3 +10,4 @@ class TestModel(models.Model):
 
     name = fields.Char()
     test_field = fields.Char('test_field')
+    active = fields.Boolean(default=True, index=True)

@@ -11,3 +11,4 @@ from . import (
     test_contact_mixin,
     test_jinja_timezone,
 )
+from . import test_x2m_agg_utils

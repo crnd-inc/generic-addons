@@ -348,6 +348,54 @@ class TestBasics(TransactionCase):
         }).do_apply()
         self.assertEqual(record.tag_ids, tag)
 
+    def test_110_wizard(self):
+        record1 = self.env['generic.tag.test.model'].create({
+            'name': 'Test 1',
+            'active': True,
+        })
+        record2 = self.env['generic.tag.test.model'].create({
+            'name': 'Test 2',
+            'active': False,
+        })
+        tag = self.env['generic.tag'].with_context(
+            default_model='generic.tag.test.model'
+        ).create({
+            'name': 'Test',
+            'code': 'test',
+        })
+
+        self.assertFalse(record1.tag_ids)
+        self.assertFalse(record2.tag_ids)
+        self.env['generic.tag.wizard.manage.tags'].with_context(
+            manage_tags_model='generic.tag.test.model',
+            manage_tags_object_ids=(record1 + record2).ids,
+        ).create({
+            'action': 'set',
+            'tag_ids': [(6, 0, tag.ids)],
+        }).do_apply()
+        self.assertEqual(record1.tag_ids, tag)
+        self.assertEqual(record2.tag_ids, tag)
+
+        self.env['generic.tag.wizard.manage.tags'].with_context(
+            manage_tags_model='generic.tag.test.model',
+            manage_tags_object_ids=(record1 + record2).ids,
+        ).create({
+            'action': 'remove',
+            'tag_ids': [(6, 0, tag.ids)],
+        }).do_apply()
+        self.assertFalse(record1.tag_ids)
+        self.assertFalse(record2.tag_ids)
+
+        self.env['generic.tag.wizard.manage.tags'].with_context(
+            manage_tags_model='generic.tag.test.model',
+            manage_tags_object_ids=(record1 + record2).ids,
+        ).create({
+            'action': 'add',
+            'tag_ids': [(6, 0, tag.ids)],
+        }).do_apply()
+        self.assertEqual(record1.tag_ids, tag)
+        self.assertEqual(record2.tag_ids, tag)
+
     def test_name_get(self):
         self.assertEqual(
             self.test_tag_1.read(['display_name'])[0]['display_name'],

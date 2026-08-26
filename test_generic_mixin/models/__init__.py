@@ -8,4 +8,5 @@ from . import (
     test_delegation,
     test_refresh_view,
     test_contact_mixin,
+    test_x2m_agg_utils,
 )
