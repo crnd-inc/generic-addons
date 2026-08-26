@@ -157,7 +157,7 @@ class GenericCondition(models.Model):
 
     color = fields.Integer()
     name = fields.Char(
-        required=True, index=True, translate=True, tracking=True)
+        required=True, translate=True, tracking=True)
     type = fields.Selection(
         [('eval', 'Expression'),
          ('filter', 'Filter'),
