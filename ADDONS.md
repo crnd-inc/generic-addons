@@ -2,13 +2,13 @@
 |---|---|---|---|---|---|
 | base_field_big_int | Base Field Big Int | LGPL-3 | 18.0.0.6.1 | BigInt field implementation for Odoo |  |
 | base_field_m2m_view | Base Field Many2many View | LGPL-3 | 18.0.0.6.0 | Adds Many2manyView field implementation for Odoo. Useful in cases when m2m relation computed via Postgresql View |  |
-| generic_condition | Generic Condition | LGPL-3 | 18.0.1.22.8 | Create generic conditions on which you         can program some logic in Odoo objects |  |
+| generic_condition | Generic Condition | LGPL-3 | 18.0.1.23.0 | Create generic conditions on which you         can program some logic in Odoo objects |  |
 | generic_condition_automation | Generic Condition - Action Rules | LGPL-3 | 18.0.1.6.2 | Generic Conditions (Integration with Action Rules) |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 18.0.0.8.1 | Technical utils to add encryption to other addons |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 18.0.1.9.2 | Generic Many2one widget |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 18.0.1.84.7 | Technical module with generic mixins, that may help to build other modules |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 18.0.1.84.8 | Technical module with generic mixins, that may help to build other modules |  |
 | generic_rule | Generic Rule | LGPL-3 | 18.0.1.9.1 | Adds new top-level menu 'rules' |  |
-| generic_tag | Generic Tag | LGPL-3 | 18.0.2.17.0 | Generic tag management. |  |
+| generic_tag | Generic Tag | LGPL-3 | 18.0.2.17.1 | Generic tag management. |  |
 | generic_tag_test | Generic Tag - Test | LGPL-3 | 18.0.1.9.0 | Generic Tag - Tests (do not install manualy) |  |
 | test_crypto_utils | Generic Crypto Utils (Tests) | LGPL-3 | 18.0.0.13.2 | Technical module that have to be used to test Generic Crypto Utils module |  |
 | test_generic_mixin | Generic Mixin (Tests) | LGPL-3 | 18.0.0.25.6 | Technical module that have to be used to test Generic Mixin module |  |
