@@ -11,7 +11,7 @@ class GenericTeam(models.Model):
     _description = 'Generic Team'
 
     name = fields.Char(
-        index=True, required=True, translate=True,
+        required=True, translate=True,
         string='Team name')
     description = fields.Text(translate=True)
     active = fields.Boolean(index=True, default=True, string='Active?')

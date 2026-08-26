@@ -9,7 +9,7 @@ class GenericMixinNameWithCode(models.AbstractModel):
     _name = 'generic.mixin.name_with_code'
     _description = 'Generic Mixin: Name with code'
 
-    name = fields.Char(required=True, index=True, translate=True)
+    name = fields.Char(required=True, translate=True)
     code = fields.Char(required=True, index=True)
 
     _sql_constraints = [

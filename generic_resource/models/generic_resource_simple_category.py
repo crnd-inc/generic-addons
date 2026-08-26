@@ -13,7 +13,7 @@ class GenericResourceSimpleCategory(models.Model):
     _parent_order = 'name'
     _parent_store = True
 
-    name = fields.Char(index=True, required=True, translate=True)
+    name = fields.Char(required=True, translate=True)
     active = fields.Boolean(default=True, index=True)
     parent_id = fields.Many2one(
         'generic.resource.simple.category', 'Parent Category',

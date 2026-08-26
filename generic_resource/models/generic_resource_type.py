@@ -43,7 +43,7 @@ class GenericResourceType(models.Model):
     _order = 'sequence asc, name asc, model_id asc'
     _log_access = False
 
-    name = fields.Char(index=True, required=True, translate=True)
+    name = fields.Char(required=True, translate=True)
     active = fields.Boolean(index=True, default=True)
     model_id = fields.Many2one(
         'ir.model', required=True, index=True, auto_join=True,
