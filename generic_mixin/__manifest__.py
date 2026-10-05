@@ -28,6 +28,9 @@
             'generic_mixin/static/src/scss/refresh_view.scss',
             'generic_mixin/static/src/js/*.js',
         ],
+        'web.assets_unit_tests': [
+            'generic_mixin/static/tests/**/*.test.js',
+        ],
     },
     'images': ['static/description/banner.png'],
     'installable': True,
