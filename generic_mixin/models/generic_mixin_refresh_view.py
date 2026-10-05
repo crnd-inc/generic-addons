@@ -143,6 +143,16 @@ class GenericMixinRefreshView(models.AbstractModel):
                 }
             }
         """
+        # Sets are not JSON-serializable, thus they are silently converted
+        # to their string representation ('{1, 2}') on the way to the
+        # browser, and web client cannot use them. Convert them to lists.
+        refresh_data = {
+            model: {
+                action: list(res_ids)
+                for action, res_ids in actions.items()
+            }
+            for model, actions in refresh_data.items()
+        }
         self.env['bus.bus']._sendone(
             'generic_mixin_refresh_view',
             'generic_mixin_refresh_view',

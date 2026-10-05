@@ -4,7 +4,7 @@ import pytz
 
 from dateutil.parser import parse
 
-from pkg_resources import parse_version
+from packaging.version import parse as parse_version
 
 from odoo.tools.float_utils import float_round
 
