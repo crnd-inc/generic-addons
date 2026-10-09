@@ -3,8 +3,8 @@
 import { registry } from "@web/core/registry";
 import { SelectionField, selectionField } from "@web/views/fields/selection/selection_field";
 import { useService } from "@web/core/utils/hooks";
+import { useState, onPatched } from "@odoo/owl";
 
-const { useState, onPatched } = owl;
 
 class FakeSelection extends SelectionField {
     static props = {

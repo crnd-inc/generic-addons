@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import {useState} from "@odoo/owl";
+import {onPatched, useState} from "@odoo/owl";
 import {_t} from "@web/core/l10n/translation";
 import {registry} from "@web/core/registry";
 import {
@@ -18,8 +18,6 @@ import {
 import {
     SelectCreateDialog
 } from "@web/views/view_dialogs/select_create_dialog";
-
-const {onPatched} = owl;
 
 function m2oTupleFromData(data) {
     if (!data) {

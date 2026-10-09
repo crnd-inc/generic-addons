@@ -24,10 +24,10 @@ class GenericMixinUUID(models.AbstractModel):
                     index=True, required=True, readonly=True,
                     size=38, default='/', copy=False, string='UUID')
 
-                _sql_constraints = [
-                    ('uuid_uniq',
-                     'UNIQUE (uuid)',
-                     'UUID must be unique.'),
+                _uuid_uniq = models.Constraint(
+                    'UNIQUE (uuid)',
+                    'UUID must be unique.',
+                )
 
         After this code, you will have your uuid field automatically
         filled with unique values on record creation.
@@ -58,10 +58,10 @@ class GenericMixinUUID(models.AbstractModel):
                     index=True, required=True, readonly=True,
                     size=38, default='/', copy=False, string='UUID')
 
-                _sql_constraints = [
-                    ('my_uuid_uniq',
-                     'UNIQUE (my_uuid)',
-                     'My UUID must be unique.'),
+                _my_uuid_uniq = models.Constraint(
+                    'UNIQUE (my_uuid)',
+                    'My UUID must be unique.',
+                )
     """
     _name = 'generic.mixin.uuid'
     _description = 'Generic Mixin: UUID'
