@@ -46,7 +46,6 @@ build_env:
         - whoami
         - odood --version
         - odood info
-        - odood --version
         - echo "Checking branch compatability $CI_COMMIT_BRANCH" && [[ "$CI_COMMIT_BRANCH" =~ ^19.0(-.*)?$ ]]
 
 flake8:
@@ -61,7 +60,7 @@ pylint:
     stage: static-test
     before_script:
         - odood pre-commit init --odoo-helper-compat --force --no-setup .
-        - odood addons generate-py-requirements --dir . -o /tmp/py-requirements.txt
+        - odood addons generate-py-requirements $(odood addons list --installable --by-path . | sed 's/^/--dir=/') -o /tmp/py-requirements.txt
         - odood venv pip -- install -r /tmp/py-requirements.txt
     script:
         - odood venv run -- pylint --rcfile=.pylintrc --valid_odoo_versions=$SERIES_BRANCH -d manifest-required-author $(odood addons list --installable --by-path .)
