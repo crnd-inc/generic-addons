@@ -20,8 +20,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
 "<b>Warning:</b> This feature is deprecated,\n"
-"                                because filters cannot handle NewId records "
-"that used\n"
+"                                because filters cannot handle NewId records that used\n"
 "                                during onchange computation."
 msgstr ""
 
@@ -80,16 +79,14 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can create the condition to compare monetary indicators. "
-"<br/>\n"
+"By this type you can create the condition to compare monetary indicators. <br/>\n"
 "                               <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can describe the condition as an expression in the Python "
-"programming language. <br/>\n"
+"By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -143,8 +140,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/generic_condition/models/generic_condition.py:0
 msgid ""
-"Checking condition %(cond)s on document %(doc)s caused error. Notify "
-"administrator to fix it.\n"
+"Checking condition %(cond)s on document %(doc)s caused error. Notify administrator to fix it.\n"
 "\n"
 "---\n"
 "%(error_msg)s"
@@ -175,8 +171,7 @@ msgstr ""
 msgid ""
 "Choose way related record will be checked:\n"
 "- Match: return True if all filtered records match condition.\n"
-"- Contains: return True if at least one of filtered records match 'check' "
-"conditions"
+"- Contains: return True if at least one of filtered records match 'check' conditions"
 msgstr ""
 
 #. module: generic_condition
@@ -442,6 +437,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__display_name
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__display_name
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__display_name
+#: model:ir.model.fields,field_description:generic_condition.field_ir_model_fields__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -575,6 +571,7 @@ msgstr ""
 #. module: generic_condition
 #: model:res.groups,comment:generic_condition.group_generic_condition_manage
 #: model:res.groups,name:generic_condition.group_generic_condition_manage
+#: model:res.groups.privilege,name:generic_condition.res_groups_privilege_generic_condition_manage
 msgid "Generic Condition Manage"
 msgstr ""
 
@@ -595,14 +592,8 @@ msgstr ""
 msgid ""
 "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s "
-"[%(object_id)d]\tobject's model: %(object_model)s\n"
+"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s [%(object_id)d]\tobject's model: %(object_model)s\n"
 "\tcondition's model: %(condition_model)s\n"
-msgstr ""
-
-#. module: generic_condition
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
-msgid "Group by..."
 msgstr ""
 
 #. module: generic_condition
@@ -623,8 +614,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"Here you can create a condition that relates to the simple field of the Odoo "
-"object. <br/>\n"
+"Here you can create a condition that relates to the simple field of the Odoo object. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -644,6 +634,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__id
+#: model:ir.model.fields,field_description:generic_condition.field_ir_model_fields__id
 msgid "ID"
 msgstr ""
 
@@ -684,9 +675,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"In that case you can select one of the already created conditions (this "
-"could be useful if you use the same condition but with inversion or as a "
-"superuser). <br/>\n"
+"In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1079,16 +1068,14 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of condition can be used to find related objects in arbitary "
-"table\n"
+"This type of condition can be used to find related objects in arbitary table\n"
 "                                and check them."
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of condition is used to check the properties of related objects. "
-"<br/>\n"
+"This type of condition is used to check the properties of related objects. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1102,8 +1089,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of the condition allows you to estimate the date difference "
-"between certain events. <br/>\n"
+"This type of the condition allows you to estimate the date difference between certain events. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1252,8 +1238,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"With this type of condition you can use multiple conditions simultaneously. "
-"<br/>\n"
+"With this type of condition you can use multiple conditions simultaneously. <br/>\n"
 "                                <br/>"
 msgstr ""
 
@@ -1279,9 +1264,27 @@ msgid "_Cancel"
 msgstr ""
 
 #. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "and"
+msgstr ""
+
+#. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_city_kyiv
 #: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp_but_kyiv
 msgid "city: Kyiv"
+msgstr ""
+
+#. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "date"
+msgstr ""
+
+#. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "datetime"
 msgstr ""
 
 #. module: generic_condition
@@ -1322,6 +1325,12 @@ msgstr ""
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_eval_error
 msgid "eval with error"
+msgstr ""
+
+#. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "field"
 msgstr ""
 
 #. module: generic_condition
