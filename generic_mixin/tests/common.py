@@ -12,7 +12,7 @@ HOST = tests_common.HOST
 TEST_URL = "http://%s:%s" % (HOST, PORT)
 
 
-# pylint: disable=class-camelcase
+# pylint: disable=invalid-name
 class hide_log_messages:
     """ Temporary suppress log messages that pass fn_check
 

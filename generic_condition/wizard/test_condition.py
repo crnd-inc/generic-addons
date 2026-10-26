@@ -13,7 +13,7 @@ class TestGenericCondition(models.TransientModel):
     _description = "Wizard: Test generic condition"
 
     condition_id = fields.Many2one(
-        'generic.condition', 'Condition', required=True, ondelete='cascade')
+        'generic.condition', required=True, ondelete='cascade')
     res_model = fields.Char(
         string='Object Model',
         related='condition_id.model_id.model',

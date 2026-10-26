@@ -17,7 +17,7 @@ class GenericTagWizardManageTags(models.TransientModel):
 
     model_id = fields.Many2one(
         'generic.tag.model', required=True, ondelete='cascade',
-        default=_get_default_model_id)
+        default=lambda self: self._get_default_model_id())
     model_tag_name = fields.Char(
         related='model_id.model')
     tag_ids = fields.Many2many(

@@ -19,8 +19,8 @@ class GenericTagModelMixin(models.AbstractModel):
         return self.env['generic.tag.model'].browse()
 
     model_id = fields.Many2one(
-        "generic.tag.model", "Model", required=True, ondelete='cascade',
-        default=_get_default_model_id,
+        "generic.tag.model", required=True, ondelete='cascade',
+        default=lambda self: self._get_default_model_id(),
         help="Specify model for which this tag is available")
     model_tag_name = fields.Char(
         related='model_id.model')

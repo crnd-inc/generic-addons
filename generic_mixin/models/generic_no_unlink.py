@@ -26,15 +26,16 @@ class GenericMixinNoUnlink(models.AbstractModel):
         )
         return allowed_count == len(self.exists())
 
+    # Refusing the deletion is the whole point of this mixin
     def unlink(self):
         if not self._allow_unlink():
             if 'active' in self._fields:
-                raise UserError(self.env._(
+                raise UserError(self.env._(  # pylint: disable=E8140
                     "Cannot unlink these records. Operation not allowed.\n"
                     "It is better to deactivate these records.\n"
                     "Model: %(model)s [%(model_name)s]",
                     model=self._name, model_name=self._description))
-            raise UserError(self.env._(
+            raise UserError(self.env._(  # pylint: disable=E8140
                 "Cannot unlink these records. Operation not allowed.\n"
                 "Model: %(model)s [%(model_name)s]",
                 model=self._name, model_name=self._description))

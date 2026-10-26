@@ -19,7 +19,7 @@ class GenericTag(models.Model):
     _order = 'category_sequence, category_id, sequence, name'
 
     category_id = fields.Many2one(
-        'generic.tag.category', 'Category',
+        'generic.tag.category',
         index=True, ondelete='restrict')
     name = fields.Char(required=True, translate=True)
     code = fields.Char(

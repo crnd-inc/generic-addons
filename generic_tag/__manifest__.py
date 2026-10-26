@@ -1,9 +1,7 @@
 {
     'name': "Generic Tag",
 
-    'summary': """
-        Generic tag management.
-    """,
+    'summary': 'Generic tag management.',
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
@@ -26,7 +24,6 @@
         'security/ir.access.csv',
     ],
     'images': ['static/description/banner.png'],
-    "installable": True,
     "application": True,
     'license': 'LGPL-3',
 }

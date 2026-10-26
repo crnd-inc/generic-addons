@@ -9,8 +9,6 @@
     'depends': [
         'web',
     ],
-    'data': [
-    ],
     'assets': {
         'web.assets_backend': [
             '/generic_m2o/static/src/js/generic_m2o.js',
@@ -21,7 +19,4 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': True,
-    'auto_install': False,
-    'application': False,
 }

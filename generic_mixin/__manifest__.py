@@ -1,9 +1,10 @@
 {
     'name': "Generic Mixin",
 
-    'summary': """
-    Technical module with generic mixins, that may help to build other modules
-    """,
+    'summary': (
+        'Technical module with generic mixins, that may help to build '
+        'other modules'
+    ),
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
@@ -16,8 +17,6 @@
         'base',
         'http_routing',
         'bus',
-    ],
-    'data': [
     ],
     'external_dependencies': {
         'python': ['packaging'],
@@ -33,7 +32,5 @@
         ],
     },
     'images': ['static/description/banner.png'],
-    'installable': True,
-    'application': False,
     'license': 'LGPL-3',
 }

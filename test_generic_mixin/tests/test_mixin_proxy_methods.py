@@ -49,7 +49,7 @@ class ProxyMethodsMixinTest(TransactionCase):
             'specific_field_1': 'test-f1-3',
             'base_field': 'test-3'
         })
-        recs = (rec1 + rec2 + rec3)
+        recs = rec1 + rec2 + rec3
 
         self.assertEqual(rec1.specific_field_1, 'test-f1-1')
         self.assertEqual(rec1.base_field, 'test-1')

@@ -1,9 +1,7 @@
 {
     'name': "Generic Rule",
 
-    'summary': """
-        Adds new top-level menu 'rules'
-    """,
+    'summary': "Adds new top-level menu 'rules'",
 
     'author': "Center of Research and Development",
     'website': "https://crnd.pro",
@@ -21,7 +19,5 @@
     ],
 
     'images': ['static/description/banner.png'],
-    'installable': True,
-    'application': False,
     'license': 'LGPL-3',
 }
