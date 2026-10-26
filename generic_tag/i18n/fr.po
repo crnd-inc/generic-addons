@@ -28,8 +28,7 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user
 msgid ""
 "\n"
-"            Users in this group have access to menu Tags. They cannot create "
-"or edit tags.\n"
+"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
 "        "
 msgstr ""
 
@@ -37,8 +36,7 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
 msgid ""
 "\n"
-"            Users in this group have access to tags that have same group "
-"that user have\n"
+"            Users in this group have access to tags that have same group that user have\n"
 "        "
 msgstr ""
 
