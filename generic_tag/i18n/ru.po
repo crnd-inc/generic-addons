@@ -24,34 +24,29 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            Пользователи этой группы могут управлять тегами (создание / "
-"обновление / ...)\n"
+"            Пользователи этой группы могут управлять тегами (создание / обновление / ...)\n"
 "        "
 
 #. module: generic_tag
 #: model:res.groups,comment:generic_tag.group_tags_user
 msgid ""
 "\n"
-"            Users in this group have access to menu Tags. They cannot create "
-"or edit tags.\n"
+"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
 "        "
 msgstr ""
 "\n"
-"            Пользователи этой группы имеют доступ в меню Теги. Но они не "
-"могут создавать или редактировать теги.\n"
+"            Пользователи этой группы имеют доступ в меню Теги. Но они не могут создавать или редактировать теги.\n"
 "        "
 
 #. module: generic_tag
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
 msgid ""
 "\n"
-"            Users in this group have access to tags that have same group "
-"that user have\n"
+"            Users in this group have access to tags that have same group that user have\n"
 "        "
 msgstr ""
 "\n"
-"            Пользователи этой группы имеют доступ к тегам, у которых указана "
-"группа, в которую входит пользователь\n"
+"            Пользователи этой группы имеют доступ к тегам, у которых указана группа, в которую входит пользователь\n"
 "        "
 
 #. module: generic_tag
@@ -245,8 +240,7 @@ msgid ""
 "Following (category - tags) pairs, break category XOR restriction:\n"
 "%s"
 msgstr ""
-"Пары (категория - теги) нарушают условие исключенного или (XOR) для "
-"категории:\n"
+"Пары (категория - теги) нарушают условие исключенного или (XOR) для категории:\n"
 "%s"
 
 #. module: generic_tag

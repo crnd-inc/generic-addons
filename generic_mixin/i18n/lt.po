@@ -207,8 +207,7 @@ msgstr ""
 #: code:addons/generic_mixin/models/generic_mixin_entity_lifecycle.py:0
 #, python-format
 msgid ""
-"It is not allowed to change Lifecycle State fieldfrom %(old_state)s to "
-"%(new_state)s!\n"
+"It is not allowed to change Lifecycle State fieldfrom %(old_state)s to %(new_state)s!\n"
 "Allowed next states: %(allowed_states)s"
 msgstr ""
 

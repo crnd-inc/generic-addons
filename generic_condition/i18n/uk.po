@@ -20,8 +20,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
 "<b>Warning:</b> This feature is deprecated,\n"
-"                                because filters cannot handle NewId records "
-"that used\n"
+"                                because filters cannot handle NewId records that used\n"
 "                                during onchange computation."
 msgstr ""
 
@@ -81,20 +80,17 @@ msgstr "Базується на моделі"
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can create the condition to compare monetary indicators. "
-"<br/>\n"
+"By this type you can create the condition to compare monetary indicators. <br/>\n"
 "                               <br/>"
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"By this type you can describe the condition as an expression in the Python "
-"programming language. <br/>\n"
+"By this type you can describe the condition as an expression in the Python programming language. <br/>\n"
 "                                <br/>"
 msgstr ""
-"За цим типом ви можете описати умову як вираз мовою програмування Python. "
-"<br/>\n"
+"За цим типом ви можете описати умову як вираз мовою програмування Python. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
@@ -150,8 +146,7 @@ msgstr "Перевірити набір інших умов"
 #: code:addons/generic_condition/models/generic_condition.py:0
 #, python-format
 msgid ""
-"Checking condition %(cond)s on document %(doc)s caused error. Notify "
-"administrator to fix it.\n"
+"Checking condition %(cond)s on document %(doc)s caused error. Notify administrator to fix it.\n"
 "\n"
 "---\n"
 "%(error_msg)s"
@@ -182,14 +177,11 @@ msgstr "Оберіть модуль, до якої застосувати умо
 msgid ""
 "Choose way related record will be checked:\n"
 "- Match: return True if all filtered records match condition.\n"
-"- Contains: return True if at least one of filtered records match 'check' "
-"conditions"
+"- Contains: return True if at least one of filtered records match 'check' conditions"
 msgstr ""
 "Оберіть спосіб перевірки пов'язаних записів:\n"
-"- Співпадіння: Істина коли всі вибрані записи відповідають умовам "
-"перевірки.\n"
-"- Включення: Істина коли хоча б один запис із вибраних відповідає умовам "
-"перевірки"
+"- Співпадіння: Істина коли всі вибрані записи відповідають умовам перевірки.\n"
+"- Включення: Істина коли хоча б один запис із вибраних відповідає умовам перевірки"
 
 #. module: generic_condition
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__color
@@ -616,8 +608,7 @@ msgstr "Універсальні умови"
 msgid ""
 "Generic conditions misconfigured!\n"
 "object's model and condition's model does not match:\n"
-"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s "
-"[%(object_id)d]\tobject's model: %(object_model)s\n"
+"\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s [%(object_id)d]\tobject's model: %(object_model)s\n"
 "\tcondition's model: %(condition_model)s\n"
 msgstr ""
 
@@ -644,12 +635,10 @@ msgstr "Має лише контакти"
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"Here you can create a condition that relates to the simple field of the Odoo "
-"object. <br/>\n"
+"Here you can create a condition that relates to the simple field of the Odoo object. <br/>\n"
 "                                <br/>"
 msgstr ""
-"Тут ви можете створити умову, яка повʼязана з простим полем обʼєкта Оду. <br/"
-">\n"
+"Тут ви можете створити умову, яка повʼязана з простим полем обʼєкта Оду. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
@@ -694,8 +683,8 @@ msgid ""
 "If checked, then absolute date difference will be checked. (date difference "
 "will be positive always)"
 msgstr ""
-"Якщо вибрано, то різниця дат буде перевірятись по модулю (різниця дат завжди "
-"буде позитивною)"
+"Якщо вибрано, то різниця дат буде перевірятись по модулю (різниця дат завжди"
+" буде позитивною)"
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
@@ -715,9 +704,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"In that case you can select one of the already created conditions (this "
-"could be useful if you use the same condition but with inversion or as a "
-"superuser). <br/>\n"
+"In that case you can select one of the already created conditions (this could be useful if you use the same condition but with inversion or as a superuser). <br/>\n"
 "                                <br/>"
 msgstr ""
 "У цьому випадку ви можете вибрати одну з вже створених умов (наприклад для "
@@ -1126,20 +1113,17 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of condition can be used to find related objects in arbitary "
-"table\n"
+"This type of condition can be used to find related objects in arbitary table\n"
 "                                and check them."
 msgstr ""
 
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of condition is used to check the properties of related objects. "
-"<br/>\n"
+"This type of condition is used to check the properties of related objects. <br/>\n"
 "                                <br/>"
 msgstr ""
-"Цей тип умови використовується для перевірки властивостей повʼязаних "
-"обʼєктів. <br/>\n"
+"Цей тип умови використовується для перевірки властивостей повʼязаних обʼєктів. <br/>\n"
 "                                <br/>"
 
 #. module: generic_condition
@@ -1154,8 +1138,7 @@ msgstr ""
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"This type of the condition allows you to estimate the date difference "
-"between certain events. <br/>\n"
+"This type of the condition allows you to estimate the date difference between certain events. <br/>\n"
 "                                <br/>"
 msgstr ""
 "Цей тип умови дозволяє оцінити різницю дат між певними подіями. <br/>\n"
@@ -1315,8 +1298,7 @@ msgstr "Використати sudo"
 #. module: generic_condition
 #: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_form_view
 msgid ""
-"With this type of condition you can use multiple conditions simultaneously. "
-"<br/>\n"
+"With this type of condition you can use multiple conditions simultaneously. <br/>\n"
 "                                <br/>"
 msgstr ""
 "З цим типом умови ви можете використовувати декілька умов одночасно. <br/>\n"
@@ -1431,12 +1413,10 @@ msgid "user - current user"
 msgstr "user - поточний користувач"
 
 #~ msgid ""
-#~ "By this type you can create the condition to compare monetary indicators. "
-#~ "<br/>\n"
+#~ "By this type you can create the condition to compare monetary indicators. <br/>\n"
 #~ "                                <br/>"
 #~ msgstr ""
-#~ "За цим типом ви можете створити умови для перевірки грошових показників. "
-#~ "<br/>\n"
+#~ "За цим типом ви можете створити умови для перевірки грошових показників. <br/>\n"
 #~ "                                <br/>"
 
 #~ msgid "Last Modified on"
@@ -1464,14 +1444,12 @@ msgstr "user - поточний користувач"
 #~ msgstr "Місто: Київ"
 
 #~ msgid ""
-#~ "Checking condition %s on document %s caused error. Notify administrator "
-#~ "to fix it.\n"
+#~ "Checking condition %s on document %s caused error. Notify administrator to fix it.\n"
 #~ "\n"
 #~ "---\n"
 #~ "%s"
 #~ msgstr ""
-#~ "Перевірка %s документу %s спричинила помилку. Повідомте адміністратора "
-#~ "щоб виправити її.\n"
+#~ "Перевірка %s документу %s спричинила помилку. Повідомте адміністратора щоб виправити її.\n"
 #~ "\n"
 #~ "---\n"
 #~ "%s"
