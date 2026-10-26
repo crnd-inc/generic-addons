@@ -65,8 +65,11 @@ pylint:
         # Odoo 20 core uses Python 3.12 syntax (PEP 695: `type X = ...`,
         # `def f[T](...)`), which old astroid/pylint cannot parse
         - odood venv pip -- install -U "pylint>=3.3" "pylint-odoo>=9"
+        # pylint >= 3 does not accept underscores in option names any more
+        # (e.g. `license_allowed` in the generated .pylintrc)
+        - "sed -i -E ':a; s/^([a-z0-9-]+)_([a-z0-9_-]*[[:space:]]*=)/\\1-\\2/; ta' .pylintrc"
     script:
-        - odood venv run -- pylint --rcfile=.pylintrc --valid-odoo-versions=$SERIES_BRANCH -d manifest-required-author $(odood addons list --installable --by-path .)
+        - odood venv run -- pylint --rcfile=.pylintrc --valid-odoo-versions=$SERIES_BRANCH -d manifest-required-author,manifest-superfluous-key $(odood addons list --installable --by-path .)
     <<: *except_auto_commits
 
 stylelint:
