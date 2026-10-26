@@ -1,4 +1,4 @@
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 
 
 class GenericTagModel(models.Model):
@@ -51,8 +51,8 @@ class GenericTagModel(models.Model):
         ])
 
     @api.model_create_multi
-    def create(self, vals):
-        records = super(GenericTagModel, self).create(vals)
+    def create(self, vals_list):
+        records = super(GenericTagModel, self).create(vals_list)
         records._create_context_action_for_target_model()
         return records
 
@@ -64,7 +64,7 @@ class GenericTagModel(models.Model):
         self.ensure_one()
         ctx = dict(self.env.context, default_model_id=self.id)
         return {
-            'name': _('Tags related to model %s') % self.name,
+            'name': self.env._('Tags related to model %s', self.name),
             'view_mode': 'list,form',
             'res_model': 'generic.tag',
             'type': 'ir.actions.act_window',

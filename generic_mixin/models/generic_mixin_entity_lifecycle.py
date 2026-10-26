@@ -1,4 +1,4 @@
-from odoo import models, fields, exceptions, _
+from odoo import models, fields, exceptions
 from .generic_track_changes import pre_write
 
 
@@ -49,15 +49,12 @@ class GenericMixinEntityLifecycle(models.AbstractModel):
         allowed_new_states = self._gmel_get_allowed_state_changes().get(
             old_state, [])
         if new_state not in allowed_new_states:
-            raise exceptions.ValidationError(_(
+            raise exceptions.ValidationError(self.env._(
                 "It is not allowed to change Lifecycle State field"
                 "from %(old_state)s to %(new_state)s!\n"
-                "Allowed next states: %(allowed_states)s"
-            ) % {
-                'old_state': old_state,
-                'new_state': new_state,
-                'allowed_states': allowed_new_states,
-            })
+                "Allowed next states: %(allowed_states)s",
+                old_state=old_state, new_state=new_state,
+                allowed_states=allowed_new_states))
         res = {}
         if new_state == 'active':
             res['lifecycle_date_activated'] = fields.Datetime.now()

@@ -10,7 +10,7 @@
         'generic_tag',
     ],
     'data': [
-        'security/ir.model.access.csv',
+        'security/ir.access.csv',
     ],
     'demo': [
         'demo/res_groups.xml',

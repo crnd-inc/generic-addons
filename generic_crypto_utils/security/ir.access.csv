@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_generic_crypto_param_system,generic_crypto_param_system,generic.crypto.param,base.group_system,crud,

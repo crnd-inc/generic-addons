@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates>
 
-     <t t-name="generic_m2o.GenericMany2OneField">
-         <t t-if="relation">
-             <GenericMany2One t-props="m2oProps"/>
+     <t t-name="generic_m2o.GenericMany2OneField" owl="1">
+         <t t-if="this.relation">
+             <GenericMany2One t-props="this.m2oProps"/>
          </t>
      </t>
 
-    <t t-name="generic_m2o.GenericMany2XAutocomplete" t-inherit="web.Many2XAutocomplete" t-inherit-mode="primary">
+    <t t-name="generic_m2o.GenericMany2XAutocomplete" t-inherit="web.Many2XAutocomplete" t-inherit-mode="primary" owl="1">
         <xpath expr="//div[hasclass('o_input_dropdown')]" position="attributes">
-            <attribute name="t-if">props.resModel</attribute>
+            <attribute name="t-if">this.props.resModel</attribute>
         </xpath>
     </t>
 

@@ -1,10 +1,9 @@
-/** @odoo-module **/
-
 import { expect, test } from "@odoo/hoot";
 import { click, queryOne, queryAll } from "@odoo/hoot-dom";
 import { animationFrame } from "@odoo/hoot-mock";
 import {
     defineModels,
+    defineWebModels,
     fields,
     models,
     mountView,
@@ -20,13 +19,13 @@ class TestModel extends models.Model {
     res_id = fields.Integer();
 
     _records = [
-        { id: 1, name: "Test Record 1", res_model: "res.partner", res_id: 1 },
-        { id: 2, name: "Test Record 2", res_model: "res.partner", res_id: false },
+        { id: 1, name: "Test Record 1", res_model: "test.partner", res_id: 1 },
+        { id: 2, name: "Test Record 2", res_model: "test.partner", res_id: false },
     ];
 }
 
 class Partner extends models.Model {
-    _name = "res.partner";
+    _name = "test.partner";
 
     name = fields.Char();
 
@@ -36,6 +35,7 @@ class Partner extends models.Model {
     ];
 }
 
+defineWebModels();
 defineModels([TestModel, Partner]);
 
 
@@ -79,8 +79,7 @@ test("GenericMany2OneField displays linked record name", async () => {
 
     await animationFrame();
 
-    const input = queryOne(".o_field_widget[name='res_id'] input");
-    expect(input).toBeTruthy();
+    expect(".o_field_widget[name='res_id'] input").toHaveValue("Partner 1");
 });
 
 

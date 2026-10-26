@@ -50,7 +50,7 @@
                 <field name="comment"/>
                 <field name="active"/>
                 <field name="objects_count"/>
-                <button name="action_show_objects" type="object" string="Show Objects" icon="fa-search"/>
+                <button name="action_show_objects" type="object" string="Show Objects" icon="search"/>
             </list>
         </field>
     </record>
@@ -63,7 +63,7 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_show_objects"
-                                type="object" icon="fa-bars"
+                                type="object" icon="menu"
                                 class="oe_stat_button">
                             <field name="objects_count" string="Objects" widget="statinfo"/>
                         </button>

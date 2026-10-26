@@ -16,7 +16,7 @@ class BaseAutomation(models.Model):
     # Overridden to add tag related logic
     def _process(self, records, *args, **kwargs):
         """ process the given action on the records """
-        action_done = self.env.context['__action_done']
+        action_done = self._context['__action_done']
         records -= action_done.setdefault(self, records.browse())
         if not records:
             return

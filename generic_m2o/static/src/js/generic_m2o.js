@@ -1,12 +1,11 @@
-/** @odoo-module **/
-
-import {onPatched, useState} from "@odoo/owl";
+import { onPatched, proxy, t, useProps } from "@odoo/owl";
 import {_t} from "@web/core/l10n/translation";
 import {registry} from "@web/core/registry";
 import {
     buildM2OFieldDescription,
     extractM2OFieldProps,
     Many2OneField,
+    many2OneFieldProps,
 } from '@web/views/fields/many2one/many2one_field';
 import {Many2One} from "@web/views/fields/many2one/many2one";
 import {useOwnedDialogs, useService} from "@web/core/utils/hooks";
@@ -96,7 +95,7 @@ class GenericMany2XAutocomplete extends Many2XAutocomplete {
         if (request.length) {
             const nameGets = await this.orm.call(resModel, "name_search", [], {
                 name: request,
-                args: domain,
+                domain,
                 operator: "ilike",
                 limit: this.props.searchMoreLimit,
                 context,
@@ -139,17 +138,14 @@ export class GenericMany2OneField extends Many2OneField {
         GenericMany2One,
         GenericMany2XAutocomplete,
     };
-    static props = {
-        ...Many2OneField.props,
-        modelField: {
-            type: String,
-            optional: true,
-        },
-    };
+    props = useProps({
+        ...many2OneFieldProps,
+        modelField: t.string().optional(),
+    });
 
     setup() {
         super.setup(...arguments);
-        this.state = useState({
+        this.state = proxy({
             proxyDisplayName: false,
         });
         this.orm = useService("orm");
@@ -332,7 +328,7 @@ export const genericMany2OneField = {
     extractProps(fieldInfo, dynamicInfo) {
         const props = {
             ...extractM2OFieldProps(...arguments),
-            modelField: fieldInfo.attrs.model_field,
+            modelField: fieldInfo.attrs.model_field || fieldInfo.options?.model_field,
         }
         return props;
     },

@@ -1,5 +1,5 @@
 import logging
-from odoo import models, api, _
+from odoo import models, api
 from ..tools.generic_m2o import generic_m2o_get
 
 _logger = logging.getLogger(__name__)
@@ -159,7 +159,8 @@ class GenericMixinDelegationInterface(models.AbstractModel):
             if implementation:
                 record.display_name = implementation.display_name
             else:
-                record.display_name = _("Error: unknown implementation")
+                record.display_name = self.env._(
+                    "Error: unknown implementation")
 
     @api.model
     def _post_model_setup__(self):

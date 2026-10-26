@@ -1,4 +1,4 @@
-from odoo import models, fields, api, exceptions, _
+from odoo import models, fields, api, exceptions
 
 from odoo.addons.generic_mixin.tools.generic_m2o import generic_m2o_get
 
@@ -161,13 +161,10 @@ class GenericConditionDomainLeaf(models.Model):
         elif check_ftype in ('many2one', 'one2many', 'many2many'):
             value = self.value_res_id
         else:
-            raise exceptions.UserError(_(
+            raise exceptions.UserError(self.env._(
                 "Currently it is not supported to check "
                 "fields of %(field_type)s type "
-                "with static value"
-            ) % {
-                "field_type": check_ftype,
-            })
+                "with static value", field_type=check_ftype))
 
         return [(self.sudo().check_field_id.name, operator, value)]
 

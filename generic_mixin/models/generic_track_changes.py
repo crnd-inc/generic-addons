@@ -609,15 +609,15 @@ class GenericMixInTrackChanges(models.AbstractModel):
                 getattr(record, hdl['method'])(changes)
 
     @api.model_create_multi
-    def create(self, vals):
+    def create(self, vals_list):
         # Save changed fields for post-create handlers
-        changed_fields = {f for v in vals for f in v}
+        changed_fields = {f for v in vals_list for f in v}
 
         # Run pre-create handlers
-        vals = [self._preprocess_create_changes(v) for v in vals]
+        vals_list = [self._preprocess_create_changes(v) for v in vals_list]
 
         # Run actual create handler
-        records = super().create(vals)
+        records = super().create(vals_list)
 
         # Run post-create handlers
         for record in records:

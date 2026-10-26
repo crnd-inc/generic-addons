@@ -1,7 +1,5 @@
-/** @odoo-module **/
-
 import { browser } from "@web/core/browser/browser";
-import { reactive } from "@odoo/owl";
+import { proxy } from "@odoo/owl";
 
 // How long the highlighting of refreshed records stays applied.
 // Has to be greater than the transition duration defined in
@@ -12,9 +10,9 @@ const GMRV_HIGHLIGHT_DURATION = 1200;
 // Structure: {'model.name': {'create': [id1], 'write': [id2]}}
 // It is filled in by the WebClient right before reloading the view and read
 // by renderers, to highlight records that were just created or updated.
-// Renderers have to subscribe to it via 'useState', thus they are
+// Renderers read it through 'proxy', thus they are
 // re-rendered when the store is cleared and highlighting is removed.
-export const gmrvHighlightStore = reactive({ records: {} });
+export const gmrvHighlightStore = proxy({ records: {} });
 
 let gmrvClearTimer = null;
 
@@ -35,7 +33,7 @@ export function gmrvSetHighlight(refreshIds) {
 
 /** Compute css class to highlight the record (if it has to be highlighted)
  *
- * @param {Object} store the store, subscribed to via 'useState'
+ * @param {Object} store the store, read through 'proxy'
  * @param {String} resModel name of the model of the record
  * @param {Number} resId ID of the record
  * @returns {String} css class name or empty string

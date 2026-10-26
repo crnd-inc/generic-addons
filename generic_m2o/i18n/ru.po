@@ -37,3 +37,9 @@ msgstr ""
 #: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
 msgid "Select records"
 msgstr ""
+
+#. module: generic_m2o
+#. odoo-javascript
+#: code:addons/generic_m2o/static/src/js/generic_m2o.js:0
+msgid "Unnamed"
+msgstr ""

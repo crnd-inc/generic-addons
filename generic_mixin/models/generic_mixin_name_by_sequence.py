@@ -1,6 +1,6 @@
 # TODO: temporary disabled feature in Odoo17 in case of decide what to do with
 # https://github.com/odoo/odoo/commit/6e8e3e6333c70bf4e88ecdc25cc3b629298bfbe8
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 
 
 class GenericMixinNameBySequence(models.AbstractModel):
@@ -25,7 +25,7 @@ class GenericMixinNameBySequence(models.AbstractModel):
 
     @api.model
     def _name_by_sequence_get_default_value(self):
-        return _('New')
+        return self.env._('New')
 
     @api.model
     def _setup_base(self):

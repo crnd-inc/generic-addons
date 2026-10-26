@@ -1,14 +1,12 @@
-/** @odoo-module **/
-
 import { ListRenderer } from '@web/views/list/list_renderer';
 import { patch } from "@web/core/utils/patch";
-import { useState } from "@odoo/owl";
+import { proxy } from "@odoo/owl";
 import { gmrvGetHighlightClass, gmrvHighlightStore } from "./gmrv_highlight";
 
 patch(ListRenderer.prototype, {
     setup() {
         super.setup(...arguments);
-        this.gmrvHighlight = useState(gmrvHighlightStore);
+        this.gmrvHighlight = proxy(gmrvHighlightStore);
     },
 
     getRowClass(record) {

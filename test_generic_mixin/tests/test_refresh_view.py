@@ -1,5 +1,3 @@
-import json
-
 from odoo.tests.common import TransactionCase
 
 
@@ -8,9 +6,9 @@ class RefreshViewTest(TransactionCase):
 
         Notifications are not stored in 'bus.bus' immediately: they are
         accumulated in the precommit queue of the cursor and created on
-        commit. Thus tests have to inspect that queue, that conveniently
-        contains already serialized messages, exactly as they will be
-        delivered to the browser.
+        commit. Thus tests have to inspect that queue. Since Odoo 20.0 it
+        holds `(channel, notification_type, message)` tuples, with the
+        message not serialized yet.
     """
 
     def setUp(self):
@@ -30,10 +28,9 @@ class RefreshViewTest(TransactionCase):
             :return list: list of payloads of refresh notifications
         """
         res = []
-        for value in self._bus_queue()[since:]:
-            data = json.loads(value['message'])
-            if data.get('type') == 'generic_mixin_refresh_view':
-                res.append(data['payload'])
+        for _channel, notification_type, message in self._bus_queue()[since:]:
+            if notification_type == 'generic_mixin_refresh_view':
+                res.append(message)
         return res
 
     def test_refresh_notification_on_create(self):

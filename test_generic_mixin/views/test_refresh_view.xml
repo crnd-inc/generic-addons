@@ -39,11 +39,11 @@
                                     <div class="o_kanban_primary_left">
                                         <div class="o_primary">
                                             <span><t
-                                                    t-esc="record.name.value"/></span>
+                                                    t-out="record.name.value"/></span>
                                         </div>
                                         <div class="text-muted">
                                             <span><t
-                                                    t-esc="record.description.value"/></span>
+                                                    t-out="record.description.value"/></span>
                                         </div>
                                         <div class="o_buttons">
                                         </div>

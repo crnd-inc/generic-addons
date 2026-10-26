@@ -1,4 +1,4 @@
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 from odoo.addons.generic_mixin.tools.x2m_agg_utils import read_counts_for_o2m
 from odoo.exceptions import ValidationError
 
@@ -56,7 +56,7 @@ class GenericTagCategory(models.Model):
             tag_model = category.tag_ids.mapped('model_id')
             if tag_model and (len(tag_model) != 1 or
                               tag_model != category.model_id):
-                raise ValidationError(_(
+                raise ValidationError(self.env._(
                     u"Model must be same as one used in related tags"))
 
     def _valid_field_parameter(self, field, name):
@@ -70,7 +70,7 @@ class GenericTagCategory(models.Model):
                    default_model_id=self.model_id.id,
                    default_category_id=self.id)
         return {
-            'name': _('Tags related to category %s') % self.name,
+            'name': self.env._('Tags related to category %s', self.name),
             'view_mode': 'list,form',
             'res_model': 'generic.tag',
             'type': 'ir.actions.act_window',

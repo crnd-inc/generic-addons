@@ -21,7 +21,7 @@
                 <field name="model"/>
                 <field name="res_model_id"/>
                 <field name="tags_count"/>
-                <button name="action_show_tags" type="object" string="Show Tags" icon="fa-search"/>
+                <button name="action_show_tags" type="object" string="Show Tags" icon="search"/>
             </list>
         </field>
     </record>
@@ -34,7 +34,7 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_show_tags"
-                                type="object" icon="fa-bars"
+                                type="object" icon="menu"
                                 class="oe_stat_button">
                             <field name="tags_count" string="Tags" widget="statinfo"/>
                         </button>

@@ -1,6 +1,6 @@
 import logging
 
-from odoo import models, fields, api, exceptions, _
+from odoo import models, fields, api, exceptions
 from odoo.fields import Domain
 
 from ..utils import ensure_code_or_name
@@ -83,7 +83,7 @@ class GenericTag(models.Model):
     def _check_category_model(self):
         for tag in self:
             if tag.category_id and tag.model_id != tag.category_id.model_id:
-                raise exceptions.ValidationError(_(
+                raise exceptions.ValidationError(self.env._(
                     u"Category must be bound to same model as tag"))
 
     @api.depends('category_id.name', 'name')
@@ -95,24 +95,22 @@ class GenericTag(models.Model):
         return True
 
     @api.model
-    def name_search(self, name='', args=None, operator='ilike', limit=100):
-        if not args:
-            args = []
+    def name_search(self, name='', domain=None, operator='ilike', limit=100):
+        domain = Domain(domain or [])
         if name:
-            domain = [
+            name_domain = [
                 [('name', operator, name)],
                 [('code', operator, name)],
             ]
 
             if operator in Domain.NEGATIVE_OPERATORS:
-                domain = Domain.AND(domain)
+                name_domain = Domain.AND(name_domain)
             else:
-                domain = Domain.OR(domain)
+                name_domain = Domain.OR(name_domain)
 
-            domain = Domain.AND([domain, args])
-            tags = self.search(domain, limit=limit)
+            tags = self.search(name_domain & domain, limit=limit)
         else:
-            tags = self.search(args, limit=limit)
+            tags = self.search(domain, limit=limit)
 
         return [(tag.id, tag.display_name) for tag in tags]
 
@@ -131,7 +129,7 @@ class GenericTag(models.Model):
     def action_show_objects(self):
         self.ensure_one()
         return {
-            'name': _('Objects related to tag %s') % self.name,
+            'name': self.env._('Objects related to tag %s', self.name),
             'view_mode': 'list,form',
             'res_model': self.model_tag_name,
             'type': 'ir.actions.act_window',

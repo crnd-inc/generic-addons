@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import { expect, test } from "@odoo/hoot";
 import { queryAll } from "@odoo/hoot-dom";
 import { advanceTime, animationFrame } from "@odoo/hoot-mock";
@@ -9,6 +7,7 @@ import {
     models,
     mountView,
 } from "@web/../tests/web_test_helpers";
+import { defineBusModels } from "@bus/../tests/bus_test_helpers";
 
 import {
     gmrvHighlightStore,
@@ -30,6 +29,7 @@ class GmrvTestModel extends models.Model {
     ];
 }
 
+defineBusModels();
 defineModels([GmrvTestModel]);
 
 /** Reset the store, thus tests do not affect each other */

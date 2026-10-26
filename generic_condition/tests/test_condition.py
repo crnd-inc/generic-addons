@@ -1,6 +1,5 @@
 from odoo.tools.misc import mute_logger
 from odoo.tests.common import TransactionCase
-from odoo.tools.translate import _
 from odoo.exceptions import ValidationError, UserError
 
 
@@ -106,9 +105,12 @@ class TestCondition(TransactionCase):
     def test_36_condition_partner_has_only_contacts__access_portal_user(self):
         user = self.env.ref('base.demo_user0')
 
-        self.env['ir.rule'].search(
-            [('model_id.model', '=', 'res.partner')],
-        ).unlink()
+        # Since Odoo 20.0 record rules are domains of `ir.access` records:
+        # drop them, keeping the plain (portal) read permission.
+        self.env['ir.access'].search([
+            ('model_id.model', '=', 'res.partner'),
+            ('domain', '!=', False),
+        ]).write({'domain': False})
 
         condition = self.condition_partner_has_only_contacts.with_user(user)
         self.assertTrue(condition.check(self.partner_z_corp.with_user(user)))
@@ -126,11 +128,11 @@ class TestCondition(TransactionCase):
         })
 
         wiz.process()
-        self.assertEqual(wiz.result, _('Ok'))
+        self.assertEqual(wiz.result, self.env._('Ok'))
 
         wiz.write({'res_id': self.partner_sx_corp.id})
         wiz.process()
-        self.assertEqual(wiz.result, _('Fail'))
+        self.assertEqual(wiz.result, self.env._('Fail'))
 
         wiz.write({'res_id': -42})  # ID that are not present in table
         with self.assertRaises(ValidationError):

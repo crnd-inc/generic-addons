@@ -20,10 +20,10 @@
     'data': [
         'data/generic_condition.xml',
         'security/security.xml',
-        'security/ir.model.access.csv',
 
         'views/generic_condition_view.xml',
         'wizard/test_condition_view.xml',
+        'security/ir.access.csv',
     ],
     'assets': {
         'web.assets_backend': [

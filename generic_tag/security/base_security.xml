@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record model="ir.module.category" id="base.module_category_generic_tags">
         <field name="name">Generic Tags</field>
         <field name="sequence">100</field>
-        <field name="visible" eval="1" />
+        <field name="visible" eval="1"/>
     </record>
 
     <record model="res.groups.privilege" id="res_groups_privilege_generic_tag">
@@ -38,24 +38,4 @@
             Users in this group can manage tags (create / update / ...)
         </field>
     </record>
-
-    <!-- Global tag rules -->
-    <record id="rule_generic_tags_user" model="ir.rule">
-        <field name="name">Global: see tags w/o group or if user in same group</field>
-        <field name="model_id" ref="generic_tag.model_generic_tag"/>
-        <field name="domain_force">['|', '|', ('group_ids','=',False),('group_ids.user_ids.id','=',user.id), (int(user.has_group('generic_tag.group_tags_manager')), '=', 1)]</field>
-    </record>
-    <record id="rule_generic_tags_user_restricted" model="ir.rule">
-        <field name="name">Restricted tag user</field>
-        <field name="model_id" ref="generic_tag.model_generic_tag"/>
-        <field name="groups" eval="[(4, ref('generic_tag.group_tags_user_restricted'))]"/>
-        <field name="domain_force">[('group_ids.user_ids.id','=',user.id)]</field>
-    </record>
-    <record id="rule_generic_tags_manager" model="ir.rule">
-        <field name="name">Manager can see all tags</field>
-        <field name="model_id" ref="generic_tag.model_generic_tag"/>
-        <field name="groups" eval="[(4, ref('generic_tag.group_tags_manager'))]"/>
-        <field name="domain_force">[(1, '=', 1)]</field>
-    </record>
 </odoo>
-

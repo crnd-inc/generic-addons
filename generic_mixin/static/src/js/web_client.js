@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import { browser } from "@web/core/browser/browser";
 import { KeepLast } from '@web/core/utils/concurrency';
 import { patch } from "@web/core/utils/patch";

@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+access_generic_condition_any,"generic_condition any",generic.condition,base.group_user,r,
+access_generic_condition_any_portal,"generic_condition any portal",generic.condition,base.group_portal,r,
+access_generic_condition_any_public,"generic_condition any public",generic.condition,base.group_public,r,
+access_generic_condition_admin,"generic_condition admin",generic.condition,generic_condition.group_generic_condition_manage,crud,
+access_generic_condition_domain_leaf_any,"generic_codnition_domain_leaf any",generic.condition.domain.leaf,base.group_user,r,
+access_generic_condition_domain_leaf_any_portal,"generic_condition_domain_leaf any portal",generic.condition.domain.leaf,base.group_portal,r,
+access_generic_condition_domain_leaf_any_public,"generic_condition_domain_leaf any public",generic.condition.domain.leaf,base.group_public,r,
+access_generic_condition_domain_leaf_admin,"generic_condition_domain_leaf admin",generic.condition.domain.leaf,generic_condition.group_generic_condition_manage,crud,
+access_generic_condition_test_condition,access_generic_condition_test_condition,generic.condition.test_condition,base.group_user,r,
+rule_generic_condition_test_condition_admin,acces generic condition test condition admin,generic.condition.test_condition,base.group_system,crud,"[('create_uid', '=', user.id)]"

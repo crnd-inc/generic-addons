@@ -1,5 +1,5 @@
 import logging
-from odoo import models, api, exceptions, _
+from odoo import models, api, exceptions
 
 _logger = logging.getLogger(__name__)
 
@@ -98,19 +98,17 @@ class GenericMixinGuardFields(models.AbstractModel):
             if isinstance(val, GuardClass):
                 res[field_name] = val.unwrap()
             elif val:
-                raise exceptions.ValidationError(_(
+                raise exceptions.ValidationError(self.env._(
                     "Direct modification of '%(model)s:%(field_name)s' "
-                    "field is is not allowed!"
-                ) % {
-                    'model': self._name,
-                    'field_name': field_name,
-                })
+                    "field is is not allowed!",
+                    model=self._name, field_name=field_name))
 
         return res
 
     @api.model_create_multi
-    def create(self, vals):
-        values = [self._generic_mixin_guard__do_guard_fields(v) for v in vals]
+    def create(self, vals_list):
+        values = [
+            self._generic_mixin_guard__do_guard_fields(v) for v in vals_list]
         return super().create(values)
 
     def write(self, vals):

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -434,6 +434,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__display_name
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__display_name
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__display_name
+#: model:ir.model.fields,field_description:generic_condition.field_ir_model_fields__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -567,6 +568,7 @@ msgstr ""
 #. module: generic_condition
 #: model:res.groups,comment:generic_condition.group_generic_condition_manage
 #: model:res.groups,name:generic_condition.group_generic_condition_manage
+#: model:res.groups.privilege,name:generic_condition.res_groups_privilege_generic_condition_manage
 msgid "Generic Condition Manage"
 msgstr ""
 
@@ -589,11 +591,6 @@ msgid ""
 "object's model and condition's model does not match:\n"
 "\tcondition: %(condition)s [%(condition_id)d]\tobject: %(object)s [%(object_id)d]\tobject's model: %(object_model)s\n"
 "\tcondition's model: %(condition_model)s\n"
-msgstr ""
-
-#. module: generic_condition
-#: model_terms:ir.ui.view,arch_db:generic_condition.generic_condition_search_view
-msgid "Group by..."
 msgstr ""
 
 #. module: generic_condition
@@ -634,6 +631,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition__id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_domain_leaf__id
 #: model:ir.model.fields,field_description:generic_condition.field_generic_condition_test_condition__id
+#: model:ir.model.fields,field_description:generic_condition.field_ir_model_fields__id
 msgid "ID"
 msgstr ""
 
@@ -1263,9 +1261,27 @@ msgid "_Cancel"
 msgstr ""
 
 #. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "and"
+msgstr ""
+
+#. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_partner_city_kyiv
 #: model:generic.condition,name:generic_condition.demo_condition_partner_not_sx_corp_but_kyiv
 msgid "city: Kyiv"
+msgstr ""
+
+#. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "date"
+msgstr ""
+
+#. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "datetime"
 msgstr ""
 
 #. module: generic_condition
@@ -1306,6 +1322,12 @@ msgstr ""
 #. module: generic_condition
 #: model:generic.condition,name:generic_condition.demo_condition_eval_error
 msgid "eval with error"
+msgstr ""
+
+#. module: generic_condition
+#. odoo-python
+#: code:addons/generic_condition/models/generic_condition.py:0
+msgid "field"
 msgstr ""
 
 #. module: generic_condition

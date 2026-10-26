@@ -24,35 +24,35 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            Пользователи этой группы могут управлять тегами (создание / "
-"обновление / ...)\n"
+"            Пользователи этой группы могут управлять тегами (создание / обновление / ...)\n"
 "        "
 
 #. module: generic_tag
 #: model:res.groups,comment:generic_tag.group_tags_user
 msgid ""
 "\n"
-"            Users in this group have access to menu Tags. They cannot create "
-"or edit tags.\n"
+"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
 "        "
 msgstr ""
 "\n"
-"            Пользователи этой группы имеют доступ в меню Теги. Но они не "
-"могут создавать или редактировать теги.\n"
+"            Пользователи этой группы имеют доступ в меню Теги. Но они не могут создавать или редактировать теги.\n"
 "        "
 
 #. module: generic_tag
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
 msgid ""
 "\n"
-"            Users in this group have access to tags that have same group "
-"that user have\n"
+"            Users in this group have access to tags that have same group that user have\n"
 "        "
 msgstr ""
 "\n"
-"            Пользователи этой группы имеют доступ к тегам, у которых указана "
-"группа, в которую входит пользователь\n"
+"            Пользователи этой группы имеют доступ к тегам, у которых указана группа, в которую входит пользователь\n"
 "        "
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__abstract
+msgid "Abstract Model"
+msgstr ""
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__access_ids
@@ -216,7 +216,9 @@ msgstr "Опишите тег"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__display_name
 msgid "Display Name"
 msgstr "Отображаемое название"
@@ -237,14 +239,18 @@ msgid "Find all records that have no this tag"
 msgstr ""
 
 #. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__fold_name
+msgid "Fold Field"
+msgstr ""
+
+#. module: generic_tag
 #. odoo-python
 #: code:addons/generic_tag/models/generic_tag_mixin.py:0
 msgid ""
 "Following (category - tags) pairs, break category XOR restriction:\n"
 "%s"
 msgstr ""
-"Пары (категория - теги) нарушают условие исключенного или (XOR) для "
-"категории:\n"
+"Пары (категория - теги) нарушают условие исключенного или (XOR) для категории:\n"
 "%s"
 
 #. module: generic_tag
@@ -259,6 +265,7 @@ msgstr "Полное название тега (включая название 
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag
+#: model:res.groups.privilege,name:generic_tag.res_groups_privilege_generic_tag
 msgid "Generic Tag"
 msgstr "Универсальный тег"
 
@@ -288,12 +295,6 @@ msgid "Generic Tag Wizard: Manage Tags"
 msgstr ""
 
 #. module: generic_tag
-#: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
-#: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
-msgid "Group By..."
-msgstr "Группировать…"
-
-#. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__group_ids
 msgid "Groups"
 msgstr "Группы"
@@ -316,7 +317,9 @@ msgstr "Сколько тегов относится к этой модели"
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__id
 msgid "ID"
 msgstr "ID"
@@ -325,6 +328,13 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__modules
 msgid "In Apps"
 msgstr "В Приложениях"
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__fold_name
+msgid ""
+"In a Kanban view where columns are records of this model, the value of this "
+"(boolean) field determines which column should be folded by default."
+msgstr ""
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__info
@@ -365,10 +375,14 @@ msgstr ""
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__model
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__model_tag_name
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Model"
@@ -576,6 +590,9 @@ msgstr ""
 "Если установлено, то только один тег этой категории может присутствовать на "
 "одном объекте. При попытке добавить второй тег этой же категории к объекту, "
 "будет вызвана ошибка"
+
+#~ msgid "Group By..."
+#~ msgstr "Группировать…"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Последнее изменение"

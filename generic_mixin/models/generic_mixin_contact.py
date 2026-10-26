@@ -1,5 +1,5 @@
 import logging
-from odoo import fields, models, api, _
+from odoo import fields, models, api
 from odoo.tools import single_email_re
 from odoo.exceptions import UserError
 
@@ -38,7 +38,8 @@ class GenericMixinContact(models.AbstractModel):
         for record in self:
             if record.email and not single_email_re.match(record.email):
                 raise UserError(
-                    _("Invalid Email! Please enter a valid email address."))
+                    self.env._(
+                        "Invalid Email! Please enter a valid email address."))
 
     # Telegram link validation
     @api.constrains('link_telegram')
@@ -47,7 +48,8 @@ class GenericMixinContact(models.AbstractModel):
             if record.link_telegram:
                 if not record.link_telegram.startswith('https://t.me/'):
                     raise UserError(
-                        _("Telegram link must start with 'https://t.me/'"))
+                        self.env._(
+                            "Telegram link must start with 'https://t.me/'"))
 
     # Website link sanitizer
     def write(self, vals):

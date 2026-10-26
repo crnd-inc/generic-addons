@@ -18,11 +18,12 @@
 
     "data": [
         'security/base_security.xml',
-        'security/ir.model.access.csv',
         'views/generic_tag_view.xml',
         'views/generic_tag_category_view.xml',
         'views/generic_tag_model_view.xml',
         'wizard/wizard_manage_tags.xml',
+
+        'security/ir.access.csv',
     ],
     'images': ['static/description/banner.png'],
     "installable": True,

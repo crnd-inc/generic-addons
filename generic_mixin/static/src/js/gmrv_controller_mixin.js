@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import { useSetupAction } from "@web/search/action_hook";
 
 export function updateGetLocalStateFunction(model) {

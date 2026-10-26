@@ -18,13 +18,18 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__active
-#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__active
 msgid "Active"
 msgstr ""
 
 #. module: generic_mixin
+#. odoo-python
+#: code:addons/generic_mixin/models/generic_mixin_transaction_utils.py:0
+msgid ""
+"Another process is already running this operation. Please try again later."
+msgstr ""
+
+#. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__archived
-#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__archived
 msgid "Archived"
 msgstr ""
 
@@ -51,22 +56,12 @@ msgid "Code"
 msgstr "Код"
 
 #. module: generic_mixin
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_code_ascii_only
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_name_with_code_code_ascii_only
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_resource_type_code_ascii_only
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_ascii_only
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_ascii_only
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_ascii_only
 msgid "Code must be ascii only"
 msgstr ""
 
 #. module: generic_mixin
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_code_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_code_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_resource_type_code_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_code_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_code_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_code_uniq
 msgid "Code must be unique."
 msgstr ""
 
@@ -88,8 +83,28 @@ msgid ""
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_proxy_methods__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__display_name
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__display_name
+msgid "Display Name"
+msgstr "Отображаемое Имя"
+
+#. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__draft
-#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__draft
 msgid "Draft"
 msgstr ""
 
@@ -196,6 +211,27 @@ msgid "GenericMixin: Transaction Utils"
 msgstr ""
 
 #. module: generic_mixin
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_contact__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_data_updatable__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_implementation__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_delegation_interface__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_entity_lifecycle__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_get_action__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_guard_fields__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_name_with_code__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_namesearch_by_fields__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_no_unlink__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_parent_names__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_proxy_methods__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_refresh_view__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_track_changes__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_transaction_utils__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uniq_name_code__id
+#: model:ir.model.fields,field_description:generic_mixin.field_generic_mixin_uuid__id
+msgid "ID"
+msgstr "Номер"
+
+#. module: generic_mixin
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_no_update
 msgid ""
 "Indicates whether this record will be updated with module update or not. If "
@@ -213,8 +249,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/generic_mixin/models/generic_mixin_entity_lifecycle.py:0
 msgid ""
-"It is not allowed to change Lifecycle State fieldfrom %(old_state)s to "
-"%(new_state)s!\n"
+"It is not allowed to change Lifecycle State fieldfrom %(old_state)s to %(new_state)s!\n"
 "Allowed next states: %(allowed_states)s"
 msgstr ""
 
@@ -319,12 +354,7 @@ msgid "Name"
 msgstr "Название"
 
 #. module: generic_mixin
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_location_type_name_uniq
 #: model:ir.model.constraint,message:generic_mixin.constraint_generic_mixin_uniq_name_code_name_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_resource_type_name_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_group_name_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_level_name_uniq
-#: model:ir.model.constraint,message:generic_mixin.constraint_generic_service_name_uniq
 msgid "Name must be unique."
 msgstr ""
 
@@ -341,7 +371,6 @@ msgstr ""
 
 #. module: generic_mixin
 #: model:ir.model.fields.selection,name:generic_mixin.selection__generic_mixin_entity_lifecycle__lifecycle_state__obsolete
-#: model:ir.model.fields.selection,name:generic_mixin.selection__generic_service__lifecycle_state__obsolete
 msgid "Obsolete"
 msgstr ""
 
@@ -370,12 +399,6 @@ msgstr ""
 #: model:ir.model.fields,help:generic_mixin.field_generic_mixin_data_updatable__ir_model_data_xmlid
 msgid "XML ID for this record."
 msgstr ""
-
-#~ msgid "Display Name"
-#~ msgstr "Отображаемое Имя"
-
-#~ msgid "ID"
-#~ msgstr "Номер"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Последнее изменение"

@@ -1,4 +1,4 @@
-from odoo import models, _
+from odoo import models
 from odoo.fields import Domain
 from odoo.exceptions import UserError
 
@@ -29,20 +29,14 @@ class GenericMixinNoUnlink(models.AbstractModel):
     def unlink(self):
         if not self._allow_unlink():
             if 'active' in self._fields:
-                raise UserError(_(
+                raise UserError(self.env._(
                     "Cannot unlink these records. Operation not allowed.\n"
                     "It is better to deactivate these records.\n"
-                    "Model: %(model)s [%(model_name)s]"
-                ) % {
-                    'model': self._name,
-                    'model_name': self._description,
-                })
-            raise UserError(_(
+                    "Model: %(model)s [%(model_name)s]",
+                    model=self._name, model_name=self._description))
+            raise UserError(self.env._(
                 "Cannot unlink these records. Operation not allowed.\n"
-                "Model: %(model)s [%(model_name)s]"
-                ) % {
-                    'model': self._name,
-                    'model_name': self._description,
-                })
+                "Model: %(model)s [%(model_name)s]",
+                model=self._name, model_name=self._description))
 
         return super(GenericMixinNoUnlink, self).unlink()

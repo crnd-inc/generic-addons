@@ -1,6 +1,6 @@
 import collections
 
-from odoo import models, fields, api, exceptions, _
+from odoo import models, fields, api, exceptions
 
 from ..utils import ensure_code_or_name
 
@@ -34,9 +34,10 @@ class GenericTagMixin(models.AbstractModel):
                      for cat, tags in bad_tags)
                 )
                 raise exceptions.ValidationError(
-                    _("Following (category - tags) pairs, "
-                      "break category XOR restriction:\n%s"
-                      "") % msg_detail)
+                    self.env._(
+                        "Following (category - tags) pairs, "
+                        "break category XOR restriction:\n%s",
+                        msg_detail))
 
     def _search_no_tag_id(self, operator, value):
         with_tags = self.search([('tag_ids', operator, value)])

@@ -28,8 +28,7 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user
 msgid ""
 "\n"
-"            Users in this group have access to menu Tags. They cannot create "
-"or edit tags.\n"
+"            Users in this group have access to menu Tags. They cannot create or edit tags.\n"
 "        "
 msgstr ""
 
@@ -37,9 +36,13 @@ msgstr ""
 #: model:res.groups,comment:generic_tag.group_tags_user_restricted
 msgid ""
 "\n"
-"            Users in this group have access to tags that have same group "
-"that user have\n"
+"            Users in this group have access to tags that have same group that user have\n"
 "        "
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__abstract
+msgid "Abstract Model"
 msgstr ""
 
 #. module: generic_tag
@@ -204,7 +207,9 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__display_name
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__display_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__display_name
 msgid "Display Name"
 msgstr ""
@@ -222,6 +227,11 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,help:generic_tag.field_generic_tag_mixin__search_no_tag_id
 msgid "Find all records that have no this tag"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__fold_name
+msgid "Fold Field"
 msgstr ""
 
 #. module: generic_tag
@@ -244,6 +254,7 @@ msgstr ""
 
 #. module: generic_tag
 #: model:ir.model,name:generic_tag.model_generic_tag
+#: model:res.groups.privilege,name:generic_tag.res_groups_privilege_generic_tag
 msgid "Generic Tag"
 msgstr ""
 
@@ -273,12 +284,6 @@ msgid "Generic Tag Wizard: Manage Tags"
 msgstr ""
 
 #. module: generic_tag
-#: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
-#: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
-msgid "Group By..."
-msgstr ""
-
-#. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__group_ids
 msgid "Groups"
 msgstr ""
@@ -301,7 +306,9 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_mixin__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__id
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__id
 msgid "ID"
 msgstr ""
@@ -309,6 +316,13 @@ msgstr ""
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__modules
 msgid "In Apps"
+msgstr ""
+
+#. module: generic_tag
+#: model:ir.model.fields,help:generic_tag.field_generic_tag_model__fold_name
+msgid ""
+"In a Kanban view where columns are records of this model, the value of this "
+"(boolean) field determines which column should be folded by default."
 msgstr ""
 
 #. module: generic_tag
@@ -350,10 +364,14 @@ msgstr ""
 
 #. module: generic_tag
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_category__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model__model
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_model_mixin__model_tag_name
 #: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__model_id
+#: model:ir.model.fields,field_description:generic_tag.field_generic_tag_wizard_manage_tags__model_tag_name
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_category_search
 #: model_terms:ir.ui.view,arch_db:generic_tag.view_generic_tag_search
 msgid "Model"

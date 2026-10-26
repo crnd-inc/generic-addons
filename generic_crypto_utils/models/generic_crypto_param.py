@@ -1,6 +1,6 @@
 import binascii
 import logging
-from odoo import models, fields, api, exceptions, tools, _
+from odoo import models, fields, api, exceptions, tools
 
 try:
     from cryptography.fernet import Fernet
@@ -34,17 +34,17 @@ class GenericCryptoParam(models.Model):
 
     def _get_ecnryption_context(self):
         if not tools.config.get('crypto_token', False):
-            raise exceptions.UserError(_(
+            raise exceptions.UserError(self.env._(
                 "You must add 'crypto_token' to 'odoo.conf' to be able "
                 "to use this feature"))
         try:
             fernet = Fernet(tools.config.get('crypto_token').encode('utf-8'))
         except (binascii.Error, ValueError):
-            raise exceptions.UserError(_(
+            raise exceptions.UserError(self.env._(
                 "Invalid 'crypto_token'! "
                 "Ensure it is valid 32-bytes base64-encoded string!"))
         except ImportError:
-            raise exceptions.UserError(_(
+            raise exceptions.UserError(self.env._(
                 "It seems that python package 'cryptography' is not installed!"
                 "Please, install "
                 "[cryptography](https://pypi.org/project/cryptography/) "

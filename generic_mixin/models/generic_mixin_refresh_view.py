@@ -3,7 +3,7 @@ import threading
 import functools
 import collections
 
-from odoo import models, api, tools
+from odoo import models, api
 
 _logger = logging.getLogger(__name__)
 
@@ -110,7 +110,7 @@ class GenericMixinRefreshView(models.AbstractModel):
         return set()
 
     @api.model
-    @tools.ormcache()
+    @api.ormcache()
     def _auto_refresh_view_on_field_changes_system(self):
         """ This is system method that have to return default list of fields
             to listen for changes in.
@@ -217,8 +217,8 @@ class GenericMixinRefreshView(models.AbstractModel):
         return res
 
     @api.model_create_multi
-    def create(self, vals):
-        records = super(GenericMixinRefreshView, self).create(vals)
+    def create(self, vals_list):
+        records = super(GenericMixinRefreshView, self).create(vals_list)
 
         if not self._auto_refresh_view_on_write:
             return records

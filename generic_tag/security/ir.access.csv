@@ -1,0 +1,16 @@
+id,name,model_id,group_id/id,operation,domain
+access_generic_tag_all,generic_tag all,generic.tag,base.group_user,r,
+access_generic_tag_portal,generic_tag all portal,generic.tag,base.group_portal,r,
+access_generic_tag_public,generic_tag all public,generic.tag,base.group_public,r,
+rule_generic_tags_manager,Manager can see all tags,generic.tag,generic_tag.group_tags_manager,crud,
+rule_generic_tags_user,Global: see tags w/o group or if user in same group,generic.tag,,crud,"['|', '|', ('group_ids','=',False),('group_ids.user_ids.id','=',user.id), (int(user.has_group('generic_tag.group_tags_manager')), '=', 1)]"
+rule_generic_tags_user_restricted,Restricted tag user: only tags of own groups,generic.tag,,crud,"['|', (int(not user.has_group('generic_tag.group_tags_user_restricted') or user.has_group('generic_tag.group_tags_manager')), '=', 1), ('group_ids.user_ids.id', '=', user.id)]"
+access_generic_tag_model_all,generic_tag_model all,generic.tag.model,base.group_user,r,
+access_generic_tag_model_portal,generic_tag_model portal,generic.tag.model,base.group_portal,r,
+access_generic_tag_model_public,generic_tag_model all public,generic.tag.model,base.group_public,r,
+access_generic_tag_model_manager,generic_tag_model manager,generic.tag.model,generic_tag.group_tags_manager,crud,
+access_generic_tag_category_all,generic_tag_category all,generic.tag.category,base.group_user,r,
+access_generic_tag_category_portal,generic_tag_category all portal,generic.tag.category,base.group_portal,r,
+access_generic_tag_category_all_public,generic_tag_category all public,generic.tag.category,base.group_public,r,
+access_generic_tag_category_manager,generic_tag_category manager,generic.tag.category,generic_tag.group_tags_manager,crud,
+access_generic_tag_wizard_manage_tags,access_generic_tag_wizard_manage_tags,generic.tag.wizard.manage.tags,base.group_user,cru,

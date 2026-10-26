@@ -1,23 +1,24 @@
-/** @odoo-module **/
-
+import { onPatched, proxy, t, useProps } from "@odoo/owl";
 import { registry } from "@web/core/registry";
-import { SelectionField, selectionField } from "@web/views/fields/selection/selection_field";
+import {
+    SelectionField,
+    selectionField,
+    selectionFieldProps,
+} from "@web/views/fields/selection/selection_field";
 import { useService } from "@web/core/utils/hooks";
-import { useState, onPatched } from "@odoo/owl";
-
 
 class FakeSelection extends SelectionField {
-    static props = {
-        ...SelectionField.props,
-        selectionField: { type: String, optional: true },
-    };
+    props = useProps({
+        ...selectionFieldProps,
+        selectionField: t.string().optional(),
+    });
 
     static supportedTypes = ['char'];
 
     setup() {
         this.orm = useService('orm');
 
-        this.state = useState({
+        this.state = proxy({
             fakeOptions: [],
         });
 
@@ -53,9 +54,8 @@ class FakeSelection extends SelectionField {
         if (!selectionFieldValue) {
             return false;
         }
-        // In Odoo 19+, many2one values are {id, display_name} objects;
-        // in older versions they were [id, name] arrays.
-        const id = selectionFieldValue.id || selectionFieldValue[0];
+        // many2one values are {id, display_name} objects
+        const id = selectionFieldValue.id;
         if (!id) {
             return false;
         }

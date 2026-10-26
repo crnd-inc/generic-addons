@@ -1,7 +1,7 @@
 import logging
 import traceback
 
-from odoo import models, fields, exceptions, _
+from odoo import models, fields, exceptions
 
 from ..debug_logger import DebugLogger
 
@@ -30,12 +30,9 @@ class TestGenericCondition(models.TransientModel):
         TestModel = self.env[self.condition_id.model_id.model]
         record = TestModel.browse(self.res_id)
         if not record.exists():
-            raise exceptions.ValidationError(_(
-                'Object (model: %(model)s; id: %(obj_id)s) not found'
-            ) % {
-                'model': self.condition_id.model_id.model,
-                'obj_id': self.res_id,
-            })
+            raise exceptions.ValidationError(self.env._(
+                'Object (model: %(model)s; id: %(obj_id)s) not found',
+                model=self.condition_id.model_id.model, obj_id=self.res_id))
         return record
 
     def _get_record(self):
@@ -46,12 +43,12 @@ class TestGenericCondition(models.TransientModel):
 
     def _adapt_result(self, result):
         if result is True:
-            return _('Ok')
+            return self.env._('Ok')
         if result is False:
-            return _('Fail')
+            return self.env._('Fail')
         if isinstance(result, Exception):
-            return _('Error')
-        return _('Unknown')
+            return self.env._('Error')
+        return self.env._('Unknown')
 
     def _compute_result(self, debug_log):
         cache = dict()

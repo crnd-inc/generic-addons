@@ -14,7 +14,7 @@
                 </h3>
             </xpath>
 
-            <xpath expr="//form/sheet/notebook//field[@name='order_line']/list//field[@name='price_subtotal']"
+            <xpath expr="//form/sheet/notebook//field[@name='order_line']/tree//field[@name='price_subtotal']"
                    position="after">
                 <field name="tag_ids"
                        options="{'color_field': 'color'}"

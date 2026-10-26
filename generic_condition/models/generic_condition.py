@@ -8,7 +8,7 @@ import dateutil
 import pytz
 from dateutil.relativedelta import relativedelta
 
-from odoo import models, fields, api, exceptions, _
+from odoo import models, fields, api, exceptions
 from odoo.tools.safe_eval import safe_eval, wrap_module
 from odoo.fields import Domain
 
@@ -33,16 +33,16 @@ class GenericCondition(models.Model):
 
     def _get_selection_date_diff_date_type(self):
         return [
-            ('now', _('Current date')),
-            ('field', _('Field')),
-            ('date', _('Date')),
-            ('datetime', _('Datetime')),
+            ('now', self.env._('Current date')),
+            ('field', self.env._('Field')),
+            ('date', self.env._('Date')),
+            ('datetime', self.env._('Datetime')),
         ]
 
     def _get_selection_condition_condition_ids_operator(self):
         return [
-            ('or', _('OR')),
-            ('and', _('AND')),
+            ('or', self.env._('OR')),
+            ('and', self.env._('AND')),
         ]
 
     @api.constrains('type', 'model_id', 'condition_condition_id')
@@ -51,13 +51,10 @@ class GenericCondition(models.Model):
             if record.type != 'condition':
                 continue
             if record.condition_condition_id.model_id != record.model_id:
-                raise exceptions.ValidationError(_(
+                raise exceptions.ValidationError(self.env._(
                     "Incorrect Conditon field set for condition: "
-                    "%(condition)s [%(condition_id)s]"
-                ) % {
-                    'condition': record.display_name,
-                    'condition_id': record.id,
-                })
+                    "%(condition)s [%(condition_id)s]",
+                    condition=record.display_name, condition_id=record.id))
 
     @api.constrains('type', 'model_id', 'condition_filter_id')
     def _constrain_condition_filter_id(self):
@@ -65,13 +62,10 @@ class GenericCondition(models.Model):
             if record.type != 'filter':
                 continue
             if record.condition_filter_id.model_id != record.model_id.model:
-                raise exceptions.ValidationError(_(
+                raise exceptions.ValidationError(self.env._(
                     "Incorrect Filter field set for condition: "
-                    "%(condition)s [%(condition_id)s]"
-                ) % {
-                    'condition': record.display_name,
-                    'condition_id': record.id,
-                })
+                    "%(condition)s [%(condition_id)s]",
+                    condition=record.display_name, condition_id=record.id))
 
     @api.constrains('type', 'model_id', 'condition_condition_ids')
     def _constrain_condition_group(self):
@@ -80,16 +74,12 @@ class GenericCondition(models.Model):
                 continue
             for c in record.condition_condition_ids:
                 if c.model_id != record.model_id:
-                    raise exceptions.ValidationError(_(
+                    raise exceptions.ValidationError(self.env._(
                         "Incorrect Condition (condition group) selected!\n"
                         "Base condition: %(base_cond)s [%(base_cond_id)s]\n"
-                        "Condition with wrong model: %(cond)s [%(cond_id)s]"
-                    ) % {
-                        'base_cond': record.display_name,
-                        'base_cond_id': record.id,
-                        'cond': c.display_name,
-                        'cond_id': c.id,
-                    })
+                        "Condition with wrong model: %(cond)s [%(cond_id)s]",
+                        base_cond=record.display_name, base_cond_id=record.id,
+                        cond=c.display_name, cond_id=c.id))
 
     @api.constrains('type', 'model_id', 'condition_rel_field_id')
     def _constrain_condition_rel_field_id(self):
@@ -101,7 +91,8 @@ class GenericCondition(models.Model):
                 rel_field_model_id = cond.condition_rel_field_id.model_id
                 if rel_field_model_id != cond.model_id:
                     raise exceptions.ValidationError(
-                        _('Wrong Related Field / Based on combination'))
+                        self.env._(
+                            'Wrong Related Field / Based on combination'))
 
     @api.constrains('type', 'condition_find_search_model_id',
                     'condition_find_search_domain_ids',
@@ -117,43 +108,34 @@ class GenericCondition(models.Model):
             search_model = cond.condition_find_search_model_id
             order_by_field = cond.condition_find_order_by_field_id
             if search_model != order_by_field.model_id:
-                raise exceptions.ValidationError(_(
+                raise exceptions.ValidationError(self.env._(
                     "Condition Find: model if order by field must "
                     "be same as search model"))
             for c in cond.condition_find_check_condition_ids:
                 if c.model_id != search_model:
-                    raise exceptions.ValidationError(_(
+                    raise exceptions.ValidationError(self.env._(
                         "Model (%(cmodel)s) of check condition (%(cond)s) "
-                        "must match Search model (%(smodel)s)!"
-                    ) % {
-                        'cmodel': c.model_id.name,
-                        'cond': c.name,
-                        'smodel': search_model.name,
-                    })
+                        "must match Search model (%(smodel)s)!",
+                        cmodel=c.model_id.name, cond=c.name,
+                        smodel=search_model.name))
             for d in cond.condition_find_search_domain_ids:
                 if d.type != 'search-condition':
                     continue
                 if d.check_field_id.model_id != search_model:
-                    raise exceptions.ValidationError(_(
+                    raise exceptions.ValidationError(self.env._(
                         "Model of check field (%(dmodel)s) of "
                         "domain leaf (%(domain)s) "
-                        "must match Search model (%(smodel)s)!"
-                    ) % {
-                        'dmodel': d.check_field_id.name,
-                        'domain': d.display_name,
-                        'smodel': search_model.name,
-                    })
+                        "must match Search model (%(smodel)s)!",
+                        dmodel=d.check_field_id.name, domain=d.display_name,
+                        smodel=search_model.name))
                 if (d.value_field_id and
                         d.value_field_id.model_id != cond.model_id):
-                    raise exceptions.ValidationError(_(
+                    raise exceptions.ValidationError(self.env._(
                         "Model of value field (%(dfield)s) of "
                         "domain leaf (%(domain)s) "
-                        "must match Condition model (%(smodel)s)!"
-                    ) % {
-                        'dfield': d.value_field_id.name,
-                        'domain': d.display_name,
-                        'smodel': cond.model_id.name,
-                    })
+                        "must match Condition model (%(smodel)s)!",
+                        dfield=d.value_field_id.name, domain=d.display_name,
+                        smodel=cond.model_id.name))
 
     color = fields.Integer()
     name = fields.Char(
@@ -498,7 +480,7 @@ class GenericCondition(models.Model):
         tracking=True)
 
     @api.model
-    def default_get(self, field_names):
+    def default_get(self, fields_list):
         """ If there is no default model id but default based on, then
             search for defautl model and make it default
         """
@@ -509,8 +491,8 @@ class GenericCondition(models.Model):
                 [('model', '=', based_on)], limit=1)
             if model:
                 xself = self.with_context(default_model_id=model.id)
-                return super(GenericCondition, xself).default_get(field_names)
-        return super(GenericCondition, self).default_get(field_names)
+                return super(GenericCondition, xself).default_get(fields_list)
+        return super(GenericCondition, self).default_get(fields_list)
 
     @api.depends('condition_rel_field_id')
     def _compute_condition_rel_field_id_model_id(self):
@@ -542,12 +524,10 @@ class GenericCondition(models.Model):
             self.display_name, self.id)
 
         if not obj.id:
-            raise exceptions.UserError(_(
+            raise exceptions.UserError(self.env._(
                 "Cannot apply conditions %(cond_name)s [%(cond_id)s] of type "
-                "'Filter' to NewId object") % {
-                    'cond_name': self.display_name,
-                    'cond_id': self.id,
-                })
+                "'Filter' to NewId object",
+                cond_name=self.display_name, cond_id=self.id))
 
         Model = self.env[self.sudo().model_id.model]
 
@@ -574,15 +554,12 @@ class GenericCondition(models.Model):
                 "Error was caught when checking condition %s on document %s. "
                 "condition expression:\n%s\n", condition_name, obj_name,
                 self.condition_eval, exc_info=True)
-            raise exceptions.ValidationError(_(
+            raise exceptions.ValidationError(self.env._(
                 "Checking condition %(cond)s on document %(doc)s "
                 "caused error. Notify administrator to fix it.\n"
-                "\n---\n%(error_msg)s"
-            ) % {
-                'cond': condition_name,
-                'doc': obj_name,
-                'error_msg': traceback.format_exc(),
-            })
+                "\n---\n%(error_msg)s",
+                cond=condition_name, doc=obj_name,
+                error_msg=traceback.format_exc()))
         return res
 
     # signature check_<type> where type is condition type
@@ -1010,21 +987,16 @@ class GenericCondition(models.Model):
         """
         self.ensure_one()
         if obj._name != self.based_on:
-            raise exceptions.UserError(_(
+            raise exceptions.UserError(self.env._(
                 "Generic conditions misconfigured!\n"
                 "object's model and condition's model does not match:\n"
                 "\tcondition: %(condition)s [%(condition_id)d]"
                 "\tobject: %(object)s [%(object_id)d]"
                 "\tobject's model: %(object_model)s\n"
-                "\tcondition's model: %(condition_model)s\n"
-            ) % {
-                'condition': self.display_name,
-                'condition_id': self.id,
-                'object': obj.display_name,
-                'object_id': obj.id,
-                'object_model': obj._name,
-                'condition_model': self.based_on,
-            })
+                "\tcondition's model: %(condition_model)s\n",
+                condition=self.display_name, condition_id=self.id,
+                object=obj.display_name, object_id=obj.id,
+                object_model=obj._name, condition_model=self.based_on))
 
         self._debug_log(debug_log, obj, "Computing...")
 
@@ -1125,7 +1097,7 @@ class GenericCondition(models.Model):
 
         if not obj:
             raise exceptions.UserError(
-                _("Cannot check conditions for empty recordset"))
+                self.env._("Cannot check conditions for empty recordset"))
 
         cache = {} if cache is None else cache
         ctx = self._prepare_object_context(obj)

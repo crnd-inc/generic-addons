@@ -1,4 +1,4 @@
-from odoo import api, models, _
+from odoo import api, models
 from odoo.exceptions import ValidationError
 from odoo.fields import Domain
 
@@ -27,23 +27,15 @@ class GenericMixinParentNames(models.AbstractModel):
     _name = "generic.mixin.parent.names"
     _description = "Generic Mixin: Parent Names"
 
-    # Overridden to add recursion check constraint
-    @classmethod
-    def _build_model(cls, pool, cr):
-        if not cls._parent_name:
-            raise AssertionError(
-                'do not forget to define `_parent_name` on model '
-                'if it inherits `generic.mixin.parent.names`')
-
-        @api.constrains(cls._parent_name)
-        def _recursion_constraint(self):
-            if self._has_cycle():
-                raise ValidationError(_(
-                    'Error ! You cannot create recursive %s.'
-                    '') % self._description)
-        cls._check_parent_recursion_recursion = _recursion_constraint
-
-        return super(GenericMixinParentNames, cls)._build_model(pool, cr)
+    # Recursion check on the parent field, whichever field the inheriting
+    # model declares as `_parent_name`. (The former `_build_model` hook used
+    # to inject this constraint is not called by the ORM any more.)
+    @api.constrains(lambda self: [self._parent_name])
+    def _check_generic_parent_recursion(self):
+        if self._has_cycle():
+            raise ValidationError(self.env._(
+                'Error ! You cannot create recursive %s.',
+                self._description))
 
     @api.depends('name', 'parent_id.name')
     def _compute_display_name(self):

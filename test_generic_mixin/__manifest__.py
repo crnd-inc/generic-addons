@@ -12,9 +12,9 @@
         'calendar',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'views/test_refresh_view.xml',
         'views/test_contact_mixin.xml',
+        'security/ir.access.csv',
     ],
     'demo': [
         'demo/test_track_changes.xml',
