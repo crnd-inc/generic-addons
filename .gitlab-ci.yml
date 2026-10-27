@@ -125,7 +125,7 @@ tests:
     <<: *pip_cache_definition
     before_script:
         - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
-        - odood addons link -r .
+        - odood addons link -f -r .
     script:
         - odood test -t --isw --error-report --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 90 --dir .
     <<: *except_auto_commits
@@ -141,7 +141,7 @@ test_installation_no_demo:
         - sudo apt-get update && sudo apt-get install -y libmagic1
         # TODO: Use Odood here too
         - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
-        - odood addons link -r .
+        - odood addons link -f -r .
         - odood db create $ODOO_DB_NAME
     script:
         - odood addons install --db "$ODOO_DB_NAME" --dir-r .
@@ -168,7 +168,7 @@ update_addons_list_and_trans:
     stage: deploy
     before_script:
         - odood addons add --single-branch -r --odoo-requirements=odoo_requirements.txt
-        - odood addons link -r .
+        - odood addons link -f -r .
     script:
         - odood addons list --installable --field name --field license --field version --field summary --field price --csv . > ./ADDONS.csv
         - odood addons list --installable --field name --field license --field version --field summary --field price --md . > ./ADDONS.md
