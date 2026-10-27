@@ -715,7 +715,8 @@ msgstr ""
 #: model:ir.model.fields,help:generic_resource.field_generic_resource__resource_visibility
 #: model:ir.model.fields,help:generic_resource.field_generic_resource_simple__resource_visibility
 msgid ""
-"Resource visibility determines users that have read access for this resource."
+"Resource visibility determines users that have read access for this "
+"resource."
 msgstr ""
 
 #. module: generic_resource

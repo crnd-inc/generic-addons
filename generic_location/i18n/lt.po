@@ -41,8 +41,7 @@ msgstr ""
 #. module: generic_location
 #: model:res.groups,comment:generic_location.group_generic_location_user_implicit
 msgid ""
-"Access generic locations (no access to menu, access only to locations he is "
-"subscribed to, and theirs sublocations)\n"
+"Access generic locations (no access to menu, access only to locations he is subscribed to, and theirs sublocations)\n"
 "        "
 msgstr ""
 
@@ -185,8 +184,7 @@ msgstr "Rodomas pavadinimas"
 #: model_terms:ir.ui.view,arch_db:generic_location.res_config_settings_view_form
 msgid ""
 "Enable this checkbox to build hierarchical location structures.\n"
-"                                    When enable, you will be able to set "
-"parent location for any location,\n"
+"                                    When enable, you will be able to set parent location for any location,\n"
 "                                    and see sub-locations of location."
 msgstr ""
 

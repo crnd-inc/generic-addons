@@ -148,7 +148,8 @@ msgstr ""
 #. module: test_generic_resource_search
 #: model:ir.model.fields,help:test_generic_resource_search.field_generic_resource_test_model__resource_visibility
 msgid ""
-"Resource visibility determines users that have read access for this resource."
+"Resource visibility determines users that have read access for this "
+"resource."
 msgstr ""
 
 #. module: test_generic_resource_search
