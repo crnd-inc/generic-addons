@@ -1,5 +1,12 @@
 import logging
+import re
+import unicodedata
 from odoo import api, fields, models
+
+try:
+    import slugify as slugify_lib
+except ImportError:
+    slugify_lib = None
 
 _logger = logging.getLogger(__name__)
 
@@ -16,12 +23,25 @@ class GenericMixinNameWithCode(models.AbstractModel):
         'Code must be ascii only',
     )
 
+    @api.model
+    def _generic_mixin_name_to_code(self, name):
+        """ Convert name to ascii-only code (transliterating if possible)
+        """
+        if slugify_lib:
+            try:
+                return slugify_lib.slugify(name)
+            except TypeError:
+                # Other 'slugify' library is installed
+                pass
+        code = unicodedata.normalize('NFKD', name).encode(
+            'ascii', 'ignore').decode('ascii')
+        return re.sub(r'[^a-z0-9]+', '-', code.lower()).strip('-')
+
     @api.onchange('name', 'code')
     def _onchange_mixin_name_set_code(self):
         for record in self:
             if record.name and not record.code:
-                record.code = self.env['ir.http']._slugify(
-                    record.name or '', max_length=0)
+                record.code = self._generic_mixin_name_to_code(record.name)
 
 
 class GenericMixinUniqNameCode(models.AbstractModel):
