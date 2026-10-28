@@ -61,12 +61,14 @@ class hide_log_messages:
 def deactivate_records_for_model(env, model):
     """ Deactivate records from uninstalled modules for specified model.
 
-        This could be used to deactivate ir.rules
+        This could be used to deactivate access records
         from unknown (at moment of test) modules.
 
         Or it could be used to deactivate menus that references actions
         for unexisting (not registered yet) models.
     """
+    if model not in env.registry:
+        return
     record_ids = env['ir.model.data'].search([
         ('model', '=', model),
         ('module', 'not in', tuple(env.registry._init_modules)),
@@ -194,7 +196,7 @@ class AccessRulesFixMixinST:
     @classmethod
     def setUpClass(cls):
         super(AccessRulesFixMixinST, cls).setUpClass()
-        deactivate_records_for_model(cls.env, 'ir.rule')
+        deactivate_records_for_model(cls.env, 'ir.access')
 
 
 class AccessRulesFixMixinMT:
@@ -209,7 +211,7 @@ class AccessRulesFixMixinMT:
 
     def setUp(self):
         super(AccessRulesFixMixinMT, self).setUp()
-        deactivate_records_for_model(self.env, 'ir.rule')
+        deactivate_records_for_model(self.env, 'ir.access')
 
 
 class WebTourCase(tests_common.HttpCase):
