@@ -28,11 +28,7 @@ class GenericMixinNameWithCode(models.AbstractModel):
         """ Convert name to ascii-only code (transliterating if possible)
         """
         if slugify_lib:
-            try:
-                return slugify_lib.slugify(name)
-            except TypeError:
-                # Other 'slugify' library is installed
-                pass
+            return slugify_lib.slugify(name)
         code = unicodedata.normalize('NFKD', name).encode(
             'ascii', 'ignore').decode('ascii')
         return re.sub(r'[^a-z0-9]+', '-', code.lower()).strip('-')
