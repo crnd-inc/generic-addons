@@ -133,9 +133,7 @@ tests:
     stage: test
     <<: *pip_cache_definition
     before_script:
-        # temporary disable before port crnd_web repository
-#        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
-        - odood addons link -r .
+        - odood addons link -f -r .
     script:
         odood test --temp-db --isw --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 80 --dir .
     <<: *except_auto_commits
@@ -149,11 +147,10 @@ test_installation_no_demo:
     <<: *pip_cache_definition
     before_script:
         - sudo apt-get update && sudo apt-get install -y libmagic1
-        # TODO: Use Odood here too
         - odood addons link -r .
         - odood db create $ODOO_DB_NAME
     script:
-        - odood addons install --db "$ODOO_DB_NAME" --ual --dir-r .
+        - odood addons install --db "$ODOO_DB_NAME" --dir-r .
     <<: *except_auto_commits
 
 migration_tests:
