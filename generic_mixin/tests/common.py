@@ -1,5 +1,7 @@
 import logging
+import time
 import unittest
+from odoo.release import version_info
 from odoo.tools.misc import mute_logger
 from odoo.tools.sql import table_kind
 from odoo.tools import config as tools_config
@@ -10,6 +12,45 @@ from odoo.tests import common as tests_common
 PORT = tools_config['http_port']
 HOST = tests_common.HOST
 TEST_URL = "http://%s:%s" % (HOST, PORT)
+
+
+# Fix for Chrome >= 132 where the '--headless=old' switch is no longer
+# supported, so chrome starts in the new headless mode. In this mode the
+# /json endpoint lists extra devtools targets (browser_ui pages, extension
+# background pages, service workers), and the first entry may not be the
+# actual browser page. Pick the 'page' target explicitly, otherwise
+# Page.navigate aborts with net::ERR_ABORTED and every tour test fails.
+# (Backport of upstream fix "[FIX] core: content tab discovery in headful
+# mode" from newer Odoo versions.)
+def _chrome_find_websocket(self):
+    version = self._json_command('version')
+    self._logger.info('Browser version: %s', version['Browser'])
+
+    start = time.time()
+    while (time.time() - start) < 5.0:
+        targets = self._json_command('')
+        self.ws_url = next((
+            target['webSocketDebuggerUrl']
+            for target in targets
+            if target['type'] == 'page'
+            if target['url'] == 'about:blank'
+        ), None)
+        if self.ws_url:
+            break
+        time.sleep(0.1)
+    else:
+        self.stop()
+        raise unittest.SkipTest(
+            "Error during Chrome connection: never found 'page' target")
+    self._logger.info(
+        'Chrome headless temporary user profile dir: %s', self.user_data_dir)
+
+
+# Apply only on Odoo versions where the upstream fix is missing (15.0 and
+# older): newer versions pick the 'page' target by themselves and also set
+# 'dev_tools_frontend_url', which this patch does not provide.
+if version_info < (16,):
+    tests_common.ChromeBrowser._find_websocket = _chrome_find_websocket
 
 
 # pylint: disable=class-camelcase
