@@ -7,7 +7,7 @@
 | generic_condition_test | Generic Condition - Test | LGPL-3 | 17.0.1.12.0 | Generic Conditions - Tests (do not install manualy) |  |  |
 | generic_crypto_utils | Generic Crypto Utils | LGPL-3 | 17.0.0.8.1 | Technical utils to add encryption to other addons |  |  |
 | generic_m2o | Generic M2O Widget | LGPL-3 | 17.0.1.9.0 | Generic Many2one widget |  |  |
-| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.84.0 |      Technical module with generic mixins, that may help to build other modules      |  |  |
+| generic_mixin | Generic Mixin | LGPL-3 | 17.0.1.85.0 |      Technical module with generic mixins, that may help to build other modules      |  |  |
 | generic_rule | Generic Rule | LGPL-3 | 17.0.1.9.0 |          Adds new top-level menu 'rules'      |  |  |
 | generic_tag | Generic Tag | LGPL-3 | 17.0.2.16.4 |          Generic tag management.      |  |  |
 | generic_tag_account | Generic Tag (Account) | LGPL-3 | 17.0.1.6.0 |          Generic tag integration with account addon      |  |  |
