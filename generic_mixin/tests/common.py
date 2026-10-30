@@ -14,7 +14,6 @@ HOST = tests_common.HOST
 TEST_URL = "http://%s:%s" % (HOST, PORT)
 
 
-# pylint: disable=invalid-name
 # Fix for Chrome >= 132 where the '--headless=old' switch is no longer
 # supported, so chrome starts in the new headless mode. In this mode the
 # /json endpoint lists extra devtools targets (browser_ui pages, extension
@@ -54,7 +53,6 @@ if version_info < (16,):
     tests_common.ChromeBrowser._find_websocket = _chrome_find_websocket
 
 
-# pylint: disable=class-camelcase
 class hide_log_messages:
     """ Temporary suppress log messages that pass fn_check
 
