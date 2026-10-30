@@ -127,9 +127,7 @@ tests:
     stage: test
     <<: *pip_cache_definition
     before_script:
-        # temporary disable before port crnd_web repository
-#        - odood addons add --single-branch --odoo-requirements=odoo_requirements.txt
-        - odood addons link -r .
+        - odood addons link -f -r .
     script:
         odood test --temp-db --isw --coverage --coverage-report --coverage-skip-covered --coverage-fail-under 80 --dir .
     <<: *except_auto_commits
@@ -143,11 +141,10 @@ test_installation_no_demo:
     <<: *pip_cache_definition
     before_script:
         - sudo apt-get update && sudo apt-get install -y libmagic1
-        # TODO: Use Odood here too
         - odood addons link -r .
         - odood db create $ODOO_DB_NAME
     script:
-        - odood addons install --db "$ODOO_DB_NAME" --ual --dir-r .
+        - odood addons install --db "$ODOO_DB_NAME" --dir-r .
     <<: *except_auto_commits
 
 migration_tests:
@@ -182,48 +179,3 @@ update_addons_list_and_trans:
     <<: *only_stable_branch
     <<: *except_auto_commits
     allow_failure: true
-
-.deploy_review_definition: &deploy_review_definition
-    stage: deploy
-    before_script:
-        - ci-review-app init
-    script:
-        - ci-review-app start
-    tags:
-        - deploy
-        - odoo-review-ci4-shared
-        - review-apps
-
-
-deploy_review_dev:
-    <<: *deploy_review_definition
-    environment:
-        name: review/$CI_COMMIT_REF_NAME
-        url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci4.crnd.pro
-        on_stop: stop_review_dev
-        auto_stop_in: 1 week
-    <<: *only_dev_branch
-    when: manual
-
-deploy_review_stable:
-    <<: *deploy_review_definition
-    environment:
-        name: stable/$CI_COMMIT_REF_NAME
-        url: http://$CI_ENVIRONMENT_SLUG-$CI_PROJECT_ID.ci4.crnd.pro
-    <<: *only_stable_branch
-
-stop_review_dev:
-    stage: deploy
-    environment:
-        name: review/$CI_COMMIT_REF_NAME
-        action: stop
-    variables:
-        GIT_STRATEGY: none
-    script:
-        - ci-review-app stop
-    when: manual
-    tags:
-        - deploy
-        - odoo-review-ci4-shared
-        - review-apps
-    <<: *only_dev_branch
